@@ -17,6 +17,8 @@ Repo.
 | `#/vorbehalte` | was die Daten können und was nicht |
 | `#/karten?v=telefon\|berufe\|namen` | Karten (M6, [docs/karten.md](karten.md)) |
 | `#/suche?b=…` | Suche nach Berufen mit Karte (M6) |
+| `#/suche?v=ft&q=…` | Volltext über alle Einträge (M8, [docs/volltext.md](volltext.md)) |
+| `#/buch?kt=…&y=…` | alle Einträge eines Kantons und Jahrgangs (M8) |
 
 Die alten Anker der Startseite (`#quellen`, `#einheiten` …) bleiben gültig.
 
@@ -48,6 +50,6 @@ Adressseite.
   Anfang des Namens her.
 - Der Kartenpunkt ist der Mittelpunkt der Gemeinde (aus M1), nicht die Adresse. Die
   Karte lädt Leaflet von cdnjs und Kacheln von OpenStreetMap.
-- Fundstellen nennen Band und Seite. Bilder der Seiten verlinkt die Seite nur für Basel
-  (Digitaler Lesesaal des Staatsarchivs, Band 1862); für Aarau und die Telefonbücher gibt
-  es keinen frei verlinkbaren Seitenaufruf.
+- Fundstellen nennen Band und Seite. Seitenbilder: Telefonbücher bis 1910 (IIIF des
+  PTT-Archivs, M8), Adressbuch Basel 1862 (Digitaler Lesesaal des Staatsarchivs); für
+  Aarau und die Telefonbücher 1911–1914 noch nicht.

@@ -26,6 +26,7 @@ jobs:
       - run: python scripts/build_site.py
       - run: python scripts/build_pages.py
       - run: python scripts/build_maps.py
+      - run: python scripts/build_entries.py
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site

@@ -272,3 +272,23 @@ details.filters summary { cursor: pointer; font-family: var(--font-nav); color: 
 .chip.on { background: var(--cat-ann-dk); color: #fff; border-style: solid; }
 .chip:focus-visible { outline: 2px solid var(--link); outline-offset: 1px; }
 .pill.why { background: var(--cat-pers-pale); color: var(--ink); }
+
+/* Zellen der Übersicht Kanton × Jahr: ganze Zelle klickbar */
+.heat td.cell { position: relative; }
+.heat .cell-link { position: absolute; inset: 0; }
+.heat .cell-link:hover, .heat .cell-link:focus-visible { outline: 2px solid var(--accent-dk); outline-offset: -2px; }
+
+/* Einträge (M8) */
+.entries-list { list-style: none; padding: 0; margin: 8px 0; }
+.entries-list .entry { padding: 8px 0; border-bottom: 1px solid var(--border); display: flex; flex-wrap: wrap; gap: 2px 10px; align-items: baseline; }
+.entry .e-name { font-weight: 600; }
+.entry .e-sup { color: var(--ink); }
+.entry .e-st, .entry .e-ph { color: var(--muted); }
+.entry .meta { flex-basis: 100%; font-size: 13px; color: var(--muted); }
+mark { background: #fff1a8; color: inherit; padding: 0 1px; }
+.pager { display: flex; gap: 14px; align-items: center; font-family: var(--font-nav); margin: 8px 0; }
+.years-nav { font-family: var(--font-nav); font-size: 14px; line-height: 1.9; }
+.field-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr)); gap: 10px; margin: 10px 0; }
+.field-grid .q { font: inherit; font-size: 15px; padding: 8px; border: 1px solid var(--border); background: var(--panel); }
+.year-h { margin: 24px 0 4px; }
+button.more { font: 600 1rem/1 var(--font-nav); padding: 10px 18px; margin: 16px 0; border: 1px solid var(--cat-ann-dk); background: var(--panel); color: var(--cat-ann-dk); cursor: pointer; }

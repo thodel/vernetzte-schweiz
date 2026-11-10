@@ -8,7 +8,7 @@ Seite: https://thodel.github.io/vernetzte-schweiz/
 
 Plan, Entscheide und offene Fragen: [PLAN.md](PLAN.md) · Datenvertrag:
 [docs/datenvertrag.md](docs/datenvertrag.md) · Verknüpfung:
-[docs/verknuepfung.md](docs/verknuepfung.md), [docs/einheiten.md](docs/einheiten.md) · Seite: [docs/seite.md](docs/seite.md), [docs/karten.md](docs/karten.md), [docs/suche.md](docs/suche.md)
+[docs/verknuepfung.md](docs/verknuepfung.md), [docs/einheiten.md](docs/einheiten.md) · Seite: [docs/seite.md](docs/seite.md), [docs/karten.md](docs/karten.md), [docs/suche.md](docs/suche.md), [docs/volltext.md](docs/volltext.md)
 
 ## Quellen
 

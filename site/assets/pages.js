@@ -12,7 +12,7 @@
       else if (k.startsWith("on")) e.addEventListener(k.slice(2), v);
       else e.setAttribute(k, v);
     }
-    for (const k of kids) if (k !== null && k !== undefined && k !== false) e.append(k);
+    for (const k of kids.flat()) if (k !== null && k !== undefined && k !== false) e.append(k);
     return e;
   };
   const view = document.getElementById("view");
@@ -90,7 +90,8 @@
   const srcOk = (flag, want) => !want || flag === want || flag === "b";
   const searchTabs = active => el("nav", { class: "tabs", "aria-label": t.pg_search_h },
     el("a", { href: "#/suche", class: active === "name" ? "on" : "", "aria-current": active === "name" ? "page" : "false" }, t.pg_tab_name),
-    el("a", { href: "#/suche?b=", class: active === "beruf" ? "on" : "", "aria-current": active === "beruf" ? "page" : "false" }, t.pg_tab_occ));
+    el("a", { href: "#/suche?b=", class: active === "beruf" ? "on" : "", "aria-current": active === "beruf" ? "page" : "false" }, t.pg_tab_occ),
+    el("a", { href: "#/suche?v=ft", class: active === "ft" ? "on" : "", "aria-current": active === "ft" ? "page" : "false" }, t.pg_tab_ft));
 
   // ── Unscharfer Namensvergleich (M7), gleich gerechnet wie scripts/fuzzy.py ─────
   const OCR_PAIRS = new Set(["bh", "hn", "ce", "il", "lt", "ft", "nu", "ao", "eo", "un", "cg", "bp", "do", "mn", "rn", "ij", "kh", "ec",
@@ -144,6 +145,7 @@
 
   async function search(params) {
     if (params.has("b")) return occSearch(params);
+    if (params.get("v") === "ft") return fulltext(params);
     const q = params.get("q") || "", m = params.get("m") || "", src = params.get("s") || "";
     const fuzzy = params.get("f") === "1", kind = params.get("k") || "", withAuth = params.get("n") === "1";
     const sort = params.get("o") || "name", ya = +(params.get("a") || 1860), yz = +(params.get("z") || 1914);
@@ -658,8 +660,166 @@
     }
   }
 
+
+  // ── Telefonbücher und Volltext (M8) ───────────────────────────────────────
+  let booksData;
+  const books = async () => booksData ??= await get("data/books.json");
+  const cellFile = c => `data/r/${encodeURIComponent(c.kt)}-${c.y}.json.gz`;
+  const iiif = (ref, img, size = "max") => `https://iiif.ptt-archiv.ch/iiif/3/${ref}_${String(img).padStart(4, "0")}.jp2/full/${size}/0/default.jpg`;
+  // ein Eintrag als Zeile; `marks` = gefundene Wörter (hervorgehoben)
+  const mark = (text, marks) => {
+    if (!marks || !marks.size || !text) return text || "";
+    const parts = String(text).split(/([A-Za-zÀ-ÿ0-9]+)/);
+    return el("span", {}, ...parts.map(p => (marks.has(fold(p)) || marks.has(p.replace(/\D/g, ""))) && p ? el("mark", {}, p) : p));
+  };
+  const entryRow = (r, B, marks) => {
+    const [ref, page, img, n1, n2, sup, street, phone, muni, eid] = r;
+    const refName = B.refs[ref];
+    return el("li", { class: "entry" },
+      el("span", { class: "e-name" }, mark(n1, marks), n2 ? ", " : "", mark(n2, marks)),
+      sup ? el("span", { class: "e-sup" }, mark(sup, marks)) : "",
+      street ? el("span", { class: "e-st" }, mark(street, marks)) : "",
+      phone ? el("span", { class: "e-ph" }, `${t.pg_phone} `, mark(phone, marks)) : "",
+      el("span", { class: "meta" }, muni ? link(placeHref(muni), muni) : "", muni ? " · " : "", refName,
+        page ? ` · ${t.ft_page} ${page}` : "",
+        img ? [" · ", link(iiif(refName, img), t.ft_image)] : "",
+        eid ? [" · ", link(`#/e/${eid}`, t.ft_entity)] : ""));
+  };
+
+  async function phonebook(params) {
+    const kt = params.get("kt") || "", y = +(params.get("y") || 0);
+    const q = params.get("q") || "", gm = params.get("g") || "", ref = params.get("r") || "", page = +(params.get("p") || 0);
+    const B = await books();
+    const cell = B.cells.find(c => c.kt === kt && c.y === y);
+    if (!cell) { view.replaceChildren(el("h1", {}, t.pg_not_found)); return; }
+    document.title = `${t.ft_book} ${kt} ${y} · Vernetzte Schweiz`;
+    const rows = await get(cellFile(cell));
+    const input = el("input", { type: "search", value: q, placeholder: t.ft_filter_ph, "aria-label": t.ft_filter_ph, class: "q" });
+    const muniSel = select([["", t.mp_all], ...cell.munis.map(m => [m, m])], gm, t.ft_muni);
+    const refSel = select([["", t.mp_all], ...cell.refs.map(i => [String(i), B.refs[i]])], ref, t.ft_book);
+    const go = upd => {
+      const p = new URLSearchParams({ kt, y, q: input.value, g: muniSel.querySelector("select").value, r: refSel.querySelector("select").value, ...upd });
+      for (const [k, v] of [...p]) if (!v || v === "0") p.delete(k);
+      location.replace(`#/buch?${p}`);
+    };
+    let timer;
+    input.addEventListener("input", () => { clearTimeout(timer); timer = setTimeout(() => go({ p: 0 }), 300); });
+    for (const c of [muniSel, refSel]) c.querySelector("select").addEventListener("change", () => go({ p: 0 }));
+    const toks = q.split(/\s+/).map(w => (/^\d/.test(w) ? w.replace(/\D/g, "") : fold(w))).filter(Boolean);
+    const hits = rows.filter(r => (!gm || r[8] === gm) && (!ref || String(r[0]) === ref)
+      && toks.every(w => [r[3], r[4], r[5], r[6], r[8]].some(x => fold(x).includes(w)) || String(r[7]).replace(/\D/g, "").includes(w)));
+    const per = 200, pages = Math.max(1, Math.ceil(hits.length / per)), cur = Math.min(page, pages - 1);
+    const marks = new Set(toks);
+    const nav = () => pages > 1 ? el("nav", { class: "pager" },
+      cur > 0 ? el("a", { href: "#", onclick: e => { e.preventDefault(); go({ p: cur - 1 }); } }, `← ${t.ft_prev}`) : "",
+      el("span", {}, t.ft_page_of.replace("{a}", cur + 1).replace("{b}", pages)),
+      cur < pages - 1 ? el("a", { href: "#", onclick: e => { e.preventDefault(); go({ p: cur + 1 }); } }, `${t.ft_next} →`) : "") : "";
+    const others = B.cells.filter(c => c.kt === kt).map(c => c.y);
+    view.replaceChildren(
+      el("p", { class: "kicker" }, t.ft_book),
+      el("h1", {}, `${kt === "–" ? t.ft_no_canton : kt} ${y}`),
+      el("p", { class: "lead" }, t.ft_book_lead.replace("{n}", n(cell.n)).replace("{b}", n(cell.refs.length)).replace("{g}", n(cell.munis.length))),
+      el("p", { class: "years-nav" }, `${t.ft_other_years} `, ...others.flatMap((oy, i) => [i ? " · " : "", oy === y ? el("b", {}, String(oy)) : link(`#/buch?kt=${encodeURIComponent(kt)}&y=${oy}`, String(oy))])),
+      el("div", { class: "searchbar" }, input, muniSel, refSel),
+      el("p", { class: "count" }, (hits.length === 1 ? t.pg_hit_one : t.pg_hits).replace("{n}", n(hits.length))), nav(),
+      el("ul", { class: "entries-list" }, ...hits.slice(cur * per, cur * per + per).map(r => entryRow(r, B, marks))), nav(),
+      el("p", { class: "sub note" }, t.ft_image_note));
+    const fcs = input; fcs.focus(); fcs.setSelectionRange(q.length, q.length);
+  }
+
+  // Volltext über alle Einträge: Wörter je Feld, genau oder ungefähr, Treffer nach Jahr
+  let vocabList;
+  const vocab = async () => vocabList ??= await get("data/vocab.json.gz");
+  const FT_FIELDS = ["n", "v", "b", "s", "o", "t"];
+  async function fulltext(params) {
+    const B = await books();
+    const vals = Object.fromEntries(["q", ...FT_FIELDS].map(k => [k, params.get(k === "q" ? "q" : `f${k}`) || ""]));
+    const approx = params.get("u") === "1", ya = +(params.get("a") || 1880), yz = +(params.get("z") || 1914);
+    const shown = +(params.get("j") || 3);
+    const inputs = Object.fromEntries(Object.keys(vals).map(k => [k, el("input", { type: "search", value: vals[k], class: "q",
+      placeholder: k === "q" ? t.ft_all_ph : t[`ft_f_${k}`], "aria-label": k === "q" ? t.ft_all_ph : t[`ft_f_${k}`] })]));
+    const modeSel = select([["0", t.ft_exact], ["1", t.ft_approx]], approx ? "1" : "0", t.ft_mode);
+    let range = [ya, yz];
+    const go = upd => {
+      const p = new URLSearchParams({ v: "ft", q: inputs.q.value, u: modeSel.querySelector("select").value === "1" ? "1" : "",
+        a: range[0], z: range[1], ...Object.fromEntries(FT_FIELDS.map(k => [`f${k}`, inputs[k].value])), ...upd });
+      for (const [k, v] of [...p]) if (!v || (k === "a" && v === "1880") || (k === "z" && v === "1914")) p.delete(k);
+      location.replace(`#/suche?${p}`);
+    };
+    const form = el("form", { class: "ft-form" });
+    form.addEventListener("submit", ev => { ev.preventDefault(); go({ j: "" }); });
+    modeSel.querySelector("select").addEventListener("change", () => go({ j: "" }));
+    const fieldsOpen = FT_FIELDS.some(k => vals[k]);
+    form.append(el("div", { class: "searchbar" }, inputs.q, el("button", { type: "submit" }, t.pg_search_go)),
+      el("div", { class: "controls" }, rangeSlider(1880, 1914, ya, yz, (x, y) => { range = [x, y]; go({ j: "" }); }), modeSel),
+      el("details", { class: "filters", ...(fieldsOpen ? { open: "" } : {}) }, el("summary", {}, t.ft_fields),
+        el("div", { class: "field-grid" }, ...FT_FIELDS.map(k => el("label", { class: "ctl" }, el("span", {}, t[`ft_f_${k}`]), inputs[k]))),
+        el("p", { class: "sub" }, t.ft_fields_note)));
+    const out = el("div", { class: "results" });
+    view.replaceChildren(el("h1", {}, t.pg_search_h), searchTabs("ft"), el("p", { class: "intro" }, t.ft_p), form, out);
+    inputs.q.focus();
+    // Suchbegriffe: [Feld oder null, Wort]
+    const terms = [];
+    const tok = (s, f) => s.split(/\s+/).filter(Boolean).forEach(w => {
+      const k = (f === "t" || (/^\d/.test(w) && !f)) ? w.replace(/\D/g, "") : fold(w);
+      if (k.length >= (f === "t" || /^\d+$/.test(k) ? 1 : 2)) terms.push([/^\d+$/.test(k) && !f ? "t" : f, k]);
+    });
+    tok(vals.q, null);
+    FT_FIELDS.forEach(f => tok(vals[f], f));
+    if (!terms.length) { out.append(el("p", { class: "muted" }, t.ft_hint)); return; }
+    out.append(el("p", { class: "muted" }, t.loading));
+    const V = approx ? await vocab() : null;
+    const marks = new Set();
+    let result = null;
+    for (const [f, w] of terms) {
+      let forms = [w];
+      if (approx && !/^\d+$/.test(w)) {
+        const qk = fkey(w);
+        forms = V.filter(([x, fs]) => (!f || fs.includes(f)) && Math.abs(x.length - w.length) <= 2 && (x === w || dist(qk, fkey(x)) <= threshold(qk))).map(x => x[0]);
+      }
+      const ids = new Set();
+      for (const form of forms) {
+        let sh;
+        try { sh = await get(`data/ft/${(form + "__").slice(0, 2)}.json.gz`); } catch { continue; }
+        for (const fld of f ? [f] : FT_FIELDS) for (const id of sh[`${fld}:${form}`] || []) ids.add(id);
+        marks.add(form);
+      }
+      result = result === null ? ids : new Set([...result].filter(id => ids.has(id)));
+      if (!result.size) break;
+    }
+    const byYear = new Map();
+    for (const id of result) {
+      const c = B.cells[Math.floor(id / 100000)];
+      if (c.y < range[0] || c.y > range[1]) continue;
+      if (!byYear.has(c.y)) byYear.set(c.y, []);
+      byYear.get(c.y).push(id);
+    }
+    const yearsSorted = [...byYear.keys()].sort((x, y) => x - y);
+    const total = [...byYear.values()].reduce((a, b) => a + b.length, 0);
+    const parts = [el("p", { class: "count" }, (total === 1 ? t.ft_hits_one : t.ft_hits).replace("{n}", n(total))
+      .replace("{j}", n(yearsSorted.length)).replace("{jj}", yearsSorted.length === 1 ? t.ft_year1 : t.ft_yearN)),
+      approx ? el("p", { class: "sub" }, t.ft_approx_forms.replace("{w}", [...marks].slice(0, 30).join(", "))) : ""];
+    for (const y of yearsSorted.slice(0, shown)) {
+      const ids = byYear.get(y).sort((a, b) => a - b);
+      const list = el("ul", { class: "entries-list" });
+      for (const id of ids.slice(0, 100)) {
+        const c = B.cells[Math.floor(id / 100000)];
+        const rows = await get(cellFile(c));
+        list.append(entryRow(rows[id % 100000], B, marks));
+      }
+      parts.push(el("h2", { class: "year-h" }, String(y), " ", el("span", { class: "muted" }, `(${n(ids.length)})`)), list,
+        ids.length > 100 ? el("p", { class: "muted" }, t.ft_year_more.replace("{n}", n(ids.length - 100))) : "");
+    }
+    if (yearsSorted.length > shown) {
+      const more = el("button", { type: "button", class: "more" }, t.ft_more_years);
+      more.addEventListener("click", () => go({ j: shown + 3 }));
+      parts.push(more);
+    }
+    out.replaceChildren(...parts);
+  }
+
   // ── Router ───────────────────────────────────────────────────────────────
-  const routes = { suche: search, e: entity, a: address, g: place, orte: placeList, vorbehalte: caveats, karten };
+  const routes = { suche: search, e: entity, a: address, g: place, orte: placeList, vorbehalte: caveats, karten, buch: phonebook };
   async function route() {
     dropMaps();
     if (!location.hash.startsWith("#/")) {
@@ -677,9 +837,9 @@
     overview.hidden = true; view.hidden = false;
     if (!fn) { view.replaceChildren(el("h1", {}, t.pg_not_found)); return; }
     if (name !== "suche") window.scrollTo(0, 0);
-    document.title = `${t["nav_" + { suche: "search", orte: "places", vorbehalte: "caveats", karten: "maps" }[name]] || "…"} · Vernetzte Schweiz`;
+    document.title = `${t["nav_" + { suche: "search", orte: "places", vorbehalte: "caveats", karten: "maps", buch: "phone" }[name]] || "…"} · Vernetzte Schweiz`;
     view.replaceChildren(el("p", { class: "muted" }, t.loading));
-    try { await (["suche", "orte", "karten"].includes(name) ? fn(params) : fn(args)); }
+    try { await (["suche", "orte", "karten", "buch"].includes(name) ? fn(params) : fn(args)); }
     catch (err) { console.error(err); view.replaceChildren(el("h1", {}, t.pg_not_found)); }
   }
   const hero = document.getElementById("hero-search");

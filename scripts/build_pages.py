@@ -127,6 +127,9 @@ def main() -> None:
         text = " | ".join(x for x in (", ".join(y for y in (r["name1"], r["name2"]) if y), r["supplement"]) if x)
         rec = {"id": r["id"], "y": int(r["year"]), "s": "ptt", "t": text, "a": r["street"], "ph": r["phone"],
                "c": f"PTT-Archiv P-260, {r['refcode']}, S. {r['page']}"}
+        img = re.search(r"(\d+)$", r["image"] or "")
+        if r["batch"] == "A" and img:  # Seitenbild (IIIF des PTT-Archivs); Charge B: Bild-Nr. unbekannt
+            rec["u"] = f"https://iiif.ptt-archiv.ch/iiif/3/{r['refcode']}_{int(img.group(1)):04d}.jp2/full/max/0/default.jpg"
         no = num(house(r["house_no"]))
         rec["ak"] = add_address(muni, r["street_name"] or r["street"], street(r["street_name"]), no, eid, rec)
         records[eid].append(rec)

@@ -20,6 +20,7 @@ site:
 	$(PY) scripts/build_site.py
 	$(PY) scripts/build_pages.py
 	$(PY) scripts/build_maps.py
+	$(PY) scripts/build_entries.py
 serve: site
 	cd site && python3 -m http.server 8000
 test:

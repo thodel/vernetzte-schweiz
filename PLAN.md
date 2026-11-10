@@ -155,6 +155,12 @@ Schmid/Schmidt, Bürgi/Bürgy) und Lesefehler der Texterkennung (rn/m, u/n, ii/�
   wie oft der gesuchte Name unter den Treffern ist und wie viele Fehltreffer die ersten
   20 enthalten, je Schwelle; die Schwellen werden erst danach festgelegt.
 
+**M8 — Volltext und Telefonbücher.** ✔ 10.11.2026. Alle 638 701 Einträge durchsuchbar wie
+auf historic.localsearch (ein Feld oder Felder, genau oder ungefähr, Jahre, Treffer nach
+Jahr); jede Zelle der Übersicht Kanton × Jahr öffnet die Einträge mit Filtern; Seitenbilder
+vom IIIF-Server des PTT-Archivs für die Bände bis 1910. Offen: Versatz Seite → Bild für
+1911–1914. [Aufbau](docs/volltext.md).
+
 ## Offene Fragen
 
 1. **Lizenz der Daten.** Die PTT-Daten sind laut Projektleitung (06.11.2026) frei

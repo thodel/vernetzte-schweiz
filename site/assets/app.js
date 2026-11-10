@@ -69,7 +69,12 @@
     const tr = el("tr", {}, el("th", { class: "net" }, g.canton));
     g.counts.forEach((v, i) => {
       const td = el("td", { class: "cell", title: `${g.canton} ${s.ptt.years[i]}: ${v ? n(v) : t.phone_none}` });
-      if (v) td.style.background = `rgba(var(--cat-ann-rgb), ${0.12 + 0.88 * Math.sqrt(v / max)})`;
+      if (v) {
+        td.style.background = `rgba(var(--cat-ann-rgb), ${0.12 + 0.88 * Math.sqrt(v / max)})`;
+        // Klick: alle Einträge dieses Kantons und Jahrgangs (#/buch, pages.js)
+        td.append(el("a", { href: `#/buch?kt=${encodeURIComponent(g.canton)}&y=${s.ptt.years[i]}`, class: "cell-link",
+          "aria-label": `${g.canton} ${s.ptt.years[i]}: ${n(v)} ${t.phone_entries_open}` }));
+      }
       tr.append(td);
     });
     tr.append(el("td", { class: "tot" }, n(g.total)));
