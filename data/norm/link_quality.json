@@ -1,0 +1,122 @@
+{
+ "precision": {
+  "1 (Regeln danach angepasst)": [
+   {
+    "city": "aarau",
+    "tier": "sicher",
+    "n": 40,
+    "richtig": 37,
+    "falsch": 1,
+    "unklar": 2,
+    "low": 0.925,
+    "high": 0.975
+   },
+   {
+    "city": "aarau",
+    "tier": "wahrscheinlich",
+    "n": 40,
+    "richtig": 39,
+    "falsch": 0,
+    "unklar": 1,
+    "low": 0.975,
+    "high": 1.0
+   },
+   {
+    "city": "aarau",
+    "tier": "möglich",
+    "n": 40,
+    "richtig": 28,
+    "falsch": 7,
+    "unklar": 5,
+    "low": 0.7,
+    "high": 0.825
+   },
+   {
+    "city": "basel",
+    "tier": "wahrscheinlich",
+    "n": 40,
+    "richtig": 32,
+    "falsch": 1,
+    "unklar": 7,
+    "low": 0.8,
+    "high": 0.975
+   },
+   {
+    "city": "basel",
+    "tier": "möglich",
+    "n": 40,
+    "richtig": 21,
+    "falsch": 13,
+    "unklar": 6,
+    "low": 0.525,
+    "high": 0.675
+   }
+  ],
+  "2 (nach den Regeln gezogen; danach nur Nr. 273 und 295 behoben)": [
+   {
+    "city": "aarau",
+    "tier": "sicher",
+    "n": 20,
+    "richtig": 19,
+    "falsch": 0,
+    "unklar": 1,
+    "low": 0.95,
+    "high": 1.0
+   },
+   {
+    "city": "aarau",
+    "tier": "wahrscheinlich",
+    "n": 20,
+    "richtig": 18,
+    "falsch": 0,
+    "unklar": 2,
+    "low": 0.9,
+    "high": 1.0
+   },
+   {
+    "city": "aarau",
+    "tier": "möglich",
+    "n": 20,
+    "richtig": 18,
+    "falsch": 0,
+    "unklar": 2,
+    "low": 0.9,
+    "high": 1.0
+   },
+   {
+    "city": "basel",
+    "tier": "wahrscheinlich",
+    "n": 20,
+    "richtig": 17,
+    "falsch": 1,
+    "unklar": 2,
+    "low": 0.85,
+    "high": 0.95
+   },
+   {
+    "city": "basel",
+    "tier": "möglich",
+    "n": 20,
+    "richtig": 16,
+    "falsch": 1,
+    "unklar": 3,
+    "low": 0.8,
+    "high": 0.95
+   }
+  ]
+ },
+ "recall_aarau_phone_sign": [
+  {
+   "volume": 1896,
+   "flagged": 142,
+   "reachable": 107,
+   "linked": 93
+  },
+  {
+   "volume": 1899,
+   "flagged": 209,
+   "reachable": 183,
+   "linked": 156
+  }
+ ]
+}

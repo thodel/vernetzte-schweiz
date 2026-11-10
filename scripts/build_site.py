@@ -54,8 +54,28 @@ def main() -> None:
                    for b in ("A", "B")}
     recovered = sum(1 for r in ptt if r["place_method"].startswith("jahresabgleich"))
 
+    # Verknüpfung Telefonbuch ↔ Adressbuch (M2)
+    link_stats = json.loads((NORM / "link_stats.json").read_text(encoding="utf-8"))
+    quality = json.loads((NORM / "link_quality.json").read_text(encoding="utf-8"))
+    held_out = next(v for k, v in quality["precision"].items() if k.startswith("2"))
+    links = []
+    for c in cfg["city"]:
+        ls = link_stats.get(c["id"], {})
+        ab_years = sorted({int(r["volume"]) for r in ab if r["city"] == c["id"]})
+        links.append({
+            "id": c["id"], "label": c["label"], "volumes": ab_years,
+            "ptt_entries": ls.get("ptt_entries", 0), "ptt_linked": ls.get("ptt_linked", 0),
+            "pairs": ls.get("pairs", 0),
+            "tiers": [{"tier": t, "decisions": ls.get("decisions", {}).get(t, 0),
+                       "precision": next(({"low": q["low"], "high": q["high"], "n": q["n"]}
+                                          for q in held_out if q["city"] == c["id"] and q["tier"] == t), None)}
+                      for t in ("sicher", "wahrscheinlich", "möglich")],
+        })
+
     stats = {
         "window": cfg["window"],
+        "links": links,
+        "recall": quality["recall_aarau_phone_sign"],
         "ptt": {
             "commit": cfg["ptt"]["commit"][:7], "repo": cfg["ptt"]["repo"],
             "entries": len(ptt), "years": years,
@@ -74,6 +94,7 @@ def main() -> None:
             "ab_entries": len(ab), "ptt_entries": len(ptt),
             "authority_entries": len({r["id"] for r in auth}),
             "qids": len({r["qid"] for r in auth if r["qid"]}),
+            "ptt_linked": sum(c["ptt_linked"] for c in links),
         },
     }
     out = ROOT / "site" / "data" / "stats.json"

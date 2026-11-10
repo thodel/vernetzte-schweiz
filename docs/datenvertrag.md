@@ -95,7 +95,25 @@ Zerlegung: `parse_ptt.py`).
 Handkorrekturen der Orte: `data/review/places_manual.csv` (`place_raw` → `hist_code` oder
 Ortschaft `name` + `canton`).
 
-## Verknüpfungen (ab M2)
+## links/ptt_ab.csv — Telefonbuch ↔ Adressbuch (M2)
 
-`links/ptt_ab.csv` (Telefonbuch ↔ Adressbuch) und `links/authority.csv` (Cluster ↔
-Wikidata/HLS/GND) sind der veröffentlichte Datensatz. Ihr Format wird in M2 festgelegt.
+Ein Paar je Zeile: dieser Telefonbuch-Eintrag ist in diesem Adressbuch-Band diese Person
+oder Firma. Steht die Person im Band mehrfach (Einwohner-, Berufs-, Gebäudeverzeichnis),
+gibt es je Eintrag eine Zeile mit derselben Stufe. Regeln und Messung:
+[verknuepfung.md](verknuepfung.md).
+
+| Spalte | Inhalt |
+|---|---|
+| `ptt_id`, `ab_id` | Telefonbuch- und Adressbuch-Eintrag (Bezeichner wie oben) |
+| `city` | Stadt-Id aus `sources.toml` |
+| `ptt_year`, `ab_volume`, `year_gap` | Jahrgang, Band, Abstand in Jahren |
+| `tier` | `sicher`, `wahrscheinlich`, `möglich` |
+| `score`, `evidence` | Punkte und Belege (`vorname:gleich`, `vorname:abkürzung`, `vorname:initiale`, `allianzname`, `strasse`, `hausnummer`, `gebäudenummer`, `beruf`, `telefonzeichen`, `firma`, `firma-person`) |
+| `ptt_name`, `ab_name`, `ptt_address`, `ab_address` | zum Lesen: Name und Adresse beider Seiten |
+
+`links/authority.csv` (Personen und Firmen ↔ Wikidata/HLS/GND) folgt in M3.
+
+## data/review/m2_stichprobe.csv — beurteilte Paare
+
+`nr`, `stichprobe`, `ptt_id`, `ab_id`, `city`, `tier_bei_ziehung`, `ptt_year`, `ab_volume`,
+`ptt_text`, `ab_text`, `urteil` (`richtig` / `falsch` / `unklar`), `begruendung`.

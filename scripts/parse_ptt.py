@@ -74,18 +74,31 @@ NOT_GIVEN = {
     "söhne", "sohn", "schwestern", "fratelli", "brothers", "la", "le", "direktor", "direktion", "filiale",
     "wohnung", "derselbe", "dieselben", "tell", "herr", "fils", "père", "jun", "sen", "junior", "senior",
 }
+BUSINESS_WORD = re.compile(
+    r"(erei|ung|amt|rat|gebäude|depot|institut|techniker|arzt|meister|händler|geschäft|handlung|"
+    r"ität|schaft|haus|platz|gasse|berg|vorstadt|graben)$"
+)
 FORENAMES: set[str] = set()
 
 
 def build_forenames(rows: list[dict]) -> set[str]:
     """Vornamenliste aus Adressbüchern und Telefonbüchern; schreibt data/ref/forenames.csv."""
     word = re.compile(r"^[A-ZÄÖÜÉÈ][a-zäöüéèàçë]+$")
-    ab = Counter(t for r in open_csv(NORM / "ab_entries.csv") for t in re.findall(r"[A-ZÄÖÜÉÈ][a-zäöüéèàçë]+", r["forename"]))
+    cap = r"[A-ZÄÖÜÉÈ][a-zäöüéèàçë]+"
+    ab_rows = open_csv(NORM / "ab_entries.csv")
+    ab = Counter(t for r in ab_rows for t in re.findall(cap, r["forename"]))
     n2 = Counter(r["name2"] for r in rows if word.match(r["name2"]) and len(r["name1"].split()) == 1)
     n1 = Counter(r["name1"] for r in rows if word.match(r["name1"]))
+    # Berufe und Geschäftsbezeichnungen, die in die Vornamenspalte gerutscht sind («Wirt»,
+    # «Comestibles»): häufiger als Beruf im Adressbuch oder als Zusatz im Telefonbuch
+    occ = Counter(t for r in ab_rows for t in re.findall(cap, r["occupation"]))
+    sup = Counter(t for r in rows for t in re.findall(cap, r["supplement"]))
     out = []
     for t in set(ab) | set(n2):
         if t.lower() in NOT_GIVEN or FIRM.search(t) or AMT.search(t) or t.lower() in CONT:
+            continue
+        seen = ab[t] + n2[t]
+        if sup[t] >= 20 * seen or occ[t] > seen or (BUSINESS_WORD.search(t.lower()) and ab[t] < 5):
             continue
         if (ab[t] >= 2 or n2[t] >= 15) and n1[t] < max(n2[t], ab[t]):
             out.append({"forename": t, "adressbuch": ab[t], "telefonbuch": n2[t], "als_name": n1[t]})

@@ -1,7 +1,7 @@
 {
   "lang": "de",
   "title": "Vernetzte Schweiz 1860–1914",
-  "kicker": "Stand M1",
+  "kicker": "Stand M2",
   "tagline": "Adressbücher · Telefonbücher · Normdaten",
   "badge": "Demonstrator",
   "lead": "Adressbücher Schweizer Städte und die frühen Telefonbücher der PTT, miteinander verknüpft und verbunden mit Wikidata, dem Historischen Lexikon der Schweiz und der Gemeinsamen Normdatei.",
@@ -48,12 +48,12 @@
     [
       "M2",
       "Verknüpfung Telefonbuch ↔ Adressbuch, gemessen je Stufe",
-      "next"
+      "done"
     ],
     [
       "M3",
       "Personen und Firmen über die Jahre; Wikidata, HLS, GND",
-      ""
+      "next"
     ],
     [
       "M4",
@@ -87,5 +87,24 @@
   "type_zusatz": "Zusatzzeilen (Wohnung, Filiale …)",
   "phone_with_street": "mit Strasse",
   "phone_with_initials": "mit Vorname oder Initiale",
-  "nav_quality": "Ortsqualität"
+  "nav_quality": "Ortsqualität",
+  "kpi_linked": "Telefonbuch-Einträge mit Adressbuch-Eintrag",
+  "nav_links": "Verknüpfung",
+  "links_h": "Telefonbuch ↔ Adressbuch",
+  "links_p": "Ein Telefonbuch-Eintrag wird mit den Einträgen derselben Person oder Firma in jedem Adressbuch-Band der Stadt verbunden: gleicher Familienname, dann Vorname oder Initiale, Allianzname, Strasse und Hausnummer, Beruf und das Telefonzeichen im Adressbuch. Verknüpft wird nur, wenn genau eine Person am besten passt; widersprechen sich Vornamen oder Allianznamen, gar nicht. Je grösser der Abstand der Jahre, desto mehr Belege braucht es – Söhne und Nachfolger tragen Namen, Haus und Geschäft weiter.",
+  "links_entries": "Telefonbuch-Einträge der Stadt",
+  "links_linked": "mit Adressbuch-Eintrag",
+  "links_volumes": "Adressbuch-Bände",
+  "links_tier": "Stufe",
+  "links_decisions": "Eintrag × Band",
+  "links_precision": "richtig, Stichprobe je {n}",
+  "links_gap": "Basel hat nur den Band 1862, 19 bis 52 Jahre vor den Telefonbüchern: Dort trägt der Name allein fast nie, und die Stufe «sicher» wird nicht vergeben.",
+  "links_recall": "Vollständigkeit, gemessen in Aarau an den Einträgen, die im Adressbuch das Telefonzeichen tragen und deren Familienname im Telefonbuch der Jahre ± 2 vorkommt:",
+  "links_data": "Datensatz:",
+  "links_method": "Regeln und Stufen",
+  "links_sample": "beurteilte Stichprobe",
+  "tier_sicher": "sicher",
+  "tier_wahrscheinlich": "wahrscheinlich",
+  "tier_möglich": "möglich",
+  "links_recall_item": "Band {vol}: {linked} von {reachable} verknüpft ({pct}; mit Telefonzeichen insgesamt {flagged})."
 }

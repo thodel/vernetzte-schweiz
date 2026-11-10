@@ -33,7 +33,8 @@
   const kpis = document.getElementById("kpis");
   kpis.replaceChildren(...[
     ["kpi_ab", s.totals.ab_entries, "cat-source"], ["kpi_ptt", s.totals.ptt_entries, "cat-ann"],
-    ["kpi_networks", s.ptt.municipalities, "cat-ann"], ["kpi_qids", s.totals.qids, "cat-pers"],
+    ["kpi_networks", s.ptt.municipalities, "cat-ann"], ["kpi_linked", s.totals.ptt_linked, "cat-link"],
+    ["kpi_qids", s.totals.qids, "cat-pers"],
   ].map(([k, v, cat]) => el("div", { class: cat }, el("dt", {}, t[k]), el("dd", {}, n(v)))));
 
   const cities = document.getElementById("cities");
@@ -103,4 +104,30 @@
     [t.phone_with_initials, s.ptt.with_initials],
   ];
   q.append(el("table", { class: "facts" }, el("tbody", {}, ...facts.map(([k, v]) => el("tr", {}, el("td", {}, k), el("td", {}, n(v)))))));
+
+  // Verknüpfung Telefonbuch ↔ Adressbuch
+  const pct = v => `${Math.round(v * 100)}\u00a0%`;
+  const lk = document.getElementById("links");
+  for (const c of s.links) {
+    const rows = [
+      [t.links_volumes, c.volumes.join(", ")],
+      [t.links_entries, n(c.ptt_entries)],
+      [t.links_linked, `${n(c.ptt_linked)} (${pct(c.ptt_linked / Math.max(c.ptt_entries, 1))})`],
+    ];
+    const tiers = c.tiers.filter(x => x.decisions);
+    lk.append(el("article", { class: "card link" },
+      el("h3", {}, c.label),
+      el("table", {}, el("tbody", {}, ...rows.map(([k, v]) => el("tr", {}, el("td", {}, k), el("td", {}, v))))),
+      el("table", { class: "tiers" },
+        el("thead", {}, el("tr", {}, el("th", {}, t.links_tier), el("th", {}, t.links_decisions), el("th", {}, t.links_precision.replace("{n}", tiers.find(x => x.precision)?.precision.n ?? "–")))),
+        el("tbody", {}, ...tiers.map(x => el("tr", {},
+          el("td", {}, el("span", { class: `sw tier-${x.tier}` }), t["tier_" + x.tier]),
+          el("td", {}, n(x.decisions)),
+          el("td", {}, x.precision ? `${Math.round(x.precision.low * 100)}–${pct(x.precision.high)}` : "–"))))),
+      c.id === "basel" ? el("p", { class: "sub note" }, t.links_gap) : "",
+    ));
+  }
+  const rc = s.recall.map(r => t.links_recall_item.replace("{vol}", r.volume).replace("{flagged}", n(r.flagged))
+    .replace("{reachable}", n(r.reachable)).replace("{linked}", n(r.linked)).replace("{pct}", pct(r.linked / r.reachable)));
+  document.getElementById("recall").textContent = [t.links_recall, ...rc].join(" ");
 })();

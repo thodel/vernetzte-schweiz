@@ -1,6 +1,6 @@
 # Vernetzte Schweiz 1860–1914 — Plan
 
-Stand 10.11.2026 (M1 abgeschlossen).
+Stand 10.11.2026 (M2 abgeschlossen).
 
 Ein eigenständiger Demonstrator, der die Adressbücher einzelner Schweizer Städte mit den
 historischen Telefonbüchern der PTT verknüpft und die Personen und Firmen mit Wikidata,
@@ -51,12 +51,30 @@ Commits, Adapter für Aarau, Basel und PTT-Charge A nach `data/norm/`
   Initialen (Vornamenliste aus den Daten), Titel, Beruf, Strasse + Nummer, Rufnummer;
   verrutschte Spalten werden umgestellt und markiert.
 
-**M2 — Zentraler Verknüpfer Telefonbuch ↔ Adressbuch.** Blocken nach Stadt und
-Familienname; Merkmale Vorname/Initiale, Beruf, Strasse + Nummer (mit Konkordanz alter und
-neuer Nummern), Jahresabstand. Stufen `sicher` / `wahrscheinlich` / `möglich`. Messen an
-den bestehenden Verknüpfungen der Städte (Aarau `09_links_ptt.csv`, Basel
-`20_phonebook_links.csv`) und an rund 200 von Hand geprüften Paaren; Präzision je Stufe
-ausweisen. Ergebnis: `links/ptt_ab.csv`.
+**M2 — Zentraler Verknüpfer Telefonbuch ↔ Adressbuch.** ✔ 10.11.2026.
+Regeln, Stufen und Messung: [docs/verknuepfung.md](docs/verknuepfung.md); Ergebnis
+`links/ptt_ab.csv`.
+
+- Geblockt wird nach Stadt, Band und Familienname (Firmen: Leitname, nie Allianzname).
+  Belege: Vorname bzw. Abkürzung bzw. Initiale, Allianzname, Strasse, Hausnummer (Aarau:
+  alte Gebäudenummer), Beruf, Telefonzeichen. Widersprechen sich Vornamen oder
+  Allianznamen, wird nicht verknüpft.
+- Verknüpft wird nur, wenn genau eine Person am besten passt; über 15 und 30 Jahre
+  Abstand braucht es mehr Belege.
+- **Aarau:** 2 172 von 3 035 Telefonbuch-Einträgen mit Adressbuch-Einträgen verbunden.
+- **Basel:** 4 113 von 103 903, weil es nur den Band 1862 gibt (19–52 Jahre Abstand).
+- **Präzision** (Stichprobe 2, 20 Paare je Stufe):
+  - Aarau: sicher 95–100 %, wahrscheinlich 90–100 %, möglich 90–100 %;
+  - Basel: wahrscheinlich 85–95 %, möglich 80–95 %.
+- **Vollständigkeit:** Von den Aarauer Einträgen mit Telefonzeichen sind 87 % (1896) bzw.
+  85 % (1899) der erreichbaren verknüpft.
+- **Nebenbefund M1:** Die Vornamenliste enthielt Berufe aus der Vornamenspalte («Wirt»,
+  «Comestibles», «Architekt»). Sie werden jetzt ausgeschlossen: 809 statt 920 Namen.
+- **Vorbehalte:**
+  - Die Stichprobe ist von Claude beurteilt, nicht von Projektmitarbeitenden.
+  - 20 Paare je Stufe sind wenig.
+  - Aarau hat im Telefonbuch 1912–1914 keine Einträge. Die Stadt steckt vermutlich in
+    einem Lauf mit fehlender Überschrift, zu prüfen in M3.
 
 **M3 — Personen und Firmen über die Jahre.** Einträge derselben Person oder Firma über
 Bände und Telefonbuch-Jahrgänge bündeln; Normdaten der Städte übernehmen; zweiter

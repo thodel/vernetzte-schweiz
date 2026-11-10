@@ -148,3 +148,17 @@ section { padding: 40px 0; }
   .steps li { grid-template-columns: 40px 1fr; }
   .steps .badge { grid-column: 2; justify-self: start; }
 }
+
+/* Verknüpfung */
+.card.link { border-left-color: var(--cat-ann-dk); }
+.card table.tiers { margin-top: 12px; }
+.card table.tiers th { font-family: var(--font-nav); font-weight: 600; font-size: 13px; color: var(--muted); text-align: left; padding: 4px 0; }
+.card table.tiers th:not(:first-child), .card table.tiers td:not(:first-child) { text-align: right; }
+.card .note { margin: 12px 0 0; font-size: 14px; }
+.sw.tier-sicher { background: var(--cat-ann-dk); }
+.sw.tier-wahrscheinlich { background: var(--cat-ann); }
+.sw.tier-möglich { background: var(--cat-source); }
+.kpis div.cat-link { border-top-color: var(--cat-ann-dk); }
+.card table.tiers .sw { margin-right: 6px; vertical-align: -1px; }
+.card table.tiers td, .card td:last-child { white-space: nowrap; }
+.card table.tiers td:first-child { white-space: nowrap; }
