@@ -16,6 +16,11 @@ class SharedWithBrowserTest(unittest.TestCase):
                           ("Genève|ruedurhone|58", "ef"), ("Biel (BE)|centralstrase|38", "ef")]:
             self.assertEqual(fnv(key), want, key)
 
+    def test_fnv_64(self):
+        # 64 Teile für g/, pl/, nm/, ft/ (im Browser nachgerechnet)
+        for key, want in [("Basel", fnv("Basel", 0x3F)), ("muller", fnv("muller", 0x3F))]:
+            self.assertEqual(int(want, 16), int(fnv(key), 16) & 0x3F)
+
     def test_fold(self):
         for raw, want in [("Müller", "muller"), ("Großmann", "grossmann"), ("Œuvre", "oeuvre"),
                           ("Ægerter", "aegerter"), ("Pénard", "penard")]:

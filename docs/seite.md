@@ -32,7 +32,7 @@ Nachträge) stehen auf der Seite einer Einheit einmal, mit allen Fundstellen.
 | `names/<xx>.json.gz` | erste zwei Buchstaben des Familien- bzw. Firmennamens, ohne Akzente und ohne «von», «de» usw. | je Einheit: Bezeichner, Name, Gemeinde, Jahre, Art, Zahl der Einträge, Normdaten-Stufe, Berufe (gekürzt) |
 | `e/<xx>.json.gz` | Zeichen 2–3 der `entity_id` | Einheiten mit Einträgen, Normdaten, möglichen weiteren Adressbuch-Einträgen |
 | `a/<xx>.json.gz` | FNV-1a des Adressschlüssels, letztes Byte | Adressen mit ihren Einträgen |
-| `g/<xx>.json.gz`, `places.json` | FNV-1a des Gemeindenamens | Gemeinden 1914 |
+| `g/<xx>.json.gz`, `places.json` | FNV-1a des Gemeindenamens, 64 Teile | Gemeinden 1914 |
 
 Alle Teile sind gzip-gepackt; `pages.js` entpackt sie mit `DecompressionStream`. So bleibt
 das Pages-Paket bei rund 40 MB statt 180 MB, und der Deploy läuft in der Zeit.

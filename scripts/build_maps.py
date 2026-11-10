@@ -15,16 +15,16 @@ maps.json.gz:
   Adressbuch (0 = nicht darin), Art (0 Person, 1 Firma), Klasse (-1 = keine)] für alle
   Einheiten mit Gemeinde-Koordinaten
 
-pl/<xx>.json.gz (FNV des Gemeindenamens): je Gemeinde die Personen als
+pl/<xx>.json.gz (FNV des Gemeindenamens, 64 Teile): je Gemeinde die Personen als
 [Familienname, erstes Jahr, letztes Jahr, Quelle 0 = Telefonbuch / 1 = Adressbuch]; daraus
 rechnet die Seite die häufigsten Namen für einen beliebigen Jahresbereich.
 
-ow/<xx>.json.gz: Berufswörter für die Suche nach Berufen, nach den ersten zwei Buchstaben des
+ow/<x>.json.gz: Berufswörter für die Suche nach Berufen, nach dem ersten Buchstaben des
 Wortes: {"w": {Wort: [entity_id, …]}, "e": {entity_id: [Name, Gemeinde, erstes Jahr,
 letztes Jahr, Berufe, Quelle t/a/b]}}. Wörter ab 4 Buchstaben aus dem Berufsfeld, ohne Akzente; alle
 Einheiten, auch die nur im Adressbuch stehen (Jahre dann aus beiden Quellen).
 
-nm/<xx>.json.gz: je Familienname (Teil nach den ersten zwei Buchstaben wie die Suche)
+nm/<xx>.json.gz: je Familienname (Teil = FNV des Namens ohne Akzente, 64 Teile)
 [[Gemeinde, erstes Jahr, letztes Jahr, Quelle], …] je Person — wo Personen dieses Namens in
 welchen Jahren im Telefon- bzw. Adressbuch stehen.
 """
@@ -93,8 +93,8 @@ def main() -> None:
         for w in words:
             if len(w) < 4:
                 continue
-            ow_words[w[:2]][w].append(s["entity_id"])
-            ow_ent[w[:2]][s["entity_id"]] = [label, p, min(ya), max(ya), s["occupations"][:80], src_flag(s)]
+            ow_words[w[:1]][w].append(s["entity_id"])
+            ow_ent[w[:1]][s["entity_id"]] = [label, p, min(ya), max(ya), s["occupations"][:80], src_flag(s)]
         c = classify(s["occupations"], s["name"] if firm else "")
         span = lambda ys: [min(ys), max(ys)] if ys else [0, 0]  # noqa: E731
         ent.append([p, *span(y["ptt"]), *span(y["ab"]), int(firm), ckey.get(c, -1)])
@@ -117,12 +117,13 @@ def main() -> None:
     })
     shards: dict[str, dict] = defaultdict(dict)
     for key, rows in by_name.items():
-        shards[name_shard(display[key].most_common(1)[0][0])][display[key].most_common(1)[0][0]] = sorted(rows)
+        label = display[key].most_common(1)[0][0]
+        shards[fnv(fold(label), 0x3F)][label] = sorted(rows)
     for k, v in shards.items():
         dump(OUT / "nm" / f"{k}.json.gz", v)
     pshards: dict[str, dict] = defaultdict(dict)
     for muni, rows in by_place.items():
-        pshards[fnv(muni)][muni] = sorted(rows)
+        pshards[fnv(muni, 0x3F)][muni] = sorted(rows)
     for k, v in pshards.items():
         dump(OUT / "pl" / f"{k}.json.gz", v)
     for k, words in ow_words.items():

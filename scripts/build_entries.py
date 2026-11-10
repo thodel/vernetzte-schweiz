@@ -12,10 +12,9 @@ Grundlage sind die Einträge (nicht die Einheiten), alle 638 701 Telefonbuch-Ein
 - `r/<Kanton>-<Jahr>.json.gz` — die Einträge dieser Zelle in Lesereihenfolge:
   [Signatur (Index in `books`), Seite, Bild-Nr. (0 = unbekannt), Name, Namenzusatz,
   Zusatz, Strasse, Telefonnummer, Gemeinde 1914, Einheit].
-- `ft/<xx>.json.gz` — Volltext: je Feld und Wort die Fundstellen, Teil nach den ersten zwei
-  Buchstaben des Wortes. Schlüssel «Feld:Wort» mit Feld n (Name), v (Vorname/Namenzusatz),
+- `ft/<xx>.json.gz` — Volltext: je Feld und Wort die Fundstellen. Schlüssel «Feld:Wort» mit Feld n (Name), v (Vorname/Namenzusatz),
   b (Beruf/Zusatz), s (Strasse), o (Ort), t (Telefonnummer); Fundstelle = Zelle × 100 000 +
-  Zeile. Wörter ohne Akzente, klein, ab 2 Zeichen.
+  Zeile. Wörter ohne Akzente, klein, ab 2 Zeichen. Teil = FNV des Wortes, 64 Teile.
 - `vocab.json.gz` — alle Wörter mit ihren Feldern, für die ungefähre Suche.
 
 Seitenbilder: Für Charge A (bis 1910) ist die Bild-Nummer bekannt (`image` =
@@ -31,7 +30,7 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from build_pages import OUT, dump, fold  # noqa: E402
+from build_pages import OUT, dump, fnv, fold  # noqa: E402
 from common import NORM, ROOT, open_csv  # noqa: E402
 
 FIELDS = {"n": ("name1",), "v": ("name2",), "b": ("supplement",), "s": ("street",), "o": ("municipality_1914", "locality"),
@@ -75,7 +74,7 @@ def main() -> None:
     shards: dict[str, dict] = defaultdict(dict)
     for key, ids in post.items():
         w = key.split(":", 1)[1]
-        shards[(w + "__")[:2]][key] = ids
+        shards[fnv(w, 0x3F)][key] = ids
     for k, v in shards.items():
         dump(OUT / "ft" / f"{k}.json.gz", v)
     dump(OUT / "books.json", {"refs": refs, "cells": books})

@@ -51,13 +51,15 @@ def fold(s: str) -> str:
     return re.sub(r"[^a-z]", "", "".join(c for c in s if not unicodedata.combining(c)))
 
 
-def fnv(s: str) -> str:
-    """FNV-1a 32 über UTF-8, letztes Byte als zwei Hex-Zeichen (wie fnv() in app.js)."""
+def fnv(s: str, mask: int = 0xFF) -> str:
+    """FNV-1a 32 über UTF-8, `& mask` als zwei Hex-Zeichen (wie fnv() in pages.js). mask 0xFF =
+    256 Teile, 0x3F = 64 Teile (weniger Dateien: der Pages-Deploy bricht bei rund 3 500
+    Dateien nach 10 Minuten ab)."""
     h = 0x811C9DC5
     for b in s.encode("utf-8"):
         h ^= b
         h = (h * 0x01000193) & 0xFFFFFFFF
-    return f"{h & 0xFF:02x}"
+    return f"{h & mask:02x}"
 
 
 def src_flag(s: dict) -> str:
@@ -225,7 +227,7 @@ def main() -> None:
         meta = place_meta.get(muni, {})
         geo = [round(g[0] / g[2], 5), round(g[1] / g[2], 5)] if g and g[2] else None
         years = dict(sorted(place_years.get(muni, {}).items()))
-        gshards[fnv(muni)][muni] = {
+        gshards[fnv(muni, 0x3F)][muni] = {
             "n": muni, "c": meta.get("canton", ""), "bfs": meta.get("bfs", ""), "geo": geo, "years": years,
             "ent": dict(ents_by_place.get(muni, {})), "top": surnames[muni].most_common(10),
         }

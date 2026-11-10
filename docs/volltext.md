@@ -44,5 +44,12 @@ Der IIIF-Server des PTT-Archivs liefert jede Seite als
 |---|---|
 | `books.json` | Signaturen; je Zelle Kanton, Jahr, Zahl der Einträge, Telefonbücher, Gemeinden |
 | `r/<Kanton>-<Jahr>.json.gz` | Einträge der Zelle: Signatur, Seite, Bild-Nr., Name, Namenzusatz, Zusatz, Strasse, Nummer, Gemeinde, Einheit |
-| `ft/<xx>.json.gz` | «Feld:Wort» → Fundstellen (Zelle × 100 000 + Zeile), Teil nach den ersten zwei Buchstaben |
+| `ft/<xx>.json.gz` | «Feld:Wort» → Fundstellen (Zelle × 100 000 + Zeile), 64 Teile nach FNV des Wortes |
 | `vocab.json.gz` | alle Wörter mit ihren Feldern (für «ungefähr») |
+
+## Zahl der Dateien
+
+Der Pages-Deploy bricht nach 10 Minuten ab, auch wenn ein längeres `timeout` gesetzt ist;
+mit rund 3 500 Dateien wurde er nicht fertig (10.11.2026), mit 2 300 schon. Die Teile von
+Volltext, Namen- und Gemeindekarten und Gemeinden sind deshalb auf 64 Hash-Teile, die
+Berufswörter auf den ersten Buchstaben zusammengelegt: rund 1 800 Dateien, 79 MB.

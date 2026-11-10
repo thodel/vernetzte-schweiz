@@ -32,10 +32,10 @@
     .toLowerCase().normalize("NFD").replace(/\p{M}/gu, "").replace(/[^a-z]/g, "");
   const strip = s => (s || "").trim().replace(/^(von|v\.|de|du|la|le|van|zum|zur)\s+/i, "");
   const shardOf = s => { const k = fold(strip(s)); return k ? (k + "__").slice(0, 2) : "__"; };
-  const fnv = s => {
+  const fnv = (s, mask = 0xff) => {
     let h = 0x811c9dc5;
     for (const b of new TextEncoder().encode(s)) { h ^= b; h = Math.imul(h, 0x01000193) >>> 0; }
-    return (h & 0xff).toString(16).padStart(2, "0");
+    return (h & mask).toString(16).padStart(2, "0");
   };
   const hashArgs = () => {
     const [path, query = ""] = location.hash.slice(2).split("?");
@@ -315,7 +315,7 @@
     view.replaceChildren(...parts);
     const idx = await placeIndex();
     const p = idx.get(e.m);
-    const g = p ? (await get(`data/g/${fnv(e.m)}.json.gz`))[e.m] : null;
+    const g = p ? (await get(`data/g/${fnv(e.m, 0x3f)}.json.gz`))[e.m] : null;
     map(box, g && g.geo, e.m);
   }
 
@@ -357,7 +357,7 @@
     const idx = await placeIndex();
     const p = idx.get(name);
     if (!p) { view.replaceChildren(el("h1", {}, t.pg_not_found)); return; }
-    const g = (await get(`data/g/${fnv(name)}.json.gz`))[name];
+    const g = (await get(`data/g/${fnv(name, 0x3f)}.json.gz`))[name];
     document.title = `${g.n} · Vernetzte Schweiz`;
     const ys = Object.entries(g.years).map(([y, c]) => [+y, c]);
     const max = Math.max(1, ...ys.map(x => x[1]));
@@ -475,7 +475,7 @@
     const toks = b.split(/[\s,;]+/).map(fold).filter(w => w.length >= 3);
     if (!toks.length) { out.append(el("p", { class: "muted" }, t.pg_occ_hint)); return; }
     let shard;
-    try { shard = await get(`data/ow/${toks[0].slice(0, 2)}.json.gz`); } catch { shard = { w: {}, e: {} }; }
+    try { shard = await get(`data/ow/${toks[0].slice(0, 1)}.json.gz`); } catch { shard = { w: {}, e: {} }; }
     const ids = new Set();
     for (const [w, list] of Object.entries(shard.w)) if (w.startsWith(toks[0])) list.forEach(id => ids.add(id));
     const mf = fold(m);
@@ -620,7 +620,7 @@
           return L.circleMarker([lat, lon], { radius: 3 + Math.min(9, Math.sqrt(c) / 2), color: "#175b5b", weight: 1, fillOpacity: 0.5 })
             .bindTooltip(`${nm}: ${t.mp_persons.replace("{n}", n(c))}`)
             .on("click", async () => {
-              const rows = (await get(`data/pl/${fnv(nm)}.json.gz`))[nm] || [];
+              const rows = (await get(`data/pl/${fnv(nm, 0x3f)}.json.gz`))[nm] || [];
               const c5 = new Map();
               for (const r of rows) if (rowIn(r, a, b, src, 1)) c5.set(r[0], (c5.get(r[0]) || 0) + 1);
               const top = [...c5].sort((x, y) => y[1] - x[1] || x[0].localeCompare(y[0], "de")).slice(0, 5);
@@ -632,7 +632,7 @@
         side.append(el("p", { class: "muted" }, t.mp_top5_hint));
       } else {
         let all = null;
-        try { const sh = await get(`data/nm/${shardOf(name)}.json.gz`); all = sh[Object.keys(sh).find(k => fold(k) === fold(name))]; } catch { /* kein Teil */ }
+        try { const sh = await get(`data/nm/${fnv(fold(name), 0x3f)}.json.gz`); all = sh[Object.keys(sh).find(k => fold(k) === fold(name))]; } catch { /* kein Teil */ }
         const rows = (all || []).filter(r => src === "ta" || r[3] === (src === "t" ? 0 : 1));
         if (!rows.length) { side.append(el("p", {}, t.mp_name_none)); return; }
         const at = new Map();
@@ -780,7 +780,7 @@
       const ids = new Set();
       for (const form of forms) {
         let sh;
-        try { sh = await get(`data/ft/${(form + "__").slice(0, 2)}.json.gz`); } catch { continue; }
+        try { sh = await get(`data/ft/${fnv(form, 0x3f)}.json.gz`); } catch { continue; }
         for (const fld of f ? [f] : FT_FIELDS) for (const id of sh[`${fld}:${form}`] || []) ids.add(id);
         marks.add(form);
       }
