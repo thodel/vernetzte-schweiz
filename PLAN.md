@@ -89,9 +89,11 @@ Abgleich über Wikidata (16 322 Kandidaten) und die BFS-Gemeindenummer: 315 `wah
 Normdaten-Abgleich. Ergebnis: `links/entities.csv.gz`, `links/authority.csv`;
 [Regeln und Messung](docs/einheiten.md).
 
-**M4 — Seite.** Suche im Browser über geteiltes JSON; Seite je Person/Firma (Einträge,
-Telefon, Normdaten, Zeitleiste, Karte), Seite je Adresse, Abdeckung je Stadt und Jahr,
-eine gut sichtbare Seite zu den Vorbehalten (OCR, Verknüpfungsstufen).
+**M4 — Seite.** ✔ 10.11.2026. Suche über geteiltes JSON (Name, Vorname/Beruf, Gemeinde);
+Seite je Einheit (Normdaten, Zeitleiste, Einträge mit Fundstelle, mögliche weitere
+Adressbuch-Einträge, Karte der Gemeinde), je Adresse, je Gemeinde (Einträge je Jahr,
+häufigste Namen) und eine Liste der Orte; Seite «Vorbehalte». Kartenpunkt = Gemeinde, nicht
+Adresse; Seitenbilder nur für Basel verlinkbar. [Aufbau](docs/seite.md).
 
 **M5 — Weitere Städte.** Zürich, Baden: Eintrag in `sources.toml`, Adapter prüfen,
 Verknüpfung und Bau laufen durch.

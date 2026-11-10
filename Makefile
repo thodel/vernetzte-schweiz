@@ -18,6 +18,7 @@ wikidata:
 	$(PY) scripts/authority.py fetch
 site:
 	$(PY) scripts/build_site.py
+	$(PY) scripts/build_pages.py
 serve: site
 	cd site && python3 -m http.server 8000
 test:

@@ -16,22 +16,31 @@
   </div>
   <div class="band">
     <nav class="wrap">
+      <a href="#/suche" data-i18n="nav_search">Suche</a>
+      <a href="#/orte" data-i18n="nav_places">Orte</a>
       <a href="#quellen" data-i18n="nav_sources">Quellen</a>
       <a href="#telefon" data-i18n="nav_phone">Telefonbücher</a>
       <a href="#ortsqualitaet" data-i18n="nav_quality">Ortsqualität</a>
       <a href="#verknuepfung" data-i18n="nav_links">Verknüpfung</a>
       <a href="#einheiten" data-i18n="nav_entities">Einheiten</a>
       <a href="#vorgehen" data-i18n="nav_plan">Vorgehen</a>
+      <a href="#/vorbehalte" data-i18n="nav_caveats">Vorbehalte</a>
       <a href="https://github.com/thodel/vernetzte-schweiz" data-i18n="nav_repo">Repo</a>
     </nav>
   </div>
 </header>
 
-<main class="wrap">
+<main class="wrap" id="view" hidden></main>
+
+<main class="wrap" id="overview">
   <section class="hero">
     <p class="kicker" data-i18n="kicker"></p>
     <h1 data-i18n="title">Vernetzte Schweiz 1860–1914</h1>
     <p class="lead" data-i18n="lead"></p>
+    <form class="searchbar hero-search" id="hero-search" role="search">
+      <input class="q" type="search" name="q" data-i18n-ph="pg_search_ph" aria-label="Suche">
+      <button type="submit" data-i18n="pg_search_go">Suchen</button>
+    </form>
     <dl class="kpis" id="kpis"><div class="muted" data-i18n="loading">Lade Kennzahlen …</div></dl>
   </section>
 
@@ -81,5 +90,6 @@
   </div>
 </footer>
 <script src="assets/app.js"></script>
+<script src="assets/pages.js"></script>
 </body>
 </html>

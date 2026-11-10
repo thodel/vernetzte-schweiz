@@ -1,7 +1,7 @@
 {
   "lang": "de",
   "title": "Vernetzte Schweiz 1860–1914",
-  "kicker": "Stand M3",
+  "kicker": "Stand M4",
   "tagline": "Adressbücher · Telefonbücher · Normdaten",
   "badge": "Demonstrator",
   "lead": "Adressbücher Schweizer Städte und die frühen Telefonbücher der PTT, miteinander verknüpft und verbunden mit Wikidata, dem Historischen Lexikon der Schweiz und der Gemeinsamen Normdatei.",
@@ -58,12 +58,12 @@
     [
       "M4",
       "Suche, Personen- und Adressseiten, Karte",
-      "next"
+      "done"
     ],
     [
       "M5",
       "Weitere Städte: Zürich, Baden …",
-      ""
+      "next"
     ],
     [
       "M6",
@@ -138,5 +138,94 @@
   "auth_hls": "mit HLS-Artikel",
   "auth_gnd": "mit GND",
   "auth_note": "Neue Verknüpfungen, geprüft an Telefonbuch-Eintrag und Wikidata (Beruf, Lebensdaten, Orte): «wahrscheinlich» {p} richtig (n = {n}), «möglich» {p2} (n = {n2}). Verbunden wird über Wikidata und die BFS-Gemeindenummer, nie über den blossen Namen.",
-  "auth_note_none": "Verbunden wird über Wikidata und die BFS-Gemeindenummer, nie über den blossen Namen."
+  "auth_note_none": "Verbunden wird über Wikidata und die BFS-Gemeindenummer, nie über den blossen Namen.",
+  "nav_search": "Suche",
+  "nav_places": "Orte",
+  "nav_caveats": "Vorbehalte",
+  "pg_search_h": "Personen und Firmen suchen",
+  "pg_search_p": "Gesucht wird im Familien- bzw. Firmennamen, vom Anfang her, ohne Akzente: «Muller» findet «Müller». Weitere Wörter grenzen ein (Vorname, Beruf), das zweite Feld die Gemeinde. Schreibvarianten (Meyer/Maier) werden nicht zusammengeführt.",
+  "pg_search_ph": "Familien- oder Firmenname, z. B. Burckhardt Carl",
+  "pg_search_place": "Gemeinde, z. B. Basel",
+  "pg_search_hint": "Mindestens zwei Buchstaben des Namens eingeben.",
+  "pg_hits": "{n} Treffer.",
+  "pg_hits_more": "Angezeigt sind die ersten 300; Vorname oder Gemeinde grenzen ein.",
+  "pg_kind_person": "Person",
+  "pg_kind_firma": "Firma oder Amt",
+  "pg_entries": "{n} Einträge",
+  "pg_authority": "Normdaten",
+  "pg_not_found": "Nicht gefunden.",
+  "pg_phone": "Telefon",
+  "pg_auth_h": "Normdaten",
+  "pg_auth_city": "Von der Stadt übernommen.",
+  "pg_auth_ptt": "Abgleich über Wikidata und die Gemeindenummer.",
+  "pg_auth_evidence": "Belege:",
+  "pg_auth_check": "Prüfung am HLS-Artikel:",
+  "pg_auth_note": "«wahrscheinlich» und «möglich» sind Vorschläge, keine Gewissheit. Ob die Person im Telefonbuch die Person in Wikidata ist, zeigt erst der Vergleich mit den Quellen.",
+  "pg_timeline_h": "Belegt in",
+  "pg_timeline_label": "Jahre, in denen die Einheit im Telefon- oder Adressbuch steht",
+  "pg_src_ptt": "Telefonbuch",
+  "pg_src_ab": "Adressbuch",
+  "pg_entries_h": "Einträge ({n})",
+  "pg_col_year": "Jahr",
+  "pg_col_src": "Quelle",
+  "pg_col_text": "Eintrag",
+  "pg_col_addr": "Adresse",
+  "pg_col_phone": "Nr.",
+  "pg_col_cite": "Fundstelle",
+  "pg_maybe_h": "Vielleicht auch",
+  "pg_maybe_p": "Adressbuch-Einträge, die die Verknüpfung mit dem Telefonbuch (M2) als möglich vorschlägt, die aber nicht zu dieser Einheit gebündelt sind.",
+  "pg_map_h": "Ort",
+  "pg_map_note": "Der Punkt steht für die Gemeinde (1914), nicht für die Adresse.",
+  "pg_map_error": "Die Karte konnte nicht geladen werden.",
+  "pg_address": "Adresse",
+  "pg_address_p": "Alle Einträge mit dieser Strasse und Hausnummer, über alle Jahre. Nummern wechseln mit Umnummerierungen; in Aarau zählen alte, stadtweite Gebäudenummern und neue Strassennummern nebeneinander.",
+  "pg_place": "Gemeinde 1914",
+  "pg_place_entities": "{p} Personen, {f} Firmen und Ämter (Telefon- und Adressbuch)",
+  "pg_place_years": "Telefonbuch-Einträge je Jahr",
+  "pg_place_years_p": "Nur Ausgaben, die vorliegen; fehlende Jahre heissen nicht, dass es keine Abonnenten gab.",
+  "pg_place_top": "Häufigste Familiennamen",
+  "pg_place_top_p": "Gezählt werden Personen (Einheiten aus Telefon- und Adressbuch), nicht Einträge.",
+  "pg_top_count": "({n})",
+  "pg_place_search": "In dieser Gemeinde suchen",
+  "pg_places_h": "Orte",
+  "pg_places_p": "Gemeinden 1914 mit Telefonbuch-Einträgen, nach Zahl der Einträge.",
+  "pg_places_ph": "Gemeinde filtern",
+  "pg_caveats_h": "Vorbehalte",
+  "pg_caveats": [
+    [
+      "Maschinell gelesen",
+      "Telefon- und Adressbücher sind von Texterkennung und Sprachmodellen gelesen und zerlegt. Namen, Nummern und Adressen können verlesen sein; massgeblich ist das gedruckte Buch. Jeder Eintrag nennt seine Fundstelle."
+    ],
+    [
+      "Wer im Telefonbuch steht",
+      "Das Telefonbuch zeigt Abonnenten, nicht die Bevölkerung. Bis 1914 hatten vor allem Firmen, Ämter, Ärzte, Gasthöfe und wohlhabende Haushalte ein Telefon. Fehlende Jahre bedeuten fehlende Ausgaben, nicht fehlende Anschlüsse."
+    ],
+    [
+      "Der Ort",
+      "Der Ort eines Telefonbuch-Eintrags wird aus Überschriften und Zentralen erschlossen (M1). Gebündelt und gezeigt werden nur Einträge mit sicherem oder mittlerem Ort. Der Kartenpunkt steht für die Gemeinde, nicht für die Adresse."
+    ],
+    [
+      "Verknüpfungen sind Vorschläge",
+      "Telefonbuch und Adressbuch werden in drei Stufen verknüpft (sicher, wahrscheinlich, möglich). Gemessen an beurteilten Stichproben sind 80–100 % je nach Stadt und Stufe richtig; je grösser der Abstand der Jahre, desto unsicherer."
+    ],
+    [
+      "Einheiten über die Jahre",
+      "Einträge werden je Gemeinde zur selben Person oder Firma gebündelt. Vater und Sohn mit gleichem Namen, Witwen und Nachfolger werden getrennt, wo die Einträge es zeigen; wo nicht, können sie verwechselt werden. Zieht jemand in eine andere Gemeinde, entstehen zwei Einheiten. Von den Einträgen, die in der nächsten Ausgabe wieder stehen, sind gemessen 75–92 % dort verbunden; der Rest bildet eine eigene Einheit."
+    ],
+    [
+      "Normdaten",
+      "Wikidata-, HLS- und GND-Bezüge sind «wahrscheinlich» (Name, Ort und Beruf passen) oder «möglich». Die Städte haben ihre Adressbuch-Einträge selbst abgeglichen und teils am HLS-Artikel geprüft. Verworfene Vorschläge werden nicht gezeigt."
+    ],
+    [
+      "Wer geprüft hat",
+      "Die Stichproben, aus denen die Prozentzahlen stammen, hat Claude (ein Sprachmodell) am gedruckten Text beurteilt, nicht die Projektmitarbeitenden. Die beurteilten Fälle liegen mit Begründung im Repo (data/review/)."
+    ],
+    [
+      "Daten und Lizenz",
+      "Code und Seite stehen unter MIT-Lizenz. Die Lizenz der Daten ist noch nicht festgelegt."
+    ]
+  ],
+  "pg_entries_merged": "Gleiche Zeilen aus mehreren Ausgaben desselben Jahres sind zusammengefasst: {n} Zeilen.",
+  "pg_entry_one": "1 Eintrag",
+  "pg_search_go": "Suchen"
 }

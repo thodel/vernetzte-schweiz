@@ -38,6 +38,8 @@ authority = "data/csv/10_authority_links.csv"
 volumes = "data/csv/00_volumes.csv"
 # Amtsträger der Behördenverzeichnisse: ein Kandidat je Person, Einträge als <cand_id>-<Band>
 officeholders = "data/csv/30_authority_candidates.csv"
+# Digitalisate der Bände (Staatsarchiv Basel-Stadt, Digitaler Lesesaal)
+volume_urls = { "1862" = "https://dls.staatsarchiv.bs.ch/records/1225927" }
 files = [
   { path = "data/csv/04_entries.csv",   kind = "einwohner" },
   { path = "data/csv/04_berufe.csv",    kind = "berufe" },

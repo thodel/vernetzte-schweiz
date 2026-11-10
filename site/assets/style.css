@@ -164,3 +164,61 @@ section { padding: 40px 0; }
 .card table.tiers td:first-child { white-space: nowrap; }
 .card table.tiers.wrap td:first-child { white-space: normal; padding-right: 8px; }
 .card table.tiers.wrap th { padding-left: 6px; }
+
+/* ── Seiten hinter #/… (M4) ─────────────────────────────────────────── */
+#view { padding-bottom: 48px; }
+#view h1 { margin-top: 28px; }
+#view .kicker + h1 { margin-top: 4px; }
+.searchbar { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0; }
+.searchbar .q { flex: 2 1 280px; min-width: 0; font: inherit; font-size: 17px; padding: 10px 12px;
+  border: 1px solid var(--border); background: var(--panel); color: var(--ink); }
+.searchbar .q-place { flex: 1 1 180px; }
+.searchbar .q:focus { outline: 2px solid var(--link); outline-offset: 1px; }
+.count { font-family: var(--font-nav); color: var(--muted); }
+.hitlist { list-style: none; padding: 0; margin: 0; }
+.hitlist li { padding: 10px 0; border-bottom: 1px solid var(--border); display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; }
+.hitlist .hit { font-weight: 600; }
+.hitlist .meta { color: var(--muted); font-size: 14px; }
+.hitlist .occ { flex-basis: 100%; color: var(--muted); font-size: 14px; }
+.hitlist.cols { columns: 18rem; column-gap: 32px; }
+.hitlist.cols li { break-inside: avoid; padding: 6px 0; }
+.pill { display: inline-block; font-family: var(--font-nav); font-size: 12px; line-height: 1; padding: 4px 7px;
+  border-radius: 3px; white-space: nowrap; vertical-align: 1px; }
+.pill.src-ptt { background: var(--cat-ann-pale); color: var(--ink); }
+.pill.src-ab { background: var(--cat-source-pale); color: var(--ink); }
+.pill.tier-sicher, .pill.tier-wahrscheinlich { background: var(--cat-ann-dk); color: #fff; }
+.pill.tier-möglich { background: var(--cat-source-pale); color: var(--ink); }
+.ent-head .lead { margin-top: 4px; }
+.card.auth { border-left-color: var(--cat-pers); margin: 20px 0; }
+.card.auth h2 { margin: 0 0 8px; font-size: 1.3rem; }
+.card.auth p { margin: 6px 0; }
+.tl-box { margin: 24px 0; }
+.tl { position: relative; height: 22px; background: var(--panel); border: 1px solid var(--border); }
+.tl-dot { position: absolute; top: 3px; height: 14px; min-width: 3px; }
+.tl-dot.src-ptt, .sw.src-ptt { background: var(--cat-ann-dk); }
+.tl-dot.src-ab, .sw.src-ab { background: var(--cat-source); }
+.tl-dot.src-ab { top: 3px; height: 7px; }
+.tl-ticks { position: relative; height: 18px; font-size: 12px; color: var(--muted); }
+.tl-ticks span { position: absolute; top: 2px; transform: translateX(-50%); }
+.tl-ticks span:first-child { transform: none; }
+table.entries { width: 100%; border-collapse: collapse; background: var(--panel); font-size: 15px; }
+table.entries th { text-align: left; font-family: var(--font-nav); font-weight: 600; font-size: 13px; color: var(--muted);
+  padding: 8px; border-bottom: 2px solid var(--border); }
+table.entries td { padding: 7px 8px; border-bottom: 1px solid var(--border); vertical-align: top; }
+table.entries td.yr, table.entries td.ph { white-space: nowrap; font-variant-numeric: tabular-nums; }
+table.entries td.cite { font-size: 13px; color: var(--muted); min-width: 12rem; }
+.maybe { padding-left: 18px; }
+.maybe li { margin: 6px 0; }
+.map { height: 320px; border: 1px solid var(--border); background: var(--panel); margin: 8px 0; }
+.bars { display: flex; align-items: flex-end; gap: 2px; height: 180px; padding: 0 0 22px; overflow-x: auto; }
+.bar { position: relative; flex: 1 0 18px; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; }
+.bar .fill { display: block; background: var(--cat-ann-dk); }
+.bar .lbl { position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%);
+  font-size: 11px; color: var(--muted); white-space: nowrap; }
+ol.top { columns: 2 14rem; padding-left: 22px; }
+ol.top li { margin: 4px 0; }
+.caveat h2 { font-size: 1.35rem; margin: 26px 0 6px; }
+.caveat p { max-width: 46rem; }
+.hero-search { max-width: 40rem; margin: 18px 0 8px; }
+.hero-search button { font: 600 1rem/1 var(--font-nav); padding: 10px 18px; border: 0; background: var(--accent-dk); color: #fff; cursor: pointer; }
+.hero-search button:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
