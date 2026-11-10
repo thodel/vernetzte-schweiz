@@ -32,9 +32,9 @@
 
   const kpis = document.getElementById("kpis");
   kpis.replaceChildren(...[
-    ["kpi_ab", s.totals.ab_entries], ["kpi_ptt", s.totals.ptt_entries],
-    ["kpi_networks", s.ptt.networks], ["kpi_qids", s.totals.qids],
-  ].map(([k, v]) => el("div", {}, el("dt", {}, t[k]), el("dd", {}, n(v)))));
+    ["kpi_ab", s.totals.ab_entries, "cat-source"], ["kpi_ptt", s.totals.ptt_entries, "cat-ann"],
+    ["kpi_networks", s.ptt.networks, "cat-ann"], ["kpi_qids", s.totals.qids, "cat-pers"],
+  ].map(([k, v, cat]) => el("div", { class: cat }, el("dt", {}, t[k]), el("dd", {}, n(v)))));
 
   const cities = document.getElementById("cities");
   for (const c of s.cities) {
@@ -42,17 +42,17 @@
     const rows = [
       [t.city_entries, n(c.entries)],
       ...Object.entries(c.kinds).map(([k, v]) => [`· ${t["kind_" + k] || k}`, n(v)]),
-      [t.city_authority, n(a.entries)],
-      [t.city_tiers, Object.entries(a.tiers).map(([k, v]) => `${k} ${n(v)}`).join(" · ")],
-      [t.city_confirmed, n(a.hls_confirmed)],
-      [t.city_hls, n(a.hls)],
-      [t.city_gnd, n(a.gnd)],
+      [t.city_authority, n(a.entries), "auth"],
+      [t.city_tiers, Object.entries(a.tiers).map(([k, v]) => `${k} ${n(v)}`).join(" · "), "auth"],
+      [t.city_confirmed, n(a.hls_confirmed), "auth"],
+      [t.city_hls, n(a.hls), "auth"],
+      [t.city_gnd, n(a.gnd), "auth"],
     ];
     cities.append(el("article", { class: "card" },
       el("h3", {}, c.label),
       el("p", { class: "sub" }, `${t.city_volumes}: ${c.volumes.length}`),
       el("div", { class: "vols" }, ...c.volumes.map(v => el("span", { class: "vol", title: `${n(v.entries)} ${t.city_entries}` }, String(v.year)))),
-      el("table", {}, el("tbody", {}, ...rows.map(([k, v]) => el("tr", {}, el("td", {}, k), el("td", {}, v))))),
+      el("table", {}, el("tbody", {}, ...rows.map(([k, v, cls]) => el("tr", cls ? { class: cls } : {}, el("td", {}, k), el("td", {}, v))))),
       el("p", { class: "links" },
         el("a", { href: c.site }, t.city_open), " · ",
         el("a", { href: `https://github.com/${c.repo}/tree/${c.commit}` }, `${t.city_pinned} ${c.commit}`)),
@@ -68,7 +68,7 @@
     const tr = el("tr", {}, el("th", { class: "net" }, g.network));
     g.counts.forEach((v, i) => {
       const td = el("td", { class: "cell", title: `${g.network} ${s.ptt.years[i]}: ${v ? n(v) : t.phone_none}` });
-      if (v) td.style.background = `rgba(var(--heat), ${0.12 + 0.88 * Math.sqrt(v / max)})`;
+      if (v) td.style.background = `rgba(var(--cat-ann-rgb), ${0.12 + 0.88 * Math.sqrt(v / max)})`;
       tr.append(td);
     });
     tr.append(el("td", { class: "tot" }, n(g.total)));

@@ -1,7 +1,9 @@
 {
   "lang": "de",
   "title": "Vernetzte Schweiz 1860–1914",
-  "kicker": "Demonstrator · Stand M0",
+  "kicker": "Stand M0",
+  "tagline": "Adressbücher · Telefonbücher · Normdaten",
+  "badge": "Demonstrator",
   "lead": "Adressbücher Schweizer Städte und die frühen Telefonbücher der PTT, miteinander verknüpft und verbunden mit Wikidata, dem Historischen Lexikon der Schweiz und der Gemeinsamen Normdatei.",
   "nav_sources": "Quellen",
   "nav_phone": "Telefonbücher",
