@@ -47,10 +47,20 @@ files = [
 # --- Telefonbücher ----------------------------------------------------------
 # PTT-Archiv P-260, gelesen und segmentiert von DH Bern / localsearch.
 # Charge A (bis 1910) liegt eintragsweise in tsv/a/<RefCode>.tsv.
-# Charge B (1911–1937) folgt in M1 (tsv/b*.tsv, nach Jahr gefiltert).
+# Charge B (1911–1937) liegt nach Bänden gemischt in tsv/b1–b8.tsv; übernommen werden die
+# Zeilen im Zeitfenster (1911–1914: Bände 1, 2a, 2b, 2c, 3).
 
 [ptt]
 repo = "DHBern/PTT_phonebook_data_tsv"
 commit = "3205edbac365618b6f2fad500c85960269407e41"
 local = "~/Repos/PTT_phonebook_data_tsv"
 batch_a = "tsv/a"
+batch_b = "tsv/b*.tsv"
+
+# --- Ortsregister -----------------------------------------------------------
+# Gemeinden zum Stichtag (BFS, Historisiertes Gemeindeverzeichnis) und Ortschaften
+# (swisstopo, amtliches Ortschaftenverzeichnis). `make ref` holt beide nach data/ref/.
+
+[places]
+hgv_date = "01-01-1914"
+localities_url = "https://data.geo.admin.ch/ch.swisstopo-vd.ortschaftenverzeichnis_plz/ortschaftenverzeichnis_plz/ortschaftenverzeichnis_plz_2056.csv.zip"

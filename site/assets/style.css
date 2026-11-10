@@ -116,6 +116,24 @@ section { padding: 40px 0; }
 .heat td.cell { min-width: 22px; height: 22px; border: 1px solid var(--panel); }
 .heat td.tot { color: var(--muted); padding-left: 10px; text-align: right; }
 
+/* ── Ortsqualität: Konfidenz von sicher (dunkel) bis nicht aufgelöst (hell) ── */
+.quality { background: var(--panel); border: 1px solid var(--border); border-top: 4px solid var(--cat-ann); padding: 18px 20px; }
+.qrow { display: grid; grid-template-columns: minmax(150px, 220px) 1fr; gap: 12px; align-items: center; margin-bottom: 10px; }
+.qlabel { font: 600 .95rem/1.3 var(--font-nav); }
+.stack { display: flex; height: 22px; gap: 2px; }
+.seg { display: block; min-width: 2px; }
+.conf-hoch { background: var(--cat-ann-dk); }
+.conf-mittel { background: var(--cat-ann); }
+.conf-unsicher { background: var(--cat-source); }
+.conf-keine { background: var(--border); }
+.legend { list-style: none; padding: 0; margin: 14px 0; display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 14px; }
+.legend li { display: flex; align-items: center; gap: 6px; }
+.sw { width: 12px; height: 12px; display: inline-block; }
+.facts { width: 100%; max-width: 560px; border-collapse: collapse; font-size: 15px; font-variant-numeric: tabular-nums; }
+.facts td { padding: 4px 0; border-top: 1px solid var(--border); }
+.facts td:last-child { text-align: right; }
+@media (max-width: 520px) { .qrow { grid-template-columns: 1fr; gap: 4px; } }
+
 /* ── Vorgehen ── */
 .steps { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; }
 .steps li { display: grid; grid-template-columns: 48px 1fr auto; gap: 12px; align-items: baseline; background: var(--panel); border: 1px solid var(--border); padding: 10px 14px; }

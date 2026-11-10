@@ -54,15 +54,46 @@ nicht übernommen.
 
 ## data/norm/ptt_entries.csv.gz — Telefonbuch-Einträge (gzip)
 
-Aus Charge A (`tsv/a/*.tsv`), Jahre im Zeitfenster.
+Charge A (`tsv/a/<RefCode>.tsv`, eintragsweise, 1880–1910) und Charge B (`tsv/b*.tsv`,
+gesamtschweizerische Bände 1, 2a, 2b, 2c, 3; im Zeitfenster 1911–1914). Erzeugt von
+`ingest_ptt.py` (Rohstufe in `.cache/`) und `enrich_ptt.py` (Orte: `places.py`,
+Zerlegung: `parse_ptt.py`).
 
 | Spalte | Inhalt |
 |---|---|
-| `id` | siehe oben |
-| `year`, `network` | Jahrgang und Telefonnetz (wie im Dateinamen/`Network`) |
-| `refcode`, `page`, `image` | Archivsignatur, Seite, Bilddatei der Quelle |
-| `name1`, `name2`, `supplement` | `EntityName1` (Familien- oder Firmenname), `EntityName2` (Vorname/Zusatz), `Supplement` (Beruf, Abteilung) |
-| `street`, `locality`, `phone` | wie gelesen |
+| `id` | `ptt:<Datei oder Band>:<seq>` |
+| `batch`, `seq` | Charge `A`/`B`; Zeilennummer je Datei (A) bzw. je Band (B) in Lesereihenfolge |
+| `year`, `network` | Jahrgang; Telefonnetz (nur Charge A) |
+| `refcode`, `page`, `image` | Archivsignatur bzw. Band, Seite, Bilddatei (nur A) |
+| `name1`, `name2`, `supplement`, `street`, `locality`, `phone` | die Spalten der Quelle, Leerraum bereinigt |
+| **Ort** | |
+| `place_name`, `place_kind` | aufgelöster Ort; `gemeinde_1914` (Gemeinde zum 1.1.1914) oder `ortschaft` (Ortschaft des amtlichen Verzeichnisses, nie Gemeinde gewesen) |
+| `hist_code_1914`, `municipality_1914` | Historisierungsnummer und Name der Gemeinde 1914 (BFS); leer bei Ortschaften |
+| `bfs_today`, `canton`, `lat`, `lon` | heutige BFS-Nummer(n), Kanton, Koordinaten (WGS84) |
+| `exchange_raw` | Zentrale in Klammern, wie gelesen |
+| `place_method` | Weg der Auflösung, z. B. `überschrift:name:eindeutig`, `überschrift:abkürzung:zentrale`, `jahresabgleich:zeile`, `…:lauf-unplausibel` |
+| `place_confidence` | `hoch` (Name genau, eindeutig oder durch Kanton/Zentrale bestimmt, oder zwei Jahrgänge stimmen überein), `mittel`, `unsicher` (Überschrift trägt mehr Zeilen, als der Ort haben kann, und kein anderer Jahrgang klärt sie), `keine` |
+| **Zerlegung** | |
+| `entity_type` | `person`, `firma` (auch Hotels, Vereine, Einrichtungen), `amt` (Gemeinde-Sprechstationen, Post, Polizei …), `zusatz` (zweite Zeile eines Abonnenten: Wohnung, Filiale …) |
+| `parent_id` | bei `zusatz`: der Haupteintrag davor |
+| `surname`, `alliance_name` | Familienname und Allianzname (`Maggi-Strehler`), nur bei Personen |
+| `forename`, `initials` | ausgeschriebene Vornamen (aus der Vornamenliste) und Initialen aller Vornamen, auch abgekürzter (`Joh.` → `J`) |
+| `title` | `Dr.`, `Frau`, `Wwe.`, `Mme` … |
+| `occupation` | Beruf und übrige Zusätze, `; `-getrennt |
+| `street_name`, `house_no`, `street_key` | Strasse und Nummer wie gelesen; `street_key` vereinheitlicht (`Limmatstr.` → `limmatstrasse`, `r. du Flon` → `rue flon`) |
+| `phone_norm` | Rufnummer nur Ziffern |
+| `parse_flags` | `vorname-im-namen`, `strasse-umgestellt` (Adresse stand nicht in der Strassenspalte) |
+
+## data/ref/ — Register
+
+| Datei | Inhalt |
+|---|---|
+| `municipalities_1914.csv` | Gemeinden zum 1.1.1914 (BFS, Historisiertes Gemeindeverzeichnis) mit Bezirk, Kanton und heutiger BFS-Nummer über die Mutationen bis heute (`bfs_today`; der Schnappschuss selbst gibt Zürich, Bern u. a. die Platzhalter-Nummer 7700) |
+| `localities.csv` | amtliches Ortschaftenverzeichnis (swisstopo): Ortschaft, PLZ, heutige Gemeinde, Koordinaten |
+| `forenames.csv` | Vornamenliste aus den Daten (Adressbücher, Telefonbücher), mit Häufigkeiten |
+
+Handkorrekturen der Orte: `data/review/places_manual.csv` (`place_raw` → `hist_code` oder
+Ortschaft `name` + `canton`).
 
 ## Verknüpfungen (ab M2)
 

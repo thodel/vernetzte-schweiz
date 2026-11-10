@@ -33,7 +33,7 @@
   const kpis = document.getElementById("kpis");
   kpis.replaceChildren(...[
     ["kpi_ab", s.totals.ab_entries, "cat-source"], ["kpi_ptt", s.totals.ptt_entries, "cat-ann"],
-    ["kpi_networks", s.ptt.networks, "cat-ann"], ["kpi_qids", s.totals.qids, "cat-pers"],
+    ["kpi_networks", s.ptt.municipalities, "cat-ann"], ["kpi_qids", s.totals.qids, "cat-pers"],
   ].map(([k, v, cat]) => el("div", { class: cat }, el("dt", {}, t[k]), el("dd", {}, n(v)))));
 
   const cities = document.getElementById("cities");
@@ -65,9 +65,9 @@
     ...s.ptt.years.map(y => el("th", {}, y)), el("th", {}, t.phone_total))));
   const body = el("tbody");
   for (const g of s.ptt.grid) {
-    const tr = el("tr", {}, el("th", { class: "net" }, g.network));
+    const tr = el("tr", {}, el("th", { class: "net" }, g.canton));
     g.counts.forEach((v, i) => {
-      const td = el("td", { class: "cell", title: `${g.network} ${s.ptt.years[i]}: ${v ? n(v) : t.phone_none}` });
+      const td = el("td", { class: "cell", title: `${g.canton} ${s.ptt.years[i]}: ${v ? n(v) : t.phone_none}` });
       if (v) td.style.background = `rgba(var(--cat-ann-rgb), ${0.12 + 0.88 * Math.sqrt(v / max)})`;
       tr.append(td);
     });
@@ -75,4 +75,32 @@
     body.append(tr);
   }
   heat.append(body);
+
+  // Ortsqualität: gestapelter Balken je Charge, Arten der Einträge
+  const q = document.getElementById("quality");
+  const order = ["hoch", "mittel", "unsicher", "keine"];
+  for (const c of s.ptt.confidence) {
+    const bar = el("div", { class: "stack" });
+    for (const k of order) {
+      const v = c.counts[k];
+      if (!v) continue;
+      const seg = el("span", { class: `seg conf-${k}`, title: `${t["conf_" + k]}: ${n(v)}` });
+      seg.style.flexGrow = v;
+      bar.append(seg);
+    }
+    q.append(el("div", { class: "qrow" },
+      el("div", { class: "qlabel" }, `${t.quality_batch} ${c.batch} · ${c.years[0]}–${c.years[1]}`, el("span", { class: "muted" }, ` · ${n(c.total)}`)),
+      bar));
+  }
+  q.append(el("ul", { class: "legend" }, ...order.map(k => {
+    const tot = s.ptt.confidence.reduce((a, c) => a + c.counts[k], 0);
+    return el("li", {}, el("span", { class: `sw conf-${k}` }), `${t["conf_" + k]} `, el("b", {}, n(tot)));
+  })));
+  const facts = [
+    [t.quality_recovered, s.ptt.recovered],
+    ...Object.entries(s.ptt.types).map(([k, v]) => [t["type_" + k] || k, v]),
+    [t.phone_with_street, s.ptt.with_street],
+    [t.phone_with_initials, s.ptt.with_initials],
+  ];
+  q.append(el("table", { class: "facts" }, el("tbody", {}, ...facts.map(([k, v]) => el("tr", {}, el("td", {}, k), el("td", {}, n(v)))))));
 })();

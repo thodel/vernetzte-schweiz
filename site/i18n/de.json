@@ -1,7 +1,7 @@
 {
   "lang": "de",
   "title": "Vernetzte Schweiz 1860–1914",
-  "kicker": "Stand M0",
+  "kicker": "Stand M1",
   "tagline": "Adressbücher · Telefonbücher · Normdaten",
   "badge": "Demonstrator",
   "lead": "Adressbücher Schweizer Städte und die frühen Telefonbücher der PTT, miteinander verknüpft und verbunden mit Wikidata, dem Historischen Lexikon der Schweiz und der Gemeinsamen Normdatei.",
@@ -11,7 +11,7 @@
   "nav_repo": "Repo",
   "kpi_ab": "Adressbuch-Einträge",
   "kpi_ptt": "Telefonbuch-Einträge",
-  "kpi_networks": "Telefonnetze",
+  "kpi_networks": "Gemeinden 1914 im Telefonbuch",
   "kpi_qids": "Personen mit Wikidata-Bezug",
   "sources_h": "Adressbücher",
   "sources_p": "Jede Stadt wird in einem eigenen Repo ausgewertet und hier an einem festen Stand übernommen. Normdaten erscheinen bis zur Stufe «möglich»; was die Prüfung am HLS-Artikel als falsch erkannt hat, bleibt ausgeblendet.",
@@ -29,23 +29,63 @@
   "kind_bewohner": "Bewohner nach Gebäude",
   "kind_behoerden": "Amtsträger",
   "phone_h": "Telefonbücher bis 1914",
-  "phone_p": "Einträge je Telefonnetz und Jahrgang aus den eintragsweise aufbereiteten Telefonbüchern des PTT-Archivs (Charge A). Die Jahrgänge 1911–1914 folgen in M1.",
-  "phone_network": "Netz",
+  "phone_p": "Einträge je Kanton und Jahrgang, nach dem aufgelösten Ort jedes Eintrags. Bis 1910 eintragsweise neu aufbereitete Telefonbücher (Charge A), 1911–1914 die gesamtschweizerischen Bände (Charge B). «–»: Ort nicht aufgelöst.",
+  "phone_network": "Kanton",
   "phone_total": "Total",
   "phone_none": "kein Jahrgang",
   "plan_h": "Vorgehen",
   "plan_items": [
-    ["M0", "Gerüst, Datenvertrag, Quellen an festen Ständen", "done"],
-    ["M1", "Telefonbücher 1911–1914, Orte normalisieren, Einträge zerlegen", "next"],
-    ["M2", "Verknüpfung Telefonbuch ↔ Adressbuch, gemessen je Stufe", ""],
-    ["M3", "Personen und Firmen über die Jahre; Wikidata, HLS, GND", ""],
-    ["M4", "Suche, Personen- und Adressseiten, Karte", ""],
-    ["M5", "Weitere Städte: Zürich, Baden …", ""]
+    [
+      "M0",
+      "Gerüst, Datenvertrag, Quellen an festen Ständen",
+      "done"
+    ],
+    [
+      "M1",
+      "Telefonbücher bis 1914, Orte aufgelöst (Gemeinden 1914), Einträge zerlegt",
+      "done"
+    ],
+    [
+      "M2",
+      "Verknüpfung Telefonbuch ↔ Adressbuch, gemessen je Stufe",
+      "next"
+    ],
+    [
+      "M3",
+      "Personen und Firmen über die Jahre; Wikidata, HLS, GND",
+      ""
+    ],
+    [
+      "M4",
+      "Suche, Personen- und Adressseiten, Karte",
+      ""
+    ],
+    [
+      "M5",
+      "Weitere Städte: Zürich, Baden …",
+      ""
+    ]
   ],
   "status_done": "erledigt",
   "status_next": "als Nächstes",
   "footer_sources": "Quellen: Adressbücher Aarau (Kantonsbibliothek Aargau) und Basel (Staatsarchiv Basel-Stadt); Telefonbücher PTT-Archiv P-260, aufbereitet von DH Bern und localsearch (historic.localsearch.ch).",
   "footer_license": "Code und Seite unter MIT-Lizenz. Die Lizenz der Daten ist noch nicht festgelegt.",
   "loading": "Lade Kennzahlen …",
-  "load_error": "Die Kennzahlen konnten nicht geladen werden."
+  "load_error": "Die Kennzahlen konnten nicht geladen werden.",
+  "quality_h": "Wie sicher ist der Ort?",
+  "quality_p": "In den Bänden 1911–1914 steht der Ort als Überschrift, die beim Lesen auf die folgenden Zeilen übertragen wurde. Fällt eine Überschrift aus, erben ganze Seiten den falschen Ort – Zürich 1912 steht als «Zwillikon (Affoltern a. A.)». Solche Läufe werden über die anderen Jahrgänge geprüft: Dieselben Abonnenten stehen meist mehrere Jahre im Buch.",
+  "quality_batch": "Charge",
+  "quality_recovered": "Einträge über den Abgleich der Jahrgänge neu verortet",
+  "quality_types": "Einträge nach Art",
+  "conf_hoch": "sicher",
+  "conf_mittel": "wahrscheinlich",
+  "conf_unsicher": "unsicher (Überschrift fehlt vermutlich)",
+  "conf_keine": "nicht aufgelöst",
+  "type_person": "Personen",
+  "type_firma": "Firmen und Einrichtungen",
+  "type_amt": "Ämter und Sprechstationen",
+  "type_zusatz": "Zusatzzeilen (Wohnung, Filiale …)",
+  "phone_with_street": "mit Strasse",
+  "phone_with_initials": "mit Vorname oder Initiale",
+  "nav_quality": "Ortsqualität"
 }

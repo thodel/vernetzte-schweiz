@@ -42,19 +42,32 @@ def main() -> None:
             },
         })
 
+    # Telefonbücher: Kanton (aufgelöster Ort) × Jahrgang
     grid: dict[str, Counter] = defaultdict(Counter)
     for r in ptt:
-        grid[r["network"]][r["year"]] += 1
+        grid[r["canton"] or "–"][r["year"]] += 1
     years = sorted({y for g in grid.values() for y in g})
-    networks = sorted(grid, key=lambda n: -sum(grid[n].values()))
+    cantons = sorted(grid, key=lambda n: (n == "–", -sum(grid[n].values())))
+    conf_order = ["hoch", "mittel", "unsicher", "keine"]
+    conf = {b: Counter(r["place_confidence"] for r in ptt if r["batch"] == b) for b in ("A", "B")}
+    batch_years = {b: [min(r["year"] for r in ptt if r["batch"] == b), max(r["year"] for r in ptt if r["batch"] == b)]
+                   for b in ("A", "B")}
+    recovered = sum(1 for r in ptt if r["place_method"].startswith("jahresabgleich"))
 
     stats = {
         "window": cfg["window"],
         "ptt": {
             "commit": cfg["ptt"]["commit"][:7], "repo": cfg["ptt"]["repo"],
-            "entries": len(ptt), "networks": len(grid), "years": years,
-            "grid": [{"network": n, "total": sum(grid[n].values()),
-                      "counts": [grid[n].get(y, 0) for y in years]} for n in networks],
+            "entries": len(ptt), "years": years,
+            "municipalities": len({r["hist_code_1914"] for r in ptt if r["hist_code_1914"]}),
+            "grid": [{"canton": n, "total": sum(grid[n].values()),
+                      "counts": [grid[n].get(y, 0) for y in years]} for n in cantons],
+            "confidence": [{"batch": b, "years": batch_years[b], "total": sum(conf[b].values()),
+                            "counts": {k: conf[b].get(k, 0) for k in conf_order}} for b in ("A", "B")],
+            "recovered": recovered,
+            "types": dict(Counter(r["entity_type"] for r in ptt).most_common()),
+            "with_street": sum(1 for r in ptt if r["street_name"]),
+            "with_initials": sum(1 for r in ptt if r["initials"]),
         },
         "cities": cities,
         "totals": {
@@ -67,7 +80,7 @@ def main() -> None:
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(stats, ensure_ascii=False, indent=1), encoding="utf-8")
     print(f"{out.relative_to(ROOT)}: {len(ab)} Adressbuch-Einträge, {len(ptt)} Telefonbuch-Einträge, "
-          f"{len(networks)} Netze, {stats['totals']['qids']} Wikidata-Personen")
+          f"{stats['ptt']['municipalities']} Gemeinden 1914, {stats['totals']['qids']} Wikidata-Personen")
 
 
 if __name__ == "__main__":
