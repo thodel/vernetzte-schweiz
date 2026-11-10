@@ -117,3 +117,56 @@ gibt es je Eintrag eine Zeile mit derselben Stufe. Regeln und Messung:
 
 `nr`, `stichprobe`, `ptt_id`, `ab_id`, `city`, `tier_bei_ziehung`, `ptt_year`, `ab_volume`,
 `ptt_text`, `ab_text`, `urteil` (`richtig` / `falsch` / `unklar`), `begruendung`.
+
+## links/entities.csv.gz — Einträge je Einheit (M3)
+
+Jeder gebündelte Eintrag (Telefonbuch und Adressbuch) mit seiner Einheit. Regeln:
+[Einheiten](einheiten.md).
+
+| Spalte | Inhalt |
+|---|---|
+| `record_id` | Eintrag (`ptt:…` oder Adressbuch-Bezeichner) |
+| `entity_id` | Einheit, `e` + 10 Hex-Zeichen; gebildet aus dem kleinsten `record_id` der Einheit |
+| `source` | `ptt` oder `ab` |
+| `year` | Jahrgang bzw. Band |
+| `municipality` | Gemeinde 1914 |
+
+## links/entity_edges.csv.gz — Kanten der Bündelung
+
+Die Kanten, die zwei Bündel vereinigt haben (ein Baum je Einheit). `a`, `b` = Einträge,
+`kind` = `ptt-ptt`, `ab-ab` oder `ptt-ab`, `strength` = Reihenfolge der Verarbeitung,
+`evidence` = Belege mit `+` (`telefon`, `vorname:gleich`, `strasse`, `hausnummer`, `beruf`,
+`allianzname`, `zeile`, `ganze-zeile`, `firmenname`, `derselbe`, `m2:sicher` …).
+
+## data/norm/entities.csv.gz — Einheiten
+
+Je Einheit: `kind` (`person`, `firma`), `municipality`, `bfs_today`, `canton`, `name`
+(Firmen), `surname`, `forename` (häufigster ausgeschriebener Vorname), `first_year`,
+`last_year`, `years`, `n_ptt`, `n_ab`, `phones`, `addresses` (neueste zuerst),
+`occupations`.
+
+## links/authority.csv — Normdaten je Einheit (M3)
+
+| Spalte | Inhalt |
+|---|---|
+| `entity_id` | Einheit |
+| `qid`, `label`, `birth`, `death` | Wikidata |
+| `hls_id`, `gnd` | aus demselben Wikidata-Eintrag |
+| `tier` | `wahrscheinlich`, `möglich` |
+| `source` | `stadt` (aus `ab_authority.csv` übernommen) oder `telefonbuch` (zweiter Abgleich) |
+| `evidence` | Belege (Stadt: deren Begründung; sonst `vorname:…`, `wohnort`, `wirkungsort`, `sterbeort`, `geburtsort`, `beruf`) |
+| `hls_check` | Ergebnis der HLS-Prüfung der Stadt (nur `source = stadt`) |
+| `via` | Adressbuch-Eintrag, der die Normdaten trug (nur `source = stadt`) |
+
+## data/ref/wikidata_persons.csv.gz — Kandidaten des zweiten Abgleichs
+
+Menschen in Wikidata, geboren 1790–1895, gestorben 1880 oder später, mit HLS-Artikel oder
+Wohn-, Wirkungs- bzw. Sterbeort in einer Schweizer Gemeinde. `places` = `beziehung:BFS-Nr.`
+mit `|`. Neu holen mit `make wikidata`; Stand im Commit-Datum.
+
+## data/review/m3_stichprobe.csv, m3_normdaten.csv — beurteilte Bündel und Normdaten
+
+`m3_stichprobe.csv`: `stichprobe` (1–5), `schicht`, beide Einträge mit Text, `urteil`
+(`richtig`/`falsch`/`unklar`; Schicht `getrennt`: `gleich`/`verschieden`/`unklar`;
+Schicht `naechste_ausgabe`: `verknüpft`/`verpasst`/`fehlt`/`unklar`), `begruendung`.
+`m3_normdaten.csv`: neue Normdaten-Verknüpfungen mit `urteil` und `begruendung`.

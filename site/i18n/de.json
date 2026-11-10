@@ -1,7 +1,7 @@
 {
   "lang": "de",
   "title": "Vernetzte Schweiz 1860–1914",
-  "kicker": "Stand M2",
+  "kicker": "Stand M3",
   "tagline": "Adressbücher · Telefonbücher · Normdaten",
   "badge": "Demonstrator",
   "lead": "Adressbücher Schweizer Städte und die frühen Telefonbücher der PTT, miteinander verknüpft und verbunden mit Wikidata, dem Historischen Lexikon der Schweiz und der Gemeinsamen Normdatei.",
@@ -53,16 +53,21 @@
     [
       "M3",
       "Personen und Firmen über die Jahre; Wikidata, HLS, GND",
-      "next"
+      "done"
     ],
     [
       "M4",
       "Suche, Personen- und Adressseiten, Karte",
-      ""
+      "next"
     ],
     [
       "M5",
       "Weitere Städte: Zürich, Baden …",
+      ""
+    ],
+    [
+      "M6",
+      "Visualisierungen: wer wann ein Telefon bekam, Berufe und Namen auf der Karte",
       ""
     ]
   ],
@@ -106,5 +111,32 @@
   "tier_sicher": "sicher",
   "tier_wahrscheinlich": "wahrscheinlich",
   "tier_möglich": "möglich",
-  "links_recall_item": "Band {vol}: {linked} von {reachable} verknüpft ({pct}; mit Telefonzeichen insgesamt {flagged})."
+  "links_recall_item": "Band {vol}: {linked} von {reachable} verknüpft ({pct}; mit Telefonzeichen insgesamt {flagged}).",
+  "nav_entities": "Einheiten",
+  "ent_h": "Personen und Firmen über die Jahre",
+  "ent_p": "Einträge derselben Person oder Firma werden über Telefonbuch-Ausgaben und Adressbuch-Bände zu einer Einheit gebündelt, je Gemeinde. Belege sind dieselbe Nummer, Vorname, Adresse, Beruf und die Paare aus der Verknüpfung mit dem Adressbuch. Widersprechen sich Vornamen oder Allianznamen, oder stehen eine Witwe und ihr Mann bzw. ein Geschäft und seine Nachfolger nebeneinander, wird nicht gebündelt. Danach erhalten die Einheiten Normdaten: von den Städten übernommen, sonst über Wikidata und die Gemeindenummer.",
+  "ent_card_bundle": "Bündelung",
+  "ent_records": "Einträge (Telefon- und Adressbuch)",
+  "ent_entities": "Einheiten",
+  "ent_persons": "davon Personen",
+  "ent_firms": "davon Firmen und Ämter",
+  "ent_multi": "Einheiten mit mehr als einem Eintrag",
+  "ent_span": "über mindestens 10 Jahre belegt",
+  "ent_both": "im Telefon- und im Adressbuch",
+  "ent_card_quality": "Messung (Stichprobe 5)",
+  "ent_layer": "Schicht",
+  "ent_value": "richtig",
+  "ent_layer_person_tb": "Personen, Telefonbuch",
+  "ent_layer_person_ab": "Personen mit Adressbuch",
+  "ent_layer_firma": "Firmen",
+  "ent_layer_lang": "erster/letzter Eintrag, ≥ 10 J.",
+  "ent_layer_naechste_ausgabe": "Vollständigkeit (gefunden in der nächsten Ausgabe)",
+  "ent_quality_note": "Beurteilt von Claude am gedruckten Text, nicht von den Projektmitarbeitenden. Bei 10–30 Fällen je Schicht verschiebt ein Fall die Zahl um 3–10 Punkte.",
+  "ent_card_auth": "Normdaten",
+  "auth_city": "von den Städten übernommen (Einheiten)",
+  "auth_ptt": "neu über Wikidata",
+  "auth_hls": "mit HLS-Artikel",
+  "auth_gnd": "mit GND",
+  "auth_note": "Neue Verknüpfungen, geprüft an Telefonbuch-Eintrag und Wikidata (Beruf, Lebensdaten, Orte): «wahrscheinlich» {p} richtig (n = {n}), «möglich» {p2} (n = {n2}). Verbunden wird über Wikidata und die BFS-Gemeindenummer, nie über den blossen Namen.",
+  "auth_note_none": "Verbunden wird über Wikidata und die BFS-Gemeindenummer, nie über den blossen Namen."
 }

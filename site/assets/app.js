@@ -130,4 +130,36 @@
   const rc = s.recall.map(r => t.links_recall_item.replace("{vol}", r.volume).replace("{flagged}", n(r.flagged))
     .replace("{reachable}", n(r.reachable)).replace("{linked}", n(r.linked)).replace("{pct}", pct(r.linked / r.reachable)));
   document.getElementById("recall").textContent = [t.links_recall, ...rc].join(" ");
+
+  // Einheiten über die Jahre und Normdaten (M3)
+  const en = s.entities, ek = document.getElementById("entities");
+  const range = (lo, hi) => Math.round(lo * 100) === Math.round(hi * 100) ? pct(lo) : `${Math.round(lo * 100)}–${pct(hi)}`;
+  const facts3 = [
+    [t.ent_records, n(en.records)],
+    [t.ent_entities, n(en.entities)],
+    [t.ent_persons, n(en.by_kind.person || 0)],
+    [t.ent_firms, n(en.by_kind.firma || 0)],
+    [t.ent_multi, n(en.entities_multi)],
+    [t.ent_span, n(en.span_10y)],
+    [t.ent_both, n(en.with_ptt_and_ab)],
+  ];
+  ek.append(el("article", { class: "card link" }, el("h3", {}, t.ent_card_bundle),
+    el("table", {}, el("tbody", {}, ...facts3.map(([k, v]) => el("tr", {}, el("td", {}, k), el("td", {}, v)))))));
+  const ql = en.quality.map(q => [t["ent_layer_" + q.layer] || q.layer, q.n,
+    q.recall_low != null ? range(q.recall_low, q.recall_high) : range(q.precision_low, q.precision_high)]);
+  ek.append(el("article", { class: "card link" }, el("h3", {}, t.ent_card_quality),
+    el("table", { class: "tiers wrap" },
+      el("thead", {}, el("tr", {}, el("th", {}, t.ent_layer), el("th", {}, "n"), el("th", {}, t.ent_value))),
+      el("tbody", {}, ...ql.map(([a, b, c]) => el("tr", {}, el("td", {}, a), el("td", {}, n(b)), el("td", {}, c))))),
+    el("p", { class: "sub note" }, t.ent_quality_note)));
+  const au = s.authority;
+  const arows = [
+    [t.auth_city, n(au.stadt)],
+    ...["wahrscheinlich", "möglich"].map(x => [`${t.auth_ptt} · ${t["tier_" + x]}`, n(au.ptt[x] || 0)]),
+    [t.auth_hls, n(au.hls)], [t.auth_gnd, n(au.gnd)],
+  ];
+  ek.append(el("article", { class: "card link" }, el("h3", {}, t.ent_card_auth),
+    el("table", {}, el("tbody", {}, ...arows.map(([k, v]) => el("tr", {}, el("td", {}, k), el("td", {}, v))))),
+    el("p", { class: "sub note" }, au.precision ? t.auth_note.replace("{p}", range(au.precision.low, au.precision.high)).replace("{n}", au.precision.n)
+      .replace("{p2}", range(au.precision2.low, au.precision2.high)).replace("{n2}", au.precision2.n) : t.auth_note_none)));
 })();

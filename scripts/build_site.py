@@ -72,8 +72,32 @@ def main() -> None:
                       for t in ("sicher", "wahrscheinlich", "möglich")],
         })
 
+    # Einheiten über die Jahre und Normdaten (M3)
+    ent = json.loads((NORM / "cluster_stats.json").read_text(encoding="utf-8"))
+    cq = json.loads((NORM / "cluster_quality.json").read_text(encoding="utf-8"))
+    ent["quality"] = [q for q in cq if q["measured"] and q["layer"] != "getrennt"]
+    auth_rows = open_csv(ROOT / "links" / "authority.csv")
+    review = ROOT / "data" / "review" / "m3_normdaten.csv"
+    reviewed = open_csv(review) if review.exists() else []
+
+    def judged_share(tier: str) -> dict | None:
+        rows = [r for r in reviewed if r["tier"] == tier]
+        c = Counter(r["urteil"] for r in rows)
+        return {"n": len(rows), "low": c["richtig"] / len(rows), "high": (c["richtig"] + c["unklar"]) / len(rows)} \
+            if rows else None
+    authority = {
+        "stadt": sum(1 for r in auth_rows if r["source"] == "stadt"),
+        "ptt": dict(Counter(r["tier"] for r in auth_rows if r["source"] == "telefonbuch")),
+        "hls": sum(1 for r in auth_rows if r["hls_id"]),
+        "gnd": sum(1 for r in auth_rows if r["gnd"]),
+        "precision": judged_share("wahrscheinlich"),
+        "precision2": judged_share("möglich"),
+    }
+
     stats = {
         "window": cfg["window"],
+        "entities": ent,
+        "authority": authority,
         "links": links,
         "recall": quality["recall_aarau_phone_sign"],
         "ptt": {
@@ -93,7 +117,7 @@ def main() -> None:
         "totals": {
             "ab_entries": len(ab), "ptt_entries": len(ptt),
             "authority_entries": len({r["id"] for r in auth}),
-            "qids": len({r["qid"] for r in auth if r["qid"]}),
+            "qids": len({r["qid"] for r in auth_rows}),
             "ptt_linked": sum(c["ptt_linked"] for c in links),
         },
     }

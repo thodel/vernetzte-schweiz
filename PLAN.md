@@ -76,10 +76,18 @@ Regeln, Stufen und Messung: [docs/verknuepfung.md](docs/verknuepfung.md); Ergebn
   - Aarau hat im Telefonbuch 1912–1914 keine Einträge. Die Stadt steckt vermutlich in
     einem Lauf mit fehlender Überschrift, zu prüfen in M3.
 
-**M3 — Personen und Firmen über die Jahre.** Einträge derselben Person oder Firma über
-Bände und Telefonbuch-Jahrgänge bündeln; Normdaten der Städte übernehmen; zweiter
-Abgleich für Personen und Firmen, die nur im Telefonbuch stehen (Wikidata, HLS, GND; Join
-nur über Bezeichner, nie über blosse Namen). Ergebnis: `links/authority.csv`.
+**M3 — Personen und Firmen über die Jahre.** ✔ 10.11.2026. `scripts/cluster.py` bündelt
+523 913 Einträge (Telefon- und Adressbuch) zu 181 215 Einheiten je Gemeinde, 98 848 davon mit
+mehr als einem Eintrag; Belege Nummer, Vorname, Adresse, Beruf, gleiche Zeile und die
+M2-Paare, mit Widerspruchsprüfung (Vornamen, Allianzname, Witwe, Nachfolger, gleichzeitige
+Einträge). Gemessen an Stichprobe 5 (nach dem letzten Regelwechsel): Paare 40/40 richtig,
+lange Einheiten 14/15 (1 unklar), Vollständigkeit gegen die nächste Ausgabe 75–92 %.
+`scripts/authority.py`: Normdaten der Städte für 1 103 Einheiten übernommen; zweiter
+Abgleich über Wikidata (16 322 Kandidaten) und die BFS-Gemeindenummer: 315 `wahrscheinlich`
+(97–100 %, n = 30), 605 `möglich` (70–95 %, n = 20). Beruf ist Pflicht für
+`wahrscheinlich`; Name und Sterbeort allein sind zu schwach (4 von 12). Firmen noch ohne
+Normdaten-Abgleich. Ergebnis: `links/entities.csv.gz`, `links/authority.csv`;
+[Regeln und Messung](docs/einheiten.md).
 
 **M4 — Seite.** Suche im Browser über geteiltes JSON; Seite je Person/Firma (Einträge,
 Telefon, Normdaten, Zeitleiste, Karte), Seite je Adresse, Abdeckung je Stadt und Jahr,
@@ -87,6 +95,34 @@ eine gut sichtbare Seite zu den Vorbehalten (OCR, Verknüpfungsstufen).
 
 **M5 — Weitere Städte.** Zürich, Baden: Eintrag in `sources.toml`, Adapter prüfen,
 Verknüpfung und Bau laufen durch.
+
+**M6 — Visualisierungen.** Grundlage sind die Einheiten aus M3 (eine Person oder Firma
+zählt einmal, nicht einmal je Jahrgang) und die Orte aus M1 (Gemeinde 1914, Koordinaten).
+Jede Ansicht nennt ihre Grundgesamtheit: wer im Telefonbuch steht, nicht wer in der
+Gemeinde lebte.
+- **Wer bekam wann ein Telefon:** Heatmap der Schweiz nach Jahr des ersten Eintrags
+  (Zeitregler 1880–1914), Filter nach Beruf bzw. Berufsklasse, Person/Firma, Kanton.
+- **Wo lebten welche Berufe:** Heatmap je Beruf/Berufsklasse; dazu Anteil an allen
+  Abonnenten des Ortes, damit Zürich und Basel nicht jede Karte füllen.
+- **Häufigste Namen je Ort:** Top 5 der Familiennamen je Gemeinde (Karte mit Liste beim
+  Klick); **Wanderung der Namen:** wo ein Name zuerst und wo er später steht, als
+  Schwerpunkt je Jahr bzw. als Pfeile zwischen Gemeinden, getrennt für Einheiten, die den
+  Ort wechseln (gleiche Nummer/Person in M3), und für blosse Namensverbreitung.
+- **Weitere Ideen:**
+  1. Ausbreitung des Netzes: Zahl der Abonnenten je Gemeinde und Jahr als Diffusionskurve,
+     erster Anschluss je Ort; Vergleich mit Bevölkerung 1910 (BFS-Volkszählung).
+  2. Frauen am Telefon: Witwen, «Frau», «Fräulein», weibliche Vornamen; Anteil je Ort und
+     Jahr, Berufe der Frauen.
+  3. Berufe im Wandel: welche Berufe kamen zuerst (Ärzte, Banken, Hotels), welche später
+     (Handwerk, Privatanschlüsse).
+  4. Stadtkarten Aarau und Basel: Abonnenten auf Strassen bzw. Gebäuden (Adressbuch-
+     Geokodierung der Städte), Telefon vs. Nicht-Telefon im selben Quartier.
+  5. Firmennetze: Firmen mit Filialen in mehreren Gemeinden (gleicher Firmenname), Hotel-
+     und Tourismusorte als eigene Schicht.
+  6. Nummernlandschaft: Länge der Rufnummern als Zeiger für die Grösse der Zentrale;
+     Umnummerierungen (Charge B 1911: «37.69»).
+  7. Lebenswege: Einheiten mit Normdaten (M3) auf einer Zeitleiste: Adressen, Nummern,
+     Berufe; Sprachgrenze: französische/deutsche Vornamen und Berufe je Ort.
 
 ## Offene Fragen
 

@@ -1,0 +1,226 @@
+[
+ {
+  "sample": "1",
+  "layer": "person_tb",
+  "n": 40,
+  "counts": {
+   "richtig": 39,
+   "unklar": 1
+  },
+  "measured": false,
+  "precision_low": 0.975,
+  "precision_high": 1.0
+ },
+ {
+  "sample": "1",
+  "layer": "person_ab",
+  "n": 20,
+  "counts": {
+   "richtig": 19,
+   "unklar": 1
+  },
+  "measured": false,
+  "precision_low": 0.95,
+  "precision_high": 1.0
+ },
+ {
+  "sample": "1",
+  "layer": "firma",
+  "n": 20,
+  "counts": {
+   "richtig": 20
+  },
+  "measured": false,
+  "precision_low": 1.0,
+  "precision_high": 1.0
+ },
+ {
+  "sample": "1",
+  "layer": "lang",
+  "n": 30,
+  "counts": {
+   "richtig": 25,
+   "unklar": 4,
+   "falsch": 1
+  },
+  "measured": false,
+  "precision_low": 0.833,
+  "precision_high": 0.967
+ },
+ {
+  "sample": "1",
+  "layer": "getrennt",
+  "n": 30,
+  "counts": {
+   "gleich": 27,
+   "verschieden": 3
+  },
+  "measured": false,
+  "should_merge": 0.9
+ },
+ {
+  "sample": "2",
+  "layer": "person_tb",
+  "n": 40,
+  "counts": {
+   "richtig": 40
+  },
+  "measured": false,
+  "precision_low": 1.0,
+  "precision_high": 1.0
+ },
+ {
+  "sample": "2",
+  "layer": "person_ab",
+  "n": 20,
+  "counts": {
+   "richtig": 19,
+   "unklar": 1
+  },
+  "measured": false,
+  "precision_low": 0.95,
+  "precision_high": 1.0
+ },
+ {
+  "sample": "2",
+  "layer": "firma",
+  "n": 20,
+  "counts": {
+   "richtig": 20
+  },
+  "measured": false,
+  "precision_low": 1.0,
+  "precision_high": 1.0
+ },
+ {
+  "sample": "2",
+  "layer": "lang",
+  "n": 30,
+  "counts": {
+   "richtig": 28,
+   "unklar": 2
+  },
+  "measured": false,
+  "precision_low": 0.933,
+  "precision_high": 1.0
+ },
+ {
+  "sample": "2",
+  "layer": "getrennt",
+  "n": 30,
+  "counts": {
+   "gleich": 27,
+   "unklar": 1,
+   "verschieden": 2
+  },
+  "measured": false,
+  "should_merge": 0.9
+ },
+ {
+  "sample": "3",
+  "layer": "nur_nummer",
+  "n": 30,
+  "counts": {
+   "richtig": 29,
+   "unklar": 1
+  },
+  "measured": false,
+  "precision_low": 0.967,
+  "precision_high": 1.0
+ },
+ {
+  "sample": "3",
+  "layer": "getrennt",
+  "n": 30,
+  "counts": {
+   "unklar": 4,
+   "gleich": 22,
+   "verschieden": 4
+  },
+  "measured": false,
+  "should_merge": 0.733
+ },
+ {
+  "sample": "4",
+  "layer": "naechste_ausgabe",
+  "n": 30,
+  "counts": {
+   "fehlt": 5,
+   "verpasst": 3,
+   "verknüpft": 20,
+   "unklar": 2
+  },
+  "measured": false,
+  "recall_low": 0.8,
+  "recall_high": 0.88
+ },
+ {
+  "sample": "5",
+  "layer": "person_tb",
+  "n": 20,
+  "counts": {
+   "richtig": 20
+  },
+  "measured": true,
+  "precision_low": 1.0,
+  "precision_high": 1.0
+ },
+ {
+  "sample": "5",
+  "layer": "person_ab",
+  "n": 10,
+  "counts": {
+   "richtig": 10
+  },
+  "measured": true,
+  "precision_low": 1.0,
+  "precision_high": 1.0
+ },
+ {
+  "sample": "5",
+  "layer": "firma",
+  "n": 10,
+  "counts": {
+   "richtig": 10
+  },
+  "measured": true,
+  "precision_low": 1.0,
+  "precision_high": 1.0
+ },
+ {
+  "sample": "5",
+  "layer": "lang",
+  "n": 15,
+  "counts": {
+   "richtig": 14,
+   "unklar": 1
+  },
+  "measured": true,
+  "precision_low": 0.933,
+  "precision_high": 1.0
+ },
+ {
+  "sample": "5",
+  "layer": "getrennt",
+  "n": 1,
+  "counts": {
+   "verschieden": 1
+  },
+  "measured": true,
+  "should_merge": 0.0
+ },
+ {
+  "sample": "5",
+  "layer": "naechste_ausgabe",
+  "n": 30,
+  "counts": {
+   "fehlt": 6,
+   "verknüpft": 18,
+   "verpasst": 2,
+   "unklar": 4
+  },
+  "measured": true,
+  "recall_low": 0.75,
+  "recall_high": 0.917
+ }
+]

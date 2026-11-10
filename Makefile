@@ -1,6 +1,6 @@
 PY ?= python3
 
-.PHONY: ref ingest link site serve test
+.PHONY: ref ingest link entities wikidata site serve test
 ref:
 	$(PY) scripts/ref_places.py
 ingest:
@@ -10,6 +10,12 @@ ingest:
 link:
 	$(PY) scripts/link_ptt_ab.py
 	$(PY) scripts/measure_links.py
+entities:
+	$(PY) scripts/cluster.py
+	$(PY) scripts/authority.py link
+	$(PY) scripts/measure_clusters.py
+wikidata:
+	$(PY) scripts/authority.py fetch
 site:
 	$(PY) scripts/build_site.py
 serve: site

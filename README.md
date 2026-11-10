@@ -8,7 +8,7 @@ Seite: https://thodel.github.io/vernetzte-schweiz/
 
 Plan, Entscheide und offene Fragen: [PLAN.md](PLAN.md) · Datenvertrag:
 [docs/datenvertrag.md](docs/datenvertrag.md) · Verknüpfung:
-[docs/verknuepfung.md](docs/verknuepfung.md)
+[docs/verknuepfung.md](docs/verknuepfung.md), [docs/einheiten.md](docs/einheiten.md)
 
 ## Quellen
 
@@ -27,6 +27,8 @@ Jede Quelle ist in [config/sources.toml](config/sources.toml) an einen Commit ge
 make ref      # Ortsregister (BFS-Gemeinden 1914, Ortschaften) → data/ref/
 make ingest   # Quellen am gepinnten Commit lesen, Orte auflösen, zerlegen → data/norm/
 make link     # Telefonbuch ↔ Adressbuch verknüpfen und messen → links/, data/norm/
+make entities # Einheiten über die Jahre bündeln, Normdaten, Messung → links/, data/norm/
+make wikidata # Kandidaten für den Normdaten-Abgleich neu holen → data/ref/
 make site     # Kennzahlen und Seitendaten → site/data/
 make serve    # Seite lokal auf http://localhost:8000
 ```

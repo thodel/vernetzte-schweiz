@@ -1,0 +1,23 @@
+{
+ "records": 523913,
+ "entities": 181215,
+ "entities_multi": 98848,
+ "records_in_multi": 441546,
+ "with_ptt_and_ab": 466,
+ "span_10y": 8867,
+ "edges": {
+  "vereinigt": 342698,
+  "gleichzeitig": 34536,
+  "nachfolger": 412,
+  "witwe": 152,
+  "allianzname": 1956,
+  "vorname": 5509,
+  "schon": 689354
+ },
+ "m2_edges": 15071,
+ "by_kind": {
+  "person": 130497,
+  "firma": 50718
+ },
+ "largest": 176
+}

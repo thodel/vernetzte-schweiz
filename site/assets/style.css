@@ -162,3 +162,5 @@ section { padding: 40px 0; }
 .card table.tiers .sw { margin-right: 6px; vertical-align: -1px; }
 .card table.tiers td, .card td:last-child { white-space: nowrap; }
 .card table.tiers td:first-child { white-space: nowrap; }
+.card table.tiers.wrap td:first-child { white-space: normal; padding-right: 8px; }
+.card table.tiers.wrap th { padding-left: 6px; }
