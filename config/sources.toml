@@ -1,0 +1,56 @@
+# Quellen von «Vernetzte Schweiz 1860–1914».
+#
+# Jede Quelle ist an einen Commit gebunden. Wer einen neuen Stand übernehmen will,
+# setzt `commit` neu und lässt `make ingest` laufen; der Diff in data/norm/ zeigt,
+# was sich geändert hat.
+
+[window]
+year_from = 1860
+year_to = 1914
+
+# --- Adressbücher -----------------------------------------------------------
+# Eine Stadt = ein Repo mit dem CSV-Schema von adressbuecher-aarau (docs/schema.md).
+# `files` nennt die Eintragsdateien und die Rolle, die sie im Band haben.
+
+[[city]]
+id = "aarau"
+label = "Aarau"
+repo = "thodel/adressbuecher-aarau"
+commit = "538c444461937e124721f2da11b1b717cb1c264f"
+site = "https://thodel.github.io/adressbuecher-aarau/"
+authority = "data/csv/10_authority_links.csv"
+files = [
+  { path = "data/csv/04_entries_fraktur.csv",   kind = "einwohner" },
+  { path = "data/csv/04_entries_antiqua.csv",   kind = "einwohner" },
+  { path = "data/csv/04_berufe_fraktur.csv",    kind = "berufe" },
+  { path = "data/csv/04_berufe_antiqua.csv",    kind = "berufe" },
+  { path = "data/csv/05_residents_fraktur.csv", kind = "bewohner" },
+  { path = "data/csv/05_residents_antiqua.csv", kind = "bewohner" },
+]
+
+[[city]]
+id = "basel"
+label = "Basel"
+repo = "thodel/adressbuecher-basel"
+commit = "b94acb60704e17c5b7df22381c9d15ea6a116760"
+site = "https://thodel.github.io/adressbuecher-basel/"
+authority = "data/csv/10_authority_links.csv"
+volumes = "data/csv/00_volumes.csv"
+# Amtsträger der Behördenverzeichnisse: ein Kandidat je Person, Einträge als <cand_id>-<Band>
+officeholders = "data/csv/30_authority_candidates.csv"
+files = [
+  { path = "data/csv/04_entries.csv",   kind = "einwohner" },
+  { path = "data/csv/04_berufe.csv",    kind = "berufe" },
+  { path = "data/csv/05_residents.csv", kind = "bewohner" },
+]
+
+# --- Telefonbücher ----------------------------------------------------------
+# PTT-Archiv P-260, gelesen und segmentiert von DH Bern / localsearch.
+# Charge A (bis 1910) liegt eintragsweise in tsv/a/<RefCode>.tsv.
+# Charge B (1911–1937) folgt in M1 (tsv/b*.tsv, nach Jahr gefiltert).
+
+[ptt]
+repo = "DHBern/PTT_phonebook_data_tsv"
+commit = "3205edbac365618b6f2fad500c85960269407e41"
+local = "~/Repos/PTT_phonebook_data_tsv"
+batch_a = "tsv/a"
