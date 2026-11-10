@@ -25,10 +25,13 @@ Nachträge) stehen auf der Seite einer Einheit einmal, mit allen Fundstellen.
 
 | Datei | Schlüssel | Inhalt |
 |---|---|---|
-| `names/<xx>.json` | erste zwei Buchstaben des Familien- bzw. Firmennamens, ohne Akzente und ohne «von», «de» usw. | je Einheit: Bezeichner, Name, Gemeinde, Jahre, Art, Zahl der Einträge, Normdaten-Stufe, Berufe (gekürzt) |
-| `e/<xx>.json` | Zeichen 2–3 der `entity_id` | Einheiten mit Einträgen, Normdaten, möglichen weiteren Adressbuch-Einträgen |
-| `a/<xx>.json` | FNV-1a des Adressschlüssels, letztes Byte | Adressen mit ihren Einträgen |
-| `g/<n>.json`, `places.json` | laufende Nummer der Gemeinde | Gemeinden 1914 |
+| `names/<xx>.json.gz` | erste zwei Buchstaben des Familien- bzw. Firmennamens, ohne Akzente und ohne «von», «de» usw. | je Einheit: Bezeichner, Name, Gemeinde, Jahre, Art, Zahl der Einträge, Normdaten-Stufe, Berufe (gekürzt) |
+| `e/<xx>.json.gz` | Zeichen 2–3 der `entity_id` | Einheiten mit Einträgen, Normdaten, möglichen weiteren Adressbuch-Einträgen |
+| `a/<xx>.json.gz` | FNV-1a des Adressschlüssels, letztes Byte | Adressen mit ihren Einträgen |
+| `g/<xx>.json.gz`, `places.json` | FNV-1a des Gemeindenamens | Gemeinden 1914 |
+
+Alle Teile sind gzip-gepackt; `pages.js` entpackt sie mit `DecompressionStream`. So bleibt
+das Pages-Paket bei rund 40 MB statt 180 MB, und der Deploy läuft in der Zeit.
 
 `fold()` und `fnv()` sind in `scripts/build_pages.py` und `site/assets/pages.js` gleich
 gerechnet; `tests/test_pages.py` hält die im Browser geprüften Werte fest.

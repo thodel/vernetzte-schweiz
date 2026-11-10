@@ -18,8 +18,12 @@
   const view = document.getElementById("view");
   const overview = document.getElementById("overview");
   const cache = new Map();
+  // Teile liegen gzip-gepackt (.json.gz) und werden hier entpackt
   const get = url => {
-    if (!cache.has(url)) cache.set(url, fetch(url).then(r => { if (!r.ok) throw new Error(url); return r.json(); }));
+    if (!cache.has(url)) cache.set(url, fetch(url).then(r => {
+      if (!r.ok) throw new Error(url);
+      return url.endsWith(".gz") ? new Response(r.body.pipeThrough(new DecompressionStream("gzip"))).json() : r.json();
+    }));
     return cache.get(url);
   };
 
@@ -46,7 +50,7 @@
 
   let places;
   const placeIndex = async () => {
-    if (!places) places = new Map((await get("data/places.json")).map(([name, i, canton, total]) => [name, { i, canton, total }]));
+    if (!places) places = new Map((await get("data/places.json")).map(([name, canton, total]) => [name, { canton, total }]));
     return places;
   };
 
@@ -95,7 +99,7 @@
     const rest = words.slice(1).map(fold).filter(Boolean);
     const mf = fold(m);
     let rows;
-    try { rows = await get(`data/names/${shardOf(q)}.json`); } catch { rows = []; }
+    try { rows = await get(`data/names/${shardOf(q)}.json.gz`); } catch { rows = []; }
     const hits = rows.filter(r => {
       const lk = fold(strip(r[1]));
       return lk.startsWith(first) && rest.every(w => fold(r[1]).includes(w) || fold(r[8]).includes(w))
@@ -116,7 +120,7 @@
 
   async function entity([id]) {
     let shard;
-    try { shard = await get(`data/e/${id.slice(1, 3)}.json`); } catch { shard = {}; }
+    try { shard = await get(`data/e/${id.slice(1, 3)}.json.gz`); } catch { shard = {}; }
     const e = shard[id];
     if (!e) { view.replaceChildren(el("h1", {}, t.pg_not_found)); return; }
     document.title = `${e.n} · Vernetzte Schweiz`;
@@ -173,7 +177,7 @@
     view.replaceChildren(...parts);
     const idx = await placeIndex();
     const p = idx.get(e.m);
-    const g = p ? await get(`data/g/${p.i}.json`) : null;
+    const g = p ? (await get(`data/g/${fnv(e.m)}.json.gz`))[e.m] : null;
     map(box, g && g.geo, e.m);
   }
 
@@ -194,7 +198,7 @@
 
   async function address([key]) {
     let shard;
-    try { shard = await get(`data/a/${fnv(key)}.json`); } catch { shard = {}; }
+    try { shard = await get(`data/a/${fnv(key)}.json.gz`); } catch { shard = {}; }
     const a = shard[key];
     if (!a) { view.replaceChildren(el("h1", {}, t.pg_not_found)); return; }
     document.title = `${a.n}, ${a.m} · Vernetzte Schweiz`;
@@ -215,7 +219,7 @@
     const idx = await placeIndex();
     const p = idx.get(name);
     if (!p) { view.replaceChildren(el("h1", {}, t.pg_not_found)); return; }
-    const g = await get(`data/g/${p.i}.json`);
+    const g = (await get(`data/g/${fnv(name)}.json.gz`))[name];
     document.title = `${g.n} · Vernetzte Schweiz`;
     const ys = Object.entries(g.years).map(([y, c]) => [+y, c]);
     const max = Math.max(1, ...ys.map(x => x[1]));

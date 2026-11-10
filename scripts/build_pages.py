@@ -5,17 +5,21 @@
 Liest nur Dateien im Repo (data/norm/, links/). Alles wird in Teile zerlegt, damit der
 Browser nur lädt, was eine Seite braucht:
 
-- `names/<xx>.json` — Suchindex, nach den ersten zwei Buchstaben des Familien- bzw.
+Die Teile sind gzip-gepackt (`.json.gz`); der Browser entpackt sie.
+
+- `names/<xx>.json.gz` — Suchindex, nach den ersten zwei Buchstaben des Familien- bzw.
   Firmennamens (ohne Akzente, klein); je Einheit eine kurze Zeile.
-- `e/<xx>.json` — Einheiten mit allen Einträgen, Normdaten und möglichen weiteren
+- `e/<xx>.json.gz` — Einheiten mit allen Einträgen, Normdaten und möglichen weiteren
   Adressbuch-Einträgen; `xx` = Zeichen 2–3 der `entity_id`.
-- `a/<xx>.json` — Adressen (Gemeinde, Strasse, Hausnummer) mit den Einträgen aller Jahre;
+- `a/<xx>.json.gz` — Adressen (Gemeinde, Strasse, Hausnummer) mit den Einträgen aller Jahre;
   `xx` = FNV-1a des Adressschlüssels, letztes Byte hex (gleich gerechnet in app.js).
-- `g/<n>.json` und `places.json` — Gemeinden 1914: Einträge je Jahr, häufigste Namen.
+- `g/<xx>.json.gz` (FNV des Gemeindenamens) und `places.json` — Gemeinden 1914:
+  Einträge je Jahr, häufigste Namen.
 """
 
 from __future__ import annotations
 
+import gzip
 import json
 import re
 import shutil
@@ -61,8 +65,13 @@ def addr_key(muni: str, st: str, no: str) -> str:
 
 
 def dump(path: Path, obj) -> None:
+    """JSON; endet der Name auf .gz, gepackt und ohne Zeitstempel (der Browser entpackt mit
+    DecompressionStream). GitHub Pages liefert .gz-Dateien unverändert aus."""
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(obj, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    data = json.dumps(obj, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
+    if path.suffix == ".gz":
+        data = gzip.compress(data, mtime=0)
+    path.write_bytes(data)
 
 
 def main() -> None:
@@ -163,10 +172,10 @@ def main() -> None:
         for sub in ("e", "a", "g", "names"):
             shutil.rmtree(OUT / sub, ignore_errors=True)
     for k, v in shards.items():
-        dump(OUT / "e" / f"{k}.json", v)
+        dump(OUT / "e" / f"{k}.json.gz", v)
     for k, v in names.items():
         v.sort(key=lambda x: (fold(x[1]), x[2], x[3]))
-        dump(OUT / "names" / f"{k}.json", v)
+        dump(OUT / "names" / f"{k}.json.gz", v)
 
     # Adressen
     ashards: dict[str, dict] = defaultdict(dict)
@@ -174,7 +183,7 @@ def main() -> None:
         a["r"].sort(key=lambda r: (r["y"], r["s"]))
         ashards[fnv(k)][k] = {"m": a["m"], "n": a["names"].most_common(1)[0][0], "r": a["r"]}
     for k, v in ashards.items():
-        dump(OUT / "a" / f"{k}.json", v)
+        dump(OUT / "a" / f"{k}.json.gz", v)
 
     # Gemeinden
     ents_by_place: dict[str, Counter] = defaultdict(Counter)
@@ -183,17 +192,19 @@ def main() -> None:
         ents_by_place[s["municipality"]][s["kind"]] += 1
         if s["kind"] == "person" and s["surname"]:
             surnames[s["municipality"]][s["surname"].strip()] += 1
-    places = []
-    for i, muni in enumerate(sorted(set(place_years) | set(ents_by_place), key=fold)):
+    places, gshards = [], defaultdict(dict)
+    for muni in sorted(set(place_years) | set(ents_by_place), key=fold):
         g = place_geo.get(muni)
         meta = place_meta.get(muni, {})
         geo = [round(g[0] / g[2], 5), round(g[1] / g[2], 5)] if g and g[2] else None
         years = dict(sorted(place_years.get(muni, {}).items()))
-        dump(OUT / "g" / f"{i}.json", {
+        gshards[fnv(muni)][muni] = {
             "n": muni, "c": meta.get("canton", ""), "bfs": meta.get("bfs", ""), "geo": geo, "years": years,
             "ent": dict(ents_by_place.get(muni, {})), "top": surnames[muni].most_common(10),
-        })
-        places.append([muni, i, meta.get("canton", ""), sum(years.values())])
+        }
+        places.append([muni, meta.get("canton", ""), sum(years.values())])
+    for k, v in gshards.items():
+        dump(OUT / "g" / f"{k}.json.gz", v)
     dump(OUT / "places.json", places)
     print(f"site/data: {sum(len(v) for v in shards.values())} Einheiten in {len(shards)} Teilen, "
           f"{len(addresses)} Adressen, {len(places)} Gemeinden, Suchindex {len(names)} Teile")
