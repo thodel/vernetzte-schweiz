@@ -11,21 +11,28 @@ Klassen zu. Beides läuft im Pages-Workflow und mit `make site`.
 (163 971); der Punkt ist die Gemeinde 1914, nicht die Adresse. Die Grundgesamtheit sind
 **Abonnenten**, nicht die Bevölkerung.
 
+**Jahre:** Jede Karte und die Berufssuche haben einen Regler mit zwei Griffen: ein Jahr
+oder ein Bereich. **Quelle:** Die Karten «Berufe» und «Namen» lassen wählen, ob das
+Telefonbuch, das Adressbuch oder beide zählen; die Adressbücher decken nur Aarau
+(1884–1899) und Basel (1862). Die Karte «Wer bekam wann ein Telefon» zählt nur das
+Telefonbuch.
+
 ## Die drei Karten (`#/karten`)
 
-- **Wer bekam wann ein Telefon.** Heatmap nach dem ersten Jahr, in dem eine Einheit im
-  Telefonbuch steht; «neu in diesem Jahr» oder «bis zu diesem Jahr»; Filter nach Art,
+- **Wer bekam wann ein Telefon.** Heatmap der Einheiten, deren erstes Jahr im Telefonbuch
+  im gewählten Bereich liegt (Bereich 1880–Jahr = «bis zu diesem Jahr»); Filter nach Art,
   Berufsklasse und Kanton. Darunter die Zahl je Jahr (Filter wie Karte) und die Zahl der
   Gemeinden mit Einträgen im gewählten Jahr.
   **Vorbehalt:** «Erstes Jahr» ist die erste *vorliegende* Ausgabe. Bis 1910 liegen nur
   einzelne Ausgaben vor (Charge A), 1911–1914 jährlich die ganze Schweiz (Charge B). Der
   Sprung 1911 kommt aus der Überlieferung, nicht aus einem Boom.
-- **Berufe.** Je Berufsklasse und Zeitraum: Anzahl als Heatmap, oder Anteil an allen
+- **Berufe.** Je Berufsklasse, Jahresbereich und Quelle: Anzahl als Heatmap, oder Anteil an allen
   Abonnenten der Gemeinde (Gemeinden ab 20 Abonnenten; Farbe in fünf Stufen: 0 % und die
   Quartile der übrigen). Beispiel: Uhren zeigen den Jurabogen.
 - **Namen.** Ohne Namen: Klick auf eine Gemeinde zeigt die fünf häufigsten Familiennamen
-  (Personen) je Zeitraum. Mit Namen: wo Personen dieses Namens in einem Jahr stehen (Kreise),
-  der Schwerpunkt je Jahr (rote Linie) und das erste Jahr je Gemeinde. Der Schwerpunkt
+  (Personen) im Bereich, gerechnet aus `pl/`. Mit Namen: wo Personen dieses Namens im
+  Bereich stehen (Kreise), der Schwerpunkt je Jahr (rote Linie; eine Person zählt für jedes
+  Jahr zwischen ihrem ersten und letzten Eintrag) und das erste Jahr je Gemeinde. Der Schwerpunkt
   springt auch, wenn Ausgaben fehlen oder hinzukommen. Gleicher Name heisst nicht gleiche
   Familie.
 
@@ -35,8 +42,8 @@ Karten: Leaflet 1.9.4 und leaflet.heat 0.2.0 von cdnjs, Kacheln von OpenStreetMa
 
 Sucht im Berufsfeld aller Einheiten (auch nur im Adressbuch), vom Wortanfang her, ohne
 Akzente; ein zweites Wort grenzt ein. Ergebnis: Liste und Karte der Gemeinden (Kreisfläche =
-Treffer). Keine Übersetzung: «Metzger» findet nicht «boucher». Filter: Gemeinde, Zeitraum,
-Quelle.
+Treffer). Keine Übersetzung: «Metzger» findet nicht «boucher». Filter: Gemeinde, Jahre
+(Regler), Quelle.
 
 **Quelle** (auch in der Namenssuche): Telefon- und Adressbuch, nur Einheiten mit
 Telefonbuch-Eintrag, nur Einheiten mit Adressbuch-Eintrag. Wer in beiden steht, erscheint

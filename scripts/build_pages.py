@@ -14,6 +14,9 @@ Die Teile sind gzip-gepackt (`.json.gz`); der Browser entpackt sie.
   Adressbuch-Einträgen; `xx` = Zeichen 2–3 der `entity_id`.
 - `a/<xx>.json.gz` — Adressen (Gemeinde, Strasse, Hausnummer) mit den Einträgen aller Jahre;
   `xx` = FNV-1a des Adressschlüssels, letztes Byte hex (gleich gerechnet in app.js).
+- `keys.json.gz` — alle Namensschlüssel (scripts/fuzzy.py) mit häufigster Schreibung, Zahl der
+  Einheiten und den Teilen des Suchindex, in denen sie stehen (M7); `forenames.json` —
+  Sprachformen der Vornamen (Charles = Carl).
 - `g/<xx>.json.gz` (FNV des Gemeindenamens) und `places.json` — Gemeinden 1914:
   Einträge je Jahr, häufigste Namen.
 """
@@ -33,7 +36,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 from cluster import street  # noqa: E402
 from common import NORM, ROOT, open_csv  # noqa: E402
-from link_ptt_ab import house, num  # noqa: E402
+from fuzzy import key_of_label  # noqa: E402
+from link_ptt_ab import VARIANTS, house, num  # noqa: E402
 
 OUT = ROOT / "site" / "data"
 CITY_LABEL = {"aarau": "Aarau", "basel": "Basel"}
@@ -180,9 +184,22 @@ def main() -> None:
             shutil.rmtree(OUT / sub, ignore_errors=True)
     for k, v in shards.items():
         dump(OUT / "e" / f"{k}.json.gz", v)
+    keys: dict[str, dict] = {}
     for k, v in names.items():
         v.sort(key=lambda x: (fold(x[1]), x[2], x[3]))
         dump(OUT / "names" / f"{k}.json.gz", v)
+        for row in v:
+            fk = key_of_label(row[1], row[5])
+            if len(fk) < 2:
+                continue
+            e = keys.setdefault(fk, {"n": Counter(), "c": 0, "s": set()})
+            e["c"] += 1
+            e["s"].add(k)
+            bare = re.sub(r"^(von|v\.|de|du|la|le|van|zum|zur)\s+", "", row[1].strip(), flags=re.I)
+            e["n"][re.split(r"[,-]", bare)[0].strip() if row[5] == "p" else (bare.split() or [""])[0]] += 1
+    # M7: Liste aller Namensschlüssel für die unscharfe Suche, und die Sprachformen der Vornamen
+    dump(OUT / "keys.json.gz", sorted([fk, e["n"].most_common(1)[0][0], e["c"], sorted(e["s"])] for fk, e in keys.items()))
+    dump(OUT / "forenames.json", [line.split() for line in VARIANTS])
 
     # Adressen
     ashards: dict[str, dict] = defaultdict(dict)

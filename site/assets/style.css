@@ -242,3 +242,33 @@ ol.top li { margin: 4px 0; }
 .bars.small .bar { cursor: pointer; flex-basis: 12px; }
 .bar.on .fill { background: var(--accent); }
 ol.top.one { columns: 1; }
+
+/* Jahresbereich mit zwei Griffen */
+.rs { position: relative; flex: 1 1 200px; height: 28px; min-width: 160px; }
+.rs-track, .rs-fill { position: absolute; top: 12px; height: 4px; border-radius: 2px; }
+.rs-track { left: 0; right: 0; background: var(--border); }
+.rs-fill { background: var(--cat-ann-dk); }
+.rs input[type=range] { position: absolute; left: 0; top: 0; width: 100%; height: 28px; margin: 0; background: none;
+  pointer-events: none; -webkit-appearance: none; appearance: none; }
+.rs input[type=range]::-webkit-slider-runnable-track { background: none; height: 28px; }
+.rs input[type=range]::-moz-range-track { background: none; }
+.rs input[type=range]::-webkit-slider-thumb { pointer-events: auto; -webkit-appearance: none; width: 20px; height: 20px; margin-top: 4px;
+  border-radius: 50%; background: var(--panel); border: 2px solid var(--cat-ann-dk); cursor: pointer; }
+.rs input[type=range]::-moz-range-thumb { pointer-events: auto; width: 16px; height: 16px; border-radius: 50%;
+  background: var(--panel); border: 2px solid var(--cat-ann-dk); cursor: pointer; }
+.rs input[type=range]:focus-visible::-webkit-slider-thumb { outline: 2px solid var(--link); outline-offset: 2px; }
+
+/* Erweiterte Suche (M7) */
+.check { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-nav); font-size: 15px; }
+.check input { width: 18px; height: 18px; }
+.check.fuzzy { display: flex; flex-wrap: wrap; margin: 4px 0 10px; }
+.check.fuzzy .muted { flex-basis: 100%; font-size: 13px; padding-left: 24px; }
+details.filters { margin: 6px 0 14px; }
+details.filters summary { cursor: pointer; font-family: var(--font-nav); color: var(--link); }
+.chips { margin: 8px 0 12px; }
+.chip { font: 14px/1.2 var(--font-nav); margin: 3px 4px 3px 0; padding: 5px 9px; border: 1px solid var(--border); background: var(--panel);
+  color: var(--ink); border-radius: 14px; cursor: pointer; }
+.chip.ocr { border-color: var(--cat-ann-dk); border-style: dashed; }
+.chip.on { background: var(--cat-ann-dk); color: #fff; border-style: solid; }
+.chip:focus-visible { outline: 2px solid var(--link); outline-offset: 1px; }
+.pill.why { background: var(--cat-pers-pale); color: var(--ink); }

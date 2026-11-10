@@ -98,7 +98,7 @@ Adresse; Seitenbilder nur für Basel verlinkbar. [Aufbau](docs/seite.md).
 **M5 — Weitere Städte.** Zürich, Baden: Eintrag in `sources.toml`, Adapter prüfen,
 Verknüpfung und Bau laufen durch.
 
-**M6 — Visualisierungen.** ✔ 10.11.2026: Karten «Wer bekam wann ein Telefon», «Berufe», «Namen» (`#/karten`), Berufssuche mit Karte und Quellenfilter in der Suche; [Aufbau und Messung](docs/karten.md). Umgesetzt sind die ersten drei Punkte; die weiteren Ideen bleiben offen. Grundlage sind die Einheiten aus M3 (eine Person oder Firma
+**M6 — Visualisierungen.** ✔ 10.11.2026: Karten «Wer bekam wann ein Telefon», «Berufe», «Namen» (`#/karten`), Berufssuche mit Karte und Quellenfilter in der Suche; [Aufbau und Messung](docs/karten.md). Umgesetzt sind die ersten drei Punkte; die weiteren Ideen bleiben offen. Nachgetragen: Regler für Jahre (ein Jahr oder Bereich) statt Zeiträumen, Quelle Telefon-/Adressbuch in «Berufe» und «Namen». Grundlage sind die Einheiten aus M3 (eine Person oder Firma
 zählt einmal, nicht einmal je Jahrgang) und die Orte aus M1 (Gemeinde 1914, Koordinaten).
 Jede Ansicht nennt ihre Grundgesamtheit: wer im Telefonbuch steht, nicht wer in der
 Gemeinde lebte.
@@ -126,7 +126,11 @@ Gemeinde lebte.
   7. Lebenswege: Einheiten mit Normdaten (M3) auf einer Zeitleiste: Adressen, Nummern,
      Berufe; Sprachgrenze: französische/deutsche Vornamen und Berufe je Ort.
 
-**M7 — Erweiterte Suche mit unscharfem Namensvergleich.** Die Suche aus M4 findet nur den
+**M7 — Erweiterte Suche mit unscharfem Namensvergleich.** ✔ 10.11.2026: Schalter «Ähnliche
+Namen» (Schlüssel + gewichtete Distanz, ähnliche Namen zum Anklicken statt automatisch),
+Vornamen in anderer Sprachform, Filter Jahre/Art/Normdaten/Quelle, Sortierung. Gemessen:
+76 von 83 Lesefehler-Paaren innerhalb der Schwelle; die Regel «erster Buchstabe gleich»
+ist nach der Messung weggefallen. [Regeln und Messung](docs/suche.md). Ursprünglicher Plan: Die Suche aus M4 findet nur den
 Namensanfang. Gesucht werden soll auch über Schreibvarianten (Meyer/Maier/Meier,
 Schmid/Schmidt, Bürgi/Bürgy) und Lesefehler der Texterkennung (rn/m, u/n, ii/ü, c/e).
 - **Zwei Stufen statt blosser Levenshtein-Distanz.** Zuerst der Namensschlüssel aus M2
