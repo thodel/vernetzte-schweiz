@@ -1,0 +1,181 @@
+nr,stichprobe,schicht,klasse,name,beruf,urteil,begruendung
+1-K01,1,klassiert,bildung,Christ,Pfarrer,richtig,
+1-K02,1,klassiert,industrie,Weber,mech. Glaserwerkstätte,richtig,
+1-K03,1,klassiert,druck,Wolf,Lithographen | Lithograph | Lithographie,richtig,
+1-K04,1,klassiert,handel,Müller,Handlung,richtig,
+1-K05,1,klassiert,lebensmittel,Löwenbräu Burgdorf,Bierdepot,richtig,
+1-K06,1,klassiert,lebensmittel,Süss,Metzgerei,richtig,
+1-K07,1,klassiert,medizin,"Savio. Louisa, Mme",sage-femme; Il,richtig,
+1-K08,1,klassiert,lebensmittel,Naef,Jobs; Wcinhandlung; Villa Alpina | Weinhandlung; Villa Alpina,richtig,
+1-K09,1,klassiert,industrie,Hotz,Oel-; Fett- u. Farbenfabrik | Del-; Fett- u. Farbenfabrik,richtig,
+1-K10,1,klassiert,gast,"Hôtel u. Pension Beau-Séjour, Mülle",Müller Fr,richtig,
+1-K11,1,klassiert,land,Zürcher,Landwirt | Fr.. Landwirt,richtig,
+1-K12,1,klassiert,recht,Naine,avocat,richtig,
+1-K13,1,klassiert,gast,Thurni,Geschwister; Wirtschaft,richtig,
+1-K14,1,klassiert,gast,Wartau,Restaurant; Walther | Restaurant; Fritz Walther,richtig,
+1-K15,1,klassiert,gast,Holliger,Metzger; z. Ochsen,unklar,Metzger und Gasthaus: beides
+1-K16,1,klassiert,medizin,Gugelmann,Adlerapotheke | Adlerapotheke; Apotheken | Adler-Apotheke,richtig,
+1-K17,1,klassiert,gast,Brändli,Wirt | Mineralwasser-fabrik | Mineralwasserfabrik,richtig,
+1-K18,1,klassiert,recht,Elektrizitätswerke des Kantons Züri,Dampfreservezentrale Rüschlikon | Umformerwerk u. Dampfreserve-Zentral,falsch,"Elektrizitätswerk, nicht Verwaltung («Kanton»)"
+1-K19,1,klassiert,handwerk,Garçon,suce; de Garçon-Chenal et fils; tailleur | succ. de Garçon-Chenal et f,richtig,
+1-K20,1,klassiert,verkehr,"N. A. G. Automobile, J. Menold",J. Menold,richtig,
+1-K21,1,klassiert,medizin,Vaglio,entrepreneur | sage-femme,unklar,zwei Personen in einer Zeile
+1-K22,1,klassiert,bau,Patentanwalt,Göhl; Adolf; Dr. Ing,falsch,"Patentanwalt, nicht Bau"
+1-K23,1,klassiert,lebensmittel,Lang,Bierdepot,richtig,
+1-K24,1,klassiert,medizin,Niehans,Abtlg. Inselspital | Derselbe; Abtlg. Inselspital,richtig,
+1-K25,1,klassiert,lebensmittel,"Marsens et Boivin, lithographie",lithographie,falsch,Lithographie; «vin» in «Boivin»
+1-K26,1,klassiert,textil,"Beerli’s C. Erben & Co., Seidenzwir",Seidenzwirnerei und Färberei | Seidenzwimerea und Färberei,richtig,
+1-K27,1,klassiert,druck,Fahrner,Lithograh | Lithograph,richtig,
+1-K28,1,klassiert,recht,Eberli,Rechtanwalt | Rechtsanwalt,richtig,
+1-K29,1,klassiert,textil,Widmer,Erli.. Mercerie; Tricot; und Tuchhandlung,richtig,
+1-K30,1,klassiert,textil,Dölly,Agenten. a) Für Bänder- und Seidewaaren,richtig,
+1-K31,1,klassiert,handwerk,Neuenschwander,Bijoutier; Wohng,richtig,
+1-K32,1,klassiert,gast,Gasthaus zur «Au»,,richtig,
+1-K33,1,klassiert,verkehr,Müller,Koni’; Camionneur,richtig,
+1-K34,1,klassiert,gast,Elmer,Wirtschaft z. Traube,richtig,
+1-K35,1,klassiert,medizin,Clerc,méd.-dentiste,richtig,
+1-K36,1,klassiert,lebensmittel,Beck,Bäckerei u. Konditorei,richtig,
+1-K37,1,klassiert,gast,"Gasthof zum Bären, U.",U; Scheidegger,richtig,
+1-K38,1,klassiert,medizin,"Maret A Kalberer, pharmacie du Bond",pharmacie du Bond-Point. Bond-l’oint de Plainpalais,richtig,
+1-K39,1,klassiert,handel,Konsumgenossenschaft Goldau. Filial,,richtig,
+1-K40,1,klassiert,bau,"Installationsgeschäft d. Gaswerkes,",,richtig,
+1-K41,1,klassiert,lebensmittel,Trueb,Manufact.- u. Kolonialwaren | Mannfaet.- u. Kolonialwaren,richtig,
+1-K42,1,klassiert,bau,Boissonnas,architecte,richtig,
+1-K43,1,klassiert,textil,Hintermeister,Terlinden & Cie; suce; teinturerie,richtig,
+1-K44,1,klassiert,lebensmittel,Künzli,Spezereihandlung | Kolonialwaren,richtig,
+1-K45,1,klassiert,gast,Industriehof,Restaurant,richtig,
+1-K46,1,klassiert,industrie,Hug,Mechaniker | mech. Werkstätte,richtig,
+1-K47,1,klassiert,bildung,Ernst,Prof. Dr,richtig,
+1-K48,1,klassiert,medizin,Kocher,Apotheke,richtig,
+1-K49,1,klassiert,lebensmittel,Weibel,boucher,richtig,
+1-K50,1,klassiert,lebensmittel,Scheitlin,Müller,richtig,
+1-K51,1,klassiert,bau,Zehnle,Möbelfabrication; Fabriken; diverse | Möbel-Fabrik | Möbelfabrication ,unklar,Möbelfabrik: Bau oder Industrie
+1-K52,1,klassiert,bildung,"48 Krafft, Antony",Antony; pasteur; 9 ’ ,richtig,
+1-K53,1,klassiert,recht,Comando Gendarmeria,,richtig,
+1-K54,1,klassiert,handel,Lorber. .1.. tabacs (ancienne Maiso,,richtig,
+1-K55,1,klassiert,textil,Weisbord,Broderies,richtig,
+1-K56,1,klassiert,verkehr,"Guerre et Dominietto, tôlerie autom",tôlerie automobile,richtig,
+1-K57,1,klassiert,gast,"Hôtel Neubad z. Sternen, Ernst Grüt",Ernst Grütter | Familie Jaussi,richtig,
+1-K58,1,klassiert,gast,Hôtel St. Gotthard,Biehly,richtig,
+1-K59,1,klassiert,industrie,Weil,Agenturen | Agenturen; Gerechtigkeitsg. 16 ZÜRICH W,falsch,Agenturen; «A.-G.» traf «Agenturen»
+1-K60,1,klassiert,lebensmittel,Schwarz,Metzger,richtig,
+1-U01,1,ohne_klasse,,Kelter,J.. Unternehmer,verfehlt,"Beruf erkennbar, aber keiner Klasse zugeordnet"
+1-U02,1,ohne_klasse,,Remy,inspecteur forestier,verfehlt,"Beruf erkennbar, aber keiner Klasse zugeordnet"
+1-U03,1,ohne_klasse,,Bindschedler,Molkerei,verfehlt,"Beruf erkennbar, aber keiner Klasse zugeordnet"
+1-U04,1,ohne_klasse,,Zellweger,zum Rössli | z. Hössli,verfehlt,"Beruf erkennbar, aber keiner Klasse zugeordnet"
+1-U05,1,ohne_klasse,,Cosandier,Salle des ventes,verfehlt,"Beruf erkennbar, aber keiner Klasse zugeordnet"
+1-U06,1,ohne_klasse,,Binswanger & Lebert,,ohne,"kein Beruf erkennbar (Adresse, Name, Zusatz)"
+1-U07,1,ohne_klasse,,Fourcy,"bd de la Tour | Mme, bd de la Tour",ohne,"kein Beruf erkennbar (Adresse, Name, Zusatz)"
+1-U08,1,ohne_klasse,,Messaz,phot,verfehlt,"Beruf erkennbar, aber keiner Klasse zugeordnet"
+1-U09,1,ohne_klasse,,"r_ Buchner-Werdenberg, J.",J,ohne,"kein Beruf erkennbar (Adresse, Name, Zusatz)"
+1-U10,1,ohne_klasse,,Chaillet-Leduc. mil di' chiffons et,,verfehlt,"Beruf erkennbar, aber keiner Klasse zugeordnet"
+1-U11,1,ohne_klasse,,Bauernsekretariat,schweiz,verfehlt,"Beruf erkennbar, aber keiner Klasse zugeordnet"
+1-U12,1,ohne_klasse,,"Cate Frohburg. Ad. Wermelinger, Fro",,ohne,"kein Beruf erkennbar (Adresse, Name, Zusatz)"
+1-U13,1,ohne_klasse,,Dufour,Dr-niéd; oculiste,verfehlt,"Beruf erkennbar, aber keiner Klasse zugeordnet"
+1-U14,1,ohne_klasse,,Ochanoff,Ste-LuceB; La Grotte,ohne,"kein Beruf erkennbar (Adresse, Name, Zusatz)"
+1-U15,1,ohne_klasse,,Landolt,kiosque des Bastions | Kiosque des Bastions,verfehlt,"Beruf erkennbar, aber keiner Klasse zugeordnet"
+1-U16,1,ohne_klasse,,Cugy,Station communale; voir page 56,verfehlt,"Beruf erkennbar, aber keiner Klasse zugeordnet"
+1-U17,1,ohne_klasse,,Grab,Best. Freihof | Rest. Freihof,verfehlt,"Beruf erkennbar, aber keiner Klasse zugeordnet"
+1-U18,1,ohne_klasse,,Maurer,Papeterie u. Buchhdlg,verfehlt,"Beruf erkennbar, aber keiner Klasse zugeordnet"
+1-U19,1,ohne_klasse,,Société Electrique Pays d'Enhaut,bureau: Château d'Oex | Bureau,verfehlt,"Beruf erkennbar, aber keiner Klasse zugeordnet"
+1-U20,1,ohne_klasse,,Galla,Annibal; doreur,verfehlt,"Beruf erkennbar, aber keiner Klasse zugeordnet"
+1-U21,1,ohne_klasse,,Koller,Wehrli & Koller; Whg,ohne,"kein Beruf erkennbar (Adresse, Name, Zusatz)"
+1-U22,1,ohne_klasse,,Kappeler,Frau Dr,ohne,"kein Beruf erkennbar (Adresse, Name, Zusatz)"
+1-U23,1,ohne_klasse,,Blanchet,E. &. ses fils | E. & ses fils; entrepr,verfehlt,"Beruf erkennbar, aber keiner Klasse zugeordnet"
+1-U24,1,ohne_klasse,,Direktor,Wohnung,ohne,"kein Beruf erkennbar (Adresse, Name, Zusatz)"
+1-U25,1,ohne_klasse,,Scholz,Vorsteherin der Missionstöchteranstalt | Vorsteherin,verfehlt,"Beruf erkennbar, aber keiner Klasse zugeordnet"
+1-U26,1,ohne_klasse,,Compagnie de navigation,,verfehlt,"Beruf erkennbar, aber keiner Klasse zugeordnet"
+1-U27,1,ohne_klasse,,Wohnung. Voltastr. 28,,ohne,"kein Beruf erkennbar (Adresse, Name, Zusatz)"
+1-U28,1,ohne_klasse,,Flubacher,"Martin; """"""Waldhüsli""""""",ohne,"kein Beruf erkennbar (Adresse, Name, Zusatz)"
+1-U29,1,ohne_klasse,,"Sprensenbühl (Emil Weber), Bergstr.",,ohne,"kein Beruf erkennbar (Adresse, Name, Zusatz)"
+1-U30,1,ohne_klasse,,Pictet,Eaux minérales | Eaux minérales et filtrées | eaux minérales,verfehlt,"Beruf erkennbar, aber keiner Klasse zugeordnet"
+2-K01,2,klassiert,gast,Trachsel,Gasthof zum Ochsen,richtig,
+2-K02,2,klassiert,verkehr,Schätzle,Kohlengeschäft; Bureau- und Lager; Schönegg; Güterbahnhof,falsch,Kohlengeschäft (Handel); «Güterbahnhof» ist die Adresse
+2-K03,2,klassiert,industrie,Dachperle,A.-G; Zürich,richtig,
+2-K04,2,klassiert,lebensmittel,Suter,Bäckerei und Konditorei,richtig,
+2-K05,2,klassiert,industrie,Neeser & Co.,Kinderwagenfabrik | Kinderwagenfabrik; Wohnung,richtig,
+2-K06,2,klassiert,lebensmittel,Payot,boucher | Boucheries,richtig,
+2-K07,2,klassiert,gast,"Rest. Kunsthalle (Ph. Plachner), St",,richtig,
+2-K08,2,klassiert,industrie,Alig.. Elektrizitätsgesellschaft (A,,richtig,
+2-K09,2,klassiert,handwerk,Nicole,blanchisseur,richtig,
+2-K10,2,klassiert,gast,Trechsel,Hôtel-Pension Beau-Séjour,richtig,
+2-K11,2,klassiert,gast,"Hotel Schweizerhof, A.-G. Hotel Wal",A.-G. Hotel Waldhaus,richtig,
+2-K12,2,klassiert,bau,Durrer,Holzhdlg. u. Sägerei,richtig,
+2-K13,2,klassiert,gast,Lüthy,Mme Vve de; boulanger-épicier | Café-boulangerie; épicerie,unklar,Café-Bäckerei: Gastgewerbe oder Lebensmittel
+2-K14,2,klassiert,medizin,Pedolin,Dr. med.,richtig,
+2-K15,2,klassiert,medizin,Gapany,vétérinaire de cantonnement,richtig,
+2-K16,2,klassiert,gast,Hôtel Strassburg,L; L. Kili-Stahel | L. Kili-Stahel | Carl Vogel-Mani | Aktienbrauerei ,richtig,
+2-K17,2,klassiert,gast,"Hotel & Kuranstalt Moosbad, A.-G",A.-G,richtig,
+2-K18,2,klassiert,gast,"Pension Vennes, sous les Roches",sous les Roches; en Venues | sous les Roches; en Vennes,richtig,
+2-K19,2,klassiert,verkehr,Wæffler,Voituriers | voiturier,richtig,
+2-K20,2,klassiert,gast,"Caisse de l’Etat, annexe de l’Hôtel",annexe de l’Hôtel de Ville | Hôtel-de-Ville,falsch,"Staatskasse im Rathaus («Hôtel de Ville»), nicht Gastgewerbe"
+2-K21,2,klassiert,industrie,Yost,machines à écrire,richtig,
+2-K22,2,klassiert,bau,Clerc & Valentin,Succ. de PFLUGER & VOGT; CHARPENTIERS; MENUISIERS; Spécialité de charp,richtig,
+2-K23,2,klassiert,industrie,"Weber, Schäffer & Cie.",Fabrik z. Ziel | Fabrik,richtig,
+2-K24,2,klassiert,gast,"Hôtel Manor Farm, H.",H; Simpkin,richtig,
+2-K25,2,klassiert,privat,Burckhardt,Rentiere,richtig,
+2-K26,2,klassiert,recht,"Goule, la",soc. pr les forces électriques; Bâtiment d'administration | Appartemen,falsch,"Elektrizitätsgesellschaft, nicht Verwaltung («administration»)"
+2-K27,2,klassiert,industrie,Riesterer,Bürstenfabrik,richtig,
+2-K28,2,klassiert,gast,Restaurant Grundstein Limmatstrasse,Limmatstrasse,richtig,
+2-K29,2,klassiert,gast,Hotel Rothorn,Gebr. Brunold,richtig,
+2-K30,2,klassiert,handwerk,Müller,Damenschneiderin,richtig,
+2-K31,2,klassiert,bildung,Orthopädisches Institut v. Dr. W. S,v. Dr. W. Schulthess u. Dr. Lüning,falsch,"orthopädisches Institut: Medizin, nicht Bildung"
+2-K32,2,klassiert,verkehr,Baumann,Fuhrhalter,richtig,
+2-K33,2,klassiert,gast,Forrer,z. Krone,richtig,
+2-K34,2,klassiert,verkehr,Helvetiaplatz,Telegraph Aussersihl,richtig,
+2-K35,2,klassiert,privat,Brocher,rentier,richtig,
+2-K36,2,klassiert,textil,Graf,Kleiderhandlungen | Tuchhandlungen,richtig,
+2-K37,2,klassiert,lebensmittel,Renggli,boucherie | Mme Vve; boucherie,richtig,
+2-K38,2,klassiert,textil,Genossenschaftsferggerei,,richtig,
+2-K39,2,klassiert,medizin,Chappaz,sage-femme,richtig,
+2-K40,2,klassiert,bildung,Staudinger,Herrn; Prof. Dr,richtig,
+2-K41,2,klassiert,gast,Spühler,Bad Helios,richtig,
+2-K42,2,klassiert,gast,"Riniker, Gebr., * Metzgergasse 102.",Bierbrauereien u. Bierwirthschaften | * Bierbrauer | Bierbrauerei | * ,richtig,
+2-K43,2,klassiert,bau,Bourrit et Simmler,architectes | Architectes,richtig,
+2-K44,2,klassiert,lebensmittel,Dambach,Barzmühle,richtig,
+2-K45,2,klassiert,lebensmittel,"Fisch- & Comestibles Co., Bachmann'",Laden | Bureau | Bachmann's Nachfolger; Laden | Bachmann's Nachfolger;,richtig,
+2-K46,2,klassiert,industrie,"Gaswerk Schlieren, Direktion und Be",Direktion und Betriebsbureau; Verkauf der Nebenprodukte; Kokes etc; Sc,richtig,
+2-K47,2,klassiert,industrie,Parqueteriefabrik,Techn. Bureau | Hauptbureau | Techn. Bureau; Hauptbureau,richtig,
+2-K48,2,klassiert,gast,Huggenberger,grd. Café Unionplatz | Café Unionplatz,richtig,
+2-K49,2,klassiert,druck,Oesch,Sohn; Buchbinderei,richtig,
+2-K50,2,klassiert,textil,Hüssy & Co.,Färberei,richtig,
+2-K51,2,klassiert,bildung,Reinigungsanstalt Ryser & Marti,,falsch,Reinigungsanstalt: «anstalt» als Bildung gelesen
+2-K52,2,klassiert,verkehr,Steinacher & Rueff,Güterbahnhof S. B. B; Wolf | Dieselben; Güterbahnhof S. B. B; Wolf,unklar,"Firma am Güterbahnhof, Geschäft unbekannt"
+2-K53,2,klassiert,gast,"Kurhaus Nünalphorn, Hess-Michel",Hess-Michel; F,richtig,
+2-K54,2,klassiert,medizin,Caselmann,pharmacie,richtig,
+2-K55,2,klassiert,gast,Albergo Faido,Bazzi Erminio,richtig,
+2-K56,2,klassiert,handwerk,Stoll,Friedhofgärtner,richtig,
+2-K57,2,klassiert,lebensmittel,"Jacot Gerber. Adrien, boulangeriepâ",boulangeriepâtisserie,richtig,
+2-K58,2,klassiert,lebensmittel,Friess,Weinhändler | Weinhändler — Marchands de vins,richtig,
+2-K59,2,klassiert,textil,"Heer & Co., Seidenfabrikation",Seidenfabrikation,richtig,
+2-K60,2,klassiert,industrie,"Maurer et Bondanini, fabr. chaussur",fabr. chaussures,richtig,
+2-U01,2,ohne_klasse,,"de placement (Mme Waldvogel), Tour-",Tour-Maîtresse; 3,verfehlt,"Beruf erkennbar, aber keiner Klasse zugeordnet"
+2-U02,2,ohne_klasse,,Mucké,reliure et dorure,verfehlt,"Beruf erkennbar, aber keiner Klasse zugeordnet"
+2-U03,2,ohne_klasse,,"du delà Rosiaz. Gliele Rich, La Ros",La Rosiaz,ohne,"kein Beruf erkennbar (Adresse, Name, Zusatz)"
+2-U04,2,ohne_klasse,,"de Loës, C.",C; Chalet Bellevue,ohne,"kein Beruf erkennbar (Adresse, Name, Zusatz)"
+2-U05,2,ohne_klasse,,"Collège catholique, av. Ed.-Dapples",,verfehlt,"Beruf erkennbar, aber keiner Klasse zugeordnet"
+2-U06,2,ohne_klasse,,"Seeberger. 0., Elektr. Anlagen",Elektr. Anlagen,verfehlt,"Beruf erkennbar, aber keiner Klasse zugeordnet"
+2-U07,2,ohne_klasse,,"Locomotiv - Personal - Verband, E. ",E. Furrer,unklar,
+2-U08,2,ohne_klasse,,Baumann,Taglöhner,verfehlt,"Beruf erkennbar, aber keiner Klasse zugeordnet"
+2-U09,2,ohne_klasse,,Schweizerische Centralbahn,Bau- u. Betriebsdepartement | Bau- und Betriebsdepartement | Bau- n. B,verfehlt,"Beruf erkennbar, aber keiner Klasse zugeordnet"
+2-U10,2,ohne_klasse,,Fausel,Sohn,ohne,"kein Beruf erkennbar (Adresse, Name, Zusatz)"
+2-U11,2,ohne_klasse,,"__ Freiestrasse, Kiener",Kiener,ohne,"kein Beruf erkennbar (Adresse, Name, Zusatz)"
+2-U12,2,ohne_klasse,,Wyss fils,émailleur,verfehlt,"Beruf erkennbar, aber keiner Klasse zugeordnet"
+2-U13,2,ohne_klasse,,Buri,Fri; Modes | E.. Fri; Modes,verfehlt,"Beruf erkennbar, aber keiner Klasse zugeordnet"
+2-U14,2,ohne_klasse,,Henny,q. du MtBlanc,ohne,"kein Beruf erkennbar (Adresse, Name, Zusatz)"
+2-U15,2,ohne_klasse,,"Wohnung des Gasmeisters, Magdenauer",,verfehlt,"Beruf erkennbar, aber keiner Klasse zugeordnet"
+2-U16,2,ohne_klasse,,Favre,art. de voyage; WetzsteinFavre; suce,verfehlt,"Beruf erkennbar, aber keiner Klasse zugeordnet"
+2-U17,2,ohne_klasse,,Walker,zur Eintracht,unklar,
+2-U18,2,ohne_klasse,,Kirchner,Modistinnen | Modistin,verfehlt,"Beruf erkennbar, aber keiner Klasse zugeordnet"
+2-U19,2,ohne_klasse,,Weitnauer-Preiswerk,Ang,ohne,"kein Beruf erkennbar (Adresse, Name, Zusatz)"
+2-U20,2,ohne_klasse,,"24 du Musée, B. Schmid",B. Schmid,ohne,"kein Beruf erkennbar (Adresse, Name, Zusatz)"
+2-U21,2,ohne_klasse,,Rechtauskunftstelle,städt. Rathaus,verfehlt,"Beruf erkennbar, aber keiner Klasse zugeordnet"
+2-U22,2,ohne_klasse,,"Burckhardt-VonderMühll. Wwe. A. C.,",St. Albanvorstadt 34 siehe auch unter Riehen,ohne,"kein Beruf erkennbar (Adresse, Name, Zusatz)"
+2-U23,2,ohne_klasse,,Rennhard,Knecht,verfehlt,"Beruf erkennbar, aber keiner Klasse zugeordnet"
+2-U24,2,ohne_klasse,,Stadelhofers,Erben; Alder-Hohls Nachfolger; Grabenhof,ohne,"kein Beruf erkennbar (Adresse, Name, Zusatz)"
+2-U25,2,ohne_klasse,,Monod,secrétaire municipal,verfehlt,"Beruf erkennbar, aber keiner Klasse zugeordnet"
+2-U26,2,ohne_klasse,,Balzer & Kieni,Fourgongesellschaft,verfehlt,"Beruf erkennbar, aber keiner Klasse zugeordnet"
+2-U27,2,ohne_klasse,,Globus,Warenhaus,verfehlt,"Beruf erkennbar, aber keiner Klasse zugeordnet"
+2-U28,2,ohne_klasse,,Heim,Herrn,ohne,"kein Beruf erkennbar (Adresse, Name, Zusatz)"
+2-U29,2,ohne_klasse,,Gorgerat,doct.-avoc,verfehlt,"Beruf erkennbar, aber keiner Klasse zugeordnet"
+2-U30,2,ohne_klasse,,Hauptwache (Kant.-Pol.),Kant. Pol.-Geb | Kant. PoLGebäude | Kant. PoLGebände | Kant. Pol Gebäu,verfehlt,"Beruf erkennbar, aber keiner Klasse zugeordnet"

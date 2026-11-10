@@ -9,12 +9,14 @@ Repo.
 
 | Adresse | Inhalt |
 |---|---|
-| `#/suche?q=…&m=…` | Personen und Firmen nach Familien- bzw. Firmenname (vom Anfang her, ohne Akzente), weitere Wörter grenzen nach Vorname oder Beruf ein, `m` nach Gemeinde |
+| `#/suche?q=…&m=…&s=t\|a` | Personen und Firmen nach Familien- bzw. Firmenname (vom Anfang her, ohne Akzente), weitere Wörter grenzen nach Vorname oder Beruf ein, `m` nach Gemeinde |
 | `#/e/<entity_id>` | eine Einheit: Normdaten, Zeitleiste 1860–1914, alle Einträge mit Adresse, Nummer und Fundstelle, mögliche weitere Adressbuch-Einträge (M2, nicht gebündelt), Gemeinde auf der Karte |
 | `#/a/<Gemeinde>\|<Strasse>\|<Nr.>` | eine Adresse: alle Einträge aller Jahre mit Strasse und Hausnummer |
 | `#/g/<Gemeinde>` | eine Gemeinde 1914: Telefonbuch-Einträge je Jahr, Zahl der Personen und Firmen, die zehn häufigsten Familiennamen, Karte |
 | `#/orte` | alle Gemeinden, nach Zahl der Einträge |
 | `#/vorbehalte` | was die Daten können und was nicht |
+| `#/karten?v=telefon\|berufe\|namen` | Karten (M6, [docs/karten.md](karten.md)) |
+| `#/suche?b=…` | Suche nach Berufen mit Karte (M6) |
 
 Die alten Anker der Startseite (`#quellen`, `#einheiten` …) bleiben gültig.
 

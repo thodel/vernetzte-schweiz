@@ -8,7 +8,8 @@ Browser nur lädt, was eine Seite braucht:
 Die Teile sind gzip-gepackt (`.json.gz`); der Browser entpackt sie.
 
 - `names/<xx>.json.gz` — Suchindex, nach den ersten zwei Buchstaben des Familien- bzw.
-  Firmennamens (ohne Akzente, klein); je Einheit eine kurze Zeile.
+  Firmennamens (ohne Akzente, klein); je Einheit eine kurze Zeile, zuletzt die Quelle
+  (t = nur Telefonbuch, a = nur Adressbuch, b = beide).
 - `e/<xx>.json.gz` — Einheiten mit allen Einträgen, Normdaten und möglichen weiteren
   Adressbuch-Einträgen; `xx` = Zeichen 2–3 der `entity_id`.
 - `a/<xx>.json.gz` — Adressen (Gemeinde, Strasse, Hausnummer) mit den Einträgen aller Jahre;
@@ -53,6 +54,12 @@ def fnv(s: str) -> str:
         h ^= b
         h = (h * 0x01000193) & 0xFFFFFFFF
     return f"{h & 0xFF:02x}"
+
+
+def src_flag(s: dict) -> str:
+    """Quelle einer Einheit: t = nur Telefonbuch, a = nur Adressbuch, b = beide."""
+    t, a = int(s["n_ptt"]) > 0, int(s["n_ab"]) > 0
+    return "b" if t and a else ("t" if t else "a")
 
 
 def name_shard(label: str) -> str:
@@ -166,7 +173,7 @@ def main() -> None:
         shards[eid[1:3]][eid] = ent
         names[name_shard(s["surname"] or label)].append(
             [eid, label, s["municipality"], int(s["first_year"]), int(s["last_year"]), "f" if s["kind"] == "firma" else "p",
-             len(rs), (a["tier"][0] if a else ""), s["occupations"][:60]])
+             len(rs), (a["tier"][0] if a else ""), s["occupations"][:60], src_flag(s)])
 
     if OUT.exists():
         for sub in ("e", "a", "g", "names"):

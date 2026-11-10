@@ -222,3 +222,23 @@ ol.top li { margin: 4px 0; }
 .hero-search { max-width: 40rem; margin: 18px 0 8px; }
 .hero-search button { font: 600 1rem/1 var(--font-nav); padding: 10px 18px; border: 0; background: var(--accent-dk); color: #fff; cursor: pointer; }
 .hero-search button:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+
+/* ── Karten und Berufssuche (M6) ─────────────────────────────────────── */
+.tabs { display: flex; flex-wrap: wrap; gap: 4px; margin: 10px 0 4px; border-bottom: 2px solid var(--border); }
+.tabs a { font-family: var(--font-nav); padding: 7px 14px; text-decoration: none; color: var(--ink); border: 1px solid transparent; border-bottom: 0; margin-bottom: -2px; }
+.tabs a.on { background: var(--panel); border-color: var(--border); border-bottom: 2px solid var(--panel); font-weight: 600; }
+.controls, .searchbar { align-items: flex-end; }
+.controls { display: flex; flex-wrap: wrap; gap: 10px 16px; margin: 12px 0; }
+.ctl { display: flex; flex-direction: column; gap: 3px; font-family: var(--font-nav); font-size: 13px; color: var(--muted); min-width: 0; }
+.ctl select { font: inherit; font-size: 15px; color: var(--ink); padding: 8px; border: 1px solid var(--border); background: var(--panel); max-width: 100%; }
+.ctl.wide { flex: 1 1 260px; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 8px; }
+.ctl.wide span { flex-basis: 100%; }
+.ctl.wide input[type=range] { flex: 1 1 160px; }
+.yr-label { font: 600 1.3rem/1 var(--font-head); color: var(--ink); min-width: 3ch; }
+.searchbar button { font: 600 1rem/1 var(--font-nav); padding: 10px 18px; border: 0; background: var(--accent-dk); color: #fff; cursor: pointer; }
+.map.tall { height: min(70vh, 560px); }
+.map-side { margin: 12px 0; }
+.bars.small { height: 120px; }
+.bars.small .bar { cursor: pointer; flex-basis: 12px; }
+.bar.on .fill { background: var(--accent); }
+ol.top.one { columns: 1; }

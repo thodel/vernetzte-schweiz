@@ -25,6 +25,7 @@ jobs:
       - run: python -m unittest discover -s tests
       - run: python scripts/build_site.py
       - run: python scripts/build_pages.py
+      - run: python scripts/build_maps.py
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site

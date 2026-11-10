@@ -98,7 +98,7 @@ Adresse; Seitenbilder nur für Basel verlinkbar. [Aufbau](docs/seite.md).
 **M5 — Weitere Städte.** Zürich, Baden: Eintrag in `sources.toml`, Adapter prüfen,
 Verknüpfung und Bau laufen durch.
 
-**M6 — Visualisierungen.** Grundlage sind die Einheiten aus M3 (eine Person oder Firma
+**M6 — Visualisierungen.** ✔ 10.11.2026: Karten «Wer bekam wann ein Telefon», «Berufe», «Namen» (`#/karten`), Berufssuche mit Karte und Quellenfilter in der Suche; [Aufbau und Messung](docs/karten.md). Umgesetzt sind die ersten drei Punkte; die weiteren Ideen bleiben offen. Grundlage sind die Einheiten aus M3 (eine Person oder Firma
 zählt einmal, nicht einmal je Jahrgang) und die Orte aus M1 (Gemeinde 1914, Koordinaten).
 Jede Ansicht nennt ihre Grundgesamtheit: wer im Telefonbuch steht, nicht wer in der
 Gemeinde lebte.
@@ -125,6 +125,31 @@ Gemeinde lebte.
      Umnummerierungen (Charge B 1911: «37.69»).
   7. Lebenswege: Einheiten mit Normdaten (M3) auf einer Zeitleiste: Adressen, Nummern,
      Berufe; Sprachgrenze: französische/deutsche Vornamen und Berufe je Ort.
+
+**M7 — Erweiterte Suche mit unscharfem Namensvergleich.** Die Suche aus M4 findet nur den
+Namensanfang. Gesucht werden soll auch über Schreibvarianten (Meyer/Maier/Meier,
+Schmid/Schmidt, Bürgi/Bürgy) und Lesefehler der Texterkennung (rn/m, u/n, ii/ü, c/e).
+- **Zwei Stufen statt blosser Levenshtein-Distanz.** Zuerst der Namensschlüssel aus M2
+  (`nkey`: Akzente, ss/ß, y/i, th/t, ck/k, Doppelkonsonanten, ae/ä), der die häufigen
+  Varianten ohne Fehlertreffer zusammenführt; danach die Distanz auf dem Schlüssel.
+- **Distanz mit Mass:** Damerau-Levenshtein (Vertauschung zählt 1) mit der Schwelle nach
+  Länge: bis 4 Buchstaben 0, 5–7 Buchstaben 1, ab 8 Buchstaben 2. Typische
+  OCR-Verwechslungen kosten 0,5 (rn↔m, u↔n, c↔e, ii↔ü, l↔I↔1, 0↔O). Der erste Buchstabe
+  muss gleich sein, ausser bei bekannten Paaren (C/K, Ph/F, J/I, Y/I), sonst wird aus
+  «Huber» «Muber».
+- **Index:** eine Liste aller unterschiedlichen Namensschlüssel (rund 40 000, gepackt
+  etwa 150 KB) wird ganz geladen; die Distanz rechnet der Browser. Dann werden nur die
+  Teile der passenden Namen geladen.
+- **Rangfolge und Anzeige:** exakt > gleicher Schlüssel > Distanz 1 > Distanz 2; jeder
+  Treffer nennt, warum er passt («Variante», «1 Zeichen anders»). Unscharf ist zu- und
+  abschaltbar.
+- **Weitere Filter:** Jahre von–bis, Gemeinde, Kanton, Quelle (Telefon-/Adressbuch), Art,
+  Berufsklasse, mit oder ohne Normdaten; Sortierung nach Name, Ort oder Jahr; Vorname
+  ebenfalls unscharf (über die Sprachformen aus M2: Charles = Carl).
+- **Messung:** ein Prüfsatz aus bekannten Varianten und aus den Lesefehlern der
+  M3-Stichproben («Fimmelsherg»/«Fimmelsberg», «Kreienbtthl»/«Kreienbühl»). Gemessen wird,
+  wie oft der gesuchte Name unter den Treffern ist und wie viele Fehltreffer die ersten
+  20 enthalten, je Schwelle; die Schwellen werden erst danach festgelegt.
 
 ## Offene Fragen
 
