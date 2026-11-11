@@ -81,6 +81,11 @@
     body.append(tr);
   }
   heat.append(body);
+  // Total je Jahrgang (Spaltensumme über alle Kantone)
+  const col = s.ptt.years.map((_, i) => s.ptt.grid.reduce((a, g) => a + g.counts[i], 0));
+  heat.append(el("tfoot", {}, el("tr", {}, el("th", { class: "net" }, t.phone_total),
+    ...col.map((v, i) => el("td", { class: "ytot", title: `${s.ptt.years[i]}: ${n(v)}` }, n(v))),
+    el("td", { class: "tot" }, n(col.reduce((a, b) => a + b, 0))))));
 
   // Ortsqualität: gestapelter Balken je Charge, Arten der Einträge
   const q = document.getElementById("quality");
