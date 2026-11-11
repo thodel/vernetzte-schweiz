@@ -161,6 +161,16 @@ def main() -> None:
         if eid and member.get(l["ab_id"]) != eid and l["ab_id"] in ab_text:
             maybe[eid].append({"id": l["ab_id"], "y": int(l["ab_volume"]), "tier": l["tier"], "t": ab_text[l["ab_id"]]["text"]})
 
+    # M9: wahrscheinliche HLS-Einträge aus der umgekehrten Prüfung (docs/hls_abdeckung.md)
+    hls_hint: dict[str, list] = defaultdict(list)
+    if (NORM / "hls_candidates.csv.gz").exists():
+        who = {r["hls_id"]: r for r in open_csv(NORM / "hls_coverage.csv.gz")}
+        for c in open_csv(NORM / "hls_candidates.csv.gz"):
+            if c["tier"] == "wahrscheinlich" and c["hls_id"] in who:
+                w = who[c["hls_id"]]
+                hls_hint[c["entity_id"]].append([c["hls_id"], w["name"], int(w["birth"]),
+                                                 int(w["death"]) if w["death"] else 0, c["why"]])
+
     # Einheiten und Suchindex
     shards: dict[str, dict] = defaultdict(dict)
     names: dict[str, list] = defaultdict(list)
@@ -175,6 +185,9 @@ def main() -> None:
         if a:
             ent["au"] = {k: a[k] for k in ("qid", "label", "birth", "death", "hls_id", "gnd", "tier", "source",
                                            "evidence", "hls_check")}
+        hk = [h for h in hls_hint.get(eid, ()) if not (a and a["hls_id"] == h[0])]
+        if hk:
+            ent["hk"] = hk
         seen = {r["id"] for r in rs}
         mb = sorted({m["id"]: m for m in maybe.get(eid, []) if m["id"] not in seen}.values(), key=lambda m: (m["y"], m["id"]))
         if mb:

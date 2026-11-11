@@ -283,6 +283,14 @@
         a.hls_check && a.hls_check !== "ungeprüft" ? el("p", { class: "sub" }, `${t.pg_auth_check} ${a.hls_check}`) : "",
         el("p", { class: "sub note" }, t.pg_auth_note)));
     }
+    if (e.hk) {
+      parts.push(el("section", { class: "card hl-hint" },
+        el("h2", {}, t.hl_hint_h, " ", hlBadge("wahrscheinlich")),
+        ...e.hk.map(([hid, name, b, d, why]) => el("p", {}, el("b", {}, name), ` (${life(b, d)}) · `,
+          link(`#/hls/${hid}`, t.hl_hint_check), " · ", link(hlsUrl(hid), `HLS ${hid}`),
+          el("span", { class: "muted" }, ` — ${why.split(" ").map(x => x.split("+").map(y => t["hl_why_" + y] || y).join(" + ")).join("; ")}`))),
+        el("p", { class: "sub note" }, t.hl_hint_note)));
+    }
     parts.push(timeline(e.r));
     // gleiche Zeile im selben Jahr (mehrere Ausgaben, Haupt- und Nachtrag) nur einmal, mit allen Fundstellen
     const rows = new Map();
@@ -818,8 +826,148 @@
     out.replaceChildren(...parts);
   }
 
+  // ── M9: vom HLS zum Eintrag (scripts/build_hls.py, docs/hls_abdeckung.md) ──────
+  const HL_TIERS = ["normdaten", "wahrscheinlich", "möglich", "schwach", "nicht_gefunden"];
+  const hlBadge = f => el("span", { class: `pill hl-${f}` }, t[`hl_t_${f}`] || f);
+  const hlsUrl = id => `https://hls-dhs-dss.ch/de/articles/${id}/`;
+  const life = (b, d) => `${b}–${d || ""}`;
+  let hlsIndex;
+  const hlsData = async () => hlsIndex ??= await get("data/hls.json.gz");
+
+  async function hls(args, params) {
+    if (args[0]) return hlsPerson(args[0]);
+    const H = await hlsData();
+    const q = params.get("q") || "", tf = params.get("t") || "", kt = params.get("k") || "", ff = params.get("f") || "";
+    const by = params.get("g") || "kt", page = +(params.get("p") || 0);
+    const go = upd => {
+      const p = new URLSearchParams({ q, t: tf, k: kt, f: ff, g: by, ...upd });
+      for (const [k, v] of [...p]) if (!v || (k === "g" && v === "kt")) p.delete(k);
+      location.replace(`#/hls?${p}`);
+    };
+    // Übersicht
+    const count = rows => { const c = Object.fromEntries(HL_TIERS.map(x => [x, 0])); for (const r of rows) c[r[5]]++; return c; };
+    const bar = c => {
+      const tot = HL_TIERS.reduce((s, x) => s + c[x], 0) || 1;
+      return el("div", { class: "hl-bar", role: "img", "aria-label": HL_TIERS.map(x => `${t["hl_t_" + x]} ${c[x]}`).join(", ") },
+        ...HL_TIERS.map(x => el("span", { class: `hl-${x}`, style: `width:${100 * c[x] / tot}%`, title: `${t["hl_t_" + x]}: ${n(c[x])}` })));
+    };
+    const share = c => { const tot = HL_TIERS.reduce((s, x) => s + c[x], 0); return tot ? Math.round(100 * (c.normdaten + c.wahrscheinlich) / tot) : 0; };
+    const all = count(H.rows);
+    const groupKey = {
+      kt: r => r[7] || "–",
+      jz: r => `${Math.floor(r[2] / 10) * 10}er`,
+      g: r => (r[4] === "f" ? t.hl_women : t.hl_men),
+      s: r => t["hl_s_" + r[6]] || r[6],
+      fg: r => r[10].length ? r[10].map(i => H.fields[i]) : ["–"],
+    }[by] || (r => r[7]);
+    const groups = new Map();
+    for (const r of H.rows) for (const k of [groupKey(r)].flat()) { if (!groups.has(k)) groups.set(k, []); groups.get(k).push(r); }
+    const gsel = select([["kt", t.hl_by_kt], ["jz", t.hl_by_jz], ["g", t.hl_by_g], ["s", t.hl_by_s], ["fg", t.hl_by_fg]], by, t.hl_group);
+    gsel.querySelector("select").addEventListener("change", ev => go({ g: ev.target.value }));
+    const gtab = el("tbody");
+    for (const [k, rs] of [...groups].sort((a, b) => (by === "kt" || by === "fg" ? b[1].length - a[1].length : String(a[0]).localeCompare(String(b[0]), "de")))) {
+      const c = count(rs);
+      gtab.append(el("tr", {}, el("td", {}, k), el("td", { class: "num" }, n(rs.length)), el("td", { class: "barcell" }, bar(c)),
+        el("td", { class: "num" }, `${share(c)} %`)));
+    }
+    const legend = el("ul", { class: "legend" }, ...HL_TIERS.map(x => el("li", {}, el("span", { class: `sw hl-${x}` }), `${t["hl_t_" + x]} (${n(all[x])})`)));
+    // Liste
+    const input = el("input", { type: "search", value: q, placeholder: t.hl_search_ph, "aria-label": t.hl_search_ph, class: "q" });
+    let timer;
+    input.addEventListener("input", () => { clearTimeout(timer); timer = setTimeout(() => go({ q: input.value, p: "" }), 300); });
+    const tsel = select([["", t.mp_all], ...HL_TIERS.map(x => [x, t["hl_t_" + x]])], tf, t.hl_tier);
+    tsel.querySelector("select").addEventListener("change", ev => go({ t: ev.target.value, p: "" }));
+    const kts = [...new Set(H.rows.map(r => r[7]).filter(Boolean))].sort();
+    const ksel = select([["", t.mp_all], ...kts.map(k => [k, k])], kt, t.hl_canton);
+    ksel.querySelector("select").addEventListener("change", ev => go({ k: ev.target.value, p: "" }));
+    const fsel = select([["", t.mp_all], ...H.fields.map((f, i) => [String(i), f])], ff, t.hl_field);
+    fsel.querySelector("select").addEventListener("change", ev => go({ f: ev.target.value, p: "" }));
+    const qf = fold(q), qn = q.replace(/\D/g, "");
+    const hits = H.rows.filter(r => (!q || (qn && r[0].includes(qn)) || (qf && fold(r[1]).includes(qf)))
+      && (!tf || r[5] === tf) && (!kt || r[7] === kt) && (!ff || r[10].includes(+ff)));
+    const PER = 100;
+    const ul = el("ul", { class: "hitlist" });
+    for (const r of hits.slice(page * PER, page * PER + PER)) {
+      ul.append(el("li", {}, link(`#/hls/${r[0]}`, r[1], "hit"),
+        el("span", { class: "meta" }, `${life(r[2], r[3])} · ${r[8]}${r[7] ? ` (${r[7]})` : ""}`), hlBadge(r[5]),
+        r[9] && r[5] !== "normdaten" ? el("span", { class: "muted" }, ` ${r[9] === 1 ? t.hl_cand1 : t.hl_cands.replace("{n}", n(r[9]))}`) : ""));
+    }
+    const pager = el("p", { class: "pager" },
+      page > 0 ? el("button", { type: "button", onclick: () => go({ p: page - 1 }) }, t.hl_prev) : "",
+      ` ${n(page * PER + 1)}–${n(Math.min(hits.length, page * PER + PER))} / ${n(hits.length)} `,
+      (page + 1) * PER < hits.length ? el("button", { type: "button", onclick: () => go({ p: page + 1 }) }, t.hl_next) : "");
+    view.replaceChildren(el("h1", {}, t.hl_h), el("p", { class: "intro" }, t.hl_intro),
+      el("section", { class: "card hl-sum" },
+        el("p", { class: "big" }, t.hl_sum.replace("{e}", n(H.rows.length)).replace("{s}", n(all.normdaten + all.wahrscheinlich))
+          .replace("{c}", n(all.möglich + all.schwach))),
+        bar(all), legend, el("p", { class: "sub" }, t.hl_sum_note, " ", link("https://github.com/thodel/vernetzte-schweiz/blob/main/docs/hls_abdeckung.md", t.hl_method))),
+      el("h2", {}, t.hl_groups_h), el("div", { class: "controls" }, gsel),
+      el("div", { class: "grid-scroll" }, el("table", { class: "hl-groups" },
+        el("thead", {}, el("tr", {}, ...[t.hl_col_group, t.hl_col_expected, t.hl_col_tiers, t.hl_col_share].map(h => el("th", {}, h)))), gtab)),
+      el("h2", {}, t.hl_list_h),
+      el("div", { class: "searchbar" }, input), el("div", { class: "controls" }, tsel, ksel, fsel),
+      el("p", { class: "count" }, t.pg_hits.replace("{n}", n(hits.length))), ul, hits.length > PER ? pager : "");
+    if (q) { input.focus(); input.setSelectionRange(q.length, q.length); }
+  }
+
+  async function hlsPerson(id) {
+    let shard;
+    try { shard = await get(`data/hls/${fnv(id, 0x3f)}.json.gz`); } catch { shard = {}; }
+    const p = shard[id];
+    if (!p) { view.replaceChildren(el("h1", {}, t.pg_not_found)); return; }
+    document.title = `${p.n} · HLS · Vernetzte Schweiz`;
+    const here = p.c.filter(c => c[7] === "ort"), far = p.c.filter(c => c[7] === "anderswo");
+    const parts = [el("header", { class: "ent-head" },
+      el("p", { class: "kicker" }, t.hl_kicker),
+      el("h1", {}, p.n),
+      el("p", { class: "lead" }, `${life(p.b, p.d)} · `, link(hlsUrl(id), `HLS ${id}`), " ", hlBadge(p.f))),
+      el("p", { class: "intro" }, t.hl_expected.replace("{a}", p.a[0]).replace("{z}", p.a[1]), " ", t["hl_s_long_" + p.s] || "")];
+    // Raster: Orte × Jahre
+    const [y0, y1] = p.a, w = 100 / (y1 - y0 + 1);
+    const grid = el("div", { class: "hl-grid" });
+    for (const [muni, a, z, srcs, yrs] of p.p) {
+      const got = new Map();
+      for (const c of here) if (c[2] === muni) for (const y of c[3]) {
+        if (!got.has(y) || HL_TIERS.indexOf(c[4]) < HL_TIERS.indexOf(got.get(y))) got.set(y, c[4]);
+      }
+      const row = el("div", { class: "hl-row" });
+      for (let y = y0; y <= y1; y++) {
+        const inSpan = y >= a && y <= z, book = yrs.includes(y), hit = got.get(y);
+        row.append(el("span", { class: `hl-cell${inSpan ? " span" : ""}${book ? " book" : ""}${hit ? " hit hl-" + hit : ""}`,
+          style: `left:${(y - y0) * w}%;width:${w}%`,
+          title: `${muni} ${y}: ${hit ? t["hl_t_" + hit] : book ? t.hl_cell_book : inSpan ? t.hl_cell_nobook : t.hl_cell_out}` }));
+      }
+      grid.append(el("div", { class: "hl-line" },
+        el("div", { class: "hl-place" }, link(placeHref(muni), muni), el("span", { class: "muted" },
+          ` ${years([a, z])} · ${srcs.split("+").map(s => t["hl_src_" + s] || s).filter((v, i, xs) => xs.indexOf(v) === i).join(", ")}`)),
+        row));
+    }
+    const ticks = el("div", { class: "tl-ticks" }, ...[...new Set([y0, ...[1880, 1890, 1900, 1910].filter(y => y > y0 && y < y1), y1])]
+      .map(y => el("span", { style: `left:${(y - y0) * w}%` }, String(y))));
+    parts.push(el("h2", {}, t.hl_grid_h), grid, el("div", { class: "hl-line" }, el("div"), ticks),
+      el("ul", { class: "legend" },
+        el("li", {}, el("span", { class: "sw hl-span" }), t.hl_cell_nobook),
+        el("li", {}, el("span", { class: "sw hl-book" }), t.hl_cell_book),
+        ...["normdaten", "wahrscheinlich", "möglich", "schwach"].map(x => el("li", {}, el("span", { class: `sw hl-${x}` }), t["hl_t_" + x]))));
+    // Kandidaten
+    const candList = cs => el("ul", { class: "hitlist" }, ...cs.map(([eid, label, muni, ys, tier, why, occ]) => el("li", {},
+      link(`#/e/${eid}`, label, "hit"),
+      el("span", { class: "meta" }, `${muni} · ${ys.length ? years([ys[0], ys[ys.length - 1]]) : ""}`),
+      tier !== "anderswo" ? hlBadge(tier) : "",
+      el("span", { class: "pill why" }, why.split(" ").map(x => x.split("+").map(y => t["hl_why_" + y] || y).join(" + ")).join("; ")),
+      occ ? el("span", { class: "occ" }, occ) : "")));
+    if (here.length) {
+      parts.push(el("h2", {}, t.hl_cands_h.replace("{n}", n(here.length))), el("p", { class: "intro" }, t.hl_cands_p), candList(here));
+    } else {
+      parts.push(el("h2", {}, t.hl_none_h), el("p", { class: "intro" }, t["hl_r_" + p.r] || ""));
+    }
+    if (far.length) parts.push(el("h2", {}, t.hl_far_h), el("p", { class: "intro" }, t.hl_far_p), candList(far));
+    parts.push(el("p", { class: "sub note" }, t.hl_note, " ", link("#/hls", t.hl_back)));
+    view.replaceChildren(...parts);
+  }
+
   // ── Router ───────────────────────────────────────────────────────────────
-  const routes = { suche: search, e: entity, a: address, g: place, orte: placeList, vorbehalte: caveats, karten, buch: phonebook };
+  const routes = { suche: search, e: entity, a: address, g: place, orte: placeList, vorbehalte: caveats, karten, buch: phonebook, hls };
   async function route() {
     dropMaps();
     if (!location.hash.startsWith("#/")) {
@@ -837,9 +985,9 @@
     overview.hidden = true; view.hidden = false;
     if (!fn) { view.replaceChildren(el("h1", {}, t.pg_not_found)); return; }
     if (name !== "suche") window.scrollTo(0, 0);
-    document.title = `${t["nav_" + { suche: "search", orte: "places", vorbehalte: "caveats", karten: "maps", buch: "phone" }[name]] || "…"} · Vernetzte Schweiz`;
+    document.title = `${t["nav_" + { suche: "search", orte: "places", vorbehalte: "caveats", karten: "maps", buch: "phone", hls: "hls" }[name]] || "…"} · Vernetzte Schweiz`;
     view.replaceChildren(el("p", { class: "muted" }, t.loading));
-    try { await (["suche", "orte", "karten", "buch"].includes(name) ? fn(params) : fn(args)); }
+    try { await (name === "hls" ? fn(args, params) : ["suche", "orte", "karten", "buch"].includes(name) ? fn(params) : fn(args)); }
     catch (err) { console.error(err); view.replaceChildren(el("h1", {}, t.pg_not_found)); }
   }
   const hero = document.getElementById("hero-search");

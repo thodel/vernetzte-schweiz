@@ -38,5 +38,15 @@ dass der Checkout auf dem gepinnten Commit steht. GitHub Pages baut `site/` bei 
 
 ## Lizenz
 
-Code und Seite: MIT ([LICENSE](LICENSE)). Die Lizenz der Daten in `data/` und der
-Verknüpfungen in `links/` ist noch nicht festgelegt (siehe [PLAN.md](PLAN.md)).
+- **Code und Seite:** MIT ([LICENSE](LICENSE)).
+- **Inhalte der Telefon- und Adressbücher (bis 1914):** gemeinfrei. Nach dem
+  Urheberrechtsgesetz (URG Art. 2 Abs. 1) sind nur geistige Schöpfungen mit individuellem
+  Charakter geschützt. Adress- und Telefonverzeichnisse nach alphabetischen oder
+  geografischen Kriterien erreichen diese Schöpfungshöhe in der Regel nicht. Selbst wo ein
+  Werk vorläge (Vorwort, Stadtplan), erlischt der Schutz 70 Jahre nach dem Tod des Urhebers
+  (Art. 29 Abs. 2 URG).
+- **Daten in `data/` und Verknüpfungen in `links/`:** entsprechend frei weiterzunutzen, als
+  [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/deed.de) (Entscheid
+  11.11.2026).
+- **Ausnahmen:** Wikidata-Angaben stehen ebenfalls unter CC0. Aus dem HLS übernehmen wir
+  nur Fakten (Name, Lebensdaten, Nummer, Fachgebiet), keinen Artikeltext.

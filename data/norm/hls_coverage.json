@@ -1,0 +1,20 @@
+{
+ "erwachsen_1880_1914": 7879,
+ "gelebt:möglich": 4,
+ "gelebt:nicht_gefunden": 147,
+ "gelebt:normdaten": 60,
+ "gelebt:schwach": 50,
+ "gelebt:wahrscheinlich": 2,
+ "nur_sterbeort:möglich": 292,
+ "nur_sterbeort:nicht_gefunden": 2312,
+ "nur_sterbeort:normdaten": 332,
+ "nur_sterbeort:schwach": 661,
+ "nur_sterbeort:wahrscheinlich": 59,
+ "ohne_abgedeckten_ort": 835,
+ "ohne_ort": 872,
+ "text:möglich": 157,
+ "text:nicht_gefunden": 1147,
+ "text:normdaten": 291,
+ "text:schwach": 458,
+ "text:wahrscheinlich": 200
+}

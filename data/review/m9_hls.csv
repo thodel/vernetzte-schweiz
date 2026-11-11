@@ -1,0 +1,104 @@
+stichprobe,hls_id,name,richtig,anmerkung
+wahrscheinlich_r2,046860,Charles-Eugène Guye,ja,
+wahrscheinlich_r2,031256,Henri Biolley,ja,
+wahrscheinlich_r2,029926,Paul Miescher,ja,
+wahrscheinlich_r2,032685,Gustav Adolf Ursprung,unklar,Eisenhandlung Laufenburg
+wahrscheinlich_r2,006382,Alfred Hofstetter,ja,
+wahrscheinlich_r2,029624,Gustav Adolf Albert Hautle,ja,Advokat
+wahrscheinlich_r2,028654,Ferdinand Tobler,ja,
+wahrscheinlich_r2,006657,Albert Picot,ja,
+wahrscheinlich_r2,004523,Joseph Albert Hautle,nein,Vater/Sohn: der Advokat ist der Sohn
+wahrscheinlich_r2,003609,Jakob Robert Billeter,ja,
+wahrscheinlich_r2,027722,Arthur Hahnloser,ja,
+wahrscheinlich_r2,042551,Theodor Bühler,ja,
+wahrscheinlich_r2,006218,Anton Brügger,ja,
+wahrscheinlich_r2,005917,Karl Hafner,ja,
+wahrscheinlich_r2,004018,Paul Scherrer,ja,
+wahrscheinlich_r2,006970,Giorgio Casella,ja,
+wahrscheinlich_r2,003766,Peter Emil Isler,ja,
+wahrscheinlich_r2,030454,Arnold Baruch Heine,ja,
+wahrscheinlich_r2,013185,Alphonse-James Perrochet,unklar,juge de paix wie der Vater
+wahrscheinlich_r2,004605,Leo Merz,ja,
+wahrscheinlich_r2,005671,Walter Bösiger,ja,
+wahrscheinlich_r2,030166,Louis Lang,ja,
+wahrscheinlich_r2,014430 010698,Adolf Keller,ja,
+wahrscheinlich_r2,032196,Nutin Pedolin,ja,
+wahrscheinlich_r2,031005,Georg Baum,ja,
+vorname_beruf_r1,016252,André Mercier,ja,
+vorname_beruf_r1,003766,Peter Emil Isler,ja,
+vorname_beruf_r1,032017,Paul Godet,ja,
+vorname_beruf_r1,014434,Wilhelm Knoll,ja,
+vorname_beruf_r1,016517,Walter Kissling,ja,
+vorname_beruf_r1,013614,Albert Joray,ja,
+vorname_beruf_r1,029937,Paul-Alcide Blancpain,ja,
+vorname_beruf_r1,022445,Hans Hörbst,ja,
+vorname_beruf_r1,004568 009862,Alphons Koechlin,ja,
+vorname_beruf_r1,020721,Friedrich Niggli,ja,
+vorname_beruf_r1,005671,Walter Bösiger,ja,
+vorname_beruf_r1,029797,Louis Müller,ja,
+vorname_beruf_r1,028936,Carl Schmidt,ja,
+vorname_beruf_r1,030850,Maurice d'Allèves,ja,
+vorname_beruf_r1,020552,Fritz Brun,ja,
+vorname_beruf_r1,003609,Jakob Robert Billeter,ja,
+vorname_beruf_r1,004431 015766,Eugène Borel,ja,
+vorname_beruf_r1,016289,Alfred Gautier,ja,
+vorname_beruf_r1,029562,Friedrich Aeschbach,ja,
+vorname_beruf_r1,014309,Emil Bürgi,ja,
+vorname_beruf_r1,004304,Camille Decoppet,ja,
+vorname_beruf_r1,003965,Johannes Blumer,nein,"Schlossermeister, nicht der Textilkaufmann"
+vorname_text_ohne_beruf_r1,029524,Hans Fretz,unklar,Schuhwarenfabrik statt Elektrofirma
+vorname_text_ohne_beruf_r1,028222,Emil Hügli,nein,"Fürsprecher, HLS: Redaktor in Chur"
+vorname_text_ohne_beruf_r1,027117,Rudolf Thommen,ja,
+vorname_text_ohne_beruf_r1,010638,Karl Gerold Goetz,nein,"Lederhandlung, HLS: Theologe"
+vorname_text_ohne_beruf_r1,041192,Emil Haefely,ja,
+vorname_text_ohne_beruf_r1,004608,Johann Friedrich Michel,nein,"Confiseur, HLS: Anwalt"
+vorname_text_ohne_beruf_r1,028720,Daniel Oertli,ja,
+vorname_text_ohne_beruf_r1,031719,Ernst Rudolf Zaugg,nein,Geometer bzw. Agentur
+vorname_text_ohne_beruf_r1,042170 046043,Eugen Keller,nein,"Bijoutier, HLS: Jurist"
+vorname_text_ohne_beruf_r1,003659,Karl Koller,ja,
+vorname_text_ohne_beruf_r1,014793,Eugen Blocher,ja,
+vorname_text_ohne_beruf_r1,032653,Luigi Balestra,ja,
+vorname_text_ohne_beruf_r1,004919,Albert Paschoud,ja,
+vorname_text_ohne_beruf_r1,041219,Rudolf Fastenrath,ja,
+vorname_text_ohne_beruf_r1,043806,Eugen Hasler,nein,Hasler-Dennler = Vater
+vorname_text_ohne_beruf_r1,031915 032000,Friedrich Ris,nein,lebte ab 1898 in Rheinau
+vorname_text_ohne_beruf_r1,029692,Johann Jakob Witschi,ja,
+vorname_text_ohne_beruf_r1,029901,Rudolf Daniel Horner,nein,Feuerwehr-Commissär = Vater
+vorname_ohne_beruf,016520,Karl Schneider,nein,"Redaktor 1900, HLS-Person 14 Jahre alt"
+vorname_ohne_beruf,017085,Franz Kaufmann,ja,
+vorname_ohne_beruf,006877,Adolf Brodbeck,nein,"zur Feldsäge, HLS: Anwalt"
+vorname_ohne_beruf,028777,William Barbey,ja,
+vorname_ohne_beruf,028908,Arnold Pictet,ja,
+vorname_ohne_beruf,042952,Karl Kottmann,ja,
+vorname_ohne_beruf,030896,Julius Weber,ja,
+vorname_ohne_beruf,029488,Gustav Henckell,ja,
+vorname_ohne_beruf,032397,Carl Weber,nein,"Stadtmühle, Namensvetter"
+vorname_ohne_beruf,031138,Beat Stoffel,ja,
+vorname_ohne_beruf,022758,Adolphe Gavillet,ja,
+vorname_ohne_beruf,030316,Georges Heberlein,ja,
+vorname_ohne_beruf,045574,Adolf Forter,ja,
+vorname_ohne_beruf,014925,Armin Kornfein,ja,
+vorname_ohne_beruf,043177,Otto Erzer,ja,
+vorname_ohne_beruf,030130,Caspar Pinösch,ja,
+vorname_ohne_beruf,048853,Carl Irlet,nein,Negotiant = Vater
+vorname_ohne_beruf,047527,Alfred Glaus,ja,
+schwach,028210,Henry Gysler,nein,"ohne Vornamen, Geschäft"
+schwach,014324,Max Cloetta,ja,
+schwach,029605,Walter Boveri,ja,
+schwach,005583,Carl Rusch,ja,
+schwach,029614,Friedrich Traugott Oederlin,ja,
+schwach,023040,Rudolf Morf,nein,"Frau, Spezereihandlung"
+schwach,014832,Eugène Broye,nein,Mlle
+schwach,004864,Ferdinand Virieux,nein,nur Adresse
+schwach,010894,Eberhard Vischer,nein,"E. Vischer, Architekten"
+schwach,019368,Samuel Darier,nein,Firma
+schwach,009004,Albert Barth,nein,Witwe
+schwach,004411,Gottfried Bangerter,ja,
+schwach,031760,Emil Hess,nein,"Prof. E. Hess, Tierheilkunde"
+schwach,003560,Johann Anton Caflisch,nein,Casino
+schwach,016162,Noëlle Roger,nein,nouveautés
+schwach,007214,Emil Bernhard,nein,Witwe
+schwach,011032,Antoine Jean Baumgartner,ja,
+schwach,030713,Jules Girardet,nein,Mme
+schwach,010818,Albert Schädelin,ja,Pfarrer in Bern ab 1911
+schwach,048320,Adolf Vogt,nein,Kaufmann/Seruminstitut

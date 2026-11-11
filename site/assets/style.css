@@ -292,3 +292,28 @@ mark { background: #fff1a8; color: inherit; padding: 0 1px; }
 .field-grid .q { font: inherit; font-size: 15px; padding: 8px; border: 1px solid var(--border); background: var(--panel); }
 .year-h { margin: 24px 0 4px; }
 button.more { font: 600 1rem/1 var(--font-nav); padding: 10px 18px; margin: 16px 0; border: 1px solid var(--cat-ann-dk); background: var(--panel); color: var(--cat-ann-dk); cursor: pointer; }
+
+/* M9: vom HLS zum Eintrag */
+.pill.hl-normdaten, .sw.hl-normdaten, .hl-bar .hl-normdaten, .hl-cell.hit.hl-normdaten { background: var(--cat-pers-dk); color: #fff; }
+.pill.hl-wahrscheinlich, .sw.hl-wahrscheinlich, .hl-bar .hl-wahrscheinlich, .hl-cell.hit.hl-wahrscheinlich { background: var(--cat-pers); color: var(--ink); }
+.pill.hl-möglich, .sw.hl-möglich, .hl-bar .hl-möglich, .hl-cell.hit.hl-möglich { background: var(--cat-pers-pale); color: var(--ink); }
+.pill.hl-schwach, .sw.hl-schwach, .hl-bar .hl-schwach, .hl-cell.hit.hl-schwach { background: #e9e4e4; color: var(--ink); }
+.pill.hl-nicht_gefunden, .sw.hl-nicht_gefunden, .hl-bar .hl-nicht_gefunden { background: var(--panel); color: var(--muted); border: 1px solid var(--border); }
+.hl-bar { display: flex; height: 18px; border: 1px solid var(--border); background: var(--panel); min-width: 160px; }
+.hl-bar span { display: block; height: 100%; border: 0; }
+.hl-sum .big { font: 600 1.15rem/1.4 var(--font-serif); margin: 0 0 12px; }
+table.hl-groups { width: 100%; border-collapse: collapse; }
+table.hl-groups th, table.hl-groups td { padding: 6px 10px; border-bottom: 1px solid var(--border); text-align: left; }
+table.hl-groups td.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+table.hl-groups td.barcell { width: 55%; }
+.hl-grid { display: grid; gap: 6px; margin-top: 8px; }
+.hl-line { display: grid; grid-template-columns: minmax(140px, 30%) 1fr; gap: 10px; align-items: center; }
+.hl-place { font-size: .92rem; overflow-wrap: anywhere; }
+.hl-row { position: relative; height: 20px; background: var(--panel); border: 1px solid var(--border); }
+.hl-cell { position: absolute; top: 0; bottom: 0; }
+.hl-cell.span, .sw.hl-span { background: #f2efe9; }
+.hl-cell.book, .sw.hl-book { background: var(--cat-ann-pale); }
+.hl-cell.hit { outline: 1px solid var(--panel); }
+.card.hl-hint { border-left-color: var(--cat-pers); }
+.pager button { font: inherit; }
+@media (max-width: 640px) { .hl-line { grid-template-columns: 1fr; gap: 2px; } table.hl-groups td.barcell { width: auto; } }

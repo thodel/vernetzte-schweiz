@@ -18,7 +18,7 @@ zusammengeführt, verknüpft und gezeigt.
 | Umfang Telefonbücher | Alle Einträge bis 1914 sind suchbar, auch Orte ohne Adressbuch. |
 | Charge A | Wird im PTT-Repo eintragsweise neu aufbereitet (`tsv/a/<RefCode>.tsv`); hier nur übernommen, nicht neu gelesen. Charge B (1911–1914) wird hier verortet und zerlegt. |
 | Sichtbarkeit von Normdaten | Alles bis «möglich»; was in der HLS-Prüfung als falsch erkannt oder als «verworfen» eingestuft ist, erscheint nicht. |
-| Lizenzen | Seite und Code: MIT. Daten: noch festzulegen. Verknüpfungen: ohne Lizenz (siehe offene Fragen). |
+| Lizenzen | Seite und Code: MIT. Inhalte der Bücher bis 1914: gemeinfrei (URG Art. 2 Abs. 1, Art. 29 Abs. 2). Daten und Verknüpfungen: CC0 1.0 (Entscheid 11.11.2026, README). |
 | Verknüpfungen als Datensatz | Ja, vorerst als CSV in diesem Repo (`links/`). |
 | Sprache | Deutsch; alle Texte der Seite liegen in `site/i18n/de.json`, damit fr/it/en folgen können. |
 | Sichtbarkeit Repo | öffentlich |
@@ -161,11 +161,42 @@ Jahr); jede Zelle der Übersicht Kanton × Jahr öffnet die Einträge mit Filter
 vom IIIF-Server des PTT-Archivs für die Bände bis 1910. Offen: Versatz Seite → Bild für
 1911–1914. [Aufbau](docs/volltext.md).
 
+**M9 — Vom HLS zum Eintrag.** ✔ 11.11.2026, Seite `#/hls`. Ursprünglicher Plan vom selben Tag: Die umgekehrte Prüfung
+([Messung](docs/hls_abdeckung.md)) erwartet 5 981 HLS-Personen an Orten und in Jahren mit
+Telefon- oder Adressbuch; gefunden sind etwa 1 200 (rund 20 %). Die Ansicht macht diese
+Prüfung für jede Person sichtbar, ohne Kandidaten als Identifikation auszugeben.
+
+- **Personenseite `#/hls/<HLS-Nummer>`:**
+  - Name, Lebensdaten, Link zum HLS-Artikel. Kein Artikeltext: die Rechte daran liegen
+    beim HLS.
+  - Ein Raster der erwachsenen Jahre 1880–1914 mal Orte der Person. Jede Zelle zeigt, ob
+    dort in jenem Jahr ein Buch vorliegt und ob ein Eintrag gefunden ist.
+  - Die Treffer nach Stufe, klar getrennt: «Normdaten» als Verknüpfung, «Kandidat: Name,
+    Ort, Vorname» und «Kandidat: Initiale» als Vorschläge. Jeder mit Link zur Einheit, zum
+    Eintrag und zum Seitenbild.
+  - Bei «nicht gefunden» der Grund: kein Buch an diesem Ort in diesen Jahren; Name fehlt
+    ganz; Name steht anderswo, mit Liste.
+- **Übersicht `#/hls`:**
+  - die Quote insgesamt, nach Kanton, nach Geburtsjahrzehnt, nach Geschlecht und nach dem
+    Fachgebiet des HLS-Artikels (wer hatte Telefon?);
+  - eine sortierbare Liste mit Filtern nach Stufe, Ort und Jahren;
+  - eine Suche nach Name oder HLS-Nummer.
+- **Rückweg:** Auf der Seite einer Einheit erscheint ein HLS-Kandidat als «möglicher
+  HLS-Eintrag», getrennt von den Normdaten.
+- **Daten:**
+  - `hls/<xx>.json.gz` in 64 Teilen nach FNV der HLS-Nummer;
+  - `hls.json.gz` als Index (Nummer, Name, Jahre, Stufe), für Liste und Suche;
+  - Bau in `build_hls.py` aus `data/norm/hls_coverage.csv.gz`.
+  - Die HLS-CSV liegt nicht im Repo. `hls_coverage.py` läuft lokal, sein Ergebnis wird
+    eingecheckt.
+- **Vorher:** Orte mit Jahr aus dem Artikeltext und Beruf als Bedingung (siehe Messung).
+  Beides wird an je 40 Personen je Stufe gemessen, bevor die Ansicht Kandidaten zeigt.
+- **Ziel:** Eine HLS-Person mit Telefon ist in zwei Klicks bei ihrem Eintrag und dem
+  Seitenbild. Wer fehlt, sieht warum.
+
 ## Offene Fragen
 
-1. **Lizenz der Daten.** Die PTT-Daten sind laut Projektleitung (06.11.2026) frei
-   nutzbar, das PTT-Repo hat aber keine Lizenzdatei. Welche Lizenz, und wer gibt sie frei?
-2. **«Verknüpfungen ohne Lizenz».** Ohne Lizenz gilt rechtlich «alle Rechte vorbehalten»;
-   andere dürfen den Datensatz dann nicht weiterverwenden. Gemeint ist vermutlich CC0
-   (gemeinfrei). Bis zur Klärung trägt `links/` keine Lizenzdatei.
+1. ~~Lizenz der Daten~~ und 2. ~~Verknüpfungen ohne Lizenz~~: entschieden 11.11.2026. Die
+   Inhalte der Bücher bis 1914 sind gemeinfrei; `data/` und `links/` stehen unter CC0 1.0
+   (README, `data/LICENSE.md`, `links/LICENSE.md`).
 3. **Zürich und Baden:** Gibt es schon Repos oder Scans, und welche Bände?
