@@ -109,7 +109,13 @@ Verknüpfung und Bau laufen durch.
   1 748 von 4 514. Stichprobe `data/review/m5_bern_lausanne.csv`: Lausanne 14 von 18 richtig, 3 unklar, 1 falsch; **Bern
   10 von 18 richtig, 4 unklar, 4 falsch** (Namensvettern; Initiale + Telefonzeichen reicht in der Grossstadt nicht, selbst
   ein «sicher» war falsch). HLS (M9): +15 wahrscheinlich, +6 Normdaten, +12 möglich.
-- offen: Bern-Verknüpfung schärfen (Strasse/Beruf verlangen, Stufen in Bern neu messen); Zürich (Lesung läuft);
+- ✔ 13.11.2026 **Bern-Verknüpfung geschärft** (`scripts/link_ptt_ab.py`): abgekürzte Gasse/Platz («Kramg.», «Bärenpl.»)
+  zählen als Strasse; Initiale + Telefonzeichen trägt bei mehr als 5 Personen gleichen Namens im Band nichts mehr;
+  allgemeine Firmenwörter (`GENERIC_FIRM`) brauchen die gleiche Strasse; weitere Einträge derselben Person im Band
+  (Beleg `zusatz`) nur bei gleicher Strasse, Hausnummer oder gleichem ausgeschriebenem Vornamen. Bern Stichprobe 2
+  (40, geschichtet): sicher 10/10, wahrscheinlich 7/10 (2 unklar), möglich 7/10, zusatz 8/10; davor rund 27/40.
+  Aarau fast unverändert (Paare 16 731 → 16 440, gemessene Präzision gilt weiter).
+- offen: Zürich (Lesung läuft);
   Bern 1860 (Fraktur, nicht ganz gelesen); die übrigen Waadtländer Gemeinden im Indicateur 1907 (S. 664–960).
 
 **M6 — Visualisierungen.** ✔ 10.11.2026: Karten «Wer bekam wann ein Telefon», «Berufe», «Namen» (`#/karten`), Berufssuche mit Karte und Quellenfilter in der Suche; [Aufbau und Messung](docs/karten.md). Umgesetzt sind die ersten drei Punkte; die weiteren Ideen bleiben offen. Nachgetragen: Regler für Jahre (ein Jahr oder Bereich) statt Zeiträumen, Quelle Telefon-/Adressbuch in «Berufe» und «Namen». Grundlage sind die Einheiten aus M3 (eine Person oder Firma

@@ -57,15 +57,17 @@ wenn
 - und mindestens Vorname oder Hausnummer auf beiden Seiten steht.
 
 Verknüpft wird nur, wenn **genau eine Person** die höchste Punktzahl hat. Dann werden
-alle ihre Einträge im Band verknüpft. Passen zwei Personen gleich gut (Vater und Sohn
-am selben Haus), entsteht keine Verknüpfung (`mehrdeutig`).
+alle ihre Einträge im Band verknüpft (Beleg `zusatz`), seit dem 13.11.2026 aber nur jene mit
+gleicher Strasse, gleicher Hausnummer oder gleichem ausgeschriebenem Vornamen wie der beste
+Eintrag: in Bern teilen viele «J. Gerber» Initiale und Namen. Passen zwei Personen gleich gut
+(Vater und Sohn am selben Haus), entsteht keine Verknüpfung (`mehrdeutig`).
 
 ## Stufen
 
 | Stufe | Belege |
 |---|---|
 | `sicher` | Vorname (auch nur Initiale) **und** Adresse; Firma und Adresse; ausgeschriebener Vorname und Allianzname |
-| `wahrscheinlich` | ausgeschriebener Vorname; Initiale und Beruf, Allianzname oder Telefonzeichen; Hausnummer; Firma, deren Name im Band nur einmal vorkommt |
+| `wahrscheinlich` | ausgeschriebener Vorname; Initiale und Beruf oder Allianzname; Initiale und Telefonzeichen, wenn höchstens 5 Personen des Namens im Band stehen; Hausnummer; Firma, deren Name im Band nur einmal vorkommt |
 | `möglich` | Strasse; Allianzname; Name im Band nur einmal vorhanden (mit Initiale, oder ohne bei höchstens 10 Jahren Abstand); Firma gegen ihren Inhaber am selben Haus |
 
 **Jahresabstand.** Söhne und Nachfolger tragen Namen, Haus und Geschäft weiter. Deshalb
@@ -74,6 +76,12 @@ gelten zwei Grenzen:
   ausgeschriebenen Vornamen mit Adresse, Allianzname oder Beruf, oder eine Initiale mit
   gleicher Hausnummer. Eine Adresse ohne Vornamen genügt nicht mehr.
 - **Über 30 Jahre:** nur noch gleiche Adresse mit passendem Vornamen, als `möglich`.
+
+**Grossstadt (Bern, M5).** Abgekürzte Gassen und Plätze («Kramg.», «Bärenpl.») zählen als
+Strasse. Allgemeine Firmenwörter als Leitname («Schweizerische», «Café», «Bureau»,
+«Gesellschaft», Liste `GENERIC_FIRM`) verknüpfen nur bei gleicher Strasse. Gemessen in
+`data/review/m5_bern_lausanne.csv`, Stichprobe 2: `sicher` 10/10, `wahrscheinlich` 7/10
+(2 unklar), `möglich` 7/10, `zusatz` 8/10.
 
 Basel hat bisher nur den Band 1862, die Telefonbücher beginnen 1881. Basel hat deshalb
 keine Stufe `sicher`.

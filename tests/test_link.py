@@ -4,7 +4,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
 
-from link_ptt_ab import compare_forenames, forename_tokens, nkey, same_person, tier_for  # noqa: E402
+from link_ptt_ab import (GENERIC_FIRM, compare_forenames, forename_tokens, nkey, same_house_or_name,  # noqa: E402
+                         same_person, skey, tier_for)
 
 
 def cmp(ptt: str, ab: str) -> str:
@@ -74,3 +75,33 @@ class PersonTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class BigCityTest(unittest.TestCase):
+    """Bern (M5): Namensvettern in der Grossstadt, gemessen in data/review/m5_bern_lausanne.csv."""
+
+    def test_abbreviated_streets(self):
+        self.assertEqual(skey("Marktg."), skey("Marktgasse"))
+        self.assertEqual(skey("Kramg"), skey("Kramgasse"))
+        self.assertEqual(skey("Bärenpl."), skey("Bärenplatz"))
+        for name in ("Seidenweg", "Schlossberg", "Hasenburg", "Aarberg"):
+            self.assertNotIn("gas", skey(name), name)
+
+    def test_initial_and_phone_sign_not_enough_for_common_names(self):
+        ev = ["vorname:initiale", "telefonzeichen"]
+        self.assertEqual(tier_for(ev, 1, 2, 0), "wahrscheinlich")
+        self.assertEqual(tier_for(ev, 1, 40, 0), "")  # «Müller, R.» in Bern 1900: keine Verknüpfung
+
+    def test_generic_firm_words(self):
+        for w in ("Schweizerische", "Café", "Bureau", "Gesellschaft"):
+            self.assertIn(nkey(w), GENERIC_FIRM, w)
+        self.assertNotIn(nkey("Volksbank"), GENERIC_FIRM)
+
+    def test_attached_entry_needs_house_or_full_name(self):
+        def rec(fn, st="", no=""):
+            return {"_fn": forename_tokens(fn), "_st": skey(st), "_no": no}
+        moser_f = rec("F.", "Wabernstrasse", "22")
+        self.assertFalse(same_house_or_name(rec("Frieda", "Predigergasse", "10"), moser_f))
+        self.assertTrue(same_house_or_name(rec("Fr.", "Wabernstr.", "22"), moser_f))
+        self.assertTrue(same_house_or_name(rec("Theophil", "Kirchg.", "6"), rec("Theophil", "Kramgasse", "7")))
+

@@ -61,9 +61,16 @@ def nkey(s: str) -> str:
     return s
 
 
+# «Kramg.», «Bärenpl.»: abgekürzte Gasse und Platz (Adressbücher Bern, Basel); nicht -weg, -berg …
+ABBR_GASSE = re.compile(r"(?<=[a-zäöü])(?<!we)(?<!ber)(?<!bur)(?<!stei)(?<!rin)(?<!ste)g\.?$")
+ABBR_PLATZ = re.compile(r"(?<=[a-zäöü])pl\.?$")
+
+
 def skey(street: str) -> str:
-    """Strassenschlüssel, unempfindlich gegen Bindestriche, St./Sankt, -thor/-tor."""
-    k = street_key(street or "")
+    """Strassenschlüssel, unempfindlich gegen Bindestriche, St./Sankt, -thor/-tor, «-g.» für -gasse."""
+    street = (street or "").strip()
+    street = ABBR_PLATZ.sub("platz", ABBR_GASSE.sub("gasse", street))
+    k = street_key(street)
     k = re.sub(r"^(st|sankt|ste|saint)\s+", "", k)
     k = re.sub(r"^(im|in der|in|an der|am|auf der|auf dem|vor dem|beim|bei der|zum|zur)\s+", "", k)
     k = k.replace(" ", "")
@@ -250,9 +257,22 @@ def same_numbering(city: str, a: str, b: str) -> bool:
 
 # ── Vergleich ─────────────────────────────────────────────────────────────
 
+# Leitwörter, die viele verschiedene Firmen teilen («Schweizerische Depeschenagentur» ≠
+# «Schweizerische Möbelindustrie», «Café Turm» ≠ «Café du Théâtre»): nur mit gleicher Strasse
+GENERIC_FIRM = {nkey(w) for w in (
+    "schweizerische", "schweizerischer", "schweizer", "eidg", "eidgenössische", "kantonale", "kantonal",
+    "bernische", "basler", "aargauische", "allgemeine", "café", "cafe", "hotel", "hôtel", "restaurant",
+    "gasthof", "gasthaus", "pension", "bank", "banque", "société", "compagnie", "caisse", "union",
+    "internationale", "neue", "erste", "grand", "grande", "la", "le", "les", "zum", "zur", "aux", "au",
+    "bureau", "büreau", "gesellschaft", "verein", "comptoir", "direktion", "verwaltung", "agentur",
+    "magasin", "maison", "atelier", "fabrik", "fabrique", "depot", "dépôt", "konsum", "volks")}
+
+
 def score(p: dict, c: dict, city: str) -> tuple[int, list[str]] | None:
     """Punkte und Belege eines Kandidaten, None bei Widerspruch."""
     ev, s = [], 0
+    if p["_firm"] and p["_sk"] in GENERIC_FIRM and not (p["_st"] and p["_st"] == c["_st"]):
+        return None
     if p["_firm"]:
         if c["_firm"]:
             s += 2
@@ -304,6 +324,11 @@ def score(p: dict, c: dict, city: str) -> tuple[int, list[str]] | None:
     return s, ev
 
 
+# Mehr verschiedene Personen dieses Namens im Band: Initiale und Telefonzeichen allein tragen
+# nichts mehr (Bern 1900: «Müller, R.» mit ☎ ist nicht «Müller-Berger, Frau R.»)
+COMMON_SURNAME = 5
+
+
 def tier_for(ev: list[str], groups_at_top: int, n_surname: int, gap: int) -> str:
     """Stufe aus den Belegen. Über eine halbe Generation (mehr als 15 Jahre) braucht es
     einen ausgeschriebenen Vornamen oder die Hausnummer, über eine ganze (mehr als 30)
@@ -322,7 +347,8 @@ def tier_for(ev: list[str], groups_at_top: int, n_surname: int, gap: int) -> str
         return "wahrscheinlich" if fn and number else "möglich"
     if (fn and street) or (firm and street) or (strong_fn and "allianzname" in ev):
         t = 0
-    elif strong_fn or (fn and ("beruf" in ev or "allianzname" in ev or "telefonzeichen" in ev)) \
+    elif strong_fn or (fn and ("beruf" in ev or "allianzname" in ev)) \
+            or (fn and "telefonzeichen" in ev and n_surname <= COMMON_SURNAME) \
             or number or (firm and n_surname == 1):
         t = 1
     elif street or "allianzname" in ev or (n_surname == 1 and (fn or gap <= 10)):
@@ -396,6 +422,17 @@ def same_person(a: dict, b: dict) -> bool:
     return bool((fa and fb) or (a["_no"] and b["_no"]))
 
 
+def same_house_or_name(a: dict, b: dict) -> bool:
+    """Weiterer Eintrag derselben Person im Band nur bei gleicher Strasse oder Hausnummer oder
+    gleichem ausgeschriebenem Vornamen: in Bern teilen viele «J. Gerber» Initiale und Namen."""
+    if a["_st"] and a["_st"] == b["_st"]:
+        return True
+    if a["_no"] and b["_no"] and num(a["_no"]) == num(b["_no"]):
+        return True
+    full = lambda r: [k for k, initial in r["_fn"] if not initial]
+    return bool(full(a)) and full(a) == full(b)
+
+
 def persons(rows: list[dict]) -> int:
     """Anzahl verschiedener Personen unter Einträgen gleichen Namens (verkettend gebündelt)."""
     parent = list(range(len(rows)))
@@ -447,8 +484,9 @@ def link_city(city: dict, ptt: list[dict], idx: dict, volumes: dict[str, list[st
             # alle Einträge der gefundenen Person in diesem Band (Einwohner-, Berufs-,
             # Gebäudeverzeichnis), nicht nur der mit den meisten Punkten
             ids = {c["id"] for _, _, c in best}
-            best += [(sc, ev, c) for sc, ev, c in scored
-                     if c["id"] not in ids and any(same_person(c, b) for _, _, b in best[:1])]
+            top_c = best[0][2]
+            best += [(sc, ev + ["zusatz"], c) for sc, ev, c in scored
+                     if c["id"] not in ids and same_person(c, top_c) and same_house_or_name(c, top_c)]
             for s, ev, c in best:
                 out.append({
                     "ptt_id": p["id"], "ab_id": c["id"], "city": city["id"], "ptt_year": p["year"],

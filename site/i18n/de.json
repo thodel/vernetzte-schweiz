@@ -241,7 +241,7 @@
     ],
     [
       "Baden, Bern, Lausanne: ohne Nachkorrektur",
-      "Die Adressbücher von Baden (1900, 1910), Bern (1883–84, 1900) und Lausanne (1896, 1907) hat das Sprachmodell qwen3.8 gelesen, ohne Korrektur von Hand; in Stichproben waren in Bern 83–84 %, in Baden 93–96 % der Einträge voll korrekt, in Lausanne alle 30 geprüften. Im Scan Baden 1910 fehlen Blätter (Stadt Baden ab «Rü…», Bellikon, Bergdietikon bis «P»); der Band umfasst den ganzen Bezirk, jeder Eintrag zählt für seine Gemeinde. In Bern sind die Verknüpfungen mit dem Telefonbuch schwächer als anderswo: von 18 geprüften waren 10 richtig, 4 unklar und 4 falsch, weil viele Namensvettern in derselben Stadt wohnen."
+      "Die Adressbücher von Baden (1900, 1910), Bern (1883–84, 1900) und Lausanne (1896, 1907) hat das Sprachmodell qwen3.8 gelesen, ohne Korrektur von Hand; in Stichproben waren in Bern 83–84 %, in Baden 93–96 % der Einträge voll korrekt, in Lausanne alle 30 geprüften. Im Scan Baden 1910 fehlen Blätter (Stadt Baden ab «Rü…», Bellikon, Bergdietikon bis «P»); der Band umfasst den ganzen Bezirk, jeder Eintrag zählt für seine Gemeinde. In Bern, wo viele Namensvettern in derselben Stadt wohnen, sind die Regeln strenger: abgekürzte Gassen («Kramg.») zählen als Strasse, Initiale und Telefonzeichen allein genügen bei häufigen Namen nicht, allgemeine Firmenwörter («Schweizerische», «Café», «Bureau») brauchen die gleiche Strasse. Danach waren von 40 geprüften Verknüpfungen 32 richtig, 4 unklar und 4 falsch; «sicher» 10 von 10."
     ]
   ],
   "pg_entries_merged": "Gleiche Zeilen aus mehreren Ausgaben desselben Jahres sind zusammengefasst: {n} Zeilen.",
