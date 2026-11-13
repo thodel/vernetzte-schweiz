@@ -60,6 +60,32 @@ files = [
   { path = "data/csv/04_berufe.csv",  kind = "berufe" },
 ]
 
+[[city]]
+id = "bern"
+label = "Bern"
+repo = "thodel/adressbuecher-bern"
+commit = "9bb1972f23f9eb458011b96e15ded8988c9ecced"
+site = "https://github.com/thodel/adressbuecher-bern"
+authority = "data/csv/10_authority_links.csv"
+# Gelesen mit qwen3.8 (ohne Nachkorrektur, Stichprobe 83–84 % voll korrekt).
+files = [
+  { path = "data/csv/04_entries.csv", kind = "einwohner" },
+  { path = "data/csv/04_berufe.csv",  kind = "berufe" },
+]
+
+[[city]]
+id = "lausanne"
+label = "Lausanne"
+repo = "thodel/adressbuecher-lausanne"
+commit = "c4c5d8de10ed5232b3b62b74798cd723ddbf8ad0"
+site = "https://github.com/thodel/adressbuecher-lausanne"
+authority = "data/csv/10_authority_links.csv"
+# Indicateur vaudois, nur die Stadt; gelesen mit qwen3.8 (ohne Nachkorrektur).
+files = [
+  { path = "data/csv/04_entries.csv", kind = "einwohner" },
+  { path = "data/csv/04_berufe.csv",  kind = "berufe" },
+]
+
 # --- Telefonbücher ----------------------------------------------------------
 # PTT-Archiv P-260, gelesen und segmentiert von DH Bern / localsearch.
 # Charge A (bis 1910) liegt eintragsweise in tsv/a/<RefCode>.tsv.

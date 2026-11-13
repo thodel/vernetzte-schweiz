@@ -62,7 +62,7 @@
     ],
     [
       "M5",
-      "Weitere Städte: Baden (1900, 1910) ist drin; Zürich, Bern, Lausanne folgen",
+      "Weitere Städte: Baden, Bern (1883–84, 1900) und Lausanne (1896, 1907) sind drin; Zürich folgt",
       "next"
     ],
     [
@@ -88,7 +88,7 @@
   ],
   "status_done": "erledigt",
   "status_next": "als Nächstes",
-  "footer_sources": "Quellen: Adressbücher Aarau (Kantonsbibliothek Aargau), Basel (Staatsarchiv Basel-Stadt) und Baden (1900, 1910; gelesen mit qwen3.8); Telefonbücher PTT-Archiv P-260, aufbereitet von DH Bern und localsearch (historic.localsearch.ch).",
+  "footer_sources": "Quellen: Adressbücher Aarau (Kantonsbibliothek Aargau), Basel (Staatsarchiv Basel-Stadt) Baden, Bern und Lausanne (gelesen mit qwen3.8); Telefonbücher PTT-Archiv P-260, aufbereitet von DH Bern und localsearch (historic.localsearch.ch).",
   "footer_license": "Code und Seite unter MIT-Lizenz. Die Inhalte der Bücher bis 1914 sind gemeinfrei; Daten und Verknüpfungen stehen unter CC0.",
   "loading": "Lade Kennzahlen …",
   "load_error": "Die Kennzahlen konnten nicht geladen werden.",
@@ -240,8 +240,8 @@
       "Code und Seite stehen unter MIT-Lizenz. Die Inhalte der Telefon- und Adressbücher bis 1914 sind gemeinfrei: Verzeichnisse nach alphabetischen oder geografischen Kriterien erreichen nach dem Urheberrechtsgesetz (Art. 2 Abs. 1 URG) in der Regel keine Schöpfungshöhe, und wo doch ein Werk vorläge, ist die Schutzfrist abgelaufen (Art. 29 Abs. 2 URG). Daten und Verknüpfungen stehen unter CC0 und dürfen frei weitergenutzt werden. Aus dem HLS übernehmen wir nur Fakten, keinen Artikeltext."
     ],
     [
-      "Baden: ohne Nachkorrektur",
-      "Die Adressbücher von Baden 1900 und 1910 hat das Sprachmodell qwen3.8 gelesen, ohne Korrektur von Hand; in Stichproben waren 93–96 % der Einträge voll korrekt. Im Scan von 1910 fehlen Blätter (Stadt Baden ab «Rü…», Bellikon, Bergdietikon bis «P»). Der Band 1910 umfasst den ganzen Bezirk; jeder Eintrag zählt für seine Gemeinde."
+      "Baden, Bern, Lausanne: ohne Nachkorrektur",
+      "Die Adressbücher von Baden (1900, 1910), Bern (1883–84, 1900) und Lausanne (1896, 1907) hat das Sprachmodell qwen3.8 gelesen, ohne Korrektur von Hand; in Stichproben waren in Bern 83–84 %, in Baden 93–96 % der Einträge voll korrekt, in Lausanne alle 30 geprüften. Im Scan Baden 1910 fehlen Blätter (Stadt Baden ab «Rü…», Bellikon, Bergdietikon bis «P»); der Band umfasst den ganzen Bezirk, jeder Eintrag zählt für seine Gemeinde. In Bern sind die Verknüpfungen mit dem Telefonbuch schwächer als anderswo: von 18 geprüften waren 10 richtig, 4 unklar und 4 falsch, weil viele Namensvettern in derselben Stadt wohnen."
     ]
   ],
   "pg_entries_merged": "Gleiche Zeilen aus mehreren Ausgaben desselben Jahres sind zusammengefasst: {n} Zeilen.",

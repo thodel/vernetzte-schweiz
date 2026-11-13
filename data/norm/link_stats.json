@@ -53,5 +53,43 @@
    "möglich": 842,
    "wahrscheinlich": 1775
   }
+ },
+ "bern": {
+  "ptt_entries": 55380,
+  "ptt_linked": 27450,
+  "pairs": 72035,
+  "decisions": {
+   "wahrscheinlich": 15795,
+   "möglich": 8569,
+   "kein-name": 32321,
+   "zu-schwach": 18684,
+   "mehrdeutig": 18970,
+   "widerspruch": 7662,
+   "sicher": 8759
+  },
+  "by_tier": {
+   "wahrscheinlich": 33968,
+   "möglich": 15031,
+   "sicher": 23036
+  }
+ },
+ "lausanne": {
+  "ptt_entries": 4514,
+  "ptt_linked": 1748,
+  "pairs": 6007,
+  "decisions": {
+   "wahrscheinlich": 1474,
+   "möglich": 629,
+   "zu-schwach": 1780,
+   "kein-name": 2410,
+   "mehrdeutig": 1775,
+   "widerspruch": 665,
+   "sicher": 295
+  },
+  "by_tier": {
+   "wahrscheinlich": 3784,
+   "möglich": 1326,
+   "sicher": 897
+  }
  }
 }

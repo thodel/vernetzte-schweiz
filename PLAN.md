@@ -103,7 +103,14 @@ Verknüpfung und Bau laufen durch.
   Telefonbuch-Einträgen des Bezirks verknüpft; Stichprobe `data/review/m5_baden.csv`: 24 von 30 richtig,
   6 unklar, keiner falsch. HLS-Abdeckung (M9) fast unverändert (+3 wahrscheinlich, +1 Normdaten): die
   Badener HLS-Personen waren schon über die Telefonbücher erreichbar.
-- offen: Zürich (1859–1914, Lesung läuft), Bern (1860, 1883–84, 1900), Lausanne (1896, 1907).
+- ✔ 13.11.2026 **Bern** 1883–84 und 1900 ([adressbuecher-bern](https://github.com/thodel/adressbuecher-bern), 34 743
+  Einträge) und **Lausanne** 1896 und 1907, nur die Stadt ([adressbuecher-lausanne](https://github.com/thodel/adressbuecher-lausanne),
+  53 703 Einträge; «m. a.» = Adresse des vorigen Eintrags). Telefonbuch verknüpft: Bern 27 450 von 55 380, Lausanne
+  1 748 von 4 514. Stichprobe `data/review/m5_bern_lausanne.csv`: Lausanne 14 von 18 richtig, 3 unklar, 1 falsch; **Bern
+  10 von 18 richtig, 4 unklar, 4 falsch** (Namensvettern; Initiale + Telefonzeichen reicht in der Grossstadt nicht, selbst
+  ein «sicher» war falsch). HLS (M9): +15 wahrscheinlich, +6 Normdaten, +12 möglich.
+- offen: Bern-Verknüpfung schärfen (Strasse/Beruf verlangen, Stufen in Bern neu messen); Zürich (Lesung läuft);
+  Bern 1860 (Fraktur, nicht ganz gelesen); die übrigen Waadtländer Gemeinden im Indicateur 1907 (S. 664–960).
 
 **M6 — Visualisierungen.** ✔ 10.11.2026: Karten «Wer bekam wann ein Telefon», «Berufe», «Namen» (`#/karten`), Berufssuche mit Karte und Quellenfilter in der Suche; [Aufbau und Messung](docs/karten.md). Umgesetzt sind die ersten drei Punkte; die weiteren Ideen bleiben offen. Nachgetragen: Regler für Jahre (ein Jahr oder Bereich) statt Zeiträumen, Quelle Telefon-/Adressbuch in «Berufe» und «Namen». Grundlage sind die Einheiten aus M3 (eine Person oder Firma
 zählt einmal, nicht einmal je Jahrgang) und die Orte aus M1 (Gemeinde 1914, Koordinaten).
