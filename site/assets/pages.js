@@ -5,6 +5,7 @@
   const t = await fetch(`i18n/${lang}.json`).then(r => r.json());
   const nf = new Intl.NumberFormat("de-CH");
   const n = v => nf.format(v);
+  const hlsUrl = id => `https://hls-dhs-dss.ch/${lang === "fr" ? "fr" : "de"}/articles/${id}/`;  // HLS: de, fr, it
   const el = (tag, attrs = {}, ...kids) => {
     const e = document.createElement(tag);
     for (const [k, v] of Object.entries(attrs)) {
@@ -272,7 +273,7 @@
       const a = e.au;
       const ids = [
         link(`https://www.wikidata.org/wiki/${a.qid}`, `Wikidata ${a.qid}`),
-        a.hls_id ? link(`https://hls-dhs-dss.ch/de/articles/${a.hls_id}/`, `HLS ${a.hls_id}`) : "",
+        a.hls_id ? link(hlsUrl(a.hls_id), `${t.hls_abbr || "HLS"} ${a.hls_id}`) : "",
         a.gnd ? link(`https://d-nb.info/gnd/${a.gnd}`, `GND ${a.gnd}`) : "",
       ].filter(Boolean).flatMap((x, i) => i ? [" · ", x] : [x]);
       parts.push(el("section", { class: "card auth" },
@@ -287,7 +288,7 @@
       parts.push(el("section", { class: "card hl-hint" },
         el("h2", {}, t.hl_hint_h, " ", hlBadge("wahrscheinlich")),
         ...e.hk.map(([hid, name, b, d, why]) => el("p", {}, el("b", {}, name), ` (${life(b, d)}) · `,
-          link(`#/hls/${hid}`, t.hl_hint_check), " · ", link(hlsUrl(hid), `HLS ${hid}`),
+          link(`#/hls/${hid}`, t.hl_hint_check), " · ", link(hlsUrl(hid), `${t.hls_abbr || "HLS"} ${hid}`),
           el("span", { class: "muted" }, ` — ${why.split(" ").map(x => x.split("+").map(y => t["hl_why_" + y] || y).join(" + ")).join("; ")}`))),
         el("p", { class: "sub note" }, t.hl_hint_note)));
     }
@@ -562,7 +563,7 @@
       const perYear = Array.from({ length: 35 }, (_, i) => ents.filter(e => e[1] === 1880 + i).length);
       ctl.append(rangeSlider(1880, 1914, a, b, (x, y) => set({ a: x, b: y })),
         select([["alle", t.mp_all], ["person", t.pg_kind_person], ["firma", t.pg_kind_firma]], kind, t.mp_kind),
-        select([["alle", t.mp_all], ...D.classes.map(([k, lab], i) => [i, lab])], cls, t.mp_class),
+        select([["alle", t.mp_all], ...D.classes.map(([k, lab], i) => [i, t[`occ_${k}`] || lab])], cls, t.mp_class),
         select([["alle", t.mp_all], ...cantons.map(c => [c, c])], can, t.mp_canton));
       wire(["k", "c", "kt"]);
       heat(L, counts, D.places).addTo(mp);
@@ -582,7 +583,7 @@
         if (e[6] === cls) hit.set(e[0], (hit.get(e[0]) || 0) + 1);
       }
       ctl.append(rangeSlider(1860, 1914, a, b, (x, y) => set({ a: x, b: y })),
-        select(D.classes.map(([k, lab], i) => [i, lab]), cls, t.mp_class), srcSel(src),
+        select(D.classes.map(([k, lab], i) => [i, t[`occ_${k}`] || lab]), cls, t.mp_class), srcSel(src),
         select([["anzahl", t.mp_metric_count], ["anteil", t.mp_metric_share]], metric, t.mp_metric));
       wire(["c", "s", "m"]);
       if (metric === "anzahl") heat(L, hit, D.places).addTo(mp);
@@ -600,13 +601,13 @@
           return L.circleMarker([lat, lon], { radius: 3 + Math.min(12, Math.sqrt(c) / 3), color: "#555", weight: 0.5, fillColor: col, fillOpacity: 0.85 })
             .bindTooltip(`${name}: ${pct(sh)} (${n(hit.get(p) || 0)} / ${n(c)})`);
         })).addTo(mp);
-        const labels = ["0 %", `bis ${pct(cuts[1])}`, `${pct(cuts[1])}–${pct(cuts[2])}`, `${pct(cuts[2])}–${pct(cuts[3])}`, `über ${pct(cuts[3])}`];
+        const labels = ["0 %", t.mp_upto.replace("{p}", pct(cuts[1])), `${pct(cuts[1])}–${pct(cuts[2])}`, `${pct(cuts[2])}–${pct(cuts[3])}`, t.mp_over.replace("{p}", pct(cuts[3]))];
         side.append(el("ul", { class: "legend" }, ...steps.map((c, i) => el("li", {}, el("span", { class: "sw", style: `background:${c}` }), labels[i]))),
           el("p", { class: "sub" }, t.mp_share_size));
       }
       const tot = [...hit.values()].reduce((x, y) => x + y, 0);
       const ranked = [...hit].filter(([p]) => (all.get(p) || 0) >= 20).sort((x, y) => y[1] / all.get(y[0]) - x[1] / all.get(x[0])).slice(0, 10);
-      side.prepend(el("p", { class: "count" }, t.mp_occ_count.replace("{n}", n(tot)).replace("{c}", D.classes[cls][1]).replace("{g}", n(hit.size))));
+      side.prepend(el("p", { class: "count" }, t.mp_occ_count.replace("{n}", n(tot)).replace("{c}", t[`occ_${D.classes[cls][0]}`] || D.classes[cls][1]).replace("{g}", n(hit.size))));
       side.append(el("h2", {}, t.mp_occ_top), el("ol", { class: "top" }, ...ranked.map(([p, c]) =>
         el("li", {}, link(placeHref(D.places[p][0]), D.places[p][0]), ` ${Math.round(c / all.get(p) * 1000) / 10} % (${n(c)} / ${n(all.get(p))})`))),
         el("p", {}, link(`#/suche?b=`, t.mp_occ_free)));
@@ -828,8 +829,8 @@
 
   // ── M9: vom HLS zum Eintrag (scripts/build_hls.py, docs/hls_abdeckung.md) ──────
   const HL_TIERS = ["normdaten", "wahrscheinlich", "möglich", "schwach", "nicht_gefunden"];
+  const fieldName = f => (t.hl_fields || {})[f] || f;  // Fachgebiet des HLS in der Sprache der Seite
   const hlBadge = f => el("span", { class: `pill hl-${f}` }, t[`hl_t_${f}`] || f);
-  const hlsUrl = id => `https://hls-dhs-dss.ch/de/articles/${id}/`;
   const life = (b, d) => `${b}–${d || ""}`;
   let hlsIndex;
   const hlsData = async () => hlsIndex ??= await get("data/hls.json.gz");
@@ -858,7 +859,7 @@
       jz: r => `${Math.floor(r[2] / 10) * 10}er`,
       g: r => (r[4] === "f" ? t.hl_women : t.hl_men),
       s: r => t["hl_s_" + r[6]] || r[6],
-      fg: r => r[10].length ? r[10].map(i => H.fields[i]) : ["–"],
+      fg: r => r[10].length ? r[10].map(i => fieldName(H.fields[i])) : ["–"],
     }[by] || (r => r[7]);
     const groups = new Map();
     for (const r of H.rows) for (const k of [groupKey(r)].flat()) { if (!groups.has(k)) groups.set(k, []); groups.get(k).push(r); }
@@ -880,7 +881,7 @@
     const kts = [...new Set(H.rows.map(r => r[7]).filter(Boolean))].sort();
     const ksel = select([["", t.mp_all], ...kts.map(k => [k, k])], kt, t.hl_canton);
     ksel.querySelector("select").addEventListener("change", ev => go({ k: ev.target.value, p: "" }));
-    const fsel = select([["", t.mp_all], ...H.fields.map((f, i) => [String(i), f])], ff, t.hl_field);
+    const fsel = select([["", t.mp_all], ...H.fields.map((f, i) => [String(i), fieldName(f)])], ff, t.hl_field);
     fsel.querySelector("select").addEventListener("change", ev => go({ f: ev.target.value, p: "" }));
     const qf = fold(q), qn = q.replace(/\D/g, "");
     const hits = H.rows.filter(r => (!q || (qn && r[0].includes(qn)) || (qf && fold(r[1]).includes(qf)))
@@ -915,12 +916,12 @@
     try { shard = await get(`data/hls/${fnv(id, 0x3f)}.json.gz`); } catch { shard = {}; }
     const p = shard[id];
     if (!p) { view.replaceChildren(el("h1", {}, t.pg_not_found)); return; }
-    document.title = `${p.n} · HLS · Vernetzte Schweiz`;
+    document.title = `${p.n} · ${t.hls_abbr || "HLS"} · Vernetzte Schweiz`;
     const here = p.c.filter(c => c[7] === "ort"), far = p.c.filter(c => c[7] === "anderswo");
     const parts = [el("header", { class: "ent-head" },
       el("p", { class: "kicker" }, t.hl_kicker),
       el("h1", {}, p.n),
-      el("p", { class: "lead" }, `${life(p.b, p.d)} · `, link(hlsUrl(id), `HLS ${id}`), " ", hlBadge(p.f))),
+      el("p", { class: "lead" }, `${life(p.b, p.d)} · `, link(hlsUrl(id), `${t.hls_abbr || "HLS"} ${id}`), " ", hlBadge(p.f))),
       el("p", { class: "intro" }, t.hl_expected.replace("{a}", p.a[0]).replace("{z}", p.a[1]), " ", t["hl_s_long_" + p.s] || "")];
     // Raster: Orte × Jahre
     const [y0, y1] = p.a, w = 100 / (y1 - y0 + 1);
@@ -970,7 +971,7 @@
   const routes = { suche: search, e: entity, a: address, g: place, orte: placeList, vorbehalte: caveats, karten, buch: phonebook, hls };
   async function route() {
     dropMaps();
-    if (!location.hash.startsWith("#/")) {
+    if (!location.hash.startsWith("#/") || location.hash === "#/") {
       const wasHidden = overview.hidden;
       view.hidden = true; overview.hidden = false;
       document.title = "Vernetzte Schweiz 1860–1914";

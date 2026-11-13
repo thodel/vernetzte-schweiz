@@ -2,7 +2,19 @@
 (async function () {
   const lang = (document.documentElement.lang || "de").slice(0, 2);
   const t = await fetch(`i18n/${lang}.json`).then(r => r.json());
-  const nf = new Intl.NumberFormat("de-CH");
+  const nf = new Intl.NumberFormat("de-CH");  // Zahlen schweizerisch in allen Sprachen (21'948)
+
+  // Sprachwahl: aktuelle Sprache markieren; Wechsel behält die aufgerufene Seite (#/…)
+  document.querySelectorAll("#langs a").forEach(a => {
+    if (a.hreflang === lang) a.setAttribute("aria-current", "true");
+    a.addEventListener("click", ev => {
+      ev.preventDefault();
+      try { localStorage.setItem("lang", a.hreflang); } catch (e) {}
+      location.href = `?lang=${a.hreflang}${location.hash}`;
+    });
+  });
+  if (t.lang_switch) document.getElementById("langs")?.setAttribute("aria-label", t.lang_switch);
+  if (t.meta_description) document.querySelector('meta[name="description"]')?.setAttribute("content", t.meta_description);
   const n = v => nf.format(v);
   const el = (tag, attrs = {}, ...kids) => {
     const e = document.createElement(tag);

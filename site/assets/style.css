@@ -320,3 +320,9 @@ table.hl-groups td.barcell { width: 55%; }
 .card.hl-hint { border-left-color: var(--cat-pers); }
 .pager button { font: inherit; }
 @media (max-width: 640px) { .hl-line { grid-template-columns: 1fr; gap: 2px; } table.hl-groups td.barcell { width: auto; } }
+
+/* Sprachwahl */
+.langs { margin-left: auto; display: inline-flex; gap: 2px; font-family: var(--font-nav); font-size: .85rem; }
+.langs a { padding: 2px 7px; color: var(--muted); text-decoration: none; border: 1px solid transparent; border-radius: 3px; }
+.langs a:hover { color: var(--ink); border-color: var(--border); }
+.langs a[aria-current] { color: var(--ink); font-weight: 600; border-color: var(--cat-source); background: var(--cat-source-pale); }

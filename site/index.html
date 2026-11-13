@@ -6,6 +6,17 @@
 <title>Vernetzte Schweiz 1860–1914</title>
 <meta name="description" content="Adressbücher Schweizer Städte und frühe Telefonbücher der PTT, verknüpft mit Wikidata, HLS und GND.">
 <link rel="stylesheet" href="assets/style.css">
+<script>
+// Sprache: ?lang=…, sonst die gespeicherte Wahl, sonst der Browser, sonst Deutsch.
+(function () {
+  var L = ["de", "fr", "en"], q = new URLSearchParams(location.search).get("lang"), s = null;
+  try { s = localStorage.getItem("lang"); } catch (e) {}
+  var b = (navigator.language || "de").slice(0, 2);
+  var l = L.indexOf(q) >= 0 ? q : L.indexOf(s) >= 0 ? s : L.indexOf(b) >= 0 ? b : "de";
+  if (L.indexOf(q) >= 0) { try { localStorage.setItem("lang", q); } catch (e) {} }
+  document.documentElement.lang = l;
+})();
+</script>
 </head>
 <body>
 <header class="top">
@@ -13,6 +24,9 @@
     <a class="brand" href="./">Vernetzte Schweiz <span class="accent">1860–1914</span></a>
     <span class="tagline" data-i18n="tagline"></span>
     <span class="badge-alpha" data-i18n="badge">Demonstrator</span>
+    <span class="langs" id="langs" role="group">
+      <a href="?lang=de" hreflang="de" lang="de">DE</a><a href="?lang=fr" hreflang="fr" lang="fr">FR</a><a href="?lang=en" hreflang="en" lang="en">EN</a>
+    </span>
   </div>
   <div class="band">
     <nav class="wrap">

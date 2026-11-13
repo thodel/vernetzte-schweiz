@@ -51,7 +51,7 @@ id = "baden"
 label = "Baden"
 repo = "thodel/adressbuecher-baden"
 commit = "bb4a7e943834653de304f9c270abcd19d2cd0fa2"
-site = "https://github.com/thodel/adressbuecher-baden"
+site = "https://thodel.github.io/adressbuecher-baden/"
 authority = "data/csv/10_authority_links.csv"
 # Gelesen mit qwen3.8 (ohne Nachkorrektur, Stichprobe 93–96 % voll korrekt). Der Band 1910 umfasst
 # den ganzen Bezirk: jeder Eintrag trägt seine Gemeinde in `municipality`.
