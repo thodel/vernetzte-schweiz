@@ -76,7 +76,7 @@
  "lausanne": {
   "ptt_entries": 13417,
   "ptt_linked": 2440,
-  "pairs": 6401,
+  "pairs": 6402,
   "decisions": {
    "wahrscheinlich": 1891,
    "möglich": 801,
@@ -88,7 +88,7 @@
   },
   "by_tier": {
    "wahrscheinlich": 4130,
-   "möglich": 1429,
+   "möglich": 1430,
    "sicher": 842
   }
  }

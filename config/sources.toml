@@ -65,7 +65,7 @@ id = "bern"
 label = "Bern"
 repo = "thodel/adressbuecher-bern"
 commit = "9bb1972f23f9eb458011b96e15ded8988c9ecced"
-site = "https://github.com/thodel/adressbuecher-bern"
+site = "https://thodel.github.io/adressbuecher-bern/"
 authority = "data/csv/10_authority_links.csv"
 # Gelesen mit qwen3.8 (ohne Nachkorrektur, Stichprobe 83–84 % voll korrekt).
 files = [
@@ -77,8 +77,8 @@ files = [
 id = "lausanne"
 label = "Lausanne"
 repo = "thodel/adressbuecher-lausanne"
-commit = "f8c0678df1dd63bcd96bc142e327683b5b7906f9"
-site = "https://github.com/thodel/adressbuecher-lausanne"
+commit = "e4981566d02e2c4c3899910f00f9889861312fba"
+site = "https://thodel.github.io/adressbuecher-lausanne/"
 authority = "data/csv/10_authority_links.csv"
 # Indicateur vaudois; gelesen mit qwen3.8 (ohne Nachkorrektur). 1907 dazu die übrigen Waadtländer
 # Gemeinden: jeder Eintrag trägt seine Gemeinde 1914 in `municipality`.
