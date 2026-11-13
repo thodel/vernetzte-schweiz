@@ -62,7 +62,7 @@
     ],
     [
       "M5",
-      "More towns: Baden, Bern (1883–84, 1900) and Lausanne (1896, 1907) are in; Zurich follows",
+      "More towns: Baden, Bern, Lausanne and the Vaud communes of 1907 are in; Zurich follows",
       "next"
     ],
     [
@@ -241,7 +241,7 @@
     ],
     [
       "Baden, Bern, Lausanne: not post-corrected",
-      "The address books of Baden (1900, 1910), Bern (1883–84, 1900) and Lausanne (1896, 1907) were read by the language model qwen3.8 without manual correction; in samples, 83–84 % of entries were fully correct in Bern, 93–96 % in Baden, and all 30 checked in Lausanne. The Baden 1910 scan lacks leaves (town of Baden from «Rü…», Bellikon, Bergdietikon up to «P»); the volume covers the whole district, and each entry counts for its municipality. In Bern, where many namesakes live in the same town, the rules are stricter: abbreviated streets («Kramg.») count as a street match, an initial plus the telephone mark is no longer enough for common surnames, and generic firm words («Schweizerische», «Café», «Bureau») need the same street. After this, 32 of 40 checked links were correct, 4 unclear and 4 wrong; «certain» 10 of 10."
+      "The address books of Baden (1900, 1910), Bern (1883–84, 1900) and Lausanne (1896, 1907) were read by the language model qwen3.8 without manual correction; in samples, 83–84 % of entries were fully correct in Bern, 93–96 % in Baden, and all 30 checked in Lausanne. The Baden 1910 scan lacks leaves (town of Baden from «Rü…», Bellikon, Bergdietikon up to «P»); the volume covers the whole district, and each entry counts for its municipality. In Bern, where many namesakes live in the same town, the rules are stricter: abbreviated streets («Kramg.») count as a street match, an initial plus the telephone mark is no longer enough for common surnames, and generic firm words («Schweizerische», «Café», «Bureau») need the same street. After this, 32 of 40 checked links were correct, 4 unclear and 4 wrong; «certain» 10 of 10. The 1907 Indicateur vaudois also covers the other Vaud communes; each entry's commune is taken from the heading in the book. In the Montreux district only entries naming a locality (Clarens, Territet …) are included."
     ]
   ],
   "pg_entries_merged": "Identical lines from several editions of the same year are merged: {n} lines.",
@@ -467,5 +467,6 @@
     "Weltanschauungen": "Worldviews",
     "Wirtschaft und Beruf": "Economy and professions"
   },
-  "hls_abbr": "HLS"
+  "hls_abbr": "HLS",
+  "kind_gemeinden": "Vaud communes"
 }

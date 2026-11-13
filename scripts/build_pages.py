@@ -40,7 +40,8 @@ from fuzzy import key_of_label  # noqa: E402
 from link_ptt_ab import VARIANTS, house, num  # noqa: E402
 
 OUT = ROOT / "site" / "data"
-KIND_LABEL = {"einwohner": "Einwohner", "berufe": "Berufe", "bewohner": "Gebäude", "behoerden": "Behörden"}
+KIND_LABEL = {"einwohner": "Einwohner", "berufe": "Berufe", "bewohner": "Gebäude", "behoerden": "Behörden",
+              "gemeinden": "Waadtländer Gemeinden"}
 
 
 def fold(s: str) -> str:

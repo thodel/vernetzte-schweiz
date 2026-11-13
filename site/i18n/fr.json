@@ -62,7 +62,7 @@
     ],
     [
       "M5",
-      "Autres villes: Baden, Berne (1883–84, 1900) et Lausanne (1896, 1907) sont intégrées; Zurich suivra",
+      "Autres villes : Baden, Berne, Lausanne et les communes vaudoises de 1907 sont intégrées ; Zurich suivra",
       "next"
     ],
     [
@@ -241,7 +241,7 @@
     ],
     [
       "Baden, Berne, Lausanne: sans correction",
-      "Les annuaires d'adresses de Baden (1900, 1910), de Berne (1883–84, 1900) et de Lausanne (1896, 1907) ont été lus par le modèle de langage qwen3.8, sans correction manuelle; dans les échantillons, 83–84 % des entrées étaient entièrement correctes à Berne, 93–96 % à Baden, et à Lausanne les 30 entrées vérifiées. Dans le scan de Baden 1910, des feuillets manquent (ville de Baden à partir de «Rü…», Bellikon, Bergdietikon jusqu'à «P»); le volume couvre tout le district, chaque entrée compte pour sa commune. À Berne, où de nombreux homonymes habitent la même ville, les règles sont plus strictes : les rues abrégées («Kramg.») comptent comme rue, l'initiale et le signe du téléphone ne suffisent plus pour les noms fréquents, et les mots génériques de raison sociale («Schweizerische», «Café», «Bureau») exigent la même rue. Ensuite, sur 40 liaisons vérifiées, 32 étaient justes, 4 incertaines et 4 fausses ; «sûr» 10 sur 10."
+      "Les annuaires d'adresses de Baden (1900, 1910), de Berne (1883–84, 1900) et de Lausanne (1896, 1907) ont été lus par le modèle de langage qwen3.8, sans correction manuelle; dans les échantillons, 83–84 % des entrées étaient entièrement correctes à Berne, 93–96 % à Baden, et à Lausanne les 30 entrées vérifiées. Dans le scan de Baden 1910, des feuillets manquent (ville de Baden à partir de «Rü…», Bellikon, Bergdietikon jusqu'à «P»); le volume couvre tout le district, chaque entrée compte pour sa commune. À Berne, où de nombreux homonymes habitent la même ville, les règles sont plus strictes : les rues abrégées («Kramg.») comptent comme rue, l'initiale et le signe du téléphone ne suffisent plus pour les noms fréquents, et les mots génériques de raison sociale («Schweizerische», «Café», «Bureau») exigent la même rue. Ensuite, sur 40 liaisons vérifiées, 32 étaient justes, 4 incertaines et 4 fausses ; «sûr» 10 sur 10. L'Indicateur vaudois 1907 contient aussi les autres communes vaudoises; leur commune est déduite du titre dans le livre. Pour le cercle de Montreux, seules les entrées avec une localité (Clarens, Territet …) sont retenues."
     ]
   ],
   "pg_entries_merged": "Les lignes identiques de plusieurs éditions de la même année sont regroupées: {n} lignes.",
@@ -467,5 +467,6 @@
     "Weltanschauungen": "Visions du monde",
     "Wirtschaft und Beruf": "Économie et professions"
   },
-  "hls_abbr": "DHS"
+  "hls_abbr": "DHS",
+  "kind_gemeinden": "Communes vaudoises"
 }

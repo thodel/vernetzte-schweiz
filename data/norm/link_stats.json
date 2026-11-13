@@ -74,22 +74,22 @@
   }
  },
  "lausanne": {
-  "ptt_entries": 4514,
-  "ptt_linked": 1592,
-  "pairs": 4929,
+  "ptt_entries": 13417,
+  "ptt_linked": 2440,
+  "pairs": 6401,
   "decisions": {
-   "wahrscheinlich": 1353,
-   "möglich": 527,
-   "zu-schwach": 1929,
-   "kein-name": 2410,
-   "mehrdeutig": 1517,
-   "widerspruch": 997,
-   "sicher": 295
+   "wahrscheinlich": 1891,
+   "möglich": 801,
+   "kein-name": 9321,
+   "zu-schwach": 2307,
+   "mehrdeutig": 1664,
+   "widerspruch": 1616,
+   "sicher": 331
   },
   "by_tier": {
-   "wahrscheinlich": 3141,
-   "möglich": 1024,
-   "sicher": 764
+   "wahrscheinlich": 4130,
+   "möglich": 1429,
+   "sicher": 842
   }
  }
 }

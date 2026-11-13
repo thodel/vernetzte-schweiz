@@ -77,13 +77,15 @@ files = [
 id = "lausanne"
 label = "Lausanne"
 repo = "thodel/adressbuecher-lausanne"
-commit = "c4c5d8de10ed5232b3b62b74798cd723ddbf8ad0"
+commit = "f8c0678df1dd63bcd96bc142e327683b5b7906f9"
 site = "https://github.com/thodel/adressbuecher-lausanne"
 authority = "data/csv/10_authority_links.csv"
-# Indicateur vaudois, nur die Stadt; gelesen mit qwen3.8 (ohne Nachkorrektur).
+# Indicateur vaudois; gelesen mit qwen3.8 (ohne Nachkorrektur). 1907 dazu die übrigen Waadtländer
+# Gemeinden: jeder Eintrag trägt seine Gemeinde 1914 in `municipality`.
 files = [
-  { path = "data/csv/04_entries.csv", kind = "einwohner" },
-  { path = "data/csv/04_berufe.csv",  kind = "berufe" },
+  { path = "data/csv/04_entries.csv",   kind = "einwohner" },
+  { path = "data/csv/04_berufe.csv",    kind = "berufe" },
+  { path = "data/csv/04_gemeinden.csv", kind = "gemeinden" },
 ]
 
 # --- Telefonbücher ----------------------------------------------------------

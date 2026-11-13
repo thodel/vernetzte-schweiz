@@ -115,8 +115,12 @@ Verknüpfung und Bau laufen durch.
   (Beleg `zusatz`) nur bei gleicher Strasse, Hausnummer oder gleichem ausgeschriebenem Vornamen. Bern Stichprobe 2
   (40, geschichtet): sicher 10/10, wahrscheinlich 7/10 (2 unklar), möglich 7/10, zusatz 8/10; davor rund 27/40.
   Aarau fast unverändert (Paare 16 731 → 16 440, gemessene Präzision gilt weiter).
+- ✔ 13.11.2026 **Waadtländer Gemeinden** aus dem Indicateur 1907 (S. 670–962, adressbuecher-lausanne f8c0678,
+  Datei `04_gemeinden.csv`, Art `gemeinden`): 29 122 Einträge in 386 Gemeinden; Gemeinde 1914 je Bezirk aus dem Namen
+  im Buch, Montreux nach Ortsteil, Namen aus Gedankenstrich-Listen ergänzt. Verknüpft: Lausanne mit Gemeinden 2 440
+  von 13 417 Telefonbuch-Einträgen (+848). Stichprobe 3 (24): sicher 8/8, wahrscheinlich 8/8, möglich 5/8 (1 falsch).
 - offen: Zürich (Lesung läuft);
-  Bern 1860 (Fraktur, nicht ganz gelesen); die übrigen Waadtländer Gemeinden im Indicateur 1907 (S. 664–960).
+  Bern 1860 (Fraktur, nicht ganz gelesen).
 
 **M6 — Visualisierungen.** ✔ 10.11.2026: Karten «Wer bekam wann ein Telefon», «Berufe», «Namen» (`#/karten`), Berufssuche mit Karte und Quellenfilter in der Suche; [Aufbau und Messung](docs/karten.md). Umgesetzt sind die ersten drei Punkte; die weiteren Ideen bleiben offen. Nachgetragen: Regler für Jahre (ein Jahr oder Bereich) statt Zeiträumen, Quelle Telefon-/Adressbuch in «Berufe» und «Namen». Grundlage sind die Einheiten aus M3 (eine Person oder Firma
 zählt einmal, nicht einmal je Jahrgang) und die Orte aus M1 (Gemeinde 1914, Koordinaten).
