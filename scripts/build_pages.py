@@ -40,7 +40,6 @@ from fuzzy import key_of_label  # noqa: E402
 from link_ptt_ab import VARIANTS, house, num  # noqa: E402
 
 OUT = ROOT / "site" / "data"
-CITY_LABEL = {"aarau": "Aarau", "basel": "Basel"}
 KIND_LABEL = {"einwohner": "Einwohner", "berufe": "Berufe", "bewohner": "Gebäude", "behoerden": "Behörden"}
 
 
@@ -91,6 +90,7 @@ def main() -> None:
     with open(ROOT / "config" / "sources.toml", "rb") as f:
         cfg = tomllib.load(f)
     vol_urls = {c["id"]: c.get("volume_urls", {}) for c in cfg["city"]}
+    city_label = {c["id"]: c["label"] for c in cfg["city"]}
     summ = {s["entity_id"]: s for s in open_csv(NORM / "entities.csv.gz")}
     member = {m["record_id"]: m["entity_id"] for m in open_csv(ROOT / "links" / "entities.csv.gz")}
     auth = {a["entity_id"]: a for a in open_csv(ROOT / "links" / "authority.csv")}
@@ -146,12 +146,12 @@ def main() -> None:
         city = r["city"]
         rec = {"id": r["id"], "y": int(r["volume"]), "s": "ab", "t": r["text"],
                "a": " ".join(x for x in (r["street"], r["building_no"]) if x), "ph": "",
-               "c": f"Adressbuch {CITY_LABEL[city]} {r['volume']}" + (f", S. {r['page']}" if r["page"] else "")
+               "c": f"Adressbuch {city_label[city]} {r['volume']}" + (f", S. {r['page']}" if r["page"] else "")
                     + f" ({KIND_LABEL.get(r['kind'], r['kind'])})"}
         if vol_urls[city].get(r["volume"]):
             rec["u"] = vol_urls[city][r["volume"]]
         no = num(house(r["building_no"]))
-        rec["ak"] = add_address(CITY_LABEL[city], r["street"], street(r["street"]), no, eid, rec)
+        rec["ak"] = add_address(r["municipality"] or city_label[city], r["street"], street(r["street"]), no, eid, rec)
         records[eid].append(rec)
 
     # mögliche weitere Adressbuch-Einträge (M2-Paare ausserhalb der Einheit)

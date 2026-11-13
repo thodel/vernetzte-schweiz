@@ -97,6 +97,13 @@ Adresse; Seitenbilder nur für Basel verlinkbar. [Aufbau](docs/seite.md).
 
 **M5 — Weitere Städte.** Zürich, Baden: Eintrag in `sources.toml`, Adapter prüfen,
 Verknüpfung und Bau laufen durch.
+- ✔ 13.11.2026 **Baden** 1900 und 1910 aus [adressbuecher-baden](https://github.com/thodel/adressbuecher-baden)
+  (qwen3.8, ohne Nachkorrektur): 10 145 Einträge in 29 Gemeinden des Bezirks. Neu: ein Band kann mehrere
+  Gemeinden umfassen; jeder Eintrag trägt `municipality`, verknüpft wird je Gemeinde. 1 226 von 2 359
+  Telefonbuch-Einträgen des Bezirks verknüpft; Stichprobe `data/review/m5_baden.csv`: 24 von 30 richtig,
+  6 unklar, keiner falsch. HLS-Abdeckung (M9) fast unverändert (+3 wahrscheinlich, +1 Normdaten): die
+  Badener HLS-Personen waren schon über die Telefonbücher erreichbar.
+- offen: Zürich (1859–1914, Lesung läuft), Bern (1860, 1883–84, 1900), Lausanne (1896, 1907).
 
 **M6 — Visualisierungen.** ✔ 10.11.2026: Karten «Wer bekam wann ein Telefon», «Berufe», «Namen» (`#/karten`), Berufssuche mit Karte und Quellenfilter in der Suche; [Aufbau und Messung](docs/karten.md). Umgesetzt sind die ersten drei Punkte; die weiteren Ideen bleiben offen. Nachgetragen: Regler für Jahre (ein Jahr oder Bereich) statt Zeiträumen, Quelle Telefon-/Adressbuch in «Berufe» und «Namen». Grundlage sind die Einheiten aus M3 (eine Person oder Firma
 zählt einmal, nicht einmal je Jahrgang) und die Orte aus M1 (Gemeinde 1914, Koordinaten).

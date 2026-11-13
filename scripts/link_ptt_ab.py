@@ -210,7 +210,7 @@ def firm_key(name: str) -> str:
 # ── Adressbuch ────────────────────────────────────────────────────────────
 
 def ab_index(entries: list[dict]) -> dict:
-    """{(Stadt, Band): {Namensschlüssel: [Eintrag]}} mit vorbereiteten Merkmalen."""
+    """{(Gemeinde, Band): {Namensschlüssel: [Eintrag]}} mit vorbereiteten Merkmalen."""
     idx: dict = defaultdict(lambda: defaultdict(list))
     for r in entries:
         sk = nkey(r["surname"])
@@ -226,11 +226,11 @@ def ab_index(entries: list[dict]) -> dict:
         r["_group"] = (sk, r["_ak"], initial(r["_fn"][0][0]) if r["_fn"] else "")
         # nur unter dem Familiennamen: der Allianzname ist der Name der Ehefrau (bzw. des
         # Ehemanns) und gehört zu einer anderen Familie
-        idx[(r["city"], r["volume"])][sk].append(r)
+        idx[(r["municipality"], r["volume"])][sk].append(r)
         # Firmen auch unter ihrem Leitnamen («Jenny & Weigel» → jenny)
         fk = firm_key(r["surname"]) if r["_firm"] else ""
         if fk and fk != sk:
-            idx[(r["city"], r["volume"])][fk].append(r)
+            idx[(r["municipality"], r["volume"])][fk].append(r)
     return idx
 
 
@@ -412,12 +412,14 @@ def persons(rows: list[dict]) -> int:
     return len({find(i) for i in range(len(rows))})
 
 
-def link_city(city: dict, ptt: list[dict], idx: dict, volumes: list[str]) -> tuple[list[dict], Counter]:
+def link_city(city: dict, ptt: list[dict], idx: dict, volumes: dict[str, list[str]]) -> tuple[list[dict], Counter]:
+    """volumes: Bände je Gemeinde; ein Telefonbucheintrag sucht nur in den Bänden seiner Gemeinde."""
     out, stats = [], Counter()
     surname_persons: dict = {}
     for p in ptt:
-        for vol in volumes:
-            cands = idx[(city["id"], vol)].get(p["_sk"], [])
+        muni = p["municipality_1914"]
+        for vol in volumes.get(muni, []):
+            cands = idx[(muni, vol)].get(p["_sk"], [])
             if not cands:
                 stats["kein-name"] += 1
                 continue
@@ -432,7 +434,7 @@ def link_city(city: dict, ptt: list[dict], idx: dict, volumes: list[str]) -> tup
             top = max(s for s, _, _ in scored)
             best = [(s, ev, c) for s, ev, c in scored if s == top]
             n_groups = persons([c for _, _, c in best])
-            key = (city["id"], vol, p["_sk"])
+            key = (muni, vol, p["_sk"])
             if key not in surname_persons:
                 surname_persons[key] = persons(cands)
             n_surname = surname_persons[key]
@@ -463,19 +465,21 @@ def main() -> None:
     cfg = config()
     entries = open_csv(NORM / "ab_entries.csv")
     idx = ab_index(entries)
-    volumes = defaultdict(set)
+    volumes: dict = defaultdict(lambda: defaultdict(set))  # Stadt → Gemeinde → Bände
+    city_of = {}
     for r in entries:
-        volumes[r["city"]].add(r["volume"])
-    labels = {c["label"]: c for c in cfg["city"]}
+        volumes[r["city"]][r["municipality"]].add(r["volume"])
+        city_of[r["municipality"]] = r["city"]
+    cities = {c["id"]: c for c in cfg["city"]}
     by_city = defaultdict(list)
     for r in open_csv(NORM / "ptt_entries.csv.gz"):
-        c = labels.get(r["municipality_1914"])
+        c = cities.get(city_of.get(r["municipality_1914"], ""))
         if c and r["place_confidence"] in ("hoch", "mittel") and prepare_ptt(r):
             by_city[c["id"]].append(r)
     links, report = [], {}
     for c in cfg["city"]:
         ptt = by_city[c["id"]]
-        rows, stats = link_city(c, ptt, idx, sorted(volumes[c["id"]]))
+        rows, stats = link_city(c, ptt, idx, {m: sorted(v) for m, v in volumes[c["id"]].items()})
         links += rows
         linked = {r["ptt_id"] for r in rows}
         report[c["id"]] = {

@@ -34,5 +34,24 @@
    "möglich": 8087,
    "wahrscheinlich": 3525
   }
+ },
+ "baden": {
+  "ptt_entries": 2359,
+  "ptt_linked": 1226,
+  "pairs": 3683,
+  "decisions": {
+   "kein-name": 1109,
+   "sicher": 450,
+   "zu-schwach": 471,
+   "möglich": 462,
+   "wahrscheinlich": 821,
+   "widerspruch": 249,
+   "mehrdeutig": 394
+  },
+  "by_tier": {
+   "sicher": 1066,
+   "möglich": 842,
+   "wahrscheinlich": 1775
+  }
  }
 }

@@ -1,0 +1,31 @@
+stichprobe,tier,ptt,ab,urteil,anmerkung
+1,sicher,"Kaufmann, J., Spenglermeister, Mellingerstrasse (1902)","Kaufmann-Suter, Jos, Spenglermeister, Mellingerstrasse 31 (1910)",richtig,
+1,sicher,"Schaupp, Jos., Masseur, grosse Bäder (1902)","Schaupp, Joseph, Schreiner, Große Bäder (1900)",unklar,Beruf verschieden; gleiche Adresse
+1,sicher,"Himmel, H., Konditor, Badstraße (1900)","Himmel, Herm, Konditoreien, Badstraße 708 (1900)",richtig,
+1,sicher,"Burger, J., Metzger, Dynamostrasse (1902)","Burger, Joseph, Metzger, Dynamostrasse 12 (1910)",richtig,
+1,sicher,"Suter, D., Kolonialwaren, Weite Gasse (1899)","Suter, D, Spezierer, Weite Gasse, Baden (1910)",richtig,
+1,sicher,"Bölsterli, J., Zimmermeister, Vorstadt (1902)","Bölsterli, Jak, Zimmermeister, Vorstadt (1900)",richtig,
+1,sicher,"Jäger, J., Buchdruckerei Fr. Presse, Bruggerstraße (1900)","Jäger, Joseph, Buchdruckereibesitzer, Bruggerstrasse 25 (1910)",richtig,
+1,sicher,"Laube, J., Bäcker, Bruggerstraße (1899)","Laube, Jos, Bäcker, Brugggerstr. 743 (1900)",richtig,
+1,sicher,"Jäger, J., Buchdruckerei Fr. Presse, Bruggerstraße (1898)","Jäger, Joseph, Buchdruckereibesitzer, Bruggerstrasse 25 (1910)",richtig,
+1,sicher,"Nieriker, E. u. P., Cigarrenhdlg., Badstraße (1900)","Nieriker, E. u. P, Cigarren, Badstr. 120 (1910)",richtig,
+1,wahrscheinlich,"Schuhfabrik Baden, A.-G. (1910)","Schuhfabrik, Bruggerstr. (1910)",richtig,
+1,wahrscheinlich,"Borsinger, J., Hotel Verenahof (1899)","Borsinger, Joseph, Stadtrat, Badstraße (1900)",richtig,Verenahof an der Badstrasse
+1,wahrscheinlich,"Wernly, F., Architekt (1912)","Wernli-Irmiger, Fritz, Architekten (1910)",richtig,
+1,wahrscheinlich,"Lang, Damian, Bahnhofrestauration (1900)","Lang, Damian, Bahnhofrestaur. (1900)",richtig,
+1,wahrscheinlich,"Schnebli, Adolf, Confiseur, Engelplatz (1895)","Schnebli, A. & Söhne, Biscuitfabrik (1900)",richtig,Firma des Confiseurs
+1,wahrscheinlich,"Hauri, S., Hotel Engel (1910)","Hauri, Samuel, Gasthöfe, Löwenplatz 244 (1900)",richtig,
+1,wahrscheinlich,"Renold, W., Major (1904)","Renold, Wilhelm, Landwirt (1910)",unklar,
+1,wahrscheinlich,"Herzog, Gotthard, Handlung (1904)","Herzog, Gotthard, Spezereihandlungen, Badstraße (1900)",richtig,
+1,wahrscheinlich,"Scheibel, Jos., Bierdepot (1911)","Scheibel, Josef, Bierdepothalter (1910)",richtig,
+1,wahrscheinlich,"Suter, D., Kolonialwaren, Weite Gasse (1899)","Suter, D, Glaswaren- und Geschirrhandlung, Löwenplatz 232 (1900)",unklar,anderes Geschäft desselben Namens möglich
+1,möglich,"Müller, Dr., Apotheker, Badstraße (1896)","Müller, Ad, Apotheker, Badstr. 511 (1900)",richtig,
+1,möglich,"Gloor, Metzger, Weite Gasse (1895)","Gloor, Johann, Metzgermeister, Weite Gasse (1910)",richtig,
+1,möglich,"Höchli-Frey, Papeterie, Badstraße (1910)","Höchli-Frei, Xaver, Buchbindereien (1900)",richtig,
+1,möglich,"Lewin, Cl., Frau, Parkstraße (1910)","Lewin-Guggenheim, Clotilde, Particularin, Parkstrasse 25 (1910)",richtig,
+1,möglich,"Lang-Schnebli, Bazar, Badstraße (1910)","Lang-Schnebli, Merceriewarenhandlungen, Badstraße 514 (1900)",richtig,
+1,möglich,"Göldlin, Dr., Verena-Apotheke, Große Bäder (1899)","Göldlin, Heinrich, Mineralwasserfabriken, Große Bäder (1900)",unklar,
+1,möglich,"Baumgartner-Schulthess, Hotel Schweizerhof (1902)","Baumgartner-Schulthess, Ad, Badhotel, Kurplatz (1910)",richtig,
+1,möglich,"Hunziker, Bahnhofrestaurant Siggenthal (1910)","Hunziker, Rudolf, Wirt, Stat. Siggental (1910)",richtig,
+1,möglich,"Reinle, Kohlenhandlung, Hasel (1900)","Reinle, A, Metallhandlung (1900)",unklar,
+1,möglich,"Keusch, Metzger, mittlere Gasse (1896)","Keusch, Georg, M. Gasse 153 (1900)",richtig,

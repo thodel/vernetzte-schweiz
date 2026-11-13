@@ -13,7 +13,7 @@ ENTRY_FIELDS = [
     "id", "city", "volume", "kind", "page", "entry_type",
     "surname", "alliance_name", "maiden_name", "forename", "title", "civil_status",
     "occupation", "origin", "street", "building_no", "building_no_system",
-    "phone_flag", "parse_confidence", "text",
+    "phone_flag", "parse_confidence", "text", "municipality",
 ]
 AUTH_FIELDS = [
     "id", "city", "volume", "qid", "label", "birth", "death", "hls_id", "gnd",
@@ -29,7 +29,7 @@ def visible(row: dict) -> bool:
     return not (row.get("hls_check") or "").strip().lower().startswith("falsch")
 
 
-def entry(city: str, kind: str, r: dict) -> dict:
+def entry(city: str, kind: str, r: dict, label: str = "") -> dict:
     occupation = (r.get("occupation_raw") or "").strip()
     if not occupation and kind == "berufe":
         occupation = (r.get("heading") or "").strip()
@@ -54,6 +54,8 @@ def entry(city: str, kind: str, r: dict) -> dict:
         "phone_flag": r.get("phone_flag", ""),
         "parse_confidence": r.get("parse_confidence", ""),
         "text": r.get("text", ""),
+        # Gemeinde 1914; ein Band kann mehrere Gemeinden umfassen (Baden 1910: der Bezirk)
+        "municipality": (r.get("municipality") or "").strip() if "municipality" in r else label,
     }
 
 
@@ -72,9 +74,13 @@ def officeholders(city: str, rows: list[dict], cfg: dict) -> list[dict]:
                 "entry_type": "person", "surname": c["surname"], "alliance_name": c.get("alliance_name", ""),
                 "forename": c.get("forename", ""), "title": c.get("title", ""), "occupation": roles[:200],
                 "text": f"{c.get('title', '')} {c.get('forename', '')} {c['surname']} — {roles}".strip(),
-                "parse_confidence": "",
+                "parse_confidence": "", "municipality": cfg_label(cfg, city),
             })
     return out
+
+
+def cfg_label(cfg: dict, city: str) -> str:
+    return next(c["label"] for c in cfg["city"] if c["id"] == city)
 
 
 def main() -> None:
@@ -89,7 +95,10 @@ def main() -> None:
                 if not in_window(r.get("volume", ""), cfg):
                     stats[(cid, "ausserhalb Zeitfenster")] += 1
                     continue
-                e = entry(cid, f["kind"], r)
+                e = entry(cid, f["kind"], r, c["label"])
+                if not e["municipality"]:
+                    stats[(cid, "ohne Gemeinde")] += 1
+                    continue
                 prev = entries.get(e["id"])
                 if prev is None:
                     entries[e["id"]] = e

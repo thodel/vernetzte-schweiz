@@ -154,7 +154,7 @@ def ab_records(cfg: dict) -> list[dict]:
         if not sk or len(sk) < 2:
             continue
         out.append({
-            "id": r["id"], "source": "ab", "year": int(r["volume"]), "muni": labels[r["city"]],
+            "id": r["id"], "source": "ab", "year": int(r["volume"]), "muni": r.get("municipality") or labels[r["city"]],
             "bfs": "", "canton": "", "sk": sk, "firm": firm,
             "fn": tuple(forename_tokens(r["forename"])) if not firm else (), "ak": nkey(r["alliance_name"]),
             "widow": bool(WIDOW.search(r["text"])), "st": street(r["street"]), "line": "", "full": "", "succ": bool(SUCCESSOR.search(r["text"])), "no": num(house(r["building_no"])),
