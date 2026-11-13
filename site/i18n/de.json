@@ -62,7 +62,7 @@
     ],
     [
       "M5",
-      "Weitere Städte: Baden, Bern, Lausanne und die Waadtländer Gemeinden 1907 sind drin; Zürich folgt",
+      "Weitere Städte: Baden, Bern, Lausanne mit den Waadtländer Gemeinden 1907 und Zürich sind drin",
       "next"
     ],
     [
@@ -88,7 +88,7 @@
   ],
   "status_done": "erledigt",
   "status_next": "als Nächstes",
-  "footer_sources": "Quellen: Adressbücher Aarau (Kantonsbibliothek Aargau), Basel (Staatsarchiv Basel-Stadt), Baden, Bern und Lausanne (gelesen mit qwen3.8); Telefonbücher PTT-Archiv P-260, aufbereitet von DH Bern und localsearch (historic.localsearch.ch).",
+  "footer_sources": "Quellen: Adressbücher Aarau (Kantonsbibliothek Aargau), Basel (Staatsarchiv Basel-Stadt), Baden, Bern, Lausanne und Zürich (gelesen mit qwen3.8); Telefonbücher PTT-Archiv P-260, aufbereitet von DH Bern und localsearch (historic.localsearch.ch).",
   "footer_license": "Code und Seite unter MIT-Lizenz. Die Inhalte der Bücher bis 1914 sind gemeinfrei; Daten und Verknüpfungen stehen unter CC0.",
   "loading": "Lade Kennzahlen …",
   "load_error": "Die Kennzahlen konnten nicht geladen werden.",
@@ -240,8 +240,8 @@
       "Code und Seite stehen unter MIT-Lizenz. Die Inhalte der Telefon- und Adressbücher bis 1914 sind gemeinfrei: Verzeichnisse nach alphabetischen oder geografischen Kriterien erreichen nach dem Urheberrechtsgesetz (Art. 2 Abs. 1 URG) in der Regel keine Schöpfungshöhe, und wo doch ein Werk vorläge, ist die Schutzfrist abgelaufen (Art. 29 Abs. 2 URG). Daten und Verknüpfungen stehen unter CC0 und dürfen frei weitergenutzt werden. Aus dem HLS übernehmen wir nur Fakten, keinen Artikeltext."
     ],
     [
-      "Baden, Bern, Lausanne: ohne Nachkorrektur",
-      "Die Adressbücher von Baden (1900, 1910), Bern (1883–84, 1900) und Lausanne (1896, 1907) hat das Sprachmodell qwen3.8 gelesen, ohne Korrektur von Hand; in Stichproben waren in Bern 83–84 %, in Baden 93–96 % der Einträge voll korrekt, in Lausanne alle 30 geprüften. Im Scan Baden 1910 fehlen Blätter (Stadt Baden ab «Rü…», Bellikon, Bergdietikon bis «P»); der Band umfasst den ganzen Bezirk, jeder Eintrag zählt für seine Gemeinde. In Bern, wo viele Namensvettern in derselben Stadt wohnen, sind die Regeln strenger: abgekürzte Gassen («Kramg.») zählen als Strasse, Initiale und Telefonzeichen allein genügen bei häufigen Namen nicht, allgemeine Firmenwörter («Schweizerische», «Café», «Bureau») brauchen die gleiche Strasse. Danach waren von 40 geprüften Verknüpfungen 32 richtig, 4 unklar und 4 falsch; «sicher» 10 von 10. Der Indicateur vaudois 1907 enthält auch die übrigen Waadtländer Gemeinden; ihre Gemeinde ist aus der Überschrift im Buch erschlossen. Im Kreis Montreux zählen nur Einträge mit Ortsteil (Clarens, Territet …)."
+      "Baden, Bern, Lausanne, Zürich: ohne Nachkorrektur",
+      "Die Adressbücher von Baden (1900, 1910), Bern (1883–84, 1900), Lausanne (1896, 1907) und Zürich (1875, 1885, 1900, 1914) hat das Sprachmodell qwen3.8 gelesen, ohne Korrektur von Hand; in Stichproben waren in Bern 83–84 %, in Baden 93–96 % der Einträge voll korrekt, in Lausanne alle 30 geprüften. Im Scan Baden 1910 fehlen Blätter (Stadt Baden ab «Rü…», Bellikon, Bergdietikon bis «P»); der Band umfasst den ganzen Bezirk, jeder Eintrag zählt für seine Gemeinde. In Bern, wo viele Namensvettern in derselben Stadt wohnen, sind die Regeln strenger: abgekürzte Gassen («Kramg.») zählen als Strasse, Initiale und Telefonzeichen allein genügen bei häufigen Namen nicht, allgemeine Firmenwörter («Schweizerische», «Café», «Bureau») brauchen die gleiche Strasse. Danach waren von 40 geprüften Verknüpfungen 32 richtig, 4 unklar und 4 falsch; «sicher» 10 von 10. Der Indicateur vaudois 1907 enthält auch die übrigen Waadtländer Gemeinden; ihre Gemeinde ist aus der Überschrift im Buch erschlossen. Im Kreis Montreux zählen nur Einträge mit Ortsteil (Clarens, Territet …). In Zürich zählen die Ausgemeinden von 1875 und 1885 (Aussersihl, Riesbach …) zur Stadt; im Band 1914 fehlen auf 11 Seiten die letzten Einträge. Von 30 geprüften Zürcher Verknüpfungen (1914) waren 27 richtig, «sicher» und «wahrscheinlich» je 10 von 10."
     ]
   ],
   "pg_entries_merged": "Gleiche Zeilen aus mehreren Ausgaben desselben Jahres sind zusammengefasst: {n} Zeilen.",

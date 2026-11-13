@@ -62,7 +62,7 @@
     ],
     [
       "M5",
-      "Autres villes : Baden, Berne, Lausanne et les communes vaudoises de 1907 sont intégrées ; Zurich suivra",
+      "Autres villes : Baden, Berne, Lausanne avec les communes vaudoises de 1907 et Zurich sont intégrées",
       "next"
     ],
     [
@@ -88,7 +88,7 @@
   ],
   "status_done": "fait",
   "status_next": "prochaine étape",
-  "footer_sources": "Sources: annuaires d'adresses d'Aarau (Kantonsbibliothek Aargau), de Bâle (Staatsarchiv Basel-Stadt), de Baden, de Berne et de Lausanne (lus avec qwen3.8); annuaires téléphoniques Archives PTT P-260, traités par DH Bern et localsearch (historic.localsearch.ch).",
+  "footer_sources": "Sources: annuaires d'adresses d'Aarau (Kantonsbibliothek Aargau), de Bâle (Staatsarchiv Basel-Stadt), de Baden, de Berne, de Lausanne et de Zurich (lus avec qwen3.8); annuaires téléphoniques Archives PTT P-260, traités par DH Bern et localsearch (historic.localsearch.ch).",
   "footer_license": "Code et site sous licence MIT. Le contenu des annuaires jusqu'en 1914 est dans le domaine public; les données et les liaisons sont sous CC0.",
   "loading": "Chargement des chiffres clés …",
   "load_error": "Les chiffres clés n'ont pas pu être chargés.",
@@ -240,8 +240,8 @@
       "Code et site sont sous licence MIT. Le contenu des annuaires téléphoniques et d'adresses jusqu'en 1914 est dans le domaine public: selon la loi sur le droit d'auteur (art. 2, al. 1, LDA), des répertoires établis selon des critères alphabétiques ou géographiques n'atteignent en règle générale pas le caractère individuel requis, et là où il y aurait tout de même une œuvre, la durée de protection est échue (art. 29, al. 2, LDA). Les données et les liaisons sont sous CC0 et peuvent être librement réutilisées. Du DHS, nous ne reprenons que des faits, aucun texte d'article."
     ],
     [
-      "Baden, Berne, Lausanne: sans correction",
-      "Les annuaires d'adresses de Baden (1900, 1910), de Berne (1883–84, 1900) et de Lausanne (1896, 1907) ont été lus par le modèle de langage qwen3.8, sans correction manuelle; dans les échantillons, 83–84 % des entrées étaient entièrement correctes à Berne, 93–96 % à Baden, et à Lausanne les 30 entrées vérifiées. Dans le scan de Baden 1910, des feuillets manquent (ville de Baden à partir de «Rü…», Bellikon, Bergdietikon jusqu'à «P»); le volume couvre tout le district, chaque entrée compte pour sa commune. À Berne, où de nombreux homonymes habitent la même ville, les règles sont plus strictes : les rues abrégées («Kramg.») comptent comme rue, l'initiale et le signe du téléphone ne suffisent plus pour les noms fréquents, et les mots génériques de raison sociale («Schweizerische», «Café», «Bureau») exigent la même rue. Ensuite, sur 40 liaisons vérifiées, 32 étaient justes, 4 incertaines et 4 fausses ; «sûr» 10 sur 10. L'Indicateur vaudois 1907 contient aussi les autres communes vaudoises; leur commune est déduite du titre dans le livre. Pour le cercle de Montreux, seules les entrées avec une localité (Clarens, Territet …) sont retenues."
+      "Baden, Berne, Lausanne, Zurich: sans correction",
+      "Les annuaires d'adresses de Baden (1900, 1910), de Berne (1883–84, 1900), de Lausanne (1896, 1907) et de Zurich (1875, 1885, 1900, 1914) ont été lus par le modèle de langage qwen3.8, sans correction manuelle; dans les échantillons, 83–84 % des entrées étaient entièrement correctes à Berne, 93–96 % à Baden, et à Lausanne les 30 entrées vérifiées. Dans le scan de Baden 1910, des feuillets manquent (ville de Baden à partir de «Rü…», Bellikon, Bergdietikon jusqu'à «P»); le volume couvre tout le district, chaque entrée compte pour sa commune. À Berne, où de nombreux homonymes habitent la même ville, les règles sont plus strictes : les rues abrégées («Kramg.») comptent comme rue, l'initiale et le signe du téléphone ne suffisent plus pour les noms fréquents, et les mots génériques de raison sociale («Schweizerische», «Café», «Bureau») exigent la même rue. Ensuite, sur 40 liaisons vérifiées, 32 étaient justes, 4 incertaines et 4 fausses ; «sûr» 10 sur 10. L'Indicateur vaudois 1907 contient aussi les autres communes vaudoises; leur commune est déduite du titre dans le livre. Pour le cercle de Montreux, seules les entrées avec une localité (Clarens, Territet …) sont retenues. À Zurich, les communes suburbaines de 1875 et 1885 (Aussersihl, Riesbach …) comptent pour la ville; dans le volume 1914, les dernières entrées manquent sur 11 pages. Sur 30 liens zurichois vérifiés (1914), 27 étaient justes, «sûr» et «probable» 10 sur 10 chacun."
     ]
   ],
   "pg_entries_merged": "Les lignes identiques de plusieurs éditions de la même année sont regroupées: {n} lignes.",

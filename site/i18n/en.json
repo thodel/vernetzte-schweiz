@@ -62,7 +62,7 @@
     ],
     [
       "M5",
-      "More towns: Baden, Bern, Lausanne and the Vaud communes of 1907 are in; Zurich follows",
+      "More towns: Baden, Bern, Lausanne with the Vaud communes of 1907, and Zurich are in",
       "next"
     ],
     [
@@ -88,7 +88,7 @@
   ],
   "status_done": "done",
   "status_next": "next",
-  "footer_sources": "Sources: address books of Aarau (Kantonsbibliothek Aargau), Basel (Staatsarchiv Basel-Stadt), Baden, Bern and Lausanne (read with qwen3.8); telephone directories PTT Archive P-260, processed by DH Bern and localsearch (historic.localsearch.ch).",
+  "footer_sources": "Sources: address books of Aarau (Kantonsbibliothek Aargau), Basel (Staatsarchiv Basel-Stadt), Baden, Bern, Lausanne and Zurich (read with qwen3.8); telephone directories PTT Archive P-260, processed by DH Bern and localsearch (historic.localsearch.ch).",
   "footer_license": "Code and site under the MIT licence. The contents of the books up to 1914 are in the public domain; data and links are released under CC0.",
   "loading": "Loading figures …",
   "load_error": "The figures could not be loaded.",
@@ -240,8 +240,8 @@
       "Code and site are under the MIT licence. The contents of the telephone directories and address books up to 1914 are in the public domain: under the Copyright Act, directories arranged by alphabetical or geographical criteria generally lack originality (Art. 2 para. 1 URG), and where a work did exist, the term of protection has expired (Art. 29 para. 2 URG). Data and links are released under CC0 and may be freely reused. From the HLS we take only facts, no article text."
     ],
     [
-      "Baden, Bern, Lausanne: not post-corrected",
-      "The address books of Baden (1900, 1910), Bern (1883–84, 1900) and Lausanne (1896, 1907) were read by the language model qwen3.8 without manual correction; in samples, 83–84 % of entries were fully correct in Bern, 93–96 % in Baden, and all 30 checked in Lausanne. The Baden 1910 scan lacks leaves (town of Baden from «Rü…», Bellikon, Bergdietikon up to «P»); the volume covers the whole district, and each entry counts for its municipality. In Bern, where many namesakes live in the same town, the rules are stricter: abbreviated streets («Kramg.») count as a street match, an initial plus the telephone mark is no longer enough for common surnames, and generic firm words («Schweizerische», «Café», «Bureau») need the same street. After this, 32 of 40 checked links were correct, 4 unclear and 4 wrong; «certain» 10 of 10. The 1907 Indicateur vaudois also covers the other Vaud communes; each entry's commune is taken from the heading in the book. In the Montreux district only entries naming a locality (Clarens, Territet …) are included."
+      "Baden, Bern, Lausanne, Zurich: not post-corrected",
+      "The address books of Baden (1900, 1910), Bern (1883–84, 1900), Lausanne (1896, 1907) and Zurich (1875, 1885, 1900, 1914) were read by the language model qwen3.8 without manual correction; in samples, 83–84 % of entries were fully correct in Bern, 93–96 % in Baden, and all 30 checked in Lausanne. The Baden 1910 scan lacks leaves (town of Baden from «Rü…», Bellikon, Bergdietikon up to «P»); the volume covers the whole district, and each entry counts for its municipality. In Bern, where many namesakes live in the same town, the rules are stricter: abbreviated streets («Kramg.») count as a street match, an initial plus the telephone mark is no longer enough for common surnames, and generic firm words («Schweizerische», «Café», «Bureau») need the same street. After this, 32 of 40 checked links were correct, 4 unclear and 4 wrong; «certain» 10 of 10. The 1907 Indicateur vaudois also covers the other Vaud communes; each entry's commune is taken from the heading in the book. In the Montreux district only entries naming a locality (Clarens, Territet …) are included. In Zurich the suburbs of 1875 and 1885 (Aussersihl, Riesbach …) count as the city; in the 1914 volume the last entries are missing on 11 pages. Of 30 Zurich links checked (1914), 27 were right, «certain» and «probable» 10 of 10 each."
     ]
   ],
   "pg_entries_merged": "Identical lines from several editions of the same year are merged: {n} lines.",

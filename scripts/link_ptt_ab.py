@@ -427,7 +427,12 @@ def same_house_or_name(a: dict, b: dict) -> bool:
     gleichem ausgeschriebenem Vornamen: in Bern teilen viele «J. Gerber» Initiale und Namen."""
     if a["_st"] and a["_st"] == b["_st"]:
         return True
-    if a["_no"] and b["_no"] and num(a["_no"]) == num(b["_no"]):
+    # gleiche Nummer an anderer Strasse ist ein anderes Haus (Zürich: «Meier & Hendess, Sihlstrasse 6»
+    # neben «Meier, Ulrich, Röslistrasse 6»); Lesefehler wie «Neuong» für «Neuengasse» zählen nicht
+    # und eine Strasse mit vorangestelltem Quartier («Längg., Gesellschaftsstrasse») ist dieselbe
+    sa, sb = a["_st"], b["_st"]
+    other_street = sa and sb and sa[:3] != sb[:3] and sa not in sb and sb not in sa
+    if a["_no"] and b["_no"] and num(a["_no"]) == num(b["_no"]) and not other_street:
         return True
     full = lambda r: [k for k, initial in r["_fn"] if not initial]
     return bool(full(a)) and full(a) == full(b)

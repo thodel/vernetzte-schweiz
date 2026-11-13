@@ -13,7 +13,7 @@ zusammengeführt, verknüpft und gezeigt.
 | Frage | Entscheid |
 |---|---|
 | Zeitfenster | 1860–1914. Von Basel zählt damit nur der Band 1862. |
-| Nächste Städte | Zürich, Baden, weitere |
+| Nächste Städte | weitere |
 | Wo wird verknüpft? | Hier, zentral. Telefonbuch ↔ Adressbuch und die Bündelung über die Jahre laufen in diesem Repo. Die Normdaten-Abgleiche der Städte (mit ihren lokalen Regeln) werden übernommen. |
 | Umfang Telefonbücher | Alle Einträge bis 1914 sind suchbar, auch Orte ohne Adressbuch. |
 | Charge A | Wird im PTT-Repo eintragsweise neu aufbereitet (`tsv/a/<RefCode>.tsv`); hier nur übernommen, nicht neu gelesen. Charge B (1911–1914) wird hier verortet und zerlegt. |
@@ -119,8 +119,14 @@ Verknüpfung und Bau laufen durch.
   Datei `04_gemeinden.csv`, Art `gemeinden`): 29 122 Einträge in 386 Gemeinden; Gemeinde 1914 je Bezirk aus dem Namen
   im Buch, Montreux nach Ortsteil, Namen aus Gedankenstrich-Listen ergänzt. Verknüpft: Lausanne mit Gemeinden 2 440
   von 13 417 Telefonbuch-Einträgen (+848). Stichprobe 3 (24): sicher 8/8, wahrscheinlich 8/8, möglich 5/8 (1 falsch).
-- offen: Zürich (Lesung läuft);
-  Bern 1860 (Fraktur, nicht ganz gelesen).
+- ✔ 13.11.2026 **Zürich** 1875, 1885, 1900 und 1914 aus [adressbuecher-zuerich](https://github.com/thodel/adressbuecher-zuerich)
+  (qwen3.8, ohne Nachkorrektur; 1859 liegt im Repo, aber vor dem Zeitfenster): 196 910 Einträge, die Ausgemeinden von
+  1875/1885 gehören zur Gemeinde Zürich von 1914. Telefonbuch verknüpft: 36 087 von 62 474. Neue Regel für weitere
+  Einträge derselben Person (`zusatz`): gleiche Hausnummer an einer anderen Strasse zählt nicht mehr (vorher 3 von 14
+  `sicher` falsch). Stichprobe `data/review/m5_zuerich.csv` (1914, 30): sicher 10/10, wahrscheinlich 10/10, möglich 7/10.
+  Die Regel nimmt Bern 2 369 Zusatz-Paare weg, Aarau 147; gelesen waren die weggefallenen überwiegend falsch.
+  HLS (M9): +18 wahrscheinlich, +13 Normdaten, +22 möglich.
+- offen: Bern 1860 (Fraktur, nicht ganz gelesen).
 
 **M6 — Visualisierungen.** ✔ 10.11.2026: Karten «Wer bekam wann ein Telefon», «Berufe», «Namen» (`#/karten`), Berufssuche mit Karte und Quellenfilter in der Suche; [Aufbau und Messung](docs/karten.md). Umgesetzt sind die ersten drei Punkte; die weiteren Ideen bleiben offen. Nachgetragen: Regler für Jahre (ein Jahr oder Bereich) statt Zeiträumen, Quelle Telefon-/Adressbuch in «Berufe» und «Namen». Grundlage sind die Einheiten aus M3 (eine Person oder Firma
 zählt einmal, nicht einmal je Jahrgang) und die Orte aus M1 (Gemeinde 1914, Koordinaten).

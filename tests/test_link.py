@@ -104,4 +104,10 @@ class BigCityTest(unittest.TestCase):
         self.assertFalse(same_house_or_name(rec("Frieda", "Predigergasse", "10"), moser_f))
         self.assertTrue(same_house_or_name(rec("Fr.", "Wabernstr.", "22"), moser_f))
         self.assertTrue(same_house_or_name(rec("Theophil", "Kirchg.", "6"), rec("Theophil", "Kramgasse", "7")))
+        # Zürich 1900: gleiche Nummer an anderer Strasse; ein Lesefehler in der Strasse zählt nicht
+        self.assertFalse(same_house_or_name(rec("", "Sihlstrasse", "6"), rec("", "Röslistrasse", "6")))
+        self.assertTrue(same_house_or_name(rec("", "", "6"), rec("", "Röslistrasse", "6")))
+        self.assertTrue(same_house_or_name(rec("", "Neuong", "32"), rec("", "Neuengasse", "32")))
+        self.assertTrue(same_house_or_name(rec("", "Längg., Gesellschaftsstrasse", "18a"),
+                                           rec("", "Gesellschaftsstrasse", "18a")))
 

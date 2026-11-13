@@ -71,7 +71,7 @@
       el("table", {}, el("tbody", {}, ...rows.map(([k, v, cls]) => el("tr", cls ? { class: cls } : {}, el("td", {}, k), el("td", {}, v))))),
       a.entries ? "" : el("p", { class: "sub" }, t.city_no_authority),
       el("p", { class: "links" },
-        el("a", { href: c.site }, t.city_open), " · ",
+        ...(c.site ? [el("a", { href: c.site }, t.city_open), " · "] : []),
         el("a", { href: `https://github.com/${c.repo}/tree/${c.commit}` }, `${t.city_pinned} ${c.commit}`)),
     ));
   }

@@ -88,6 +88,20 @@ files = [
   { path = "data/csv/04_gemeinden.csv", kind = "gemeinden" },
 ]
 
+[[city]]
+id = "zuerich"
+label = "Zürich"
+repo = "thodel/adressbuecher-zuerich"
+commit = "3d391aada2308bcb3e9f5e0ede85369250cd4b4f"
+site = ""
+authority = "data/csv/10_authority_links.csv"
+# Gelesen mit qwen3.8 (ohne Nachkorrektur; Stichprobe der Verknüpfung in data/review/m5_zuerich.csv).
+# Bände 1859–1914; 1859 liegt vor dem Zeitfenster. Keine eigene Seite (site leer).
+files = [
+  { path = "data/csv/04_entries.csv", kind = "einwohner" },
+  { path = "data/csv/04_berufe.csv",  kind = "berufe" },
+]
+
 # --- Telefonbücher ----------------------------------------------------------
 # PTT-Archiv P-260, gelesen und segmentiert von DH Bern / localsearch.
 # Charge A (bis 1910) liegt eintragsweise in tsv/a/<RefCode>.tsv.

@@ -2,7 +2,7 @@
  "aarau": {
   "ptt_entries": 3035,
   "ptt_linked": 2153,
-  "pairs": 16440,
+  "pairs": 16293,
   "decisions": {
    "kein-name": 3321,
    "sicher": 2855,
@@ -13,15 +13,15 @@
    "widerspruch": 1374
   },
   "by_tier": {
-   "sicher": 7113,
-   "wahrscheinlich": 5565,
-   "möglich": 3762
+   "sicher": 7046,
+   "wahrscheinlich": 5520,
+   "möglich": 3727
   }
  },
  "basel": {
   "ptt_entries": 103903,
   "ptt_linked": 4132,
-  "pairs": 10499,
+  "pairs": 10440,
   "decisions": {
    "zu-schwach": 21959,
    "kein-name": 39739,
@@ -31,14 +31,14 @@
    "wahrscheinlich": 1194
   },
   "by_tier": {
-   "möglich": 7313,
+   "möglich": 7254,
    "wahrscheinlich": 3186
   }
  },
  "baden": {
   "ptt_entries": 2359,
   "ptt_linked": 1181,
-  "pairs": 3041,
+  "pairs": 3031,
   "decisions": {
    "kein-name": 1109,
    "sicher": 454,
@@ -49,15 +49,15 @@
    "mehrdeutig": 394
   },
   "by_tier": {
-   "sicher": 885,
-   "möglich": 758,
+   "sicher": 884,
+   "möglich": 749,
    "wahrscheinlich": 1398
   }
  },
  "bern": {
   "ptt_entries": 55380,
   "ptt_linked": 25263,
-  "pairs": 65418,
+  "pairs": 63049,
   "decisions": {
    "wahrscheinlich": 13579,
    "möglich": 7175,
@@ -68,15 +68,15 @@
    "sicher": 10346
   },
   "by_tier": {
-   "wahrscheinlich": 26863,
-   "möglich": 12167,
-   "sicher": 26388
+   "wahrscheinlich": 26001,
+   "möglich": 11921,
+   "sicher": 25127
   }
  },
  "lausanne": {
   "ptt_entries": 13417,
   "ptt_linked": 2440,
-  "pairs": 6402,
+  "pairs": 6141,
   "decisions": {
    "wahrscheinlich": 1891,
    "möglich": 801,
@@ -87,9 +87,28 @@
    "sicher": 331
   },
   "by_tier": {
-   "wahrscheinlich": 4130,
-   "möglich": 1430,
-   "sicher": 842
+   "wahrscheinlich": 4007,
+   "möglich": 1360,
+   "sicher": 774
+  }
+ },
+ "zuerich": {
+  "ptt_entries": 62474,
+  "ptt_linked": 36087,
+  "pairs": 82627,
+  "decisions": {
+   "kein-name": 78380,
+   "möglich": 8482,
+   "mehrdeutig": 44899,
+   "zu-schwach": 38612,
+   "wahrscheinlich": 21752,
+   "widerspruch": 30473,
+   "sicher": 24026
+  },
+  "by_tier": {
+   "möglich": 13739,
+   "wahrscheinlich": 29582,
+   "sicher": 39306
   }
  }
 }

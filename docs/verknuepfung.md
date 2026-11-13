@@ -59,7 +59,11 @@ wenn
 Verknüpft wird nur, wenn **genau eine Person** die höchste Punktzahl hat. Dann werden
 alle ihre Einträge im Band verknüpft (Beleg `zusatz`), seit dem 13.11.2026 aber nur jene mit
 gleicher Strasse, gleicher Hausnummer oder gleichem ausgeschriebenem Vornamen wie der beste
-Eintrag: in Bern teilen viele «J. Gerber» Initiale und Namen. Passen zwei Personen gleich gut
+Eintrag: in Bern teilen viele «J. Gerber» Initiale und Namen. Die gleiche Hausnummer zählt nur,
+wenn die Strasse nicht eine andere ist (Zürich: «Meier & Hendess, Sihlstrasse 6» ist nicht «Meier,
+Ulrich, Röslistrasse 6»); als dieselbe Strasse gelten auch ein Lesefehler mit gleichem Anfang
+(«Neuong» für «Neuengasse») und eine Strasse mit vorangestelltem Quartier («Längg.,
+Gesellschaftsstrasse»). Passen zwei Personen gleich gut
 (Vater und Sohn am selben Haus), entsteht keine Verknüpfung (`mehrdeutig`).
 
 ## Stufen
@@ -82,6 +86,10 @@ Strasse. Allgemeine Firmenwörter als Leitname («Schweizerische», «Café», �
 «Gesellschaft», Liste `GENERIC_FIRM`) verknüpfen nur bei gleicher Strasse. Gemessen in
 `data/review/m5_bern_lausanne.csv`, Stichprobe 2: `sicher` 10/10, `wahrscheinlich` 7/10
 (2 unklar), `möglich` 7/10, `zusatz` 8/10.
+
+**Zürich (M5).** `data/review/m5_zuerich.csv`, Band 1914: `sicher` 10/10, `wahrscheinlich`
+10/10, `möglich` 7/10. Vor der Regel zur Hausnummer an anderer Strasse waren 3 von 14
+`sicher` falsch, alle mit Beleg `zusatz`; danach 14/16.
 
 Basel hat bisher nur den Band 1862, die Telefonbücher beginnen 1881. Basel hat deshalb
 keine Stufe `sicher`.
