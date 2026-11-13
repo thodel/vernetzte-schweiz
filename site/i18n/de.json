@@ -433,5 +433,6 @@
   "hl_hint_h": "Möglicher HLS-Eintrag",
   "hl_hint_check": "Prüfung ansehen",
   "hl_hint_note": "Vorschlag aus der umgekehrten Prüfung (gleicher Name, Vorname und Beruf am Ort), keine Normdaten.",
-  "hl_cand1": "1 Kandidat"
+  "hl_cand1": "1 Kandidat",
+  "city_no_authority": "Mit maschinell gelesenen Bänden kommen keine Normdaten aus dem Quell-Repo; Wikidata und HLS werden über die Personen verknüpft."
 }

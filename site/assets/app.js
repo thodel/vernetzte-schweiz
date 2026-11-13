@@ -42,18 +42,22 @@
     const a = c.authority;
     const rows = [
       [t.city_entries, n(c.entries)],
-      ...Object.entries(c.kinds).map(([k, v]) => [`· ${t["kind_" + k] || k}`, n(v)]),
-      [t.city_authority, n(a.entries), "auth"],
-      [t.city_tiers, Object.entries(a.tiers).map(([k, v]) => `${k} ${n(v)}`).join(" · "), "auth"],
-      [t.city_confirmed, n(a.hls_confirmed), "auth"],
-      [t.city_hls, n(a.hls), "auth"],
-      [t.city_gnd, n(a.gnd), "auth"],
+      ...Object.entries(c.kinds).map(([k, v]) => [`·\u00a0${t["kind_" + k] || k}`, n(v)]),
+      // Normdaten nur, wo das Quell-Repo welche liefert (Baden, Bern, Lausanne: keine)
+      ...(a.entries ? [
+        [t.city_authority, n(a.entries), "auth"],
+        ...Object.entries(a.tiers).map(([k, v]) => [`·\u00a0${k}`, n(v), "auth"]),
+        [t.city_confirmed, n(a.hls_confirmed), "auth"],
+        [t.city_hls, n(a.hls), "auth"],
+        [t.city_gnd, n(a.gnd), "auth"],
+      ] : []),
     ];
     cities.append(el("article", { class: "card" },
       el("h3", {}, c.label),
       el("p", { class: "sub" }, `${t.city_volumes}: ${c.volumes.length}`),
       el("div", { class: "vols" }, ...c.volumes.map(v => el("span", { class: "vol", title: `${n(v.entries)} ${t.city_entries}` }, String(v.year)))),
       el("table", {}, el("tbody", {}, ...rows.map(([k, v, cls]) => el("tr", cls ? { class: cls } : {}, el("td", {}, k), el("td", {}, v))))),
+      a.entries ? "" : el("p", { class: "sub" }, t.city_no_authority),
       el("p", { class: "links" },
         el("a", { href: c.site }, t.city_open), " · ",
         el("a", { href: `https://github.com/${c.repo}/tree/${c.commit}` }, `${t.city_pinned} ${c.commit}`)),
