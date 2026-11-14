@@ -230,8 +230,8 @@ danach erstmals an einem anderen (gleicher Familienname, verträglicher Vorname,
 Allianzname, neue Adresse und Nummer, eindeutig in beide Richtungen)? Fehler der
 Ortszuweisung aus M1 (gleiche Nummer, Nachbarzeilen vom alten Ort, Nachbar im Alphabet, Ortswort des alten Eintrags,
 Stadtnummer im Dorf, Strasse des alten Orts, Sprache, ortsfester Betrieb) sowie Firmen,
-Ämter und Institutionen werden ausgeschlossen. Stand: 313 Kandidaten (41 stark, 149
-mittel, 123 schwach), Karte mit Linien und Saldo, nach Berufsklasse, Entfernung und Jahr.
+Ämter und Institutionen werden ausgeschlossen. Stand: 313 Kandidaten (41 stark, 150
+mittel, 122 schwach), Karte mit Linien und Saldo, nach Berufsklasse, Entfernung und Jahr.
 
 - **Messung 14.11.2026:**
   - Stichprobe 1 (zum Einstellen): stark 50–62 %.

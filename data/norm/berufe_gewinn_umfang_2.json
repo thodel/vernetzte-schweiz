@@ -1,0 +1,30 @@
+{
+ "Metzger": {
+  "beruf": [
+   "Metzger"
+  ],
+  "wortlaut": 4574,
+  "nur_uebersetzung": 2067
+ },
+ "Schreiner": {
+  "beruf": [
+   "Schreiner"
+  ],
+  "wortlaut": 6208,
+  "nur_uebersetzung": 2093
+ },
+ "Glaser": {
+  "beruf": [
+   "Glaser"
+  ],
+  "wortlaut": 754,
+  "nur_uebersetzung": 299
+ },
+ "Viehhändler": {
+  "beruf": [
+   "Vieh- und Pferdehändler"
+  ],
+  "wortlaut": 445,
+  "nur_uebersetzung": 229
+ }
+}

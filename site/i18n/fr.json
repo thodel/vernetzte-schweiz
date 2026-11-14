@@ -506,7 +506,7 @@
   "pg_name_ph": "Nom, p. ex. Meier, Hans",
   "pg_more_filters_occ": "Autres filtres: nom",
   "pg_tr": "Chercher aussi les traductions",
-  "pg_tr_hint": "trouve la même profession en allemand, français et italien («horloger» = «Uhrmacher» = «orologiaio»), d'après la liste fine des professions (124 professions)",
+  "pg_tr_hint": "trouve la même profession en allemand, français et italien («horloger» = «Uhrmacher» = «orologiaio»), d'après la liste fine des professions (127 professions)",
   "pg_tr_also": "Cherché aussi:",
   "pg_tr_none": "Aucune profession de la liste n'est connue pour ce mot; seul le libellé est cherché.",
   "pg_tr_title": "profession reconnue automatiquement (liste fine des professions)",

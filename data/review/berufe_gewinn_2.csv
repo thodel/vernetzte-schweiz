@@ -1,0 +1,49 @@
+nr,frage,suchwort,beruf,entity_id,name,gemeinde,berufsfeld,urteil,begruendung
+001,gewinn,Metzger,Metzger,e46fcb07147,Pièce,Bex,Bouchers | boucher,richtig,
+002,gewinn,Metzger,Metzger,e7662713f4b,"Sieglé, J.",Fribourg,charcutier,richtig,
+003,gewinn,Metzger,Metzger,e0bfb0a4169,"Liardet, Félix",Vallorbe,Bouchers | Charcuteries,richtig,
+004,gewinn,Metzger,Metzger,edfc3ac3b04,"Kuser, Edwin",Zürich,Kaufmann | Fleischhandlung | Oekonomie | Fleichhandlung | Fleischhandel.,richtig,Fleischhandlung
+005,gewinn,Metzger,Metzger,e5bae4fe118,"Gremminger, Jak.",Regensberg,Pferdeschlächter,richtig,Pferdeschlächter
+006,gewinn,Metzger,Metzger,e3d820f692b,"Waldburger. Aime Vve, boucherie chevaline",Genève,boucherie chevaline; Cheneau de Bourg; 20,richtig,boucherie chevaline
+007,gewinn,Metzger,Metzger,eae0e9d71d1,"Siegenthaler, Ch.",Courrendlin,boucher; Café de l'Etoile,richtig,
+008,gewinn,Metzger,Metzger,e2819ec77c7,"Stoudmann, Armand",Lausanne,boucher,richtig,
+009,gewinn,Metzger,Metzger,e729b011a6e,"Hagmann, Emile",Château-d'Oex,boucher,richtig,
+010,gewinn,Metzger,Metzger,e8281a94c0b,"Vaudroz, Jules",Rolle,Boucher,richtig,
+011,gewinn,Metzger,Metzger,e187828808b,"Clerc, Louis",Oron-la-Ville,Boucher | Charcuteries,richtig,
+012,gewinn,Metzger,Metzger,ea0dd27a056,"Cuénoud, Ed",Cully,Boucher,richtig,
+013,gewinn,Schreiner,Schreiner,e58815e7e42,"Stingelin, Friedr",Basel,Stuhlschreiner,richtig,Stuhlschreiner
+014,gewinn,Schreiner,Schreiner,ed81d3472e5,"Karsten, Heinr.",Basel,Fabrikschreiner,richtig,
+015,gewinn,Schreiner,Schreiner,e17ba6b81f0,"Lietta, Charles",Lausanne,ÉBÉNISTES | ébéniste,richtig,
+016,gewinn,Schreiner,Schreiner,e0a6a9e6e94,"Knupper, Wilh.",Winterthur,Bau- u. Möbelschreinerei,richtig,
+017,gewinn,Schreiner,Schreiner,e8679c7fc28,"Corbelli & Moggio, La Châtelaine. Sébeillon.",Lausanne,MENUISIERS,richtig,
+018,gewinn,Schreiner,Schreiner,e9c5bb23a99,"Moret, Jules",Orbe,Menuisiers-ébénistes,richtig,
+019,gewinn,Schreiner,Schreiner,ed3eef922ec,"Schinz, Conrad",Zürich,Klavierschreiner,richtig,Klavierschreiner
+020,gewinn,Schreiner,Schreiner,e5da3036ce3,"Wingling, Arthur",Lausanne,menuisier,richtig,
+021,gewinn,Schreiner,Schreiner,e59203e589e,"Michel, Jos",Zürich,Parquetier,richtig,"Parquetier: Holzhandwerk, zur Schreinerei gezählt (wie Runde 1)"
+022,gewinn,Schreiner,Schreiner,e355eeb24a7,"Lüscher, Hans",Zürich,Parqueterie Aarburg; Vertr. Th. Buser; Leo; Annoncenbureau; Zeitungsverlag | Parqueterie Aarburg; Vertr. Th. Buser | Parqueterie; Aarburg; Vertr. Th. Buser | Näherin,unklar,"Parqueterie: Parkettfabrik, nicht Schreinerei im engen Sinn (wie Runde 1)"
+023,gewinn,Schreiner,Schreiner,e1e048ebcdb,"Bulach, Felix",Zürich,Meehan. Bau- u. KistenSchreinerei; Mühlensteg 2 Bundesbahnen | Mechau. Bau- u. Kistenschreinerei; Mühlensteg 2 Bundesbahnen | Mechan. Bau u. Kistenschreinerei; Mühlensteg 2 20.72 20.62 22-05 17.99 15.,richtig,
+024,gewinn,Schreiner,Schreiner,ea4a38a4be0,"Carles, François",Lausanne,m. menuisier,richtig,
+025,gewinn,Glaser,Glaser,e8bda31b41d,"Tavelli & Bruno, rue Neuve. R T.",Nyon,Vitrerie pour bâtiments,richtig,
+026,gewinn,Glaser,Glaser,e6d5deaae34,"Drenckhahn & Boss. Glasmaler, Kunstri. Bauglaserei",Bern,Kunstri. Bauglaserei,richtig,Bauglaserei
+027,gewinn,Glaser,Glaser,e485496674b,"Marchand, Jean",Lausanne,DORURE ET ARGENTURE SUR BOIS | VITRIERS ET VITRERIE | vitrier enca dreur,richtig,vitrier-encadreur
+028,gewinn,Glaser,Glaser,ea8ac69accb,Sibler & Cie.,Zürich,vorm. Meyer; Sibler & Cie; Glashandlung | vorm. Meyer; Sibler & Cie; Magazin | vorm. Meyer; Sibler & Co; Glashandlung,unklar,"Glashandlung: Händler, als Glaser gezählt (Muster «glashandl»)"
+029,gewinn,Glaser,Glaser,e856aec6799,"Kunz, Charles",Genève,vitrier; Silvaplana sur Chailly | Silvaplana sur Chailly,richtig,
+030,gewinn,Glaser,Glaser,ee1610dc168,"Negri, Joseh",La Tour-de-Peilz,Vitrier,richtig,
+031,gewinn,Glaser,Glaser,e386b6c67e7,"☎ Meier. Sibler & Co., Porzellan- und Glashandlung, 1 Storchengasse 5, siehe unter Sibler & Co.",Zürich,Porzellan- und Glashandlung,unklar,"Porzellan- und Glashandlung: Händler, als Glaser gezählt"
+032,gewinn,Glaser,Glaser,e7448bff409,"Bertossa, P.",Genève,Vitriers | Vitrerie et Stores | vitrier,richtig,
+033,gewinn,Glaser,Glaser,e707b7971d1,"Stefano, P.",Genève,vitrerie,richtig,
+034,gewinn,Glaser,Glaser,eb184fd38a9,"Meyer, M. F.",Basel,Wein- und Spirituosenhandlung; Rud; & Cie; Glashandlung | Wein- und Spirituosenhandlung,unklar,"Glashandlung neben Weinhandlung: Händler, als Glaser gezählt"
+035,gewinn,Glaser,Glaser,e16f26166fc,"Wochner, Glashandlung",Rafz,Glashandlung | F.. Glashandlung,unklar,"Glashandlung: Händler, als Glaser gezählt"
+036,gewinn,Glaser,Glaser,e918acdb031,"Turuvanni, Jean",Lausanne,ENCADREURS | VITRIERS ET VITRERIE | vitrier-encadreur,richtig,vitrier-encadreur
+037,gewinn,Viehhändler,Vieh- und Pferdehändler,e9b46f3d12a,"Weil, Jos",Bern,Pferdehändler. | Pferdehyändler,richtig,Pferdehändler: Beruf «Vieh- und Pferdehändler»
+038,gewinn,Viehhändler,Vieh- und Pferdehändler,e07b1d03075,"Marfurt, J.",Läufelfingen,Solin; Pferdehändler,richtig,Pferdehändler: Beruf «Vieh- und Pferdehändler»
+039,gewinn,Viehhändler,Vieh- und Pferdehändler,e7d325acf44,"Giedemann, Hermann",Baden,Metzgermeister | Metzger | Pferdehändler | Pferdemetzger | Pferdehändler (Pferdemetzger),richtig,Pferdehändler: Beruf «Vieh- und Pferdehändler»
+040,gewinn,Viehhändler,Vieh- und Pferdehändler,e4d94472878,"Bloch, Julius",Zürich,Pferdehyändler | Pferdehändler | Pferdehändler; Konrad; Rechtsanwalt,richtig,Pferdehändler: Beruf «Vieh- und Pferdehändler»
+041,gewinn,Viehhändler,Vieh- und Pferdehändler,e9776f91e87,"Marfurt, Pferdehändler",Realp,Pferdehändler; Gasthof zur Eisenbahn,richtig,Pferdehändler: Beruf «Vieh- und Pferdehändler»
+042,gewinn,Viehhändler,Vieh- und Pferdehändler,e56222143a6,"Giobellina, Natale",Naters,Pferdehändler | Fuhrhalter,richtig,Pferdehändler: Beruf «Vieh- und Pferdehändler»
+043,gewinn,Viehhändler,Vieh- und Pferdehändler,e99053b6fa8,"Bloch, Jos",Aarberg,älter; Pferdehändler,richtig,Pferdehändler: Beruf «Vieh- und Pferdehändler»
+044,gewinn,Viehhändler,Vieh- und Pferdehändler,efc2e1f18b6,Uhlmann & Schrameck,Herzogenbuchsee,Viehhandlung,richtig,Viehhandlung
+045,gewinn,Viehhändler,Vieh- und Pferdehändler,e7a557be06d,"Benett, Achille",Bern,Pferdehändler,richtig,Pferdehändler: Beruf «Vieh- und Pferdehändler»
+046,gewinn,Viehhändler,Vieh- und Pferdehändler,e79061142b1,"Guggenheim, Gebrüder, Badenerstr. 42 A.",Zürich,Pferdehändler.,richtig,Pferdehändler: Beruf «Vieh- und Pferdehändler»
+047,gewinn,Viehhändler,Vieh- und Pferdehändler,ebe882e5865,"Guggenheim, Wilh.",Zürich,Pferdebändler | i. Fa. Gebr. Guggenheim; Pferdehdlg; Wohnung | i.Fa Gebr Guggenheim; Pferdehdlg; Wohnung | i. Fa. Gebr. Guggenheim; Pferdehandlung; Wohnung | Pferdehyändler,richtig,Pferdehändler: Beruf «Vieh- und Pferdehändler»
+048,gewinn,Viehhändler,Vieh- und Pferdehändler,e3c7d8f612b,"Weil, Jakob",Zürich,Pferdeländler | Pferdehändler,richtig,Pferdehändler: Beruf «Vieh- und Pferdehändler»

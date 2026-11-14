@@ -506,7 +506,7 @@
   "pg_name_ph": "Name, e.g. Meier, Hans",
   "pg_more_filters_occ": "More filters: name",
   "pg_tr": "Include translations",
-  "pg_tr_hint": "also finds the same occupation in German, French and Italian («horloger» = «Uhrmacher» = «orologiaio»), using the fine occupation list (124 occupations)",
+  "pg_tr_hint": "also finds the same occupation in German, French and Italian («horloger» = «Uhrmacher» = «orologiaio»), using the fine occupation list (127 occupations)",
   "pg_tr_also": "Also searched:",
   "pg_tr_none": "No occupation in the list is known for this word; only the wording is searched.",
   "pg_tr_title": "automatically recognised occupation (fine occupation list)",

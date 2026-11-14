@@ -53,5 +53,67 @@
    "precision_low": 0.333,
    "precision_high": 0.417
   }
+ },
+ "gewinn_2": {
+  "alle": {
+   "n": 48,
+   "richtig": 43,
+   "unklar": 5,
+   "precision_low": 0.896,
+   "precision_high": 1.0
+  },
+  "Metzger": {
+   "n": 12,
+   "richtig": 12,
+   "precision_low": 1.0,
+   "precision_high": 1.0
+  },
+  "Schreiner": {
+   "n": 12,
+   "richtig": 11,
+   "unklar": 1,
+   "precision_low": 0.917,
+   "precision_high": 1.0
+  },
+  "Glaser": {
+   "n": 12,
+   "richtig": 8,
+   "unklar": 4,
+   "precision_low": 0.667,
+   "precision_high": 1.0
+  },
+  "Viehhändler": {
+   "n": 12,
+   "richtig": 12,
+   "precision_low": 1.0,
+   "precision_high": 1.0
+  }
+ },
+ "runde_1_nachgerechnet": {
+  "zuordnung": {
+   "richtig": 61,
+   "falsch": 12,
+   "unklar": 7
+  },
+  "gewinn": {
+   "Metzger": {
+    "richtig": 8,
+    "unklar": 1
+   },
+   "Uhrmacher": {
+    "richtig": 11,
+    "unklar": 1
+   },
+   "boulanger": {
+    "richtig": 12
+   },
+   "instituteur": {
+    "richtig": 12
+   },
+   "Schreiner": {
+    "richtig": 4,
+    "unklar": 1
+   }
+  }
  }
 }

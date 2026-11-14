@@ -65,7 +65,7 @@ Wortlaut.
 Grundlage ist die **feine Berufsliste** [scripts/occupations_fine.py](../scripts/occupations_fine.py).
 Sie entstand für die Wanderungen ([wanderungen.md](wanderungen.md)), um zu entscheiden, ob
 zwei Einträge derselbe Beruf sind.
-- **124 Berufe**, je mit einem Muster, das die deutschen, französischen und italienischen
+- **127 Berufe**, je mit einem Muster, das die deutschen, französischen und italienischen
   Formen samt üblichen Abkürzungen erfasst. Ein Beispiel ist Metzger:
   `metzg|boucher|boucherie|charcut|macellaio|salumier|…`.
 - **Gruppen verwandter Berufe** (Bäcker ↔ Konditor). Die Suche nutzt sie nicht; sie
@@ -100,7 +100,7 @@ Commis (14 675), Schneider (12 634), Kaufmann (11 219), Handlanger (11 098), Sch
 | Liste | Datei | Umfang | wofür |
 |---|---|---|---|
 | Berufsklassen | [scripts/occupations.py](../scripts/occupations.py) | 16 Klassen | Karten nach Berufen; grob, gemessen 88–92 % richtig ([karten.md](karten.md)) |
-| feine Berufsliste | [scripts/occupations_fine.py](../scripts/occupations_fine.py) | 124 Berufe | Wanderungen (gleicher, verwandter oder anderer Beruf), Übersetzung in der Suche |
+| feine Berufsliste | [scripts/occupations_fine.py](../scripts/occupations_fine.py) | 127 Berufe | Wanderungen (gleicher, verwandter oder anderer Beruf), Übersetzung in der Suche |
 
 Die Klassen fassen zusammen: Metzger und Bäcker sind beide «Lebensmittel». Die feine
 Liste trennt sie. Für die Übersetzung taugt nur die feine Liste.
@@ -154,10 +154,12 @@ Die Zahl der Treffer nach Wortlaut und nur durch Übersetzung steht in
   Lehrerinnen, «Uhrmacher» 1 065 «horlogers» und Uhrenfabriken. In diesen Stichproben ist
   kein Treffer falsch.
 - **Wo sie schlecht ist:** dort, wo das Muster mehr als den Beruf fasst.
-  - **Schreiner:** Das Muster schliesst Glaser und vitriers ein. 6 der 7 Fehler sind
-    Glaser, einer ist «parquet du procureur» (die Staatsanwaltschaft).
-  - **Metzger:** Das Muster schliesst Viehhändler und «bétail» ein; die Viehinspektoren
-    zählen so als Metzger.
+  - **Schreiner:** Das Muster schloss Glaser und vitriers ein. 6 der 7 Fehler waren
+    Glaser, einer war «parquet du procureur» (die Staatsanwaltschaft).
+  - **Metzger:** Das Muster schloss Viehhändler und «bétail» ein; die Viehinspektoren
+    zählten so als Metzger.
+
+  Beides ist seither behoben (Runde 2, unten).
 - **Lehrer:** Die Liste trennt Schul- von Privatlehrern nicht. Wer «instituteur» sucht,
   findet auch Klavier-, Tanz- und Sprachlehrerinnen; beurteilt wurden sie als richtig
   (Beruf «Lehrer»).
@@ -170,13 +172,47 @@ Die Zahl der Treffer nach Wortlaut und nur durch Übersetzung steht in
   - Ein Familienname wird als Beruf gelesen («Müller-Zürcher»).
   - Rubriken aus Nachbarzeilen («BOUCHERIES» im Feld einer Elektrofirma).
 
+**3. Runde 2: Glaser, Viehhändler, Viehinspektor als eigene Berufe**
+(`data/review/berufe_gewinn_2.csv`, Seed 22).
+- **Änderung an der Liste:** Glaser (Glaser, vitrier, vetraio, Bleiglaser, Glashandlung)
+  sind aus «Schreiner» herausgelöst. Vieh- und Pferdehändler und die Viehinspektoren sind
+  aus «Metzger» herausgelöst. Das Muster «parquet» greift nur noch für Parqueteur,
+  Parquetier und Parqueterie.
+- **Folge für die Wanderungen:** Die feine Liste hat jetzt 127 Berufe. Ein Paar wechselt
+  dadurch von `schwach` nach `mittel`.
+- **Stichprobe:** Danach gezogen wurden je 12 neue Treffer, die nur die Übersetzung findet,
+  ohne die Einheiten aus Runde 1.
+
+| Suchwort | Treffer nach Wortlaut | nur durch Übersetzung | n | richtig | unklar | falsch | Präzision |
+|---|---|---|---|---|---|---|---|
+| Metzger | 4 574 | 2 067 | 12 | 12 | 0 | 0 | 100 % |
+| Schreiner | 6 208 | 2 093 | 12 | 11 | 1 | 0 | 92–100 % |
+| Glaser (neu) | 754 | 299 | 12 | 8 | 4 | 0 | 67–100 % |
+| Viehhändler (neu) | 445 | 229 | 12 | 12 | 0 | 0 | 100 % |
+| **alle** | | | **48** | **43** | **5** | **0** | **90–100 %** |
+
+**Lesart:**
+- **Metzger und Schreiner:** Die neuen Stichproben enthalten keinen falschen Treffer mehr.
+  «Metzger» findet jetzt 2 067 statt 2 940 Einheiten nur durch die Übersetzung,
+  «Schreiner» 2 093 statt 2 879; weggefallen sind Glaser, Viehhändler und Viehinspektoren.
+- **Prüfung an Runde 1** (keine Messung): Nach den neuen Regeln fielen alle 10 Fehler bei
+  «Metzger» und «Schreiner» aus der Trefferliste. Übrig bleiben bei «Metzger» 8 richtige
+  und 1 unklarer Treffer, bei «Schreiner» 4 richtige und 1 unklarer.
+- **Glaser:** Die 4 unklaren Treffer sind Glashandlungen («Porzellan- und Glashandlung»).
+  Das Muster «glashandl» zählt Glashändler zu den Glasern, wie «Schuhhandlung» zu den
+  Schuhmachern zählt.
+- **Viehhändler:** Die Übersetzung bringt vor allem Pferdehändler dazu. Die Liste fasst Vieh-
+  und Pferdehändler zusammen; beurteilt wurde nach diesem Beruf.
+- **Stichprobe 1 (Zuordnung)** ändert sich nicht: Ihre 12 Fehler betrafen andere Muster
+  («rektor», «editeur», «arbeiter», Familiennamen, Rubriken). Diese sind noch offen.
+
 ## Grenzen
 
 - **Maschinell.** Die Übersetzung folgt Mustern, nicht einer Durchsicht. Gemessen sind
-  76–85 % richtige Zuordnungen und 78–83 % richtige zusätzliche Treffer. Je nach Beruf
-  liegt der Wert zwischen 33 % (Schreiner) und 100 % (Bäcker, Lehrer).
+  76–85 % richtige Zuordnungen. In Runde 1 waren 78–83 % der zusätzlichen Treffer richtig,
+  in Runde 2, nach der Trennung von Glaser und Viehhändler, 90–100 %.
 - **Die Muster greifen breit.** «Café» und «Restaurant» gelten als Wirt, «Monteur» als
-  Maschinist, Glaser als Schreiner, Viehhändler als Metzger. Andere Treffer sind falsch,
+  Maschinist, Glashändler als Glaser, Pferde- als Viehhändler. Andere Treffer sind falsch,
   weil ein Muster mitten in einem Wort greift: «Direktor» trifft «rektor» und gilt auch als
   Professor, «apprentissages» trifft «tissage» und gilt als Weber.
 - **Nur Berufe der Liste.** «Seiler», «Treillageur» und viele seltene Berufe werden nur
