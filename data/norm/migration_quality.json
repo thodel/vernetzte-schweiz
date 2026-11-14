@@ -99,5 +99,25 @@
    "precision_low": 0.517,
    "precision_high": 0.862
   }
+ },
+ "stichprobe_5": {
+  "stark": {
+   "n": 0,
+   "precision_low": null,
+   "precision_high": null
+  },
+  "mittel": {
+   "n": 32,
+   "richtig": 14,
+   "unklar": 15,
+   "falsch": 3,
+   "precision_low": 0.438,
+   "precision_high": 0.906
+  },
+  "schwach": {
+   "n": 0,
+   "precision_low": null,
+   "precision_high": null
+  }
  }
 }

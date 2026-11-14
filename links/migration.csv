@@ -2,7 +2,6 @@ from_entity,to_entity,surname,forename_from,forename_to,from_muni,to_muni,from_l
 e8f4305f465,e6c99eac9a4,Thom,Franz,Franz,Bern,Aarau,1883,1888,5,71.5,Musiker. | Musiker,Trompeterinstruktor der Infanterie | Musiklehrer | Trompeter-Instruktor der Infanterie | Trompeterinstruktor d. Infanter,,vorname:gleich+beruf:wort+neu:adresse,5,stark,0,1,5
 ea6284d6af3,ec37c894b5c,Lequatre,Louis,Louis,Genève,Lausanne,1890,1896,6,55.7,tapissier,Ameublements. | Drapeaux (vente et location de). | Meubles (magasins de). (Voir aussi Menuisiers-ébénistes et Tapissiers,,vorname:gleich+beruf:wort+neu:adresse,5,stark,0,0,8
 e040216130b,ef66e5b48a7,Handschin,Adolf,Adolf,Liestal,Gelterkinden,1893,1895,2,9.3,zum Engel | Gasthof z. Engel | zum „Engel“ | „zum Engel“,Gasthof z. Rössli,gast,vorname:gleich+beruf:wort+neu:adresse,5,stark,1,0,39
-e3417b3a370,e2d66244421,Blatti,Anna-Catherine,Anna,Lausanne,Zürich,1896,1900,4,166.8,domestique,Spetterin,,vorname:gleich+beruf:allgemein+neu:adresse,4,stark,0,0,10
 e34b673e01b,e6705e31590,Brossin,Paul,Paul,Lausanne,Bern,1896,1900,4,70.3,typographe,Schriftsetzer,,vorname:gleich+beruf:gleich+neu:adresse,5,stark,0,0,7
 edc35e8320e,e49a6ad01cd,Mazzoni,Alexandre,Alex,Lausanne,Bern,1896,1900,4,70.3,gypseur,Gipser,bau,vorname:abkürzung+beruf:wort+neu:adresse,4,stark,0,0,8
 e2e29ef957b,eb6f741857c,Raab,Christian,Chr.,Lausanne,Bern,1896,1900,4,70.3,Brosses (fabriques de). | brossier,Alkoholfreie Getränke. (Fabrikation.) | Fabrik alkoholfreier Getränke,industrie,vorname:abkürzung+beruf:wort+neu:adresse,4,stark,0,0,9
@@ -43,6 +42,7 @@ e1211c6b27c,eb0f7b3aaa0,Lobsiger,Ernst,Ernst,Bern,Zürich,1913,1914,1,97.0,Charc
 e521cc26199,ef8eac859c4,Senften,Emil,Emil,Bern,Schübelbach,1913,1914,1,119.4,Architekt,Architekt; i. Fa. Koch & Seiler; St. Moritz,bau,vorname:gleich+beruf:wortlaut+neu:nummer+titel,5,stark,1,1,5
 e0a38076ee7,ef9f8559875,Brunner,Gottfr,Gottfr,Bern,Zürich,1883,1885,2,97.0,Monteur in d. Gasanstalt,Schlosser | Schlosserges.,,vorname:gleich+beruf:verwandt+neu:adresse,4,mittel,0,0,1039
 e0f35ca8c6b,ea988008441,Hagenbucher,Anna,Anna,Bern,Zürich,1883,1885,2,97.0,Damenschneiderin,Schneiderin,handwerk,vorname:gleich+beruf:gleich,4,mittel,0,0,24
+ec024a42616,ebf27502f89,Hunziker,Marie,Maria,Bern,Zürich,1883,1885,2,97.0,Weisswaren-Artikel. | Näherin,Seidenwinderin,,vorname:gleich+beruf:verwandt+neu:adresse,4,mittel,0,0,449
 efdd30008c0,eb97d25345f,Häsler,Johann,Hans,Bern,Aarau,1883,1884,1,71.5,Portier,"Lederhandlungen | Gerber | Gerber, Lederhandlung | Gerber, Leder- und Fourniturenhandlung | Teppich- u. Lederhdlg | Lede",handel,vorname:gleich+beruf:gleich,4,mittel,0,0,392
 e735e7b33fc,e257c55cc35,Stalder,Gottfr,Gottfr,Bern,Zürich,1883,1885,2,97.0,Xylogr.,Photographen. | Parquetfbkt.,druck,vorname:gleich+beruf:verwandt+neu:adresse,4,mittel,0,0,167
 e1b2dbc4a61,e4867e61a52,Lotz,Friedr,Frdr.,Zürich,Basel,1885,1887,2,69.0,Seidenfärber,Färberei,textil,vorname:abkürzung+beruf:gleich+neu:adresse,4,mittel,0,1,47
@@ -54,7 +54,6 @@ eb5517b100c,e9667a2e453,Senn,Joh.,Hans,Basel,Bern,1893,1896,3,66.8,Mineralwasser
 ecfb0b30210,eac81584eab,Adam,Alfred,Alfred,Allschwil,Basel,1895,1896,1,4.0,Dr.,Dr. | Dr. Alfred. Leonhardsgrabeu 47,,vorname:gleich+neu:nummer+titel+nachbarort,4,mittel,1,1,60
 ebfacd13781,e17db4c25cb,Bienz,Carl Rudolf,Rud,Basel,Zürich,1896,1900,4,69.0,Schreiner | Agenturen und Commissionen,Commis,,vorname:abkürzung+beruf:wort+neu:adresse,4,mittel,1,0,55
 ea5df6fa60d,e7cfa18fc85,Campiche,Arthur,Arthur,Lausanne,Zürich,1896,1900,4,166.8,comptable,Commis | Wohnung | Wohng | Wohng- | Kaufmann | in Fa. Kunz & Campiche; Wohng,handel,vorname:gleich+beruf:verwandt+neu:adresse,4,mittel,0,0,91
-e2bed14eeb8,e90251baad1,Eicher,Maria,Marie Anna,Lausanne,Zürich,1896,1900,4,166.8,sommelière,Pensionshalterin,gast,vorname:gleich+beruf:verwandt+neu:adresse,4,mittel,0,0,65
 e74eae89964,e25e19ac96f,Geyer,Joseph,Jos,Aarau,Zürich,1896,1900,4,32.2,Schneider,Schneidermstr.,handwerk,vorname:abkürzung+beruf:klasse+allianzname+neu:adresse,4,mittel,1,0,26
 e1ed07d3718,edcf443bfbe,Gründling,Joh.-Jacob,Joh. Jak,Lausanne,Zürich,1896,1900,4,166.8,commis,Commis,handel,vorname:abkürzung+beruf:wortlaut+neu:adresse,3,mittel,0,0,5
 ed28fa18d37,e25b19d7ce4,Heusler,Cesar Emanuel,Cäsar Eman,Aarau,Zürich,1896,1900,4,32.2,Kaufmann,Kaufm.,handel,vorname:abkürzung+beruf:wort+neu:adresse,4,mittel,1,0,69
@@ -63,14 +62,11 @@ e1d042e01b6,e688781085b,Hort,Hans,Joh,Aarau,Zürich,1896,1900,4,32.2,Taglöhner 
 e4d112501f7,e15239df323,Isler,Pierre,Peter,Lausanne,Bern,1896,1900,4,70.3,,Oberinstrukt. d. Infanterie | Oberst | P.. Oberst,recht,vorname:gleich+allianzname+neu:adresse,4,mittel,0,0,395
 e6bfe418f15,ee1669e4ced,Kahr,Frédéric,Fritz,Lausanne,Zürich,1896,1900,4,166.8,portier,Schreinerhandlanger,bau,vorname:gleich+beruf:verwandt,3,mittel,0,0,35
 ea5bb4bc430,ef5cd123911,Kniest,Hermann,Herm. Gust. Adolf,Aarau,Zürich,1896,1900,4,32.2,Schneider,Schneider,handwerk,vorname:abkürzung+beruf:wortlaut+neu:adresse,3,mittel,1,0,2
-ee9829f255a,ea7e61e5dea,Krummenacher,Maria,Marie Josephine,Lausanne,Zürich,1896,1900,4,166.8,domest.,Haushälterin,,vorname:gleich+beruf:allgemein,3,mittel,0,0,31
 e3fc0001f3d,e1a7d468123,Müri,Paul,Paul,Aarau,Zürich,1896,1900,4,32.2,"Fürsprech, Controleur der Creditanstalt | Fürsprech, Controleur (Aarg. Creditanstalt) | Fürsprech, Gerichtspräsident | G",Fürsprech,recht,vorname:gleich+beruf:wortlaut+neu:adresse,4,mittel,1,0,93
 ec94150c0be,ebd371a5c05,Porchet,Aloïs,Alois,Lausanne,Zürich,1896,1900,4,166.8,menuisier,Schreiner,bau,vorname:gleich+beruf:gleich,4,mittel,0,0,127
 e7418263b30,e62c1200e3a,Rosenberg,Jacob,Joh. Jak,Lausanne,Zürich,1896,1900,4,166.8,rent.,alt Landwirt,land,vorname:abkürzung+beruf:allgemein+neu:adresse,3,mittel,0,0,22
 ec14f3e5d53,e28bbd69c96,Schwab,Arnold,Arn,Lausanne,Zürich,1896,1900,4,166.8,mécanicien,Mechaniker,industrie,vorname:abkürzung+beruf:gleich+neu:adresse,4,mittel,0,0,145
 ec135396a56,eb6b28634eb,Sommerhalder,Jakob,Jakob,Aarau,Baden,1896,1900,4,17.5,Knecht | Hausknecht,Fabrikarbeiter,industrie,vorname:gleich+beruf:verwandt+neu:adresse,4,mittel,1,0,76
-ee38fdd9c92,e1f0931422a,Stoll,Elisa,Elisa,Lausanne,Zürich,1896,1900,4,166.8,dom.,Handarbeiterin,,vorname:gleich+beruf:verwandt+neu:adresse,4,mittel,0,0,131
-e952395304f,e1aeeabb94b,Streit,Anna,Anna,Lausanne,Zürich,1896,1900,4,166.8,dom.,Fabrikarb.,industrie,vorname:gleich+beruf:verwandt+neu:adresse,4,mittel,0,0,122
 e2056dac15f,e5d82c81e66,Weber,Hugo,Hugo,Lausanne,Bern,1896,1900,4,70.3,imprimeur,Schriftsetzer,,vorname:gleich+beruf:gleich+neu:adresse,5,mittel,0,0,2253
 ec4fb6e7ffb,ed05eee7475,Weisser,Otto,Otto,Lausanne,Zürich,1896,1900,4,166.8,commis,Kaufmann,handel,vorname:gleich+beruf:verwandt,3,mittel,0,0,32
 e371bc25da0,eea1f1789c3,Wenner,Victor,Vikt,Muri (AG),Zürich,1896,1900,4,17.8,Ingenieur,Ingenieur | Ingr | Stadt-Ingenieur,bau,vorname:abkürzung+beruf:wortlaut+neu:nummer,3,mittel,1,0,14
@@ -84,13 +80,11 @@ e84e60aade5,eb9211f0e49,Dürr,Alfred,Alfr,Aarau,Zürich,1899,1900,1,32.2,Tambour
 e43ff20e511,e04b874158f,Frey,Henriette,Henriette,Aarau,Zürich,1899,1900,1,32.2,Weißnäherin,Schneiderin,handwerk,vorname:gleich+beruf:verwandt+neu:adresse,4,mittel,0,0,1944
 e0e5039ed8a,e6207f6c9fe,Hässig,Julius,Jul,Aarau,Bern,1899,1900,1,71.5,"Schlosser | Oberlieutenant, Instruktor II. Klasse der Infanterie | Oberlieut., Instruktor II. Klasse der Infanterie. | S",Instruk.-Hauptmann,recht,vorname:abkürzung+beruf:wort+neu:adresse,4,mittel,0,0,110
 ea872982e0c,e4f546a7152,Kaspar,Anna,Louise Anna,Aarau,Zürich,1899,1900,1,32.2,"Postpacker, von Zezwyl.",Fabrikarbeiterin,industrie,vorname:gleich+beruf:verwandt+neu:adresse,4,mittel,0,0,126
-eb1fd66cd82,ee7535317aa,Kleeb,Jos. Anton,Maria Josepha,Aarau,Zürich,1899,1900,1,32.2,"Taglöhner | Taglöhner, Rogglishwil (Bern).",Fabrikarbeit.,industrie,vorname:abkürzung+beruf:verwandt+neu:adresse,3,mittel,0,0,11
+eba9fc7217d,e930a631848,Küng,Anna,Anna,Aarau,Zürich,1899,1900,1,32.2,Glätterinnen | Glätterin,Glätterin,handwerk,vorname:gleich+beruf:wortlaut+neu:adresse,4,mittel,0,0,185
 e7324f11860,ec9e18dfae8,Pöll,Johann,Joh,Aarau,Zürich,1899,1900,1,32.2,Maurerpolier,Maurer,,vorname:abkürzung+beruf:wortlaut+neu:adresse,3,mittel,0,0,4
 e074088c1e0,e2f2fe29321,Rickenbacher,Heinrich,Heinr.,Binningen,Basel,1899,1902,3,1.9,Baumaterialien,Holzhandlg,bau,vorname:abkürzung+allianzname+neu:nummer+neu:adresse+nachbarort,4,mittel,1,1,43
 ec7d66ca0d8,e17187a1492,Schenk,Adolf,Adolf,Aarau,Zürich,1899,1900,1,32.2,Cementarbeiter,Taglöhner,,vorname:gleich+beruf:allgemein+neu:adresse,4,mittel,0,0,236
 ecad1fa7734,e780614ba80,Stalder,Friedrich,Fritz,Aarau,Unterkulm,1899,1904,5,10.5,Speisewirtschaft | Speisewirthschaft,Wirt,gast,vorname:gleich+beruf:gleich,4,mittel,0,1,167
-ea635b6b6c3,eb24035b783,Suter,Joseph,Marie Jos,Aarau,Bern,1899,1900,1,71.5,Bezirksschullehrer,Lehrerin a. d. Breitenrainschule,bildung,vorname:abkürzung+beruf:gleich+neu:adresse,4,mittel,0,0,1093
-ef57aa79408,e19ef33d581,Wächter,Louise,Louise,Aarau,Zürich,1899,1900,1,32.2,Taglöhnerin | Spetterinnen | Speterinnen,Spetterin,,vorname:gleich+beruf:wort+neu:adresse,5,mittel,0,0,161
 e9a688fa6ab,ed9d8cd9ccc,Abt,Otto,Otto,Allschwil,Binningen,1900,1901,1,2.3,Dr.,Dr.,,vorname:gleich+neu:nummer+titel+nachbarort,4,mittel,1,1,70
 eaae9467c34,e9001374c00,Bürgin,Ernst Friedr,Ernst,Zürich,Liestal,1900,1905,5,57.5,Fuhrhalter,Fuhrhalter,verkehr,vorname:gleich+beruf:wortlaut+neu:adresse,4,mittel,0,1,91
 e33a04131bf,e0e2e4d5f1b,Gelpke,Rud. Arn,Rudolf,Zürich,Basel,1900,1901,1,69.0,Ingenieur,Ingenieur,bau,vorname:abkürzung+beruf:wortlaut+neu:adresse,3,mittel,0,1,18
@@ -174,9 +168,9 @@ e0a99e6e0ac,ee89e34a411,Gimmi,Walter,Walther,Baden,Zürich,1910,1912,2,17.1,Lehr
 ef6d8c840ed,edf9054c5af,Guggenheim,Elise,Elise,Baden,Zürich,1910,1914,4,17.1,Privat,Part.,privat,vorname:gleich+beruf:allgemein+neu:adresse,4,mittel,0,0,299
 ed81eafb2c6,e0c4813c9bd,Henkel,Bened.,Bened,Rorschach,Zürich,1910,1914,4,76.0,Bäckerei z. Seehof,Bäckermeister,lebensmittel,vorname:abkürzung+beruf:wort,3,mittel,0,0,24
 ecc12a408ff,e8598ff5127,Hochuli,Ernst,Ernst,Baden,Zürich,1910,1914,4,17.1,Schmied,Monteur,handwerk,vorname:gleich+beruf:verwandt+neu:adresse,4,mittel,0,0,51
-e1415b3fe7c,eb9c31206b2,Horlacher,Marie Emma,Emma,Baden,Zürich,1910,1914,4,17.1,Ladentochter,Ladentochter,handel,vorname:gleich+beruf:wortlaut+neu:adresse,4,mittel,0,0,52
 ed594b160e8,e0ba108c7ba,Jaenike,Joh. Ludwig,Joh. Ludw,Baden,Zürich,1910,1914,4,17.1,Spengler,Spenglermeister,bau,vorname:abkürzung+beruf:wortlaut+allianzname+neu:adresse,4,mittel,0,0,16
 e83a5f29502,e4b281bef57,Kläui,Albert,Gotth. Alb,Baden,Zürich,1910,1914,4,17.1,Giesser,Kesselschmied,handwerk,vorname:abkürzung+beruf:verwandt+neu:adresse,3,mittel,0,0,9
+e8f4880aad3,e13a816191b,Marti,Anna,Anna,Baden,Zürich,1910,1914,4,17.1,Weissnäherin,Weissnäherin,handwerk,vorname:gleich+beruf:wortlaut+neu:adresse,4,mittel,0,0,342
 ecac35398a5,e97eb6fa826,Muffler,Christian,Chr,Winterthur,Zürich,1910,1914,4,24.7,Bierdépôt,Bier.,lebensmittel,vorname:abkürzung+beruf:klasse+neu:adresse,3,mittel,0,0,4
 e5755e5a92d,eb15c99721b,Oberhänsli,Friedrich,Fritz,Arbon,Aadorf,1910,1914,4,39.3,Gasthof z. Schützenhaus,Restaurant Schwert; Zug,gast,vorname:gleich+beruf:gleich,4,mittel,0,1,56
 e4142016d4a,e565f5a3ad5,Ott,Severin,Severin,Arbon,Rüti (ZH),1910,1911,1,51.6,Baugeschäft und Architekturbureau,Baugeschäft u. Architekturbureau | Baugesch. u. Architekturbur,bau,vorname:gleich+beruf:wort,4,mittel,0,1,393

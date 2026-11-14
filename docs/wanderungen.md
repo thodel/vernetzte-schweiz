@@ -32,12 +32,20 @@ Gesucht sind Paare aus einer Einheit **A** (alter Ort, letztes Jahr *t*) und ein
   übereinstimmen: «Karl Friedrich» ≠ «Karl Johann».
 - Verschiedene Allianznamen widersprechen («Spörry-Streiff» ≠ «Spœrri-Duport»). Verglichen
   werden die ersten fünf Buchstaben, so ist «Tröndli» = «Tröndle».
+- Verschiedenes Geschlecht widerspricht («Jos. Anton» ≠ «Maria Josepha»). Das Geschlecht
+  kommt aus dem ersten ausgeschriebenen Vornamen (Listen in `migration.py`), sonst aus der
+  Berufsform («Lehrerin», «couturière»), «geb.» oder «Witwe».
+- Verschiedene Geburtsnamen zweier Frauen widersprechen. Bei einer Frau ist der Allianzname
+  der Geburtsname («Wächter-Lindenmann» ≠ «geb. Sandmeier»). Steht B als «geb. X» und A
+  früher als Dienstmagd, Köchin, Lehrerin, Glätterin … unter dem eigenen Familiennamen,
+  war A ledig und hiess von Geburt so; B ist dann eine andere Frau («Streit, Anna, dom.»
+  ≠ «Anna geb. Wyss»).
 - **Gegenbelege:**
   - Am alten Ort beginnt nach *t* eine verträgliche Einheit. Dann ist A nicht verschwunden,
-    die Bündelung hat nur getrennt (18 515 Fälle).
-  - Am neuen Ort gab es vor *t'* schon eine verträgliche Einheit (36 466 Fälle).
+    die Bündelung hat nur getrennt (17 962 Fälle).
+  - Am neuen Ort gab es vor *t'* schon eine verträgliche Einheit (35 454 Fälle).
 - **Eindeutigkeit:** A hat genau einen solchen Nachfolger, und B hat genau einen Vorgänger.
-  23 249 Paare fallen hier weg.
+  23 037 Paare fallen hier weg.
 
 ### Punkte und Stufen
 
@@ -100,7 +108,7 @@ weg. Die Gründe stehen je Paar in `data/norm/migration_dropped.csv.gz`.
 
 Ein Paar zählt beim ersten zutreffenden Grund in der Reihenfolge des Codes; die Zahlen der späteren Gründe sanken darum mit der Regel «Ortswort».
 
-Übrig bleiben **319 Paare**: 42 `stark`, 154 `mittel`, 123 `schwach` (vor der Regel «Ortswort» und der Grenze für gleichen Wortlaut 332: 43, 193, 96; vor der feinen Berufsliste 339: 33, 172, 134).
+Übrig bleiben **313 Paare**: 41 `stark`, 149 `mittel`, 123 `schwach` (vor dem Vergleich von Geschlecht und Geburtsname 319: 42, 154, 123; vor der Regel «Ortswort» und der Grenze für gleichen Wortlaut 332: 43, 193, 96; vor der feinen Berufsliste 339: 33, 172, 134).
 
 ## Was «verschwunden» und «neu» heissen
 
@@ -255,21 +263,51 @@ Paaren, die in keiner früheren Stichprobe standen. In `stark` war keines mehr �
   Henauer, Barras), die meist richtig sind. Die Grenze für gleichen Wortlaut ist für
   Telefonbuch-Paare mit seltenem Beruf also zu streng.
 
+Daraus folgte der Vergleich von Geschlecht und Geburtsname (oben unter den Bedingungen).
+Auf Stichprobe 4 angewandt (Prüfung, keine Messung) fallen 7 Paare aus `mittel`: 4
+`falsch` und 3 `unklar`, kein `richtig`. Die 3 `unklar` sind Dienstmägde und eine
+Sommelière, die später als «geb. X» erscheinen; nach der Regel waren sie ledig unter einem
+anderen Geburtsnamen, also andere Frauen. `mittel` steht dann bei 36–88 % (33 Paare).
+Stichproben 2 und 3 ändern sich nicht.
+
+**Stichprobe 5** (`data/review/m10_wanderungen_5.csv`, Seed 14) wurde danach gezogen, aus
+Paaren, die in keiner früheren Stichprobe standen. In `mittel` waren nur noch 32 übrig, in
+`stark` und `schwach` keine.
+
+| Stufe | n | richtig | unklar | falsch | Präzision |
+|---|---|---|---|---|---|
+| `mittel` | 32 | 14 | 15 | 3 | 44–91 % |
+
+**Lesart:**
+
+- Nur noch 3 von 32 Paaren in `mittel` sind falsch, so wenige wie in keiner Stichprobe
+  zuvor (Stichprobe 4: 8 von 40). Die drei: eine Witwe «geb. Burkhardt» gegen
+  «Frl. Bertha Kummer» (Fräulein gegen verheiratet wird noch nicht verglichen), ein Beamter
+  des Bundesgerichts in Chamblandes (Pully), unter «Genève» eingeordnet, und eine Firma mit
+  Hauptsitz in Rorschach und Filiale in Zürich.
+- Die Hälfte bleibt `unklar`, vor allem Adressbuch-Paare mit Berufswechsel (Knecht →
+  Fabrikarbeiter, Schmied → Monteur) und häufige Namen.
+- Die Stichproben sind jetzt aufgebraucht: Jedes Paar in `stark` und `schwach` und fast
+  jedes in `mittel` wurde schon einmal beurteilt. Weitere Regeln lassen sich an diesen
+  Paaren nicht mehr unabhängig messen.
+
 Die Seite zeigt anfangs `stark` und `mittel`. Die Linien sind Hinweise, keine
 Wanderungsstatistik.
 
 ## Grenzen
 
-- **Adressbuch-Paare** in `mittel` sind oft verschiedene Menschen (Messung 4): Frauen mit
-  anderem Geburtsnamen, Vornamen verschiedenen Geschlechts, ein anderer zweiter Vorname.
-  Geschlecht und Geburtsname werden noch nicht verglichen.
+- **Geschlecht und Geburtsname** werden verglichen (Messung 5), «Fräulein» gegen
+  «geb.»/«Witwe» noch nicht. Ein anderer zweiter Vorname («Oskar Edmund» ≠ «Edmund Th.»)
+  wird nur erkannt, wenn beide Seiten zwei ausgeschriebene Vornamen haben.
+- **Neue Stichproben** sind kaum mehr möglich: Fast alle Paare wurden schon einmal
+  beurteilt.
 - **Gleicher Wortlaut ohne neue Nummer oder Adresse** ergibt höchstens `schwach`. Das trifft
   auch Tierärzte und Apotheker, die tatsächlich umzogen (Messung 4).
 - **Berufe ausserhalb der feinen Liste** («Seiler», «Treillageur») fallen auf die grobe
   Klasse zurück.
 - **Namensvettern** in grossen Städten (Paul Piccard, Lausanne/Genève) lassen sich ohne
   Lebensdaten nicht trennen.
-- **Mehrdeutige Paare** (23 249) fallen ganz weg. Häufige Namen kommen darum fast nie vor.
+- **Mehrdeutige Paare** (23 037) fallen ganz weg. Häufige Namen kommen darum fast nie vor.
   Rufnummer und Adresse helfen hier nicht, weil sie sich beim Umzug ändern. Allianzname,
   Geburtsjahr oder Heimatort (Adressbücher) könnten helfen.
 - **Firmen und Institutionen**, die den Sitz verlegen, sind nicht gesucht.

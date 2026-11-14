@@ -55,6 +55,44 @@ NOT_PERSON = re.compile(
     r"|verein|société|societa|gesellschaft|genossenschaft|spital|hôpital|ospedale|asyl|schule|école|scuola|seminar"
     r"|kirche|église|chiesa|pfarr|paroisse|bank|banque|banca|kasse|caisse|eilboten|bureau|büro|ufficio|direktion|direction"
     r"|gemeinde|commune|comune|municipio|kommission|commission|komitee|comité", re.I)
+GEB = re.compile(r"\b(?:geb\.?|geborne|geborene|née)\s+([A-ZÄÖÜÉ][\wäöüéèà-]{2,})")
+# Geschlecht aus dem ersten ausgeschriebenen Vornamen, sonst aus der Berufsform («Lehrerin»)
+FEMALE_NAMES = set("""maria marie anna anne annette elisa elise elisabeth elisabetha elise lisette louise luise luisa
+    bertha berta rosa rosina rosine emma ida lina frieda frida sophie sophia sofia margaritha margaretha margrith
+    marguerite katharina katharine catherine catharina verena barbara magdalena madeleine jeanne julie julia lucie
+    adele adèle amélie amelie caroline karoline klara clara martha marthe mathilde pauline josephine joséphine josepha
+    johanna hanna henriette wilhelmine giuseppina teresa therese thérèse theresia regina albertine alice helene
+    hélène hedwig olga emilie émilie emilia fanny eugenie eugénie laure laura cécile cecile cäcilie elvira elsa ella
+    irma lydia rosalie susanna susanne suzanne berthe marianne mina minna nina elena angela carolina francesca
+    giovanna caterina antonia anita agnes agathe ottilie walburga kreszentia crescentia franziska françoise
+    friederike ernestine christine christina kristina dorothea charlotte amalie amalia esther ruth""".split())
+MALE_NAMES = set("""johann johannes jean hans jakob jacob jacques josef joseph giuseppe karl carl charles friedrich
+    fritz frédéric heinrich henri henry emil emile émile ernst ernest paul louis ludwig luigi otto rudolf rodolphe
+    robert albert alfred eduard edouard édouard edmund oskar oscar franz françois francesco august auguste gottfried
+    gottlieb walter walther max adolf adolphe arnold hermann wilhelm guillaume georg georges giorgio peter pierre
+    pietro anton antoine antonio konrad conrad ulrich christian samuel jules julius alexander alexandre arthur
+    benedikt bernhard caspar kaspar daniel david eugen eugène ferdinand gustav gustave hermann jules leo léon
+    leopold léopold martin michael michel nikolaus niklaus philipp philippe theodor théodore thomas viktor victor
+    werner xaver alois aloys anselm battista giovanni carlo enrico marc marcel maurice""".split())
+FEMALE_OCC = re.compile(r"\w{3,}(?:erin|ärin|nerin|lerin|eurin|istin|antin|entin|innen)\b|\bwitwe\b|\bwwe\b|\w{3,}(?:ière|euse)\b", re.I)
+SINGLE_WOMAN = re.compile(r"\b(dom|domest|domestique|magd|dienstmagd|dienstmädchen|sommelière|köchin|cuisinière|"
+                          r"bonne|femme de chambre|zimmermädchen|kellnerin|ladentochter|verkäuferin|gouvernante|"
+                          r"institutrice|lehrerin|näherin|glätterin|repasseuse|tailleuse|couturière)\b", re.I)
+
+
+def sex(forename: str, occ: str) -> str:
+    for w in re.findall(r"[A-Za-zÀ-ÿ]+\.?", forename or ""):
+        if w.endswith(".") or len(w) <= 3:
+            continue
+        w = w.lower()
+        if w in FEMALE_NAMES:
+            return "f"
+        if w in MALE_NAMES:
+            return "m"
+    first = (occ or "").split("|")[0]
+    return "f" if FEMALE_OCC.search(first) or GEB.search(forename or "") else ""
+
+
 TITLE = re.compile(r"\b(Dr|Prof|Ing|Pfr|Pfarrer|Not|Fürspr|Architekt|Arch)\b\.?", re.I)
 FIELDS = ["from_entity", "to_entity", "surname", "forename_from", "forename_to", "from_muni", "to_muni",
           "from_last", "to_first", "gap", "km", "occ_from", "occ_to", "class", "evidence", "score", "tier",
@@ -63,6 +101,7 @@ TIERS = ("stark", "mittel", "schwach")
 NEIGHBOURS = 10      # Zeilen davor und danach im selben Telefonbuch
 LINES: dict[str, list[tuple[int, str]]] = defaultdict(list)   # Band → [(Zeile, Eintrag)]
 ALLIANCE: dict[str, str] = {}   # Eintrag → Allianzname
+MAIDEN: dict[str, str] = {}     # Adressbuch-Eintrag → Geburtsname («geb. Sandmeier», «née Borel»)
 RAW: dict[str, str] = {}        # Telefonbuch-Eintrag → Zusatz und Strasse, wie gedruckt
 PLACE: dict[str, str] = {}      # Eintrag → Strasse und Zusatz ohne das erste Glied (meist der Beruf)
 MUNI_CANTON: dict[str, str] = {}
@@ -110,6 +149,9 @@ def coords() -> tuple[dict[str, tuple[float, float]], dict[str, Counter]]:
     for r in open_csv(NORM / "ab_entries.csv"):
         if r["alliance_name"]:
             ALLIANCE[r["id"]] = r["alliance_name"]
+        m = r["maiden_name"] or (GEB.search(r["text"]) or [None, ""])[1]
+        if m:
+            MAIDEN[r["id"]] = m
         tel = re.search(r"\bT\.? ?(\d{1,5})\b", r["text"])
         if tel:
             AB_TEL[r["id"]] = tel.group(1)
@@ -258,7 +300,23 @@ def prepare(r: dict) -> dict | None:
         "forename": r["forename"], "fn": fn, "first": int(r["first_year"]), "last": int(r["last_year"]),
         "occ": occ, "stems": stems(clean(occ)), "cls": classify(occ), "fine": fine(occ),
         "title": {m.lower().rstrip(".") for m in TITLE.findall(r["forename"] + " " + occ)},
+        "sex": sex(r["forename"], occ),
     }
+
+
+def birth_names_differ(a: dict, b: dict) -> bool:
+    """Geburtsnamen zweier Frauen widersprechen sich. Bei einer Frau ist der Allianzname der
+    Geburtsname («Wächter-Lindenmann»). Ist B als «geb. X» verheiratet, A aber früher als
+    Dienstmagd, Köchin, Lehrerin … unter dem eigenen Familiennamen eingetragen, war A ledig und
+    hiess von Geburt so: dann ist B eine andere Frau («Streit, Anna, dom.» ≠ «Anna geb. Wyss»)."""
+    if "f" not in (a["sex"], b["sex"]):
+        return False
+    birth = [{x[:5] for x in e["maiden"] | (e["alli"] if e["sex"] == "f" else set())} for e in (a, b)]
+    if birth[0] and birth[1]:
+        return not (birth[0] & birth[1])
+    if birth[1] and not birth[0] and a["sk"][:5] not in birth[1] and SINGLE_WOMAN.search(a["occ"]):
+        return True
+    return False
 
 
 def evidence(a: dict, b: dict) -> tuple[int, list[str]] | None:
@@ -266,6 +324,10 @@ def evidence(a: dict, b: dict) -> tuple[int, list[str]] | None:
     f = compare_forenames(a["fn"], b["fn"])
     if RANK.get(f, 0) < 2:
         return None  # Widerspruch, nur Initiale oder kein Vorname
+    if a["sex"] and b["sex"] and a["sex"] != b["sex"]:
+        return None  # Jos. Anton ≠ Maria Josepha, Joseph ≠ Marie Jos. (Messung 4)
+    if birth_names_differ(a, b):
+        return None  # Louise Wächter-Lindenmann ≠ Louise geb. Sandmeier (Messung 4)
     if a["alli"] and b["alli"] and not ({x[:5] for x in a["alli"]} & {x[:5] for x in b["alli"]}):
         return None  # verschiedene Allianznamen: «Spörry-Streiff» ≠ «Spœrri-Duport» (Tröndli = Tröndle)
     full_a, full_b = ({k for k, short in e["fn"] if not short} for e in (a, b))
@@ -356,6 +418,9 @@ def find() -> None:
     for e in ents:
         rids = recs_of.get(e["id"], [])
         e["alli"] = {nkey(ALLIANCE[x]) for x in rids if x in ALLIANCE} - {""}
+        e["maiden"] = {nkey(MAIDEN[x]) for x in rids if x in MAIDEN} - {""}
+        if e["maiden"] and not e["sex"]:
+            e["sex"] = "f"
         e["ab_tel"] = {AB_TEL[x] for x in rids if x in AB_TEL}
         e["city_numbers"] = big[e["muni"]] / has[e["muni"]] if has[e["muni"]] else 0
         e["canton"] = e["canton"] or MUNI_CANTON.get(e["muni"], "")
