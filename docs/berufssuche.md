@@ -78,7 +78,7 @@ Daraus baut [scripts/build_maps.py](../scripts/build_maps.py) zwei Dinge:
    Buchstaben) wird mit den Mustern geprüft. Trifft eines, wird das Wort ohne Akzente dem
    Beruf zugeordnet. Das ergibt 8 603 Wörter, 868 davon gehören zu mehr als einem Beruf
    («arbeiter» zu Fabrikarbeiter und Handlanger).
-2. **Index je Beruf** (`site/data/fk/<i>.json.gz`). Er enthält alle Einheiten, deren
+2. **Index je Beruf** (`site/data/fk/<Schlüssel>.json.gz`, Schlüssel ohne Akzente, etwa `fk/backer.json.gz`). Er enthält alle Einheiten, deren
    Berufsfeld ein Muster des Berufs trifft. Das sind 287 880 Einheiten mit mindestens einem
    Beruf der Liste. 392 460 der 446 721 Einheiten haben überhaupt Text im Berufsfeld.
 
@@ -110,9 +110,15 @@ Liste trennt sie. Für die Übersetzung taugt nur die feine Liste.
 | Datei | Inhalt |
 |---|---|
 | `site/data/ow/<x>.json.gz` | Berufswörter (ab 4 Buchstaben, ohne Akzente) nach erstem Buchstaben: `w` Wort → Einheiten, `e` Einheit → [Name, Gemeinde, erstes Jahr, letztes Jahr, Beruf (80 Zeichen), Quelle, Berufe der feinen Liste] |
-| `site/data/berufe.json` | `k`: [Schlüssel, Gruppe, de, fr, it, en] je Beruf (Index = Stelle); `v`: Wort → Berufe |
-| `site/data/fk/<i>.json.gz` | je Beruf alle Einheiten damit, Zeilen wie in `ow/` |
-| `site/data/names/<xx>.json.gz` | Namenssuche; an elfter Stelle die Berufe der feinen Liste |
+| `site/data/berufe.json` | `k`: [Schlüssel, Gruppe, de, fr, it, en] je Beruf; `v`: Wort → Schlüssel der Berufe |
+| `site/data/fk/<Schlüssel>.json.gz` | je Beruf alle Einheiten damit, Zeilen wie in `ow/` |
+| `site/data/names/<xx>.json.gz` | Namenssuche; an elfter Stelle die Berufe der feinen Liste (Schlüssel) |
+
+Berufe stehen in allen Dateien als Schlüssel («uhrmacher»), nicht als laufende Nummer.
+So passen Dateien, die der Browser noch zwischengespeichert hat (GitHub Pages bis zu
+10 Minuten), auch nach einer Änderung der Liste zu den neuen: Ein neuer Beruf fehlt
+höchstens kurz, ein falscher erscheint nie. Bis zum 14.11.2026 standen dort Nummern;
+kurz nach einem Deploy galt «Graveur» so einmal als Kunstmaler.
 
 Alle Dateien entstehen im Pages-Workflow (`build_pages.py`, `build_maps.py`) und liegen
 nicht im Repo.

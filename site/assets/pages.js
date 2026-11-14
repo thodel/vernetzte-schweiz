@@ -147,11 +147,17 @@
   // ── Berufe übersetzt (feine Liste, scripts/occupations_fine.py; data/berufe.json) ──
   // k: [Schlüssel, Gruppe, de, fr, it, en]; v: {Berufswort ohne Akzente: [Index …]}
   let berufe;
-  const occList = async () => berufe ??= await get("data/berufe.json");
+  // Berufe stehen überall als Schlüssel («uhrmacher»), nicht als Nummer: alte Dateien aus dem
+  // Zwischenspeicher passen so weiter zu neuen (ein neuer Beruf fehlt höchstens kurz)
+  const occList = async () => {
+    if (!berufe) { berufe = await get("data/berufe.json"); berufe.byKey = new Map(berufe.k.map(r => [r[0], r])); }
+    return berufe;
+  };
   const occCol = { de: 2, fr: 3, en: 5 }[lang] ?? 2;
-  const occLabel = i => berufe?.k[i]?.[occCol] || "";
+  const occLabel = k => berufe?.byKey.get(k)?.[occCol] || "";
   // Berufe zu einem Suchwort: genaues Wort, sonst Wörter, die so beginnen (gewichtet)
-  const occKeysOf = w => {
+  const occKeysOf = w => (occKeysRaw(w) || []).filter(k => typeof k === "string" && berufe.byKey.has(k));  // alte Datei mit Nummern: nichts
+  const occKeysRaw = w => {
     if (!berufe || w.length < 3) return [];
     if (berufe.v[w]) return berufe.v[w];
     const c = new Map();
@@ -160,10 +166,10 @@
     return [...c].filter(([, v]) => v >= top / 4).map(([k]) => k);
   };
   // Hinweis «≈ Uhrmacher» an einem Treffer: die erkannten Berufe in der Sprache der Seite
-  const occPills = keys => (keys || []).slice(0, 3).map(i => el("span", { class: "pill tr", title: t.pg_tr_title }, `≈ ${occLabel(i)}`));
+  const occPills = keys => (keys || []).filter(k => typeof k === "string" && occLabel(k)).slice(0, 3).map(i => el("span", { class: "pill tr", title: t.pg_tr_title }, `≈ ${occLabel(i)}`));
   // «mitgesucht: Uhrmacher (horloger, orologiaio, watchmaker)»
   const occAlso = keys => el("p", { class: "sub tr-note" }, t.pg_tr_also, " ",
-    ...keys.flatMap((i, j) => { const r = berufe.k[i]; return [j ? "; " : "", el("b", {}, r[occCol]), ` (${[2, 3, 4, 5].filter(c => c !== occCol).map(c => r[c]).join(", ")})`]; }));
+    ...keys.filter(k => berufe.byKey.has(k)).flatMap((i, j) => { const r = berufe.byKey.get(i); return [j ? "; " : "", el("b", {}, r[occCol]), ` (${[2, 3, 4, 5].filter(c => c !== occCol).map(c => r[c]).join(", ")})`]; }));
   const trBox = on => { const c = el("input", { type: "checkbox" }); c.checked = on; return c; };
 
   async function search(params) {
@@ -696,13 +702,13 @@
     try { shard = await get(`data/ow/${toks[0].slice(0, 1)}.json.gz`); } catch { shard = { w: {}, e: {} }; }
     const ids = new Set();
     for (const [w, list] of Object.entries(shard.w)) if (w.startsWith(toks[0])) list.forEach(id => ids.add(id));
-    // übersetzte Berufe mitsuchen: alle Einheiten der erkannten Berufe (data/fk/<i>.json.gz)
+    // übersetzte Berufe mitsuchen: alle Einheiten der erkannten Berufe (data/fk/<Schlüssel>.json.gz)
     const rowOf = new Map(Object.entries(shard.e));
     await occList();
     const keys = tr ? occKeysOf(toks[0]) : [];
     for (const k of keys) {
       let part = {};
-      try { part = await get(`data/fk/${k}.json.gz`); } catch { /* fehlt */ }
+      try { part = await get(`data/fk/${fold(k)}.json.gz`); } catch { /* fehlt */ }
       for (const [id, row] of Object.entries(part)) { ids.add(id); rowOf.set(id, row); }
     }
     const mf = fold(m);

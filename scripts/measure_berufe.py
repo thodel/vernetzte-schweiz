@@ -57,7 +57,18 @@ def load(path: Path):
     return json.loads(gzip.open(path, "rt", encoding="utf-8").read()) if path.suffix == ".gz" else json.loads(path.read_text())
 
 
-def keys_of(word: str, vocab: dict) -> list[int]:
+def load_fk(B: dict, ids_only: bool = False) -> dict:
+    """fk/<Schlüssel ohne Akzente>.json.gz je Beruf, nach Schlüssel."""
+    out = {}
+    for k in (r[0] for r in B["k"]):
+        path = DATA / "fk" / f"{fold(k)}.json.gz"
+        if path.exists():
+            rows = load(path)
+            out[k] = set(rows) if ids_only else rows
+    return out
+
+
+def keys_of(word: str, vocab: dict) -> list[str]:
     """Wie occKeysOf() in site/assets/pages.js."""
     w = fold(word)
     if w in vocab:
@@ -79,8 +90,9 @@ def wording_ids(word: str) -> set[str]:
 
 def draw() -> None:
     B = load(DATA / "berufe.json")
-    label = lambda i: B["k"][i][2]  # noqa: E731
-    fk = {int(p.name.split(".")[0]): load(p) for p in (DATA / "fk").glob("*.json.gz")}
+    by = {r[0]: r for r in B["k"]}
+    label = lambda k: by[k][2]  # noqa: E731
+    fk = load_fk(B)
     places = [p[0] for p in load(DATA / "maps.json.gz")["places"]]
     full = {}  # ganzes Berufsfeld, nicht die gekürzte Zeile der Seite
     for r in csv.DictReader(gzip.open(NORM / "entities.csv.gz", "rt", encoding="utf-8")):
@@ -101,7 +113,8 @@ def draw() -> None:
 
 
 def draw_gain(B, fk, row, queries, seed, name, skip, stats_file) -> None:
-    label = lambda i: B["k"][i][2]  # noqa: E731
+    by = {r[0]: r for r in B["k"]}
+    label = lambda k: by[k][2]  # noqa: E731
     rnd = random.Random(seed)
     out, stats = [], {}
     for q in queries:
@@ -122,12 +135,13 @@ def draw_gain(B, fk, row, queries, seed, name, skip, stats_file) -> None:
 
 def draw2() -> None:
     B = load(DATA / "berufe.json")
-    fk = {int(p.name.split(".")[0]): load(p) for p in (DATA / "fk").glob("*.json.gz")}
+    by = {r[0]: r for r in B["k"]}
+    fk = load_fk(B)
     places = [p[0] for p in load(DATA / "maps.json.gz")["places"]]
     full = {r["entity_id"]: r["occupations"] for r in csv.DictReader(gzip.open(NORM / "entities.csv.gz", "rt", encoding="utf-8"))}
 
     def row(nr, frage, q, k, eid):
-        return {"nr": nr, "frage": frage, "suchwort": q, "beruf": B["k"][k][2], "entity_id": eid, "name": fk[k][eid][0],
+        return {"nr": nr, "frage": frage, "suchwort": q, "beruf": by[k][2], "entity_id": eid, "name": fk[k][eid][0],
                 "gemeinde": places[fk[k][eid][1]], "berufsfeld": full.get(eid, fk[k][eid][4])[:300], "urteil": "", "begruendung": ""}
     skip = {(r["suchwort"], r["entity_id"]) for r in csv.DictReader(open(FILES["gewinn"], encoding="utf-8"))}
     draw_gain(B, fk, row, QUERIES_2, 22, "gewinn_2", skip, "berufe_gewinn_umfang_2.json")
@@ -135,15 +149,16 @@ def draw2() -> None:
 
 def draw3() -> None:
     B = load(DATA / "berufe.json")
-    fk = {int(p.name.split(".")[0]): load(p) for p in (DATA / "fk").glob("*.json.gz")}
+    fk = load_fk(B)
     places = [p[0] for p in load(DATA / "maps.json.gz")["places"]]
     full = {r["entity_id"]: r["occupations"] for r in csv.DictReader(gzip.open(NORM / "entities.csv.gz", "rt", encoding="utf-8"))}
     seen = {(r["beruf"], r["entity_id"]) for r in csv.DictReader(open(FILES["zuordnung"], encoding="utf-8"))}
-    pairs = sorted((k, e) for k, rows in fk.items() for e in rows if (B["k"][k][2], e) not in seen)
+    by = {r[0]: r for r in B["k"]}
+    pairs = sorted((k, e) for k, rows in fk.items() for e in rows if (by[k][2], e) not in seen)
     rnd = random.Random(23)
     out = []
     for i, (k, e) in enumerate(rnd.sample(pairs, 80), 1):
-        out.append({"nr": f"{i:03d}", "frage": "zuordnung", "suchwort": "", "beruf": B["k"][k][2], "entity_id": e,
+        out.append({"nr": f"{i:03d}", "frage": "zuordnung", "suchwort": "", "beruf": by[k][2], "entity_id": e,
                     "name": fk[k][e][0], "gemeinde": places[fk[k][e][1]], "berufsfeld": full.get(e, fk[k][e][4])[:300],
                     "urteil": "", "begruendung": ""})
     write_csv(FILES["zuordnung_2"], FIELDS, out)
@@ -153,12 +168,11 @@ def draw3() -> None:
 def recheck() -> dict:
     """Runde 1 nach den heutigen Regeln: welche beurteilten Zuordnungen und Treffer bleiben?"""
     B = load(DATA / "berufe.json")
-    key = {k[0]: i for i, k in enumerate(B["k"])}
     lab = {k[2]: k[0] for k in B["k"]}
-    fk = {int(p.name.split(".")[0]): set(load(p)) for p in (DATA / "fk").glob("*.json.gz")}
+    fk = load_fk(B, ids_only=True)
     res = {}
     rows = list(csv.DictReader(open(FILES["zuordnung"], encoding="utf-8")))
-    keep = [r for r in rows if r["beruf"] in lab and r["entity_id"] in fk.get(key[lab[r["beruf"]]], set())]
+    keep = [r for r in rows if r["beruf"] in lab and r["entity_id"] in fk.get(lab[r["beruf"]], set())]
     res["zuordnung"] = Counter(r["urteil"] for r in keep)
     rows = list(csv.DictReader(open(FILES["gewinn"], encoding="utf-8")))
     res["gewinn"] = {}
