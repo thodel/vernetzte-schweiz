@@ -24,6 +24,13 @@ Wortes: {"w": {Wort: [entity_id, …]}, "e": {entity_id: [Name, Gemeinde, erstes
 letztes Jahr, Berufe, Quelle t/a/b]}}. Wörter ab 4 Buchstaben aus dem Berufsfeld, ohne Akzente; alle
 Einheiten, auch die nur im Adressbuch stehen (Jahre dann aus beiden Quellen).
 
+Berufe übersetzt (feine Liste, scripts/occupations_fine.py):
+- `berufe.json`: `k` = [Schlüssel, Gruppe, deutsch, französisch, italienisch, englisch] je
+  Beruf (Index = Stelle); `v` = {Berufswort ohne Akzente: [Index, …]} für alle Wörter des
+  Berufsfelds, die einen Beruf der Liste nennen («horloger» → Uhrmacher).
+- `fk/<i>.json.gz`: je Beruf i alle Einheiten mit diesem Beruf, Zeilen wie in `ow/` (`e`).
+- In `ow/` steht an siebter Stelle jeder Zeile die Liste der Berufe (Indizes).
+
 nm/<xx>.json.gz: je Familienname (Teil = FNV des Namens ohne Akzente, 64 Teile)
 [[Gemeinde, erstes Jahr, letztes Jahr, Quelle], …] je Person — wo Personen dieses Namens in
 welchen Jahren im Telefon- bzw. Adressbuch stehen.
@@ -39,6 +46,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 from build_pages import OUT, dump, fnv, fold, name_shard, src_flag  # noqa: E402
 from common import NORM, ROOT, open_csv  # noqa: E402
 from occupations import CLASSES, classify  # noqa: E402
+from occupations_fine import FINE, LABELS, fine  # noqa: E402
 
 import re  # noqa: E402
 
@@ -80,6 +88,10 @@ def main() -> None:
     ow_words: dict[str, dict[str, list]] = defaultdict(lambda: defaultdict(list))
     ow_ent: dict[str, dict[str, list]] = defaultdict(dict)
     display: dict[str, Counter] = defaultdict(Counter)
+    fidx = {k: i for i, (k, _, _) in enumerate(FINE)}
+    vocab: dict[str, set] = defaultdict(set)
+    vocab_seen: set[str] = set()
+    fk_rows: dict[int, dict] = defaultdict(dict)
     for s in open_csv(NORM / "entities.csv.gz"):
         if s["municipality"] not in idx:
             continue
@@ -90,11 +102,22 @@ def main() -> None:
         # Berufssuche: alle Einheiten, auch die nur im Adressbuch stehen
         words = {fold(w) for w in re.findall(r"[A-Za-zÀ-ÿ]{4,}", s["occupations"])} - OCC_STOP
         label = s["name"] if firm and s["name"] else ", ".join(x for x in (s["surname"], s["forename"]) if x)
+        keys = sorted(fidx[k] for k in fine(s["occupations"]))
+        row = [label, p, min(ya), max(ya), s["occupations"][:80], src_flag(s), keys] if ya else None
+        for raw in re.findall(r"[A-Za-zÀ-ÿ]{4,}", s["occupations"]):
+            low = raw.lower()
+            if low not in vocab_seen:
+                vocab_seen.add(low)
+                for k in fine(low):
+                    vocab[fold(low)].add(fidx[k])
         for w in words:
             if len(w) < 4:
                 continue
             ow_words[w[:1]][w].append(s["entity_id"])
-            ow_ent[w[:1]][s["entity_id"]] = [label, p, min(ya), max(ya), s["occupations"][:80], src_flag(s)]
+            ow_ent[w[:1]][s["entity_id"]] = row
+        if row:
+            for k in keys:
+                fk_rows[k][s["entity_id"]] = row
         c = classify(s["occupations"], s["name"] if firm else "")
         span = lambda ys: [min(ys), max(ys)] if ys else [0, 0]  # noqa: E731
         ent.append([p, *span(y["ptt"]), *span(y["ab"]), int(firm), ckey.get(c, -1)])
@@ -128,6 +151,10 @@ def main() -> None:
         dump(OUT / "pl" / f"{k}.json.gz", v)
     for k, words in ow_words.items():
         dump(OUT / "ow" / f"{k}.json.gz", {"w": dict(words), "e": ow_ent[k]})
+    dump(OUT / "berufe.json", {"k": [[k, g, *LABELS[k]] for k, g, _ in FINE],
+                               "v": {w: sorted(v) for w, v in sorted(vocab.items()) if w not in OCC_STOP}})
+    for i, rows in fk_rows.items():
+        dump(OUT / "fk" / f"{i}.json.gz", rows)
     print(f"site/data/maps.json.gz: {len(places)} Gemeinden, {len(ent)} Einheiten; nm/: {len(by_name)} Familiennamen "
           f"in {len(shards)} Teilen; pl/: {len(by_place)} Gemeinden; ow/: "
           f"{sum(len(w) for w in ow_words.values())} Berufswörter in {len(ow_words)} Teilen")

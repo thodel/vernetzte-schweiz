@@ -9,7 +9,7 @@ Repo.
 
 | Adresse | Inhalt |
 |---|---|
-| `#/suche?q=…&m=…&j=…&s=t\|a&f=1&x=…&k=…&n=1&a=…&z=…&o=…` | Personen und Firmen nach Familien- bzw. Firmenname (vom Anfang her, ohne Akzente), weitere Wörter grenzen nach Vorname oder Beruf ein, `m` nach Gemeinde, `j` nach Beruf (Weitere Filter; jedes Wort muss im Beruf oder Zusatz stehen) |
+| `#/suche?q=…&m=…&j=…&s=t\|a&f=1&x=…&k=…&n=1&a=…&z=…&o=…` | Personen und Firmen nach Familien- bzw. Firmenname (vom Anfang her, ohne Akzente), weitere Wörter grenzen nach Vorname oder Beruf ein, `m` nach Gemeinde, `j` nach Beruf (Weitere Filter; jedes Wort muss im Beruf oder Zusatz stehen), `u=1` sucht den Beruf auch übersetzt |
 | `#/e/<entity_id>` | eine Einheit: Normdaten, Zeitleiste 1860–1914, alle Einträge mit Adresse, Nummer und Fundstelle, mögliche weitere Adressbuch-Einträge (M2, nicht gebündelt), Gemeinde auf der Karte |
 | `#/a/<Gemeinde>\|<Strasse>\|<Nr.>` | eine Adresse: alle Einträge aller Jahre mit Strasse und Hausnummer |
 | `#/g/<Gemeinde>` | eine Gemeinde 1914: Telefonbuch-Einträge je Jahr, Zahl der Personen und Firmen, die zehn häufigsten Familiennamen, Karte |
@@ -18,7 +18,7 @@ Repo.
 | `#/quellen/<quellen\|telefon\|ortsqualitaet\|verknuepfung\|einheiten\|vorgehen>` | Quellen & Qualität: die Abschnitte, die früher auf der Startseite standen, mit Unternavigation |
 | `#/wanderungen?…` | Wanderungen (M10, Versuch, [docs/wanderungen.md](wanderungen.md)); früher `#/karten?v=wanderungen`, das weiterleitet |
 | `#/karten?v=telefon\|berufe\|namen` | Karten (M6, [docs/karten.md](karten.md)) |
-| `#/suche?b=…&q=…` | Suche nach Berufen mit Karte (M6); `q` grenzt nach Name ein (Weitere Filter) |
+| `#/suche?b=…&q=…` | Suche nach Berufen mit Karte (M6); `q` grenzt nach Name ein (Weitere Filter), `u=1` sucht den Beruf auch übersetzt |
 | `#/suche?v=ft&q=…` | Volltext über alle Einträge (M8, [docs/volltext.md](volltext.md)) |
 | `#/buch?kt=…&y=…` | alle Einträge eines Kantons und Jahrgangs (M8) |
 
@@ -55,3 +55,20 @@ Adressseite.
 - Fundstellen nennen Band und Seite. Seitenbilder: Telefonbücher bis 1910 (IIIF des
   PTT-Archivs, M8), Adressbuch Basel 1862 (Digitaler Lesesaal des Staatsarchivs); für
   Aarau und die Telefonbücher 1911–1914 noch nicht.
+
+## Berufe übersetzt
+
+Mit «Übersetzungen mitsuchen» (`u=1`) findet die Suche denselben Beruf auch in den anderen
+Sprachen: «horloger» findet auch «Uhrmacher» und «orologiaio», «Metzger» auch «boucher» und
+«charcutier». Grundlage ist die feine Berufsliste aus den Wanderungen
+([scripts/occupations_fine.py](../scripts/occupations_fine.py)): 124 Berufe mit Mustern in
+deutscher, französischer und italienischer Sprache samt Abkürzungen, dazu je Beruf eine
+Bezeichnung auf Deutsch, Französisch, Italienisch und Englisch (`LABELS`).
+
+- `site/data/berufe.json` ordnet jedes Wort des Berufsfelds den Berufen der Liste zu
+  (8 603 Wörter). Ein Suchwort, das dort nicht steht, nimmt die Berufe der Wörter, die so
+  beginnen.
+- `site/data/fk/<i>.json.gz` enthält je Beruf alle Einheiten damit.
+- Jeder Treffer zeigt die erkannten Berufe in der Sprache der Seite («≈ boucher»). Die
+  Zuordnung geschieht maschinell nach den Mustern, nicht nach Durchsicht; sie greift breit
+  («Café» gilt als Wirt) und kennt nur Berufe der Liste.

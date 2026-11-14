@@ -144,6 +144,28 @@
     return g !== undefined && label.split(/[\s,.-]+/).some(x => groups.get(fold(x)) === g);
   };
 
+  // ── Berufe übersetzt (feine Liste, scripts/occupations_fine.py; data/berufe.json) ──
+  // k: [Schlüssel, Gruppe, de, fr, it, en]; v: {Berufswort ohne Akzente: [Index …]}
+  let berufe;
+  const occList = async () => berufe ??= await get("data/berufe.json");
+  const occCol = { de: 2, fr: 3, en: 5 }[lang] ?? 2;
+  const occLabel = i => berufe?.k[i]?.[occCol] || "";
+  // Berufe zu einem Suchwort: genaues Wort, sonst Wörter, die so beginnen (gewichtet)
+  const occKeysOf = w => {
+    if (!berufe || w.length < 3) return [];
+    if (berufe.v[w]) return berufe.v[w];
+    const c = new Map();
+    for (const [x, ks] of Object.entries(berufe.v)) if (x.startsWith(w)) for (const k of ks) c.set(k, (c.get(k) || 0) + 1);
+    const top = Math.max(0, ...c.values());
+    return [...c].filter(([, v]) => v >= top / 4).map(([k]) => k);
+  };
+  // Hinweis «≈ Uhrmacher» an einem Treffer: die erkannten Berufe in der Sprache der Seite
+  const occPills = keys => (keys || []).slice(0, 3).map(i => el("span", { class: "pill tr", title: t.pg_tr_title }, `≈ ${occLabel(i)}`));
+  // «mitgesucht: Uhrmacher (horloger, orologiaio, watchmaker)»
+  const occAlso = keys => el("p", { class: "sub tr-note" }, t.pg_tr_also, " ",
+    ...keys.flatMap((i, j) => { const r = berufe.k[i]; return [j ? "; " : "", el("b", {}, r[occCol]), ` (${[2, 3, 4, 5].filter(c => c !== occCol).map(c => r[c]).join(", ")})`]; }));
+  const trBox = on => { const c = el("input", { type: "checkbox" }); c.checked = on; return c; };
+
   async function search(params) {
     if (params.has("b")) return occSearch(params);
     if (params.get("v") === "ft") return fulltext(params);
@@ -151,13 +173,14 @@
     const fuzzy = params.get("f") === "1", kind = params.get("k") || "", withAuth = params.get("n") === "1";
     const sort = params.get("o") || "name", ya = +(params.get("a") || 1860), yz = +(params.get("z") || 1914);
     const extra = new Set((params.get("x") || "").split(",").filter(Boolean));
-    const job = params.get("j") || "";
+    const job = params.get("j") || "", tr = params.get("u") === "1";
     const srcSel = srcSelect(src);
     const input = el("input", { type: "search", value: q, placeholder: t.pg_search_ph, "aria-label": t.pg_search_ph, class: "q" });
     const muni = el("input", { type: "search", value: m, placeholder: t.pg_search_place, "aria-label": t.pg_search_place, class: "q q-place" });
     const fz = el("input", { type: "checkbox" }); fz.checked = fuzzy;
     const au = el("input", { type: "checkbox" }); au.checked = withAuth;
     const jobIn = el("input", { type: "search", value: job, placeholder: t.pg_job_ph, "aria-label": t.pg_job_ph, class: "q q-job" });
+    const trIn = trBox(tr);
     const kindSel = select([["", t.mp_all], ["p", t.pg_kind_person], ["f", t.pg_kind_firma]], kind, t.mp_kind);
     const sortSel = select([["name", t.pg_sort_name], ["ort", t.pg_sort_place], ["jahr", t.pg_sort_year]], sort, t.pg_sort);
     let range = [ya, yz];
@@ -165,7 +188,7 @@
     const state = (upd = {}) => {
       const p = new URLSearchParams({ q: input.value, m: muni.value, s: srcSel.querySelector("select").value,
         f: fz.checked ? "1" : "", k: kindSel.querySelector("select").value, n: au.checked ? "1" : "",
-        o: sortSel.querySelector("select").value, a: range[0], z: range[1], x: [...extra].join(","), j: jobIn.value, ...upd });
+        o: sortSel.querySelector("select").value, a: range[0], z: range[1], x: [...extra].join(","), j: jobIn.value, u: trIn.checked ? "1" : "", ...upd });
       for (const [k, v] of [...p]) if (!v || (k === "a" && v === "1860") || (k === "z" && v === "1914") || (k === "o" && v === "name")) p.delete(k);
       return `#/suche?${p}`;
     };
@@ -176,13 +199,15 @@
     muni.addEventListener("input", onInput);
     jobIn.addEventListener("input", () => { clearTimeout(timer); timer = setTimeout(() => go(), 300); });
     jobIn.addEventListener("focus", () => { focusPlace = "job"; });
+    trIn.addEventListener("change", () => go());
     for (const c of [srcSel, kindSel, sortSel]) c.querySelector("select").addEventListener("change", () => go());
     fz.addEventListener("change", () => go({ x: "" }));
     au.addEventListener("change", () => go());
     const yearCtl = rangeSlider(1860, 1914, ya, yz, (x, y) => { range = [x, y]; go(); });
     const filters = el("details", { class: "filters", ...(job || fuzzy || kind || withAuth || ya !== 1860 || yz !== 1914 || sort !== "name" ? { open: "" } : {}) },
       el("summary", {}, t.pg_more_filters),
-      el("div", { class: "controls" }, el("label", { class: "ctl wide" }, el("span", {}, t.pg_job), jobIn), yearCtl, kindSel, sortSel,
+      el("div", { class: "controls" }, el("label", { class: "ctl wide" }, el("span", {}, t.pg_job), jobIn),
+        el("label", { class: "check" }, trIn, " ", t.pg_tr), yearCtl, kindSel, sortSel,
         el("label", { class: "check" }, au, " ", t.pg_only_auth)));
     view.replaceChildren(el("h1", {}, t.pg_search_h), searchTabs("name"), el("p", { class: "intro" }, t.pg_search_p),
       el("div", { class: "searchbar" }, input, muni, srcSel),
@@ -201,6 +226,8 @@
     const mf = fold(m);
     // Beruf (Weitere Filter): jedes Wort muss im Beruf oder Zusatz der Einheit stehen
     const jobs = job.split(/[\s,;]+/).map(fold).filter(w => w.length >= 2);
+    await occList();
+    const jobKeys = jobs.map(w => tr ? occKeysOf(w) : []);
     const groups = await forenames();
     let rows = [], keyset = null, chips = [];
     if (fuzzy) {
@@ -238,7 +265,7 @@
       const nameOk = keyset ? keyset.has(keyOfLabel(r[1], r[5])) : fold(strip(r[1])).startsWith(first);
       return nameOk && rest.every(w => wordOk(w, r[1], r[8], groups))
         && (!mf || fold(r[2]).includes(mf)) && srcOk(r[9], src)
-        && jobs.every(w => fold(r[8]).includes(w))
+        && jobs.every((w, i) => fold(r[8]).includes(w) || (r[10] || []).some(k => jobKeys[i].includes(k)))
         && (!kind || r[5] === kind) && (!withAuth || r[7]) && r[3] <= range[1] && r[4] >= range[0];
     });
     const cmp = {
@@ -247,19 +274,21 @@
       jahr: (x, y) => x[3] - y[3] || fold(x[1]).localeCompare(fold(y[1])),
     }[sort] || (() => 0);
     hits.sort(cmp);
+    const also = [...new Set(jobKeys.flat())];
+    if (also.length) out.append(occAlso(also));
     out.append(el("p", { class: "count" }, t.pg_hits.replace("{n}", n(hits.length))
       + (jobs.length ? " " + t.pg_job_active.replace("{b}", job.trim()) : "")
       + (hits.length > 300 ? " " + t.pg_hits_more : "")));
     const qk0 = keyset ? fkey(firstRaw) : "";
     const ul = el("ul", { class: "hitlist" });
-    for (const [id, label, place, y0, y1, knd, cnt, tier, occ] of hits.slice(0, 300)) {
+    for (const [id, label, place, y0, y1, knd, cnt, tier, occ, , fks] of hits.slice(0, 300)) {
       const why = keyset ? (keyOfLabel(label, knd) === qk0 ? (fold(firstRaw) === fold(keyOfLabel(label, knd)) || fold(strip(label)).startsWith(first) ? "" : t.pg_why_variant) : t.pg_why_similar) : "";
       ul.append(el("li", {},
         link(`#/e/${id}`, label, "hit"),
         el("span", { class: "meta" }, `${place} · ${years([y0, y1])} · ${knd === "f" ? t.pg_kind_firma : t.pg_kind_person} · ${entries(cnt)}`),
         why ? el("span", { class: "pill why" }, why) : "",
         tier ? el("span", { class: "pill tier-" + (tier === "w" ? "wahrscheinlich" : "möglich") }, t.pg_authority) : "",
-        occ ? el("span", { class: "occ" }, occ) : ""));
+        occ ? el("span", { class: "occ" }, occ) : "", occPills(fks)));
     }
     out.append(ul);
   }
@@ -469,6 +498,8 @@
 
   async function occSearch(params) {
     const b = params.get("b") || "", m = params.get("m") || "", src = params.get("s") || "", nm = params.get("q") || "";
+    const tr = params.get("u") === "1";
+    const trIn = trBox(tr);
     const a0 = +(params.get("a") || 1860), a1 = +(params.get("z") || 1914);
     const srcSel = srcSelect(src);
     const input = el("input", { type: "search", value: b, placeholder: t.pg_occ_ph, "aria-label": t.pg_occ_ph, class: "q" });
@@ -477,7 +508,7 @@
     const D = await maps();
     let range = [a0, a1];
     const go = () => location.replace(`#/suche?b=${encodeURIComponent(input.value)}&m=${encodeURIComponent(muni.value)}&a=${range[0]}&z=${range[1]}&s=${srcSel.querySelector("select").value}`
-      + (nameIn.value ? `&q=${encodeURIComponent(nameIn.value)}` : ""));
+      + (nameIn.value ? `&q=${encodeURIComponent(nameIn.value)}` : "") + (trIn.checked ? "&u=1" : ""));
     const perSel = rangeSlider(1860, 1914, a0, a1, (x, y) => { range = [x, y]; go(); });
     let timer;
     const onInput = () => { clearTimeout(timer); timer = setTimeout(go, 350); };
@@ -485,12 +516,14 @@
     muni.addEventListener("input", onInput);
     nameIn.addEventListener("input", onInput);
     srcSel.querySelector("select").addEventListener("change", go);
+    trIn.addEventListener("change", go);
     muni.addEventListener("focus", () => { focusPlace = true; });
     nameIn.addEventListener("focus", () => { focusPlace = "job"; });
     input.addEventListener("focus", () => { focusPlace = false; });
     const out = el("div", { class: "results" });
     view.replaceChildren(el("h1", {}, t.pg_search_h), searchTabs("beruf"), el("p", { class: "intro" }, t.pg_occ_p),
       el("div", { class: "searchbar" }, input, muni, perSel, srcSel),
+      el("label", { class: "check fuzzy" }, trIn, " ", el("b", {}, t.pg_tr), " ", el("span", { class: "muted" }, t.pg_tr_hint)),
       el("details", { class: "filters", ...(nm ? { open: "" } : {}) }, el("summary", {}, t.pg_more_filters_occ),
         el("div", { class: "controls" }, el("label", { class: "ctl wide" }, el("span", {}, t.pg_name), nameIn))), out);
     const f = focusPlace === "job" ? nameIn : focusPlace ? muni : input;
@@ -501,24 +534,34 @@
     try { shard = await get(`data/ow/${toks[0].slice(0, 1)}.json.gz`); } catch { shard = { w: {}, e: {} }; }
     const ids = new Set();
     for (const [w, list] of Object.entries(shard.w)) if (w.startsWith(toks[0])) list.forEach(id => ids.add(id));
+    // übersetzte Berufe mitsuchen: alle Einheiten der erkannten Berufe (data/fk/<i>.json.gz)
+    const rowOf = new Map(Object.entries(shard.e));
+    await occList();
+    const keys = tr ? occKeysOf(toks[0]) : [];
+    for (const k of keys) {
+      let part = {};
+      try { part = await get(`data/fk/${k}.json.gz`); } catch { /* fehlt */ }
+      for (const [id, row] of Object.entries(part)) { ids.add(id); rowOf.set(id, row); }
+    }
     const mf = fold(m);
     // Name (Weitere Filter): jedes Wort im Namen der Einheit (Familienname, Vorname)
     const names = nm.split(/[\s,]+/).map(fold).filter(Boolean);
-    const hits = [...ids].map(id => [id, ...shard.e[id]]).filter(([, label, p, y0, y1, occ, flag]) =>
+    const hits = [...ids].map(id => [id, ...rowOf.get(id)]).filter(([, label, p, y0, y1, occ, flag]) =>
       toks.slice(1).every(w => fold(occ).includes(w)) && names.every(w => fold(label).includes(w)) && (!mf || fold(D.places[p][0]).includes(mf)) && y0 <= a1 && y1 >= a0
       && srcOk(flag, src));
     hits.sort((x, y) => D.places[x[2]][0].localeCompare(D.places[y[2]][0], "de") || x[1].localeCompare(y[1], "de"));
     const byPlace = new Map();
     for (const h of hits) byPlace.set(h[2], (byPlace.get(h[2]) || 0) + 1);
-    out.replaceChildren(el("p", { class: "count" }, t.pg_occ_hits.replace("{n}", n(hits.length)).replace("{g}", n(byPlace.size))));
+    out.replaceChildren(...(keys.length ? [occAlso(keys)] : tr ? [el("p", { class: "muted" }, t.pg_tr_none)] : []),
+      el("p", { class: "count" }, t.pg_occ_hits.replace("{n}", n(hits.length)).replace("{g}", n(byPlace.size))));
     if (!hits.length) return;
     const box = el("div", { class: "map tall" });
     out.append(box, el("p", { class: "sub note" }, t.pg_occ_map_note));
     const top = [...byPlace].sort((x, y) => y[1] - x[1]).slice(0, 12);
     out.append(el("p", { class: "intro" }, t.pg_occ_top, " ", ...top.flatMap(([p, c], i) => [i ? ", " : "", link(placeHref(D.places[p][0]), D.places[p][0]), ` (${n(c)})`])));
     const ul = el("ul", { class: "hitlist" });
-    for (const [id, label, p, y0, y1, occ] of hits.slice(0, 300)) {
-      ul.append(el("li", {}, link(`#/e/${id}`, label, "hit"), el("span", { class: "meta" }, `${D.places[p][0]} · ${years([y0, y1])}`), el("span", { class: "occ" }, occ)));
+    for (const [id, label, p, y0, y1, occ, , fks] of hits.slice(0, 300)) {
+      ul.append(el("li", {}, link(`#/e/${id}`, label, "hit"), el("span", { class: "meta" }, `${D.places[p][0]} · ${years([y0, y1])}`), el("span", { class: "occ" }, occ), occPills(fks)));
     }
     out.append(el("h2", {}, t.pg_occ_list), hits.length > 300 ? el("p", { class: "muted" }, t.pg_hits_more) : "", ul);
     try {

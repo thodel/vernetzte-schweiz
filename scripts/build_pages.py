@@ -38,6 +38,9 @@ from cluster import street  # noqa: E402
 from common import NORM, ROOT, open_csv  # noqa: E402
 from fuzzy import key_of_label  # noqa: E402
 from link_ptt_ab import VARIANTS, house, num  # noqa: E402
+from occupations_fine import FINE, fine  # noqa: E402
+
+FIDX = {k: i for i, (k, _, _) in enumerate(FINE)}  # Beruf → Index in berufe.json (build_maps.py)
 
 OUT = ROOT / "site" / "data"
 KIND_LABEL = {"einwohner": "Einwohner", "berufe": "Berufe", "bewohner": "Gebäude", "behoerden": "Behörden",
@@ -196,7 +199,8 @@ def main() -> None:
         shards[eid[1:3]][eid] = ent
         names[name_shard(s["surname"] or label)].append(
             [eid, label, s["municipality"], int(s["first_year"]), int(s["last_year"]), "f" if s["kind"] == "firma" else "p",
-             len(rs), (a["tier"][0] if a else ""), s["occupations"][:60], src_flag(s)])
+             len(rs), (a["tier"][0] if a else ""), s["occupations"][:60], src_flag(s),
+             sorted(FIDX[k] for k in fine(s["occupations"]))])
 
     if OUT.exists():
         for sub in ("e", "a", "g", "names"):

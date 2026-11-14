@@ -504,5 +504,10 @@
   "pg_job_active": "Beruf: «{b}».",
   "pg_name": "Name",
   "pg_name_ph": "Name, z. B. Meier, Hans",
-  "pg_more_filters_occ": "Weitere Filter: Name"
+  "pg_more_filters_occ": "Weitere Filter: Name",
+  "pg_tr": "Übersetzungen mitsuchen",
+  "pg_tr_hint": "findet denselben Beruf auch deutsch, französisch und italienisch («horloger» = «Uhrmacher» = «orologiaio»), nach der feinen Berufsliste (124 Berufe)",
+  "pg_tr_also": "Mitgesucht:",
+  "pg_tr_none": "Zu diesem Wort ist kein Beruf der Liste bekannt; gesucht wird nur der Wortlaut.",
+  "pg_tr_title": "maschinell erkannter Beruf (feine Berufsliste)"
 }
