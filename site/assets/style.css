@@ -196,11 +196,13 @@ section { padding: 40px 0; }
 .card.auth h2 { margin: 0 0 8px; font-size: 1.3rem; }
 .card.auth p { margin: 6px 0; }
 .tl-box { margin: 24px 0; }
-.tl { position: relative; height: 22px; background: var(--panel); border: 1px solid var(--border); }
-.tl-dot { position: absolute; top: 3px; height: 14px; min-width: 3px; }
+/* zwei Spuren: Adressbuch oben, Telefonbuch unten; sonst verdeckt das Telefonbuch das Adressbuch im selben Jahr */
+.tl { position: relative; height: 30px; background: var(--panel); border: 1px solid var(--border); }
+.tl-dot { position: absolute; height: 11px; min-width: 3px; }
 .tl-dot.src-ptt, .sw.src-ptt { background: var(--cat-ann-dk); }
 .tl-dot.src-ab, .sw.src-ab { background: var(--cat-source); }
-.tl-dot.src-ab { top: 3px; height: 7px; }
+.tl-dot.src-ab { top: 3px; }
+.tl-dot.src-ptt { top: 16px; }
 .tl-ticks { position: relative; height: 18px; font-size: 12px; color: var(--muted); }
 .tl-ticks span { position: absolute; top: 2px; transform: translateX(-50%); }
 .tl-ticks span:first-child { transform: none; }
