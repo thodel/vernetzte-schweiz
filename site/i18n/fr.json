@@ -319,7 +319,7 @@
   "pg_chip_dist": "Distance {d}",
   "pg_why_variant": "variante orthographique",
   "pg_why_similar": "nom similaire",
-  "pg_more_filters": "Autres filtres: années, type, données d'autorité, tri",
+  "pg_more_filters": "Autres filtres: profession, années, type, données d'autorité, tri",
   "pg_only_auth": "seulement avec données d'autorité (Wikidata, DHS, GND)",
   "pg_sort": "Trier",
   "pg_sort_name": "par nom",
@@ -495,5 +495,14 @@
   "mw_by_year": "Première année au nouveau lieu",
   "mw_top_flows": "Paires de lieux les plus fréquentes",
   "mw_cases": "Cas",
-  "mw_more": "… et {n} autres (resserrer les filtres)."
+  "mw_more": "… et {n} autres (resserrer les filtres).",
+  "nav_sq": "Sources & qualité",
+  "nav_migration": "Migrations",
+  "mw_h": "Migrations (essai)",
+  "pg_job": "Profession",
+  "pg_job_ph": "Profession, p. ex. boulanger, horloger",
+  "pg_job_active": "Profession: «{b}».",
+  "pg_name": "Nom",
+  "pg_name_ph": "Nom, p. ex. Meier, Hans",
+  "pg_more_filters_occ": "Autres filtres: nom"
 }

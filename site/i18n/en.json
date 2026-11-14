@@ -319,7 +319,7 @@
   "pg_chip_dist": "distance {d}",
   "pg_why_variant": "spelling variant",
   "pg_why_similar": "similar name",
-  "pg_more_filters": "More filters: years, type, authority data, sorting",
+  "pg_more_filters": "More filters: occupation, years, type, authority data, sorting",
   "pg_only_auth": "only with authority data (Wikidata, HLS, GND)",
   "pg_sort": "Sort",
   "pg_sort_name": "by name",
@@ -495,5 +495,14 @@
   "mw_by_year": "First year at the new place",
   "mw_top_flows": "Most frequent pairs of places",
   "mw_cases": "Cases",
-  "mw_more": "… and {n} more (narrow the filters)."
+  "mw_more": "… and {n} more (narrow the filters).",
+  "nav_sq": "Sources & quality",
+  "nav_migration": "Migration",
+  "mw_h": "Migration (experimental)",
+  "pg_job": "Occupation",
+  "pg_job_ph": "Occupation, e.g. Bäcker, Uhrmacher",
+  "pg_job_active": "Occupation: «{b}».",
+  "pg_name": "Name",
+  "pg_name_ph": "Name, e.g. Meier, Hans",
+  "pg_more_filters_occ": "More filters: name"
 }

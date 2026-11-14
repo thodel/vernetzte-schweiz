@@ -338,3 +338,4 @@ table.hl-groups td.barcell { width: 55%; }
 .pill.mw-tier-1 { background: #cfe3e3; color: #123; }
 .pill.mw-tier-2 { background: #eee; color: #333; }
 @media (max-width: 600px) { .hbar { grid-template-columns: 7rem 1fr auto; } }
+.controls .q-job { min-width: 16rem; padding: 6px 10px; font-size: 1rem; }

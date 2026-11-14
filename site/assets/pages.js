@@ -151,11 +151,13 @@
     const fuzzy = params.get("f") === "1", kind = params.get("k") || "", withAuth = params.get("n") === "1";
     const sort = params.get("o") || "name", ya = +(params.get("a") || 1860), yz = +(params.get("z") || 1914);
     const extra = new Set((params.get("x") || "").split(",").filter(Boolean));
+    const job = params.get("j") || "";
     const srcSel = srcSelect(src);
     const input = el("input", { type: "search", value: q, placeholder: t.pg_search_ph, "aria-label": t.pg_search_ph, class: "q" });
     const muni = el("input", { type: "search", value: m, placeholder: t.pg_search_place, "aria-label": t.pg_search_place, class: "q q-place" });
     const fz = el("input", { type: "checkbox" }); fz.checked = fuzzy;
     const au = el("input", { type: "checkbox" }); au.checked = withAuth;
+    const jobIn = el("input", { type: "search", value: job, placeholder: t.pg_job_ph, "aria-label": t.pg_job_ph, class: "q q-job" });
     const kindSel = select([["", t.mp_all], ["p", t.pg_kind_person], ["f", t.pg_kind_firma]], kind, t.mp_kind);
     const sortSel = select([["name", t.pg_sort_name], ["ort", t.pg_sort_place], ["jahr", t.pg_sort_year]], sort, t.pg_sort);
     let range = [ya, yz];
@@ -163,7 +165,7 @@
     const state = (upd = {}) => {
       const p = new URLSearchParams({ q: input.value, m: muni.value, s: srcSel.querySelector("select").value,
         f: fz.checked ? "1" : "", k: kindSel.querySelector("select").value, n: au.checked ? "1" : "",
-        o: sortSel.querySelector("select").value, a: range[0], z: range[1], x: [...extra].join(","), ...upd });
+        o: sortSel.querySelector("select").value, a: range[0], z: range[1], x: [...extra].join(","), j: jobIn.value, ...upd });
       for (const [k, v] of [...p]) if (!v || (k === "a" && v === "1860") || (k === "z" && v === "1914") || (k === "o" && v === "name")) p.delete(k);
       return `#/suche?${p}`;
     };
@@ -172,13 +174,15 @@
     const onInput = () => { clearTimeout(timer); timer = setTimeout(() => go({ x: "" }), 300); };
     input.addEventListener("input", onInput);
     muni.addEventListener("input", onInput);
+    jobIn.addEventListener("input", () => { clearTimeout(timer); timer = setTimeout(() => go(), 300); });
+    jobIn.addEventListener("focus", () => { focusPlace = "job"; });
     for (const c of [srcSel, kindSel, sortSel]) c.querySelector("select").addEventListener("change", () => go());
     fz.addEventListener("change", () => go({ x: "" }));
     au.addEventListener("change", () => go());
     const yearCtl = rangeSlider(1860, 1914, ya, yz, (x, y) => { range = [x, y]; go(); });
-    const filters = el("details", { class: "filters", ...(fuzzy || kind || withAuth || ya !== 1860 || yz !== 1914 || sort !== "name" ? { open: "" } : {}) },
+    const filters = el("details", { class: "filters", ...(job || fuzzy || kind || withAuth || ya !== 1860 || yz !== 1914 || sort !== "name" ? { open: "" } : {}) },
       el("summary", {}, t.pg_more_filters),
-      el("div", { class: "controls" }, yearCtl, kindSel, sortSel,
+      el("div", { class: "controls" }, el("label", { class: "ctl wide" }, el("span", {}, t.pg_job), jobIn), yearCtl, kindSel, sortSel,
         el("label", { class: "check" }, au, " ", t.pg_only_auth)));
     view.replaceChildren(el("h1", {}, t.pg_search_h), searchTabs("name"), el("p", { class: "intro" }, t.pg_search_p),
       el("div", { class: "searchbar" }, input, muni, srcSel),
@@ -186,7 +190,7 @@
       filters, out);
     muni.addEventListener("focus", () => { focusPlace = true; });
     input.addEventListener("focus", () => { focusPlace = false; });
-    const fcs = focusPlace ? muni : input;
+    const fcs = focusPlace === "job" ? jobIn : focusPlace ? muni : input;
     fcs.focus();
     fcs.setSelectionRange(fcs.value.length, fcs.value.length);
     const words = q.split(/[\s,]+/).filter(Boolean);
@@ -195,6 +199,8 @@
     const first = fold(firstRaw);
     const rest = words.slice(1).map(fold).filter(Boolean);
     const mf = fold(m);
+    // Beruf (Weitere Filter): jedes Wort muss im Beruf oder Zusatz der Einheit stehen
+    const jobs = job.split(/[\s,;]+/).map(fold).filter(w => w.length >= 2);
     const groups = await forenames();
     let rows = [], keyset = null, chips = [];
     if (fuzzy) {
@@ -232,6 +238,7 @@
       const nameOk = keyset ? keyset.has(keyOfLabel(r[1], r[5])) : fold(strip(r[1])).startsWith(first);
       return nameOk && rest.every(w => wordOk(w, r[1], r[8], groups))
         && (!mf || fold(r[2]).includes(mf)) && srcOk(r[9], src)
+        && jobs.every(w => fold(r[8]).includes(w))
         && (!kind || r[5] === kind) && (!withAuth || r[7]) && r[3] <= range[1] && r[4] >= range[0];
     });
     const cmp = {
@@ -241,6 +248,7 @@
     }[sort] || (() => 0);
     hits.sort(cmp);
     out.append(el("p", { class: "count" }, t.pg_hits.replace("{n}", n(hits.length))
+      + (jobs.length ? " " + t.pg_job_active.replace("{b}", job.trim()) : "")
       + (hits.length > 300 ? " " + t.pg_hits_more : "")));
     const qk0 = keyset ? fkey(firstRaw) : "";
     const ul = el("ul", { class: "hitlist" });
@@ -460,26 +468,32 @@
   };
 
   async function occSearch(params) {
-    const b = params.get("b") || "", m = params.get("m") || "", src = params.get("s") || "";
+    const b = params.get("b") || "", m = params.get("m") || "", src = params.get("s") || "", nm = params.get("q") || "";
     const a0 = +(params.get("a") || 1860), a1 = +(params.get("z") || 1914);
     const srcSel = srcSelect(src);
     const input = el("input", { type: "search", value: b, placeholder: t.pg_occ_ph, "aria-label": t.pg_occ_ph, class: "q" });
     const muni = el("input", { type: "search", value: m, placeholder: t.pg_search_place, "aria-label": t.pg_search_place, class: "q q-place" });
+    const nameIn = el("input", { type: "search", value: nm, placeholder: t.pg_name_ph, "aria-label": t.pg_name_ph, class: "q q-job" });
     const D = await maps();
     let range = [a0, a1];
-    const go = () => location.replace(`#/suche?b=${encodeURIComponent(input.value)}&m=${encodeURIComponent(muni.value)}&a=${range[0]}&z=${range[1]}&s=${srcSel.querySelector("select").value}`);
+    const go = () => location.replace(`#/suche?b=${encodeURIComponent(input.value)}&m=${encodeURIComponent(muni.value)}&a=${range[0]}&z=${range[1]}&s=${srcSel.querySelector("select").value}`
+      + (nameIn.value ? `&q=${encodeURIComponent(nameIn.value)}` : ""));
     const perSel = rangeSlider(1860, 1914, a0, a1, (x, y) => { range = [x, y]; go(); });
     let timer;
     const onInput = () => { clearTimeout(timer); timer = setTimeout(go, 350); };
     input.addEventListener("input", onInput);
     muni.addEventListener("input", onInput);
+    nameIn.addEventListener("input", onInput);
     srcSel.querySelector("select").addEventListener("change", go);
     muni.addEventListener("focus", () => { focusPlace = true; });
+    nameIn.addEventListener("focus", () => { focusPlace = "job"; });
     input.addEventListener("focus", () => { focusPlace = false; });
     const out = el("div", { class: "results" });
     view.replaceChildren(el("h1", {}, t.pg_search_h), searchTabs("beruf"), el("p", { class: "intro" }, t.pg_occ_p),
-      el("div", { class: "searchbar" }, input, muni, perSel, srcSel), out);
-    const f = focusPlace ? muni : input;
+      el("div", { class: "searchbar" }, input, muni, perSel, srcSel),
+      el("details", { class: "filters", ...(nm ? { open: "" } : {}) }, el("summary", {}, t.pg_more_filters_occ),
+        el("div", { class: "controls" }, el("label", { class: "ctl wide" }, el("span", {}, t.pg_name), nameIn))), out);
+    const f = focusPlace === "job" ? nameIn : focusPlace ? muni : input;
     f.focus(); f.setSelectionRange(f.value.length, f.value.length);
     const toks = b.split(/[\s,;]+/).map(fold).filter(w => w.length >= 3);
     if (!toks.length) { out.append(el("p", { class: "muted" }, t.pg_occ_hint)); return; }
@@ -488,8 +502,10 @@
     const ids = new Set();
     for (const [w, list] of Object.entries(shard.w)) if (w.startsWith(toks[0])) list.forEach(id => ids.add(id));
     const mf = fold(m);
+    // Name (Weitere Filter): jedes Wort im Namen der Einheit (Familienname, Vorname)
+    const names = nm.split(/[\s,]+/).map(fold).filter(Boolean);
     const hits = [...ids].map(id => [id, ...shard.e[id]]).filter(([, label, p, y0, y1, occ, flag]) =>
-      toks.slice(1).every(w => fold(occ).includes(w)) && (!mf || fold(D.places[p][0]).includes(mf)) && y0 <= a1 && y1 >= a0
+      toks.slice(1).every(w => fold(occ).includes(w)) && names.every(w => fold(label).includes(w)) && (!mf || fold(D.places[p][0]).includes(mf)) && y0 <= a1 && y1 >= a0
       && srcOk(flag, src));
     hits.sort((x, y) => D.places[x[2]][0].localeCompare(D.places[y[2]][0], "de") || x[1].localeCompare(y[1], "de"));
     const byPlace = new Map();
@@ -533,7 +549,7 @@
   const present = (e, a, b, src) => (src !== "a" && e[1] && e[1] <= b && e[2] >= a) || (src !== "t" && e[3] && e[3] <= b && e[4] >= a);
   const rowIn = (r, a, b, src, off = 0) => (src === "ta" || (src === "t" ? r[off + 2] === 0 : r[off + 2] === 1)) && r[off] <= b && r[off + 1] >= a;
 
-  const mapTabs = v => el("nav", { class: "tabs" }, ...[["telefon", t.mp_tab_phone], ["berufe", t.mp_tab_occ], ["namen", t.mp_tab_names], ["wanderungen", t.mw_tab]].map(([k, txt]) =>
+  const mapTabs = v => el("nav", { class: "tabs" }, ...[["telefon", t.mp_tab_phone], ["berufe", t.mp_tab_occ], ["namen", t.mp_tab_names]].map(([k, txt]) =>
     el("a", { href: `#/karten?v=${k}`, class: v === k ? "on" : "", "aria-current": v === k ? "page" : "false" }, txt)));
 
   // ── Wanderungen (M10, experimentell; scripts/migration.py) ──────────────
@@ -544,7 +560,8 @@
     const set = upd => {
       const p = new URLSearchParams(params);
       for (const [k, val] of Object.entries(upd)) p.set(k, val);
-      location.replace(`#/karten?${p}`);
+      p.delete("v");
+      location.replace(`#/wanderungen?${p}`);
     };
     const a = +(params.get("a") || 1860), b = +(params.get("b") || 1914);
     const tier = +(params.get("t") ?? 1), cls = params.get("c") || "alle", dir = params.get("d") || "linien";
@@ -556,7 +573,7 @@
     const box = el("div", { class: "map tall" });
     const side = el("div", { class: "map-side" });
     const ctl = el("div", { class: "controls" });
-    view.replaceChildren(el("h1", {}, t.mp_h), mapTabs("wanderungen"), el("p", { class: "intro" }, t.mw_p), ctl, box, side,
+    view.replaceChildren(el("h1", {}, t.mw_h), el("p", { class: "intro" }, t.mw_p), ctl, box, side,
       el("p", { class: "sub note" }, t.mw_note, " ", link("https://github.com/thodel/vernetzte-schweiz/blob/main/docs/wanderungen.md", t.mw_doc)));
     ctl.append(rangeSlider(1860, 1914, a, b, (x, y) => set({ a: x, b: y })),
       select([[0, tierNames[0]], [1, `${tierNames[0]} + ${tierNames[1]}`], [2, t.mp_all]], tier, t.mw_tier),
@@ -638,7 +655,7 @@
 
   async function karten(params) {
     const v = params.get("v") || "telefon";
-    if (v === "wanderungen") return wanderungen(params);
+    if (v === "wanderungen") { params.delete("v"); location.replace(`#/wanderungen?${params}`); return; }
     const D = await maps();
     const tabs = mapTabs(v);
     const set = upd => {
@@ -1070,10 +1087,28 @@
     view.replaceChildren(...parts);
   }
 
+  // ── Quellen & Qualität: die Abschnitte der Startseite (app.js) mit Unternavigation ──
+  const SQ = [["quellen", "nav_sources"], ["telefon", "nav_phone"], ["ortsqualitaet", "nav_quality"],
+    ["verknuepfung", "nav_links"], ["einheiten", "nav_entities"], ["vorgehen", "nav_plan"]];
+  const sqSections = new Map(SQ.map(([id]) => [id, document.getElementById(id)]));
+  const sqStore = document.getElementById("sq-store");
+  const sqBack = () => { for (const sec of sqSections.values()) if (sec.parentNode !== sqStore) sqStore.append(sec); };
+  function sources([sub]) {
+    const cur = sqSections.has(sub) ? sub : "quellen";
+    const sec = sqSections.get(cur);
+    view.replaceChildren(el("h1", {}, t.nav_sq),
+      el("nav", { class: "tabs", "aria-label": t.nav_sq }, ...SQ.map(([id, key]) =>
+        el("a", { href: `#/quellen/${id}`, class: id === cur ? "on" : "", "aria-current": id === cur ? "page" : "false" }, t[key]))),
+      sec);
+  }
+
   // ── Router ───────────────────────────────────────────────────────────────
-  const routes = { suche: search, e: entity, a: address, g: place, orte: placeList, vorbehalte: caveats, karten, buch: phonebook, hls };
+  const routes = { suche: search, e: entity, a: address, g: place, orte: placeList, vorbehalte: caveats, karten, buch: phonebook, hls, quellen: sources, wanderungen };
   async function route() {
     dropMaps();
+    sqBack();
+    // alte Anker der Startseite (#quellen, #einheiten …) führen zu Quellen & Qualität
+    if (sqSections.has(location.hash.slice(1))) { location.replace(`#/quellen/${location.hash.slice(1)}`); return; }
     if (!location.hash.startsWith("#/") || location.hash === "#/") {
       const wasHidden = overview.hidden;
       view.hidden = true; overview.hidden = false;
@@ -1089,9 +1124,9 @@
     overview.hidden = true; view.hidden = false;
     if (!fn) { view.replaceChildren(el("h1", {}, t.pg_not_found)); return; }
     if (name !== "suche") window.scrollTo(0, 0);
-    document.title = `${t["nav_" + { suche: "search", orte: "places", vorbehalte: "caveats", karten: "maps", buch: "phone", hls: "hls" }[name]] || "…"} · Vernetzte Schweiz`;
+    document.title = `${t["nav_" + { suche: "search", orte: "places", vorbehalte: "caveats", karten: "maps", buch: "phone", hls: "hls", quellen: "sq", wanderungen: "migration" }[name]] || "…"} · Vernetzte Schweiz`;
     view.replaceChildren(el("p", { class: "muted" }, t.loading));
-    try { await (name === "hls" ? fn(args, params) : ["suche", "orte", "karten", "buch"].includes(name) ? fn(params) : fn(args)); }
+    try { await (name === "hls" ? fn(args, params) : ["suche", "orte", "karten", "buch", "wanderungen"].includes(name) ? fn(params) : fn(args)); }
     catch (err) { console.error(err); view.replaceChildren(el("h1", {}, t.pg_not_found)); }
   }
   const hero = document.getElementById("hero-search");

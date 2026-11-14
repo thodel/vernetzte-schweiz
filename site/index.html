@@ -34,12 +34,8 @@
       <a href="#/karten" data-i18n="nav_maps">Karten</a>
       <a href="#/orte" data-i18n="nav_places">Orte</a>
       <a href="#/hls" data-i18n="nav_hls">HLS</a>
-      <a href="#quellen" data-i18n="nav_sources">Quellen</a>
-      <a href="#telefon" data-i18n="nav_phone">Telefonbücher</a>
-      <a href="#ortsqualitaet" data-i18n="nav_quality">Ortsqualität</a>
-      <a href="#verknuepfung" data-i18n="nav_links">Verknüpfung</a>
-      <a href="#einheiten" data-i18n="nav_entities">Einheiten</a>
-      <a href="#vorgehen" data-i18n="nav_plan">Vorgehen</a>
+      <a href="#/wanderungen" data-i18n="nav_migration">Wanderungen</a>
+      <a href="#/quellen" data-i18n="nav_sq">Quellen &amp; Qualität</a>
       <a href="#/vorbehalte" data-i18n="nav_caveats">Vorbehalte</a>
       <a href="https://github.com/thodel/vernetzte-schweiz" data-i18n="nav_repo">Repo</a>
     </nav>
@@ -60,6 +56,10 @@
     <dl class="kpis" id="kpis"><div class="muted" data-i18n="loading">Lade Kennzahlen …</div></dl>
   </section>
 
+</main>
+
+<!-- Quellen & Qualität (#/quellen/…): von app.js gefüllt, von pages.js je Unterseite gezeigt -->
+<div id="sq-store" hidden>
   <section id="quellen">
     <h2 data-i18n="sources_h"></h2>
     <p class="intro" data-i18n="sources_p"></p>
@@ -97,7 +97,7 @@
     <h2 data-i18n="plan_h"></h2>
     <ol class="steps" id="steps"></ol>
   </section>
-</main>
+</div>
 
 <footer class="foot">
   <div class="wrap">

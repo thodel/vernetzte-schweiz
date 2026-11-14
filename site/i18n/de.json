@@ -319,7 +319,7 @@
   "pg_chip_dist": "Abstand {d}",
   "pg_why_variant": "Schreibvariante",
   "pg_why_similar": "ähnlicher Name",
-  "pg_more_filters": "Weitere Filter: Jahre, Art, Normdaten, Sortierung",
+  "pg_more_filters": "Weitere Filter: Beruf, Jahre, Art, Normdaten, Sortierung",
   "pg_only_auth": "nur mit Normdaten (Wikidata, HLS, GND)",
   "pg_sort": "Sortieren",
   "pg_sort_name": "nach Name",
@@ -495,5 +495,14 @@
   "mw_by_year": "Erstes Jahr am neuen Ort",
   "mw_top_flows": "Häufigste Ortspaare",
   "mw_cases": "Fälle",
-  "mw_more": "… und {n} weitere (Filter enger stellen)."
+  "mw_more": "… und {n} weitere (Filter enger stellen).",
+  "nav_sq": "Quellen & Qualität",
+  "nav_migration": "Wanderungen",
+  "mw_h": "Wanderungen (Versuch)",
+  "pg_job": "Beruf",
+  "pg_job_ph": "Beruf, z. B. Bäcker, Uhrmacher",
+  "pg_job_active": "Beruf: «{b}».",
+  "pg_name": "Name",
+  "pg_name_ph": "Name, z. B. Meier, Hans",
+  "pg_more_filters_occ": "Weitere Filter: Name"
 }

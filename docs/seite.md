@@ -9,18 +9,20 @@ Repo.
 
 | Adresse | Inhalt |
 |---|---|
-| `#/suche?q=…&m=…&s=t\|a&f=1&x=…&k=…&n=1&a=…&z=…&o=…` | Personen und Firmen nach Familien- bzw. Firmenname (vom Anfang her, ohne Akzente), weitere Wörter grenzen nach Vorname oder Beruf ein, `m` nach Gemeinde |
+| `#/suche?q=…&m=…&j=…&s=t\|a&f=1&x=…&k=…&n=1&a=…&z=…&o=…` | Personen und Firmen nach Familien- bzw. Firmenname (vom Anfang her, ohne Akzente), weitere Wörter grenzen nach Vorname oder Beruf ein, `m` nach Gemeinde, `j` nach Beruf (Weitere Filter; jedes Wort muss im Beruf oder Zusatz stehen) |
 | `#/e/<entity_id>` | eine Einheit: Normdaten, Zeitleiste 1860–1914, alle Einträge mit Adresse, Nummer und Fundstelle, mögliche weitere Adressbuch-Einträge (M2, nicht gebündelt), Gemeinde auf der Karte |
 | `#/a/<Gemeinde>\|<Strasse>\|<Nr.>` | eine Adresse: alle Einträge aller Jahre mit Strasse und Hausnummer |
 | `#/g/<Gemeinde>` | eine Gemeinde 1914: Telefonbuch-Einträge je Jahr, Zahl der Personen und Firmen, die zehn häufigsten Familiennamen, Karte |
 | `#/orte` | alle Gemeinden, nach Zahl der Einträge |
 | `#/vorbehalte` | was die Daten können und was nicht |
+| `#/quellen/<quellen\|telefon\|ortsqualitaet\|verknuepfung\|einheiten\|vorgehen>` | Quellen & Qualität: die Abschnitte, die früher auf der Startseite standen, mit Unternavigation |
+| `#/wanderungen?…` | Wanderungen (M10, Versuch, [docs/wanderungen.md](wanderungen.md)); früher `#/karten?v=wanderungen`, das weiterleitet |
 | `#/karten?v=telefon\|berufe\|namen` | Karten (M6, [docs/karten.md](karten.md)) |
-| `#/suche?b=…` | Suche nach Berufen mit Karte (M6) |
+| `#/suche?b=…&q=…` | Suche nach Berufen mit Karte (M6); `q` grenzt nach Name ein (Weitere Filter) |
 | `#/suche?v=ft&q=…` | Volltext über alle Einträge (M8, [docs/volltext.md](volltext.md)) |
 | `#/buch?kt=…&y=…` | alle Einträge eines Kantons und Jahrgangs (M8) |
 
-Die alten Anker der Startseite (`#quellen`, `#einheiten` …) bleiben gültig.
+Die alten Anker der Startseite (`#quellen`, `#einheiten` …) führen zur passenden Unterseite von Quellen & Qualität.
 
 Gleiche Zeilen aus mehreren Ausgaben desselben Jahres (Basel 1884: zwei Ausgaben, dazu
 Nachträge) stehen auf der Seite einer Einheit einmal, mit allen Fundstellen.
