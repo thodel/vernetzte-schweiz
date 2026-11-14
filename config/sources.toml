@@ -92,11 +92,13 @@ files = [
 id = "zuerich"
 label = "Zürich"
 repo = "thodel/adressbuecher-zuerich"
-commit = "3d391aada2308bcb3e9f5e0ede85369250cd4b4f"
-site = ""
+commit = "0f5221be27e7b273b4bfece2e1581e97ad2dc6f8"
+site = "https://thodel.github.io/adressbuecher-zuerich/"
 authority = "data/csv/10_authority_links.csv"
 # Gelesen mit qwen3.8 (ohne Nachkorrektur; Stichprobe der Verknüpfung in data/review/m5_zuerich.csv).
-# Bände 1859–1914; 1859 liegt vor dem Zeitfenster. Keine eigene Seite (site leer).
+# Bände 1859–1914; 1859 liegt vor dem Zeitfenster.
+# Schema wie Aarau, dazu Spalte `district` (Kreis 1900/1914, alte Gemeinde 1875/1885, Grosse/Kleine Stadt 1859);
+# seit 3c1a6a7 ist 1914 in 12 015 Einträgen die gedruckte Hausnummer statt des Kreises in `building_no`.
 files = [
   { path = "data/csv/04_entries.csv", kind = "einwohner" },
   { path = "data/csv/04_berufe.csv",  kind = "berufe" },

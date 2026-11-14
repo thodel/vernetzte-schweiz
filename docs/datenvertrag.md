@@ -36,6 +36,14 @@ Diff in `data/norm/` die verlorenen Bezeichner.
 | `phone_flag` | `1`, wenn der Eintrag das Telefonzeichen trägt |
 | `parse_confidence` | wie in der Quelle |
 | `text` | der gedruckte Eintrag |
+| `municipality` | Gemeinde zum Stand 1914 |
+| `district` | Gebiet in der Stadt, wie gedruckt; nur wo die Quelle es angibt (bisher Zürich), sonst leer |
+
+### Abweichungen einzelner Quellen vom Schema von Aarau
+
+| Stadt | Abweichung |
+|---|---|
+| Zürich | **Zusätzliche Spalte `district`** (ab [adressbuecher-zuerich@3c1a6a7](https://github.com/thodel/adressbuecher-zuerich/commit/3c1a6a7)): 1859 `Grosse Stadt` / `Kleine Stadt` (g/k an der Hausnummer), 1875 und 1885 die alte Gemeinde hinter der Hausnummer (`Riesbach`, `Aussersihl` …; seit 1893 Teil der Stadt), 1900 `Kreis I`–`Kreis V`, 1914 `Kreis 1`–`Kreis 8`; leer ausserhalb der Stadt (dann steht die Gemeinde in `municipality`). **`building_no` 1914:** das Lesemodell hatte in 12 015 Einträgen den Kreis als Hausnummer gelesen («6 Habsburgstrasse 26» → `6`); seit 3c1a6a7 steht die gedruckte Nummer. Die Hausnummern 1859 und die der Ausgemeinden 1875/1885 sind alte Nummern und nicht mit den heutigen vergleichbar. |
 
 ## data/norm/ab_authority.csv — Normdaten der Adressbuch-Einträge
 

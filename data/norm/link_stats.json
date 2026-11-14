@@ -94,21 +94,21 @@
  },
  "zuerich": {
   "ptt_entries": 62474,
-  "ptt_linked": 36087,
-  "pairs": 82627,
+  "ptt_linked": 36485,
+  "pairs": 93735,
   "decisions": {
    "kein-name": 78380,
-   "möglich": 8482,
-   "mehrdeutig": 44899,
-   "zu-schwach": 38612,
-   "wahrscheinlich": 21752,
+   "möglich": 8361,
+   "mehrdeutig": 43846,
+   "zu-schwach": 38945,
+   "wahrscheinlich": 22402,
    "widerspruch": 30473,
-   "sicher": 24026
+   "sicher": 24217
   },
   "by_tier": {
-   "möglich": 13739,
-   "wahrscheinlich": 29582,
-   "sicher": 39306
+   "möglich": 13761,
+   "wahrscheinlich": 34089,
+   "sicher": 45885
   }
  }
 }

@@ -13,7 +13,7 @@ ENTRY_FIELDS = [
     "id", "city", "volume", "kind", "page", "entry_type",
     "surname", "alliance_name", "maiden_name", "forename", "title", "civil_status",
     "occupation", "origin", "street", "building_no", "building_no_system",
-    "phone_flag", "parse_confidence", "text", "municipality",
+    "phone_flag", "parse_confidence", "text", "municipality", "district",
 ]
 AUTH_FIELDS = [
     "id", "city", "volume", "qid", "label", "birth", "death", "hls_id", "gnd",
@@ -56,6 +56,8 @@ def entry(city: str, kind: str, r: dict, label: str = "") -> dict:
         "text": r.get("text", ""),
         # Gemeinde 1914; ein Band kann mehrere Gemeinden umfassen (Baden 1910: der Bezirk)
         "municipality": (r.get("municipality") or "").strip() if "municipality" in r else label,
+        # Gebiet in der Stadt, wie gedruckt; nur wo die Quelle die Spalte hat (Zürich: Kreis bzw. alte Gemeinde)
+        "district": (r.get("district") or "").strip(),
     }
 
 
