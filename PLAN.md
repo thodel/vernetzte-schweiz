@@ -230,15 +230,18 @@ danach erstmals an einem anderen (gleicher Familienname, verträglicher Vorname,
 Allianzname, neue Adresse und Nummer, eindeutig in beide Richtungen)? Fehler der
 Ortszuweisung aus M1 (gleiche Nummer, Nachbarzeilen vom alten Ort, Nachbar im Alphabet,
 Stadtnummer im Dorf, Strasse des alten Orts, Sprache, ortsfester Betrieb) sowie Firmen,
-Ämter und Institutionen werden ausgeschlossen. Stand: 339 Kandidaten (33 stark, 172
-mittel, 134 schwach), Karte mit Linien und Saldo, nach Berufsklasse, Entfernung und Jahr.
+Ämter und Institutionen werden ausgeschlossen. Stand: 332 Kandidaten (43 stark, 193
+mittel, 96 schwach), Karte mit Linien und Saldo, nach Berufsklasse, Entfernung und Jahr.
 
 - **Messung 14.11.2026:**
   - Stichprobe 1 (zum Einstellen): stark 50–62 %.
   - Stichprobe 2, nach den neuen Regeln: stark 87–93 % (n = 15), mittel 45–78 %, schwach
     28–75 %.
+  - Stichprobe 3, mit feiner Berufsliste (scripts/occupations_fine.py): stark 75–88 % (n = 8),
+    mittel 42–80 %, schwach 15–85 %. Keine Berufsverwechslung mehr in mittel; die Fehler
+    sind Ortszuweisungen mit gleichem Wortlaut.
 - **Offen:**
-  - feinere Berufsliste gegen Namensvettern;
+  - gleicher Wortlaut ohne neue Nummer oder Adresse in mittel (neue Stichprobe nötig);
   - mehrdeutige Paare über Heimatort und Lebensdaten;
   - Firmen mit neuem Sitz.
 

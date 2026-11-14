@@ -10,8 +10,9 @@ anderen Gemeinde zum ersten Mal (erstes Jahr t' mit t < t' ≤ t + MAX_GAP).
 
 Belege und Gegenbelege (Regeln in `evidence`, Stufen in `tier`):
 - Vorname: ausgeschrieben gleich, oder Abkürzung; nur Initialen genügen nie.
-- Beruf: gleicher Wortstamm, sonst gleiche Berufsklasse (scripts/occupations.py);
-  verschiedene Klassen gelten als schwacher Gegenbeleg (Berufswechsel kommt vor).
+- Beruf: gleicher Wortstamm, sonst derselbe oder ein verwandter Beruf der feinen Liste
+  (scripts/occupations_fine.py), sonst gleiche Berufsklasse (scripts/occupations.py);
+  verschiedene Berufe gelten als Gegenbeleg (Berufswechsel kommt vor).
 - Titel (Dr., Prof., Ing.) auf beiden Seiten.
 - Seltenheit des Familiennamens (Personen-Einheiten in der ganzen Schweiz).
 - Eindeutigkeit: A hat genau einen solchen Nachfolger und B genau einen Vorgänger.
@@ -38,6 +39,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from common import NORM, ROOT, open_csv, write_csv  # noqa: E402
 from link_ptt_ab import RANK, compare_forenames, forename_tokens, nkey, skey, stems  # noqa: E402
 from occupations import CLASSES, LABELS, classify  # noqa: E402
+from occupations_fine import WEAK, clean, compare, fine  # noqa: E402
 
 LINKS = ROOT / "links"
 MAX_GAP = 6          # Jahre zwischen letztem Eintrag am alten und erstem am neuen Ort
@@ -210,7 +212,7 @@ def prepare(r: dict) -> dict | None:
         "canton": r["canton"], "addr_text": r["addresses"],
         "id": r["entity_id"], "muni": r["municipality"], "sk": nkey(r["surname"]), "surname": r["surname"],
         "forename": r["forename"], "fn": fn, "first": int(r["first_year"]), "last": int(r["last_year"]),
-        "occ": occ, "stems": stems(occ), "cls": classify(occ),
+        "occ": occ, "stems": stems(clean(occ)), "cls": classify(occ), "fine": fine(occ),
         "title": {m.lower().rstrip(".") for m in TITLE.findall(r["forename"] + " " + occ)},
     }
 
@@ -226,13 +228,27 @@ def evidence(a: dict, b: dict) -> tuple[int, list[str]] | None:
     if len(full_a) >= 2 and len(full_b) >= 2 and not (full_a <= full_b or full_b <= full_a):
         return None  # Karl Friedrich ≠ Karl Johann
     pts, ev = (2, ["vorname:gleich"]) if f == "gleich" else (1, ["vorname:abkürzung"])
-    if a["stems"] & b["stems"]:
+    fc = compare(a["fine"], b["fine"])
+    if fc == "anders":
+        # verschiedene Berufe in der feinen Liste (Metzger ≠ Bäcker, Schuhmacher ≠ Küfer), auch
+        # wenn ein Wort gleich ist («Zinngiesserei, Schneiderg.» ≠ «Schneider») oder die Klasse
+        pts -= 2; ev.append("beruf:anders")
+    elif a["stems"] & b["stems"]:
         # gleicher Wortlaut zählt weniger: meist dieselbe Zeile, nicht derselbe Mensch anderswo
         if same_wording(a, b):
             pts += 1; ev.append("beruf:wortlaut")
         else:
             pts += 2; ev.append("beruf:wort")
-    elif a["cls"] and a["cls"] == b["cls"]:
+    elif fc == "gleich":  # derselbe Beruf anders geschrieben: «Charcuterie» = «Metzger», «Zimmermann» = «Zimmerer»
+        if a["fine"] & b["fine"] <= WEAK:
+            pts += 1; ev.append("beruf:allgemein")  # Commis, Kaufmann, Privat …
+        else:
+            pts += 2; ev.append("beruf:gleich")
+    elif fc == "verwandt":  # Bäcker ↔ Konditor, Fürsprecher ↔ Richter, Wirt ↔ Hotel
+        pts += 1; ev.append("beruf:verwandt")
+    elif fc:
+        pass
+    elif a["cls"] and a["cls"] == b["cls"]:  # eine Seite ohne Beruf in der feinen Liste
         pts += 1; ev.append("beruf:klasse")
     elif a["cls"] and b["cls"]:
         pts -= 2; ev.append("beruf:anders")
@@ -252,7 +268,8 @@ def tier(pts: int, ev: list[str], n_surname: int) -> str:
         pts += 2
     elif n_surname <= 40:
         pts += 1
-    beruf = any(e.startswith("beruf:wort") or e == "beruf:klasse" or e == "titel" or e == "allianzname" for e in ev)
+    beruf = any(e in ("beruf:wort", "beruf:wortlaut", "beruf:gleich", "beruf:allgemein", "beruf:verwandt", "beruf:klasse", "titel", "allianzname")
+                for e in ev)
     moved = "neu:nummer" in ev or "neu:adresse" in ev
     if pts >= 6 and beruf and moved:
         return "stark"

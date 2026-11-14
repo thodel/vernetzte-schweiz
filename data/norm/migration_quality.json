@@ -50,5 +50,31 @@
    "precision_low": 0.275,
    "precision_high": 0.75
   }
+ },
+ "stichprobe_3": {
+  "stark": {
+   "n": 8,
+   "richtig": 6,
+   "falsch": 1,
+   "unklar": 1,
+   "precision_low": 0.75,
+   "precision_high": 0.875
+  },
+  "mittel": {
+   "n": 40,
+   "richtig": 17,
+   "unklar": 15,
+   "falsch": 8,
+   "precision_low": 0.425,
+   "precision_high": 0.8
+  },
+  "schwach": {
+   "n": 40,
+   "unklar": 28,
+   "falsch": 6,
+   "richtig": 6,
+   "precision_low": 0.15,
+   "precision_high": 0.85
+  }
  }
 }

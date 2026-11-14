@@ -47,8 +47,12 @@ Gesucht sind Paare aus einer Einheit **A** (alter Ort, letztes Jahr *t*) und ein
 | Vorname als Abkürzung | 1 |
 | Beruf mit gleichem Wortstamm, anders formuliert | 2 |
 | Beruf mit gleichem Wortlaut (meist dieselbe Zeile, nicht derselbe Mensch anderswo) | 1 |
-| sonst gleiche Berufsklasse ([occupations.py](../scripts/occupations.py)) | 1 |
-| verschiedene Berufsklassen | −2 |
+| derselbe Beruf in der feinen Liste, anders geschrieben («Charcuterie» = «Metzger», «tapissier» = «Tapezierer») | 2 |
+| derselbe allgemeine Beruf (Commis, Kaufmann, Handlanger, Privat …) | 1 |
+| verwandter Beruf (Bäcker ↔ Konditor, Fürsprecher ↔ Richter, Wirt ↔ Hotel) | 1 |
+| verschiedene Berufe in der feinen Liste (Metzger ≠ Bäcker), auch bei gleichem Wort | −2 |
+| sonst, wenn eine Seite keinen Beruf der feinen Liste hat: gleiche Berufsklasse ([occupations.py](../scripts/occupations.py)) | 1 |
+| … verschiedene Berufsklassen | −2 |
 | gleicher Titel (Dr., Prof., Ing. …) | 1 |
 | gleicher Allianzname | 1 |
 | neue Rufnummer (beide Seiten haben eine) | 1 |
@@ -61,6 +65,14 @@ Gesucht sind Paare aus einer Einheit **A** (alter Ort, letztes Jahr *t*) und ein
 | `stark` | ≥ 6 Punkte, ein Beleg aus Beruf, Titel oder Allianzname, **und** neue Nummer oder Adresse |
 | `mittel` | ≥ 4 Punkte und ein Beleg aus Beruf, Titel oder Allianzname |
 | `schwach` | ≥ 4 Punkte, ohne solchen Beleg, aber mit neuer Nummer oder Adresse |
+
+Die **feine Berufsliste** ([occupations_fine.py](../scripts/occupations_fine.py), seit Messung 3)
+führt 124 Berufe deutsch, französisch und italienisch mit Abkürzungen, jeder mit einer
+Gruppe verwandter Berufe. Die Berufsklassen der Karten sind zu grob, um Personen zu trennen:
+«Metzger» und «Bäcker» stehen beide unter Lebensmittel, «cordonnier» und «Küfer» beide unter
+Handwerk. Vor dem Vergleich werden Strassen aus dem Berufsfeld entfernt («Zinngiesserei,
+Schneiderg. 30» ist kein Schneider) und Nachbarzeilen abgeschnitten, die die Zerlegung im
+Berufsfeld gelassen hat («archit.-métreur; av. de Lancy; 15 Fontana; Léon-P; architecte»).
 
 Wer umzieht, bekommt eine neue Nummer und eine neue Adresse. Gleicher Wortlaut ist dagegen
 meist dieselbe Zeile unter einem anderen Ort (Messung 1, unten).
@@ -85,7 +97,7 @@ weg. Die Gründe stehen je Paar in `data/norm/migration_dropped.csv.gz`.
 | Strassenangabe in der Sprache des alten Orts («Via alla Stazione» unter Luzern) | 22 |
 | gleiche Adresse | 9 |
 
-Übrig bleiben **339 Paare**: 33 `stark`, 172 `mittel`, 134 `schwach`.
+Übrig bleiben **332 Paare**: 43 `stark`, 193 `mittel`, 96 `schwach` (mit feiner Berufsliste; vorher 339: 33, 172, 134).
 
 ## Was «verschwunden» und «neu» heissen
 
@@ -184,13 +196,39 @@ standen. Von den 33 `stark`-Paaren waren 18 schon beurteilt, es blieben 15.
 - **Stichprobe 1 unter den neuen Regeln** (nur als Prüfung, nicht als Messung): `stark` 15
   richtig, 2 falsch, 1 unklar; `mittel` 31 / 5 / 6.
 
+**Stichprobe 3** (`data/review/m10_wanderungen_3.csv`, Seed 12) wurde nach Einführung der
+feinen Berufsliste gezogen, nur aus Paaren, die nicht in Stichprobe 1 oder 2 standen. Danach
+wurde nur noch Nr. 003 behoben (Nachbarzeilen im Berufsfeld); das Paar fällt jetzt weg.
+
+| Stufe | n | richtig | unklar | falsch | Präzision |
+|---|---|---|---|---|---|
+| `stark` | 8 | 6 | 1 | 1 | 75–88 % |
+| `mittel` | 40 | 17 | 15 | 8 | 42–80 % |
+| `schwach` | 40 | 6 | 28 | 6 | 15–85 % |
+
+**Lesart:**
+
+- Die feine Liste tut, wofür sie gedacht ist: In Stichprobe 2 waren 4 der 9 Fehler in
+  `mittel` Berufsverwechslungen (Metzger/Bäcker, Zinngiesser/Schneider, cordonnier/Küfer,
+  Mineralwasser/Wein), in Stichprobe 3 ist es keiner. Auf die schon beurteilten Paare
+  angewandt, steigt `mittel` in Stichprobe 2 von 45–78 % auf 59–83 % (29 Paare bleiben).
+- Die Präzision von `mittel` steigt in der frischen Stichprobe trotzdem nicht. Alle 8
+  Fehler sind Ortszuweisungen, bei denen ein Ortsname oder eine Strasse des alten Orts in
+  der Zeile steht: «auf Robersten», «Oberdorf», «Unterseen», «Seefahrtstrasse»,
+  «Collonges», «Bertigny», «Liesbergmühle». 6 der 8 haben gleichen Wortlaut und weder neue
+  Nummer noch neue Adresse.
+- `unklar` bleibt gross: Berufswechsel ohne weiteren Beleg und Adressbuch-Einträge ohne
+  Beruf.
+
 Die Seite zeigt anfangs `stark` und `mittel`. Die Linien sind Hinweise, keine
 Wanderungsstatistik.
 
 ## Grenzen
 
-- **Berufe ohne Klasse** («Zinngiesserei» → «Schneider») zählen weder für noch gegen das
-  Paar. Eine feinere Berufsliste würde `mittel` und `schwach` verbessern.
+- **Gleicher Wortlaut ohne neue Nummer oder Adresse** ist in `mittel` meist dieselbe Zeile
+  unter falschem Ort (Messung 3). Eine Regel dagegen bräuchte eine neue Stichprobe.
+- **Berufe ausserhalb der feinen Liste** («Seiler», «Treillageur») fallen auf die grobe
+  Klasse zurück.
 - **Namensvettern** in grossen Städten (Paul Piccard, Lausanne/Genève) lassen sich ohne
   Lebensdaten nicht trennen.
 - **Mehrdeutige Paare** (23 249) fallen ganz weg. Häufige Namen kommen darum fast nie vor.
