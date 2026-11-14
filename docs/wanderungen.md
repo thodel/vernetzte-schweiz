@@ -7,7 +7,21 @@ unter `#/karten?v=wanderungen`. Es sind **Kandidaten**, keine geprüften Umzüge
 ```bash
 make wanderungen   # links/migration.csv, data/norm/migration_stats.json
 python scripts/migration.py site   # site/data/wanderungen.json.gz (läuft im Pages-Workflow)
+make check-wanderungen   # sind alle Daten drin? (scripts/check_migration.py --upstream)
 ```
+
+### Sind alle Daten drin?
+
+Jeder Lauf von `migration.py` schreibt einen Stempel, `data/norm/migration_inputs.json`: je Eingabe
+(Einheiten, Einträge beider Quellen, Normdaten, HLS-Kandidaten und die Skripte mit den Regeln) eine
+Prüfsumme über den Inhalt und je Gemeinde die Jahrgänge mit der Zahl der Einträge.
+`scripts/check_migration.py` vergleicht den Stand damit und nennt, was seit dem letzten Lauf neu ist
+(Gemeinden, Jahrgänge, geänderte Dateien), dazu Einheiten in `links/migration.csv`, die es nicht mehr
+gibt. `--update` rechnet dann neu. `--upstream` schaut eine Stufe weiter vorn: ob die Quell-Repos in
+`config/sources.toml` seit dem gepinnten Commit eine übernommene Datei geändert haben; neue Bände
+kommen über `commit` neu setzen und `make ingest link entities` in die Einheiten, dann mit
+`--update` in die Wanderungen. Der Pages-Workflow ruft `--ci` auf: veraltet heisst dort neu rechnen
+(die Seite zeigt so immer alle Daten) und eine Warnung im Lauf, `links/migration.csv` nachzuführen.
 
 ## Ausgangslage
 

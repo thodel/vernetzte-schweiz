@@ -1,6 +1,6 @@
 PY ?= python3
 
-.PHONY: ref ingest link entities wanderungen hls elites wikidata site serve test
+.PHONY: ref ingest link entities wanderungen check-wanderungen hls elites wikidata site serve test
 ref:
 	$(PY) scripts/ref_places.py
 ingest:
@@ -16,6 +16,8 @@ entities:
 	$(PY) scripts/measure_clusters.py
 wanderungen:
 	$(PY) scripts/migration.py
+check-wanderungen:
+	$(PY) scripts/check_migration.py --upstream
 hls:
 	$(PY) scripts/hls_coverage.py
 elites:

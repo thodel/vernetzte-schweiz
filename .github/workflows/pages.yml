@@ -23,6 +23,9 @@ jobs:
         with:
           python-version: "3.12"
       - run: python -m unittest discover -s tests
+      # Wanderungen veraltet (neue Gemeinden, Jahrgänge, Regeln)? Dann hier neu rechnen, damit die Seite
+      # alle Daten zeigt; die Warnung erinnert daran, links/migration.csv nachzuführen.
+      - run: python scripts/check_migration.py --ci
       - run: python scripts/build_site.py
       - run: python scripts/build_pages.py
       - run: python scripts/build_maps.py

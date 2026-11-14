@@ -112,7 +112,7 @@ files = [
 
 [ptt]
 repo = "DHBern/PTT_phonebook_data_tsv"
-commit = "3205edbac365618b6f2fad500c85960269407e41"
+commit = "e61623b073ce40d396cdae01a1526b7fd5f079cf"
 local = "~/Repos/PTT_phonebook_data_tsv"
 batch_a = "tsv/a"
 batch_b = "tsv/b*.tsv"

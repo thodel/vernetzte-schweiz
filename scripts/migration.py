@@ -571,6 +571,9 @@ def find() -> None:
                   "später_am_alten_ort": blocked_back, "vorher_am_neuen_ort": blocked_before})
     (NORM / "migration_stats.json").write_text(json.dumps(dict(stats), ensure_ascii=False, indent=1) + "\n")
     print(json.dumps(dict(stats), ensure_ascii=False))
+    # Stempel der Eingaben: scripts/check_migration.py merkt daran neue Gemeinden, Jahrgänge und Regeln
+    from check_migration import write_stamp  # noqa: PLC0415
+    write_stamp()
 
 
 def site() -> None:
