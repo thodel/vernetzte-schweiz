@@ -75,7 +75,7 @@ Gesucht sind Paare aus einer Einheit **A** (alter Ort, letztes Jahr *t*) und ein
 | `schwach` | ≥ 4 Punkte, ohne solchen Beleg, aber mit neuer Nummer oder Adresse |
 
 Die **feine Berufsliste** ([occupations_fine.py](../scripts/occupations_fine.py), seit Messung 3)
-führt 127 Berufe deutsch, französisch und italienisch mit Abkürzungen, jeder mit einer
+führt 129 Berufe deutsch, französisch und italienisch mit Abkürzungen, jeder mit einer
 Gruppe verwandter Berufe. Die Berufsklassen der Karten sind zu grob, um Personen zu trennen:
 «Metzger» und «Bäcker» stehen beide unter Lebensmittel, «cordonnier» und «Küfer» beide unter
 Handwerk. Vor dem Vergleich werden Strassen aus dem Berufsfeld entfernt («Zinngiesserei,
@@ -108,7 +108,7 @@ weg. Die Gründe stehen je Paar in `data/norm/migration_dropped.csv.gz`.
 
 Ein Paar zählt beim ersten zutreffenden Grund in der Reihenfolge des Codes; die Zahlen der späteren Gründe sanken darum mit der Regel «Ortswort».
 
-Übrig bleiben **313 Paare**: 41 `stark`, 150 `mittel`, 122 `schwach` (mit Glaser und Viehhändler als eigenen Berufen; davor 41, 149, 123; vor dem Vergleich von Geschlecht und Geburtsname 319: 42, 154, 123; vor der Regel «Ortswort» und der Grenze für gleichen Wortlaut 332: 43, 193, 96; vor der feinen Berufsliste 339: 33, 172, 134).
+Übrig bleiben **313 Paare**: 42 `stark`, 149 `mittel`, 122 `schwach` (mit 129 Berufen in der feinen Liste: Glaser, Viehhändler, Graveur, Färber eigene Berufe, «arbeiter», «commis», «privat» nur als eigenes Wort; davor 41, 149, 123; vor dem Vergleich von Geschlecht und Geburtsname 319: 42, 154, 123; vor der Regel «Ortswort» und der Grenze für gleichen Wortlaut 332: 43, 193, 96; vor der feinen Berufsliste 339: 33, 172, 134).
 
 ## Was «verschwunden» und «neu» heissen
 

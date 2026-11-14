@@ -89,11 +89,21 @@
    "precision_high": 1.0
   }
  },
+ "zuordnung_2": {
+  "alle": {
+   "n": 80,
+   "richtig": 72,
+   "unklar": 5,
+   "falsch": 3,
+   "precision_low": 0.9,
+   "precision_high": 0.963
+  }
+ },
  "runde_1_nachgerechnet": {
   "zuordnung": {
    "richtig": 61,
-   "falsch": 12,
-   "unklar": 7
+   "unklar": 6,
+   "falsch": 1
   },
   "gewinn": {
    "Metzger": {

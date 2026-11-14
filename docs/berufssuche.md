@@ -65,7 +65,7 @@ Wortlaut.
 Grundlage ist die **feine Berufsliste** [scripts/occupations_fine.py](../scripts/occupations_fine.py).
 Sie entstand für die Wanderungen ([wanderungen.md](wanderungen.md)), um zu entscheiden, ob
 zwei Einträge derselbe Beruf sind.
-- **127 Berufe**, je mit einem Muster, das die deutschen, französischen und italienischen
+- **129 Berufe**, je mit einem Muster, das die deutschen, französischen und italienischen
   Formen samt üblichen Abkürzungen erfasst. Ein Beispiel ist Metzger:
   `metzg|boucher|boucherie|charcut|macellaio|salumier|…`.
 - **Gruppen verwandter Berufe** (Bäcker ↔ Konditor). Die Suche nutzt sie nicht; sie
@@ -100,7 +100,7 @@ Commis (14 675), Schneider (12 634), Kaufmann (11 219), Handlanger (11 098), Sch
 | Liste | Datei | Umfang | wofür |
 |---|---|---|---|
 | Berufsklassen | [scripts/occupations.py](../scripts/occupations.py) | 16 Klassen | Karten nach Berufen; grob, gemessen 88–92 % richtig ([karten.md](karten.md)) |
-| feine Berufsliste | [scripts/occupations_fine.py](../scripts/occupations_fine.py) | 127 Berufe | Wanderungen (gleicher, verwandter oder anderer Beruf), Übersetzung in der Suche |
+| feine Berufsliste | [scripts/occupations_fine.py](../scripts/occupations_fine.py) | 129 Berufe | Wanderungen (gleicher, verwandter oder anderer Beruf), Übersetzung in der Suche |
 
 Die Klassen fassen zusammen: Metzger und Bäcker sind beide «Lebensmittel». Die feine
 Liste trennt sie. Für die Übersetzung taugt nur die feine Liste.
@@ -172,6 +172,8 @@ Die Zahl der Treffer nach Wortlaut und nur durch Übersetzung steht in
   - Ein Familienname wird als Beruf gelesen («Müller-Zürcher»).
   - Rubriken aus Nachbarzeilen («BOUCHERIES» im Feld einer Elektrofirma).
 
+  Ausser den Rubriken ist das seither behoben (Runde 3, unten).
+
 **3. Runde 2: Glaser, Viehhändler, Viehinspektor als eigene Berufe**
 (`data/review/berufe_gewinn_2.csv`, Seed 22).
 - **Änderung an der Liste:** Glaser (Glaser, vitrier, vetraio, Bleiglaser, Glashandlung)
@@ -203,18 +205,65 @@ Die Zahl der Treffer nach Wortlaut und nur durch Übersetzung steht in
   Schuhmachern zählt.
 - **Viehhändler:** Die Übersetzung bringt vor allem Pferdehändler dazu. Die Liste fasst Vieh-
   und Pferdehändler zusammen; beurteilt wurde nach diesem Beruf.
-- **Stichprobe 1 (Zuordnung)** ändert sich nicht: Ihre 12 Fehler betrafen andere Muster
-  («rektor», «editeur», «arbeiter», Familiennamen, Rubriken). Diese sind noch offen.
+- **Stichprobe 1 (Zuordnung)** ändert sich dadurch nicht; ihre Fehler betrafen andere
+  Muster (Runde 3).
+
+**4. Runde 3: die übrigen Musterfehler der Zuordnung** (`data/review/berufe_zuordnung_2.csv`,
+Seed 23). Geändert wurde, was Stichprobe 1 als Fehler zeigte:
+
+| Fehler in Stichprobe 1 | Änderung |
+|---|---|
+| «Glasgraveur» als Kunstmaler | Graveur eigener Beruf (graveur, ciseleur, Ziseleur, Stempelschneider) |
+| «Färber» als Glätterin/Wäscherin | Färber eigener Beruf (Färberei, teinturier, tintore) |
+| «chauffeur, C. F. F.» als Chauffeur | Heizer der Bahn zum Lokomotivführer |
+| «Direktor» trifft «rektor», «Eilgutexpediteur» trifft «editeur» | «rektor», «recteur», «éditeur» nur am Wortanfang |
+| «Commissionsgeschäft» als Commis, «Privatabonnemente» als Rentier | «commis», «privat» nur als eigenes Wort |
+| Fabrik-, Bahn-, Telephonarbeiter als Handlanger | «arbeiter», «ouvrier» nur als eigenes Wort (dann Fabrikarbeiter); Telephonarbeiter zum Telegraphen |
+| «Müller-Zürcher» als Müller | «Müller» nicht vor einem Bindestrich |
+| «Zuckerbäckerei» als Bäcker (unklar) | nicht mehr; bleibt Konditor |
+| «apprentissages» als Weber | «tissage» nur am Wortanfang |
+
+Die Liste hat jetzt 129 Berufe. Für die Wanderungen heisst das: weiterhin 313 Paare
+(42 `stark`, 149 `mittel`, 122 `schwach`).
+- Weggefallen sind Schenk («Cementarbeiter» → «Taglöhner») und Bienz («Commissionen» →
+  «Commis»); beide waren als unklar beurteilt.
+- Neu ist Berseth (`mittel`).
+- Achille Lévy, Pferdehändler in Basel, dann «marchand de chevaux» in Lausanne, war in
+  Stichprobe 4 als richtig beurteilt. Das Paar steht jetzt in `stark`, weil der
+  Viehhändler auch «marchands de bestiaux et chevaux» kennt.
+
+Danach wurden 80 neue Paare aus Einheit und Beruf gezogen,
+ohne die Paare aus Stichprobe 1.
+
+| Stichprobe | n | richtig | unklar | falsch | Präzision |
+|---|---|---|---|---|---|
+| 1 (vorher) | 80 | 61 | 7 | 12 | 76–85 % |
+| 1, nach den neuen Regeln (Prüfung) | 68 | 61 | 6 | 1 | 90–99 % |
+| **3 (neu gezogen)** | **80** | **72** | **5** | **3** | **90–96 %** |
+
+**Lesart:**
+- Die richtigen Zuordnungen aus Stichprobe 1 bleiben alle erhalten. Von den 12 Fehlern
+  fällt nur die Rubrik «BOUCHERIES» nicht weg.
+- Die 3 Fehler in Stichprobe 3:
+  - «Poste» traf «oste» (italienisch für Wirt) und galt als Wirt. Das ist nach der Messung
+    behoben («oste» nur als eigenes Wort).
+  - «Bäcker z. Sternen» gilt auch als Wirt, weil «zum Sternen» meist ein Gasthaus nennt;
+    hier ist es der Hausname einer Bäckerei.
+  - «chef du matériel» der Feuerwehr gilt als Direktor.
+- Die 5 unklaren Fälle sind Händler, die als Handwerker zählen (Bierdepot als Bierbrauer,
+  Velohandlung als Mechaniker), dazu Verleger als Buchhändler, Einkassierer als
+  Buchhalter und ein Hausname allein («z. Ochsen»).
 
 ## Grenzen
 
 - **Maschinell.** Die Übersetzung folgt Mustern, nicht einer Durchsicht. Gemessen sind
-  76–85 % richtige Zuordnungen. In Runde 1 waren 78–83 % der zusätzlichen Treffer richtig,
-  in Runde 2, nach der Trennung von Glaser und Viehhändler, 90–100 %.
+  zuletzt 90–96 % richtige Zuordnungen (Runde 3; zu Beginn 76–85 %) und 90–100 % richtige
+  zusätzliche Treffer (Runde 2; zu Beginn 78–83 %).
 - **Die Muster greifen breit.** «Café» und «Restaurant» gelten als Wirt, «Monteur» als
-  Maschinist, Glashändler als Glaser, Pferde- als Viehhändler. Andere Treffer sind falsch,
-  weil ein Muster mitten in einem Wort greift: «Direktor» trifft «rektor» und gilt auch als
-  Professor, «apprentissages» trifft «tissage» und gilt als Weber.
+  Maschinist, Glashändler als Glaser, Pferde- als Viehhändler, Velohandlungen als Mechaniker. Hausnamen
+  («zum Sternen») zählen als Gasthaus, auch neben einem anderen Beruf.
+- **Rubriken aus Nachbarzeilen** («BOUCHERIES» im Feld einer Elektrofirma) erkennt die
+  Liste nicht.
 - **Nur Berufe der Liste.** «Seiler», «Treillageur» und viele seltene Berufe werden nur
   nach dem Wortlaut gefunden.
 - **Kurze Wörter.** Die Suche nach Wortlaut kennt nur Wörter ab 4 Buchstaben; «Kfm.»

@@ -2,6 +2,7 @@
 
     python scripts/measure_berufe.py draw    # Stichproben ziehen → data/review/berufe_*.csv
     python scripts/measure_berufe.py draw2   # Runde 2 (nach Glaser, Viehhändler) → berufe_gewinn_2.csv
+    python scripts/measure_berufe.py draw3   # Runde 3 (nach den übrigen Musterfehlern) → berufe_zuordnung_2.csv
     python scripts/measure_berufe.py         # auswerten → data/norm/berufe_quality.json
 
 Zwei Stichproben, gezogen aus den Daten der Seite (site/data, nach build_pages.py und
@@ -18,6 +19,12 @@ Viehinspektor eigene Berufe wurden: je 12 neue Treffer, die nur die Übersetzung
 «Metzger» und «Schreiner» (ohne die in Runde 1 beurteilten Einheiten) und für die neuen Berufe
 «Glaser» und «Viehhändler». Die Auswertung rechnet Runde 1 zudem nach den neuen Regeln nach
 (nur als Prüfung): Welche beurteilten Treffer fände die Suche noch?
+
+**Runde 3** (`berufe_zuordnung_2.csv`, Seed 23), nachdem die übrigen Musterfehler der
+Zuordnung behoben waren (Graveur und Färber eigene Berufe, «rektor», «editeur», «commis»,
+«arbeiter», «privat» nur als eigenes Wort, Bahn-Heizer, «Müller-», «Zuckerbäcker»): 80 neue
+Paare aus Einheit und Beruf, ohne die Paare aus Runde 1. Die Auswertung rechnet Runde 1 nach
+den neuen Regeln nach (Prüfung).
 
 Urteil: `richtig`, `falsch`, `unklar`. Die Spanne zählt «unklar» einmal als falsch und
 einmal als richtig.
@@ -40,7 +47,7 @@ from common import NORM, ROOT, write_csv  # noqa: E402
 DATA = ROOT / "site" / "data"
 REVIEW = ROOT / "data" / "review"
 FILES = {"zuordnung": REVIEW / "berufe_zuordnung.csv", "gewinn": REVIEW / "berufe_gewinn.csv",
-         "gewinn_2": REVIEW / "berufe_gewinn_2.csv"}
+         "gewinn_2": REVIEW / "berufe_gewinn_2.csv", "zuordnung_2": REVIEW / "berufe_zuordnung_2.csv"}
 QUERIES = ["Metzger", "Uhrmacher", "boulanger", "instituteur", "Schreiner"]
 QUERIES_2 = ["Metzger", "Schreiner", "Glaser", "Viehhändler"]
 FIELDS = ["nr", "frage", "suchwort", "beruf", "entity_id", "name", "gemeinde", "berufsfeld", "urteil", "begruendung"]
@@ -126,6 +133,23 @@ def draw2() -> None:
     draw_gain(B, fk, row, QUERIES_2, 22, "gewinn_2", skip, "berufe_gewinn_umfang_2.json")
 
 
+def draw3() -> None:
+    B = load(DATA / "berufe.json")
+    fk = {int(p.name.split(".")[0]): load(p) for p in (DATA / "fk").glob("*.json.gz")}
+    places = [p[0] for p in load(DATA / "maps.json.gz")["places"]]
+    full = {r["entity_id"]: r["occupations"] for r in csv.DictReader(gzip.open(NORM / "entities.csv.gz", "rt", encoding="utf-8"))}
+    seen = {(r["beruf"], r["entity_id"]) for r in csv.DictReader(open(FILES["zuordnung"], encoding="utf-8"))}
+    pairs = sorted((k, e) for k, rows in fk.items() for e in rows if (B["k"][k][2], e) not in seen)
+    rnd = random.Random(23)
+    out = []
+    for i, (k, e) in enumerate(rnd.sample(pairs, 80), 1):
+        out.append({"nr": f"{i:03d}", "frage": "zuordnung", "suchwort": "", "beruf": B["k"][k][2], "entity_id": e,
+                    "name": fk[k][e][0], "gemeinde": places[fk[k][e][1]], "berufsfeld": full.get(e, fk[k][e][4])[:300],
+                    "urteil": "", "begruendung": ""})
+    write_csv(FILES["zuordnung_2"], FIELDS, out)
+    print(f"{FILES['zuordnung_2'].relative_to(ROOT)}: {len(out)} Paare aus {len(pairs)} Zuordnungen")
+
+
 def recheck() -> dict:
     """Runde 1 nach den heutigen Regeln: welche beurteilten Zuordnungen und Treffer bleiben?"""
     B = load(DATA / "berufe.json")
@@ -172,4 +196,4 @@ def report() -> None:
 
 
 if __name__ == "__main__":
-    {"draw": draw, "draw2": draw2}.get(sys.argv[1] if sys.argv[1:] else "", report)()
+    {"draw": draw, "draw2": draw2, "draw3": draw3}.get(sys.argv[1] if sys.argv[1:] else "", report)()
