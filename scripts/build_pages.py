@@ -41,6 +41,7 @@ from link_ptt_ab import VARIANTS, house, num  # noqa: E402
 from occupations_fine import fine  # noqa: E402
 
 OUT = ROOT / "site" / "data"
+SMALL_PLACE = 50  # Gemeinden mit weniger Einheiten zeigt die Suche nur mit Gemeinde ganz (site/assets/pages.js)
 KIND_LABEL = {"einwohner": "Einwohner", "berufe": "Berufe", "bewohner": "Gebäude", "behoerden": "Behörden",
               "gemeinden": "Waadtländer Gemeinden"}
 
@@ -194,6 +195,7 @@ def main() -> None:
     # Einheiten und Suchindex
     shards: dict[str, dict] = defaultdict(dict)
     names: dict[str, list] = defaultdict(list)
+    by_muni: dict[str, list] = defaultdict(list)  # Suchzeilen je Gemeinde, für kleine Gemeinden ganz in g/
     for eid, s in summ.items():
         rs = sorted(records.get(eid, []), key=lambda r: (r["y"], r["s"], r["id"]))
         if not rs:
@@ -217,10 +219,12 @@ def main() -> None:
         if mb:
             ent["mb"] = mb[:20]
         shards[eid[1:3]][eid] = ent
-        names[name_shard(s["surname"] or label)].append(
+        row = names[name_shard(s["surname"] or label)]
+        row.append(
             [eid, label, s["municipality"], int(s["first_year"]), int(s["last_year"]), "f" if s["kind"] == "firma" else "p",
              len(rs), (a["tier"][0] if a else ""), s["occupations"][:60], src_flag(s),
              sorted(fine(s["occupations"]))])
+        by_muni[s["municipality"]].append(row[-1])
 
     if OUT.exists():
         for sub in ("e", "a", "g", "names"):
@@ -269,6 +273,9 @@ def main() -> None:
             "n": muni, "c": meta.get("canton", ""), "bfs": meta.get("bfs", ""), "geo": geo, "years": years,
             "ent": dict(ents_by_place.get(muni, {})), "top": surnames[muni].most_common(10),
         }
+        if 0 < len(by_muni.get(muni, ())) < SMALL_PLACE:
+            # kleine Gemeinde: alle Einheiten (Zeilen wie names/), damit #/suche?m=… sie ohne Namen ganz zeigt
+            gshards[fnv(muni, 0x3F)][muni]["all"] = sorted(by_muni[muni], key=lambda x: (fold(x[1]), x[3]))
         places.append([muni, meta.get("canton", ""), sum(years.values())])
     for k, v in gshards.items():
         dump(OUT / "g" / f"{k}.json.gz", v)

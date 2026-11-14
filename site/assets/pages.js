@@ -225,7 +225,19 @@
     fcs.focus();
     fcs.setSelectionRange(fcs.value.length, fcs.value.length);
     const words = q.split(/[\s,]+/).filter(Boolean);
-    if (!words.length || fold(strip(q)).length < 2) { out.append(el("p", { class: "muted" }, t.pg_search_hint)); return; }
+    // ohne Namen, aber mit Gemeinde: kleine Gemeinden (< 50 Einheiten, build_pages.py SMALL_PLACE) ganz zeigen
+    let placeRows = null;
+    if (!words.length || fold(strip(q)).length < 2) {
+      const pm = m.trim() ? [...(await placeIndex()).keys()].find(k => fold(k) === fold(m)) : null;
+      let g = null;
+      if (pm) { try { g = (await get(`data/g/${fnv(pm, 0x3f)}.json.gz`))[pm]; } catch { /* fehlt */ } }
+      if (!g?.all) {
+        out.append(el("p", { class: "muted" }, g ? t.pg_place_big.replace("{p}", g.n)
+          .replace("{n}", n((g.ent.person || 0) + (g.ent.firma || 0))) : t.pg_search_hint));
+        return;
+      }
+      placeRows = g.all;
+    }
     const firstRaw = strip(q).split(/[\s,]+/)[0];
     const first = fold(firstRaw);
     const rest = words.slice(1).map(fold).filter(Boolean);
@@ -236,7 +248,9 @@
     const jobKeys = jobs.map(w => tr ? occKeysOf(w) : []);
     const groups = await forenames();
     let rows = [], keyset = null, chips = [];
-    if (fuzzy) {
+    if (placeRows) {
+      rows = placeRows;
+    } else if (fuzzy) {
       const qk = fkey(firstRaw);
       const K = await keys();
       const count = new Map(K.map(k => [k[0], k[2]]));
