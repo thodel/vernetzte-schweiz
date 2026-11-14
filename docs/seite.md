@@ -10,7 +10,7 @@ Repo.
 | Adresse | Inhalt |
 |---|---|
 | `#/suche?q=…&m=…&j=…&s=t\|a&f=1&x=…&k=…&n=1&a=…&z=…&o=…` | Personen und Firmen nach Familien- bzw. Firmenname (vom Anfang her, ohne Akzente), weitere Wörter grenzen nach Vorname oder Beruf ein, `m` nach Gemeinde, `j` nach Beruf (Weitere Filter; jedes Wort muss im Beruf oder Zusatz stehen), `u=1` sucht den Beruf auch übersetzt |
-| `#/e/<entity_id>` | eine Einheit: Normdaten, Zeitleiste 1860–1914, alle Einträge mit Adresse, Nummer und Fundstelle, mögliche weitere Adressbuch-Einträge (M2, nicht gebündelt), Gemeinde auf der Karte |
+| `#/e/<entity_id>` | eine Einheit: Normdaten, Angaben aus Wikidata, HLS und Elites suisses mit Stufe der Zuordnung ([angaben.md](angaben.md)), Zeitleiste 1860–1914, alle Einträge mit Adresse, Nummer und Fundstelle, mögliche weitere Adressbuch-Einträge (M2, nicht gebündelt), Gemeinde auf der Karte |
 | `#/a/<Gemeinde>\|<Strasse>\|<Nr.>` | eine Adresse: alle Einträge aller Jahre mit Strasse und Hausnummer |
 | `#/g/<Gemeinde>` | eine Gemeinde 1914: Telefonbuch-Einträge je Jahr, Zahl der Personen und Firmen, die zehn häufigsten Familiennamen, Karte |
 | `#/orte` | alle Gemeinden, nach Zahl der Einträge |

@@ -77,7 +77,8 @@ curl -G 'https://swiss-elites.lod4hss.cloud/wisski/endpoint/default_wisski_disti
    (`links/authority.csv`, [einheiten.md](einheiten.md)) und steht dieselbe QID im Graphen,
    zeigt die Seite der Einheit unter «Normdaten» den Link «Elites suisses <Nummer>». Namen
    und Jahre werden nicht verglichen; eine Zuordnung über den Namen allein gibt es nicht.
-3. **Wanderungen** ([wanderungen.md](wanderungen.md)): Normdaten der einen Seite eines Paars
+3. **Live auf der Seite einer Person** ([angaben.md](angaben.md)): Ein Rahmen fragt Ämter und Mitgliedschaften beim Endpunkt ab, mit der Stufe der Zuordnung.
+4. **Wanderungen** ([wanderungen.md](wanderungen.md)): Normdaten der einen Seite eines Paars
    kommen mit, auch der Link zu den Elites suisses.
 
 **Umfang** (14.11.2026): 452 der 1 552 Einheiten mit Normdaten haben eine Personenseite bei

@@ -304,6 +304,147 @@
   ].filter(Boolean).flatMap((x, i) => i ? [" · ", x] : [x]);
   const hlsCands = hc => (hc || []).flatMap((h, i) => [i ? ", " : "", link(`#/hls/${h}`, `${t.hls_abbr || "HLS"} ${h}`)]);
 
+  // ── Angaben aus anderen Projekten: Wikidata (live), HLS (eigene Daten), Elites suisses/OBELIS (live) ──
+  // Jeder Rahmen nennt, wie sicher die Zuordnung ist (Normdaten der Einheit, HLS-Kandidat, über eine Wanderung).
+  const WD = "https://query.wikidata.org/sparql";
+  const ES = "https://swiss-elites.lod4hss.cloud/wisski/endpoint/default_wisski_distillery_adapter";
+  const sparql = async (endpoint, query) => {
+    const r = await fetch(`${endpoint}?query=${encodeURIComponent(query)}`, { headers: { Accept: "application/sparql-results+json" } });
+    if (!r.ok) throw new Error(`${r.status}`);
+    return (await r.json()).results.bindings;
+  };
+  const val = (b, k) => b[k]?.value || "";
+  const wdDate = v => {
+    const m = /^(-?\d{4})-(\d\d)-(\d\d)/.exec(v || "");
+    if (!m) return v || "";
+    return m[2] === "01" && m[3] === "01" ? m[1] : `${+m[3]}.${+m[2]}.${m[1]}`;
+  };
+  const yr = v => (/^-?\d{4}/.exec(v || "") || [""])[0];
+  const span = (a, b) => a || b ? ` (${yr(a)}–${yr(b)})` : "";
+  const frame = (cls, title, live, certainty, ...body) => el("section", { class: `card frame ${cls}` },
+    el("h3", {}, title, " ", el("span", { class: "pill frame-src" }, live ? t.fr_live : t.fr_local), " ", certainty),
+    ...body);
+  const certPill = c => el("span", { class: `pill cert tier-${c.tier}`, title: c.note }, `${t.fr_cert} ${t["tier_" + c.tier] || c.tier}`);
+  const certLine = c => el("p", { class: "sub cert-note" }, c.note);
+  const factRows = rows => el("table", { class: "facts frame-facts" }, el("tbody", {},
+    ...rows.filter(([, v]) => v && (!Array.isArray(v) || v.length)).map(([k, v]) => el("tr", {}, el("td", {}, k), el("td", {}, ...(Array.isArray(v) ? v.flatMap((x, i) => [i ? el("br") : "", x]) : [v]))))));
+
+  async function wikidataFrame(src, box) {
+    const lg = `${lang},de,fr,en,it`;
+    const item = src.qid ? `VALUES ?item { wd:${src.qid} }` : `?item wdt:P902 "${src.hls}" .`;
+    const q = `SELECT ?item ?kind ?v ?vLabel ?start ?end WHERE { ${item}
+      { ?item p:P39 ?st . ?st ps:P39 ?v . BIND("pos" AS ?kind) OPTIONAL { ?st pq:P580 ?start } OPTIONAL { ?st pq:P582 ?end } }
+      UNION { ?item wdt:P106 ?v . BIND("occ" AS ?kind) } UNION { ?item wdt:P69 ?v . BIND("edu" AS ?kind) }
+      UNION { ?item wdt:P463 ?v . BIND("mem" AS ?kind) } UNION { ?item wdt:P102 ?v . BIND("party" AS ?kind) }
+      UNION { ?item wdt:P19 ?v . BIND("bp" AS ?kind) } UNION { ?item wdt:P20 ?v . BIND("dp" AS ?kind) }
+      UNION { ?item wdt:P569 ?v . BIND("b" AS ?kind) } UNION { ?item wdt:P570 ?v . BIND("d" AS ?kind) }
+      UNION { ?item wdt:P902 ?v . BIND("hls" AS ?kind) } UNION { ?item wdt:P227 ?v . BIND("gnd" AS ?kind) }
+      UNION { ?item schema:description ?v . FILTER(LANG(?v) IN ("${lang}", "de", "fr", "en")) BIND("desc" AS ?kind) }
+      UNION { ?item rdfs:label ?v . FILTER(LANG(?v) IN ("${lang}", "de", "fr", "en")) BIND("label" AS ?kind) }
+      SERVICE wikibase:label { bd:serviceParam wikibase:language "${lg}". } }`;
+    try {
+      const rows = await sparql(WD, q);
+      if (!rows.length) { box.replaceChildren(frame("wd", "Wikidata", true, certPill(src), el("p", { class: "muted" }, t.fr_none))); return {}; }
+      const qid = val(rows[0], "item").split("/").pop();
+      const by = k => rows.filter(r => val(r, "kind") === k);
+      const pick = k => { const xs = by(k); return (xs.find(r => r.v["xml:lang"] === lang) || xs.find(r => r.v["xml:lang"] === "de") || xs[0]); };
+      const uniq = xs => [...new Set(xs)];
+      const labels = k => uniq(by(k).map(r => val(r, "vLabel")).filter(x => x && !/^Q\d+$/.test(x)));
+      const pos = uniq(by("pos").map(r => `${val(r, "vLabel")}${span(val(r, "start"), val(r, "end"))}`))
+        .sort((x, y) => (yr(x.split("(")[1]) || 0) - (yr(y.split("(")[1]) || 0));
+      const hls = by("hls").map(r => val(r, "v"))[0] || "", gnd = by("gnd").map(r => val(r, "v"))[0] || "";
+      box.replaceChildren(frame("wd", "Wikidata", true, certPill(src),
+        el("p", {}, el("b", {}, pick("label") ? val(pick("label"), "v") : qid), pick("desc") ? ` — ${val(pick("desc"), "v")}` : ""),
+        factRows([
+          [t.fr_born, [wdDate(val(by("b")[0] || {}, "v")), labels("bp").join(", ")].filter(Boolean).join(", ")],
+          [t.fr_died, [wdDate(val(by("d")[0] || {}, "v")), labels("dp").join(", ")].filter(Boolean).join(", ")],
+          [t.fr_occ, labels("occ").join(", ")],
+          [t.fr_pos, pos.slice(0, 15)],
+          [t.fr_edu, labels("edu").join(", ")],
+          [t.fr_mem, [...labels("mem"), ...labels("party")].join(", ")],
+        ]),
+        el("p", { class: "links" }, ...authLinks(qid, hls, gnd)),
+        certLine(src), el("p", { class: "sub" }, t.fr_wd_note)));
+      return { qid, hls };
+    } catch (err) {
+      box.replaceChildren(frame("wd", "Wikidata", true, certPill(src), el("p", { class: "muted" }, t.fr_error),
+        src.qid ? el("p", { class: "links" }, link(`https://www.wikidata.org/wiki/${src.qid}`, `Wikidata ${src.qid}`)) : ""));
+      return { qid: src.qid };
+    }
+  }
+
+  async function hlsFrame(src, hid, box) {
+    let p = null;
+    try { p = (await get(`data/hls/${fnv(hid, 0x3f)}.json.gz`))[hid]; } catch { /* nicht in unseren HLS-Daten */ }
+    box.replaceChildren(frame("hls", t.fr_hls_h, false, certPill(src),
+      p ? el("p", {}, el("b", {}, p.n), ` (${life(p.b, p.d)})`) : "",
+      p ? factRows([[t.fr_places, p.p.map(([g, a, z]) => `${g} ${a === z ? a : `${a}–${z}`}`)]]) : el("p", { class: "muted" }, t.fr_hls_none),
+      el("p", { class: "links" }, link(hlsUrl(hid), `${t.hls_abbr || "HLS"} ${hid}`), p ? [" · ", link(`#/hls/${hid}`, t.fr_hls_check)] : ""),
+      certLine(src), el("p", { class: "sub" }, t.fr_hls_note)));
+  }
+
+  async function elitesFrame(src, qid, box) {
+    const q = `PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX sdh-short: <https://sdhss.org/ontology/shortcuts/>
+      PREFIX sdh-slc: <https://sdhss.org/ontology/social-life-core/>
+      SELECT ?s ?name ?b ?d ?gender ?group ?onb ?role ?type ?start ?end WHERE {
+        ?s owl:sameAs <http://www.wikidata.org/entity/${qid}> ; sdh-short:P9 ?name .
+        OPTIONAL { ?s sdh-short:P2 ?b } OPTIONAL { ?s sdh-short:P13 ?d } OPTIONAL { ?s sdh-slc:P23/sdh-short:P9 ?gender }
+        OPTIONAL { ?m sdh-slc:P1 ?s ; a sdh-slc:C5 .
+          OPTIONAL { ?m sdh-slc:P2/sdh-short:P9 ?group } OPTIONAL { ?m sdh-slc:P81/sdh-short:P9 ?onb }
+          OPTIONAL { ?m sdh-slc:P63/sdh-short:P9 ?role } OPTIONAL { ?m sdh-slc:P3/sdh-short:P9 ?type }
+          OPTIONAL { ?m sdh-short:P4 ?start } OPTIONAL { ?m sdh-short:P7 ?end } } }`;
+    const title = "Elites suisses (OBELIS)";
+    try {
+      const rows = await sparql(ES, q);
+      if (!rows.length) { box.replaceChildren(frame("es", title, true, certPill(src), el("p", { class: "muted" }, t.fr_es_none))); return; }
+      const id = val(rows[0], "s").split("/p").pop();
+      const mem = [...new Set(rows.filter(r => val(r, "group") || val(r, "role")).map(r =>
+        [val(r, "role"), val(r, "group"), val(r, "onb") ? `(${val(r, "onb")})` : "", val(r, "type") ? `· ${val(r, "type")}` : ""].filter(Boolean).join(" ")
+        + span(val(r, "start"), val(r, "end"))))].sort((x, y) => (yr(x.split("(").pop()) || 0) - (yr(y.split("(").pop()) || 0));
+      box.replaceChildren(frame("es", title, true, certPill(src),
+        el("p", {}, el("b", {}, val(rows[0], "name")), ` (${life(val(rows[0], "b"), val(rows[0], "d"))})`),
+        factRows([[t.fr_es_mem, mem]]),
+        el("p", { class: "links" }, esLink(id)),
+        certLine({ ...src, note: `${src.note} ${t.fr_es_via}` }), el("p", { class: "sub" }, t.fr_es_note, " ",
+          link("https://github.com/thodel/vernetzte-schweiz/blob/main/docs/elites_suisses.md", t.fr_doc))));
+    } catch {
+      box.replaceChildren(frame("es", title, true, certPill(src), el("p", { class: "muted" }, t.fr_error)));
+    }
+  }
+
+  // Quellen der Zuordnung einer Einheit, sicherste zuerst
+  const frameSources = e => {
+    const out = [];
+    if (e.au) out.push({ qid: e.au.qid, hls: e.au.hls_id, tier: e.au.tier,
+      note: t.fr_cert_direct.replace("{t}", t["tier_" + e.au.tier] || e.au.tier).replace("{e}", e.au.evidence || "") });
+    for (const [hid, , , , why] of e.hk || []) if (!out.some(s => s.hls === hid))
+      out.push({ hls: hid, tier: "wahrscheinlich", note: t.fr_cert_hls.replace("{w}", why) });
+    for (const m of e.mv || []) if (m.au && !out.some(s => s.qid === m.au.qid))
+      out.push({ qid: m.au.qid, hls: m.au.hls_id, tier: "möglich",
+        note: t.fr_cert_mv.replace("{g}", `${m.m} ${m.y}`).replace("{s}", t[`mw_tier_${["stark", "mittel", "schwach"].indexOf(m.t)}`]).replace("{t}", t["tier_" + m.au.auth_tier] || m.au.auth_tier) });
+    return out;
+  };
+
+  function personFrames(e) {
+    const srcs = frameSources(e);
+    if (!srcs.length) return "";
+    const sec = el("section", { class: "frames" }, el("h2", {}, t.fr_h), el("p", { class: "intro" }, t.fr_p));
+    for (const src of srcs) {
+      const wd = el("div", { class: "frame-slot" }, el("p", { class: "muted" }, t.fr_loading.replace("{p}", "Wikidata")));
+      const hl = el("div", { class: "frame-slot" });
+      const es = el("div", { class: "frame-slot" }, el("p", { class: "muted" }, t.fr_loading.replace("{p}", "Elites suisses")));
+      sec.append(el("div", { class: "frame-group" }, wd, hl, es));
+      (async () => {
+        const got = await wikidataFrame(src, wd);
+        const hid = src.hls || got.hls;
+        if (hid) hlsFrame(src, hid, hl); else hl.remove();
+        const qid = src.qid || got.qid;
+        if (qid) elitesFrame(src, qid, es); else es.replaceChildren(frame("es", "Elites suisses (OBELIS)", true, certPill(src), el("p", { class: "muted" }, t.fr_es_noqid)));
+      })();
+    }
+    return sec;
+  }
+
   async function entity([id]) {
     let shard;
     try { shard = await get(`data/e/${id.slice(1, 3)}.json.gz`); } catch { shard = {}; }
@@ -348,6 +489,7 @@
           m.hc && m.hc.length ? el("p", { class: "sub" }, t.mv_hls_cand, " ", ...hlsCands(m.hc)) : "")),
         el("p", { class: "sub note" }, t.mv_note, " ", link("#/wanderungen", t.mv_link))));
     }
+    parts.push(personFrames(e));
     parts.push(timeline(e.r));
     // gleiche Zeile im selben Jahr (mehrere Ausgaben, Haupt- und Nachtrag) nur einmal, mit allen Fundstellen
     const rows = new Map();

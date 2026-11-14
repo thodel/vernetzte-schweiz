@@ -347,3 +347,14 @@ table.hl-groups td.barcell { width: 55%; }
 .auth-mv a { margin-right: 2px; }
 .flow-filter { background: var(--cat-source-pale, #eef2f6); padding: 6px 10px; border-radius: 4px; }
 .leaflet-interactive { cursor: pointer; }
+.frames .frame-group { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin: 10px 0 18px; }
+.frames .frame-group:empty { display: none; }
+.frame h3 { font-size: 1.05rem; margin: 0 0 6px; }
+.frame .frame-src { background: #eee; color: #555; font-weight: 400; }
+.frame .cert { font-weight: 600; }
+.frame-facts td:first-child { white-space: nowrap; padding-right: 10px; color: #555; vertical-align: top; }
+.frame .cert-note { border-left: 3px solid var(--cat-source, #888); padding-left: 8px; }
+.frame .frame-facts { width: 100%; max-width: 100%; table-layout: fixed; }
+.frame .frame-facts td { white-space: normal; text-align: left; overflow-wrap: anywhere; }
+.frame .frame-facts td:first-child { width: 38%; }
+.frame { min-width: 0; overflow-wrap: anywhere; }

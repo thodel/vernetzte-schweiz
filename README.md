@@ -8,7 +8,7 @@ Seite: https://thodel.github.io/vernetzte-schweiz/
 
 Plan, Entscheide und offene Fragen: [PLAN.md](PLAN.md) · Datenvertrag:
 [docs/datenvertrag.md](docs/datenvertrag.md) · Verknüpfung:
-[docs/verknuepfung.md](docs/verknuepfung.md), [docs/einheiten.md](docs/einheiten.md) · Seite: [docs/seite.md](docs/seite.md), [docs/karten.md](docs/karten.md), [docs/suche.md](docs/suche.md), [docs/berufssuche.md](docs/berufssuche.md), [docs/volltext.md](docs/volltext.md) · Wanderungen (Versuch): [docs/wanderungen.md](docs/wanderungen.md) · Elites suisses (SPARQL): [docs/elites_suisses.md](docs/elites_suisses.md)
+[docs/verknuepfung.md](docs/verknuepfung.md), [docs/einheiten.md](docs/einheiten.md) · Seite: [docs/seite.md](docs/seite.md), [docs/karten.md](docs/karten.md), [docs/suche.md](docs/suche.md), [docs/berufssuche.md](docs/berufssuche.md), [docs/volltext.md](docs/volltext.md) · Wanderungen (Versuch): [docs/wanderungen.md](docs/wanderungen.md) · Elites suisses (SPARQL): [docs/elites_suisses.md](docs/elites_suisses.md) · Angaben aus anderen Projekten: [docs/angaben.md](docs/angaben.md)
 
 ## Quellen
 
