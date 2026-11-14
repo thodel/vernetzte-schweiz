@@ -1,114 +1,114 @@
 {
  "aarau": {
   "ptt_entries": 3035,
-  "ptt_linked": 2153,
-  "pairs": 16293,
+  "ptt_linked": 2152,
+  "pairs": 16266,
   "decisions": {
    "kein-name": 3321,
    "sicher": 2855,
-   "mehrdeutig": 2025,
+   "mehrdeutig": 2018,
    "wahrscheinlich": 2339,
-   "zu-schwach": 1534,
-   "möglich": 1727,
-   "widerspruch": 1374
+   "zu-schwach": 1554,
+   "möglich": 1726,
+   "widerspruch": 1362
   },
   "by_tier": {
-   "sicher": 7046,
-   "wahrscheinlich": 5520,
-   "möglich": 3727
+   "sicher": 7031,
+   "wahrscheinlich": 5515,
+   "möglich": 3720
   }
  },
  "basel": {
   "ptt_entries": 103903,
-  "ptt_linked": 4132,
-  "pairs": 10440,
+  "ptt_linked": 4129,
+  "pairs": 10431,
   "decisions": {
-   "zu-schwach": 21959,
-   "kein-name": 39739,
-   "widerspruch": 22686,
-   "mehrdeutig": 15387,
-   "möglich": 2938,
-   "wahrscheinlich": 1194
+   "zu-schwach": 21860,
+   "kein-name": 39756,
+   "widerspruch": 22853,
+   "mehrdeutig": 15305,
+   "möglich": 2934,
+   "wahrscheinlich": 1195
   },
   "by_tier": {
-   "möglich": 7254,
-   "wahrscheinlich": 3186
+   "möglich": 7243,
+   "wahrscheinlich": 3188
   }
  },
  "baden": {
   "ptt_entries": 2359,
-  "ptt_linked": 1181,
-  "pairs": 3031,
+  "ptt_linked": 1186,
+  "pairs": 3065,
   "decisions": {
-   "kein-name": 1109,
-   "sicher": 454,
-   "widerspruch": 270,
-   "möglich": 462,
-   "wahrscheinlich": 745,
-   "zu-schwach": 522,
-   "mehrdeutig": 394
+   "kein-name": 1110,
+   "sicher": 457,
+   "widerspruch": 280,
+   "möglich": 452,
+   "wahrscheinlich": 755,
+   "zu-schwach": 514,
+   "mehrdeutig": 388
   },
   "by_tier": {
-   "sicher": 884,
-   "möglich": 749,
-   "wahrscheinlich": 1398
+   "sicher": 889,
+   "möglich": 745,
+   "wahrscheinlich": 1431
   }
  },
  "bern": {
   "ptt_entries": 55380,
-  "ptt_linked": 25263,
-  "pairs": 63049,
+  "ptt_linked": 25233,
+  "pairs": 62941,
   "decisions": {
-   "wahrscheinlich": 13579,
-   "möglich": 7175,
-   "kein-name": 32321,
-   "zu-schwach": 19822,
-   "mehrdeutig": 17547,
-   "widerspruch": 9970,
-   "sicher": 10346
+   "wahrscheinlich": 13573,
+   "möglich": 7174,
+   "kein-name": 32407,
+   "zu-schwach": 19816,
+   "mehrdeutig": 17416,
+   "widerspruch": 10052,
+   "sicher": 10322
   },
   "by_tier": {
-   "wahrscheinlich": 26001,
-   "möglich": 11921,
-   "sicher": 25127
+   "wahrscheinlich": 25988,
+   "möglich": 11879,
+   "sicher": 25074
   }
  },
  "lausanne": {
   "ptt_entries": 13417,
-  "ptt_linked": 2440,
-  "pairs": 6141,
+  "ptt_linked": 2451,
+  "pairs": 6137,
   "decisions": {
-   "wahrscheinlich": 1891,
-   "möglich": 801,
+   "wahrscheinlich": 1919,
+   "möglich": 786,
    "kein-name": 9321,
-   "zu-schwach": 2307,
-   "mehrdeutig": 1664,
-   "widerspruch": 1616,
-   "sicher": 331
+   "zu-schwach": 2244,
+   "mehrdeutig": 1602,
+   "widerspruch": 1726,
+   "sicher": 333
   },
   "by_tier": {
-   "wahrscheinlich": 4007,
-   "möglich": 1360,
-   "sicher": 774
+   "wahrscheinlich": 4037,
+   "möglich": 1324,
+   "sicher": 776
   }
  },
  "zuerich": {
   "ptt_entries": 62474,
-  "ptt_linked": 36485,
-  "pairs": 93735,
+  "ptt_linked": 36539,
+  "pairs": 93606,
   "decisions": {
-   "kein-name": 78380,
-   "möglich": 8361,
-   "mehrdeutig": 43846,
-   "zu-schwach": 38945,
-   "wahrscheinlich": 22402,
-   "widerspruch": 30473,
-   "sicher": 24217
+   "kein-name": 78428,
+   "möglich": 8324,
+   "mehrdeutig": 42896,
+   "zu-schwach": 37975,
+   "wahrscheinlich": 22427,
+   "widerspruch": 32245,
+   "sicher": 24329
   },
   "by_tier": {
-   "möglich": 13761,
-   "wahrscheinlich": 34089,
-   "sicher": 45885
+   "möglich": 13702,
+   "wahrscheinlich": 33973,
+   "sicher": 45931
   }
  }
 }
