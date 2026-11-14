@@ -228,10 +228,10 @@ Prüfung für jede Person sichtbar, ohne Kandidaten als Identifikation auszugebe
 [docs/wanderungen.md](docs/wanderungen.md). Wer verschwindet an einem Ort und erscheint kurz
 danach erstmals an einem anderen (gleicher Familienname, verträglicher Vorname, Beruf,
 Allianzname, neue Adresse und Nummer, eindeutig in beide Richtungen)? Fehler der
-Ortszuweisung aus M1 (gleiche Nummer, Nachbarzeilen vom alten Ort, Nachbar im Alphabet,
+Ortszuweisung aus M1 (gleiche Nummer, Nachbarzeilen vom alten Ort, Nachbar im Alphabet, Ortswort des alten Eintrags,
 Stadtnummer im Dorf, Strasse des alten Orts, Sprache, ortsfester Betrieb) sowie Firmen,
-Ämter und Institutionen werden ausgeschlossen. Stand: 332 Kandidaten (43 stark, 193
-mittel, 96 schwach), Karte mit Linien und Saldo, nach Berufsklasse, Entfernung und Jahr.
+Ämter und Institutionen werden ausgeschlossen. Stand: 319 Kandidaten (42 stark, 154
+mittel, 123 schwach), Karte mit Linien und Saldo, nach Berufsklasse, Entfernung und Jahr.
 
 - **Messung 14.11.2026:**
   - Stichprobe 1 (zum Einstellen): stark 50–62 %.
@@ -240,8 +240,12 @@ mittel, 96 schwach), Karte mit Linien und Saldo, nach Berufsklasse, Entfernung u
   - Stichprobe 3, mit feiner Berufsliste (scripts/occupations_fine.py): stark 75–88 % (n = 8),
     mittel 42–80 %, schwach 15–85 %. Keine Berufsverwechslung mehr in mittel; die Fehler
     sind Ortszuweisungen mit gleichem Wortlaut.
+  - Stichprobe 4, mit Regel «Ortswort des alten Eintrags» und Grenze für gleichen Wortlaut:
+    mittel 30–80 %, schwach 52–86 % (n = 29). Keine Ortszuweisung mehr in mittel; die Fehler
+    sind verschiedene Menschen in den Adressbüchern (Geburtsname, Geschlecht, zweiter Vorname).
 - **Offen:**
-  - gleicher Wortlaut ohne neue Nummer oder Adresse in mittel (neue Stichprobe nötig);
+  - Adressbuch-Paare: Geschlecht und Geburtsname («geb.») vergleichen;
+  - Grenze für gleichen Wortlaut lockern, wo der Beruf selten ist (Tierarzt, Apotheker);
   - mehrdeutige Paare über Heimatort und Lebensdaten;
   - Firmen mit neuem Sitz.
 

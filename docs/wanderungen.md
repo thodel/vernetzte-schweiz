@@ -46,7 +46,7 @@ Gesucht sind Paare aus einer Einheit **A** (alter Ort, letztes Jahr *t*) und ein
 | Vorname ausgeschrieben gleich | 2 |
 | Vorname als Abkürzung | 1 |
 | Beruf mit gleichem Wortstamm, anders formuliert | 2 |
-| Beruf mit gleichem Wortlaut (meist dieselbe Zeile, nicht derselbe Mensch anderswo) | 1 |
+| Beruf mit gleichem Wortlaut (meist dieselbe Zeile, nicht derselbe Mensch anderswo); ohne neue Nummer oder Adresse höchstens `schwach` | 1 |
 | derselbe Beruf in der feinen Liste, anders geschrieben («Charcuterie» = «Metzger», «tapissier» = «Tapezierer») | 2 |
 | derselbe allgemeine Beruf (Commis, Kaufmann, Handlanger, Privat …) | 1 |
 | verwandter Beruf (Bäcker ↔ Konditor, Fürsprecher ↔ Richter, Wirt ↔ Hotel) | 1 |
@@ -88,16 +88,19 @@ weg. Die Gründe stehen je Paar in `data/norm/migration_dropped.csv.gz`.
 | Grund | Paare |
 |---|---|
 | dieselbe Rufnummer an beiden Orten, auch die im Adressbuch gedruckte («T 535») | 1 034 |
-| um die erste Zeile von B stehen mindestens zwei weitere Einträge, die ebenfalls vom Ort A «gekommen» wären (der ganze Lauf gehört zu A; Nachbarn mit demselben Familiennamen zählen nicht) | 368 |
-| die Ortsnamen beginnen gleich und liegen mindestens 5 km auseinander («Fleurier» → «Finhaut», «Altstätten» → «Alt St. Johann»: Nachbarn im Alphabet des Telefonbuchs) | 193 |
+| um die erste Zeile von B stehen mindestens zwei weitere Einträge, die ebenfalls vom Ort A «gekommen» wären (der ganze Lauf gehört zu A; Nachbarn mit demselben Familiennamen zählen nicht) | 328 |
+| die Ortsnamen beginnen gleich und liegen mindestens 5 km auseinander («Fleurier» → «Finhaut», «Altstätten» → «Alt St. Johann»: Nachbarn im Alphabet des Telefonbuchs) | 168 |
+| ein Orts- oder Strassenwort des alten Eintrags steht im neuen («Direktor, auf Robersten» unter Brügg, «voiturier, Unterseen» unter Interlaken), oder der neue Ort heisst wie die alte Adresse («Oberdorf» → Oberdorf (SO), «Liesbergmühle» → Liesberg, «Bertigny» → Burtigny). Die Wörter stammen nur aus der Strasse und dem Zusatz nach dem ersten Glied, das meist der Beruf ist | 159 |
 | vierstellige Stadtnummer an einem Ort mehr als 15 km vom nächsten Stadtnetz («36.86» unter Prez-vers-Siviriez); Vororte wie Versoix oder Renens liegen im Netz der Stadt | 78 |
-| ortsfester Betrieb oder Posten auf beiden Seiten (Gasthaus, Mühle, Villa, Postablage, Sindaco, Richter …) mit gleichem Wortlaut oder gleichem Eigenwort («Löwenburg», «Ochsen») | 66 |
-| B steht an einer Strasse, die es am Ort A gibt und an seinem eigenen Ort kaum | 64 |
-| eine solche Strasse steht im Zusatz von B («boulanger, r. des Deux-Marchés», «past., Valentin») | 35 |
-| Strassenangabe in der Sprache des alten Orts («Via alla Stazione» unter Luzern) | 22 |
+| ortsfester Betrieb oder Posten auf beiden Seiten (Gasthaus, Mühle, Villa, Postablage, Sindaco, Richter …) mit gleichem Wortlaut oder gleichem Eigenwort («Löwenburg», «Ochsen») | 48 |
+| B steht an einer Strasse, die es am Ort A gibt und an seinem eigenen Ort kaum | 48 |
+| eine solche Strasse steht im Zusatz von B («boulanger, r. des Deux-Marchés», «past., Valentin») | 18 |
+| Strassenangabe in der Sprache des alten Orts («Via alla Stazione» unter Luzern) | 8 |
 | gleiche Adresse | 9 |
 
-Übrig bleiben **332 Paare**: 43 `stark`, 193 `mittel`, 96 `schwach` (mit feiner Berufsliste; vorher 339: 33, 172, 134).
+Ein Paar zählt beim ersten zutreffenden Grund in der Reihenfolge des Codes; die Zahlen der späteren Gründe sanken darum mit der Regel «Ortswort».
+
+Übrig bleiben **319 Paare**: 42 `stark`, 154 `mittel`, 123 `schwach` (vor der Regel «Ortswort» und der Grenze für gleichen Wortlaut 332: 43, 193, 96; vor der feinen Berufsliste 339: 33, 172, 134).
 
 ## Was «verschwunden» und «neu» heissen
 
@@ -220,13 +223,48 @@ wurde nur noch Nr. 003 behoben (Nachbarzeilen im Berufsfeld); das Paar fällt je
 - `unklar` bleibt gross: Berufswechsel ohne weiteren Beleg und Adressbuch-Einträge ohne
   Beruf.
 
+Daraus folgten zwei Regeln: Steht ein Orts- oder Strassenwort des alten Eintrags im neuen,
+oder heisst der neue Ort wie die alte Adresse, fällt das Paar weg (159 Paare). Gleicher
+Wortlaut ohne neue Nummer oder Adresse ergibt höchstens `schwach`. Auf die Stichproben 2
+und 3 angewandt (Prüfung, keine Messung): Die Regel trifft dort 10 Paare, alle `falsch`;
+`mittel` steht in Stichprobe 2 bei 59–85 % (27 Paare), in Stichprobe 3 bei 55–100 % (29).
+
+**Stichprobe 4** (`data/review/m10_wanderungen_4.csv`, Seed 13) wurde danach gezogen, aus
+Paaren, die in keiner früheren Stichprobe standen. In `stark` war keines mehr übrig, in
+`schwach` nur 29.
+
+| Stufe | n | richtig | unklar | falsch | Präzision |
+|---|---|---|---|---|---|
+| `mittel` | 40 | 12 | 20 | 8 | 30–80 % |
+| `schwach` | 29 | 15 | 10 | 4 | 52–86 % |
+
+**Lesart:**
+
+- Die Ortszuweisungen sind aus `mittel` verschwunden: keiner der 8 Fehler ist mehr dieselbe
+  Zeile unter einem anderen Ort.
+- Die Präzision von `mittel` steigt trotzdem nicht. Die 8 Fehler sind jetzt fast alle
+  Adressbuch-Paare mit verschiedenen Menschen: andere Frau (geb. Sandmeier statt
+  Wächter-Lindenmann, ledige Anna Streit gegen Anna geb. Wyss), anderes Geschlecht
+  (Jos. Anton gegen Maria Josepha, Joseph gegen Marie Jos.), anderer zweiter Vorname
+  (Oskar Edmund gegen Edmund Th.), Portier gegen Gerber, dazu ein Institut unter einem
+  anderen Familiennamen. Viele Adressbuch-Zeilen drucken den Familiennamen nicht («—»).
+- `unklar` ist in `mittel` die Hälfte: Adressbuch-Einträge ohne Beruf, Frauen, die
+  inzwischen verheiratet sind, häufige Namen.
+- `schwach` ist in dieser Stichprobe besser als `mittel`. Dorthin fallen jetzt Tierärzte,
+  Apotheker und Droguisten mit gleichem Wortlaut an einem neuen Ort (Guetg, Bouvier,
+  Henauer, Barras), die meist richtig sind. Die Grenze für gleichen Wortlaut ist für
+  Telefonbuch-Paare mit seltenem Beruf also zu streng.
+
 Die Seite zeigt anfangs `stark` und `mittel`. Die Linien sind Hinweise, keine
 Wanderungsstatistik.
 
 ## Grenzen
 
-- **Gleicher Wortlaut ohne neue Nummer oder Adresse** ist in `mittel` meist dieselbe Zeile
-  unter falschem Ort (Messung 3). Eine Regel dagegen bräuchte eine neue Stichprobe.
+- **Adressbuch-Paare** in `mittel` sind oft verschiedene Menschen (Messung 4): Frauen mit
+  anderem Geburtsnamen, Vornamen verschiedenen Geschlechts, ein anderer zweiter Vorname.
+  Geschlecht und Geburtsname werden noch nicht verglichen.
+- **Gleicher Wortlaut ohne neue Nummer oder Adresse** ergibt höchstens `schwach`. Das trifft
+  auch Tierärzte und Apotheker, die tatsächlich umzogen (Messung 4).
 - **Berufe ausserhalb der feinen Liste** («Seiler», «Treillageur») fallen auf die grobe
   Klasse zurück.
 - **Namensvettern** in grossen Städten (Paul Piccard, Lausanne/Genève) lassen sich ohne

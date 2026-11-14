@@ -6,7 +6,9 @@
 Stichprobe 1 (Seed 10): je Stufe 40 zufällige Paare, gezogen nach den ersten Regeln; danach
 wurden die Regeln angepasst. Stichprobe 2 (Seed 11): je Stufe bis zu 40 Paare, die nicht in
 Stichprobe 1 standen, gezogen nach dem Regelwechsel. Stichprobe 3 (Seed 12): wie 2, nach
-Einführung der feinen Berufsliste (scripts/occupations_fine.py). Zu jedem Paar
+Einführung der feinen Berufsliste (scripts/occupations_fine.py). Stichprobe 4 (Seed 13): wie 2,
+nach der Regel «Ortswort des alten Eintrags im neuen» und der Grenze für gleichen Wortlaut
+ohne neue Nummer oder Adresse. Zu jedem Paar
 stehen die letzten zwei Einträge am alten und die ersten zwei am neuen Ort, wie gedruckt
 (Telefonbuch: Name, Zusatz, Strasse, Nummer, Ortsüberschrift; Adressbuch: die Zeile).
 Urteil: `richtig` (dieselbe Person, anderer Wohn- oder Geschäftsort), `falsch` (andere
@@ -27,8 +29,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from common import NORM, ROOT, open_csv, write_csv  # noqa: E402
 
 REVIEW = {1: ROOT / "data" / "review" / "m10_wanderungen.csv", 2: ROOT / "data" / "review" / "m10_wanderungen_2.csv",
-          3: ROOT / "data" / "review" / "m10_wanderungen_3.csv"}
-SEEDS = {1: 10, 2: 11, 3: 12}
+          3: ROOT / "data" / "review" / "m10_wanderungen_3.csv", 4: ROOT / "data" / "review" / "m10_wanderungen_4.csv"}
+SEEDS = {1: 10, 2: 11, 3: 12, 4: 13}
 FIELDS = ["nr", "stufe", "from_entity", "to_entity", "von", "nach", "km", "evidence", "a_text", "b_text", "urteil", "begruendung"]
 N = 40
 

@@ -64,6 +64,7 @@ NEIGHBOURS = 10      # Zeilen davor und danach im selben Telefonbuch
 LINES: dict[str, list[tuple[int, str]]] = defaultdict(list)   # Band → [(Zeile, Eintrag)]
 ALLIANCE: dict[str, str] = {}   # Eintrag → Allianzname
 RAW: dict[str, str] = {}        # Telefonbuch-Eintrag → Zusatz und Strasse, wie gedruckt
+PLACE: dict[str, str] = {}      # Eintrag → Strasse und Zusatz ohne das erste Glied (meist der Beruf)
 MUNI_CANTON: dict[str, str] = {}
 AB_TEL: dict[str, str] = {}     # Adressbuch-Eintrag → gedruckte Telefonnummer («T 535», Lausanne)
 # Ortsfeste Angaben: gleicher Wortlaut an zwei Orten ist dieselbe Zeile, kein Umzug (Messung 1)
@@ -97,6 +98,7 @@ def coords() -> tuple[dict[str, tuple[float, float]], dict[str, Counter]]:
         if r["alliance_name"]:
             ALLIANCE[r["id"]] = r["alliance_name"]
         RAW[r["id"]] = f"{r['supplement']}, {r['street']}"
+        PLACE[r["id"]] = ", ".join([r["street"], *r["supplement"].split(",")[1:]])
         m = r["municipality_1914"]
         if m and r["canton"]:
             MUNI_CANTON.setdefault(m, r["canton"])
@@ -113,6 +115,7 @@ def coords() -> tuple[dict[str, tuple[float, float]], dict[str, Counter]]:
             AB_TEL[r["id"]] = tel.group(1)
         if r["street"] and r["municipality"]:
             streets[r["municipality"]][street_of(r["street"])] += 1
+        PLACE[r["id"]] = r["street"]
     return {m: (v[0] / v[2], v[1] / v[2]) for m, v in g.items() if v[2]}, streets
 
 
@@ -129,6 +132,8 @@ def misplaced(a: dict, b: dict, streets: dict[str, Counter]) -> str:
         return "stadtnummer_im_dorf"  # «36.86» unter Prez-vers-Siviriez: ein Stadtlauf unter falschem Ort
     if a["addrs"] & b["addrs"]:
         return "gleiche_adresse"
+    if old_place_word(a, b):
+        return "ortswort_des_alten_eintrags"
     sa, sb = streets.get(a["muni"], Counter()), streets.get(b["muni"], Counter())
     for s in b["streets"]:
         if s and sa[s] >= 3 and sb[s] < sa[s] / 2:
@@ -162,6 +167,45 @@ GENERIC_STEMS = stems("gasthaus gasthof hotel hôtel albergo villa mühle moulin
 
 LANG = {k: "de" for k in "ZH LU UR SZ OW NW GL ZG SO BS BL SH AR AI SG AG TG".split()}
 LANG.update({k: "fr" for k in "GE VD NE JU".split()}, TI="it")
+
+
+GENERIC_PLACE = re.compile(r"(ober|unter|mittel|neu|alt|hinter|vorder)?(bahnhof|haupt|dorf|kirch|post|gare|eglise|église|chiesa|"
+                           r"stazione|cantonale?|land|see|lac|lago|markt|platz|place|feld|berg|matt|bach|halde|rain|egg|wil|hof|"
+                           r"gasse|strasse|route|chemin|avenue|quartier|village|bourg)")
+
+
+def _letters(s: str) -> str:
+    return re.sub(r"[^a-zäöüéèêàâçô]", "", s.lower())
+
+
+def _close(x: str, y: str) -> bool:
+    """Gleich bis auf einen Buchstaben («Bertigny» ~ «Burtigny»)."""
+    if abs(len(x) - len(y)) > 1:
+        return False
+    if len(x) == len(y):
+        return sum(c != d for c, d in zip(x, y)) <= 1
+    s, t = sorted((x, y), key=len)
+    return any(t[:i] + t[i + 1:] == s for i in range(len(t)))
+
+
+def old_place_word(a: dict, b: dict) -> str:
+    """Ein Orts- oder Strassenwort des alten Eintrags steht im neuen, oder der neue Ort heisst
+    wie die alte Adresse: dieselbe Zeile unter falschem Ort (M1), kein Umzug. Messung 3:
+    «Direktor, auf Robersten» unter Brügg, «Bäcker u. Konditor, Oberdorf» unter Oberdorf (SO),
+    «voiturier, Unterseen» unter Interlaken, «Liesbergmühle» unter Liesberg."""
+    # Wörter nur aus Strasse und Zusatz nach dem ersten Glied: das erste Glied ist meist der Beruf
+    words = {_letters(w) for w in re.findall(r"[A-ZÄÖÜÉ][\wäöüéèàç'-]{4,}", a.get("place_text", ""))}
+    words = {re.sub(r"(strasse|str|gasse|weg|graben)$", "", w) for w in words}
+    bm = _letters(re.sub(r"\s*\(.*$", "", b["muni"]))
+    words = {w for w in words if len(w) >= 6}
+    btext = _letters(b["occ"] + " " + b["addr_text"])
+    for w in {w for w in words if not GENERIC_PLACE.fullmatch(w) and w != bm} | {_letters(re.sub(r"\s*\(.*$", "", a["muni"]))}:
+        if len(w) >= 6 and w in btext:
+            return w
+    for w in words:
+        if len(bm) >= 6 and (w == bm or w.startswith(bm) or bm.startswith(w) or _close(w, bm)):
+            return w
+    return ""
 
 
 def same_wording(a: dict, b: dict) -> bool:
@@ -273,6 +317,9 @@ def tier(pts: int, ev: list[str], n_surname: int) -> str:
     moved = "neu:nummer" in ev or "neu:adresse" in ev
     if pts >= 6 and beruf and moved:
         return "stark"
+    if "beruf:wortlaut" in ev and not moved:
+        # gleicher Wortlaut ohne neue Nummer oder Adresse: oft dieselbe Zeile unter anderem Ort (Messung 3)
+        return "schwach" if pts >= 4 else ""
     if pts >= 4 and beruf:
         return "mittel"
     if pts >= 4 and moved:  # ohne Berufsbeleg nur mit neuer Adresse oder Nummer (Messung 1)
@@ -313,6 +360,7 @@ def find() -> None:
         e["city_numbers"] = big[e["muni"]] / has[e["muni"]] if has[e["muni"]] else 0
         e["canton"] = e["canton"] or MUNI_CANTON.get(e["muni"], "")
         raw = " | ".join(RAW[x] for x in rids if x in RAW)
+        e["place_text"] = " | ".join([e["addr_text"], *(PLACE[x] for x in rids if x in PLACE)])
         e["addr_text"] += " | " + raw
         e["occ_streets"] = {street_of(x) for x in re.split(r"[;,|]", e["occ"] + " | " + raw)} - {""}
 
