@@ -521,7 +521,8 @@
     nameIn.addEventListener("focus", () => { focusPlace = "job"; });
     input.addEventListener("focus", () => { focusPlace = false; });
     const out = el("div", { class: "results" });
-    view.replaceChildren(el("h1", {}, t.pg_search_h), searchTabs("beruf"), el("p", { class: "intro" }, t.pg_occ_p),
+    view.replaceChildren(el("h1", {}, t.pg_search_h), searchTabs("beruf"), el("p", { class: "intro" }, t.pg_occ_p, " ",
+        link("https://github.com/thodel/vernetzte-schweiz/blob/main/docs/berufssuche.md", t.pg_occ_doc)),
       el("div", { class: "searchbar" }, input, muni, perSel, srcSel),
       el("label", { class: "check fuzzy" }, trIn, " ", el("b", {}, t.pg_tr), " ", el("span", { class: "muted" }, t.pg_tr_hint)),
       el("details", { class: "filters", ...(nm ? { open: "" } : {}) }, el("summary", {}, t.pg_more_filters_occ),

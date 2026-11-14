@@ -255,7 +255,7 @@
   "pg_src_only_ptt": "im Telefonbuch",
   "pg_src_only_ab": "im Adressbuch",
   "pg_occ_ph": "Beruf, z. B. Uhrmacher, photographe, Metzger",
-  "pg_occ_p": "Gesucht wird im Berufsfeld der Einträge, vom Wortanfang her, ohne Akzente: «Uhrmach» findet «Uhrmacher» und «Uhrmacherei». Die Telefonbücher schreiben deutsch, französisch und italienisch; «Metzger» findet nicht «boucher». Ein zweites Wort grenzt ein («fabr horlog»). Der Regler wählt Jahre: Treffer, die in diesem Bereich belegt sind.",
+  "pg_occ_p": "Gesucht wird im Berufsfeld der Einträge, vom Wortanfang her, ohne Akzente: «Uhrmach» findet «Uhrmacher» und «Uhrmacherei». Die Telefonbücher schreiben deutsch, französisch und italienisch; mit «Übersetzungen mitsuchen» findet «Metzger» auch «boucher». Ein zweites Wort grenzt ein («fabr horlog»). Der Regler wählt Jahre: Treffer, die in diesem Bereich belegt sind.",
   "pg_occ_hint": "Mindestens drei Buchstaben eines Berufs eingeben.",
   "pg_occ_hits": "{n} Personen und Firmen in {g} Gemeinden.",
   "pg_occ_place_hits": "{n} Treffer",
@@ -509,5 +509,6 @@
   "pg_tr_hint": "findet denselben Beruf auch deutsch, französisch und italienisch («horloger» = «Uhrmacher» = «orologiaio»), nach der feinen Berufsliste (124 Berufe)",
   "pg_tr_also": "Mitgesucht:",
   "pg_tr_none": "Zu diesem Wort ist kein Beruf der Liste bekannt; gesucht wird nur der Wortlaut.",
-  "pg_tr_title": "maschinell erkannter Beruf (feine Berufsliste)"
+  "pg_tr_title": "maschinell erkannter Beruf (feine Berufsliste)",
+  "pg_occ_doc": "So funktioniert die Berufssuche"
 }

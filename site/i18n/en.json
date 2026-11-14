@@ -255,7 +255,7 @@
   "pg_src_only_ptt": "in the directory",
   "pg_src_only_ab": "in the address book",
   "pg_occ_ph": "Occupation, e.g. Uhrmacher, photographe, Metzger",
-  "pg_occ_p": "The search covers the occupation field of the entries, from the start of a word, ignoring accents: «Uhrmach» finds «Uhrmacher» and «Uhrmacherei». The directories are in German, French and Italian; «Metzger» does not find «boucher». A second word narrows it down («fabr horlog»). The slider selects years: results attested within that range.",
+  "pg_occ_p": "The search covers the occupation field of the entries, from the start of a word, ignoring accents: «Uhrmach» finds «Uhrmacher» and «Uhrmacherei». The directories are in German, French and Italian; with «Include translations», «Metzger» also finds «boucher». A second word narrows it down («fabr horlog»). The slider selects years: results attested within that range.",
   "pg_occ_hint": "Enter at least three letters of an occupation.",
   "pg_occ_hits": "{n} persons and firms in {g} municipalities.",
   "pg_occ_place_hits": "{n} results",
@@ -509,5 +509,6 @@
   "pg_tr_hint": "also finds the same occupation in German, French and Italian («horloger» = «Uhrmacher» = «orologiaio»), using the fine occupation list (124 occupations)",
   "pg_tr_also": "Also searched:",
   "pg_tr_none": "No occupation in the list is known for this word; only the wording is searched.",
-  "pg_tr_title": "automatically recognised occupation (fine occupation list)"
+  "pg_tr_title": "automatically recognised occupation (fine occupation list)",
+  "pg_occ_doc": "How the occupation search works (in German)"
 }

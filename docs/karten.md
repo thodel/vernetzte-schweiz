@@ -42,8 +42,8 @@ Karten: Leaflet 1.9.4 und leaflet.heat 0.2.0 von cdnjs, Kacheln von OpenStreetMa
 
 Sucht im Berufsfeld aller Einheiten (auch nur im Adressbuch), vom Wortanfang her, ohne
 Akzente; ein zweites Wort grenzt ein. Ergebnis: Liste und Karte der Gemeinden (Kreisfläche =
-Treffer). Keine Übersetzung: «Metzger» findet nicht «boucher». Filter: Gemeinde, Jahre
-(Regler), Quelle.
+Treffer). Filter: Gemeinde, Jahre (Regler), Quelle, Name. Mit «Übersetzungen mitsuchen»
+findet «Metzger» auch «boucher». Ausführlich: [berufssuche.md](berufssuche.md).
 
 **Quelle** (auch in der Namenssuche): Telefon- und Adressbuch, nur Einheiten mit
 Telefonbuch-Eintrag, nur Einheiten mit Adressbuch-Eintrag. Wer in beiden steht, erscheint

@@ -59,16 +59,4 @@ Adressseite.
 ## Berufe übersetzt
 
 Mit «Übersetzungen mitsuchen» (`u=1`) findet die Suche denselben Beruf auch in den anderen
-Sprachen: «horloger» findet auch «Uhrmacher» und «orologiaio», «Metzger» auch «boucher» und
-«charcutier». Grundlage ist die feine Berufsliste aus den Wanderungen
-([scripts/occupations_fine.py](../scripts/occupations_fine.py)): 124 Berufe mit Mustern in
-deutscher, französischer und italienischer Sprache samt Abkürzungen, dazu je Beruf eine
-Bezeichnung auf Deutsch, Französisch, Italienisch und Englisch (`LABELS`).
-
-- `site/data/berufe.json` ordnet jedes Wort des Berufsfelds den Berufen der Liste zu
-  (8 603 Wörter). Ein Suchwort, das dort nicht steht, nimmt die Berufe der Wörter, die so
-  beginnen.
-- `site/data/fk/<i>.json.gz` enthält je Beruf alle Einheiten damit.
-- Jeder Treffer zeigt die erkannten Berufe in der Sprache der Seite («≈ boucher»). Die
-  Zuordnung geschieht maschinell nach den Mustern, nicht nach Durchsicht; sie greift breit
-  («Café» gilt als Wirt) und kennt nur Berufe der Liste.
+Sprachen. Beschrieben in [berufssuche.md](berufssuche.md).

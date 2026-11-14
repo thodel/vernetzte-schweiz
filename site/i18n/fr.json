@@ -255,7 +255,7 @@
   "pg_src_only_ptt": "dans l'annuaire téléphonique",
   "pg_src_only_ab": "dans l'annuaire d'adresses",
   "pg_occ_ph": "Profession, p. ex. horloger, Photograph, boucher",
-  "pg_occ_p": "La recherche porte sur le champ profession des entrées, depuis le début du mot, sans accents: «Uhrmach» trouve «Uhrmacher» et «Uhrmacherei». Les annuaires téléphoniques sont rédigés en allemand, en français et en italien; «Metzger» ne trouve pas «boucher». Un second mot restreint («fabr horlog»). Le curseur choisit les années: résultats attestés dans cette période.",
+  "pg_occ_p": "La recherche porte sur le champ profession des entrées, depuis le début du mot, sans accents: «Uhrmach» trouve «Uhrmacher» et «Uhrmacherei». Les annuaires téléphoniques sont rédigés en allemand, en français et en italien; avec «Chercher aussi les traductions», «Metzger» trouve aussi «boucher». Un second mot restreint («fabr horlog»). Le curseur choisit les années: résultats attestés dans cette période.",
   "pg_occ_hint": "Saisir au moins trois lettres d'une profession.",
   "pg_occ_hits": "{n} personnes et entreprises dans {g} communes.",
   "pg_occ_place_hits": "{n} résultats",
@@ -509,5 +509,6 @@
   "pg_tr_hint": "trouve la même profession en allemand, français et italien («horloger» = «Uhrmacher» = «orologiaio»), d'après la liste fine des professions (124 professions)",
   "pg_tr_also": "Cherché aussi:",
   "pg_tr_none": "Aucune profession de la liste n'est connue pour ce mot; seul le libellé est cherché.",
-  "pg_tr_title": "profession reconnue automatiquement (liste fine des professions)"
+  "pg_tr_title": "profession reconnue automatiquement (liste fine des professions)",
+  "pg_occ_doc": "Fonctionnement de la recherche par profession (en allemand)"
 }
