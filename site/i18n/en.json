@@ -471,7 +471,7 @@
   "kind_gemeinden": "Vaud communes",
   "mw_tab": "Migration (experimental)",
   "mw_p": "Who disappears from one place and shortly afterwards appears for the first time in another? Same surname, compatible written-out forename, at most 6 years in between; the more that agrees (same occupation, title, rare name), the higher the tier. Only pairs that are unique in both directions count. Lines lead from the old to the new place (red dot); «Balance» shows arrivals and departures per place (green more arrivals, red more departures).",
-  "mw_note": "Experimental: candidates, not verified moves. The phone books list subscribers only; «new in the book» often means «new telephone». Before 1911 only single editions exist, so cases cluster in 1911–1914. Pairs that are more likely a place-assignment error (same number, same address, street of the old place, neighbouring lines from the old place, alphabetically adjacent place) are excluded. Measured (40 pairs each): strong 50–62 %, medium 68–82 %, weak 32–55 % correct.",
+  "mw_note": "Experimental: candidates, not verified moves. The phone books list subscribers only; «new in the book» often means «new telephone». Before 1911 only single editions exist, so cases cluster in 1911–1914. Pairs that are more likely a place-assignment error (same number, same address, street of the old place, neighbouring lines from the old place, alphabetically adjacent place) are excluded. Measured (sample after the latest rules): strong 87–93 % (15 pairs), medium 45–78 %, weak 28–75 % correct.",
   "mw_doc": "Rules and limits",
   "mw_tier": "Tier",
   "mw_tier_0": "strong",

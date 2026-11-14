@@ -1,9 +1,11 @@
 """M10: Messung der Wanderungs-Kandidaten (scripts/migration.py).
 
-    python scripts/measure_migration.py draw     # Stichprobe ziehen → data/review/m10_wanderungen.csv
+    python scripts/measure_migration.py draw 2   # Stichprobe 2 ziehen → data/review/m10_wanderungen_2.csv
     python scripts/measure_migration.py          # auswerten → data/norm/migration_quality.json
 
-Je Stufe 40 zufällige Paare (Seed 10), gezogen nach dem letzten Regelwechsel. Zu jedem Paar
+Stichprobe 1 (Seed 10): je Stufe 40 zufällige Paare, gezogen nach den ersten Regeln; danach
+wurden die Regeln angepasst. Stichprobe 2 (Seed 11): je Stufe bis zu 40 Paare, die nicht in
+Stichprobe 1 standen, gezogen nach dem letzten Regelwechsel: die Messung. Zu jedem Paar
 stehen die letzten zwei Einträge am alten und die ersten zwei am neuen Ort, wie gedruckt
 (Telefonbuch: Name, Zusatz, Strasse, Nummer, Ortsüberschrift; Adressbuch: die Zeile).
 Urteil: `richtig` (dieselbe Person, anderer Wohn- oder Geschäftsort), `falsch` (andere
@@ -23,9 +25,10 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from common import NORM, ROOT, open_csv, write_csv  # noqa: E402
 
-REVIEW = ROOT / "data" / "review" / "m10_wanderungen.csv"
+REVIEW = {1: ROOT / "data" / "review" / "m10_wanderungen.csv", 2: ROOT / "data" / "review" / "m10_wanderungen_2.csv"}
+SEEDS = {1: 10, 2: 11}
 FIELDS = ["nr", "stufe", "from_entity", "to_entity", "von", "nach", "km", "evidence", "a_text", "b_text", "urteil", "begruendung"]
-N, SEED = 40, 10
+N = 40
 
 
 def texts(ids: set[str]) -> dict[str, list[tuple[int, str]]]:
@@ -45,12 +48,13 @@ def texts(ids: set[str]) -> dict[str, list[tuple[int, str]]]:
     return out
 
 
-def draw() -> None:
+def draw(nr: int) -> None:
     rows = open_csv(ROOT / "links" / "migration.csv")
-    rnd = random.Random(SEED)
+    seen = {(r["from_entity"], r["to_entity"]) for k, p in REVIEW.items() if k < nr and p.exists() for r in open_csv(p)}
+    rnd = random.Random(SEEDS[nr])
     pick = []
     for tier in ("stark", "mittel", "schwach"):
-        pool = [r for r in rows if r["tier"] == tier]
+        pool = [r for r in rows if r["tier"] == tier and (r["from_entity"], r["to_entity"]) not in seen]
         pick += rnd.sample(pool, min(N, len(pool)))
     t = texts({r["from_entity"] for r in pick} | {r["to_entity"] for r in pick})
     out = []
@@ -61,22 +65,32 @@ def draw() -> None:
                     "von": f"{r['from_muni']} {r['from_last']}", "nach": f"{r['to_muni']} {r['to_first']}", "km": r["km"],
                     "evidence": r["evidence"], "a_text": " ‖ ".join(x for _, x in a), "b_text": " ‖ ".join(x for _, x in b),
                     "urteil": "", "begruendung": ""})
-    write_csv(REVIEW, FIELDS, out)
-    print(f"{REVIEW.relative_to(ROOT)}: {len(out)} Paare")
+    write_csv(REVIEW[nr], FIELDS, out)
+    print(f"{REVIEW[nr].relative_to(ROOT)}: {len(out)} Paare")
 
 
 def report() -> None:
-    rows = list(csv.DictReader(open(REVIEW, encoding="utf-8")))
+    out = {}
+    for nr, path in REVIEW.items():
+        if path.exists():
+            print(f"Stichprobe {nr}" + (" (Regeln danach angepasst)" if nr == 1 else ""))
+            out[f"stichprobe_{nr}"] = report_one(list(csv.DictReader(open(path, encoding="utf-8"))))
+    (NORM / "migration_quality.json").write_text(json.dumps(out, ensure_ascii=False, indent=1) + "\n")
+
+
+def report_one(rows: list[dict]) -> dict:
     res = {}
     for tier in ("stark", "mittel", "schwach"):
         c = Counter(r["urteil"] for r in rows if r["stufe"] == tier)
         n = sum(c.values())
         res[tier] = {"n": n, **c, "precision_low": round(c["richtig"] / n, 3) if n else None,
                      "precision_high": round((c["richtig"] + c["unklar"]) / n, 3) if n else None}
-        print(f"{tier:8} n={n:3} richtig {c['richtig']:3} falsch {c['falsch']:3} unklar {c['unklar']:3} → "
+        if not n:
+            continue
+        print(f"  {tier:8} n={n:3} richtig {c['richtig']:3} falsch {c['falsch']:3} unklar {c['unklar']:3} → "
               f"{res[tier]['precision_low']:.0%}–{res[tier]['precision_high']:.0%}")
-    (NORM / "migration_quality.json").write_text(json.dumps(res, ensure_ascii=False, indent=1) + "\n")
+    return res
 
 
 if __name__ == "__main__":
-    draw() if sys.argv[1:] == ["draw"] else report()
+    draw(int(sys.argv[2])) if sys.argv[1:2] == ["draw"] else report()

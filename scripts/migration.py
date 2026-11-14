@@ -60,6 +60,17 @@ FIELDS = ["from_entity", "to_entity", "surname", "forename_from", "forename_to",
 TIERS = ("stark", "mittel", "schwach")
 NEIGHBOURS = 10      # Zeilen davor und danach im selben Telefonbuch
 LINES: dict[str, list[tuple[int, str]]] = defaultdict(list)   # Band → [(Zeile, Eintrag)]
+ALLIANCE: dict[str, str] = {}   # Eintrag → Allianzname
+RAW: dict[str, str] = {}        # Telefonbuch-Eintrag → Zusatz und Strasse, wie gedruckt
+MUNI_CANTON: dict[str, str] = {}
+AB_TEL: dict[str, str] = {}     # Adressbuch-Eintrag → gedruckte Telefonnummer («T 535», Lausanne)
+# Ortsfeste Angaben: gleicher Wortlaut an zwei Orten ist dieselbe Zeile, kein Umzug (Messung 1)
+PLACE_BOUND = re.compile(
+    r"gasthaus|gasthof|\bz\.|\bzum\b|\bzur\b|hotel|hôtel|albergo|villa|mühle|moulin|molin|\bhof\b|sindaco|syndic"
+    r"|präsident|richter|juge|giudice|post|deposito|buraliste|pfarr|curé|café|restaurant|ristorante|wirtschaft|osteria"
+    r"|sägerei|scierie|käserei|fromagerie|latteria|ziegelei|klösterli|laghetto|chalet|maison|krämerei|fuhrhalterei", re.I)
+# Strassenwörter, die fast jeder Ort hat: im Zusatz kein Beleg für den alten Ort
+GENERIC_STREET = re.compile(r"bahnhof|haupt|dorf|kirch|post|gare|eglise|chiesa|stazione|cantonal|landstr|see|lac|lago|markt|platz|place", re.I)
 
 
 STREET_TYPE = re.compile(
@@ -70,6 +81,7 @@ STREET_TYPE = re.compile(
 def street_of(addr: str) -> str:
     """Strassenschlüssel einer Adresse ohne Hausnummer, ohne «rue du», «av. de la» usw."""
     s = re.sub(r"[\s,]*\d+\s*[a-zA-Z]?\b.*$", "", addr or "").strip(" ,.")
+    s = re.sub(r"(?<=[a-zäöü])str\.?$", "strasse", s)
     return skey(STREET_TYPE.sub("", s)) if len(s) >= 3 else ""
 
 
@@ -80,13 +92,23 @@ def coords() -> tuple[dict[str, tuple[float, float]], dict[str, Counter]]:
     streets: dict[str, Counter] = defaultdict(Counter)
     for r in open_csv(NORM / "ptt_entries.csv.gz"):
         LINES[r["refcode"]].append((int(r["seq"]), r["id"]))
+        if r["alliance_name"]:
+            ALLIANCE[r["id"]] = r["alliance_name"]
+        RAW[r["id"]] = f"{r['supplement']}, {r['street']}"
         m = r["municipality_1914"]
+        if m and r["canton"]:
+            MUNI_CANTON.setdefault(m, r["canton"])
         if r["lat"] and m and r["place_confidence"] in ("hoch", "mittel"):
             x = g[m]
             x[0] += float(r["lat"]); x[1] += float(r["lon"]); x[2] += 1
             if r["street_name"]:
                 streets[m][street_of(r["street_name"])] += 1
     for r in open_csv(NORM / "ab_entries.csv"):
+        if r["alliance_name"]:
+            ALLIANCE[r["id"]] = r["alliance_name"]
+        tel = re.search(r"\bT\.? ?(\d{1,5})\b", r["text"])
+        if tel:
+            AB_TEL[r["id"]] = tel.group(1)
         if r["street"] and r["municipality"]:
             streets[r["municipality"]][street_of(r["street"])] += 1
     return {m: (v[0] / v[2], v[1] / v[2]) for m, v in g.items() if v[2]}, streets
@@ -99,21 +121,51 @@ def misplaced(a: dict, b: dict, streets: dict[str, Counter]) -> str:
     die es am alten Ort gibt und am neuen kaum, oder an derselben Adresse bzw. Nummer wie A,
     ist meist dieselbe Zeile einem anderen Ort zugewiesen worden (Lausanne 1911–1914 unter
     «Genève», M1). Ein Gasthaus mit gleichem Namen ist ortsfest."""
-    if a["phones"] & b["phones"]:
+    if (a["phones"] | a["ab_tel"]) & (b["phones"] | b["ab_tel"]):
         return "gleiche_nummer"
+    if b["phones"] and max(map(int, b["phones"])) >= 1000 and b.get("to_city", 0) > 15:
+        return "stadtnummer_im_dorf"  # «36.86» unter Prez-vers-Siviriez: ein Stadtlauf unter falschem Ort
     if a["addrs"] & b["addrs"]:
         return "gleiche_adresse"
     sa, sb = streets.get(a["muni"], Counter()), streets.get(b["muni"], Counter())
     for s in b["streets"]:
         if s and sa[s] >= 3 and sb[s] < sa[s] / 2:
             return "strasse_des_alten_orts"
+    for s in b["occ_streets"]:  # «boulanger, r. des Deux-Marchés», «past., Valentin»
+        if len(s) >= 5 and not GENERIC_STREET.search(s) and sa[s] >= 20 and sb[s] < sa[s] / 4:
+            return "strasse_des_alten_orts_im_zusatz"
+    # Strassenangabe in der Sprache des alten Orts: «Via alla Stazione» unter Luzern
+    text = b["occ"] + " " + b["addr_text"]
+    lang = LANG.get(b["canton"])
+    if lang == "de" and LANG.get(a["canton"]) != "de" and re.search(r"\b(via|piazza|vicolo|rue|avenue|chemin|route|r\.|av\.|ch\.)\s", text, re.I):
+        return "strasse_in_anderer_sprache"
+    if lang in ("fr", "it") and LANG.get(a["canton"]) == "de" and re.search(r"(strasse|str\.|gasse|weg|platz)\b", text, re.I):
+        return "strasse_in_anderer_sprache"
     fa, fb = (nkey(re.sub(r"^(Le|La|Les|St\.?|Ste\.?|Saint|Sainte|San|Santa)\s+", "", m))
               for m in (a["muni"], b["muni"]))
     if fa[:2] == fb[:2] and a.get("km", 99) >= NEAR_KM:
         return "ähnlicher_ortsname"  # Charge B: Läufe unter der Überschrift des Nachbarn im Alphabet
-    if a["cls"] == "gast" and a["occ"] and a["occ"].lower() == b["occ"].lower():
-        return "gleicher_betrieb"
+    # Gasthaus, Mühle, Villa, Amt: gleicher Wortlaut oder gleiches Eigenwort («Löwenburg», «Ochsen»)
+    if PLACE_BOUND.search(a["occ"]) and PLACE_BOUND.search(b["occ"]) and (
+            same_wording(a, b) or (a["stems"] & b["stems"]) - GENERIC_STEMS):
+        return "ortsfester_betrieb"
     return ""
+
+
+GENERIC_STEMS = stems("gasthaus gasthof hotel hôtel albergo villa mühle moulin molino sindaco syndic präsident richter "
+                      "juge giudice postablage postbureau deposito postale buraliste pfarrer café restaurant ristorante "
+                      "wirtschaft osteria sägerei scierie käserei fromagerie latteria ziegelei chalet maison krämerei "
+                      "fuhrhalterei handlung metzgerei bäckerei négociant commerce negozio")
+
+
+LANG = {k: "de" for k in "ZH LU UR SZ OW NW GL ZG SO BS BL SH AR AI SG AG TG".split()}
+LANG.update({k: "fr" for k in "GE VD NE JU".split()}, TI="it")
+
+
+def same_wording(a: dict, b: dict) -> bool:
+    """Gleicher Wortlaut der Berufs- bzw. Zusatzangabe (ohne Satzzeichen und Abkürzungspunkte)."""
+    x, y = (re.sub(r"[^a-z]", "", (e["occ"].split("|")[0]).lower()) for e in (a, b))
+    return len(x) >= 4 and len(y) >= 4 and (x == y or (min(len(x), len(y)) >= 6 and (x in y or y in x)))
 
 
 def km(a: tuple[float, float], b: tuple[float, float]) -> float:
@@ -124,13 +176,12 @@ def km(a: tuple[float, float], b: tuple[float, float]) -> float:
 
 def coverage() -> tuple[dict[str, dict[int, int]], dict[str, str]]:
     """Einträge je Gemeinde und Jahr (beide Quellen): wann eine Gemeinde «vorliegt»; dazu
-    je Telefonbuch-Eintrag die Einheit."""
+    je Eintrag die Einheit."""
     c: dict[str, Counter] = defaultdict(Counter)
     ent: dict[str, str] = {}
     for r in open_csv(LINKS / "entities.csv.gz"):
         c[r["municipality"]][int(r["year"])] += 1
-        if r["source"] == "ptt":
-            ent[r["record_id"]] = r["entity_id"]
+        ent[r["record_id"]] = r["entity_id"]
     return c, ent
 
 
@@ -156,6 +207,7 @@ def prepare(r: dict) -> dict | None:
         "phones": set(r["phones"].split()),
         "addrs": {nkey(x) for x in addrs if re.search(r"[A-Za-z]{3}.*\d", x)},
         "streets": {street_of(x) for x in addrs} - {""},
+        "canton": r["canton"], "addr_text": r["addresses"],
         "id": r["entity_id"], "muni": r["municipality"], "sk": nkey(r["surname"]), "surname": r["surname"],
         "forename": r["forename"], "fn": fn, "first": int(r["first_year"]), "last": int(r["last_year"]),
         "occ": occ, "stems": stems(occ), "cls": classify(occ),
@@ -168,13 +220,28 @@ def evidence(a: dict, b: dict) -> tuple[int, list[str]] | None:
     f = compare_forenames(a["fn"], b["fn"])
     if RANK.get(f, 0) < 2:
         return None  # Widerspruch, nur Initiale oder kein Vorname
+    if a["alli"] and b["alli"] and not ({x[:5] for x in a["alli"]} & {x[:5] for x in b["alli"]}):
+        return None  # verschiedene Allianznamen: «Spörry-Streiff» ≠ «Spœrri-Duport» (Tröndli = Tröndle)
+    full_a, full_b = ({k for k, short in e["fn"] if not short} for e in (a, b))
+    if len(full_a) >= 2 and len(full_b) >= 2 and not (full_a <= full_b or full_b <= full_a):
+        return None  # Karl Friedrich ≠ Karl Johann
     pts, ev = (2, ["vorname:gleich"]) if f == "gleich" else (1, ["vorname:abkürzung"])
     if a["stems"] & b["stems"]:
-        pts += 2; ev.append("beruf:wort")
+        # gleicher Wortlaut zählt weniger: meist dieselbe Zeile, nicht derselbe Mensch anderswo
+        if same_wording(a, b):
+            pts += 1; ev.append("beruf:wortlaut")
+        else:
+            pts += 2; ev.append("beruf:wort")
     elif a["cls"] and a["cls"] == b["cls"]:
         pts += 1; ev.append("beruf:klasse")
     elif a["cls"] and b["cls"]:
-        pts -= 1; ev.append("beruf:anders")
+        pts -= 2; ev.append("beruf:anders")
+    if {x[:5] for x in a["alli"]} & {x[:5] for x in b["alli"]}:
+        pts += 1; ev.append("allianzname")
+    if a["phones"] and b["phones"] and not (a["phones"] & b["phones"]):
+        pts += 1; ev.append("neu:nummer")
+    if a["addrs"] and b["addrs"] and not (a["addrs"] & b["addrs"]):
+        pts += 1; ev.append("neu:adresse")
     if a["title"] & b["title"]:
         pts += 1; ev.append("titel")
     return pts, ev
@@ -185,12 +252,13 @@ def tier(pts: int, ev: list[str], n_surname: int) -> str:
         pts += 2
     elif n_surname <= 40:
         pts += 1
-    beruf = any(e.startswith("beruf:wort") or e == "beruf:klasse" or e == "titel" for e in ev)
-    if pts >= 6 and beruf:
+    beruf = any(e.startswith("beruf:wort") or e == "beruf:klasse" or e == "titel" or e == "allianzname" for e in ev)
+    moved = "neu:nummer" in ev or "neu:adresse" in ev
+    if pts >= 6 and beruf and moved:
         return "stark"
     if pts >= 4 and beruf:
         return "mittel"
-    if pts >= 4:
+    if pts >= 4 and moved:  # ohne Berufsbeleg nur mit neuer Adresse oder Nummer (Messung 1)
         return "schwach"
     return ""
 
@@ -213,6 +281,23 @@ def find() -> None:
     recs_of: dict[str, list[str]] = defaultdict(list)
     for rid, eid in rec_ent.items():
         recs_of[eid].append(rid)
+    # Anteil der Einheiten mit vierstelliger Nummer je Gemeinde (Stadt oder Dorf)
+    big, has = Counter(), Counter()
+    for r in rows:
+        if r["phones"]:
+            has[r["municipality"]] += 1
+            big[r["municipality"]] += any(len(p) >= 4 for p in r["phones"].split())
+    # Städte mit vierstelligen Nummern: ihre Netze reichen in die Vororte (Versoix, Renens)
+    cities = [m for m in has if has[m] >= 200 and big[m] / has[m] >= 0.5 and m in geo]
+    for e in ents:
+        rids = recs_of.get(e["id"], [])
+        e["alli"] = {nkey(ALLIANCE[x]) for x in rids if x in ALLIANCE} - {""}
+        e["ab_tel"] = {AB_TEL[x] for x in rids if x in AB_TEL}
+        e["city_numbers"] = big[e["muni"]] / has[e["muni"]] if has[e["muni"]] else 0
+        e["canton"] = e["canton"] or MUNI_CANTON.get(e["muni"], "")
+        raw = " | ".join(RAW[x] for x in rids if x in RAW)
+        e["addr_text"] += " | " + raw
+        e["occ_streets"] = {street_of(x) for x in re.split(r"[;,|]", e["occ"] + " | " + raw)} - {""}
 
     cand: list[tuple[dict, dict, int, list[str]]] = []
     blocked_back = blocked_before = 0
@@ -274,21 +359,26 @@ def find() -> None:
 
     # Eindeutigkeit in beide Richtungen
     outs, ins = Counter(c[0]["id"] for c in cand), Counter(c[1]["id"] for c in cand)
-    out_rows, stats = [], Counter()
+    out_rows, stats, dropped = [], Counter(), []
     stats["kandidaten_vor_eindeutigkeit"] = len(cand)
     for a, b, pts, ev in cand:
         if outs[a["id"]] > 1 or ins[b["id"]] > 1:
             stats["mehrdeutig"] += 1
             continue
+        if not (outs[a["id"]] == 1 and ins[b["id"]] == 1):
+            continue
         d = round(km(geo[a["muni"]], geo[b["muni"]]), 1) if a["muni"] in geo and b["muni"] in geo else ""
-        why = misplaced({**a, "km": d if d != "" else 99}, b, streets) or ("nachbarzeilen_vom_alten_ort" if run_from_old_place(a, b) >= 2 else "")
+        to_city = min((km(geo[b["muni"]], geo[c]) for c in cities), default=0) if b["muni"] in geo else 0
+        why = misplaced({**a, "km": d if d != "" else 99}, {**b, "to_city": to_city}, streets) or ("nachbarzeilen_vom_alten_ort" if run_from_old_place(a, b) >= 2 else "")
         if why:
             stats["ortszuweisung:" + why] += 1
+            dropped.append({"from_entity": a["id"], "to_entity": b["id"], "reason": "ortszuweisung:" + why})
             continue
         n_s = n_surname[a["sk"]]
         t = tier(pts, ev, n_s)
         if not t:
             stats["zu_schwach"] += 1
+            dropped.append({"from_entity": a["id"], "to_entity": b["id"], "reason": "zu_schwach:" + "+".join(ev)})
             continue
         left = seen_after(cov[a["muni"]], a["last"])
         new = seen_before(cov[b["muni"]], b["first"])
@@ -307,6 +397,7 @@ def find() -> None:
         stats["beide_vorliegend"] += left and new
     out_rows.sort(key=lambda r: (TIERS.index(r["tier"]), r["from_last"], r["surname"]))
     write_csv(LINKS / "migration.csv", FIELDS, out_rows)
+    write_csv(NORM / "migration_dropped.csv.gz", ["from_entity", "to_entity", "reason"], dropped)
     stats.update({"personen_einheiten": len(rows), "geprueft": len(ents),
                   "später_am_alten_ort": blocked_back, "vorher_am_neuen_ort": blocked_before})
     (NORM / "migration_stats.json").write_text(json.dumps(dict(stats), ensure_ascii=False, indent=1) + "\n")

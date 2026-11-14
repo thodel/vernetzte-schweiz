@@ -227,17 +227,20 @@ Prüfung für jede Person sichtbar, ohne Kandidaten als Identifikation auszugebe
 **M10 — Wanderungen (Versuch).** Begonnen 14.11.2026, Seite `#/karten?v=wanderungen`,
 [docs/wanderungen.md](docs/wanderungen.md). Wer verschwindet an einem Ort und erscheint kurz
 danach erstmals an einem anderen (gleicher Familienname, verträglicher Vorname, Beruf,
-Seltenheit, eindeutig in beide Richtungen)? Fehler der Ortszuweisung aus M1 (gleiche Nummer,
-Nachbarzeilen vom alten Ort, Nachbar im Alphabet, Strasse des alten Orts) werden
-ausgeschlossen, ebenso Institutionen und Ämter. Stand: 285 Kandidaten (44 stark, 166
-mittel, 75 schwach), Karte mit Linien und Saldo, nach Berufsklasse, Entfernung und Jahr.
+Allianzname, neue Adresse und Nummer, eindeutig in beide Richtungen)? Fehler der
+Ortszuweisung aus M1 (gleiche Nummer, Nachbarzeilen vom alten Ort, Nachbar im Alphabet,
+Stadtnummer im Dorf, Strasse des alten Orts, Sprache, ortsfester Betrieb) sowie Firmen,
+Ämter und Institutionen werden ausgeschlossen. Stand: 339 Kandidaten (33 stark, 172
+mittel, 134 schwach), Karte mit Linien und Saldo, nach Berufsklasse, Entfernung und Jahr.
 
-- **Messung 14.11.2026** (40 Paare je Stufe): stark 50–62 %, mittel 68–82 %, schwach
-  32–55 %. Gleicher Wortlaut ist meist eine Fehlverortung, kein Umzug.
-- **Offen:** Regeln danach (gleicher Wortlaut ortsfester Angaben als Gegenbeleg,
-  Stadtnummer unter Dorf, Strassen des alten Orts im Zusatz, neue Adresse und Nummer als
-  Pluspunkt) und neue Stichprobe; Sprachwechsel; mehrdeutige Paare über Allianzname und
-  Heimatort; Firmen mit neuem Sitz.
+- **Messung 14.11.2026:**
+  - Stichprobe 1 (zum Einstellen): stark 50–62 %.
+  - Stichprobe 2, nach den neuen Regeln: stark 87–93 % (n = 15), mittel 45–78 %, schwach
+    28–75 %.
+- **Offen:**
+  - feinere Berufsliste gegen Namensvettern;
+  - mehrdeutige Paare über Heimatort und Lebensdaten;
+  - Firmen mit neuem Sitz.
 
 ## Offene Fragen
 

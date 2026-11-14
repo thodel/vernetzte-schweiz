@@ -1,26 +1,54 @@
 {
- "stark": {
-  "n": 40,
-  "falsch": 15,
-  "richtig": 20,
-  "unklar": 5,
-  "precision_low": 0.5,
-  "precision_high": 0.625
+ "stichprobe_1": {
+  "stark": {
+   "n": 40,
+   "falsch": 15,
+   "richtig": 20,
+   "unklar": 5,
+   "precision_low": 0.5,
+   "precision_high": 0.625
+  },
+  "mittel": {
+   "n": 40,
+   "richtig": 27,
+   "unklar": 6,
+   "falsch": 7,
+   "precision_low": 0.675,
+   "precision_high": 0.825
+  },
+  "schwach": {
+   "n": 40,
+   "falsch": 18,
+   "richtig": 13,
+   "unklar": 9,
+   "precision_low": 0.325,
+   "precision_high": 0.55
+  }
  },
- "mittel": {
-  "n": 40,
-  "richtig": 27,
-  "unklar": 6,
-  "falsch": 7,
-  "precision_low": 0.675,
-  "precision_high": 0.825
- },
- "schwach": {
-  "n": 40,
-  "falsch": 18,
-  "richtig": 13,
-  "unklar": 9,
-  "precision_low": 0.325,
-  "precision_high": 0.55
+ "stichprobe_2": {
+  "stark": {
+   "n": 15,
+   "richtig": 13,
+   "unklar": 1,
+   "falsch": 1,
+   "precision_low": 0.867,
+   "precision_high": 0.933
+  },
+  "mittel": {
+   "n": 40,
+   "richtig": 18,
+   "unklar": 13,
+   "falsch": 9,
+   "precision_low": 0.45,
+   "precision_high": 0.775
+  },
+  "schwach": {
+   "n": 40,
+   "unklar": 19,
+   "falsch": 10,
+   "richtig": 11,
+   "precision_low": 0.275,
+   "precision_high": 0.75
+  }
  }
 }
