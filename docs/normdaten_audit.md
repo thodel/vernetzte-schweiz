@@ -299,4 +299,4 @@ Alle QIDs und HLS-Nummern zum Nachprüfen. «Beleg (Repo)» ist für Aarau und B
   Eine Person aus HLS und Wikidata zählte für denselben Eintrag doppelt, «eindeutig im Verzeichnis» schlug darum fehl
   (Baden 23, Lausanne 132 Einträge rutschten zu Unrecht auf «möglich»); Wikidata nennt oft nur den ersten Vornamen
   («Johann» passte zu «Joh. Bernhard» Spyri), jetzt gelten alle aus dem Label. Neue Kandidaten: Bern 91, Zürich 307.
-- Offen: «Joh.» passt in `forename_score` (81_baende.py) auch zu «Johanna» (Johanna Spyri ← Bernhard Spyri).
+- «Joh.» gegen «Johanna»: in `82_normdaten.py` nur noch wie eine Initiale, wenn der Eintrag keine Frau nennt (Johanna Spyri ← «Joh. Bernhard» Spyri jetzt «möglich»). `forename_score` (81_baende.py) bleibt, dort träfe die Regel 903 abgekürzte Frauen in Zürich.
