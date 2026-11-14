@@ -14,7 +14,7 @@
   "kpi_networks": "municipalities (1914) in the directories",
   "kpi_qids": "persons linked to Wikidata",
   "sources_h": "Address books",
-  "sources_p": "Each town is processed in its own repo and taken over here at a pinned version. Authority data are shown down to the «possible» tier; links that the check against the HLS article found to be wrong remain hidden.",
+  "sources_p": "Each town is processed in its own repo and taken over here at a pinned version. Authority data are shown down to the «possible» tier; links that the check against the HLS article found to be wrong remain hidden, as do «possible» links with no tie to the town (name and dates only).",
   "city_entries": "Entries",
   "city_volumes": "Volumes",
   "city_authority": "Entries with authority data",

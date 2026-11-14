@@ -14,7 +14,7 @@
   "kpi_networks": "Gemeinden 1914 im Telefonbuch",
   "kpi_qids": "Personen mit Wikidata-Bezug",
   "sources_h": "Adressbücher",
-  "sources_p": "Jede Stadt wird in einem eigenen Repo ausgewertet und hier an einem festen Stand übernommen. Normdaten erscheinen bis zur Stufe «möglich»; was die Prüfung am HLS-Artikel als falsch erkannt hat, bleibt ausgeblendet.",
+  "sources_p": "Jede Stadt wird in einem eigenen Repo ausgewertet und hier an einem festen Stand übernommen. Normdaten erscheinen bis zur Stufe «möglich»; was die Prüfung am HLS-Artikel als falsch erkannt hat, bleibt ausgeblendet, ebenso «möglich» ohne Bezug zum Ort (nur Name und Lebensdaten).",
   "city_entries": "Einträge",
   "city_volumes": "Bände",
   "city_authority": "Einträge mit Normdaten",

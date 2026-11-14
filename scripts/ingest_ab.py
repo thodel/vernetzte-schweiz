@@ -23,8 +23,11 @@ VISIBLE_TIERS = {"wahrscheinlich", "möglich", "sicher"}
 
 
 def visible(row: dict) -> bool:
-    """Sichtbar ist alles bis «möglich»; verworfen oder in der HLS-Prüfung falsch fällt weg."""
+    """Sichtbar ist alles bis «möglich»; verworfen oder in der HLS-Prüfung falsch fällt weg, ebenso «möglich» ohne
+    Ortsbezug (Beleg «nur Name+Daten»: in der Stichprobe von docs/normdaten_audit.md 9 von 9 falsch)."""
     if row.get("tier", "") not in VISIBLE_TIERS:
+        return False
+    if row.get("tier") == "möglich" and (row.get("evidence") or "").strip().startswith("nur Name+Daten"):
         return False
     return not (row.get("hls_check") or "").strip().lower().startswith("falsch")
 

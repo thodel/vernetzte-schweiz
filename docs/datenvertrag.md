@@ -48,8 +48,9 @@ Diff in `data/norm/` die verlorenen Bezeichner.
 ## data/norm/ab_authority.csv — Normdaten der Adressbuch-Einträge
 
 Übernommen aus `10_authority_links.csv` der Städte. **Sichtbar ist alles bis «möglich»**:
-Zeilen mit `tier = verworfen` und Zeilen, deren HLS-Prüfung mit `falsch` beginnt, werden
-nicht übernommen.
+Zeilen mit `tier = verworfen`, Zeilen, deren HLS-Prüfung mit `falsch` beginnt, und «möglich» mit dem Beleg
+`nur Name+Daten` (kein Ortsbezug; in der Stichprobe von [normdaten_audit.md](normdaten_audit.md) 9 von 9 falsch,
+751 Zeilen aus Aarau und Basel) werden nicht übernommen.
 
 | Spalte | Inhalt |
 |---|---|

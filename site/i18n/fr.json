@@ -14,7 +14,7 @@
   "kpi_networks": "Communes (1914) dans l'annuaire téléphonique",
   "kpi_qids": "Personnes liées à Wikidata",
   "sources_h": "Annuaires d'adresses",
-  "sources_p": "Chaque ville est traitée dans un dépôt propre et reprise ici dans un état figé. Les données d'autorité sont affichées jusqu'au niveau «possible»; ce que la vérification sur l'article du DHS a reconnu comme faux reste masqué.",
+  "sources_p": "Chaque ville est traitée dans un dépôt propre et reprise ici dans un état figé. Les données d'autorité sont affichées jusqu'au niveau «possible»; ce que la vérification sur l'article du DHS a reconnu comme faux reste masqué, de même que «possible» sans lien avec la ville (seulement nom et dates).",
   "city_entries": "Entrées",
   "city_volumes": "Volumes",
   "city_authority": "Entrées avec données d'autorité",
