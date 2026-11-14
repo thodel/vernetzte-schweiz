@@ -41,7 +41,6 @@ ebc6151bebe,e87ec96ec86,Scheuring,Franz,Franz,St. Gallen,Zürich,1910,1913,3,69.
 ebda948d57b,e6e599f4396,Goncet,Henry-Marc,Henry-Marc,Genève,Versoix,1911,1913,2,7.5,Henry-Marc,Henry-Marc,,vorname:gleich+beruf:wort,4,stark,1,1,6
 ef0142362ec,ebdf2bac979,Holzscheiter,Ernst,Ernst,Zürich,Turbenthal,1911,1913,2,27.5,Erste schweizerische Gummi- und Lederwarenfabrik | Erste schweizer. Gummi- u. Lederwarenfabrik,Gummi- u. Lederwarenfabrik,industrie,vorname:gleich+beruf:wort,4,stark,1,1,8
 eb4d141492f,ef965c11df8,Capeder,Mathias,Mathias,Duvin,Villa (GR),1912,1913,1,1.8,Kreisrichter | Kreisrichter Ebersol b. Mogelsberg; Neker; CR-a,Kreisrichter Ebersol b. Mogelsberg; Neker; CR-a,recht,vorname:gleich+beruf:wort+nachbarort,4,stark,0,1,5
-e3061bfac75,edd8443dade,Klosterhof,Räber Jean,Jean Räber,Luzern,Basel,1912,1914,2,73.4,Räber Jean; Bruchstrasse 54 Löwengarten,Jean Räber,,vorname:gleich+beruf:wort,4,stark,1,1,4
 e212e4856b4,ef0c2d11e33,Muggii,Cäsar,Cäsar,Bern,Zürich,1912,1914,2,97.0,Vertreter F. Gal]; Underwood Schreibmaschine; Marktg. IB,Underwood-Schreibmaschinen,,vorname:gleich+beruf:wort,4,stark,1,0,3
 e521cc26199,ef8eac859c4,Senften,Emil,Emil,Bern,Schübelbach,1913,1914,1,119.4,Architekt,Architekt; i. Fa. Koch & Seiler; St. Moritz,bau,vorname:gleich+beruf:wort+titel,5,stark,1,1,5
 e5508ba8daa,e3444c24101,Gehri,Karl,Carl,Bern,Zürich,1883,1885,2,97.0,Kunstmaler,Schreiner. | Schreinerstr.,bau,vorname:gleich+beruf:klasse,3,mittel,0,0,25
@@ -131,7 +130,6 @@ eaa61205ad7,ef608e85037,Gähler,Karl,Karl A,Herisau,Zürich,1908,1914,6,59.6,Han
 ebed34c6424,e37fd829eb2,Heiniger,Otto,Otto,Burgdorf,Utzenstorf,1908,1909,1,9.4,Dr med.,Dr. med.,medizin,vorname:gleich+beruf:klasse+titel,4,mittel,1,1,46
 e5d943f69b9,e07ae8ec4bd,Oppikofer,Emil,Emil,Bern,Basel,1908,1909,1,66.8,"Direktor d. städt. Electricitäts- und Wasserwerke (Maschinen). | Maschinen-ingenieur, Direktor d. städt. Elektrizitäts- ",Wohnung von Direktor; Elektrizitätswerk Basel | Ingenieur,bau,vorname:gleich+beruf:wort,4,mittel,1,1,14
 e0a0b2e6916,e0d2a05328b,Schwander,Franz,Franz,Hellsau,Riedholz,1908,1912,4,11.4,Wirt zum Freieu Hof | Wirt zum Freien Hof,Wirtschaft,gast,vorname:gleich+beruf:klasse,3,mittel,0,0,39
-eef60fe1db3,eb2e65495e9,Belgeri,Achille,Eredi fu Achille,Biasca,Bodio,1909,1913,4,4.9,Albergo Gottardo,Eredi fu Achille; Hôtel de la gare,gast,vorname:gleich+beruf:klasse+nachbarort,3,mittel,0,0,3
 e855e8157e6,e126b463fa0,Borel,Jean,Jean,Fleurier,Fiez,1909,1911,2,8.8,vétérinaire,vétérinaire,medizin,vorname:gleich+beruf:wort,4,mittel,1,1,174
 eb71edfbb65,e584e9d50ea,Bovet,Fritz,Fritz,Gelterkinden,Neuheim,1909,1911,2,61.7,Dr. med.,Dr. med.,medizin,vorname:gleich+beruf:klasse+titel,4,mittel,1,0,72
 e51b0641877,ee17acf81c5,Buchli,Rudolf,Rud.,Chur,Gossau (ZH),1909,1911,2,76.7,Metzgerei,Metzgerei,lebensmittel,vorname:abkürzung+beruf:wort,3,mittel,0,0,28
@@ -229,7 +227,6 @@ ebabd5e27d9,eb4b65f2c4a,Heidlauff,Paul,Paul,Pratteln,Basel,1901,1907,6,7.8,vorma
 e511f5aae67,e3654f174e8,Spørry,Jean,Jean,Flums,Lausanne,1901,1907,6,211.6,,cordonnier,handwerk,vorname:gleich,2,schwach,1,0,5
 ed2ca94d346,e796c6f7568,Dové,Eduard,Eduard,Menziken,Pfeffikon,1902,1904,2,1.3,Gasthof z. Sternen,,gast,vorname:gleich+nachbarort,2,schwach,1,1,6
 eaee421f2ac,ea9b4042f26,Waltisbühl,Anton,Anton,Basel,Zürich,1903,1909,6,69.0,,Wohnung | Spezialgeschäft für Bureau-Einrichtungen. Remington - Schreibmaschine,,vorname:gleich,2,schwach,1,0,8
-e12689b7253,eb3319d621c,Kloster,Scholastika,Scholastika,Rorschach,Tübach,1904,1908,4,3.2,,,,vorname:gleich+nachbarort,2,schwach,1,1,5
 e1d40c3a6bf,e7dc6819fb2,Longoni,Paul,Paul,Herisau,Kreuzlingen,1904,1910,6,29.9,Baugeschäft,Löwenhof,bau,vorname:gleich,2,schwach,1,1,7
 e694dca6cf2,e3b8b2d5f3a,Schlicht,Karl,Karl,St. Gallen,Zürich,1904,1910,6,69.5,Schreibmaschinen und Bureauartikel,,industrie,vorname:gleich,2,schwach,1,1,4
 ebd6b419eba,e82cdab4a64,Agostinetti,Giuseppe,Giuseppe,Ligornetto,Bellinzona,1905,1906,1,38.9,negoziante,Ristorante Paradiso,,vorname:gleich,2,schwach,1,1,3
@@ -244,7 +241,6 @@ ea95a08dd34,edc4a519a9f,Audouin,Fernand,Fernand,Lausanne,Genève,1907,1911,4,55.
 e6844a6853b,e05ec2bf1f5,Augsbourg,Louis,Louis,Chavannes-sur-Moudon,Couvet,1907,1912,5,32.7,,fromages,lebensmittel,vorname:gleich,2,schwach,0,1,6
 e3a2d6f52bc,e74a676efc5,Bertola,Jean,Giovanni,Lausanne,Vacallo,1907,1909,2,196.9,maçon,ingegnere,,vorname:gleich,2,schwach,0,1,6
 e31128cc275,e4a7ed93aa7,Bugnard,Edmond,Edmond,Savigny,Dompierre (VD),1907,1908,1,,Aubergistes,,,vorname:gleich,2,schwach,0,1,2
-ed0cdd6e7a5,ed5995dea14,Catto,Jean,Eredi fu Giovanni,Lausanne,Bellinzona,1907,1909,2,183.2,maçon,Eredi fu Giovanni; materiale da costruzione con segheria,,vorname:gleich,2,schwach,0,1,9
 ee096851d9d,ee425d355c5,Cosandier,Charles,Charles,Lausanne,Genève,1907,1911,4,55.7,nég.,huissier | huissier; r,,vorname:gleich,2,schwach,0,0,7
 e3e17fccbb6,e060acc8853,Delarageaz,Henri,Henri,Mont-la-Ville,Préverenges,1907,1911,4,17.1,Instituteurs,,bildung,vorname:gleich,2,schwach,0,1,6
 e467e27cfdc,ed9bd681c7d,Derigo,Emmanuel-R,Emmanuel,Lausanne,Genève,1907,1911,4,55.7,vitrier,vitrerie; encadrements; Il,handwerk,vorname:gleich,2,schwach,0,0,2
@@ -265,7 +261,6 @@ efceff7d07c,ed95cfb74e0,Bettin,Henri,Henri,Balterswil,Bière,1908,1912,4,222.1,,
 e8c05233086,e213486c4ff,Corminbœuf,Arsène,Arsène,Bulle,Gland,1908,1911,3,64.1,liquoriste,buffet de la lare | buffet de Ia Gare,verkehr,vorname:gleich,2,schwach,1,1,8
 eefbb9a429b,e8eecc196ee,Dahinger,Felix,Felix,Arbon,Rorschach,1908,1910,2,6.6,z. Bellevue,zur Schifferstube,verkehr,vorname:gleich,2,schwach,1,1,3
 ebdf6625730,eac7da42db2,Jürgensen,Hans,Hans,Herisau,Zürich,1908,1909,1,59.6,Dr.,Villa Bergrose,,vorname:gleich,2,schwach,1,0,7
-ea035335578,ebac30d3e12,Eilboten,Rote Radler,grüne Radler,Basel,Zürich,1909,1911,2,69.0,,Zürcher | grüne Radler,,vorname:gleich,2,schwach,1,1,2
 e02f4c7974d,e920b4007ed,Farinelli,Agostino,Italo fu Agostino,Bellinzona,Giubiasco,1909,1913,4,3.9,,Italo fu Agostino,,vorname:gleich+nachbarort,2,schwach,0,0,10
 ef423a9162b,e80d63b4a4b,Fumagalli,Luigi,Luigi,Ludiano,Semione,1909,1913,4,1.6,,,,vorname:gleich+nachbarort,2,schwach,0,1,7
 ef3c9d58179,e75cb0e77d1,Giubbini,Henri,Enrico,Oerlikon,Zürich,1909,1914,5,4.9,Hotel u. Restaurant Sternen,Reisender,gast,vorname:gleich+nachbarort,2,schwach,1,0,5

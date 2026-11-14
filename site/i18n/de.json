@@ -471,7 +471,7 @@
   "kind_gemeinden": "Waadtländer Gemeinden",
   "mw_tab": "Wanderungen (Versuch)",
   "mw_p": "Wer verschwindet an einem Ort und taucht kurz danach an einem anderen zum ersten Mal auf? Gleicher Familienname, verträglicher ausgeschriebener Vorname, höchstens 6 Jahre dazwischen; je mehr dazukommt (gleicher Beruf, Titel, seltener Name), desto höher die Stufe. Gezählt wird nur, wenn das Paar in beide Richtungen eindeutig ist. Linien führen vom alten zum neuen Ort (roter Punkt), «Saldo» zeigt je Ort Zu- und Wegzüge (grün mehr Zuzüge, rot mehr Wegzüge).",
-  "mw_note": "Experimentell: Kandidaten, keine geprüften Umzüge. Die Telefonbücher nennen nur Abonnenten; «neu im Buch» heisst oft «neu ein Telefon». Vor 1911 liegen nur einzelne Ausgaben vor, darum häufen sich die Fälle 1911–1914. Paare, die eher ein Fehler der Ortszuweisung sind (gleiche Nummer, gleiche Adresse, Strasse des alten Orts, Nachbarzeilen vom alten Ort, Nachbarort im Alphabet), sind ausgeschlossen.",
+  "mw_note": "Experimentell: Kandidaten, keine geprüften Umzüge. Die Telefonbücher nennen nur Abonnenten; «neu im Buch» heisst oft «neu ein Telefon». Vor 1911 liegen nur einzelne Ausgaben vor, darum häufen sich die Fälle 1911–1914. Paare, die eher ein Fehler der Ortszuweisung sind (gleiche Nummer, gleiche Adresse, Strasse des alten Orts, Nachbarzeilen vom alten Ort, Nachbarort im Alphabet), sind ausgeschlossen. Gemessen (je 40 Paare): stark 50–62 %, mittel 68–82 %, schwach 32–55 % richtig.",
   "mw_doc": "Regeln und Grenzen",
   "mw_tier": "Stufe",
   "mw_tier_0": "stark",

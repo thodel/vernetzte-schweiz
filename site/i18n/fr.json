@@ -471,7 +471,7 @@
   "kind_gemeinden": "Communes vaudoises",
   "mw_tab": "Migrations (essai)",
   "mw_p": "Qui disparaît d'un lieu et apparaît peu après pour la première fois dans un autre? Même nom de famille, prénom écrit en toutes lettres compatible, au plus 6 ans d'écart; plus il y a de concordances (même métier, titre, nom rare), plus le niveau est élevé. Seules les paires univoques dans les deux sens comptent. Les lignes vont de l'ancien au nouveau lieu (point rouge); «Solde» montre arrivées et départs par lieu (vert: plus d'arrivées, rouge: plus de départs).",
-  "mw_note": "Expérimental: des candidats, pas des déménagements vérifiés. Les annuaires ne citent que les abonnés; «nouveau dans l'annuaire» signifie souvent «nouveau téléphone». Avant 1911, seules quelques éditions existent, d'où l'accumulation en 1911–1914. Les paires qui relèvent plutôt d'une erreur d'attribution du lieu (même numéro, même adresse, rue de l'ancien lieu, lignes voisines de l'ancien lieu, lieu voisin dans l'ordre alphabétique) sont exclues.",
+  "mw_note": "Expérimental: des candidats, pas des déménagements vérifiés. Les annuaires ne citent que les abonnés; «nouveau dans l'annuaire» signifie souvent «nouveau téléphone». Avant 1911, seules quelques éditions existent, d'où l'accumulation en 1911–1914. Les paires qui relèvent plutôt d'une erreur d'attribution du lieu (même numéro, même adresse, rue de l'ancien lieu, lignes voisines de l'ancien lieu, lieu voisin dans l'ordre alphabétique) sont exclues. Mesuré (40 paires chacun): fort 50–62 %, moyen 68–82 %, faible 32–55 % corrects.",
   "mw_doc": "Règles et limites",
   "mw_tier": "Niveau",
   "mw_tier_0": "fort",

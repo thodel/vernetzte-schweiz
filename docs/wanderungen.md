@@ -21,18 +21,20 @@ Gesucht sind Paare aus einer Einheit **A** (alter Ort, letztes Jahr *t*) und ein
 **B** (neuer Ort, erstes Jahr *t'*):
 
 - Beide sind Personen. Ausgenommen sind Witwen und Einträge mit «Frau», «Mme» usw., weil
-  der Vorname dort oft der des Mannes ist. Ausgenommen sind auch Firmen und Ämter, die als
-  Person zerlegt wurden («les fils de …», «Richteramt»).
+  der Vorname dort oft der des Mannes ist. Ausgenommen sind auch Firmen, Ämter und
+  Institutionen, die als Person zerlegt wurden («les fils de …», «Richteramt, Schloss»,
+  «Kloster St. Scholastika», «Eilboten-Institut», «Eredi fu Giovanni»). Sie verlegen den Sitz,
+  das ist eine andere Frage.
 - Gleicher Familienname (Namensschlüssel wie in M2).
 - *t* < *t'* ≤ *t* + 6.
 - Verträglicher Vorname, mindestens als Abkürzung («Friedr.» = «Friedrich»). Nur eine
   Initiale genügt nie.
 - **Gegenbelege:**
   - Am alten Ort beginnt nach *t* eine verträgliche Einheit. Dann ist A nicht verschwunden,
-    die Bündelung hat nur getrennt (19 916 Fälle).
-  - Am neuen Ort gab es vor *t'* schon eine verträgliche Einheit (41 029 Fälle).
+    die Bündelung hat nur getrennt (19 898 Fälle).
+  - Am neuen Ort gab es vor *t'* schon eine verträgliche Einheit (40 997 Fälle).
 - **Eindeutigkeit:** A hat genau einen solchen Nachfolger, und B hat genau einen Vorgänger.
-  24 394 Paare fallen hier weg.
+  24 353 Paare fallen hier weg.
 
 ### Punkte und Stufen
 
@@ -63,14 +65,14 @@ weg:
 
 | Grund | Paare |
 |---|---|
-| dieselbe Rufnummer an beiden Orten (wer umzieht, bekommt eine neue) | 969 |
+| dieselbe Rufnummer an beiden Orten (wer umzieht, bekommt eine neue) | 965 |
 | um die erste Zeile von B stehen mindestens zwei weitere Einträge, die ebenfalls vom Ort A «gekommen» wären (der ganze Lauf gehört zu A; Nachbarn mit demselben Familiennamen zählen nicht) | 512 |
-| die Ortsnamen beginnen gleich und liegen mindestens 5 km auseinander («Fleurier» → «Finhaut», «Altstätten» → «Alt St. Johann»: Nachbarn im Alphabet des Telefonbuchs) | 216 |
+| die Ortsnamen beginnen gleich und liegen mindestens 5 km auseinander («Fleurier» → «Finhaut», «Altstätten» → «Alt St. Johann»: Nachbarn im Alphabet des Telefonbuchs) | 213 |
 | B steht an einer Strasse, die es am Ort A gibt und an seinem eigenen Ort kaum | 68 |
 | Gasthaus mit gleichem Namen (ortsfest) | 16 |
 | gleiche Adresse | 11 |
 
-Übrig bleiben **290 Paare**: 45 `stark`, 167 `mittel`, 78 `schwach`.
+Übrig bleiben **285 Paare**: 44 `stark`, 166 `mittel`, 75 `schwach`.
 
 ## Was «verschwunden» und «neu» heissen
 
@@ -78,11 +80,11 @@ weg:
   «nicht mehr im Buch» oft «kein Telefon mehr». Ein Paar ist erst dann ein Hinweis auf
   einen Umzug, wenn dieselbe Person am einen Ort aufhört und am anderen beginnt.
 - Vor 1911 liegen nur einzelne Ausgaben vor (Charge A). Darum häufen sich die Paare
-  1911–1914: 179 von 290.
+  1911–1914, rund sechs von zehn.
 - Ob A wirklich verschwand, lässt sich nur sagen, wenn der alte Ort nach *t* noch einmal
   mit mindestens halb so vielen Einträgen vorliegt (Spalte `left_seen`). Ob B wirklich neu
   ist, nur wenn der neue Ort vor *t'* so vorliegt (`new_seen`). Beides trifft auf 81 Paare
-  zu. Die Seite kann auf sie einschränken.
+  zu (78 Paare). Die Seite kann auf sie einschränken.
 - Nachbarorte unter 5 km sind oft dieselbe Adresse unter anderem Ortsnamen
   (Lugano/Massagno, Locarno/Muralto). Die Seite blendet sie anfangs aus.
 
@@ -115,19 +117,61 @@ Die Ansicht liegt unter `#/karten?v=wanderungen&a=…&b=…&t=0|1|2&c=…&d=lini
   - häufigste Ortspaare;
   - Fälle mit Links auf beide Einheiten.
 
-## Grenzen und nächste Schritte
+## Messung
 
-- **Nicht gemessen.** Eine Sichtprüfung von 20 `stark`-Paaren durch Claude, vor der letzten
-  Regel, ergab rund 13 plausible Umzüge. Darunter waren Konditor Interlaken → Zürich,
-  Tierarzt Savognin → Thusis und Arzt Locarno → Muralto. Fehler waren zwei Firmen bzw. Ämter
-  (seither ausgeschlossen), Läufe unter falschem Ort («ferrareccia, Piazza del Muraccio»
-  unter Luzern statt Locarno) und Nachbarorte. Eine Messung wie in M2/M3 steht aus: 40
-  Paare je Stufe, beurteilt am gedruckten Text.
+Je Stufe 40 zufällige Paare (`scripts/measure_migration.py`, Seed 10), gezogen nach dem
+Festlegen der Regeln oben, vor der Ausnahme der Institutionen. Beurteilt hat Claude, nicht
+die Projektmitarbeitenden. Grundlage waren die letzten zwei Einträge am alten und die ersten
+zwei am neuen Ort, wie gedruckt (`data/review/m10_wanderungen.csv`).
+- `richtig`: dieselbe Person an einem anderen Wohn- oder Geschäftsort.
+- `falsch`: eine andere Person, oder dieselbe Zeile unter einem falschen Ort.
+
+| Stufe | n | richtig | unklar | falsch | Präzision |
+|---|---|---|---|---|---|
+| `stark` | 40 | 20 | 5 | 15 | 50–62 % |
+| `mittel` | 40 | 27 | 6 | 7 | 68–82 % |
+| `schwach` | 40 | 13 | 9 | 18 | 32–55 % |
+
+**Was die Messung zeigt:**
+
+- **`stark` ist schlechter als `mittel`.** Gleicher Berufstext und seltener Name sprechen
+  eher für dieselbe Zeile unter einem anderen Ort als für einen Umzug. 13 der 15 Fehler in
+  `stark` sind Ortszuweisungen:
+  - Lausanne unter Genève (Deux-Marchés, Valentin, Chauderon);
+  - Luzern unter Basel (Bruchstrasse);
+  - Uster unter Bauma (Brunnen- und Florastrasse);
+  - eine Stadtnummer wie 36.86 unter einem Dorf;
+  - ortsfeste Betriebe und Ämter (Gasthaus, Mühle, Sindaco, Kreisrichter).
+- **Echte Umzüge** zeigen fast immer eine neue Adresse und eine neue Nummer. Oft stimmen
+  Beruf oder Allianzname überein, der Wortlaut aber nicht.
+- **`schwach`** ist bei Personen ohne Berufsbeleg meist falsch: Maurer ≠ Ingenieur,
+  Possidente ≠ Maurer, verschiedene Allianznamen.
+- 4 Fehler der Stichprobe (Kloster, Eilboten-Institut, Erben, «Klosterhof») fallen mit der
+  Ausnahme der Institutionen weg.
+
+**Folgerungen (noch nicht umgesetzt; danach neue Stichprobe):**
+
+- **Gleicher Wortlaut** des Zusatzes (nicht nur gleicher Stamm) bei ortsgebundenen Angaben
+  wird ein Gegenbeleg: Gasthaus, Mühle, Villa, Hofname, Amt.
+- **Rufnummer im Stadtformat** (xx.xx, vierstellig) unter einem Dorf deutet auf einen
+  falsch verorteten Stadtlauf.
+- **Strassen des alten Orts** sollen auch im Zusatz gesucht werden, nicht nur in der
+  Strassenspalte («Chauderon», «Valentin», «au Day»).
+- **Verschiedene Allianznamen** gelten als Widerspruch. Verschiedene Berufsklassen ohne
+  Übergang (Arzt → Kellner) zählen stärker gegen das Paar.
+- **Stufen neu ordnen:** Neue Adresse **und** neue Nummer werden Pluspunkte; gleicher
+  Wortlaut zählt nicht mehr.
+
+Bis dahin zeigt die Seite anfangs `stark` + `mittel`. Die Linien sind Hinweise, keine
+Wanderungsstatistik.
+
+## Grenzen
+
 - **Sprachwechsel als Prüfung:** Eine italienische Berufsangabe in Luzern ist eher ein Fehler
   der Ortszuweisung als ein Umzug. Das wird noch nicht genutzt.
-- **Mehrdeutige Paare** (24 394) fallen ganz weg. Häufige Namen kommen darum fast nie vor.
+- **Mehrdeutige Paare** (24 353) fallen ganz weg. Häufige Namen kommen darum fast nie vor.
   Rufnummer und Adresse helfen hier nicht, weil sie sich beim Umzug ändern. Allianzname,
   Geburtsjahr oder Heimatort (Adressbücher) könnten helfen.
-- **Firmen**, die den Sitz verlegen, sind nicht gesucht.
+- **Firmen und Institutionen**, die den Sitz verlegen, sind nicht gesucht.
 - **Adressbücher allein** (Basel 1862, Zürich 1859–1914, Bern, Lausanne) zählen mit, wo sie
   vorliegen. Die meisten Orte stehen aber nur im Telefonbuch.

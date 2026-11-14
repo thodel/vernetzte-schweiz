@@ -44,8 +44,15 @@ MAX_GAP = 6          # Jahre zwischen letztem Eintrag am alten und erstem am neu
 SEEN_SHARE = 0.5     # alte/neue Gemeinde gilt als «vorliegend», wenn sie so viele Einträge hat wie …
 NEAR_KM = 5          # Nachbarorte: Umzug oder nur andere Ortszuweisung derselben Zeile
 WIDOW = re.compile(r"\b(Wwe|Witwe|Wittwe|Wb|Vve|Veuve|Ved|Frau|Fr\.|Mme|Mlle|Frl|Jgfr)\b", re.I)
-# Firmen und Ämter, die die Zerlegung (M1) als Person führt: «Boéchat, les fils de Paul», «Richteramt, Schloss»
-NOT_PERSON = re.compile(r"\b(fils|söhne|soehne|erben|gebr|frères|freres|cie|amt|schloss|verwaltung|kanzlei)\b|&|amt\b", re.I)
+# Firmen, Ämter und Institutionen, die die Zerlegung (M1) als Person führt: «Boéchat, les fils
+# de Paul», «Richteramt, Schloss», «Kloster St. Scholastika», «Eilboten-Institut», «Eredi fu Giovanni».
+# Sie ziehen nicht um, sie verlegen den Sitz; das ist eine andere Frage.
+NOT_PERSON = re.compile(
+    r"\b(fils|söhne|soehne|erben|eredi|héritiers|gebr|gebrüder|frères|freres|fratelli|cie|co|comp)\b|&"
+    r"|amt\b|ämter|schloss|château|verwaltung|kanzlei|kloster|couvent|convento|stift\b|institut|istituto|anstalt"
+    r"|verein|société|societa|gesellschaft|genossenschaft|spital|hôpital|ospedale|asyl|schule|école|scuola|seminar"
+    r"|kirche|église|chiesa|pfarr|paroisse|bank|banque|banca|kasse|caisse|eilboten|bureau|büro|ufficio|direktion|direction"
+    r"|gemeinde|commune|comune|municipio|kommission|commission|komitee|comité", re.I)
 TITLE = re.compile(r"\b(Dr|Prof|Ing|Pfr|Pfarrer|Not|Fürspr|Architekt|Arch)\b\.?", re.I)
 FIELDS = ["from_entity", "to_entity", "surname", "forename_from", "forename_to", "from_muni", "to_muni",
           "from_last", "to_first", "gap", "km", "occ_from", "occ_to", "class", "evidence", "score", "tier",

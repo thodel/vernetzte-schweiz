@@ -1,0 +1,26 @@
+{
+ "stark": {
+  "n": 40,
+  "falsch": 15,
+  "richtig": 20,
+  "unklar": 5,
+  "precision_low": 0.5,
+  "precision_high": 0.625
+ },
+ "mittel": {
+  "n": 40,
+  "richtig": 27,
+  "unklar": 6,
+  "falsch": 7,
+  "precision_low": 0.675,
+  "precision_high": 0.825
+ },
+ "schwach": {
+  "n": 40,
+  "falsch": 18,
+  "richtig": 13,
+  "unklar": 9,
+  "precision_low": 0.325,
+  "precision_high": 0.55
+ }
+}

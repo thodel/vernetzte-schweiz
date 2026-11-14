@@ -229,11 +229,15 @@ Prüfung für jede Person sichtbar, ohne Kandidaten als Identifikation auszugebe
 danach erstmals an einem anderen (gleicher Familienname, verträglicher Vorname, Beruf,
 Seltenheit, eindeutig in beide Richtungen)? Fehler der Ortszuweisung aus M1 (gleiche Nummer,
 Nachbarzeilen vom alten Ort, Nachbar im Alphabet, Strasse des alten Orts) werden
-ausgeschlossen. Stand: 290 Kandidaten (45 stark, 167 mittel, 78 schwach), Karte mit Linien
-und Saldo, nach Berufsklasse, Entfernung und Jahr.
+ausgeschlossen, ebenso Institutionen und Ämter. Stand: 285 Kandidaten (44 stark, 166
+mittel, 75 schwach), Karte mit Linien und Saldo, nach Berufsklasse, Entfernung und Jahr.
 
-- **Offen:** Messung (40 Paare je Stufe am gedruckten Text), Sprachwechsel als Gegenbeleg,
-  mehrdeutige Paare über Allianzname und Heimatort, Firmen mit neuem Sitz.
+- **Messung 14.11.2026** (40 Paare je Stufe): stark 50–62 %, mittel 68–82 %, schwach
+  32–55 %. Gleicher Wortlaut ist meist eine Fehlverortung, kein Umzug.
+- **Offen:** Regeln danach (gleicher Wortlaut ortsfester Angaben als Gegenbeleg,
+  Stadtnummer unter Dorf, Strassen des alten Orts im Zusatz, neue Adresse und Nummer als
+  Pluspunkt) und neue Stichprobe; Sprachwechsel; mehrdeutige Paare über Allianzname und
+  Heimatort; Firmen mit neuem Sitz.
 
 ## Offene Fragen
 
