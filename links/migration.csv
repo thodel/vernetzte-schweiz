@@ -1,0 +1,291 @@
+from_entity,to_entity,surname,forename_from,forename_to,from_muni,to_muni,from_last,to_first,gap,km,occ_from,occ_to,class,evidence,score,tier,left_seen,new_seen,n_surname
+e8f4305f465,e6c99eac9a4,Thom,Franz,Franz,Bern,Aarau,1883,1888,5,71.5,Musiker. | Musiker,Trompeterinstruktor der Infanterie | Musiklehrer | Trompeter-Instruktor der Infanterie | Trompeterinstruktor d. Infanter,,vorname:gleich+beruf:wort,4,stark,0,1,5
+ea6284d6af3,ec37c894b5c,Lequatre,Louis,Louis,Genève,Lausanne,1890,1896,6,55.7,tapissier,Ameublements. | Drapeaux (vente et location de). | Meubles (magasins de). (Voir aussi Menuisiers-ébénistes et Tapissiers,,vorname:gleich+beruf:wort,4,stark,0,0,8
+e3f0abcdb8e,e0aa81c9cf3,Beck-v,Wattenwyl,Wattenwyl,Rubigen,Bern,1898,1900,2,13.1,Jul; Kavallerie-Instruktor,Julius; Kavallerie-Instruktor,,vorname:gleich+beruf:wort,4,stark,1,0,2
+e2a6b9d0f9f,e0b6d283ee7,Keil,Konrad,Konrad,Muri (AG),Thun,1898,1900,2,81.7,Bierdépôt | Bierdepot,Bierdépôt,lebensmittel,vorname:gleich+beruf:wort,4,stark,1,0,6
+ec34fbd6057,eb5768c84cd,Cattori,Leone,Leone,Locarno,Muralto,1899,1900,1,1.6,medico chirurgo,medico chirurgo | medico-chirurgo | dott. Leone; medico-chirurgo,medizin,vorname:gleich+beruf:wort+nachbarort,4,stark,1,1,7
+ea035841a84,ef0699f1e73,Mambretti,Giacomo,Giacomo,Massagno,Lugano,1899,1900,1,0.8,calzoleria,calzoleria,,vorname:gleich+beruf:wort+nachbarort,4,stark,1,1,4
+e523c4514a9,e70909d997e,Consolo,Ernesto,Ernesto,Montana,Lugano,1900,1902,2,117.2,possidente,possidente,,vorname:gleich+beruf:wort,4,stark,0,1,2
+e623368cd6b,e9dbd6f30db,Sève,Alfred,Alfred,Biel (BE),Lausanne,1901,1907,6,79.4,Comestibles,restaurateur | comeslibles. r. de la l .olive; !_,lebensmittel,vorname:gleich+beruf:wort,4,stark,1,0,3
+e7f699c78c8,e22f4dfad42,Peri,Emilio,Emilio,Lugano,Sorengo,1905,1906,1,1.5,latteria e ghiacciaja | latteria e ghiacciaia,latteria e ghiacciaia Laghetto | latteria e ghiacc. Laghetto | Ghiacciaie Laghetto di Muzzano,,vorname:gleich+beruf:wort+nachbarort,4,stark,1,1,10
+e5f5474679a,e9f5c586681,Huldi,Paul,Paul,Interlaken,Zürich,1906,1911,5,92.4,Architekt,Architekt | Architekten.,bau,vorname:gleich+beruf:wort+titel,5,stark,1,1,10
+e1e8d48ba0b,e922abd0b56,Reiniger,Niklaus,Niklaus,Allschwil,Basel,1906,1911,5,4.0,Tierarzt,Niklaus. Thierarzt | Thierarzt | Tierarzt,medizin,vorname:gleich+beruf:wort+nachbarort,4,stark,1,1,10
+efb1837decb,e5994b95f8d,Berche,Charles,Charles,Lausanne,Genève,1907,1911,4,55.7,notaire,notaire; Tourelles de Chauderon | notaire; Tourelles de Chauderon ',recht,vorname:gleich+beruf:wort,4,stark,0,0,9
+e2c3e072a06,e6ede2be0d7,Bologna,Jean,Jean,Lausanne,Prez-vers-Siviriez,1907,1913,6,18.2,charretier,charretier; maison Ghaubert | charretier; maison Chaubert,,vorname:gleich+beruf:wort,4,stark,0,1,3
+e1b3f649aa7,e51f1900069,Buvelot,Adrien,Adrien,Lausanne,Genève,1907,1913,6,55.7,boulanger,boulanger,lebensmittel,vorname:gleich+beruf:wort,4,stark,0,1,8
+eff7357c778,eb00eee2320,Carretti,Charles,Charles,Vallorbe,Orbe,1907,1912,5,11.6,Entrepreneurs,entrepreneur; Café du Day; au Day,,vorname:gleich+beruf:wort,4,stark,0,1,6
+e694d273472,ebd5a61fedc,Fornara,Emile,Emile,Lausanne,Genève,1907,1911,4,55.7,menuis.,menuiserie; charpente,,vorname:gleich+beruf:wort,4,stark,0,0,4
+e73b65345c8,e5f78c31d42,Kussmaul,Paul,Paul,Basel,Zürich,1907,1909,2,69.0,Ingenieur,Ingenieur | Ing. | Ingenieure.,bau,vorname:gleich+beruf:wort,4,stark,1,0,8
+eb21e194db8,e8f84d99a39,Siordet,James,James,Chexbres,Genève,1907,1912,5,58.0,Pasteur,past; Valentin; 27 | past; Valentin | pasteur,bildung,vorname:gleich+beruf:wort,4,stark,0,1,9
+e1e66ff106e,e1b3936614b,Subilia,Henri,Henri,Epalinges,Crissier,1907,1911,4,,Pasteur,pasteur,bildung,vorname:gleich+beruf:wort,4,stark,0,1,8
+e6fa28a9ce0,e2c9bc48976,Breil,Hans,Hans,Muttenz,Birr,1909,1913,4,43.5,Zahnarzt,Zahnarzt,medizin,vorname:gleich+beruf:wort,4,stark,0,0,5
+ee4d7dc48a0,e28721b5a80,Bäriswyl,Fritz,Fritz,Bern,Zürich,1909,1910,1,97.0,Billardier,Billardier,,vorname:gleich+beruf:wort,4,stark,1,1,10
+e9e6bf6ab58,eb281e322d6,Canobbio,Vittorio,Vittorio,Lugano,Hochdorf,1909,1913,4,138.3,offelleria | pasticceria,pasticceria Caiprino | pasticceria Calprino,,vorname:gleich+beruf:wort,4,stark,0,0,3
+ed7f21980e6,eebf0474130,Censi,Emilio,Emilio,Lugano,Braggio,1909,1913,4,35.3,avvocato,avvocato,,vorname:gleich+beruf:wort,4,stark,0,0,3
+e63a98febe5,ee498c5ffe8,Clémençon,Georges,Georges,Moutier,Château-d'Oex,1909,1913,4,91.0,Confiseur,confiseur,lebensmittel,vorname:gleich+beruf:wort,4,stark,0,1,2
+e3d331a3d37,e21bda0e317,Farinelli,Giuseppe,Giuseppe,Locarno,Luzern,1909,1913,4,105.9,negoziante | e comp; negozianti; molini,Co; negozianti mulini | Co; negozianti molini,,vorname:gleich+beruf:wort,4,stark,0,1,10
+ea59fdc0920,e99f53f59bb,Feissel,Mathieu,Mathieu,La Chaux-de-Fonds,Zürich,1909,1912,3,129.7,Mathieu; Huilerie des Souverains,Mathieu; Huilerie des Souverains,,vorname:gleich+beruf:wort,4,stark,0,1,3
+e5952599f71,e4e443cf3a1,Guetg,Peter,Peter,Savognin,Thusis,1909,1911,2,16.6,Tierarzt,Tierarzt,medizin,vorname:gleich+beruf:wort,4,stark,1,1,4
+e17003aed00,e21f1fc1d75,Nesa,Severino,Severino,Lugaggia,Tesserete,1909,1913,4,1.2,Deposito postale,deposito postale | deposito postale Lugano x,,vorname:gleich+beruf:wort+nachbarort,4,stark,0,1,2
+e827038becd,e0cddf4cc34,Peretti,Gaetano,Gaetano,Aquila,Anzonico,1909,1913,4,10.4,sindaco,sindaco,,vorname:gleich+beruf:wort,4,stark,1,0,7
+e7452786632,ef77eb23e73,Perucchi,Plinio,Plinio,Stabio,Russo,1909,1913,4,46.2,avvocato,avvocato,,vorname:gleich+beruf:wort,4,stark,1,0,7
+eaf45aca49d,ea05780cb5a,Serrem,Emil,Emil,Winterthur,Zürich,1909,1910,1,24.7,Konditor,"Conditorei | Konditorei | Konditoreien, Pasteten- u. Zuckerbäckereien.",lebensmittel,vorname:gleich+beruf:wort,4,stark,1,1,5
+e5262a6826d,ee3d1c4d333,Spiessberger,Franz,Franz X,Interlaken,Zürich,1909,1914,5,92.4,Coiffeur,Coiffeur,handwerk,vorname:gleich+beruf:wort,4,stark,1,0,2
+e0c991e15ef,e07b0b1423a,Taglio,Pietro,Pietro,Locarno,Luzern,1909,1911,2,105.9,ferrareccia,ferrareccia . . . Piazza del Muraccio,,vorname:gleich+beruf:wort,4,stark,0,0,3
+ed324711e3d,eacebe4be56,Holzknecht,Hans Arthur,Hs. Arthur,Baden,Zürich,1910,1914,4,17.1,Mechaniker,Mechaniker,industrie,vorname:gleich+beruf:wort,4,stark,0,0,5
+e53618b782d,e4eaff112e3,Huepeden,Alice,Alice,Zofingen,Ziefen,1910,1911,1,24.2,Klösterli,Klösterli,,vorname:gleich+beruf:wort,4,stark,0,0,3
+e63860958e0,e5d2ecccfa4,Irlet,Carl,Carl,Twann,Tschugg,1910,1913,3,10.4,Negotiant | Negociant,Negotiant,handel,vorname:gleich+beruf:wort,4,stark,1,1,2
+e85d5ca11fc,e6dfcc2d089,Meusli,Ernst,Ernst,Uster,Bauma,1910,1911,1,12.3,Metzgerei,Metzgerei,lebensmittel,vorname:gleich+beruf:wort,4,stark,1,0,2
+ee72b44c0a8,eb3a654666d,Ruppanner,Karl,Karl,Rüti (ZH),Buchberg,1910,1911,1,41.6,zur Löwenburg,z. Löwenburg; Oberbüchel,gast,vorname:gleich+beruf:wort,4,stark,1,1,10
+ebc6151bebe,e87ec96ec86,Scheuring,Franz,Franz,St. Gallen,Zürich,1910,1913,3,69.5,Holz- u. Kohlenhandlung,Vertr. d. Holz- u. Kohlenhandlg. Eug. Steinmann | Kaufmann | Vertr. d. Holz- u. Kohlenhandlg. Eng. Steinmann,handel,vorname:gleich+beruf:wort,4,stark,1,1,8
+ebda948d57b,e6e599f4396,Goncet,Henry-Marc,Henry-Marc,Genève,Versoix,1911,1913,2,7.5,Henry-Marc,Henry-Marc,,vorname:gleich+beruf:wort,4,stark,1,1,6
+ef0142362ec,ebdf2bac979,Holzscheiter,Ernst,Ernst,Zürich,Turbenthal,1911,1913,2,27.5,Erste schweizerische Gummi- und Lederwarenfabrik | Erste schweizer. Gummi- u. Lederwarenfabrik,Gummi- u. Lederwarenfabrik,industrie,vorname:gleich+beruf:wort,4,stark,1,1,8
+eb4d141492f,ef965c11df8,Capeder,Mathias,Mathias,Duvin,Villa (GR),1912,1913,1,1.8,Kreisrichter | Kreisrichter Ebersol b. Mogelsberg; Neker; CR-a,Kreisrichter Ebersol b. Mogelsberg; Neker; CR-a,recht,vorname:gleich+beruf:wort+nachbarort,4,stark,0,1,5
+e3061bfac75,edd8443dade,Klosterhof,Räber Jean,Jean Räber,Luzern,Basel,1912,1914,2,73.4,Räber Jean; Bruchstrasse 54 Löwengarten,Jean Räber,,vorname:gleich+beruf:wort,4,stark,1,1,4
+e212e4856b4,ef0c2d11e33,Muggii,Cäsar,Cäsar,Bern,Zürich,1912,1914,2,97.0,Vertreter F. Gal]; Underwood Schreibmaschine; Marktg. IB,Underwood-Schreibmaschinen,,vorname:gleich+beruf:wort,4,stark,1,0,3
+e521cc26199,ef8eac859c4,Senften,Emil,Emil,Bern,Schübelbach,1913,1914,1,119.4,Architekt,Architekt; i. Fa. Koch & Seiler; St. Moritz,bau,vorname:gleich+beruf:wort+titel,5,stark,1,1,5
+e5508ba8daa,e3444c24101,Gehri,Karl,Carl,Bern,Zürich,1883,1885,2,97.0,Kunstmaler,Schreiner. | Schreinerstr.,bau,vorname:gleich+beruf:klasse,3,mittel,0,0,25
+e0f35ca8c6b,ea988008441,Hagenbucher,Anna,Anna,Bern,Zürich,1883,1885,2,97.0,Damenschneiderin,Schneiderin,handwerk,vorname:gleich+beruf:klasse,3,mittel,0,0,24
+e36c666d6f0,ecc00380abd,Schatzmann,Heinrich,Heinrich,Murgenthal,Zofingen,1889,1892,3,8.4,Garnhandlung,Garnhandlung,handel,vorname:gleich+beruf:wort,4,mittel,1,1,95
+e0dc36d5f03,e452444a8e3,Correvon,Ernest,Ernest,Yverdon,Lausanne,1890,1896,6,23.5,avocat,"avocat | PEINTRES, artistes. | artiste peintre | Feilis; G; avocats",recht,vorname:gleich+beruf:wort,4,mittel,0,0,64
+e5641ff3634,e61af9cc3a1,Fröhlicher,Leonz,Leonz,Langendorf,Solothurn,1892,1893,1,1.9,Tuchfabrik,Tuchfabrik,textil,vorname:gleich+beruf:wort+nachbarort,4,mittel,1,1,32
+eea10f47dc4,ebe94ac7b5b,Homberger,Gustave,Gustave,Grenchen,Biel (BE),1892,1893,1,12.5,Fabrikant,fabricant d'horlogerie | fabricant d’horlogerie,,vorname:gleich+beruf:wort,4,mittel,1,1,132
+e040216130b,ef66e5b48a7,Handschin,Adolf,Adolf,Liestal,Gelterkinden,1893,1895,2,9.3,zum Engel | Gasthof z. Engel | zum „Engel“ | „zum Engel“,Gasthof z. Rössli,gast,vorname:gleich+beruf:wort,4,mittel,1,0,39
+e74eae89964,e25e19ac96f,Geyer,Joseph,Jos,Aarau,Zürich,1896,1900,4,32.2,Schneider,Schneidermstr.,handwerk,vorname:abkürzung+beruf:wort,3,mittel,1,0,26
+e1ed07d3718,edcf443bfbe,Gründling,Joh.-Jacob,Joh. Jak,Lausanne,Zürich,1896,1900,4,166.8,commis,Commis,handel,vorname:abkürzung+beruf:wort,3,mittel,0,0,5
+e1d042e01b6,e688781085b,Hort,Hans,Joh,Aarau,Zürich,1896,1900,4,32.2,Taglöhner | Zimmermeister | Zimmermann,Zimmerer,bau,vorname:abkürzung+beruf:wort,3,mittel,1,0,21
+ea5bb4bc430,ef5cd123911,Kniest,Hermann,Herm. Gust. Adolf,Aarau,Zürich,1896,1900,4,32.2,Schneider,Schneider,handwerk,vorname:abkürzung+beruf:wort,3,mittel,1,0,2
+edc35e8320e,e49a6ad01cd,Mazzoni,Alexandre,Alex,Lausanne,Bern,1896,1900,4,70.3,gypseur,Gipser,bau,vorname:abkürzung+beruf:wort,3,mittel,0,0,8
+e3fc0001f3d,e1a7d468123,Müri,Paul,Paul,Aarau,Zürich,1896,1900,4,32.2,"Fürsprech, Controleur der Creditanstalt | Fürsprech, Controleur (Aarg. Creditanstalt) | Fürsprech, Gerichtspräsident | G",Fürsprech,recht,vorname:gleich+beruf:wort,4,mittel,1,0,93
+e2e29ef957b,eb6f741857c,Raab,Christian,Chr.,Lausanne,Bern,1896,1900,4,70.3,Brosses (fabriques de). | brossier,Alkoholfreie Getränke. (Fabrikation.) | Fabrik alkoholfreier Getränke,industrie,vorname:abkürzung+beruf:wort,3,mittel,0,0,9
+e35311a738e,e40b2711bb1,Stern,Alexander,Alex,Aarau,Bern,1896,1900,4,71.5,Pfarrer | Prediger an der evang. Kapelle | Pfarrer an der evangel. Kapelle,Pfarrer,bildung,vorname:abkürzung+beruf:wort+titel,4,mittel,1,0,49
+ec4fb6e7ffb,ed05eee7475,Weisser,Otto,Otto,Lausanne,Zürich,1896,1900,4,166.8,commis,Kaufmann,handel,vorname:gleich+beruf:klasse,3,mittel,0,0,32
+e371bc25da0,eea1f1789c3,Wenner,Victor,Vikt,Muri (AG),Zürich,1896,1900,4,17.8,Ingenieur,Ingenieur | Ingr | Stadt-Ingenieur,bau,vorname:abkürzung+beruf:wort,3,mittel,1,0,14
+e9083addb2c,e3fde3403f1,Willi,August,August,Aarau,Basel,1896,1898,2,38.2,"Mezgermeister | Speisewirthschaften | Metzger, Speisewirthschaft | Metzgermeister | Speisewirtschaften | Metzger und Wir",Metzgermeister,,vorname:gleich+beruf:wort,4,mittel,1,0,172
+e2007c99257,e882438fffa,Wirz,Emma,Emma,Aarau,Zürich,1896,1900,4,32.2,Schneiderinnen | Damenschneiderin,Schneiderin,handwerk,vorname:gleich+beruf:wort,4,mittel,1,0,399
+e5f33876054,ec5bf67ca93,Bangerter,Emil,Emil,Biel (BE),Bern,1897,1898,1,24.0,Café Merkur,Wirt | Wohnung,gast,vorname:gleich+beruf:klasse,3,mittel,1,1,36
+e665532a2b0,e9bbf45653b,Kleiber,Anton,Anton,Basel,Benken (BL),1897,1902,5,5.9,z. Ochsen,zum Ochsen,gast,vorname:gleich+beruf:wort,4,mittel,1,1,25
+e7e298646d3,e9b4e272100,Dietrich,Emil,Emil,Riehen,Olten,1898,1899,1,32.0,Weinhandlung,Weinhandlung,lebensmittel,vorname:gleich+beruf:wort,4,mittel,1,1,239
+e76b3f141b9,ef797e1686c,Lussy,Emil,Emile,Brienz (BE),Porrentruy,1898,1899,1,107.2,Ingenieur,ingénieur,bau,vorname:gleich+beruf:wort,4,mittel,1,1,63
+ebb0fc49961,ee9e5a4ed8a,Biedermann,Emil,Emil,Aarau,Bern,1899,1900,1,71.5,"Hauptmann | Hauptmann, Instruktor der Infanterie",Sekretär des Waffenchefs der Infanterie,recht,vorname:gleich+beruf:wort,4,mittel,0,0,130
+e46c45278e1,ea65ebb00c6,Faller,Karl Friedrich,Karl Heinr,Aarau,Zürich,1899,1900,1,32.2,"Kaufmann | Kaufmann, Großh. Baden.",Kaufmann | Kaufm.,handel,vorname:gleich+beruf:wort,4,mittel,0,0,80
+e245716b9f6,e3a2de69da8,Grünhut,Robert,Robert,Aarau,Basel,1899,1901,2,38.2,"Bahningenieur, S. C. B. | Bahningenieur S. C. B.",Ingenieur,bau,vorname:gleich+beruf:klasse,3,mittel,0,1,3
+e7324f11860,ec9e18dfae8,Pöll,Johann,Joh,Aarau,Zürich,1899,1900,1,32.2,Maurerpolier,Maurer,,vorname:abkürzung+beruf:wort,3,mittel,0,0,4
+ef57aa79408,e19ef33d581,Wächter,Louise,Louise,Aarau,Zürich,1899,1900,1,32.2,Taglöhnerin | Spetterinnen | Speterinnen,Spetterin,,vorname:gleich+beruf:wort,4,mittel,0,0,161
+eaae9467c34,e9001374c00,Bürgin,Ernst Friedr,Ernst,Zürich,Liestal,1900,1905,5,57.5,Fuhrhalter,Fuhrhalter,verkehr,vorname:gleich+beruf:wort,4,mittel,0,1,91
+ebee3e171b5,e612ab9fccc,Gagliardi,Pietro,Pietro,Viganello,Lugano,1900,1906,6,1.5,spedizioniere,spedizioniere,,vorname:gleich+beruf:wort+nachbarort,4,mittel,1,1,17
+e33a04131bf,e0e2e4d5f1b,Gelpke,Rud. Arn,Rudolf,Zürich,Basel,1900,1901,1,69.0,Ingenieur,Ingenieur,bau,vorname:abkürzung+beruf:wort,3,mittel,0,1,18
+e92f9bbeed9,e6965d8195a,Heberlein,Christian,Chr.,Zürich,Rorschach,1900,1903,3,76.0,Getreidehandel,Getreidegeschäft,handel,vorname:abkürzung+beruf:wort,3,mittel,0,0,21
+e39ade21492,eacfb9b5f2a,Kummer,Bertha,Bertha,Zürich,Bern,1900,1904,4,97.0,Spezeriehandlung,Spezereihandlung,,vorname:gleich+beruf:wort,4,mittel,0,1,129
+e0ebcaa41aa,e9f47ad7daa,Storz,Georg,Georg,Zürich,Basel,1900,1903,3,69.0,Bäcker,Bäcker,lebensmittel,vorname:gleich+beruf:wort,4,mittel,0,1,40
+e7fbdbad520,e6e5be082cd,Isch,Fritz,Fritz,Etzelkofen,Nyon,1901,1907,6,122.8,Wirt,hôtel de la Croix Verte,gast,vorname:gleich+beruf:klasse,3,mittel,1,0,19
+eb8c81359e7,e3dd489f5de,Python,Georges,Georges,Fribourg,Burtigny,1901,1903,2,78.1,conseiller d'Etat,conseiller d'Etat,,vorname:gleich+beruf:wort,4,mittel,1,0,36
+e1e9ac48cf0,efaba33c180,Barras,Auguste,Auguste,Romont (FR),Bulle,1903,1905,2,13.7,pharmacien,pharmacien,medizin,vorname:gleich+beruf:wort,4,mittel,1,1,19
+e3512844974,e5ee9cebf49,Grob,Otto,Otto,St. Gallen,Kappel (SO),1903,1908,5,118.3,Metzgerei,Metzgerei u. Charcuterie | Metzgerei n. Charcuterie,lebensmittel,vorname:gleich+beruf:wort,4,mittel,1,1,438
+e7cd299c2fe,eff46816b81,Klauser,Emil,Emil,St. Peterzell,Altstätten,1903,1904,1,28.4,Stickereifabrikant,Stickereifabrikant,textil,vorname:gleich+beruf:wort,4,mittel,1,1,53
+e8f3ceb3321,ed81617ef8c,Bouvier,Jules,Jules,Delémont,Moutier,1904,1905,1,10.0,vétérinaire,vétérinaire,medizin,vorname:gleich+beruf:wort,4,mittel,1,1,38
+e72d61bea9d,e207354aba9,Flückiger,Manfred,Manfred,Bern,Zürich,1904,1910,6,97.0,Kaufmann in Firma Cartonfabrik Deisswil,Kaufmann | Redakteur,,vorname:gleich+beruf:wort,4,mittel,1,1,196
+eab452ae4e1,eaa3604d6dd,Henauer,Ernst,Ernst,Altnau,Weinfelden,1904,1908,4,12.4,Tierarzt,Tierarzt | Bezirkstierarzt,medizin,vorname:gleich+beruf:wort,4,mittel,1,1,11
+ebef4d5ff64,eb6b43f9544,Hättenschwiller,Franz,Franz,Goldach,Appenzell,1904,1908,4,16.8,Villa Wartegg,Villa Kreuzhof,,vorname:gleich+beruf:wort,4,mittel,1,1,11
+ef64e63643b,ea92409057f,Höhener,Emil,Emil,Gais,Trogen,1904,1908,4,4.7,Weberei,Weberei,textil,vorname:gleich+beruf:wort+nachbarort,4,mittel,1,1,18
+e2faf03c38d,e406fcf3198,Jeuch,Robert,Robert,Baden,Zürich,1904,1909,5,17.1,"Eisenhandlung | Eisenhandlung; Villa | Eisen, Stahl u. Metalle | Haushaltungs- und Küchengeräte- handlungen.",Kaufmann,handel,vorname:gleich+beruf:klasse,3,mittel,1,0,20
+edb2f22d382,e4b674bbf31,Verdan,Charles,Charles,Lyss,Biel (BE),1904,1908,4,8.8,horlogerie,Uhrenfabrikant,uhren,vorname:gleich+beruf:klasse,3,mittel,1,1,28
+e064a020fda,e34b57ea69d,Wydler,Viktor,Viktor,Etzgen,Aarau,1904,1910,6,19.3,Dr. med.,Chefarzt | Dr. med.,medizin,vorname:gleich+beruf:klasse+titel,4,mittel,1,1,91
+e11a065ab75,ec84e0e604b,Girod,Charles,Charles,Fribourg,Courtepin,1905,1908,3,6.8,directeur; Villa Félix,Directeur,,vorname:gleich+beruf:wort,4,mittel,1,1,60
+e054360545c,eae370b864d,Kübler,Alfred,Alfr.,Bern,Zürich,1905,1909,4,97.0,Architekt,Architekt | Archit,bau,vorname:abkürzung+beruf:wort+titel,4,mittel,1,0,170
+e6407b45e61,e43282b1003,Manzoni,Romeo,Romeo,Maroggia,Lugano,1905,1906,1,8.3,cons. naz | Dr,dr. | dott,,vorname:gleich+titel,3,mittel,1,1,14
+e3dd489f5de,e5480e76a28,Python,Georges,Georges,Burtigny,Fiez,1905,1911,6,48.9,conseiller d'Etat,conseiller d’Etat Finhaut LK; Juillet EK. août CK | conseiller d’Etat,,vorname:gleich+beruf:wort,4,mittel,1,1,36
+e92388f7f86,e9b3ad2ebdb,Stooss,Alfred,Alfred,Bern,Lausanne,1905,1907,2,70.3,Patentirte Berufsarten. | Fürspr. | Fürsprecher,juge fédéral,recht,vorname:gleich+beruf:klasse,3,mittel,1,0,36
+e0929a151a7,e206e120068,Hecht,Hans,Hans,Bern,Basel,1906,1909,3,66.8,Dr. phil.,Prof. Dr | Prof. Dr. Hans,bildung,vorname:gleich+titel,3,mittel,1,1,27
+ecb7c9819ab,eaf5cce73b7,Rettenmund,Friedr.,Fritz,Oberdiessbach,Hasle (LU),1906,1911,5,36.1,Geflügelhandlung | Geflügelhandlung; Haube,Hut- u. Velohandlung,handel,vorname:abkürzung+beruf:klasse,2,mittel,1,0,10
+e6cb92fb6d4,ef5a442aa80,Utiger,Ernst,Ernst,Ins,Laufenburg,1906,1910,4,94.8,Tierarzt,Tierarzt,medizin,vorname:gleich+beruf:wort,4,mittel,1,1,15
+efd8a01bf6a,ef164644e23,Ziegler,Jules,Jules,Bern,Schaffhausen,1906,1909,3,126.8,elektr. Licht u. Kraftanlagen,Bau elektr. Anlagen,,vorname:gleich+beruf:wort,4,mittel,1,0,273
+e29d43d051e,e9519798b41,Belet,Ulysse,Ulysse,Lausanne,Genève,1907,1911,4,55.7,CHARPENTIERS | MENUISIERS | menuisier,menuis.-charpentier; Pré Montriond; Coin’ | menuis.-charpentier; Pré Montriond; Cour | menuis .-charpentier; Pré Montrio,bau,vorname:gleich+beruf:wort,4,mittel,0,0,80
+efd53f335f1,ef2e29cf636,Bourgeois,Palmyr,Palmyr,Ballaigues,Avry-sur-Matran,1907,1911,4,,Vins (march. de),marchand de vins,lebensmittel,vorname:gleich+beruf:wort,4,mittel,0,0,105
+efa014b25b9,edea625c30e,Brossolasco,Dominique,Dom.,Etagnières,Genève,1907,1913,6,,Menuisier,menuisier,bau,vorname:abkürzung+beruf:wort,3,mittel,0,1,2
+ea7c706ba2f,ee3361d51d3,Brusa,Carlo,Charles,Lausanne,Genève,1907,1911,4,55.7,mecan.,mécanicien; cycles; motos; Pont-Neuf; 11; Carouge,industrie,vorname:gleich+beruf:wort,4,mittel,0,0,18
+ee3602c27db,e9574a0c0fc,Buttin,Henri,Henry,Lausanne,Montagny-près-Yverdon,1907,1913,6,28.2,pharmacien,professeur | laboratoires biologiques et pharmaceutiques,medizin,vorname:gleich+beruf:wort,4,mittel,0,1,18
+e18eec183c4,e6460a93ac6,Clerc,Albert,Albert,Ballaigues,Colombier (VD),1907,1913,6,,"Pasteur, église libre",pasteur; Le Clos,bildung,vorname:gleich+beruf:wort,4,mittel,0,1,158
+e0885b25795,e2fcf1fb9cf,Courvoisier,Jean-Louis,Jean,Mont-la-Ville,Neuchâtel,1907,1909,2,55.3,Propriétaires | Sellier,propriétaire,,vorname:gleich+beruf:wort,4,mittel,0,0,99
+ef5eab4810f,ed9d6d7c329,Delvecchio,François,François,Bex,La Chaux-de-Fonds,1907,1909,2,95.8,Entrepreneurs,peintre,bau,vorname:gleich+beruf:klasse,3,mittel,0,0,5
+e9942457013,e2259f09bf3,Dubi,Paul,Paul,Ormont-Dessous,Genève,1907,1913,6,,Boucher,boulanger; Pont-deChailly l DuBochet; MlleL; mass; ventouses 26.46’ DuBochet; Marguerite; coutur. dipi- | boulanger; Pon,lebensmittel,vorname:gleich+beruf:klasse,3,mittel,0,1,31
+e777436b4e1,e6bb5da3850,Dupuis,Ernest,Ernest,Essert-Pittet,Genève,1907,1911,4,,Municipaux,capitaine; quartiermaître serv. du feu | capit; quart.-maître serv. feu; conserv. matériel; chef poste perman. municip,,vorname:gleich+beruf:wort,4,mittel,0,0,128
+e029dbc3c8e,e48fc504cce,Garin,Louis,Louis,Lausanne,Genève,1907,1913,6,55.7,BOULANGERS-PATISSIERS | boulanger,boulanger; Pont-deChailly | boulanger; Pont-deGhailly,lebensmittel,vorname:gleich+beruf:wort,4,mittel,0,1,35
+e14efc7fdc2,edc51cae2da,Jeanmonod,Gustave,Gustave,Provence,Genève,1907,1911,4,87.4,"Epicerie, mercerie, tabacs | Etouffes | Inspecteurs du bétail | Menuisiers",épicerie; Glacis-de-Rive,,vorname:gleich+beruf:wort,4,mittel,0,0,26
+e0bf10a955e,e5aaaaa370c,Joseph,Jules,Jules,Grandson,Genève,1907,1911,4,76.0,Pasteurs,pasteur; I bis | pasteur,bildung,vorname:gleich+beruf:wort,4,mittel,0,0,39
+e2d52a814f3,ea33b31ef23,Loth,Adrien,Adrien,Pully,Bulle,1907,1911,4,32.6,Meunier,meunier,,vorname:gleich+beruf:wort,4,mittel,0,1,19
+ef320dd5db7,efe316dd6fc,Lévy,Isidore,Isidore,Vevey,La Chaux-de-Fonds,1907,1909,2,71.0,Chemisiers | Tapis (marchands de),Halle aux tapis,handel,vorname:gleich+beruf:wort,4,mittel,0,0,196
+ecd310c0f2e,e387eb3fa84,Monastier,André,André,Nyon,Cartigny,1907,1911,4,28.5,Médecins,docteur Cergnat; Le Sépey; CB,medizin,vorname:gleich+beruf:klasse,3,mittel,0,0,12
+ebcaa7446a8,e7da52cfa17,Odot,Emile,Emile,Vufflens-le-Château,Lausanne,1907,1911,4,16.4,Chef de gare,photo-graveur; élect; gare du L.-O.35.51 ' ,verkehr,vorname:gleich+beruf:klasse,3,mittel,0,1,11
+e7affc98f1d,e46964cb60d,Piccard,Paul,Paul,Lausanne,Genève,1907,1911,4,55.7,secrétaire | secrétaire du Tribunal fédéral,Servette; 6 | Servette; 6; chemin Schaub 14; 90 Piccard; Pictet & Cie; S. A; administration | Servette; 6; Pictet & Cie;,recht,vorname:gleich+beruf:klasse,3,mittel,0,0,28
+ee9380e7c1b,eb4f83a5a97,Pichard,Eugène,Eug.,Ormont-Dessous,Senarclens,1907,1913,6,,Imprimeur,imprimerie; « Echo de la Montagne »,druck,vorname:abkürzung+beruf:wort,3,mittel,0,1,23
+e5e34615ee4,e4f90354a39,Reutener,Hans,Hans,Lausanne,Zürich,1907,1913,6,166.8,commis,Kaufm.,handel,vorname:gleich+beruf:klasse,3,mittel,0,1,5
+e664e72aca3,eeadca582e6,Reverchon,Victor,Victor,Lausanne,Genève,1907,1912,5,55.7,boucher,boucher; Le Printemps | boucher,lebensmittel,vorname:gleich+beruf:wort,4,mittel,0,1,13
+e34f4f83bf3,ea2711dd793,Sauter,Jean,Hans,Penthaz,St. Gallen,1907,1910,3,236.9,Tailleur,March.-Tailleur,handwerk,vorname:gleich+beruf:wort,4,mittel,0,1,289
+ec0cad6cc09,e057373708a,Stotz,Alfred,Alfred,Lausanne,Basel,1907,1911,4,130.0,tapissier,Tapezierer,handwerk,vorname:gleich+beruf:klasse,3,mittel,0,1,21
+eee768a83c0,e85e388aac6,Bertschy,Meinrad,Meinrad,Düdingen,Romont (BE),1908,1913,5,39.6,Tierarzt,Tierarzt,medizin,vorname:gleich+beruf:wort,4,mittel,1,1,208
+e148134c5c0,ee6cd35e789,Bladt,Paul,Paul,Payerne,Genève,1908,1911,3,91.2,négociant | Quincaillerie,négociant,handel,vorname:gleich+beruf:wort,4,mittel,1,0,24
+ed60dd24691,eebbc12e517,Diem,Adolf,Adolf,Herisau,Oberdorf (SO),1908,1910,2,135.0,Bäcker u. Konditor,Bäcker u. Konditor,lebensmittel,vorname:gleich+beruf:wort,4,mittel,1,1,37
+e70dce8ac99,ead1beda4a5,Graeter,Karl,Carl,Oberwil (BL),Basel,1908,1909,1,3.3,prakt. Arzt,Arzt | Dr. Car]; Arzt,medizin,vorname:gleich+beruf:klasse+nachbarort,3,mittel,1,1,3
+eaa61205ad7,ef608e85037,Gähler,Karl,Karl A,Herisau,Zürich,1908,1914,6,59.6,Handlung,Commis,handel,vorname:gleich+beruf:klasse,3,mittel,1,0,17
+ebed34c6424,e37fd829eb2,Heiniger,Otto,Otto,Burgdorf,Utzenstorf,1908,1909,1,9.4,Dr med.,Dr. med.,medizin,vorname:gleich+beruf:klasse+titel,4,mittel,1,1,46
+e5d943f69b9,e07ae8ec4bd,Oppikofer,Emil,Emil,Bern,Basel,1908,1909,1,66.8,"Direktor d. städt. Electricitäts- und Wasserwerke (Maschinen). | Maschinen-ingenieur, Direktor d. städt. Elektrizitäts- ",Wohnung von Direktor; Elektrizitätswerk Basel | Ingenieur,bau,vorname:gleich+beruf:wort,4,mittel,1,1,14
+e0a0b2e6916,e0d2a05328b,Schwander,Franz,Franz,Hellsau,Riedholz,1908,1912,4,11.4,Wirt zum Freieu Hof | Wirt zum Freien Hof,Wirtschaft,gast,vorname:gleich+beruf:klasse,3,mittel,0,0,39
+eef60fe1db3,eb2e65495e9,Belgeri,Achille,Eredi fu Achille,Biasca,Bodio,1909,1913,4,4.9,Albergo Gottardo,Eredi fu Achille; Hôtel de la gare,gast,vorname:gleich+beruf:klasse+nachbarort,3,mittel,0,0,3
+e855e8157e6,e126b463fa0,Borel,Jean,Jean,Fleurier,Fiez,1909,1911,2,8.8,vétérinaire,vétérinaire,medizin,vorname:gleich+beruf:wort,4,mittel,1,1,174
+eb71edfbb65,e584e9d50ea,Bovet,Fritz,Fritz,Gelterkinden,Neuheim,1909,1911,2,61.7,Dr. med.,Dr. med.,medizin,vorname:gleich+beruf:klasse+titel,4,mittel,1,0,72
+e51b0641877,ee17acf81c5,Buchli,Rudolf,Rud.,Chur,Gossau (ZH),1909,1911,2,76.7,Metzgerei,Metzgerei,lebensmittel,vorname:abkürzung+beruf:wort,3,mittel,0,0,28
+e06a0e84765,e9e090c416c,Degiorgi,Pietro,Pietro,Aquila,Anzonico,1909,1913,4,10.4,rappr. Banca Credito Ticinese | rappres. Banca Credito Ticinese,rappres. Banca Credito Ticinese,,vorname:gleich+beruf:wort,4,mittel,1,0,13
+e7889856bed,e3632e5e0c7,Fallet,Pierre,Pierre,Dombresson,Grandson,1909,1911,2,38.1,entrepreneur,architecle-entrepr | architecte-eïitrepr | architecte-entrepr,bau,vorname:gleich+beruf:wort,4,mittel,1,1,17
+eb035d631f9,ea417c313b6,Fleisch,Florian,"Abel, Florian",Chur,Zürich,1909,1914,5,99.1,Speditionsgeschäft,Speditionsgeschäfte. | Speditionsgeschäft,verkehr,vorname:gleich+beruf:wort,4,mittel,0,0,13
+e28ec392bba,e8d6e6a828e,Froidevaux,Justin,Justin,Les Pommerats,Saignelégier,1909,1911,2,0.0,Hôtel de la Couronne,Hôtel de la Couronne Pompaples; la Sarraz; EK,gast,vorname:gleich+beruf:wort+nachbarort,4,mittel,0,0,17
+e6ac6c14e77,e4d7a58329f,Gagnebin,Louis,Louis,Saint-Imier,Genève,1909,1911,2,123.1,fabr. d'horlogerie,fab. de boîtes plaquées; usine Servet; St-Jean | fab. de boites plaquées; usine Servet; St-Jean,uhren,vorname:gleich+beruf:klasse,3,mittel,0,0,24
+ec670335885,e22d7cae6a2,Haemel,Franz,Franz,Rheinfelden,Brügg,1909,1911,2,61.5,Direktor | Direktor; auf Robersten,Direktor; auf Robersten,recht,vorname:gleich+beruf:wort,4,mittel,0,0,11
+ed21919d5ba,eb782afe6b5,Hatz,Daniel,Dan.,Chur,Zürich,1909,1914,5,99.1,Weinhandlung,Veltlinerweinhdlg; Chur à Porta,lebensmittel,vorname:abkürzung+beruf:klasse,2,mittel,0,0,7
+e33fa631e38,e5979ecbc34,Hüsler,Gottfried,Dr. med. Gottfr.,Steckborn,Eiken,1909,1913,4,75.9,Dr. med.,Dr. med. Gottfr,medizin,vorname:abkürzung+beruf:klasse+titel,3,mittel,1,0,20
+e083a409bf8,eebe3f8a7f2,Job,Cesar,Cesar,Truns,Wil (ZH),1909,1911,2,102.5,Handlung,Handlung,handel,vorname:gleich+beruf:wort,4,mittel,0,0,57
+ed727084f86,ee6d416254c,Jütz,Dominik,Dominik,Unterseen,Interlaken,1909,1910,1,1.3,voiturier,voiturier,verkehr,vorname:gleich+beruf:wort+nachbarort,4,mittel,1,1,12
+ea365f1bc61,e286c8e62de,Kambli,Hans,Hans,Wald (ZH),Basel,1909,1911,2,103.4,Pfarrer,Pfarrer,bildung,vorname:gleich+beruf:wort+titel,5,mittel,1,1,41
+e8dbec3746e,e79bd9764d9,Kesselring,Fritz,Fritz,Schaffhausen,Neuhausen,1909,1912,3,3.6,Ingenieur,Diplom - Ingenieur; technisches Bureau,bau,vorname:gleich+beruf:wort+nachbarort,4,mittel,1,1,60
+eae89b01e80,ebf5c4b3e43,Kramer,Paul,Paul,La Chaux-de-Fonds,Orsières,1909,1913,4,121.6,bijoutier,bijout.-orfév; Treille | bijoutier-orfèvre; Treille; 11,handwerk,vorname:gleich+beruf:wort,4,mittel,0,0,246
+e68ef638bf3,e4954518266,Kübli,Adolf,Adolf,Unterseen,Interlaken,1909,1910,1,1.3,Schreinerei | Rollladen- und Fensterfabrik,Rollladen- und Fensterfabrik,,vorname:gleich+beruf:wort+nachbarort,4,mittel,1,1,52
+e73ca424060,e6ff37b2ad0,Landry,Alf.,F.-Alfred,Les Ponts-de-Martel,Vérossaz,1909,1912,3,89.4,négociant,F.-Alfred; négociant; vins et fromages,,vorname:abkürzung+beruf:wort,3,mittel,1,0,38
+e004d2ce648,ed6d4733bbb,Lattner,Hermann,Herm,Basel,Zürich,1909,1914,5,69.0,Ingenieur,Ingenieure. | Ingenieur,bau,vorname:abkürzung+beruf:wort,3,mittel,1,0,20
+effecad1b4b,e9d3e304fc7,Niederer,Robert,Robert,Biel (BE),Péry,1909,1913,4,5.6,Metzgermeister,Wirtschaft u. Metzgerei | Robert. Wirtschaft u.Metzgerei,,vorname:gleich+beruf:wort,4,mittel,1,1,91
+ea836e0d183,e11e5539c80,Schweizer,Eugen,Eugen,Zürich,Schaffhausen,1909,1910,1,36.7,Metzger,Metzger; z. Eichel,lebensmittel,vorname:gleich+beruf:wort,4,mittel,1,1,642
+efd2ae2e58c,e4c446a4ee8,Antille,Robert Lucien,Rob. L,Baden,Zürich,1910,1914,4,17.1,Schlosser,Schlosser,handwerk,vorname:abkürzung+beruf:wort,3,mittel,0,0,5
+e6bbaf65cb9,e6bfa0fc07d,Bachofen,Gustav,Gustav,Uster,Bauma,1910,1911,1,12.3,Geometer,Geometer,,vorname:gleich+beruf:wort,4,mittel,1,0,115
+eb6aaf0ffa1,e0ea084ccbc,Berger,Rudolf,Rudolf,Riggisberg,Reutigen,1910,1911,1,16.9,Krämerei und Fuhrhalterei,Krämerei und Fuhrhalterei,verkehr,vorname:gleich+beruf:wort,4,mittel,1,0,436
+e2a641c13b9,e1c3ebacffb,Bossart,Arthur,Dr. med. Arthur,Reinach (AG),Aarau,1910,1911,1,18.5,Dr. med. Bezirksarzt,Dr. med. Arthur; Bezirksarzt,medizin,vorname:gleich+beruf:wort+titel,5,mittel,1,1,58
+e257ec2d3c0,e5f17ca11bc,Brack,Samuel,Samuel,Aarau,Schinznach,1910,1913,3,6.9,Mühle,Mühle,lebensmittel,vorname:gleich+beruf:wort,4,mittel,0,0,78
+eef1a296c4c,e081d8c8183,Brassel,Oskar,Oskar,St. Margrethen,Zürich,1910,1914,4,86.5,z. Kreuz,Handlanger u. Wirt,gast,vorname:gleich+beruf:klasse,3,mittel,1,0,6
+ea4b819e7db,ea82ab4ed6e,Bärlocher,Walter,Joh. Konr. Walter,Baden,Zürich,1910,1914,4,17.1,Ingen.,Ingenieure. | Ingenieur,bau,vorname:gleich+beruf:wort,4,mittel,0,0,52
+ef34f788394,e29b0987450,Dambach,Emil,Emil,Turgi,Zürich,1910,1914,4,20.4,Maler | Kunstmaler,Kunstmaier. | Kunstmaler,bau,vorname:gleich+beruf:wort,4,mittel,0,0,23
+ebf8a4be852,ef867577b93,Dietliker,Alfred,Alfr.,Wädenswil,Unteriberg,1910,1911,1,21.2,Baumeister,Baumeister,bau,vorname:abkürzung+beruf:wort,3,mittel,0,0,10
+e41d280196a,e928758a391,Dumont,Paul,Paul,Burgdorf,Bern,1910,1911,1,21.4,Fürsprecher,Paul. Dr. jur. u. Fürsprecher | Dr. jur. u. Fürsprecher | Fürspr; Bureau Dr. Dumont & E. Roth,recht,vorname:gleich+beruf:wort,4,mittel,0,1,48
+e3737bb9673,ed961d70f1d,Gaudard,Albert,Albert,Spiez,Laupen,1910,1911,1,41.3,Bierdépôt | Bierdepot,Bierdepot u. Camionnage,,vorname:gleich+beruf:wort,4,mittel,0,1,55
+e00819ca437,e175165a9ec,Gimmi,Adolf,Adolf,Baden,Zürich,1910,1914,4,17.1,Sattler und Tapezierer | Tapezierer,Tapezierer,handwerk,vorname:gleich+beruf:wort,4,mittel,0,0,23
+e0a99e6e0ac,ee89e34a411,Gimmi,Walter,Walther,Baden,Zürich,1910,1912,2,17.1,Lehrmittelinstitut,"Lehrmittelinstitut und Pension | Lehrmittelinstitut und. Pension | Pensionate. | a. Pfarrer, Pension u. Lehrmittelhandlg",,vorname:gleich+beruf:wort,4,mittel,0,1,23
+e1b602525bc,efda4ad60fe,Grünig,Arnold,Arnold,Riggisberg,Reutigen,1910,1911,1,16.9,Droguist,Droguist,,vorname:gleich+beruf:wort,4,mittel,1,0,34
+e6089108b67,eaac51d1e89,Grüninger,Karl,Karl,Näfels,Stäfa,1910,1911,1,29.8,Schabziegerfabrik,Schabziegerfabrik Inseli | Schabziegerfabrik; Inseli,industrie,vorname:gleich+beruf:wort,4,mittel,0,1,71
+ec64fa0bd3c,eda04bdd3e9,Hauri,Fritz,Fritz,Würenlos,Möhlin,1910,1914,4,41.3,Metzger,Metzgermeister,lebensmittel,vorname:gleich+beruf:wort,4,mittel,0,1,121
+ed81eafb2c6,e0c4813c9bd,Henkel,Bened.,Bened,Rorschach,Zürich,1910,1914,4,76.0,Bäckerei z. Seehof,Bäckermeister,lebensmittel,vorname:abkürzung+beruf:wort,3,mittel,0,0,24
+e4f467a142a,ea8b394d7f5,Hertig,Fritz,Fritz. Metzgerei,Spiez,Laupen,1910,1911,1,41.3,Metzgerei,Fritz. Metzgerei | Metzgerei,lebensmittel,vorname:abkürzung+beruf:wort,3,mittel,0,1,28
+ec46a2e4d09,ec586c39138,Hess,Richard,Richard,Winterthur,Zürich,1910,1912,2,24.7,Bildhauer,Marmor-Export | Marmor-Export; Bureau | Bildhauer. | Marmor-Export.,bildung,vorname:gleich+beruf:wort,4,mittel,0,1,575
+e1415b3fe7c,eb9c31206b2,Horlacher,Marie Emma,Emma,Baden,Zürich,1910,1914,4,17.1,Ladentochter,Ladentochter,handel,vorname:gleich+beruf:wort,4,mittel,0,0,52
+e0530641a5d,e69da1de906,Hort,Joseph,Jos,Gebenstorf,Zürich,1910,1914,4,20.8,Handlanger,Handlanger,,vorname:abkürzung+beruf:wort,3,mittel,0,0,21
+e531d7f60ea,e0d9bd39d15,Hunziker,Paul,Paul,Ins,Reinach (AG),1910,1911,1,86.2,Notar,Notar,recht,vorname:gleich+beruf:wort,4,mittel,1,1,449
+eb7d5481f1e,e1a001c499c,Häfele,Albert,Albert,Gossau (SG),Illnau,1910,1912,2,40.0,z. Ochsen; Mettendorf,z. Ochsen,gast,vorname:gleich+beruf:wort,4,mittel,1,1,16
+eff2ddd9ee8,ec830cc9c5e,Hörler,Karl,Karl,Teufen (AR),St. Gallen,1910,1911,1,5.7,Metzgerei und Gasthaus z. Schützengarten,Metzgerei u. Gasthaus z. Schützengarten | Metzgerei u. Gasthaus z Schützengarten,gast,vorname:gleich+beruf:wort,4,mittel,0,1,44
+ed594b160e8,e0ba108c7ba,Jaenike,Joh. Ludwig,Joh. Ludw,Baden,Zürich,1910,1914,4,17.1,Spengler,Spenglermeister,bau,vorname:abkürzung+beruf:wort,3,mittel,0,0,16
+e508c3f95da,e666b0e7020,Kormann,Samuel,Samuel,Neuenegg,Heitenried,1910,1912,2,7.5,Landwirt,Landwirt | Landwirt Helgisried; Riggisberg; C-n,land,vorname:gleich+beruf:wort,4,mittel,1,1,11
+ec7525ddfe3,ebdb1d8e320,Kugler,Hugo,Hugo,Arbon,Wolfhalden,1910,1911,1,12.0,Malermeister,Malermeister,bau,vorname:gleich+beruf:wort,4,mittel,0,1,67
+eb518885cd5,e178e275f53,Lisibach,Franz Xaver,Frz. Xaver,Baden,Zürich,1910,1914,4,17.1,Möbelschreiner,Modellschreiner,bau,vorname:gleich+beruf:klasse,3,mittel,0,0,3
+ecac35398a5,e97eb6fa826,Muffler,Christian,Chr,Winterthur,Zürich,1910,1914,4,24.7,Bierdépôt,Bier.,lebensmittel,vorname:abkürzung+beruf:klasse,2,mittel,0,0,4
+eee377ae039,e9440e20ebe,Oelhafen,Ernst,Ernst,Oerlikon,Zürich,1910,1911,1,4.9,Konstruktionswerkstätte,"Ingenieur | Ing. | Ingenieure. | Ingenieur, Konstruktionswerkstätte",,vorname:gleich+beruf:wort+nachbarort,4,mittel,1,1,17
+e4142016d4a,e565f5a3ad5,Ott,Severin,Severin,Arbon,Rüti (ZH),1910,1911,1,51.6,Baugeschäft und Architekturbureau,Baugeschäft u. Architekturbureau | Baugesch. u. Architekturbur,bau,vorname:gleich+beruf:wort,4,mittel,0,1,393
+e202de333e5,e6e0a8de316,Preisig,Adolf,Adolf,Herisau,Rheineck,1910,1914,4,24.7,Elektriker,elektr. Installât,industrie,vorname:gleich+beruf:wort,4,mittel,0,1,56
+e6b359a7999,effae08fc80,Ronchi,Ercole,Ercole,Büetigen,Hessigkofen,1910,1911,1,10.3,Bauunternehmer,Bauunternehmer Büetigen | Bauunternehmer,bau,vorname:gleich+beruf:wort,4,mittel,1,0,24
+e9a025b1874,e100af1b62b,Ryf,Ernst,Ernst,Bolligen,Biglen,1910,1914,4,11.1,Metzgerei,Metzgerei,lebensmittel,vorname:gleich+beruf:wort,4,mittel,0,1,59
+e80d126fb3e,e0cc5ad9e5e,Stehle,Magnus,Magnus,Ennetbaden,Zürich,1910,1914,4,15.7,Buchdruckereien | Buchdruckerei,Buchdruckereien.,druck,vorname:gleich+beruf:wort,4,mittel,0,0,36
+e40dc313235,e0c8bb31739,Stürm,Karl,Karl,Rorschach,Zürich,1910,1914,4,76.0,Eisenhandlung | Eisen- und Metallhandlung | & Cie; Eisen- u. Metallhdl,Magaziner,handel,vorname:gleich+beruf:klasse,3,mittel,0,0,38
+eaccf3ca8ff,ebd77638de2,Thalmayer,Ludwig Ernst,Ludw. E,Ennetbaden,Zürich,1910,1914,4,15.7,Ingenieur,Ingenieure. | Ingenieur,bau,vorname:abkürzung+beruf:wort,3,mittel,0,0,2
+ef65179c62f,e407f101af1,Walder,Eduard,Eduard,Maur,Warth,1910,1911,1,31.3,Wirtschaft u. Pension z. Wassberg,Wirtschaft u. Pension; z. Wassberg Wattwil | Wirtschaft; z. Wassberg | Wirtschaft z. Wassberg,gast,vorname:gleich+beruf:wort,4,mittel,1,0,299
+ef6464edcf1,e70beda1361,Wegmüller,Emil,Emil,Biel (BE),Bern,1910,1911,1,24.0,Vertreter,Vertreter | Generalvertretung der Adler Schreibmaschinen,,vorname:gleich+beruf:wort,4,mittel,0,1,65
+e4319586990,ebbd37d48c1,Weil,Hermann,Hermann,Langenthal,Ziefen,1910,1911,1,25.1,Viehhändler,Viehhändler,land,vorname:gleich+beruf:wort,4,mittel,0,0,267
+e53f6649712,e31eb34af15,Wyss,Oscar,Oscar,Neuveville,Kandersteg,1910,1912,2,77.3,notaire,notaire | notaire Sejruz; F; Cottens; F; Fribourg; C-n,recht,vorname:gleich+beruf:wort,4,mittel,0,1,492
+e62bf9ce060,e4c798404b6,Anselmier,Paul,Paul,Hauptwil,Zürich,1911,1912,1,58.1,Dr. med.,Poliklinik f. d. Kreis III | Arzt der mediz. Poliklinik | Arzt | Br; Poliklinik f. d Kreis III,medizin,vorname:gleich+beruf:klasse,3,mittel,1,1,13
+e9a0f154739,e74d00cfcab,Basler,Louis,Louis,Grub (AR),Heiden,1911,1912,1,1.9,Metzgerei,Metzgerei,lebensmittel,vorname:gleich+beruf:wort+nachbarort,4,mittel,1,1,109
+ef5dd892853,e8dfa800601,Bolle,Dr. med. Peter,Pierre,Basel,Genève,1911,1912,1,183.7,Dr. med. Peter,docteur | méd.-oculiste; cab. de consult. et domicile profess. rue Céard; 11; de 6 h. du s. à 8 h. du m. et dans tous le,medizin,vorname:gleich+beruf:klasse+titel,4,mittel,1,1,30
+e0347559ef6,e4defbb44e0,Kurz,Aloïs,Aloïs,Lausanne,Genève,1911,1913,2,55.7,pension | Aloïs; pension famille; La F’ avori te; Cham bla ndes,Aloïs; boulang.-pfttiss | Aloïs; boulang.-pâtiss,,vorname:gleich+beruf:wort,4,mittel,0,1,111
+e33fdc51b7d,e32838f85b7,Mast,Hans,Hans,Basel,Riehen,1911,1912,1,6.5,Malermeister,Malermeister,bau,vorname:gleich+beruf:wort,4,mittel,1,1,26
+e236ef17219,e6d3eba36a0,Zesiger,Ernst,Ernst,Bösingen,Bern,1911,1912,1,13.4,Wirt Bözingenberg; Biel; X,Wirt; Café du Commerce,gast,vorname:gleich+beruf:klasse,3,mittel,1,1,11
+e693bd21927,e98d5d6d68f,Niederhauser,Louis,Louis,Crissier,Delémont,1912,1913,1,107.6,boulangerie,boulangerie,lebensmittel,vorname:gleich+beruf:wort,4,mittel,1,1,61
+e3545e92c22,e80382d1512,Oeri-Preiswerk,Dr. Alb.,Dr. Albert,Basel,Riehen,1912,1913,1,6.5,Dr. Alb | Dr. Alb; Redaktor,Dr. Albert,,vorname:abkürzung+titel,2,mittel,1,1,2
+ed047a15a97,ea9f9e10be1,Seiling,Hans,Joh,Bern,Zürich,1912,1914,2,97.0,Dipl. Tugen. Architekt; heim Zylgloggc | Dipl. Ingen. Architekt; beim Zytglogge,Ingenieure.,bau,vorname:abkürzung+beruf:wort,3,mittel,1,0,3
+ed4426bb9ea,e94786deab3,Tissot,Maurice,Maurice,Cernier,Colombier (VD),1912,1913,1,64.7,pharmacie du Valde-Ruz Fontaines S. Gr; Grandson; EK,pharmacie,medizin,vorname:gleich+beruf:wort,4,mittel,1,1,102
+ea587b761ec,e39c0348dba,Trauffer,Rudolf,Rud.,Hofstetten (SO),Basel,1912,1914,2,8.6,Holzschnitzerei | Holzschnitzerei Hofwil; Münchenbuchsee; Bern; C-n,Holzschnitzlerwaren,,vorname:abkürzung+beruf:wort,3,mittel,0,1,8
+e24d3c98fe2,ead1e78b428,Ehret,Adolf,Adolf,Nottwil,Lugano,1913,1914,1,139.8,Huprächtigen,Landwirt; Huprächtigen,land,vorname:gleich+beruf:wort,4,mittel,0,1,16
+e28f58c512e,e225b81b9f8,Grogg,Otto,Otto,Ettingen,Kappel (SO),1913,1914,1,28.8,Sattlermeister,Sattlermeister,handwerk,vorname:gleich+beruf:wort,4,mittel,0,1,18
+e1211c6b27c,eb0f7b3aaa0,Lobsiger,Ernst,Ernst,Bern,Zürich,1913,1914,1,97.0,Charcuterie | Charcuterie; Kramg. 4',Metzger,lebensmittel,vorname:gleich+beruf:klasse,3,mittel,1,0,11
+e983269e054,e6f0793746c,Ludwig,Hans,Hans,Delémont,Estavayer-le-Lac,1913,1914,1,68.9,vétérinaire,vétérinaire,medizin,vorname:gleich+beruf:wort,4,mittel,0,0,88
+eb55695a395,ed205ffa7a1,Vallotton,Paul,Paul,Broc,Genève,1913,1914,1,86.2,Directeur | directeur Brocard; le; Martigny-Ville; C-n | directeur Le Brocard; Martigny-Ville; C-n,directeur,,vorname:gleich+beruf:wort,4,mittel,1,1,107
+e9a619b5679,ebe77632432,Vogt,Otto,Otto,Regensberg,Schocherswil,1913,1914,1,62.7,Käserei Schul»,Käserei,lebensmittel,vorname:gleich+beruf:wort,4,mittel,0,1,373
+e36056465ee,e9933904946,Appert,Heinr,Heinr,Bern,Zürich,1883,1885,2,97.0,Handelsm.,Krankenwärter,handel,vorname:gleich,2,schwach,0,0,6
+edafa67a064,edb59fd573c,Mirabaud,Ivan,Ivan,Cologny,Genève,1885,1890,5,4.9,Bellefontaine,En hiver,,vorname:gleich+nachbarort,2,schwach,0,1,9
+ed940a716fe,e1cbeb480d5,Aubry,Marie,Maria Auguste,Lausanne,Zürich,1896,1900,4,166.8,cuis.,Damenschneid.,,vorname:gleich,2,schwach,0,0,10
+e3417b3a370,e2d66244421,Blatti,Anna-Catherine,Anna,Lausanne,Zürich,1896,1900,4,166.8,domestique,Spetterin,,vorname:gleich,2,schwach,0,0,10
+e98f717e265,e4d039784b7,Boeglin,Emilie,Emilie,Lausanne,Zürich,1896,1900,4,166.8,,,,vorname:gleich,2,schwach,0,0,8
+e34b673e01b,e6705e31590,Brossin,Paul,Paul,Lausanne,Bern,1896,1900,4,70.3,typographe,Schriftsetzer,,vorname:gleich,2,schwach,0,0,7
+e29094d3e02,e6bc23cb329,Haldenwang,Marie,Marie,Lausanne,Bern,1896,1900,4,70.3,,Modistinnen | Modiste,handwerk,vorname:gleich,2,schwach,0,0,5
+e91ebbc449b,ed0cbf01f60,Kastner,Marie,Maria,Lausanne,Zürich,1896,1900,4,166.8,ménag.,Damenschneiderin,handwerk,vorname:gleich,2,schwach,0,0,10
+e8750be507e,e826089646e,Nerny,Louis,Emil Louis,Lausanne,Zürich,1896,1900,4,166.8,dom.,Zimmermann,bau,vorname:gleich,2,schwach,0,0,9
+e33ebeb8bf3,e9adb6398dd,Schmidtman,Ernest,Ernst,Lausanne,Zürich,1896,1900,4,166.8,Eglise méthodiste allemande.,Prediger,,vorname:gleich,2,schwach,0,0,4
+e9dc3a0258d,e0de5b87c61,Traflet,Fritz,Fritz,Lausanne,Bern,1896,1900,4,70.3,,Gipser- u. Malermstr.,bau,vorname:gleich,2,schwach,0,0,5
+e01c5085f26,e830397857f,Miedel,Hans,Hans,Basel,Bern,1900,1901,1,66.8,,,,vorname:gleich,2,schwach,1,1,5
+eab05d881f9,e576e79f208,Mülchi,Emil,Emil,Zürich,Arch,1900,1904,4,84.0,Maurerpolier,Liqueurfabrikant,lebensmittel,vorname:gleich,2,schwach,0,1,4
+ed4d00dffb4,e52db70d0ec,Trussi,Giacomo,Jakob,Zürich,Basel,1900,1905,5,69.0,Gemüsehändler,Comestibles | Filiale | Comestibles; Filiale,lebensmittel,vorname:gleich,2,schwach,0,1,2
+ebabd5e27d9,eb4b65f2c4a,Heidlauff,Paul,Paul,Pratteln,Basel,1901,1907,6,7.8,vormals C. Trampler | vorm. C. Trampler,,,vorname:gleich,2,schwach,1,1,3
+e511f5aae67,e3654f174e8,Spørry,Jean,Jean,Flums,Lausanne,1901,1907,6,211.6,,cordonnier,handwerk,vorname:gleich,2,schwach,1,0,5
+ed2ca94d346,e796c6f7568,Dové,Eduard,Eduard,Menziken,Pfeffikon,1902,1904,2,1.3,Gasthof z. Sternen,,gast,vorname:gleich+nachbarort,2,schwach,1,1,6
+eaee421f2ac,ea9b4042f26,Waltisbühl,Anton,Anton,Basel,Zürich,1903,1909,6,69.0,,Wohnung | Spezialgeschäft für Bureau-Einrichtungen. Remington - Schreibmaschine,,vorname:gleich,2,schwach,1,0,8
+e12689b7253,eb3319d621c,Kloster,Scholastika,Scholastika,Rorschach,Tübach,1904,1908,4,3.2,,,,vorname:gleich+nachbarort,2,schwach,1,1,5
+e1d40c3a6bf,e7dc6819fb2,Longoni,Paul,Paul,Herisau,Kreuzlingen,1904,1910,6,29.9,Baugeschäft,Löwenhof,bau,vorname:gleich,2,schwach,1,1,7
+e694dca6cf2,e3b8b2d5f3a,Schlicht,Karl,Karl,St. Gallen,Zürich,1904,1910,6,69.5,Schreibmaschinen und Bureauartikel,,industrie,vorname:gleich,2,schwach,1,1,4
+ebd6b419eba,e82cdab4a64,Agostinetti,Giuseppe,Giuseppe,Ligornetto,Bellinzona,1905,1906,1,38.9,negoziante,Ristorante Paradiso,,vorname:gleich,2,schwach,1,1,3
+e281cbf87bb,e04bf5add3a,Pedroni,Lodovico,Louis,Muralto,Lausanne,1905,1907,2,168.0,Lodovico | Lodovico; possidente,maçon,,vorname:gleich,2,schwach,1,0,8
+e896a08eac2,e422693fa1f,Stinnes,Hugo,Hugo,Basel,Zürich,1905,1909,4,69.0,,G. m. b. H; Kohlengrosshg | G. m. b. H; Kohlengrosshg; z. Schwarzhorn | G. m. b. H; Kohlengrosshandlung; z. Schwarzhorn ,handel,vorname:gleich,2,schwach,1,0,2
+e963d2708c0,ef28b6e8543,Bebler,Henri,Henri,Basel,Waldenburg,1906,1907,1,20.5,Conditor,Teigwarenfabrik,lebensmittel,vorname:gleich,2,schwach,1,1,6
+ef0699f1e73,e837444560a,Mambretti,Giacomo,Giacomo,Lugano,Chiasso,1906,1909,3,20.1,calzoleria,« Scarpe e articoli da viaggio »,,vorname:gleich,2,schwach,1,1,4
+e1b890da7bd,e09a9a0b015,Reusche,Hermann,Hermann,Basel,Zürich,1906,1909,3,69.0,,Genfer-Bureau | Kaufmann,handel,vorname:gleich,2,schwach,1,0,3
+efe86c39997,eca48e44ad5,Ansermier,Louis,Louis,Penthaz,Genève,1907,1911,4,52.5,Charron,"r. de la Prairie, 15 | r. de la Prairie",handwerk,vorname:gleich,2,schwach,0,0,9
+e27515b3fb4,eba1fa4ae01,Antoine,Jules,Jules,Leysin,Genève,1907,1912,5,69.8,Pharmacien,pharm; villa RiveReine; Chamblandes,medizin,vorname:gleich,2,schwach,0,1,8
+ea95a08dd34,edc4a519a9f,Audouin,Fernand,Fernand,Lausanne,Genève,1907,1911,4,55.7,commis,La Forézienne » | «La Forézienne » | «LaForézienne»,handel,vorname:gleich,2,schwach,0,0,2
+e6844a6853b,e05ec2bf1f5,Augsbourg,Louis,Louis,Chavannes-sur-Moudon,Couvet,1907,1912,5,32.7,,fromages,lebensmittel,vorname:gleich,2,schwach,0,1,6
+e3a2d6f52bc,e74a676efc5,Bertola,Jean,Giovanni,Lausanne,Vacallo,1907,1909,2,196.9,maçon,ingegnere,,vorname:gleich,2,schwach,0,1,6
+e31128cc275,e4a7ed93aa7,Bugnard,Edmond,Edmond,Savigny,Dompierre (VD),1907,1908,1,,Aubergistes,,,vorname:gleich,2,schwach,0,1,2
+ed0cdd6e7a5,ed5995dea14,Catto,Jean,Eredi fu Giovanni,Lausanne,Bellinzona,1907,1909,2,183.2,maçon,Eredi fu Giovanni; materiale da costruzione con segheria,,vorname:gleich,2,schwach,0,1,9
+ee096851d9d,ee425d355c5,Cosandier,Charles,Charles,Lausanne,Genève,1907,1911,4,55.7,nég.,huissier | huissier; r,,vorname:gleich,2,schwach,0,0,7
+e3e17fccbb6,e060acc8853,Delarageaz,Henri,Henri,Mont-la-Ville,Préverenges,1907,1911,4,17.1,Instituteurs,,bildung,vorname:gleich,2,schwach,0,1,6
+e467e27cfdc,ed9bd681c7d,Derigo,Emmanuel-R,Emmanuel,Lausanne,Genève,1907,1911,4,55.7,vitrier,vitrerie; encadrements; Il,handwerk,vorname:gleich,2,schwach,0,0,2
+e1dc4323484,e4f37ba204a,Foscale,Antoine,Antoine,Lutry,Sion,1907,1911,4,59.8,Municipaux | Agriculteur | Justice de paix,président du tribun; de Lavaux; téléph. privé | président du tribun. deLavaux; téléph. privé,land,vorname:gleich,2,schwach,0,0,4
+e4d0c2d4eb0,eb365a556c6,Georges,J.-Louis,Louis,Chigny,Bern,1907,1910,3,84.3,Vigneron,Wohnung; i. Fa. Gebr. Georges | Wohnung; i. Fa. Gehr. Georges,land,vorname:gleich,2,schwach,0,1,9
+e605e4f0bf7,e57cba44ab6,Gossin,Albert,Albert,Lausanne,Reconvilier,1907,1912,5,87.4,charpentier,notaire,recht,vorname:gleich,2,schwach,0,1,2
+ed6110b48c1,eb2c7a3f809,Leibzig,Henri,Henri,Lausanne,Châtel-sur-Montsalvens,1907,1911,4,34.9,typo,imprimeur; en Fossiaux,,vorname:gleich,2,schwach,0,0,3
+eb58b34e571,ed11a23097e,Mainardi,Joseph,Joseph,Saint-Sulpice (VD),Renens (VD),1907,1912,5,,Sable (carrières de),voiturier,verkehr,vorname:gleich,2,schwach,0,1,3
+e7617e31a4b,e17915644f7,Puenzieux,Henri-Rodolphe,Daniel Henri Joh,Orbe,Zürich,1907,1912,5,165.9,,"Nacht v. Jb. Gut; Konditorei n. Bäckerei | Konditorei u. Bäckerei | Konditoreien, Pasteten- u. Zuckerbäckereien. | Kondi",lebensmittel,vorname:gleich,2,schwach,0,1,8
+e677f88528b,e0d4a8b869d,Raquin,Louis,Louis Jean,Lausanne,Baden,1907,1910,3,158.1,electric.,Zeichner,industrie,vorname:gleich,2,schwach,0,0,2
+eef2ddf1a4c,e06f13c44ef,Risso,Pierre,Pierre,Prilly,Genève,1907,1913,6,,Voituriers,charretier; Mailey,verkehr,vorname:gleich,2,schwach,0,1,7
+e481a284456,ee00b747fc4,Rychen,Jean,Jean,Allaman,Basel,1907,1911,4,149.1,Fromages,Sandlieferant,lebensmittel,vorname:gleich,2,schwach,0,1,3
+ea6e1ad6871,e0e4846bccf,Schachenmann,Hans,Hans,Lausanne,Basel,1907,1911,4,130.0,mécan.,Elektrotechniker,industrie,vorname:gleich,2,schwach,0,1,7
+ea42d0379c7,ec218753941,Schwendy,Charles,Charles,Leysin,Sembrancher,1907,1912,5,31.5,,café-restaurant des Tours d’Aï,gast,vorname:gleich,2,schwach,0,0,3
+ee2277c4ff1,ee832067f66,Strong,Georges,Georges-T.,La Tour-de-Peilz,Genève,1907,1913,6,62.6,Musique (compositeur de),Georges-T,bildung,vorname:gleich,2,schwach,0,1,3
+eb98bcc3b98,ed936d0518d,Tapernoux,Samuel,Samuel,Yverdon,Genève,1907,1913,6,70.9,,représentant de commerce,handel,vorname:gleich,2,schwach,0,1,4
+efceff7d07c,ed95cfb74e0,Bettin,Henri,Henri,Balterswil,Bière,1908,1912,4,222.1,,,,vorname:gleich,2,schwach,1,1,2
+e8c05233086,e213486c4ff,Corminbœuf,Arsène,Arsène,Bulle,Gland,1908,1911,3,64.1,liquoriste,buffet de la lare | buffet de Ia Gare,verkehr,vorname:gleich,2,schwach,1,1,8
+eefbb9a429b,e8eecc196ee,Dahinger,Felix,Felix,Arbon,Rorschach,1908,1910,2,6.6,z. Bellevue,zur Schifferstube,verkehr,vorname:gleich,2,schwach,1,1,3
+ebdf6625730,eac7da42db2,Jürgensen,Hans,Hans,Herisau,Zürich,1908,1909,1,59.6,Dr.,Villa Bergrose,,vorname:gleich,2,schwach,1,0,7
+ea035335578,ebac30d3e12,Eilboten,Rote Radler,grüne Radler,Basel,Zürich,1909,1911,2,69.0,,Zürcher | grüne Radler,,vorname:gleich,2,schwach,1,1,2
+e02f4c7974d,e920b4007ed,Farinelli,Agostino,Italo fu Agostino,Bellinzona,Giubiasco,1909,1913,4,3.9,,Italo fu Agostino,,vorname:gleich+nachbarort,2,schwach,0,0,10
+ef423a9162b,e80d63b4a4b,Fumagalli,Luigi,Luigi,Ludiano,Semione,1909,1913,4,1.6,,,,vorname:gleich+nachbarort,2,schwach,0,1,7
+ef3c9d58179,e75cb0e77d1,Giubbini,Henri,Enrico,Oerlikon,Zürich,1909,1914,5,4.9,Hotel u. Restaurant Sternen,Reisender,gast,vorname:gleich+nachbarort,2,schwach,1,0,5
+e275eb52ae8,efd2721d0d6,Guglielmetti,Luigi,Luigi,Lugano,Zürich,1909,1914,5,158.4,salsamentario,Assistent,,vorname:gleich,2,schwach,0,0,7
+ecd48e0a0be,e70ac2cd267,Malè,Luigi,dott. Luigi,Bellinzona,Cabbio,1909,1913,4,34.7,dr. | dott,dott. Luigi; alla Chiossa,,vorname:gleich,2,schwach,0,0,3
+e3b7d117bbe,ea1a8fe34c0,Vogtherr,Otto,Otto,Lugano,Genève,1909,1912,3,219.3,,2,,vorname:gleich,2,schwach,0,1,2
+eee89fe2d7c,ef98cfa4037,Wæffler,Jean,Hans,La Chaux-de-Fonds,Basel,1909,1911,2,75.1,Voituriers | voiturier,,verkehr,vorname:gleich,2,schwach,0,1,4
+e712f9dc22e,e067bc9fc57,Danieli,Karl,Karl,Baden,Zürich,1910,1914,4,17.1,Holzmeister,Holzreisender,,vorname:gleich,2,schwach,0,0,5
+eddc651109e,e86f421bcb2,Danz,Joh. Friedr,Friedr,Baden,Zürich,1910,1914,4,17.1,Elektrotechniker,Magazinier,handel,vorname:gleich,2,schwach,0,0,9
+e897ea33ebc,e13c86a6edd,Eschke,Carl Ernst,Carl,Baden,Zürich,1910,1914,4,17.1,Commis,Tapeten-Wandstoffe,handel,vorname:gleich,2,schwach,0,0,2
+e4ad6167c1f,ea2d757bc3a,Gallatin,Fritz,Fritz,Luchsingen,Hätzingen,1910,1911,1,0.7,,,,vorname:gleich+nachbarort,2,schwach,1,1,4
+e5b4b473327,eb515525ce1,Häberle,Karl,Karl,Baden,Zürich,1910,1914,4,17.1,Schuhgeschäft,Schlossermeister. | Schlossermeister,handwerk,vorname:gleich,2,schwach,0,0,9
+e9843b7cdd7,e71fecf4d15,Häberle,Ernst Walter,Ernst Jos,Baden,Zürich,1910,1914,4,17.1,Techniker,Schlosser,handwerk,vorname:gleich,2,schwach,0,0,9
+e489c3f5175,efbc4392330,Luraschi,Luigi,Luigi,Baden,Zürich,1910,1914,4,17.1,Giesser,Handlanger,,vorname:gleich,2,schwach,0,0,6
+e904045ecea,ece1bc4aac7,Poli,Franz,Francesco,Wettingen,Zürich,1910,1914,4,14.4,Bäcker | Schlosser,Maurer,lebensmittel,vorname:gleich,2,schwach,0,0,10
+e4063c5acf2,e2396818827,Schöttli,Konrad,Konrad,Wettingen,Zürich,1910,1914,4,14.4,,Ausläufer,,vorname:gleich,2,schwach,0,0,8
+eef80b9742d,ef6565b69bf,Spelty,Alexander,Alexander,Glarus,Netstal,1910,1912,2,2.3,,,,vorname:gleich+nachbarort,2,schwach,0,1,4
+ea7e89d9794,ef69e0b7b83,Caspari,Georges,Georges L,Lausanne,Zürich,1911,1914,3,166.8,Dr-médecin-chirurgien; voies urinaires; L’Estérel,Kellner,medizin,vorname:gleich,2,schwach,0,0,9
+ee8ca352bcc,ed7b3c81513,Casthélaz,Marc,Marc,Genève,Vandoeuvres,1911,1912,1,6.1,villa «Vérandah»; GrangeCanal,Les Eglantines » | Les Eglanfines »,,vorname:gleich,2,schwach,1,0,4
+eae234d44a1,ef5dfbf2544,Hoppelet,Hans,Hans,Wädenswil,Zürich,1911,1912,1,23.4,Postburean,Dr.,,vorname:gleich,2,schwach,0,1,2
+eb8f02da97d,e2994e02a8e,Lesa,Giuseppe,Giuseppe,Luzern,Locarno,1912,1914,2,105.9,negoziante . ,ristorante Belvedere,,vorname:gleich,2,schwach,1,1,2
+e6c0340e378,ecd9f82818f,Saenger,Otto,Otto,Basel,Zürich,1912,1914,2,69.0,,,,vorname:gleich,2,schwach,1,0,9
+ea1059d7ee6,ea17164d927,Sohrmann,Julius,Giulio,Brügg,Chiasso,1912,1913,1,196.4,Fabrik elektrischer Apparate,,industrie,vorname:gleich,2,schwach,1,1,2

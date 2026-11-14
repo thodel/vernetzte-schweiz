@@ -1,6 +1,6 @@
 PY ?= python3
 
-.PHONY: ref ingest link entities hls wikidata site serve test
+.PHONY: ref ingest link entities wanderungen hls wikidata site serve test
 ref:
 	$(PY) scripts/ref_places.py
 ingest:
@@ -14,6 +14,8 @@ entities:
 	$(PY) scripts/cluster.py
 	$(PY) scripts/authority.py link
 	$(PY) scripts/measure_clusters.py
+wanderungen:
+	$(PY) scripts/migration.py
 hls:
 	$(PY) scripts/hls_coverage.py
 wikidata:
@@ -24,6 +26,7 @@ site:
 	$(PY) scripts/build_maps.py
 	$(PY) scripts/build_entries.py
 	$(PY) scripts/build_hls.py
+	$(PY) scripts/migration.py site
 serve: site
 	cd site && python3 -m http.server 8000
 test:

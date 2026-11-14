@@ -224,6 +224,17 @@ Prüfung für jede Person sichtbar, ohne Kandidaten als Identifikation auszugebe
 - **Ziel:** Eine HLS-Person mit Telefon ist in zwei Klicks bei ihrem Eintrag und dem
   Seitenbild. Wer fehlt, sieht warum.
 
+**M10 — Wanderungen (Versuch).** Begonnen 14.11.2026, Seite `#/karten?v=wanderungen`,
+[docs/wanderungen.md](docs/wanderungen.md). Wer verschwindet an einem Ort und erscheint kurz
+danach erstmals an einem anderen (gleicher Familienname, verträglicher Vorname, Beruf,
+Seltenheit, eindeutig in beide Richtungen)? Fehler der Ortszuweisung aus M1 (gleiche Nummer,
+Nachbarzeilen vom alten Ort, Nachbar im Alphabet, Strasse des alten Orts) werden
+ausgeschlossen. Stand: 290 Kandidaten (45 stark, 167 mittel, 78 schwach), Karte mit Linien
+und Saldo, nach Berufsklasse, Entfernung und Jahr.
+
+- **Offen:** Messung (40 Paare je Stufe am gedruckten Text), Sprachwechsel als Gegenbeleg,
+  mehrdeutige Paare über Allianzname und Heimatort, Firmen mit neuem Sitz.
+
 ## Offene Fragen
 
 1. ~~Lizenz der Daten~~ und 2. ~~Verknüpfungen ohne Lizenz~~: entschieden 11.11.2026. Die

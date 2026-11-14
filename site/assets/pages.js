@@ -533,11 +533,114 @@
   const present = (e, a, b, src) => (src !== "a" && e[1] && e[1] <= b && e[2] >= a) || (src !== "t" && e[3] && e[3] <= b && e[4] >= a);
   const rowIn = (r, a, b, src, off = 0) => (src === "ta" || (src === "t" ? r[off + 2] === 0 : r[off + 2] === 1)) && r[off] <= b && r[off + 1] >= a;
 
+  const mapTabs = v => el("nav", { class: "tabs" }, ...[["telefon", t.mp_tab_phone], ["berufe", t.mp_tab_occ], ["namen", t.mp_tab_names], ["wanderungen", t.mw_tab]].map(([k, txt]) =>
+    el("a", { href: `#/karten?v=${k}`, class: v === k ? "on" : "", "aria-current": v === k ? "page" : "false" }, txt)));
+
+  // ── Wanderungen (M10, experimentell; scripts/migration.py) ──────────────
+  // moves: [von, nach, letztes Jahr alt, erstes Jahr neu, Klasse, Stufe 0–2, km, Name, Beruf alt, Beruf neu, entity alt, entity neu, beide vorliegend]
+  let migData;
+  async function wanderungen(params) {
+    const D = migData ??= await get("data/wanderungen.json.gz");
+    const set = upd => {
+      const p = new URLSearchParams(params);
+      for (const [k, val] of Object.entries(upd)) p.set(k, val);
+      location.replace(`#/karten?${p}`);
+    };
+    const a = +(params.get("a") || 1860), b = +(params.get("b") || 1914);
+    const tier = +(params.get("t") ?? 1), cls = params.get("c") || "alle", dir = params.get("d") || "linien";
+    const near = params.get("n") || "ohne", seen = params.get("g") || "alle";
+    const tierNames = [t.mw_tier_0, t.mw_tier_1, t.mw_tier_2];
+    const clsName = i => i < 0 ? t.mw_no_class : (t[`occ_${D.classes[i][0]}`] || D.classes[i][1]);
+    const moves = D.moves.filter(m => m[3] >= a && m[3] <= b && m[5] <= tier && (cls === "alle" || m[4] === +cls)
+      && (near === "mit" || m[6] >= 5) && (seen === "alle" || m[12] === 1));
+    const box = el("div", { class: "map tall" });
+    const side = el("div", { class: "map-side" });
+    const ctl = el("div", { class: "controls" });
+    view.replaceChildren(el("h1", {}, t.mp_h), mapTabs("wanderungen"), el("p", { class: "intro" }, t.mw_p), ctl, box, side,
+      el("p", { class: "sub note" }, t.mw_note, " ", link("https://github.com/thodel/vernetzte-schweiz/blob/main/docs/wanderungen.md", t.mw_doc)));
+    ctl.append(rangeSlider(1860, 1914, a, b, (x, y) => set({ a: x, b: y })),
+      select([[0, tierNames[0]], [1, `${tierNames[0]} + ${tierNames[1]}`], [2, t.mp_all]], tier, t.mw_tier),
+      select([["alle", t.mp_all], ...D.classes.map((_, i) => [i, clsName(i)])], cls, t.mp_class),
+      select([["linien", t.mw_view_lines], ["saldo", t.mw_view_net]], dir, t.mp_metric),
+      select([["ohne", t.mw_near_without], ["mit", t.mw_near_with]], near, t.mw_near),
+      select([["alle", t.mw_seen_all], ["ja", t.mw_seen_yes]], seen, t.mw_seen));
+    ctl.querySelectorAll("select").forEach((s, i) => s.addEventListener("change", () => set({ [["t", "c", "d", "n", "g"][i]]: s.value })));
+
+    let L, mp;
+    try { [L, mp] = await chMap(box); } catch { box.replaceChildren(el("p", { class: "muted" }, t.pg_map_error)); return; }
+    const P = D.places;
+    const flows = new Map();
+    for (const m of moves) {
+      const k = `${m[0]}>${m[1]}`;
+      if (!flows.has(k)) flows.set(k, []);
+      flows.get(k).push(m);
+    }
+    if (dir === "linien") {
+      // Bogen von alt nach neu (rechts gekrümmt, damit Hin und Zurück getrennt bleiben), Punkt am Ziel
+      const arc = (p, q) => {
+        const [la1, lo1] = [P[p][2], P[p][3]], [la2, lo2] = [P[q][2], P[q][3]];
+        const mx = (la1 + la2) / 2 + (lo2 - lo1) * 0.15, my = (lo1 + lo2) / 2 - (la2 - la1) * 0.15;
+        return Array.from({ length: 17 }, (_, i) => { const u = i / 16; return [(1 - u) ** 2 * la1 + 2 * (1 - u) * u * mx + u * u * la2, (1 - u) ** 2 * lo1 + 2 * (1 - u) * u * my + u * u * lo2]; });
+      };
+      const layer = [];
+      for (const [k, ms] of [...flows].sort((x, y) => x[1].length - y[1].length)) {
+        const [p, q] = k.split(">").map(Number);
+        const tip = `${P[p][0]} → ${P[q][0]}: ${ms.length === 1 ? ms[0][7] : t.mw_persons.replace("{n}", n(ms.length))}`;
+        layer.push(L.polyline(arc(p, q), { color: "#175b5b", weight: 1 + Math.sqrt(ms.length) * 1.5, opacity: 0.55 }).bindTooltip(tip));
+        layer.push(L.circleMarker([P[q][2], P[q][3]], { radius: 2 + Math.sqrt(ms.length), color: "#d21938", weight: 1, fillOpacity: 0.8 }).bindTooltip(tip));
+      }
+      L.layerGroup(layer).addTo(mp);
+    } else {
+      const net = new Map(), gross = new Map();
+      for (const m of moves) {
+        net.set(m[0], (net.get(m[0]) || 0) - 1); net.set(m[1], (net.get(m[1]) || 0) + 1);
+        gross.set(m[0], (gross.get(m[0]) || 0) + 1); gross.set(m[1], (gross.get(m[1]) || 0) + 1);
+      }
+      L.layerGroup([...gross].map(([p, g]) => {
+        const v = net.get(p) || 0;
+        return L.circleMarker([P[p][2], P[p][3]], { radius: Math.max(3, Math.sqrt(g) * 2.2), weight: 1, fillOpacity: 0.55,
+          color: v > 0 ? "#175b5b" : v < 0 ? "#d21938" : "#888" })
+          .bindTooltip(t.mw_net_tip.replace("{g}", P[p][0]).replace("{in}", n((g + v) / 2)).replace("{out}", n((g - v) / 2)));
+      })).addTo(mp);
+    }
+
+    // Seitenleiste: Zahl, nach Berufsklasse, nach Entfernung, häufigste Ortspaare, Fälle
+    const hbars = rows => {
+      const max = Math.max(1, ...rows.map(r => r[1]));
+      return el("div", { class: "hbars" }, ...rows.map(([lab, c, extra]) => el("div", { class: "hbar" },
+        el("span", { class: "lab" }, lab), el("span", { class: "track" }, el("span", { class: "fill", style: `width:${c / max * 100}%` })),
+        el("span", { class: "num" }, n(c), extra ? el("span", { class: "muted" }, ` · ${extra}`) : ""))));
+    };
+    const med = xs => { const s2 = [...xs].sort((x, y) => x - y); return s2.length ? s2[Math.floor((s2.length - 1) / 2)] : 0; };
+    const byCls = new Map();
+    for (const m of moves) { if (!byCls.has(m[4])) byCls.set(m[4], []); byCls.get(m[4]).push(m[6]); }
+    const bins = [[0, 5], [5, 20], [20, 50], [50, 100], [100, 999]];
+    const span = a === b ? String(a) : `${a}–${b}`;
+    side.append(el("p", { class: "count" }, t.mw_count.replace("{n}", n(moves.length)).replace("{y}", span).replace("{f}", n(flows.size))),
+      el("h2", {}, t.mw_by_class),
+      hbars([...byCls].sort((x, y) => y[1].length - x[1].length).map(([c, ks]) => [clsName(c), ks.length, t.mw_median_km.replace("{k}", n(Math.round(med(ks))))])),
+      el("h2", {}, t.mw_by_km),
+      hbars(bins.map(([x, y]) => [y > 500 ? `≥ ${x} km` : `${x}–${y} km`, moves.filter(m => m[6] >= x && m[6] < y).length])),
+      el("h2", {}, t.mw_by_year),
+      yearBars(Array.from({ length: 55 }, (_, i) => moves.filter(m => m[3] === 1860 + i).length), 1860, 1914, null, y => set({ a: y, b: y }), [a, b]),
+      el("h2", {}, t.mw_top_flows),
+      hbars([...flows].sort((x, y) => y[1].length - x[1].length).slice(0, 12).map(([k, ms]) => {
+        const [p, q] = k.split(">").map(Number);
+        return [`${P[p][0]} → ${P[q][0]}`, ms.length];
+      })),
+      el("h2", {}, t.mw_cases),
+      el("ul", { class: "hitlist" }, ...moves.slice().sort((x, y) => x[5] - y[5] || x[3] - y[3]).slice(0, 300).map(m => el("li", {},
+        el("b", {}, m[7]), el("span", { class: `pill mw-tier-${m[5]}` }, tierNames[m[5]]),
+        el("span", { class: "meta" }, link(`#/e/${m[10]}`, `${P[m[0]][0]} ${m[2]}`), " → ", link(`#/e/${m[11]}`, `${P[m[1]][0]} ${m[3]}`), ` · ${n(Math.round(m[6]))} km`),
+        el("span", { class: "occ" }, m[8] === m[9] || !m[9] ? m[8] : `${m[8] || "–"} → ${m[9]}`)))),
+      moves.length > 300 ? el("p", { class: "muted" }, t.mw_more.replace("{n}", n(moves.length - 300))) : "");
+  }
+
   async function karten(params) {
     const v = params.get("v") || "telefon";
+    if (v === "wanderungen") return wanderungen(params);
     const D = await maps();
-    const tabs = el("nav", { class: "tabs" }, ...[["telefon", t.mp_tab_phone], ["berufe", t.mp_tab_occ], ["namen", t.mp_tab_names]].map(([k, txt]) =>
-      el("a", { href: `#/karten?v=${k}`, class: v === k ? "on" : "", "aria-current": v === k ? "page" : "false" }, txt)));
+    const tabs = mapTabs(v);
     const set = upd => {
       const p = new URLSearchParams(params);
       for (const [k, val] of Object.entries(upd)) p.set(k, val);

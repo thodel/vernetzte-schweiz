@@ -8,7 +8,7 @@ Seite: https://thodel.github.io/vernetzte-schweiz/
 
 Plan, Entscheide und offene Fragen: [PLAN.md](PLAN.md) · Datenvertrag:
 [docs/datenvertrag.md](docs/datenvertrag.md) · Verknüpfung:
-[docs/verknuepfung.md](docs/verknuepfung.md), [docs/einheiten.md](docs/einheiten.md) · Seite: [docs/seite.md](docs/seite.md), [docs/karten.md](docs/karten.md), [docs/suche.md](docs/suche.md), [docs/volltext.md](docs/volltext.md)
+[docs/verknuepfung.md](docs/verknuepfung.md), [docs/einheiten.md](docs/einheiten.md) · Seite: [docs/seite.md](docs/seite.md), [docs/karten.md](docs/karten.md), [docs/suche.md](docs/suche.md), [docs/volltext.md](docs/volltext.md) · Wanderungen (Versuch): [docs/wanderungen.md](docs/wanderungen.md)
 
 ## Quellen
 
@@ -28,6 +28,7 @@ make ref      # Ortsregister (BFS-Gemeinden 1914, Ortschaften) → data/ref/
 make ingest   # Quellen am gepinnten Commit lesen, Orte auflösen, zerlegen → data/norm/
 make link     # Telefonbuch ↔ Adressbuch verknüpfen und messen → links/, data/norm/
 make entities # Einheiten über die Jahre bündeln, Normdaten, Messung → links/, data/norm/
+make wanderungen # Wer zieht wohin? Kandidaten (Versuch) → links/migration.csv
 make wikidata # Kandidaten für den Normdaten-Abgleich neu holen → data/ref/
 make site     # Kennzahlen, Suchindex, Einheiten-, Adress- und Ortsseiten → site/data/
 make serve    # Seite lokal auf http://localhost:8000

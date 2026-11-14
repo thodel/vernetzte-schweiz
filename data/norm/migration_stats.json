@@ -1,0 +1,19 @@
+{
+ "kandidaten_vor_eindeutigkeit": 29179,
+ "ortszuweisung:gleiche_nummer": 969,
+ "mehrdeutig": 24394,
+ "zu_schwach": 2703,
+ "ortszuweisung:nachbarzeilen_vom_alten_ort": 512,
+ "ortszuweisung:ähnlicher_ortsname": 216,
+ "ortszuweisung:strasse_des_alten_orts": 68,
+ "mittel": 167,
+ "beide_vorliegend": 81,
+ "ortszuweisung:gleicher_betrieb": 16,
+ "ortszuweisung:gleiche_adresse": 11,
+ "schwach": 78,
+ "stark": 45,
+ "personen_einheiten": 446721,
+ "geprueft": 296750,
+ "später_am_alten_ort": 19916,
+ "vorher_am_neuen_ort": 41029
+}

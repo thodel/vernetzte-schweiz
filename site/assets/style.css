@@ -326,3 +326,15 @@ table.hl-groups td.barcell { width: 55%; }
 .langs a { padding: 2px 7px; color: var(--muted); text-decoration: none; border: 1px solid transparent; border-radius: 3px; }
 .langs a:hover { color: var(--ink); border-color: var(--border); }
 .langs a[aria-current] { color: var(--ink); font-weight: 600; border-color: var(--cat-source); background: var(--cat-source-pale); }
+
+/* Wanderungen (M10): waagrechte Balken in der Seitenleiste */
+.hbars { display: grid; gap: 4px; margin: 0 0 16px; }
+.hbar { display: grid; grid-template-columns: minmax(8rem, 14rem) 1fr auto; gap: 8px; align-items: center; font-size: 14px; }
+.hbar .lab { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.hbar .track { background: var(--border); height: 10px; border-radius: 2px; min-width: 40px; }
+.hbar .fill { display: block; height: 100%; background: #175b5b; border-radius: 2px; }
+.hbar .num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.pill.mw-tier-0 { background: #175b5b; color: #fff; }
+.pill.mw-tier-1 { background: #cfe3e3; color: #123; }
+.pill.mw-tier-2 { background: #eee; color: #333; }
+@media (max-width: 600px) { .hbar { grid-template-columns: 7rem 1fr auto; } }
