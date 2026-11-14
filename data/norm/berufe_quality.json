@@ -1,0 +1,57 @@
+{
+ "zuordnung": {
+  "alle": {
+   "n": 80,
+   "richtig": 61,
+   "falsch": 12,
+   "unklar": 7,
+   "precision_low": 0.762,
+   "precision_high": 0.85
+  }
+ },
+ "gewinn": {
+  "alle": {
+   "n": 60,
+   "richtig": 47,
+   "falsch": 10,
+   "unklar": 3,
+   "precision_low": 0.783,
+   "precision_high": 0.833
+  },
+  "Metzger": {
+   "n": 12,
+   "richtig": 8,
+   "falsch": 3,
+   "unklar": 1,
+   "precision_low": 0.667,
+   "precision_high": 0.75
+  },
+  "Uhrmacher": {
+   "n": 12,
+   "richtig": 11,
+   "unklar": 1,
+   "precision_low": 0.917,
+   "precision_high": 1.0
+  },
+  "boulanger": {
+   "n": 12,
+   "richtig": 12,
+   "precision_low": 1.0,
+   "precision_high": 1.0
+  },
+  "instituteur": {
+   "n": 12,
+   "richtig": 12,
+   "precision_low": 1.0,
+   "precision_high": 1.0
+  },
+  "Schreiner": {
+   "n": 12,
+   "falsch": 7,
+   "richtig": 4,
+   "unklar": 1,
+   "precision_low": 0.333,
+   "precision_high": 0.417
+  }
+ }
+}

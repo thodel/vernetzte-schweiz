@@ -1,0 +1,81 @@
+nr,frage,suchwort,beruf,entity_id,name,gemeinde,berufsfeld,urteil,begruendung
+001,zuordnung,,Zimmermann,e3f9b3aa10e,"Suter, Jb",Zürich,Zimmermann,richtig,
+002,zuordnung,,"Modistin, Hutmacher",e45e051cba6,"Rast, Cath",Zürich,Modiste,richtig,
+003,zuordnung,,"Privat, Rentier",ef21f407516,"Blanc, Gustave",Missy,Propriétaires,richtig,
+004,zuordnung,,Kunstmaler,ef8dfbc389c,"Spitz, Joh",Zürich,Glasgraveur,falsch,"Glasgraveur ist Kunsthandwerk, kein Kunstmaler (Muster «graveur»)"
+005,zuordnung,,Bäcker,ea3497836b8,"Soland, Heinrich",Aarau,Badanstalten | Konditoreien | Speisewirtschaften | Bäcker und Wirt,richtig,
+006,zuordnung,,"Knecht, Magd, Dienstbote",eaaf677f131,"Moret, Henriette",Lausanne,dom.,richtig,
+007,zuordnung,,Schreiner,ecd3771b01d,"Freimüller, Joh",Zürich,Parquetier,richtig,"Parquetier: Holzhandwerk, zur Schreinerei gezählt"
+008,zuordnung,,Notar,ed63d631038,Juge de Paix,Travers,Blanc; Alphonse; notaire,richtig,
+009,zuordnung,,Pension,ee1a6a85cfd,"Volz, A",Zürich,Pension,richtig,
+010,zuordnung,,Pension,e28a6769c99,"Graf, Jak",Zürich,Kosthaltereien und Pensionen.,richtig,
+011,zuordnung,,"Chauffeur, Garage",eae5960360e,"Dätwiler, Albert",Lausanne,"chauffeur, C. F. F.",falsch,"chauffeur C.F.F. ist Heizer der Bahn, kein Fahrer"
+012,zuordnung,,Bildhauer,ef842592ccf,"Dettinger, Emil",Zürich,Marmorist u. Wirt,unklar,"Marmorist: Marmorarbeiter, Bildhauer nur zum Teil"
+013,zuordnung,,Baumeister,e3dc33c34b4,"Eckert & Cie., Baugeschäft",Basel,Baugeschäft,richtig,
+014,zuordnung,,Metzger,ed20d31e169,"AEG Société Générale d'Electricité Bâle. Bureau de LAUSANNE Esc. Grand-Pont, 5. Moteurs électriques. Installation de lum",Lausanne,BOUCHERIES | Société Générale d'Electricité Bâle. Bureau de LAUSANNE | Société Générale d'Electricité Bâle,falsch,Rubrik «BOUCHERIES» aus der Nachbarzeile im Feld einer Elektrofirma
+015,zuordnung,,"Commis, Angestellter",ede52c46acb,Hofmann & Co.,Lenzburg,Commissionsgeschäft,falsch,Commissionsgeschäft ist kein Commis (Muster «commis»)
+016,zuordnung,,"Handlanger, Taglöhner",e1c2c9f4b8e,"Hitz, Fridolin",Ennetbaden,Fabrikarbeiter,falsch,Fabrikarbeiter ist kein Handlanger (Muster «arbeiter»)
+017,zuordnung,,Kaufmann,ef822ad6288,"Müller, Heinr",Zürich,Malermeister | Maler | Kaufmann,richtig,
+018,zuordnung,,Pension,ef43f0c022c,"Weiss, H.",Schweizersholz,Bad u. Pension z. Hirschen,richtig,
+019,zuordnung,,Schlosser,ee0ca86f499,"Duttweiler, Felix",Zürich,Schlosser,richtig,
+020,zuordnung,,Schlosser,e0fa5f8f53b,"Ackermann, Joh. Heinr",Zürich,Schlosser,richtig,
+021,zuordnung,,Metzger,eaac493fc15,"Geiger, Jak.",Zollikon,Metzger; Restaurant Rössli | Metzger; Rest. Rössli,richtig,
+022,zuordnung,,"Privat, Rentier",ead463cba52,"vonSpeyr, Alfred",Basel,Privatabonnemente,falsch,Privatabonnemente ist kein Rentier (Muster «privat»)
+023,zuordnung,,Müller,e0c63ebfd2a,"Dougoud, Louis",Rossens (FR),meunier; Champ Verney,richtig,
+024,zuordnung,,Bäcker,ec8d72f5a48,"Meyer, Rud.",Zürich,"Conditorei | Konditorei | Kondit | Konditoreien, Pasteten- u. Zuckerbäckereien.",unklar,"Konditorei, Zuckerbäckerei: Konditor, nicht Bäcker (Muster «bäck»)"
+025,zuordnung,,Buchhändler,e83395dc3e8,"Schitlowsky, Ch",Bern,(Firma „Akademischer Verlag f. sociale Wissenschaften“),unklar,"Verlag: Verleger, als Buchhändler gezählt"
+026,zuordnung,,Professor,eb302be28a5,Gasglühlicht-Aktiengesellschaft,Zürich,Auerlicht; Ausser Dienstzeit ist Nr. 7286; Direktor Hotz; Wohnung anzurufen,falsch,«Direktor» trifft «rektor» und gilt als Professor
+027,zuordnung,,"Privat, Rentier",ebc63c68a77,"Blanchard, André",Lausanne,anc. pasteur,richtig,anc. pasteur: im Ruhestand
+028,zuordnung,,Fabrikarbeiter,e462f1165d8,"Müller, Alfr",Zürich,Bahnarbeiter,falsch,Bahnarbeiter ist kein Fabrikarbeiter (Muster «arbeiter»)
+029,zuordnung,,"Vertreter, Agent",e927d8b2be9,"Guggenbühl, Heinrich",Zürich,Agentur u. Commission in Baumwolle,richtig,
+030,zuordnung,,Hotelier,ee5c8fdb3cc,"Seiler, Geschw.",Bönigen,Hôtel de la Gare,richtig,
+031,zuordnung,,Lehrer,e628d951a1a,"Aubort, Gustave",Mur (VD),Instituteur,richtig,
+032,zuordnung,,Schlosser,ea968712b2b,"Kuser, Carl",Zürich,Schlosser | Schlosserstr.,richtig,
+033,zuordnung,,"Knecht, Magd, Dienstbote",eaec141a50e,"Ackeret, Johann Jakob",Zürich,Portier,unklar,Portier: Hausdiener oder Hotelportier
+034,zuordnung,,Schneider,e92561c1b1e,"Peytrignet, A. U",Bern,Damenschneiderin,richtig,
+035,zuordnung,,"Weibel, Abwart",ecb9388376b,"Hardmeier, Aug",Zürich,Abwart,richtig,
+036,zuordnung,,Schlosser,e3fa6c93747,"Stilli, Abrah",Zürich,Schlosser,richtig,
+037,zuordnung,,Professor,ef9b664d3ff,"Herzen, Nicolas",Lausanne,droit | prof. de droit | professeur,richtig,
+038,zuordnung,,Lehrer,e96afc772e7,"Güttinger, Joh. Friedr",Zürich,Sek.-Lehrer,richtig,
+039,zuordnung,,Elektriker,e29e944666a,"Wild, Emil",Zürich,Elektrotechniker,richtig,
+040,zuordnung,,Näherin,e0db7c12a26,"Eismann, Maria",Aarau,Weissnäherinnen,richtig,
+041,zuordnung,,"Sattler, Tapezierer",e2b730ac6a3,"Kleinert, Gebr.",Aadorf,H. u. E; Sattler u. Tapezierer,richtig,
+042,zuordnung,,Tuchhändler,eab5c088d72,"* Wyler, J. & M., „Zur Berner Warenhalle“, Marktgasse 24 ☎ 179",Bern,"Modistinnen | Berner Warenhalle, Manufaktur- und Bettwarenhandlung",richtig,
+043,zuordnung,,Näherin,e9d249bdd45,"Blanc, Ida",Lausanne,lingère,richtig,
+044,zuordnung,,Schreiner,e74e2094212,"Schlaich, Joh. Gottl",Zürich,Schreiner,richtig,
+045,zuordnung,,"Privat, Rentier",ea3e3ea423b,"Schaffroth, Elisabeth",Lausanne,propr,richtig,
+046,zuordnung,,Techniker,ed1c4f01830,"Iseli, Jul. Ernst",Bern,Bautechniker,richtig,
+047,zuordnung,,Fürsprecher,ec3234332a6,"folli, Celestino",Sementina,Celestino; avvocato-notaio Sempach; Neuenkirch; EUR | Celestino; avvocato-notaio SßlTipaCh; Neuenkirch; E8R,richtig,
+048,zuordnung,,"Glätterin, Wäscherin",e91ac39c61e,"Rüegg, Heinr",Zürich,Färber,falsch,Färber ist nicht Glätterin oder Wäscherin (Muster «färber» in derselben Zeile)
+049,zuordnung,,Schneider,e33dc00c1f5,"Spilcke, Anna-L",Lausanne,m. couturière,richtig,
+050,zuordnung,,"Maschinist, Monteur",e28b62ec189,"Frei, Jak",Zürich,Maschinist,richtig,
+051,zuordnung,,"Knecht, Magd, Dienstbote",ebabbf5b0f0,"Baroni, Anna Elis",Zürich,Haushälterin,richtig,
+052,zuordnung,,Schneider,e5c09786a75,"Gugerli, Jac",Zürich,Schneider. | March.-Tailleur,richtig,
+053,zuordnung,,Telegraphist,efebb139392,"Brunner, Xaver",Laupersdorf,Ammann | Ammann; Gemeindestation | Ammann; Gemeindestation; mit Telegraphendienst,unklar,Ammann mit Telegraphendienst der Gemeindestation
+054,zuordnung,,Apotheker,e27f8e705ea,"Staubli, G.",Uster,Apotheke,richtig,
+055,zuordnung,,"Privat, Rentier",e79be428646,Pury,Neuchâtel,propriétaire,richtig,
+056,zuordnung,,Tuchhändler,e0c0bd98292,"Schneider, Sophie",Bern,Metzger u. Fleischbanken. | Merceriehandlung,richtig,
+057,zuordnung,,Schuhmacher,eb035975bb6,"Mehrens, F",Zürich,Schuhmacherfournituren und Schäftefabrikation,unklar,Schuhmacherbedarf und Schäftefabrikation: Zulieferer
+058,zuordnung,,Maurer,ee012c9c2b5,"Dürrenberger, Jakob",Basel,Maurergeselle,richtig,
+059,zuordnung,,Müller,e1a9b2cb638,"Hôtel zum Mohren, Müller-Zürcher",Hubersdorf,Müller-Zürcher,falsch,Müller ist hier Familienname (Müller-Zürcher)
+060,zuordnung,,"Privat, Rentier",e0298a845dd,"Cornaz, Henri",Missy,Propriétaires,richtig,
+061,zuordnung,,Kaufmann,edfb65c8c04,"Dreifuss, Emil",Aarau,Kaufmann,richtig,
+062,zuordnung,,Zimmermann,e8ef1f58a83,"Bösch, Ad",Zürich,Zimmerer,richtig,
+063,zuordnung,,"Student, Lehrling",eace5c4ab62,"Nonn, Karl",Zürich,Bildhauerlehrling,richtig,
+064,zuordnung,,Schuhmacher,e167d95c9d6,"Müller, Mart",Zürich,Schuhhandlungen.,unklar,"Schuhhandlung: Händler, als Schuhmacher gezählt"
+065,zuordnung,,Landwirt,e38e5c01d6f,"Hafner, Joh",Zürich,Landwirth,richtig,
+066,zuordnung,,Kaufmann,e32da5d9ae3,"Traphagen, J. F. Karl",Zürich,Kaufmann,richtig,
+067,zuordnung,,Schreiner,e0fef13d0f1,"Wecklin, Ernest",Payerne,Menuisier,richtig,
+068,zuordnung,,Schreiner,e8778f8edcc,"Obergfell, Gottl",Zürich,Schreiner,richtig,
+069,zuordnung,,Pension,e04c0ac7405,"Brunner, Friedr",Zürich,Pensionshalter,richtig,
+070,zuordnung,,Architekt,e7af859dc4a,"Lutstorf, Otto",Bern,Architekt,richtig,
+071,zuordnung,,Baumeister,e40f281db06,"Leimgrübler, Robert",Unteriberg,Baugeschäft,richtig,
+072,zuordnung,,"Handlanger, Taglöhner",e18854d737e,"Hablützel, Jac",Zürich,Erdarbeiter,richtig,
+073,zuordnung,,Buchhändler,ef4384d21aa,"Baumgartner, Jos",Zürich,Eilgutexpediteur,falsch,Eilgutexpediteur trifft «editeur» und gilt als Buchhändler
+074,zuordnung,,Spezierer,e26290431af,"Boillat, Jules",Tramelan-Dessus,comestibles et boucherie,richtig,comestibles
+075,zuordnung,,Uhrmacher,e3ba0d5cc43,"Buffat, Eugène",La Chaux-de-Fonds,fabr. d'horlogerie,richtig,fabrique d'horlogerie: Uhrenmacherei
+076,zuordnung,,Techniker,e613b87fe2e,"Matanowitsch, Mark",Zürich,Techniker,richtig,
+077,zuordnung,,"Privat, Rentier",e38c60a100b,"Briner, Wilhelmine",Baden,Privat,richtig,
+078,zuordnung,,Postbeamter,ed9786aa697,"Grob, Christ Walter",Zürich,Postcommis,richtig,
+079,zuordnung,,Fabrikarbeiter,e6f7c218fdd,"Engeli, Georg",Zürich,Telephonarbeiter,falsch,Telephonarbeiter ist kein Fabrikarbeiter (Muster «arbeiter»)
+080,zuordnung,,Mechaniker,e3be8616eb9,"Utiger, Jos.",Schaffhausen,mech. Schlosserei; Hinterbühl,richtig,

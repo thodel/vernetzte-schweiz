@@ -117,15 +117,68 @@ Liste trennt sie. Für die Übersetzung taugt nur die feine Liste.
 Alle Dateien entstehen im Pages-Workflow (`build_pages.py`, `build_maps.py`) und liegen
 nicht im Repo.
 
+## Messung
+
+Beurteilt von Claude, nicht von den Projektmitarbeitenden, nach dem ganzen Berufsfeld der
+Einheit ([scripts/measure_berufe.py](../scripts/measure_berufe.py)). Die Spanne zählt
+«unklar» einmal als falsch und einmal als richtig.
+
+**1. Zuordnung** (`data/review/berufe_zuordnung.csv`, Seed 20): 80 zufällige Paare aus
+Einheit und Beruf, gezogen aus allen 335 041 Zuordnungen. Frage: Nennt das Berufsfeld
+diesen Beruf?
+
+| n | richtig | unklar | falsch | Präzision |
+|---|---|---|---|---|
+| 80 | 61 | 7 | 12 | **76–85 %** |
+
+**2. Gewinn durch die Übersetzung** (`data/review/berufe_gewinn.csv`, Seed 21): für fünf
+Suchwörter je 12 Treffer, die nur die Übersetzung findet, nicht der Wortlaut. Das sieht,
+wer «Übersetzungen mitsuchen» einschaltet. Frage: Hat der Treffer den gesuchten Beruf?
+
+| Suchwort | Treffer nach Wortlaut | nur durch Übersetzung | n | richtig | unklar | falsch | Präzision |
+|---|---|---|---|---|---|---|---|
+| Metzger | 4 574 | 2 940 | 12 | 8 | 1 | 3 | 67–75 % |
+| Uhrmacher | 456 | 1 065 | 12 | 11 | 1 | 0 | 92–100 % |
+| boulanger | 1 003 | 3 718 | 12 | 12 | 0 | 0 | 100 % |
+| instituteur | 867 | 5 005 | 12 | 12 | 0 | 0 | 100 % |
+| Schreiner | 6 208 | 2 879 | 12 | 4 | 1 | 7 | 33–42 % |
+| **alle** | | | **60** | **47** | **3** | **10** | **78–83 %** |
+
+Die Zahl der Treffer nach Wortlaut und nur durch Übersetzung steht in
+`data/norm/berufe_gewinn_umfang.json`. Die Treffer nach Wortlaut sind nicht geprüft.
+
+**Lesart:**
+
+- **Wo die Übersetzung gut ist:** Gleiche Berufe in anderer Sprache werden zuverlässig
+  gefunden. «boulanger» bringt 3 718 deutsche Bäcker dazu, «instituteur» 5 005 Lehrer und
+  Lehrerinnen, «Uhrmacher» 1 065 «horlogers» und Uhrenfabriken. In diesen Stichproben ist
+  kein Treffer falsch.
+- **Wo sie schlecht ist:** dort, wo das Muster mehr als den Beruf fasst.
+  - **Schreiner:** Das Muster schliesst Glaser und vitriers ein. 6 der 7 Fehler sind
+    Glaser, einer ist «parquet du procureur» (die Staatsanwaltschaft).
+  - **Metzger:** Das Muster schliesst Viehhändler und «bétail» ein; die Viehinspektoren
+    zählen so als Metzger.
+- **Lehrer:** Die Liste trennt Schul- von Privatlehrern nicht. Wer «instituteur» sucht,
+  findet auch Klavier-, Tanz- und Sprachlehrerinnen; beurteilt wurden sie als richtig
+  (Beruf «Lehrer»).
+- **Fehler der Zuordnung** (Stichprobe 1):
+  - Muster mitten im Wort: «Direktor» trifft «rektor» und gilt als Professor,
+    «Eilgutexpediteur» trifft «editeur» und gilt als Buchhändler, «Commissionsgeschäft» als
+    Commis, «Privatabonnemente» als Rentier.
+  - «arbeiter» zählt Fabrik-, Bahn- und Telephonarbeiter als Handlanger oder
+    Fabrikarbeiter.
+  - Ein Familienname wird als Beruf gelesen («Müller-Zürcher»).
+  - Rubriken aus Nachbarzeilen («BOUCHERIES» im Feld einer Elektrofirma).
+
 ## Grenzen
 
-- **Nicht gemessen.** Die Übersetzung ist maschinell: Muster, nicht Durchsicht. Die
-  Berufsklassen sind gemessen, die feine Liste nur indirekt über die Wanderungen. Eine
-  Stichprobe «Treffer mit Übersetzung, die den gesuchten Beruf nicht haben» fehlt noch.
+- **Maschinell.** Die Übersetzung folgt Mustern, nicht einer Durchsicht. Gemessen sind
+  76–85 % richtige Zuordnungen und 78–83 % richtige zusätzliche Treffer. Je nach Beruf
+  liegt der Wert zwischen 33 % (Schreiner) und 100 % (Bäcker, Lehrer).
 - **Die Muster greifen breit.** «Café» und «Restaurant» gelten als Wirt, «Monteur» als
-  Maschinist. Einzelne Treffer sind falsch, weil ein Muster mitten in einem Wort greift:
-  «Alkoholdirektor» trifft «rektor» und gilt auch als Professor, «apprentissages» trifft
-  «tissage» und gilt als Weber.
+  Maschinist, Glaser als Schreiner, Viehhändler als Metzger. Andere Treffer sind falsch,
+  weil ein Muster mitten in einem Wort greift: «Direktor» trifft «rektor» und gilt auch als
+  Professor, «apprentissages» trifft «tissage» und gilt als Weber.
 - **Nur Berufe der Liste.** «Seiler», «Treillageur» und viele seltene Berufe werden nur
   nach dem Wortlaut gefunden.
 - **Kurze Wörter.** Die Suche nach Wortlaut kennt nur Wörter ab 4 Buchstaben; «Kfm.»

@@ -1,0 +1,37 @@
+{
+ "Metzger": {
+  "beruf": [
+   "Metzger"
+  ],
+  "wortlaut": 4574,
+  "nur_uebersetzung": 2940
+ },
+ "Uhrmacher": {
+  "beruf": [
+   "Uhrmacher"
+  ],
+  "wortlaut": 456,
+  "nur_uebersetzung": 1065
+ },
+ "boulanger": {
+  "beruf": [
+   "Bäcker"
+  ],
+  "wortlaut": 1003,
+  "nur_uebersetzung": 3718
+ },
+ "instituteur": {
+  "beruf": [
+   "Lehrer"
+  ],
+  "wortlaut": 867,
+  "nur_uebersetzung": 5005
+ },
+ "Schreiner": {
+  "beruf": [
+   "Schreiner"
+  ],
+  "wortlaut": 6208,
+  "nur_uebersetzung": 2879
+ }
+}

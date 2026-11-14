@@ -1,0 +1,61 @@
+nr,frage,suchwort,beruf,entity_id,name,gemeinde,berufsfeld,urteil,begruendung
+001,gewinn,Metzger,Metzger,e39e703b017,Jaton,Lausanne,charcutier,richtig,
+002,gewinn,Metzger,Metzger,e922665737d,"Weber, Samuel",Bern,Schreiner | charcutier | gewes. charcutier | charcutier; Breiten-,richtig,
+003,gewinn,Metzger,Metzger,ef443c039dd,"Guex, Eugène",Boulens,Inspecteur du bétail,falsch,"Inspecteur du bétail: Viehinspektor, kein Metzger (Muster «bétail»)"
+004,gewinn,Metzger,Metzger,edf0b017b0d,"Nicod, J.",Genève,charcut,richtig,
+005,gewinn,Metzger,Metzger,e625ecfd99e,"Widmer, Alf.",Roches (BE),charcutier; Gd’Rue,richtig,
+006,gewinn,Metzger,Metzger,eaa9286ce9f,"Landriset, Adrien",Avenches,Charcutiers | Epicerie | Mercerie | Tabacs et cigares.,richtig,
+007,gewinn,Metzger,Metzger,e4bdf48d2b7,"Oberhänsli, Heb.",Malans,Viehhändler Maloja; I.It-a Juli; Aug. C-a; Sept. E-a | Viehhändler,falsch,Viehhändler ist kein Metzger (Muster «viehhänd»)
+008,gewinn,Metzger,Metzger,ea8af5153ee,Cantin,Fribourg,boucher,richtig,
+009,gewinn,Metzger,Metzger,eb6871c156c,"Zimmermann, Ed",Bern,"Milch-, Anken- u. Käsehändler. | Schuh- u. Stiefelschäfte-Fabrikanten. | Gross- u. Kleinmetzger",unklar,«Gross- u. Kleinmetzger» wohl Rubrik eines Adressbuchs neben anderen
+010,gewinn,Metzger,Metzger,e3fccb6a9a5,"Félix, David",La Rogivue,Président du Conseil général | Secrétaire | Inspecteur du bétail,falsch,"Inspecteur du bétail: Viehinspektor, kein Metzger"
+011,gewinn,Metzger,Metzger,eb46024e154,"Stuky, François",Begnins,Charcutiers | Primeurs,richtig,
+012,gewinn,Metzger,Metzger,ebbd67ed53a,"De Paulis, Ch.",Genève,charcut. italienne; Mercerie; 1 | Ch; charcut. italienne; Clos Jura,richtig,
+013,gewinn,Uhrmacher,Uhrmacher,e6e90f36655,"Hofer, Aug",Lausanne,Horlogers | horloger,richtig,
+014,gewinn,Uhrmacher,Uhrmacher,e01f244d0a5,"Cattin, Louis",La Chaux-de-Fonds,fab. d'horlogerie,richtig,
+015,gewinn,Uhrmacher,Uhrmacher,e06088c4d6c,"Meylan, Ernest",Genève,horlogier; Il | horloger; Il,richtig,
+016,gewinn,Uhrmacher,Uhrmacher,eb39c5d360b,"Gros, Ch",Lausanne,rhabilleur,richtig,
+017,gewinn,Uhrmacher,Uhrmacher,ed1577aa3fe,Schœpf,La Chaux-de-Fonds,fabr. d'horlogerie,richtig,
+018,gewinn,Uhrmacher,Uhrmacher,e224ebd19a4,"Theurillat, frères",Porrentruy,frères; fabricants d'horl | frères; fabricants d'horlogerie,richtig,
+019,gewinn,Uhrmacher,Uhrmacher,e47114282b8,Blum & Ostersetzer,Biel (BE),fabricants d'horlogerie,richtig,
+020,gewinn,Uhrmacher,Uhrmacher,e6d9cb39885,"Rueff, Fr.",La Chaux-de-Fonds,fab. d'horlogerie,richtig,
+021,gewinn,Uhrmacher,Uhrmacher,e6dcae71526,"Voisin, Albert",Corgémont,horlogerie,richtig,
+022,gewinn,Uhrmacher,Uhrmacher,e153d0d4811,"Spozio frères, fabrique fournitures d’horlogerie",Château-d'Oex,fabrique fournitures d’horlogerie,unklar,Fournitures d'horlogerie: Zulieferer der Uhrmacherei
+023,gewinn,Uhrmacher,Uhrmacher,ed5ef6f6996,"Golay, 1).",Senarclens,1; fabrique d’horlogerie; Chez-le-Maître,richtig,
+024,gewinn,Uhrmacher,Uhrmacher,ec675769c1f,"Lippetz, J.",Genève,Cie; manuf. d’horlogerie,richtig,
+025,gewinn,boulanger,Bäcker,eabd48470dc,"Spannagel, Fritz",Zürich,Bäckerei,richtig,
+026,gewinn,boulanger,Bäcker,e7badd685c1,Wehrli,Küttigen,Bäckerei | Bäcker,richtig,
+027,gewinn,boulanger,Bäcker,e09fb854df8,"Homberger, Eman",Zürich,alt Bäckermeister,richtig,
+028,gewinn,boulanger,Bäcker,e5ae100044c,"Ritzmann, Barbara",Zürich,Bäckerei und Wirthschaft,richtig,
+029,gewinn,boulanger,Bäcker,e97067d5155,"Zmutt, A",Bern,Bäckermeister,richtig,
+030,gewinn,boulanger,Bäcker,e8b36305ff7,"Johner, Sl",Bern,Bäckermeister.,richtig,
+031,gewinn,boulanger,Bäcker,ec1149dbbfb,"Fleckner, Wilh",Zürich,Bäckermeister. | Bäckermeister,richtig,
+032,gewinn,boulanger,Bäcker,e216c63d805,"Staub, Friedrich",Twann,Wirt und Bäcker | Wirt und Bäckerei,richtig,
+033,gewinn,boulanger,Bäcker,eb501cc24ef,"Kälin, Alfons",Zürich,Nachf. v. Fehr; Alois; Metzger | Nachf. v. Fehr | Nachf. v. Fehr; Bäckerei,richtig,
+034,gewinn,boulanger,Bäcker,e6596cc4b5a,"König, Herm",Zürich,Bäckerei,richtig,
+035,gewinn,boulanger,Bäcker,e05e21cd137,"Weber, Heinrich",Zürich,Bäcker | Bäckermeister,richtig,
+036,gewinn,boulanger,Bäcker,e2ce23b0ee7,"Egli, Emil",Zürich,Bäckermeister,richtig,
+037,gewinn,instituteur,Lehrer,e25497a3d8b,"Deprez, Blanche",Lausanne,institutrice,richtig,
+038,gewinn,instituteur,Lehrer,e32bd398b86,"Förster, Pauline",Bern,Klavier | Klavierlehrerin,richtig,"Klavierlehrerin: Lehrerin, nicht Schullehrerin (die Liste trennt das nicht)"
+039,gewinn,instituteur,Lehrer,e072dffa88f,"Witzig, Joh. Jak",Zürich,Lehrer,richtig,
+040,gewinn,instituteur,Lehrer,ebbc0575348,"Bosshard, Berta",Zürich,Musiklehrerin,richtig,"Musiklehrerin: Lehrerin, nicht Schullehrerin"
+041,gewinn,instituteur,Lehrer,e4169bc1bbc,"Nabholz, Hedwig",Zürich,Musiklehrerin (Klavier und Gesang),richtig,"Musiklehrerin: Lehrerin, nicht Schullehrerin"
+042,gewinn,instituteur,Lehrer,ee59862bf8a,"Spalinger, Anna",Zürich,Stadtschullehrerin,richtig,
+043,gewinn,instituteur,Lehrer,e8becc0d98a,"Dupertuis, Susanne",Lausanne,institutrice,richtig,
+044,gewinn,instituteur,Lehrer,ea503e3155e,"Renhas, Paul",Zürich,"Sprachen- u. Stenographielehrer, Portraits u. Stempel",richtig,"Sprachlehrer: Lehrer, privat"
+045,gewinn,instituteur,Lehrer,eca267b631e,"Krieghoff, Carl",Zürich,Zeichenlehrer.,richtig,Zeichenlehrer
+046,gewinn,instituteur,Lehrer,e3d58131758,"Weber, Ida",Zürich,Arbeitslehrerin,richtig,
+047,gewinn,instituteur,Lehrer,e4b75a81695,"Zihlmann, Ad",Zürich,Tanzlehrer | Schuhmachermeister,richtig,"Tanzlehrer: Lehrer, privat"
+048,gewinn,instituteur,Lehrer,e0f66fde174,"Gassmann, Jenta, Joh. Konr",Zürich,Lehrer,richtig,
+049,gewinn,Schreiner,Schreiner,eab9a53f182,"Vullyamoz, Jules",Lausanne,"notaire, empl. au parquet du procureur général",falsch,«parquet du procureur» (Staatsanwaltschaft) trifft «parquet»
+050,gewinn,Schreiner,Schreiner,e5426d0f8ef,"Schatzmann, Jean-Conrad",Lausanne,ébéniste,richtig,
+051,gewinn,Schreiner,Schreiner,e1afd124c8f,"Kuhn, Andreas",Zürich,Glaser. | Glasermeister,falsch,Glaser ist kein Schreiner (Muster «glaser»)
+052,gewinn,Schreiner,Schreiner,e455208ae06,"Ahlsdorf, Wilhelm",Lausanne,Vitriers et vitrerie.,falsch,vitrier: Glaser
+053,gewinn,Schreiner,Schreiner,e486edd4b15,"Kæsermann, Henri",Lausanne,ébéniste,richtig,
+054,gewinn,Schreiner,Schreiner,ef4a87e9b3e,"Ludwig, Ado",Zürich,Glaser,falsch,Glaser
+055,gewinn,Schreiner,Schreiner,eeeca0abab0,"Erdin, Joh. Frdr",Zürich,Bleiglaserg,falsch,Bleiglaser
+056,gewinn,Schreiner,Schreiner,ed4423d7d67,Turnheer,Baden,Parketteriefabrik,unklar,"Parketteriefabrik: Holzverarbeitung, nicht Schreinerei im engen Sinn"
+057,gewinn,Schreiner,Schreiner,e1a311d8f6a,"Münch, Sévrin",Lausanne,ébéniste,richtig,
+058,gewinn,Schreiner,Schreiner,e2cacf866e9,"Beck, Alb",Zürich,Glaser u. Liegenschaftenag.,falsch,Glaser
+059,gewinn,Schreiner,Schreiner,ece13d3d1da,"Ledermann, R",Lausanne,menuisier,richtig,
+060,gewinn,Schreiner,Schreiner,ead53c914ea,"Burckhardt, Wernhard",Basel,Glaser,falsch,Glaser
