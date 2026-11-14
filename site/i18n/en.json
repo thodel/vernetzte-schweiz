@@ -510,5 +510,21 @@
   "pg_tr_also": "Also searched:",
   "pg_tr_none": "No occupation in the list is known for this word; only the wording is searched.",
   "pg_tr_title": "automatically recognised occupation (fine occupation list)",
-  "pg_occ_doc": "How the occupation search works (in German)"
+  "pg_occ_doc": "How the occupation search works (in German)",
+  "mv_h": "Migration (experimental)",
+  "mv_to": "Probably the same person later in",
+  "mv_from": "Probably the same person earlier in",
+  "mv_auth_both": "same authority data on both sides",
+  "mv_auth_here": "authority data from this entity",
+  "mv_auth_there": "authority data from the other entity, carried over",
+  "mv_hls_cand": "HLS candidates:",
+  "mv_note": "Candidate from the migration search (M10), not verified. The authority data apply to both entities only if the pair is right.",
+  "mv_link": "All migrations",
+  "mw_from_place": "Away from {g}",
+  "mw_to_place": "To {g}",
+  "mw_at_place": "From or to {g}",
+  "mw_clear_place": "show all places",
+  "mw_click_line": "Click: cases for this pair of places in a new tab",
+  "mw_click_point": "Click: cases for this place in a new tab",
+  "es_abbr": "Swiss elites"
 }

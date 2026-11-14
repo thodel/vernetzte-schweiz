@@ -510,5 +510,21 @@
   "pg_tr_also": "Cherché aussi:",
   "pg_tr_none": "Aucune profession de la liste n'est connue pour ce mot; seul le libellé est cherché.",
   "pg_tr_title": "profession reconnue automatiquement (liste fine des professions)",
-  "pg_occ_doc": "Fonctionnement de la recherche par profession (en allemand)"
+  "pg_occ_doc": "Fonctionnement de la recherche par profession (en allemand)",
+  "mv_h": "Migration (essai)",
+  "mv_to": "Probablement la même personne plus tard à",
+  "mv_from": "Probablement la même personne auparavant à",
+  "mv_auth_both": "mêmes données d'autorité des deux côtés",
+  "mv_auth_here": "données d'autorité de cette entité",
+  "mv_auth_there": "données d'autorité de l'autre entité, reprises ici",
+  "mv_hls_cand": "Candidats DHS:",
+  "mv_note": "Candidat de la recherche des migrations (M10), non vérifié. Les données d'autorité ne valent pour les deux entités que si la paire est juste.",
+  "mv_link": "Toutes les migrations",
+  "mw_from_place": "Départs de {g}",
+  "mw_to_place": "Arrivées à {g}",
+  "mw_at_place": "De ou vers {g}",
+  "mw_clear_place": "afficher tous les lieux",
+  "mw_click_line": "Clic: cas de cette paire de lieux dans un nouvel onglet",
+  "mw_click_point": "Clic: cas de ce lieu dans un nouvel onglet",
+  "es_abbr": "Élites suisses"
 }

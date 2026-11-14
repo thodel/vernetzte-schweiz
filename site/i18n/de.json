@@ -510,5 +510,21 @@
   "pg_tr_also": "Mitgesucht:",
   "pg_tr_none": "Zu diesem Wort ist kein Beruf der Liste bekannt; gesucht wird nur der Wortlaut.",
   "pg_tr_title": "maschinell erkannter Beruf (feine Berufsliste)",
-  "pg_occ_doc": "So funktioniert die Berufssuche"
+  "pg_occ_doc": "So funktioniert die Berufssuche",
+  "mv_h": "Wanderung (Versuch)",
+  "mv_to": "Vermutlich dieselbe Person später in",
+  "mv_from": "Vermutlich dieselbe Person vorher in",
+  "mv_auth_both": "Normdaten auf beiden Seiten gleich",
+  "mv_auth_here": "Normdaten von dieser Einheit",
+  "mv_auth_there": "Normdaten von der anderen Einheit, hier mitgenommen",
+  "mv_hls_cand": "HLS-Kandidaten:",
+  "mv_note": "Kandidat aus der Wanderungssuche (M10), nicht geprüft. Normdaten gelten für beide Einheiten nur, wenn das Paar stimmt.",
+  "mv_link": "Alle Wanderungen",
+  "mw_from_place": "Weg von {g}",
+  "mw_to_place": "Nach {g}",
+  "mw_at_place": "Von oder nach {g}",
+  "mw_clear_place": "alle Orte zeigen",
+  "mw_click_line": "Klick: Fälle dieses Ortspaars in neuem Tab",
+  "mw_click_point": "Klick: Fälle dieses Orts in neuem Tab",
+  "es_abbr": "Elites suisses"
 }

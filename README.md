@@ -8,7 +8,7 @@ Seite: https://thodel.github.io/vernetzte-schweiz/
 
 Plan, Entscheide und offene Fragen: [PLAN.md](PLAN.md) · Datenvertrag:
 [docs/datenvertrag.md](docs/datenvertrag.md) · Verknüpfung:
-[docs/verknuepfung.md](docs/verknuepfung.md), [docs/einheiten.md](docs/einheiten.md) · Seite: [docs/seite.md](docs/seite.md), [docs/karten.md](docs/karten.md), [docs/suche.md](docs/suche.md), [docs/berufssuche.md](docs/berufssuche.md), [docs/volltext.md](docs/volltext.md) · Wanderungen (Versuch): [docs/wanderungen.md](docs/wanderungen.md)
+[docs/verknuepfung.md](docs/verknuepfung.md), [docs/einheiten.md](docs/einheiten.md) · Seite: [docs/seite.md](docs/seite.md), [docs/karten.md](docs/karten.md), [docs/suche.md](docs/suche.md), [docs/berufssuche.md](docs/berufssuche.md), [docs/volltext.md](docs/volltext.md) · Wanderungen (Versuch): [docs/wanderungen.md](docs/wanderungen.md) · Elites suisses (SPARQL): [docs/elites_suisses.md](docs/elites_suisses.md)
 
 ## Quellen
 
@@ -18,6 +18,7 @@ Plan, Entscheide und offene Fragen: [PLAN.md](PLAN.md) · Datenvertrag:
   ([DHBern/PTT_phonebook_data_tsv](https://github.com/DHBern/PTT_phonebook_data_tsv),
   [historic.localsearch.ch](https://historic.localsearch.ch))
 - Ortsregister — Historisiertes Gemeindeverzeichnis (BFS), amtliches Ortschaftenverzeichnis (swisstopo)
+- Elites suisses — Wissensgraph der Universität Lausanne (LESSH/LOD4HSS), SPARQL; nur Links über Wikidata ([docs/elites_suisses.md](docs/elites_suisses.md))
 
 Jede Quelle ist in [config/sources.toml](config/sources.toml) an einen Commit gebunden.
 

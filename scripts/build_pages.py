@@ -98,6 +98,11 @@ def main() -> None:
     summ = {s["entity_id"]: s for s in open_csv(NORM / "entities.csv.gz")}
     member = {m["record_id"]: m["entity_id"] for m in open_csv(ROOT / "links" / "entities.csv.gz")}
     auth = {a["entity_id"]: a for a in open_csv(ROOT / "links" / "authority.csv")}
+    # Elites suisses (UNIL): Personenseiten zu einer Wikidata-Kennung (scripts/elites_suisses.py)
+    es: dict[str, list] = defaultdict(list)
+    if (NORM / "elites_suisses.csv.gz").exists():
+        for r in open_csv(NORM / "elites_suisses.csv.gz"):
+            es[r["qid"]].append(r["es_id"])
 
     records: dict[str, list] = defaultdict(list)
     addresses: dict[str, dict] = {}
@@ -175,6 +180,19 @@ def main() -> None:
                 hls_hint[c["entity_id"]].append([c["hls_id"], w["name"], int(w["birth"]),
                                                  int(w["death"]) if w["death"] else 0, c["why"]])
 
+    # M10: Wanderungen (links/migration.csv) je Einheit, mit den Normdaten der anderen Seite
+    moved: dict[str, list] = defaultdict(list)
+    if (ROOT / "links" / "migration.csv").exists():
+        for w in open_csv(ROOT / "links" / "migration.csv"):
+            au_w = {k: w[k] for k in ("qid", "label", "hls_id", "gnd", "auth_tier", "auth_side")} if w["qid"] else None
+            if au_w and es.get(w["qid"]):
+                au_w["es"] = es[w["qid"]]
+            hc = w["hls_candidates"].split()
+            moved[w["from_entity"]].append({"d": "nach", "e": w["to_entity"], "m": w["to_muni"], "y": int(w["to_first"]),
+                                            "t": w["tier"], "au": au_w, "hc": hc})
+            moved[w["to_entity"]].append({"d": "von", "e": w["from_entity"], "m": w["from_muni"], "y": int(w["from_last"]),
+                                          "t": w["tier"], "au": au_w, "hc": hc})
+
     # Einheiten und Suchindex
     shards: dict[str, dict] = defaultdict(dict)
     names: dict[str, list] = defaultdict(list)
@@ -189,9 +207,13 @@ def main() -> None:
         if a:
             ent["au"] = {k: a[k] for k in ("qid", "label", "birth", "death", "hls_id", "gnd", "tier", "source",
                                            "evidence", "hls_check")}
+            if es.get(a["qid"]):
+                ent["au"]["es"] = es[a["qid"]]
         hk = [h for h in hls_hint.get(eid, ()) if not (a and a["hls_id"] == h[0])]
         if hk:
             ent["hk"] = hk
+        if moved.get(eid):
+            ent["mv"] = moved[eid]
         seen = {r["id"] for r in rs}
         mb = sorted({m["id"]: m for m in maybe.get(eid, []) if m["id"] not in seen}.values(), key=lambda m: (m["y"], m["id"]))
         if mb:

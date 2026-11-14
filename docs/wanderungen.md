@@ -142,16 +142,47 @@ Ein Paar zählt beim ersten zutreffenden Grund in der Reihenfolge des Codes; die
 
 ## Die Ansicht
 
-Die Ansicht liegt unter `#/karten?v=wanderungen&a=…&b=…&t=0|1|2&c=…&d=linien|saldo&n=ohne|mit&g=alle|ja`.
+Die Ansicht liegt unter `#/wanderungen?a=…&b=…&t=0|1|2&c=…&d=linien|saldo&n=ohne|mit&g=alle|ja`.
+Die frühere Adresse `#/karten?v=wanderungen` leitet dorthin weiter.
 
-- **Linien:** Bögen vom alten zum neuen Ort, Breite nach Zahl der Paare, roter Punkt am Ziel.
+- **Linien:** Bögen vom alten zum neuen Ort, Breite nach Zahl der Paare. Ein blauer Punkt
+  steht am Ausgangsort, ein roter am Ziel; die Fläche zählt die Weg- bzw. Zuzüge.
 - **Saldo:** je Ort ein Kreis nach Zu- plus Wegzügen, grün bei mehr Zuzügen, rot bei mehr
   Wegzügen.
+- **Klicken öffnet einen neuen Tab**, mit denselben Filtern und einem Ort dazu:
+  - eine Linie → die Fälle dieses Ortspaars (`vo=<alter Ort>&na=<neuer Ort>`);
+  - ein blauer Punkt → alle Wegzüge von dort (`vo=`);
+  - ein roter Punkt → alle Zuzüge dorthin (`na=`);
+  - ein Kreis der Saldo-Ansicht → Zu- und Wegzüge des Orts (`ort=`).
+
+  Ist ein Ort gewählt, zählen auch Nachbarorte unter 5 km. Oben steht, welcher Ort gilt,
+  mit Links auf die Gemeinde und «alle Orte zeigen».
 - **Seitenleiste:**
   - Zahl nach Berufsklasse mit Median der Entfernung;
   - Verteilung der Entfernungen und erstes Jahr am neuen Ort;
   - häufigste Ortspaare;
-  - Fälle mit Links auf beide Einheiten.
+  - Fälle mit Links auf beide Einheiten, dazu Normdaten (Wikidata, HLS, GND, Elites suisses)
+    und HLS-Kandidaten, wo eine Seite welche hat.
+
+## Normdaten
+
+Normdaten (`links/authority.csv`, [einheiten.md](einheiten.md)) gehören zu einer Einheit,
+also zu einem Ort. Ist ein Paar richtig, gelten sie für beide Seiten. Deshalb:
+
+- **Als Beleg:** Haben beide Seiten eine Wikidata-Kennung, zählt dieselbe 2 Punkte
+  (`normdaten:gleich`) und eine verschiedene schliesst das Paar aus. Dasselbe gilt für
+  verschiedene HLS-Artikel. Ein gemeinsamer HLS-Kandidat aus der umgekehrten Prüfung (M9,
+  Stufen «wahrscheinlich» und «möglich») zählt 1 Punkt (`hls:gleich`).
+- **Mitgenommen:** `links/migration.csv` führt die Normdaten der Seite, die welche hat (QID,
+  Bezeichnung, HLS, GND, Stufe, `auth_side` = `von`, `nach` oder `beide`), und die
+  HLS-Kandidaten beider Seiten. Die Seite einer Einheit zeigt unter «Wanderung (Versuch)»
+  das Gegenstück, und ob die Normdaten von dieser oder der anderen Einheit kommen. Der Link
+  zu den Elites suisses ([elites_suisses.md](elites_suisses.md)) kommt über die QID mit.
+- **Umfang** (14.11.2026): 2 der 313 Paare haben Normdaten auf einer Seite (Siordet, Straub),
+  5 einen HLS-Kandidaten; keines hat Normdaten auf beiden Seiten. Die Stufen ändern sich
+  dadurch nicht. Normdaten gibt es vor allem in Aarau und Basel (Adressbücher) und für
+  Personen des HLS. Die Wanderungen finden vor allem Telefonbuch-Paare.
+- Mitgenommene Normdaten sind so sicher wie das Paar **und** wie die Normdaten selbst.
 
 ## Messung
 

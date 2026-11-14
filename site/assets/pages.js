@@ -294,6 +294,16 @@
   }
 
 
+  // Links zu Wikidata, HLS, GND (auch für Normdaten, die über eine Wanderung mitkommen)
+  const esLink = id => link(`https://elitessuisses.unil.ch/p/${id}`, `${t.es_abbr} ${id}`);
+  const authLinks = (qid, hls, gnd, es = []) => [
+    qid ? link(`https://www.wikidata.org/wiki/${qid}`, `Wikidata ${qid}`) : "",
+    hls ? link(hlsUrl(hls), `${t.hls_abbr || "HLS"} ${hls}`) : "",
+    gnd ? link(`https://d-nb.info/gnd/${gnd}`, `GND ${gnd}`) : "",
+    ...(es || []).map(esLink),
+  ].filter(Boolean).flatMap((x, i) => i ? [" · ", x] : [x]);
+  const hlsCands = hc => (hc || []).flatMap((h, i) => [i ? ", " : "", link(`#/hls/${h}`, `${t.hls_abbr || "HLS"} ${h}`)]);
+
   async function entity([id]) {
     let shard;
     try { shard = await get(`data/e/${id.slice(1, 3)}.json.gz`); } catch { shard = {}; }
@@ -308,11 +318,7 @@
     const parts = [head];
     if (e.au) {
       const a = e.au;
-      const ids = [
-        link(`https://www.wikidata.org/wiki/${a.qid}`, `Wikidata ${a.qid}`),
-        a.hls_id ? link(hlsUrl(a.hls_id), `${t.hls_abbr || "HLS"} ${a.hls_id}`) : "",
-        a.gnd ? link(`https://d-nb.info/gnd/${a.gnd}`, `GND ${a.gnd}`) : "",
-      ].filter(Boolean).flatMap((x, i) => i ? [" · ", x] : [x]);
+      const ids = authLinks(a.qid, a.hls_id, a.gnd, a.es);
       parts.push(el("section", { class: "card auth" },
         el("h2", {}, t.pg_auth_h, " ", tierBadge(a.tier)),
         el("p", {}, el("b", {}, a.label || a.qid), a.birth ? ` (${a.birth.slice(0, 4)}–${(a.death || "").slice(0, 4)})` : ""),
@@ -328,6 +334,19 @@
           link(`#/hls/${hid}`, t.hl_hint_check), " · ", link(hlsUrl(hid), `${t.hls_abbr || "HLS"} ${hid}`),
           el("span", { class: "muted" }, ` — ${why.split(" ").map(x => x.split("+").map(y => t["hl_why_" + y] || y).join(" + ")).join("; ")}`))),
         el("p", { class: "sub note" }, t.hl_hint_note)));
+    }
+    if (e.mv) {
+      // M10: dieselbe Person vermutlich an einem anderen Ort; Normdaten der anderen Seite mitgenommen
+      parts.push(el("section", { class: "card mv" },
+        el("h2", {}, t.mv_h),
+        ...e.mv.map(m => el("div", { class: "mv-row" },
+          el("p", {}, t[m.d === "nach" ? "mv_to" : "mv_from"], " ", link(`#/e/${m.e}`, `${m.m} ${m.y}`), " ",
+            el("span", { class: `pill mw-tier-${["stark", "mittel", "schwach"].indexOf(m.t)}` }, t[`mw_tier_${["stark", "mittel", "schwach"].indexOf(m.t)}`])),
+          m.au ? el("p", {}, el("b", {}, m.au.label || m.au.qid), " · ", ...authLinks(m.au.qid, m.au.hls_id, m.au.gnd, m.au.es),
+            " ", tierBadge(m.au.auth_tier),
+            el("span", { class: "muted" }, ` — ${m.au.auth_side === "beide" ? t.mv_auth_both : (m.au.auth_side === (m.d === "nach" ? "von" : "nach") ? t.mv_auth_here : t.mv_auth_there)}`)) : "",
+          m.hc && m.hc.length ? el("p", { class: "sub" }, t.mv_hls_cand, " ", ...hlsCands(m.hc)) : "")),
+        el("p", { class: "sub note" }, t.mv_note, " ", link("#/wanderungen", t.mv_link))));
     }
     parts.push(timeline(e.r));
     // gleiche Zeile im selben Jahr (mehrere Ausgaben, Haupt- und Nachtrag) nur einmal, mit allen Fundstellen
@@ -610,14 +629,30 @@
     const a = +(params.get("a") || 1860), b = +(params.get("b") || 1914);
     const tier = +(params.get("t") ?? 1), cls = params.get("c") || "alle", dir = params.get("d") || "linien";
     const near = params.get("n") || "ohne", seen = params.get("g") || "alle";
+    // Ortsfilter aus einem Klick auf der Karte: vo = von, na = nach, ort = von oder nach
+    const vo = params.get("vo") || "", na = params.get("na") || "", ort = params.get("ort") || "";
+    const pn = i => D.places[i][0];
+    // gleiche Filter, dazu ein Ort oder Ortspaar; öffnet in einem neuen Tab
+    const tabUrl = upd => {
+      const p = new URLSearchParams(params);
+      for (const k of ["v", "vo", "na", "ort"]) p.delete(k);
+      for (const [k, val] of Object.entries(upd)) p.set(k, val);
+      return `${location.pathname}${location.search}#/wanderungen?${p}`;
+    };
+    const openTab = upd => window.open(tabUrl(upd), "_blank", "noopener");
     const tierNames = [t.mw_tier_0, t.mw_tier_1, t.mw_tier_2];
     const clsName = i => i < 0 ? t.mw_no_class : (t[`occ_${D.classes[i][0]}`] || D.classes[i][1]);
     const moves = D.moves.filter(m => m[3] >= a && m[3] <= b && m[5] <= tier && (cls === "alle" || m[4] === +cls)
-      && (near === "mit" || m[6] >= 5) && (seen === "alle" || m[12] === 1));
+      && (near === "mit" || m[6] >= 5 || vo || na || ort) && (seen === "alle" || m[12] === 1)
+      && (!vo || pn(m[0]) === vo) && (!na || pn(m[1]) === na) && (!ort || pn(m[0]) === ort || pn(m[1]) === ort));
     const box = el("div", { class: "map tall" });
     const side = el("div", { class: "map-side" });
     const ctl = el("div", { class: "controls" });
-    view.replaceChildren(el("h1", {}, t.mw_h), el("p", { class: "intro" }, t.mw_p), ctl, box, side,
+    const placeFilter = vo || na || ort ? el("p", { class: "flow-filter" },
+      el("b", {}, vo && na ? `${vo} → ${na}` : vo ? t.mw_from_place.replace("{g}", vo) : na ? t.mw_to_place.replace("{g}", na) : t.mw_at_place.replace("{g}", ort)),
+      " · ", ...[vo, na, ort].filter(Boolean).filter((g, i, xs) => xs.indexOf(g) === i).flatMap(g => [link(placeHref(g), g), " · "]),
+      link(tabUrl({}).replace(/^[^#]*/, ""), t.mw_clear_place)) : "";
+    view.replaceChildren(el("h1", {}, t.mw_h), el("p", { class: "intro" }, t.mw_p), placeFilter, ctl, box, side,
       el("p", { class: "sub note" }, t.mw_note, " ", link("https://github.com/thodel/vernetzte-schweiz/blob/main/docs/wanderungen.md", t.mw_doc)));
     ctl.append(rangeSlider(1860, 1914, a, b, (x, y) => set({ a: x, b: y })),
       select([[0, tierNames[0]], [1, `${tierNames[0]} + ${tierNames[1]}`], [2, t.mp_all]], tier, t.mw_tier),
@@ -643,12 +678,28 @@
         const mx = (la1 + la2) / 2 + (lo2 - lo1) * 0.15, my = (lo1 + lo2) / 2 - (la2 - la1) * 0.15;
         return Array.from({ length: 17 }, (_, i) => { const u = i / 16; return [(1 - u) ** 2 * la1 + 2 * (1 - u) * u * mx + u * u * la2, (1 - u) ** 2 * lo1 + 2 * (1 - u) * u * my + u * u * lo2]; });
       };
-      const layer = [];
+      // Linie: die Fälle dieses Ortspaars; Startpunkt (blau): Wegzüge von dort; Endpunkt (rot): Zuzüge dorthin.
+      // Ein Klick öffnet die gefilterte Liste in einem neuen Tab.
+      const layer = [], away = new Map(), arrive = new Map();
       for (const [k, ms] of [...flows].sort((x, y) => x[1].length - y[1].length)) {
         const [p, q] = k.split(">").map(Number);
-        const tip = `${P[p][0]} → ${P[q][0]}: ${ms.length === 1 ? ms[0][7] : t.mw_persons.replace("{n}", n(ms.length))}`;
-        layer.push(L.polyline(arc(p, q), { color: "#175b5b", weight: 1 + Math.sqrt(ms.length) * 1.5, opacity: 0.55 }).bindTooltip(tip));
-        layer.push(L.circleMarker([P[q][2], P[q][3]], { radius: 2 + Math.sqrt(ms.length), color: "#d21938", weight: 1, fillOpacity: 0.8 }).bindTooltip(tip));
+        away.set(p, (away.get(p) || 0) + ms.length); arrive.set(q, (arrive.get(q) || 0) + ms.length);
+        const tip = `${P[p][0]} → ${P[q][0]}: ${ms.length === 1 ? ms[0][7] : t.mw_persons.replace("{n}", n(ms.length))}<br><i>${t.mw_click_line}</i>`;
+        const pts = arc(p, q), w = 1 + Math.sqrt(ms.length) * 1.5;
+        layer.push(L.polyline(pts, { color: "#175b5b", weight: w, opacity: 0.55, interactive: false }));
+        // unsichtbarer, breiterer Streifen: dünne Linien sind sonst kaum zu treffen
+        layer.push(L.polyline(pts, { color: "#175b5b", weight: Math.max(10, w + 6), opacity: 0 }).bindTooltip(tip, { sticky: true })
+          .on("click", () => openTab({ vo: P[p][0], na: P[q][0] })));
+      }
+      for (const [p, c] of away) {
+        layer.push(L.circleMarker([P[p][2], P[p][3]], { radius: 2 + Math.sqrt(c), color: "#1f4e9c", weight: 1, fillOpacity: 0.75 })
+          .bindTooltip(`${t.mw_from_place.replace("{g}", P[p][0])}: ${t.mw_persons.replace("{n}", n(c))}<br><i>${t.mw_click_point}</i>`)
+          .on("click", () => openTab({ vo: P[p][0] })));
+      }
+      for (const [q, c] of arrive) {
+        layer.push(L.circleMarker([P[q][2], P[q][3]], { radius: 2 + Math.sqrt(c), color: "#d21938", weight: 1, fillOpacity: 0.8 })
+          .bindTooltip(`${t.mw_to_place.replace("{g}", P[q][0])}: ${t.mw_persons.replace("{n}", n(c))}<br><i>${t.mw_click_point}</i>`)
+          .on("click", () => openTab({ na: P[q][0] })));
       }
       L.layerGroup(layer).addTo(mp);
     } else {
@@ -661,7 +712,8 @@
         const v = net.get(p) || 0;
         return L.circleMarker([P[p][2], P[p][3]], { radius: Math.max(3, Math.sqrt(g) * 2.2), weight: 1, fillOpacity: 0.55,
           color: v > 0 ? "#175b5b" : v < 0 ? "#d21938" : "#888" })
-          .bindTooltip(t.mw_net_tip.replace("{g}", P[p][0]).replace("{in}", n((g + v) / 2)).replace("{out}", n((g - v) / 2)));
+          .bindTooltip(t.mw_net_tip.replace("{g}", P[p][0]).replace("{in}", n((g + v) / 2)).replace("{out}", n((g - v) / 2)) + `<br><i>${t.mw_click_point}</i>`)
+          .on("click", () => openTab({ ort: P[p][0] }));
       })).addTo(mp);
     }
 
@@ -693,7 +745,9 @@
       el("ul", { class: "hitlist" }, ...moves.slice().sort((x, y) => x[5] - y[5] || x[3] - y[3]).slice(0, 300).map(m => el("li", {},
         el("b", {}, m[7]), el("span", { class: `pill mw-tier-${m[5]}` }, tierNames[m[5]]),
         el("span", { class: "meta" }, link(`#/e/${m[10]}`, `${P[m[0]][0]} ${m[2]}`), " → ", link(`#/e/${m[11]}`, `${P[m[1]][0]} ${m[3]}`), ` · ${n(Math.round(m[6]))} km`),
-        el("span", { class: "occ" }, m[8] === m[9] || !m[9] ? m[8] : `${m[8] || "–"} → ${m[9]}`)))),
+        el("span", { class: "occ" }, m[8] === m[9] || !m[9] ? m[8] : `${m[8] || "–"} → ${m[9]}`),
+        m[13] ? el("span", { class: "meta auth-mv" }, ...authLinks(m[13][0], m[13][2], m[13][3], m[13][6])) : "",
+        m[14] && m[14].length ? el("span", { class: "meta" }, t.mv_hls_cand, " ", ...hlsCands(m[14])) : ""))),
       moves.length > 300 ? el("p", { class: "muted" }, t.mw_more.replace("{n}", n(moves.length - 300))) : "");
   }
 

@@ -96,7 +96,9 @@ def sex(forename: str, occ: str) -> str:
 TITLE = re.compile(r"\b(Dr|Prof|Ing|Pfr|Pfarrer|Not|Fürspr|Architekt|Arch)\b\.?", re.I)
 FIELDS = ["from_entity", "to_entity", "surname", "forename_from", "forename_to", "from_muni", "to_muni",
           "from_last", "to_first", "gap", "km", "occ_from", "occ_to", "class", "evidence", "score", "tier",
-          "left_seen", "new_seen", "n_surname"]
+          "left_seen", "new_seen", "n_surname",
+          # Normdaten (links/authority.csv) der einen oder beider Seiten, für die andere Seite mitgenommen
+          "qid", "label", "hls_id", "gnd", "auth_tier", "auth_side", "hls_candidates"]
 TIERS = ("stark", "mittel", "schwach")
 NEIGHBOURS = 10      # Zeilen davor und danach im selben Telefonbuch
 LINES: dict[str, list[tuple[int, str]]] = defaultdict(list)   # Band → [(Zeile, Eintrag)]
@@ -366,7 +368,28 @@ def evidence(a: dict, b: dict) -> tuple[int, list[str]] | None:
         pts += 1; ev.append("neu:adresse")
     if a["title"] & b["title"]:
         pts += 1; ev.append("titel")
+    # Normdaten: dieselbe Person in Wikidata/HLS/GND stützt, eine andere widerspricht
+    if a.get("qid") and b.get("qid"):
+        if a["qid"] != b["qid"]:
+            return None
+        pts += 2; ev.append("normdaten:gleich")
+    elif a.get("hls") and b.get("hls") and a["hls"] != b["hls"]:
+        return None
+    elif (({a.get("hls")} | a.get("hlsc", set())) & ({b.get("hls")} | b.get("hlsc", set()))) - {"", None}:
+        pts += 1; ev.append("hls:gleich")
     return pts, ev
+
+
+def carried(a: dict, b: dict, auth: dict) -> dict:
+    """Normdaten eines Paares: die der Seite, die welche hat (beide gleich, sonst Widerspruch
+    und kein Paar). So bekommt die andere Seite die Links zu Wikidata, HLS und GND mit."""
+    ra, rb = auth.get(a["id"]), auth.get(b["id"])
+    r = ra or rb
+    side = "beide" if ra and rb else "von" if ra else "nach" if rb else ""
+    cands = sorted((a.get("hlsc", set()) | b.get("hlsc", set())) - {r["hls_id"] if r else ""})
+    return {"qid": r["qid"] if r else "", "label": r["label"] if r else "", "hls_id": r["hls_id"] if r else "",
+            "gnd": r["gnd"] if r else "", "auth_tier": r["tier"] if r else "", "auth_side": side,
+            "hls_candidates": " ".join(cands)}
 
 
 def tier(pts: int, ev: list[str], n_surname: int) -> str:
@@ -374,7 +397,8 @@ def tier(pts: int, ev: list[str], n_surname: int) -> str:
         pts += 2
     elif n_surname <= 40:
         pts += 1
-    beruf = any(e in ("beruf:wort", "beruf:wortlaut", "beruf:gleich", "beruf:allgemein", "beruf:verwandt", "beruf:klasse", "titel", "allianzname")
+    beruf = any(e in ("beruf:wort", "beruf:wortlaut", "beruf:gleich", "beruf:allgemein", "beruf:verwandt", "beruf:klasse", "titel",
+                      "allianzname", "normdaten:gleich", "hls:gleich")
                 for e in ev)
     moved = "neu:nummer" in ev or "neu:adresse" in ev
     if pts >= 6 and beruf and moved:
@@ -428,6 +452,18 @@ def find() -> None:
         e["place_text"] = " | ".join([e["addr_text"], *(PLACE[x] for x in rids if x in PLACE)])
         e["addr_text"] += " | " + raw
         e["occ_streets"] = {street_of(x) for x in re.split(r"[;,|]", e["occ"] + " | " + raw)} - {""}
+
+    # Normdaten: geprüfte Zuordnung (links/authority.csv) und HLS-Kandidaten aus M9
+    auth = {r["entity_id"]: r for r in open_csv(LINKS / "authority.csv")}
+    hlsc: dict[str, set] = defaultdict(set)
+    if (NORM / "hls_candidates.csv.gz").exists():
+        for r in open_csv(NORM / "hls_candidates.csv.gz"):
+            if r["tier"] in ("wahrscheinlich", "möglich"):
+                hlsc[r["entity_id"]].add(r["hls_id"])
+    for e in ents:
+        a = auth.get(e["id"])
+        e["qid"], e["hls"], e["gnd"] = (a["qid"], a["hls_id"], a["gnd"]) if a else ("", "", "")
+        e["hlsc"] = hlsc.get(e["id"], set())
 
     cand: list[tuple[dict, dict, int, list[str]]] = []
     blocked_back = blocked_before = 0
@@ -522,9 +558,12 @@ def find() -> None:
             "gap": b["first"] - a["last"], "km": d, "occ_from": a["occ"][:120], "occ_to": b["occ"][:120],
             "class": cls, "evidence": "+".join(ev), "score": pts, "tier": t,
             "left_seen": int(left), "new_seen": int(new), "n_surname": n_s,
+            **carried(a, b, auth),
         })
         stats[t] += 1
         stats["beide_vorliegend"] += left and new
+        stats["mit_normdaten"] += bool(out_rows[-1]["qid"])
+        stats["mit_hls_kandidat"] += bool(out_rows[-1]["hls_candidates"])
     out_rows.sort(key=lambda r: (TIERS.index(r["tier"]), r["from_last"], r["surname"]))
     write_csv(LINKS / "migration.csv", FIELDS, out_rows)
     write_csv(NORM / "migration_dropped.csv.gz", ["from_entity", "to_entity", "reason"], dropped)
@@ -541,9 +580,14 @@ def site() -> None:
     - `classes`: [Schlüssel, Bezeichnung]
     - `moves`: [von, nach (Index in places), letztes Jahr alt, erstes Jahr neu, Klasse (-1 keine),
       Stufe (0 stark, 1 mittel, 2 schwach), km, Name, Beruf alt, Beruf neu, entity alt, entity neu,
-      beide Seiten vorliegend (0/1)]
+      beide Seiten vorliegend (0/1), Normdaten [QID, Bezeichnung, HLS, GND, Stufe, Seite von/nach/beide,
+      Elites-suisses-Kennungen] oder 0, HLS-Kandidaten (Liste)]
     """
     rows = open_csv(LINKS / "migration.csv")
+    es: dict[str, list] = defaultdict(list)  # Elites suisses je Wikidata-Kennung (scripts/elites_suisses.py)
+    if (NORM / "elites_suisses.csv.gz").exists():
+        for r in open_csv(NORM / "elites_suisses.csv.gz"):
+            es[r["qid"]].append(r["es_id"])
     geo, _ = coords()
     canton = {r["municipality"]: r["canton"] for r in open_csv(NORM / "entities.csv.gz")}
     names = sorted({m for r in rows for m in (r["from_muni"], r["to_muni"]) if m in geo})
@@ -556,7 +600,9 @@ def site() -> None:
         moves.append([idx[r["from_muni"]], idx[r["to_muni"]], int(r["from_last"]), int(r["to_first"]),
                       ckey.get(r["class"], -1), TIERS.index(r["tier"]), float(r["km"] or 0),
                       f"{r['surname']}, {r['forename_to'] or r['forename_from']}", r["occ_from"][:60], r["occ_to"][:60],
-                      r["from_entity"], r["to_entity"], int(r["left_seen"] == "1" and r["new_seen"] == "1")])
+                      r["from_entity"], r["to_entity"], int(r["left_seen"] == "1" and r["new_seen"] == "1"),
+                      [r["qid"], r["label"], r["hls_id"], r["gnd"], r["auth_tier"], r["auth_side"], es.get(r["qid"], [])] if r["qid"] else 0,
+                      r["hls_candidates"].split()])
     out = {"places": [[m, canton.get(m, ""), round(geo[m][0], 4), round(geo[m][1], 4)] for m in names],
            "classes": [[k, LABELS[k]] for k, _, _ in CLASSES], "moves": moves}
     path = ROOT / "site" / "data" / "wanderungen.json.gz"
