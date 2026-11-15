@@ -120,6 +120,9 @@ Verknüpfung und Bau laufen durch.
   im Buch, Montreux nach Ortsteil, Namen aus Gedankenstrich-Listen ergänzt. Verknüpft: Lausanne mit Gemeinden 2 440
   von 13 417 Telefonbuch-Einträgen (+848). Stichprobe 3 (24): sicher 8/8, wahrscheinlich 8/8, möglich 5/8 (1 falsch).
 - ✔ 13.11.2026 **Zürich** 1875, 1885, 1900 und 1914 aus [adressbuecher-zuerich](https://github.com/thodel/adressbuecher-zuerich)
+- ✔ 15.11.2026 **Zürich 1867** (Fraktur, qwen3.8 auf tei) dazu: 12 711 Einträge, Einheiten 450 824 → 461 611; Wanderungen
+  315 → 319 (6 neu Basel 1862 → Zürich 1867, 2 weg: ein Namensvetter 1867 am neuen Ort sperrt sie, die Regel «vorher am
+  neuen Ort» kennt keine zeitliche Grenze)
   (qwen3.8, ohne Nachkorrektur; 1859 liegt im Repo, aber vor dem Zeitfenster): 196 910 Einträge, die Ausgemeinden von
   1875/1885 gehören zur Gemeinde Zürich von 1914. Telefonbuch verknüpft: 36 087 von 62 474. Neue Regel für weitere
   Einträge derselben Person (`zusatz`): gleiche Hausnummer an einer anderen Strasse zählt nicht mehr (vorher 3 von 14

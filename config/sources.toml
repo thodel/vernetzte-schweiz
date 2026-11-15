@@ -92,7 +92,7 @@ files = [
 id = "zuerich"
 label = "Zürich"
 repo = "thodel/adressbuecher-zuerich"
-commit = "989a364b20f54cec48bb9247e1f4909b6c3482f8"
+commit = "601a3d6af6c7f72efbb52ab06673446e0a521a6d"
 site = "https://thodel.github.io/adressbuecher-zuerich/"
 authority = "data/csv/10_authority_links.csv"
 # Gelesen mit qwen3.8 (ohne Nachkorrektur; Stichprobe der Verknüpfung in data/review/m5_zuerich.csv).
