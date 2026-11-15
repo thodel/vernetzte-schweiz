@@ -102,6 +102,12 @@ def main() -> None:
     if (NORM / "elites_suisses.csv.gz").exists():
         for r in open_csv(NORM / "elites_suisses.csv.gz"):
             es[r["qid"]].append(r["es_id"])
+    # Elites suisses über Name und Lebensjahre (scripts/elites_match.py); «schwach» wird nicht gezeigt
+    esc: dict[str, list] = defaultdict(list)
+    if (NORM / "elites_candidates.csv.gz").exists():
+        for r in open_csv(NORM / "elites_candidates.csv.gz"):
+            if r["tier"] in ("wahrscheinlich", "möglich"):
+                esc[r["entity_id"]].append([r["es_id"], r["es_name"], r["birth"], r["death"], r["tier"], r["why"], r["es_qid"]])
 
     records: dict[str, list] = defaultdict(list)
     addresses: dict[str, dict] = {}
@@ -214,6 +220,8 @@ def main() -> None:
             ent["hk"] = hk
         if moved.get(eid):
             ent["mv"] = moved[eid]
+        if esc.get(eid):
+            ent["esc"] = esc[eid]
         seen = {r["id"] for r in rs}
         mb = sorted({m["id"]: m for m in maybe.get(eid, []) if m["id"] not in seen}.values(), key=lambda m: (m["y"], m["id"]))
         if mb:

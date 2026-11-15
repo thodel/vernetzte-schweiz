@@ -556,5 +556,13 @@
   "fr_es_mem": "Fonctions et affiliations",
   "fr_es_via": "Lié par l'identifiant Wikidata.",
   "fr_es_note": "En direct du point SPARQL des Élites suisses (LESSH/LOD4HSS).",
-  "fr_doc": "Description"
+  "fr_doc": "Description",
+  "fr_cert_esname": "Trouvé par le nom et les dates de vie, non par des données d'autorité: {n}, niveau «{t}» ({w}). Mesuré: «probable» 0 paire fausse sur 39, «possible» 4 sur 39; la plupart n'ont pu être ni confirmées ni réfutées.",
+  "es_why_vorname_gleich": "même prénom",
+  "es_why_vorname_abkürzung": "prénom abrégé",
+  "es_why_ort": "organe au même lieu",
+  "es_why_kanton": "organe dans le canton",
+  "es_why_zeitgleich": "à la même époque",
+  "es_why_name_selten": "nom rare",
+  "es_why_name_eher_selten": "nom plutôt rare"
 }

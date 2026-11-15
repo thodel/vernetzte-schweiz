@@ -556,5 +556,13 @@
   "fr_es_mem": "Ämter und Mitgliedschaften",
   "fr_es_via": "Verknüpft über die Wikidata-Kennung.",
   "fr_es_note": "Live aus dem SPARQL-Endpunkt der Elites suisses (LESSH/LOD4HSS).",
-  "fr_doc": "Beschreibung"
+  "fr_doc": "Beschreibung",
+  "fr_cert_esname": "Über Name und Lebensjahre gefunden, nicht über Normdaten: {n}, Stufe «{t}» ({w}). Gemessen: «wahrscheinlich» 0 von 39 Paaren falsch, «möglich» 4 von 39; die meisten liessen sich weder bestätigen noch widerlegen.",
+  "es_why_vorname_gleich": "Vorname gleich",
+  "es_why_vorname_abkürzung": "Vorname abgekürzt",
+  "es_why_ort": "Gremium am Ort",
+  "es_why_kanton": "Gremium im Kanton",
+  "es_why_zeitgleich": "zur selben Zeit",
+  "es_why_name_selten": "seltener Name",
+  "es_why_name_eher_selten": "eher seltener Name"
 }

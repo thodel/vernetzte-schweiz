@@ -22,6 +22,7 @@ hls:
 	$(PY) scripts/hls_coverage.py
 elites:
 	$(PY) scripts/elites_suisses.py
+	$(PY) scripts/elites_match.py
 wikidata:
 	$(PY) scripts/authority.py fetch
 site:

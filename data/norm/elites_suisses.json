@@ -1,6 +1,9 @@
 {
  "endpoint": "https://swiss-elites.lod4hss.cloud/wisski/endpoint/default_wisski_distillery_adapter",
- "abgefragt": "2026-11-14",
+ "abgefragt": "2026-11-15",
  "personen_mit_qid": 10629,
- "qids": 10629
+ "qids": 10629,
+ "personen_bis_jahrgang": 1896,
+ "personen": 17804,
+ "mitgliedschaften": 18464
 }

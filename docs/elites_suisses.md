@@ -85,12 +85,80 @@ curl -G 'https://swiss-elites.lod4hss.cloud/wisski/endpoint/default_wisski_disti
 den Elites suisses. Die Qualität dieser Links ist die der Normdaten: Die Stufen
 «wahrscheinlich» und «möglich» bleiben stehen.
 
+## Abgleich über Name und Lebensjahre
+
+Die meisten Personen im Graphen haben keine Wikidata-Kennung. Sie sucht
+[scripts/elites_match.py](../scripts/elites_match.py) über Name und Lebensjahre in den
+Einheiten. Grundlage ist ein zweiter Abzug: alle 17 804 Personen bis Jahrgang 1896
+(1914 erwachsen) mit Geschlecht und ihren Mitgliedschaften (Gremium, Rolle, Jahre),
+`data/norm/elites_suisses_personen.csv.gz` und `_mitglied.csv.gz`.
+
+**Bedingungen:**
+- Der Familienname ist gleich. Bei «Heusler-Sarasin» zählt «Heusler».
+- Der Vorname ist verträglich, mindestens als Abkürzung. Haben beide Seiten zwei Vornamen,
+  stimmen die Anfangsbuchstaben Stelle für Stelle überein.
+- Das Geschlecht widerspricht sich nicht. «Mme», «Vve» und «Wwe» gelten als Frau.
+- Die Einheit steht in Jahren im Buch, in denen die Person mindestens 16 und noch am Leben
+  war, und zum ersten Mal, bevor sie 75 war.
+
+**Belege:**
+- ein Gremium am Ort der Einheit («Lausanne», «Zürcher Handelskammer»), sonst eines im
+  Kanton («Grosser Rat BS», «Kantonsrat ZH»);
+- die Mitgliedschaft fällt in dieselben Jahre;
+- ein seltener Familienname;
+- ein ausgeschriebener statt abgekürzter Vorname.
+
+Gilt die Person an mehreren Orten gleich gut, fällt sie weg (mehrdeutig). Personen, die schon
+über Wikidata verknüpft sind, sind übersprungen.
+
+**Stufen:** `wahrscheinlich` braucht ≥ 6 Punkte mit Ort oder Kanton, `möglich` ≥ 4 mit Ort,
+Kanton oder seltenem Namen, `schwach` ≥ 3.
+
+**Ergebnis** (15.11.2026):
+- 463 Einheiten `wahrscheinlich`, 750 `möglich`, 417 `schwach`;
+- 3 030 Personen hatten mehrere gleich gute Einheiten und fallen weg.
+
+**Messung** (beurteilt von Claude, nicht von den Projektmitarbeitenden;
+[scripts/measure_elites.py](../scripts/measure_elites.py)):
+- Zu jedem Paar standen die Gremien der Person und das Berufsfeld der Einheit.
+- «richtig» heisst: Beruf oder Amt bestätigen die Person. Beispiele: Camille Decoppet,
+  procureur général und Conseiller d'État in Lausanne; der Seidenfabrikant Alfred
+  Schwarzenbach; der Kantonschemiker Hans Kreis.
+- «falsch» heisst: etwas widerspricht. Beispiele: der Geiger Wilhelm Brückner in Lausanne
+  gegen den Germanisten Wilhelm Bruckner; ein Priester Enrico Pellegrini gegen den Maler
+  Alfred Heinrich Pellegrini.
+
+| Stufe | Messung 1 (`data/review/elites_kandidaten.csv`) | Messung 2, nach den Korrekturen (`elites_kandidaten_2.csv`) |
+|---|---|---|
+| `wahrscheinlich` | 7 richtig, 1 falsch, 12 unklar: 35–95 % | 5 richtig, 0 falsch, 15 unklar: 25–100 % |
+| `möglich` | 6 / 2 / 12: 30–90 % | 3 / 2 / 15: 15–90 % |
+| `schwach` | 3 / 7 / 10: 15–65 % | 4 / 3 / 13: 20–85 % |
+
+**Korrekturen nach Messung 1:**
+- Ausgeschlossen werden seither ein anderer zweiter Vorname («Konr. Otto» ≠ «(Friedrich)
+  Otto»), eine Witwe unter dem Namen eines Mannes und ein erster Eintrag nach dem 75.
+  Altersjahr.
+- An Messung 1 nachgerechnet fallen dadurch 5 falsche Paare weg, kein richtiges.
+
+**Lesart:**
+- `wahrscheinlich` hat in 39 beurteilten Paaren (nach den Korrekturen) keines, das falsch
+  ist.
+- Die meisten bleiben aber unklar: Die Bücher nennen oft keinen Beruf, und Gremien wie «Grosser
+  Rat BS» passen zu vielen Berufen. Die Untergrenze der Präzision ist darum niedrig.
+- `schwach` ist zu einem Viertel bis zur Hälfte falsch.
+
+**Auf der Seite:** Die Seite einer Einheit zeigt Kandidaten der Stufen `wahrscheinlich` und
+`möglich` in einem eigenen Rahmen Elites suisses (live abgefragt, [angaben.md](angaben.md)).
+Dazu stehen der Hinweis «über Name und Lebensjahre gefunden, nicht über Normdaten», die
+Stufe, die Belege und das Messergebnis. Hat die Person im Graphen eine Wikidata-Kennung,
+kommt der Rahmen Wikidata dazu. `schwach` wird nicht gezeigt.
+
 ## Grenzen
 
 - Der Graph ist ein Versuch («Experimental website»); Endpunkt und Pfade können sich ändern.
   Darum steht das Abfragedatum bei den Daten.
-- Nur rund ein Sechstel der Personen im Graphen hat eine Wikidata-Kennung. Wer dort keine
-  hat, wird nicht gefunden, auch wenn er in den Adress- und Telefonbüchern steht.
+- Nur rund ein Sechstel der Personen im Graphen hat eine Wikidata-Kennung. Die übrigen findet
+  nur der Abgleich über Name und Lebensjahre, und nur, wenn sie bis 1896 geboren sind.
 - Lizenz der Daten: Das Repo steht unter MIT, eine eigene Datenlizenz ist nicht genannt.
-  Vernetzte Schweiz übernimmt nur Nummer, QID, Name und Lebensjahre und verlinkt auf die
-  Personenseite.
+  Vernetzte Schweiz übernimmt Nummer, QID, Name, Lebensjahre und Geschlecht, für den Abgleich
+  auch Gremien und Jahre der Mitgliedschaften, und verlinkt auf die Personenseite.

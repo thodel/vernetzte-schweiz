@@ -13,6 +13,7 @@ Je Einheit gelten diese Quellen, die sicherste zuerst. Jede ergibt eine Reihe vo
 |---|---|---|
 | Normdaten der Einheit (`links/authority.csv`, [einheiten.md](einheiten.md)) | Wikidata-Kennung, oft mit HLS und GND | die Stufe der Normdaten: «wahrscheinlich» oder «möglich», mit den Belegen |
 | Möglicher HLS-Eintrag (M9, [hls_abdeckung.md](hls_abdeckung.md)) | HLS-Nummer | «wahrscheinlich», mit dem Grund («gleich+text+beruf») |
+| Elites suisses über Name und Lebensjahre ([elites_suisses.md](elites_suisses.md)) | Personennummer der Elites suisses, wo vorhanden mit Wikidata | «wahrscheinlich» oder «möglich», mit den Belegen und dem Messergebnis; «schwach» wird nicht gezeigt |
 | Wanderung (M10, [wanderungen.md](wanderungen.md)) | Normdaten der anderen Einheit des Paars | höchstens «möglich», mit Stufe der Wanderung und der Normdaten |
 
 ## Die Rahmen

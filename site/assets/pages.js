@@ -403,11 +403,12 @@
       certLine(src), el("p", { class: "sub" }, t.fr_hls_note)));
   }
 
-  async function elitesFrame(src, qid, box) {
+  async function elitesFrame(src, qid, box, esId = "") {
     const q = `PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX sdh-short: <https://sdhss.org/ontology/shortcuts/>
       PREFIX sdh-slc: <https://sdhss.org/ontology/social-life-core/>
       SELECT ?s ?name ?b ?d ?gender ?group ?onb ?role ?type ?start ?end WHERE {
-        ?s owl:sameAs <http://www.wikidata.org/entity/${qid}> ; sdh-short:P9 ?name .
+        ${esId ? `VALUES ?s { <https://elites-suisses.lod4hss.org/resource/p${esId}> }` : `?s owl:sameAs <http://www.wikidata.org/entity/${qid}> .`}
+        ?s sdh-short:P9 ?name .
         OPTIONAL { ?s sdh-short:P2 ?b } OPTIONAL { ?s sdh-short:P13 ?d } OPTIONAL { ?s sdh-slc:P23/sdh-short:P9 ?gender }
         OPTIONAL { ?m sdh-slc:P1 ?s ; a sdh-slc:C5 .
           OPTIONAL { ?m sdh-slc:P2/sdh-short:P9 ?group } OPTIONAL { ?m sdh-slc:P81/sdh-short:P9 ?onb }
@@ -425,8 +426,9 @@
         el("p", {}, el("b", {}, val(rows[0], "name")), ` (${life(val(rows[0], "b"), val(rows[0], "d"))})`),
         factRows([[t.fr_es_mem, mem]]),
         el("p", { class: "links" }, esLink(id)),
-        certLine({ ...src, note: `${src.note} ${t.fr_es_via}` }), el("p", { class: "sub" }, t.fr_es_note, " ",
+        certLine({ ...src, note: esId ? src.note : `${src.note} ${t.fr_es_via}` }), el("p", { class: "sub" }, t.fr_es_note, " ",
           link("https://github.com/thodel/vernetzte-schweiz/blob/main/docs/elites_suisses.md", t.fr_doc))));
+      return id;
     } catch {
       box.replaceChildren(frame("es", title, true, certPill(src), el("p", { class: "muted" }, t.fr_error)));
     }
@@ -439,6 +441,11 @@
       note: t.fr_cert_direct.replace("{t}", t["tier_" + e.au.tier] || e.au.tier).replace("{e}", e.au.evidence || "") });
     for (const [hid, , , , why] of e.hk || []) if (!out.some(s => s.hls === hid))
       out.push({ hls: hid, tier: "wahrscheinlich", note: t.fr_cert_hls.replace("{w}", why) });
+    // Elites suisses über Name und Lebensjahre (ohne Wikidata), nur «wahrscheinlich» und «möglich»
+    for (const [esId, name, b, d, tier, why, qid] of e.esc || []) if (!(e.au?.es || []).includes(esId))
+      out.push({ es: esId, qid: qid && !out.some(s => s.qid === qid) ? qid : "", tier,
+        note: t.fr_cert_esname.replace("{n}", `${name} (${b}–${d})`).replace("{t}", t["tier_" + tier] || tier)
+          .replace("{w}", why.split("+").map(x => t["es_why_" + x.replace(":", "_")] || x).join(", ")) });
     for (const m of e.mv || []) if (m.au && !out.some(s => s.qid === m.au.qid))
       out.push({ qid: m.au.qid, hls: m.au.hls_id, tier: "möglich",
         note: t.fr_cert_mv.replace("{g}", `${m.m} ${m.y}`).replace("{s}", t[`mw_tier_${["stark", "mittel", "schwach"].indexOf(m.t)}`]).replace("{t}", t["tier_" + m.au.auth_tier] || m.au.auth_tier) });
@@ -449,19 +456,32 @@
     const srcs = frameSources(e);
     if (!srcs.length) return "";
     const sec = el("section", { class: "frames" }, el("h2", {}, t.fr_h), el("p", { class: "intro" }, t.fr_p));
-    for (const src of srcs) {
+    // Gruppen nacheinander: führen zwei Quellen zur selben Person (gleiche Wikidata- oder
+    // Elites-Nummer), bleibt nur die erste, sicherste Gruppe stehen
+    const shownQ = new Set(), shownEs = new Set();
+    const groups = srcs.map(src => {
       const wd = el("div", { class: "frame-slot" }, el("p", { class: "muted" }, t.fr_loading.replace("{p}", "Wikidata")));
       const hl = el("div", { class: "frame-slot" });
       const es = el("div", { class: "frame-slot" }, el("p", { class: "muted" }, t.fr_loading.replace("{p}", "Elites suisses")));
-      sec.append(el("div", { class: "frame-group" }, wd, hl, es));
-      (async () => {
-        const got = await wikidataFrame(src, wd);
+      const g = el("div", { class: "frame-group" }, wd, hl, es);
+      sec.append(g);
+      return { src, g, wd, hl, es };
+    });
+    (async () => {
+      for (const { src, g, wd, hl, es } of groups) {
+        if ((src.qid && shownQ.has(src.qid)) || (src.es && shownEs.has(src.es))) { g.remove(); continue; }
+        const got = src.qid || src.hls ? await wikidataFrame(src, wd) : (wd.remove(), {});
+        const qid = src.qid || got.qid;
+        if (qid && shownQ.has(qid)) { g.remove(); continue; }
+        if (qid) shownQ.add(qid);
         const hid = src.hls || got.hls;
         if (hid) hlsFrame(src, hid, hl); else hl.remove();
-        const qid = src.qid || got.qid;
-        if (qid) elitesFrame(src, qid, es); else es.replaceChildren(frame("es", "Elites suisses (OBELIS)", true, certPill(src), el("p", { class: "muted" }, t.fr_es_noqid)));
-      })();
-    }
+        if (src.es || qid) {
+          const esId = await elitesFrame(src, qid, es, src.es || "");
+          if (esId) shownEs.add(esId);
+        } else es.replaceChildren(frame("es", "Elites suisses (OBELIS)", true, certPill(src), el("p", { class: "muted" }, t.fr_es_noqid)));
+      }
+    })();
     return sec;
   }
 

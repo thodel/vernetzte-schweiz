@@ -556,5 +556,13 @@
   "fr_es_mem": "Positions and memberships",
   "fr_es_via": "Linked through the Wikidata ID.",
   "fr_es_note": "Live from the SPARQL endpoint of the Swiss elites database (LESSH/LOD4HSS).",
-  "fr_doc": "Description"
+  "fr_doc": "Description",
+  "fr_cert_esname": "Found by name and life dates, not through authority data: {n}, level «{t}» ({w}). Measured: «probable» 0 of 39 pairs wrong, «possible» 4 of 39; most could neither be confirmed nor refuted.",
+  "es_why_vorname_gleich": "same forename",
+  "es_why_vorname_abkürzung": "forename abbreviated",
+  "es_why_ort": "body in the same place",
+  "es_why_kanton": "body in the canton",
+  "es_why_zeitgleich": "at the same time",
+  "es_why_name_selten": "rare name",
+  "es_why_name_eher_selten": "fairly rare name"
 }
