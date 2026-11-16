@@ -22,7 +22,7 @@ from functools import lru_cache
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from common import NORM, ROOT, config, open_csv, write_csv  # noqa: E402
+from common import NORM, ROOT, config, fetch, open_csv, read_csv, write_csv  # noqa: E402
 from parse_ptt import FIRM, street_key  # noqa: E402
 
 LINKS = ROOT / "links"
@@ -45,6 +45,36 @@ INITIAL_EQUIV = {"k": "c", "j": "i"}
 # selben System nummerieren. Aarau zählte bis zur Umnummerierung die Gebäude der ganzen
 # Stadt durch (Nummern bis gegen 1400); eine neue Strassennummer ist kleiner.
 OLD_GLOBAL = {"aarau": 150}
+# Umnummerierung (sources.toml `renumbering`): Aarau hat 1900 die Gebäude neu, wieder stadtweit, durchnummeriert.
+# Telefonbücher ab 1900 tragen die neue Nummer, die Adressbücher bis 1899 die alte; gemessen an sicheren Paaren
+# Telefonbuch 1900–1910 ↔ Adressbuch 1899: gleiche Nummer 2–8 je Jahrgang, gleiches Haus über die Konkordanz 177–266.
+# Gemeinde → (Jahr der neuen Nummern, alte Nummer → neue Nummern)
+RENUMBERED: dict[str, tuple[int, dict[str, set[str]]]] = {}
+
+
+def load_renumbering(cfg: dict) -> None:
+    for c in cfg["city"]:
+        rn = c.get("renumbering")
+        if not rn or c["label"] in RENUMBERED:
+            continue
+        o2n: dict[str, set[str]] = defaultdict(set)
+        for r in read_csv(fetch(c["repo"], c["commit"], rn["path"])):
+            new = num(house(r["new_no"]))
+            for old in re.findall(r"\d+", r["old_no"] or ""):
+                if new:
+                    o2n[old].add(new)
+        RENUMBERED[c["label"]] = (int(rn["year"]), dict(o2n))
+
+
+def numbering(muni: str, year: int | str, no: str) -> tuple[str, frozenset]:
+    """Nummernsystem («alt»/«neu», leer ohne Umnummerierung) und das Gebäude als Menge neuer Nummern."""
+    rn = RENUMBERED.get(muni)
+    n = num(no or "")
+    if not rn:
+        return "", frozenset()
+    if int(year or 0) >= rn[0]:
+        return "neu", frozenset({n} if n else ())
+    return "alt", frozenset(rn[1].get(n, ()))
 
 
 def nkey(s: str) -> str:
@@ -226,6 +256,7 @@ def ab_index(entries: list[dict]) -> dict:
         r["_sk"], r["_ak"] = sk, nkey(r["alliance_name"])
         r["_mk"] = nkey(r["maiden_name"])
         r["_st"], r["_no"] = skey(r["street"]), house(r["building_no"])
+        r["_sys"], r["_bld"] = numbering(r["municipality"], r["volume"], r["_no"])
         r["_occ"] = stems(r["occupation"])
         r["_firm"] = r["entry_type"] == "firma" or bool(FIRM.search(f"{r['surname']} {r['forename']}"))
         r["_fn"] = forename_tokens(r["forename"])
@@ -241,17 +272,25 @@ def ab_index(entries: list[dict]) -> dict:
     return idx
 
 
-def building(city: str, a: str, b: str) -> bool:
-    """Gleiche Gebäudenummer im alten, stadtweiten System (nur wo die Stadt eines kannte)."""
+def building(city: str, p: dict, c: dict) -> str:
+    """Gleiches Gebäude in einem stadtweiten System (nur wo die Stadt eines kannte): «gleich» bei gleicher
+    Nummer im selben System, «konkordanz» über die Umnummerierung (alte Nummer → neue), sonst leer."""
     lim = OLD_GLOBAL.get(city)
-    return bool(lim and a and a == b and int(num(a) or 0) > lim)
+    if not lim:
+        return ""
+    if p.get("_sys") != c.get("_sys"):
+        return "konkordanz" if p["_bld"] & c["_bld"] else ""
+    a, b = p["_no"], c["_no"]
+    return "gleich" if a and a == b and int(num(a) or 0) > lim else ""
 
 
-def same_numbering(city: str, a: str, b: str) -> bool:
+def same_numbering(city: str, p: dict, c: dict) -> bool:
+    if p.get("_sys") != c.get("_sys"):
+        return False  # alte und neue Nummern sind nicht vergleichbar
     lim = OLD_GLOBAL.get(city)
     if not lim:
         return True
-    na, nb = int(num(a) or 0), int(num(b) or 0)
+    na, nb = int(num(p["_no"]) or 0), int(num(c["_no"]) or 0)
     return (na > lim) == (nb > lim)
 
 
@@ -302,14 +341,22 @@ def score(p: dict, c: dict, city: str) -> tuple[int, list[str]] | None:
                 return None  # andere Ehe
         if c["_firm"] and not p["_firm"]:
             s -= 1
-    if building(city, p["_no"], c["_no"]):
-        # alte, über die ganze Stadt laufende Gebäudenummer: bezeichnet das Haus allein
+    bld = building(city, p, c)
+    if bld == "konkordanz" and p["_st"] != c["_st"]:
+        # über die Umnummerierung, aber andere Strasse: ein Lesefehler in der Konkordanz oder ein Haus mit
+        # zwei Adressen; trägt allein nicht (Frey & Cie., Telli ≠ Frey, R. & M., Laurenzenvorstadt)
+        s += 2
+        ev += ["gebäudenummer", "umnummerierung"]
+    elif bld:
+        # stadtweite Gebäudenummer (alt, neu oder über die Konkordanz): bezeichnet das Haus allein
         s += 6
         ev += ["strasse", "hausnummer"] if p["_st"] == c["_st"] else ["gebäudenummer"]
+        if bld == "konkordanz":
+            ev.append("umnummerierung")
     elif p["_st"] and c["_st"] and p["_st"] == c["_st"]:
         s += 3
         ev.append("strasse")
-        if p["_no"] and c["_no"] and same_numbering(city, p["_no"], c["_no"]):
+        if p["_no"] and c["_no"] and same_numbering(city, p, c):
             if p["_no"] == c["_no"]:
                 s += 3
                 ev.append("hausnummer")
@@ -404,6 +451,7 @@ def prepare_ptt(r: dict) -> dict | None:
         " ".join(re.findall(r"\b[A-ZÄÖÜ][a-zäöü]{0,4}\.", r["name1"] + " " + r["name2"])))
     r["_widow"] = bool(WIDOW.search(" ".join((r["name2"], r["supplement"], r["title"]))))
     r["_st"], r["_no"] = skey(r["street_name"]), house(r["house_no"])
+    r["_sys"], r["_bld"] = numbering(r["municipality_1914"], r["year"], r["_no"])
     r["_occ"] = stems(r["occupation"])
     return r
 
@@ -506,6 +554,7 @@ def link_city(city: dict, ptt: list[dict], idx: dict, volumes: dict[str, list[st
 
 def main() -> None:
     cfg = config()
+    load_renumbering(cfg)
     entries = open_csv(NORM / "ab_entries.csv")
     idx = ab_index(entries)
     volumes: dict = defaultdict(lambda: defaultdict(set))  # Stadt → Gemeinde → Bände

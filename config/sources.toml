@@ -19,6 +19,9 @@ repo = "thodel/adressbuecher-aarau"
 commit = "372b3eb041698e5df825df2c861d4400b070907c"
 site = "https://thodel.github.io/adressbuecher-aarau/"
 authority = "data/csv/10_authority_links.csv"
+# Verzeichnis der neuen Hausnumerierung 1900 (neue Nr. → alte Nr.): Telefonbücher ab 1900 nummerieren neu,
+# die Adressbücher bis 1899 alt; Gebäude über die Grenze nur über diese Konkordanz (scripts/link_ptt_ab.py)
+renumbering = { path = "data/csv/05_hausnumerierung_1900.csv", year = 1900 }
 files = [
   { path = "data/csv/04_entries_fraktur.csv",   kind = "einwohner" },
   { path = "data/csv/04_entries_antiqua.csv",   kind = "einwohner" },

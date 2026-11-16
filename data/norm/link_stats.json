@@ -1,21 +1,21 @@
 {
  "aarau": {
   "ptt_entries": 3035,
-  "ptt_linked": 2209,
-  "pairs": 18442,
+  "ptt_linked": 2241,
+  "pairs": 18958,
   "decisions": {
-   "möglich": 2857,
-   "sicher": 3056,
+   "möglich": 2390,
+   "sicher": 3326,
    "kein-name": 8768,
-   "mehrdeutig": 5324,
-   "wahrscheinlich": 2849,
-   "zu-schwach": 4709,
+   "mehrdeutig": 5073,
+   "wahrscheinlich": 3308,
+   "zu-schwach": 4698,
    "widerspruch": 2787
   },
   "by_tier": {
-   "möglich": 5031,
-   "sicher": 7279,
-   "wahrscheinlich": 6132
+   "möglich": 4009,
+   "sicher": 7904,
+   "wahrscheinlich": 7045
   }
  },
  "basel": {

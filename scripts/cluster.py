@@ -42,7 +42,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 from common import NORM, config, open_csv, write_csv  # noqa: E402
 from link_ptt_ab import (  # noqa: E402
     LINKS, NAME_PARTICLES, WIDOW, compare_forenames, firm_key, forename_tokens, house, initial, nkey,
-    num, prepare_ptt, skey, stems,
+    load_renumbering, num, numbering, prepare_ptt, skey, stems,
 )
 from parse_ptt import FIRM  # noqa: E402
 
@@ -131,7 +131,7 @@ def ptt_records(cfg: dict) -> list[dict]:
             "id": r["id"], "source": "ptt", "year": int(r["year"]), "muni": r["municipality_1914"],
             "bfs": r["bfs_today"], "canton": r["canton"], "sk": r["_sk"], "firm": r["_firm"],
             "fn": tuple(r["_fn"]), "ak": r["_ak"],
-            "widow": r["_widow"] or bool(WIDOW_ANY.search(" ".join((r["name1"], r["name2"], r["supplement"])))), "st": street(r["street_name"]), "no": num(r["_no"]),
+            "widow": r["_widow"] or bool(WIDOW_ANY.search(" ".join((r["name1"], r["name2"], r["supplement"])))), "st": street(r["street_name"]), "no": num(r["_no"]), "bld": r["_bld"], "sys": r["_sys"],
             "line": line_key(r["name1"], r["name2"]),
             "full": line_key(r["name1"], r["name2"], r["supplement"], r["street"]),
             "succ": bool(SUCCESSOR.search(" ".join((r["name1"], r["name2"], r["supplement"])))),
@@ -158,6 +158,7 @@ def ab_records(cfg: dict) -> list[dict]:
             "bfs": "", "canton": "", "sk": sk, "firm": firm,
             "fn": tuple(forename_tokens(r["forename"])) if not firm else (), "ak": nkey(r["alliance_name"]),
             "widow": bool(WIDOW.search(r["text"])), "st": street(r["street"]), "line": "", "full": "", "succ": bool(SUCCESSOR.search(r["text"])), "no": num(house(r["building_no"])),
+            **dict(zip(("sys", "bld"), numbering(r.get("municipality") or labels[r["city"]], r["volume"], house(r["building_no"])))),
             "occ": frozenset(stems(r["occupation"])), "phone": "", "fnk": firm_name_key(r["surname"]) if firm else "",
             "slot": ("ab", r["volume"]), "kind": r["kind"],
             "name": r["text"][:120], "surname": r["surname"], "forename": r["forename"],
@@ -169,6 +170,13 @@ def ab_records(cfg: dict) -> list[dict]:
 
 # ── Kanten ────────────────────────────────────────────────────────────────
 
+def same_house_no(a: dict, b: dict) -> bool:
+    """Gleiche Hausnummer; über die Umnummerierung (Aarau 1900) nur über die Konkordanz alt → neu."""
+    if a["sys"] != b["sys"]:
+        return bool(a["bld"] & b["bld"])
+    return bool(a["no"] and a["no"] == b["no"])
+
+
 def edge(a: dict, b: dict) -> tuple[int, list[str]] | None:
     """Stärke (höher = früher verarbeitet) und Belege, oder None. Gleiche Gemeinde, gleicher
     Namensschlüssel und gleiche Art (Person/Firma) sind vorausgesetzt."""
@@ -178,7 +186,7 @@ def edge(a: dict, b: dict) -> tuple[int, list[str]] | None:
         return None
     phone = bool(a["phone"] and a["phone"] == b["phone"])
     street = bool(a["st"] and a["st"] == b["st"])
-    number = street and bool(a["no"] and a["no"] == b["no"])
+    number = street and same_house_no(a, b)
     occ = bool(a["occ"] & b["occ"])
     ev = [e for e, ok in (("telefon", phone), ("strasse", street), ("hausnummer", number), ("beruf", occ)) if ok]
     same_slot = a["slot"] == b["slot"]
@@ -261,7 +269,7 @@ def distinct(a: dict, b: dict) -> bool:
         return True
     if fn in ("gleich", "abkürzung") or (a["phone"] and a["phone"] == b["phone"]):
         return False
-    same_house = a["st"] and a["st"] == b["st"] and (a["no"] == b["no"] or not (a["no"] and b["no"]))
+    same_house = a["st"] and a["st"] == b["st"] and (same_house_no(a, b) or not (a["no"] and b["no"]))
     return not same_house
 
 
@@ -379,6 +387,7 @@ def summarise(eid: str, rs: list[dict]) -> dict:
 
 def main() -> None:
     cfg = config()
+    load_renumbering(cfg)
     recs = ptt_records(cfg) + ab_records(cfg)
     pos = {r["id"]: i for i, r in enumerate(recs)}
     blocks = defaultdict(list)

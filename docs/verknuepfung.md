@@ -34,11 +34,23 @@ anderen Familie. Er dient deshalb nie zum Blocken, nur als Beleg.
 | Allianzname gleich | 3 | beide haben einen, verschieden («andere Ehe») |
 | Strasse gleich | 3 | – |
 | Hausnummer gleich (im selben Nummernsystem) | +3 | andere Nummer: −1 |
-| Aarau: alte, stadtweite Gebäudenummer gleich | 6 | – |
+| Aarau: stadtweite Gebäudenummer gleich (im selben System) | 6 | – |
+| Aarau: gleiches Gebäude über die Umnummerierung 1900 (alte Nr. → neue Nr.), gleiche Strasse | 6 | – |
+| Aarau: dasselbe über die Umnummerierung, andere Strasse | 2 | – |
 | Beruf (gemeinsamer Wortstamm) | 1 | – |
 | Telefonzeichen im Adressbuch | 1 | – |
 | Firma gegen Firma | 2 | – |
 | Witwe im Telefonbuch | – | Eintrag im Adressbuch ist keine Witwe (also ihr Mann) |
+
+**Umnummerierung Aarau 1900.** Aarau hat 1900 die Gebäude neu durchnummeriert, wieder stadtweit (neue Nummern
+bis gegen 1500). Die Telefonbücher tragen ab 1900 die neue Nummer, die Adressbücher bis 1899 die alte. Über die
+Grenze zählt eine Nummer nur über die Konkordanz aus dem «Verzeichnis der neuen Hausnumerierung der Stadt Aarau»
+(adressbuecher-aarau, `05_hausnumerierung_1900.csv`, 1 459 alte Nummern; `renumbering` in `config/sources.toml`);
+gleiche Ziffern in beiden Systemen meinen verschiedene Häuser. Gemessen an sicheren Paaren Telefonbuch 1900–1910 ↔
+Adressbuch 1899: gleiche Ziffern 2–8 je Jahrgang, gleiches Haus über die Konkordanz 177–266 (16.11.2026). Wirkung
+auf die Telefonbücher ab 1900: `sicher` 2 824 → 3 449, `wahrscheinlich` 1 505 → 2 418, `möglich` 2 660 → 1 638,
+verknüpfte Einträge 928 → 960; vor 1900 unverändert. Über die Konkordanz bei anderer Strasse nur 2 Punkte: ein
+Lesefehler in der Konkordanz trug sonst «Frey, R. & M.» zur Baumwollspinnerei «Frey & Cie.» in der Telli.
 
 Ein späterer Vorname kann der Rufname sein: Es genügt ein passendes Paar
 («E.» ↔ «Hermann Emil»).
