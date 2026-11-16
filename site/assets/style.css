@@ -336,6 +336,11 @@ table.hl-groups td.barcell { width: 55%; }
 .hbar .track { background: var(--border); height: 10px; border-radius: 2px; min-width: 40px; }
 .hbar .fill { display: block; height: 100%; background: #175b5b; border-radius: 2px; }
 .hbar .num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+a.hbar { color: inherit; text-decoration: none; border-radius: 3px; margin: 0 -4px; padding: 1px 4px; }
+a.hbar:hover, a.hbar:focus-visible { background: var(--cat-source-pale, #eef2f6); }
+a.hbar:hover .lab { text-decoration: underline; }
+a.hbar.on { background: var(--cat-source-pale, #eef2f6); font-weight: 600; }
+a.hbar.on .fill { background: #d21938; }
 .pill.mw-tier-0 { background: #175b5b; color: #fff; }
 .pill.mw-tier-1 { background: #cfe3e3; color: #123; }
 .pill.mw-tier-2 { background: #eee; color: #333; }

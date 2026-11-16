@@ -813,6 +813,17 @@
     const near = params.get("n") || "ohne", seen = params.get("g") || "alle";
     // Ortsfilter aus einem Klick auf der Karte: vo = von, na = nach, ort = von oder nach
     const vo = params.get("vo") || "", na = params.get("na") || "", ort = params.get("ort") || "";
+    // Entfernungsklasse aus einem Klick auf die Balken «Nach Entfernung»
+    const bins = [[0, 5], [5, 20], [20, 50], [50, 100], [100, 999]];
+    const kb = params.has("k") ? bins[+params.get("k")] : null;
+    const binName = ([x, y]) => y > 500 ? `≥ ${x} km` : `${x}–${y} km`;
+    // Link auf diese Seite mit geänderten Filtern (null löscht einen Filter), für die Balken der Seitenleiste
+    const here = upd => {
+      const p = new URLSearchParams(params);
+      p.delete("v");
+      for (const [k, val] of Object.entries(upd)) val === null ? p.delete(k) : p.set(k, val);
+      return `#/wanderungen?${p}`;
+    };
     const pn = i => D.places[i][0];
     // gleiche Filter, dazu ein Ort oder Ortspaar; öffnet in einem neuen Tab
     const tabUrl = upd => {
@@ -825,7 +836,8 @@
     const tierNames = [t.mw_tier_0, t.mw_tier_1, t.mw_tier_2];
     const clsName = i => i < 0 ? t.mw_no_class : (t[`occ_${D.classes[i][0]}`] || D.classes[i][1]);
     const moves = D.moves.filter(m => m[3] >= a && m[3] <= b && m[5] <= tier && (cls === "alle" || m[4] === +cls)
-      && (near === "mit" || m[6] >= 5 || vo || na || ort) && (seen === "alle" || m[12] === 1)
+      && (near === "mit" || m[6] >= 5 || vo || na || ort || (kb && kb[0] === 0)) && (seen === "alle" || m[12] === 1)
+      && (!kb || (m[6] >= kb[0] && m[6] < kb[1]))
       && (!vo || pn(m[0]) === vo) && (!na || pn(m[1]) === na) && (!ort || pn(m[0]) === ort || pn(m[1]) === ort));
     const box = el("div", { class: "map tall" });
     const side = el("div", { class: "map-side" });
@@ -834,11 +846,13 @@
       el("b", {}, vo && na ? `${vo} → ${na}` : vo ? t.mw_from_place.replace("{g}", vo) : na ? t.mw_to_place.replace("{g}", na) : t.mw_at_place.replace("{g}", ort)),
       " · ", ...[vo, na, ort].filter(Boolean).filter((g, i, xs) => xs.indexOf(g) === i).flatMap(g => [link(placeHref(g), g), " · "]),
       link(tabUrl({}).replace(/^[^#]*/, ""), t.mw_clear_place)) : "";
-    view.replaceChildren(el("h1", {}, t.mw_h), el("p", { class: "intro" }, t.mw_p), placeFilter, ctl, box, side,
+    const kmFilter = kb ? el("p", { class: "flow-filter" }, el("b", {}, t.mw_km_filter.replace("{k}", binName(kb))), " · ",
+      link(here({ k: null }), t.mw_clear_km)) : "";
+    view.replaceChildren(el("h1", {}, t.mw_h), el("p", { class: "intro" }, t.mw_p), placeFilter, kmFilter, ctl, box, side,
       el("p", { class: "sub note" }, t.mw_note, " ", link("https://github.com/thodel/vernetzte-schweiz/blob/main/docs/wanderungen.md", t.mw_doc)));
     ctl.append(rangeSlider(1860, 1914, a, b, (x, y) => set({ a: x, b: y })),
       select([[0, tierNames[0]], [1, `${tierNames[0]} + ${tierNames[1]}`], [2, t.mp_all]], tier, t.mw_tier),
-      select([["alle", t.mp_all], ...D.classes.map((_, i) => [i, clsName(i)])], cls, t.mp_class),
+      select([["alle", t.mp_all], ...D.classes.map((_, i) => [i, clsName(i)]), ...(D.moves.some(m => m[4] < 0) ? [[-1, clsName(-1)]] : [])], cls, t.mp_class),
       select([["linien", t.mw_view_lines], ["saldo", t.mw_view_net]], dir, t.mp_metric),
       select([["ohne", t.mw_near_without], ["mit", t.mw_near_with]], near, t.mw_near),
       select([["alle", t.mw_seen_all], ["ja", t.mw_seen_yes]], seen, t.mw_seen));
@@ -900,28 +914,32 @@
     }
 
     // Seitenleiste: Zahl, nach Berufsklasse, nach Entfernung, häufigste Ortspaare, Fälle
+    // Zeile: [Beschriftung, Zahl, Zusatz, Link, aktiv]; mit Link ist der Balken ein Filter (aktiv: nochmals klicken hebt ihn auf)
     const hbars = rows => {
       const max = Math.max(1, ...rows.map(r => r[1]));
-      return el("div", { class: "hbars" }, ...rows.map(([lab, c, extra]) => el("div", { class: "hbar" },
+      return el("div", { class: "hbars" }, ...rows.map(([lab, c, extra, href, on]) => (href = c || on ? href : "", el(href ? "a" : "div",
+        href ? { class: "hbar" + (on ? " on" : ""), href, title: on ? t.mw_click_bar_off : t.mw_click_bar, "aria-current": on ? "true" : "false" } : { class: "hbar" },
         el("span", { class: "lab" }, lab), el("span", { class: "track" }, el("span", { class: "fill", style: `width:${c / max * 100}%` })),
-        el("span", { class: "num" }, n(c), extra ? el("span", { class: "muted" }, ` · ${extra}`) : ""))));
+        el("span", { class: "num" }, n(c), extra ? el("span", { class: "muted" }, ` · ${extra}`) : "")))));
     };
     const med = xs => { const s2 = [...xs].sort((x, y) => x - y); return s2.length ? s2[Math.floor((s2.length - 1) / 2)] : 0; };
     const byCls = new Map();
     for (const m of moves) { if (!byCls.has(m[4])) byCls.set(m[4], []); byCls.get(m[4]).push(m[6]); }
-    const bins = [[0, 5], [5, 20], [20, 50], [50, 100], [100, 999]];
     const span = a === b ? String(a) : `${a}–${b}`;
     side.append(el("p", { class: "count" }, t.mw_count.replace("{n}", n(moves.length)).replace("{y}", span).replace("{f}", n(flows.size))),
       el("h2", {}, t.mw_by_class),
-      hbars([...byCls].sort((x, y) => y[1].length - x[1].length).map(([c, ks]) => [clsName(c), ks.length, t.mw_median_km.replace("{k}", n(Math.round(med(ks))))])),
+      hbars([...byCls].sort((x, y) => y[1].length - x[1].length).map(([c, ks]) => [clsName(c), ks.length, t.mw_median_km.replace("{k}", n(Math.round(med(ks)))),
+        here({ c: cls === String(c) ? "alle" : c }), cls === String(c)])),
       el("h2", {}, t.mw_by_km),
-      hbars(bins.map(([x, y]) => [y > 500 ? `≥ ${x} km` : `${x}–${y} km`, moves.filter(m => m[6] >= x && m[6] < y).length])),
+      hbars(bins.map(([x, y], i) => [binName([x, y]), moves.filter(m => m[6] >= x && m[6] < y).length, "",
+        here({ k: kb === bins[i] ? null : i }), kb === bins[i]])),
       el("h2", {}, t.mw_by_year),
       yearBars(Array.from({ length: 55 }, (_, i) => moves.filter(m => m[3] === 1860 + i).length), 1860, 1914, null, y => set({ a: y, b: y }), [a, b]),
       el("h2", {}, t.mw_top_flows),
       hbars([...flows].sort((x, y) => y[1].length - x[1].length).slice(0, 12).map(([k, ms]) => {
         const [p, q] = k.split(">").map(Number);
-        return [`${P[p][0]} → ${P[q][0]}`, ms.length];
+        const on = vo === P[p][0] && na === P[q][0];
+        return [`${P[p][0]} → ${P[q][0]}`, ms.length, "", here(on ? { vo: null, na: null } : { vo: P[p][0], na: P[q][0], ort: null }), on];
       })),
       el("h2", {}, t.mw_cases),
       el("ul", { class: "hitlist" }, ...moves.slice().sort((x, y) => x[5] - y[5] || x[3] - y[3]).slice(0, 300).map(m => el("li", {},
