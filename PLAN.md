@@ -123,6 +123,13 @@ Verknüpfung und Bau laufen durch.
 - ✔ 15.11.2026 **Zürich 1867** (Fraktur, qwen3.8 auf tei) dazu: 12 711 Einträge, Einheiten 450 824 → 461 611; Wanderungen
   315 → 319 (6 neu Basel 1862 → Zürich 1867, 2 weg: ein Namensvetter 1867 am neuen Ort sperrt sie, die Regel «vorher am
   neuen Ort» kennt keine zeitliche Grenze)
+- ✔ 16.11.2026 **Aarau 1867–1881** (Häuser- und Einwohnerverzeichnisse 1867, 1877, 1879, 1881, Adress-Kalender 1869;
+  Fraktur, gemini-3.5-flash, adressbuecher-aarau 372b3eb; 1833 und 1859 liegen im Repo, aber vor dem Zeitfenster):
+  8 805 Einträge (Bewohner je Haus, auch Knechte und Mägde), Einheiten 461 611 → 466 617. Von 5 873 Einheiten mit einem
+  frühen Eintrag reichen 869 in die Bände 1884–1899; 165 Personen von 1881 haben 1884 einen gleichnamigen Eintrag ohne
+  Verbindung, meist Namensvettern, aber nicht nur (Kiefer, Wilhelm, Metzger, Zollrain 87). Stichprobe der Aarauer
+  Endfassung (60 Datensätze): etwa 90 % voll richtig. Wanderungen 319 → 323: 5 neu (Leder Basel → Aarau, Wild, Groß
+  und Daniel Aarau → Zürich, Stacher Zürich → Aarau), Häsler Bern → Aarau weg (Sommerhalder, Hässig nur neu verschlüsselt).
   (qwen3.8, ohne Nachkorrektur; 1859 liegt im Repo, aber vor dem Zeitfenster): 196 910 Einträge, die Ausgemeinden von
   1875/1885 gehören zur Gemeinde Zürich von 1914. Telefonbuch verknüpft: 36 087 von 62 474. Neue Regel für weitere
   Einträge derselben Person (`zusatz`): gleiche Hausnummer an einer anderen Strasse zählt nicht mehr (vorher 3 von 14

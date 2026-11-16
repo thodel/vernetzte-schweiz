@@ -12,7 +12,7 @@ Plan, Entscheide und offene Fragen: [PLAN.md](PLAN.md) · Datenvertrag:
 
 ## Quellen
 
-- Adressbücher Aarau 1884–1899 — [adressbuecher-aarau](https://github.com/thodel/adressbuecher-aarau)
+- Adressbücher Aarau 1867–1899 (frühe Häuserverzeichnisse 1867–1881 mit Gemini gelesen) — [adressbuecher-aarau](https://github.com/thodel/adressbuecher-aarau)
 - Adressbuch Basel 1862 — [adressbuecher-basel](https://github.com/thodel/adressbuecher-basel)
 - Telefonbücher 1880–1914 — PTT-Archiv P-260, aufbereitet von DH Bern und localsearch
   ([DHBern/PTT_phonebook_data_tsv](https://github.com/DHBern/PTT_phonebook_data_tsv),

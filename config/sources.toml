@@ -16,7 +16,7 @@ year_to = 1914
 id = "aarau"
 label = "Aarau"
 repo = "thodel/adressbuecher-aarau"
-commit = "538c444461937e124721f2da11b1b717cb1c264f"
+commit = "372b3eb041698e5df825df2c861d4400b070907c"
 site = "https://thodel.github.io/adressbuecher-aarau/"
 authority = "data/csv/10_authority_links.csv"
 files = [
@@ -26,6 +26,8 @@ files = [
   { path = "data/csv/04_berufe_antiqua.csv",    kind = "berufe" },
   { path = "data/csv/05_residents_fraktur.csv", kind = "bewohner" },
   { path = "data/csv/05_residents_antiqua.csv", kind = "bewohner" },
+  # Häuser- und Einwohnerverzeichnisse 1833–1881 (Fraktur, gemini-3.5-flash, ohne Nachkorrektur); im Zeitfenster 1867–1881
+  { path = "data/csv/05_residents_frueh.csv",   kind = "bewohner" },
 ]
 
 [[city]]

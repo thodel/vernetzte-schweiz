@@ -8,13 +8,13 @@
  "nur_sterbeort:möglich": 352,
  "nur_sterbeort:nicht_gefunden": 2314,
  "nur_sterbeort:normdaten": 256,
- "nur_sterbeort:schwach": 648,
+ "nur_sterbeort:schwach": 646,
  "nur_sterbeort:wahrscheinlich": 79,
- "ohne_abgedeckten_ort": 803,
+ "ohne_abgedeckten_ort": 802,
  "ohne_ort": 872,
  "text:möglich": 187,
- "text:nicht_gefunden": 1168,
+ "text:nicht_gefunden": 1170,
  "text:normdaten": 276,
- "text:schwach": 429,
+ "text:schwach": 430,
  "text:wahrscheinlich": 233
 }
