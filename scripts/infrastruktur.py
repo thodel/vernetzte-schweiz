@@ -13,21 +13,34 @@ Drei Teile (docs/infrastruktur.md, Seite #/infrastruktur):
 2. Berufe der Infrastruktur (GROUPS): je 1000 Einträge in den Adressbuchreihen (Zürich 1867–1914,
    Aarau 1867–1899 …) und in den Telefonbüchern; Gemeinden mit mindestens einem solchen Eintrag 1911–1914.
 3. Bahnhofstrasse: Gemeinden mit einer Bahnhofstrasse / Rue de la Gare in den Adressen 1911–1914.
+4. Weitere Spuren (spuren()):
+   - Rufnummern: verschiedene Nummern (≈ Anschlüsse) und höchste Nummer (99. Perzentil) je Stadt und Jahr.
+   - Gemeindewerke: Elektrizitäts-, Gas- und Wasserwerke als Abonnenten, erstes Jahr je Gemeinde.
+   - Ämter am Netz: Gemeindekanzlei, Bahnhof, Post mit eigenem Eintrag.
+   - Fremdenverkehr: Anteil der Hotels und Kurhäuser im ersten Jahrgang einer Gemeinde.
+   - Einwohner: Einträge je 1000 Einwohner (Volkszählungen 1888, 1900, 1910; BFS, Gemeindestand 2000).
+   - Bahn: Bahnhöfe mit Eröffnungsjahr (Wikidata, P1619) und Telefon 1911 in Gemeinden mit und ohne Bahnhof.
 
     python scripts/infrastruktur.py        # data/norm/infrastruktur.json
     python scripts/infrastruktur.py site   # site/data/infrastruktur.json.gz
+    python scripts/infrastruktur.py ref PX STATIONS   # data/ref/population_1850_2000.csv, data/ref/stations_wikidata.csv
+
+PX: BFS px-x-4004000000_101 (Bevölkerungsentwicklung nach institutionellen Gliederungen 1850–2000,
+https://www.bfs.admin.ch/bfsstatic/dam/assets/241082/master, Latin-1). STATIONS: CSV der Wikidata-Abfrage
+in docs/infrastruktur.md (Spalten s, sLabel, d, c).
 """
 
 from __future__ import annotations
 
 import gzip
 import json
+import math
 import re
 import sys
 from collections import Counter, defaultdict
 from datetime import date
 
-from common import NORM, ROOT, open_csv
+from common import NORM, ROOT, open_csv, write_csv
 
 OUT = NORM / "infrastruktur.json"
 NATIONAL_FROM = 1911  # ab hier ganze Schweiz in den Telefonbüchern (Bände 1, 2a–2c, 3)
@@ -71,10 +84,49 @@ STATION_STREET = re.compile(r"bahnhof(str|platz|weg|quai)|rue de la gare|avenue 
                             r"|viale stazione|piazza (della )?stazione", re.I)
 
 
+# Gemeindewerke als Abonnenten (Name eines Betriebs oder Amts, nicht Beruf einer Person)
+WORKS = [
+    ("strom", re.compile(r"elektri[cz]itätswerk|electricitätswerk|kraftwerk|lichtwerk|usine électrique|service (de l'|de l’|des? )?électricité"
+                         r"|azienda elettrica|officina elettrica|société (d'|d’)électricité|elektrizitätsgenossenschaft", re.I)),
+    ("gas", re.compile(r"gaswerk|gasanstalt|usine à gaz|service du gaz|officina del gas", re.I)),
+    ("wasser", re.compile(r"wasserwerk|wasserversorg|service des eaux|wasser- und|acquedotto", re.I)),
+]
+# Ämter mit eigenem Eintrag
+OFFICES = [
+    ("gemeinde", re.compile(r"gemeinde(rats)?kanzl|gemeindeschreiberei|gemeindehaus|gemeindeverwalt|stadtkanzlei|stadthaus"
+                            r"|greffe (municipal|communal)|secrétariat (communal|municipal)|bureau communal|^municipalité|^commune\b"
+                            r"|cancelleria comunale|^municipio|ufficio comunale", re.I)),
+    ("bahnhof", re.compile(r"^(bahnhof|station|gare|stazione|güterexpedition|güterbahnhof)\b|^stationsbureau|^bureau de la gare", re.I)),
+    ("post", re.compile(r"^(post|postbureau|postablage|postbüro|bureau (de|des) postes?|poste|ufficio postale|posta|telegraph"
+                        r"|telegraphenbureau|bureau télégraphique|télégraphe)\b", re.I)),
+]
+HOTEL = re.compile(r"hotel|hôtel|kurhaus|kuranstalt|grand-hôtel|pension\b|albergo|sanatori|kurort|fremdenpension", re.I)
+POP_YEARS = (1888, 1900, 1910)
+GAP = 300  # Lücke, die einen eigenen Nummernblock (Nachbarzentrale, Lesefehler) vom Hauptbereich trennt
+MAX_DENSITY = 250    # Einträge je 1000 Einwohner darüber: Ortszuordnung falsch (La Chaux-de-Fonds unter La Chaux VD)
+STATION_RADIUS = 3.0  # km: Bahnhof gehört zur nächsten Gemeinde in diesem Umkreis
+
+
 def groups(*texts: str) -> list[str]:
     t = " ".join(x for x in texts if x)
     inn = bool(INN.search(t))
     return [k for k, rx in COMPILED if rx.search(t) and not (inn and k in ("bahn", "post_tel"))]
+
+
+def municipalities_alive() -> set[str]:
+    """Namen der Gemeinden am 1.1.1914."""
+    day = date(1914, 1, 1)
+    out = set()
+    for r in open_csv(ROOT / "data" / "ref" / "municipalities_1914.csv"):
+        d, m, y = (int(p) for p in r["valid_from"].split("."))
+        if date(y, m, d) > day:
+            continue
+        if r["valid_to"]:
+            d, m, y = (int(p) for p in r["valid_to"].split("."))
+            if date(y, m, d) < day:
+                continue
+        out.add(r["name"])
+    return out
 
 
 def municipalities_1914() -> dict[str, int]:
@@ -210,11 +262,231 @@ def station_streets(P: list[dict]) -> dict:
     return {"per_year": {y: len(v) for y, v in sorted(by_year.items())}, "first": first}
 
 
+def office(x: dict) -> str | None:
+    """Art des Amts bei einem Eintrag eines Amts oder einer Firma, sonst None."""
+    if x["entity_type"] == "person":
+        return None
+    name = " ".join(p for p in (x["name1"], x["name2"]) if p).strip()
+    if INN.search(name):
+        return None
+    for k, rx in OFFICES:
+        if rx.search(name):
+            return k
+    return None
+
+
+def works(x: dict) -> str | None:
+    if x["entity_type"] == "person":
+        return None
+    name = " ".join((x["name1"], x["name2"]))
+    for k, rx in WORKS:
+        if rx.search(name):
+            return k
+    return None
+
+
+def top_of_range(numbers: list[int]) -> int:
+    """Höchste Nummer des zusammenhängenden Bereichs um die mittlere Nummer; ein Block nach einer Lücke > GAP zählt nicht."""
+    v = sorted(set(numbers))
+    i = len(v) // 2
+    top = v[i]
+    for n in v[i + 1:]:
+        if n - top > GAP:
+            break
+        top = n
+    return top
+
+
+def km(a: tuple, b: tuple) -> float:
+    dx = (a[1] - b[1]) * 111.32 * math.cos(math.radians((a[0] + b[0]) / 2))
+    return math.hypot((a[0] - b[0]) * 110.57, dx)
+
+
+def ref_municipalities() -> dict[str, dict]:
+    return {r["name"]: r for r in open_csv(ROOT / "data" / "ref" / "municipalities_1914.csv")}
+
+
+def unit_2000(r: dict, units: set[str]) -> str:
+    """Gemeinde von 2000, zu der eine Gemeinde von 1914 gehört: die eigene Nummer, wenn es sie 2000 noch gab, sonst die heutige."""
+    if r["bfs"] in units and not (r["valid_to"] and int(r["valid_to"][-4:]) < 2000):
+        return r["bfs"]
+    return r["bfs_today"] if r["bfs_today"] in units else ""
+
+
+def spuren(P: list[dict], tel: dict) -> dict:
+    series = tel["series"]
+    places = {p[0]: p for p in tel["places"]}
+    # Rufnummern je Stadt und Jahr (nur Jahre, in denen ≥ 80 % der Einträge eine Nummer haben)
+    nums: dict = defaultdict(list)
+    tot: Counter = Counter()
+    best_ref = {}
+    for x in P:
+        m, y = x["municipality_1914"], int(x["year"])
+        if m in series:
+            tot[(m, y, x["refcode"])] += 1
+            if x["phone_norm"].isdigit():
+                nums[(m, y, x["refcode"])].append(int(x["phone_norm"]))
+    for (m, y, ref), n in tot.items():
+        if n > tot.get((m, y, best_ref.get((m, y), "")), 0):
+            best_ref[(m, y)] = ref
+    numbers = {}
+    for m, rows in series.items():
+        out = []
+        for y, n in rows:
+            v = sorted(nums[(m, y, best_ref[(m, y)])])
+            if len(v) >= 0.8 * n:
+                out.append([y, n, len(set(v)), top_of_range(v)])
+        if len(out) >= 3:
+            numbers[m] = out
+    # Gemeindewerke, Ämter, Fremdenverkehr
+    werk_first: dict = defaultdict(dict)
+    office_first: dict = defaultdict(dict)
+    office_year: dict = defaultdict(lambda: defaultdict(set))
+    werk_year: dict = defaultdict(lambda: defaultdict(set))
+    first_year: dict = {}
+    for x in P:
+        m, y = x["municipality_1914"], int(x["year"])
+        if not m:
+            continue
+        first_year[m] = min(first_year.get(m, 9999), y)
+        w = works(x)
+        if w:
+            werk_first[w][m] = min(werk_first[w].get(m, 9999), y)
+            if y >= NATIONAL_FROM:
+                werk_year[y][w].add(m)
+        o = office(x)
+        if o:
+            office_first[o][m] = min(office_first[o].get(m, 9999), y)
+            if y >= NATIONAL_FROM:
+                office_year[y][o].add(m)
+    with_phone = {y: len({x["municipality_1914"] for x in P if int(x["year"]) == y and x["municipality_1914"]})
+                  for y in range(NATIONAL_FROM, 1915)}
+    first_n: Counter = Counter()
+    first_hotel: Counter = Counter()
+    for x in P:
+        m, y = x["municipality_1914"], int(x["year"])
+        if m and y == first_year[m]:
+            first_n[m] += 1
+            if HOTEL.search(" ".join((x["name1"], x["name2"], x["occupation"], x["supplement"]))):
+                first_hotel[m] += 1
+    tourism = sorted(([m, first_year[m], first_n[m], first_hotel[m]] for m in first_n
+                      if first_n[m] >= 5 and first_hotel[m] >= 0.5 * first_n[m] and m in places),
+                     key=lambda r: (r[1], -r[3]))
+    hotel_share = {}
+    for lo, hi in ((1880, 1899), (1900, 1910), (1911, 1911), (1912, 1914)):
+        ms = [m for m in first_n if lo <= first_year[m] <= hi]
+        hotel_share[f"{lo}-{hi}"] = [len(ms), sum(first_hotel[m] for m in ms), sum(first_n[m] for m in ms),
+                                     sum(1 for m in ms if first_hotel[m])]
+    # Einwohner (Gemeindestand 2000)
+    pop = {r["bfs"]: r for r in open_csv(ROOT / "data" / "ref" / "population_1850_2000.csv")}
+    ref = ref_municipalities()
+    unit = {m: unit_2000(r, set(pop)) for m, r in ref.items()}
+    per_unit: dict = defaultdict(Counter)
+    for x in P:
+        u = unit.get(x["municipality_1914"], "")
+        # nur sicher verortete Einträge: ein unplausibler Lauf (places.py) landet sonst ganz in einem Dorf
+        if u and x["place_confidence"] != "unsicher":
+            per_unit[u][int(x["year"])] += 1
+    density = []
+    for u, c in per_unit.items():
+        p = int(pop[u]["1910"] or 0)
+        if p:
+            ms = [m for m in unit if unit[m] == u and m in places]
+            lat = sum(places[m][2] for m in ms) / len(ms) if ms else 0
+            lon = sum(places[m][3] for m in ms) / len(ms) if ms else 0
+            if ms and c.get(1911):
+                density.append([pop[u]["name"], round(lat, 4), round(lon, 4), p, c[1911], c[1914],
+                                round(1000 * c[1911] / p, 1)])
+    implausible = sorted((r for r in density if r[6] > MAX_DENSITY), key=lambda r: -r[6])
+    density = sorted((r for r in density if r[6] <= MAX_DENSITY), key=lambda r: -r[3])
+    city_density = {}
+    for m, rows in series.items():
+        u = unit.get(m, "")
+        if not u:
+            continue
+        out = []
+        for py in POP_YEARS:
+            near = [(abs(y - py), y, n) for y, n in rows if abs(y - py) <= 2]
+            # Gebiet: nur Städte, deren Gebiet sich bis 2000 nicht durch Eingemeindungen änderte, sonst wäre der Nenner zu gross
+            if near and int(pop[u][str(py)] or 0):
+                _, y, n = min(near)
+                out.append([py, y, n, int(pop[u][str(py)]), round(1000 * n / int(pop[u][str(py)]), 1)])
+        merged = [k for k, v in unit.items() if v == u and k != m]
+        if out and not merged:  # mit späteren Eingemeindungen wäre die Einwohnerzahl von 2000 zu gross
+            city_density[m] = out
+    # Bahnhöfe (Wikidata) zur nächsten Gemeinde
+    stations = []
+    for r in open_csv(ROOT / "data" / "ref" / "stations_wikidata.csv"):
+        pt = (float(r["lat"]), float(r["lon"]))
+        best = min(((km(pt, (p[2], p[3])), p[0]) for p in places.values()), default=(99, ""))
+        if best[0] <= STATION_RADIUS and r["year"]:
+            stations.append([r["label"], int(r["year"]), best[1], round(pt[0], 4), round(pt[1], 4)])
+    station_first: dict = {}
+    for _, y, m, *_ in stations:
+        station_first[m] = min(station_first.get(m, 9999), y)
+    total = sum(municipalities_1914().values())
+    phone_1911 = {m for m, p in places.items() if p[4] <= 1911}
+    call_1914 = {m for m, p in places.items() if p[6]}
+    with_st = {m for m, y in station_first.items() if y <= 1910}
+    # Gleich grosse Gemeinden mit und ohne Bahnhof (Einwohner 1910; nur Gemeinden, deren Gebiet bis 2000 gleich blieb)
+    members = Counter(u for u in unit.values() if u)
+    pop1910 = {m: int(pop[u]["1910"]) for m, u in unit.items() if u and members[u] == 1 and pop[u]["1910"]}
+    alive = municipalities_alive()
+    classes = []
+    for lo, hi in ((0, 499), (500, 999), (1000, 1999), (2000, 4999), (5000, 10**7)):
+        row = [lo, hi]
+        for st in (True, False):
+            ms = [m for m, p in pop1910.items() if lo <= p <= hi and m in alive and (m in with_st) == st]
+            row += [len(ms), sum(1 for m in ms if m in phone_1911), sum(1 for m in ms if m in call_1914)]
+        classes.append(row)
+    rail = {"classes": classes, "stations": len(stations), "dated_municipalities": len(station_first),
+            "with_station": [len(with_st), len(with_st & phone_1911), len(with_st & call_1914)],
+            "phone_1911": len(phone_1911), "call_1914": len(call_1914), "gemeinden": total, "places": stations}
+    return {
+        "numbers": numbers,
+        "werke": {"first": {k: werk_first[k] for k, _ in WORKS},
+                  "per_year": {y: {k: len(werk_year[y][k]) for k, _ in WORKS} for y in sorted(werk_year)}},
+        "aemter": {"first": {k: office_first[k] for k, _ in OFFICES},
+                   "per_year": {y: {k: len(office_year[y][k]) for k, _ in OFFICES} for y in sorted(office_year)},
+                   "with_phone": with_phone},
+        "tourismus": {"places": tourism, "share": hotel_share},
+        "einwohner": {"places": density, "cities": city_density, "implausible": [[r[0], r[3], r[4]] for r in implausible]},
+        "bahn": rail,
+    }
+
+
+def build_ref(px: str, stations: str) -> None:
+    """Referenzdateien aus der BFS-Tabelle (PX) und der Wikidata-Abfrage der Bahnhöfe."""
+    s = open(px, encoding="latin-1").read()
+    names = re.findall(r'"([^"]*)"', re.search(r'VALUES\("Kanton[^"]*"\)=(.*?);', s, re.S).group(1))
+    years = re.findall(r'"(\d{4})"', re.search(r'VALUES\("Jahr"\)=(.*?);', s, re.S).group(1))
+    data = re.search(r"\nDATA=(.*?);", s, re.S).group(1).split()
+    rows = []
+    for i, n in enumerate(names):
+        mm = re.match(r"\.{6}(\d{4}) (.+)", n)
+        if mm:
+            v = dict(zip(years, data[i * len(years):(i + 1) * len(years)]))
+            rows.append({"bfs": str(int(mm.group(1))), "name": mm.group(2),
+                         **{y: "" if v[y] in ('"..."', '"-"', "...") else v[y] for y in ("1880", "1888", "1900", "1910", "1920")}})
+    write_csv(ROOT / "data" / "ref" / "population_1850_2000.csv", ["bfs", "name", "1880", "1888", "1900", "1910", "1920"], rows)
+    out = []
+    import csv as _csv
+    for r in _csv.DictReader(open(stations, encoding="utf-8")):
+        c = re.match(r"Point\(([-\d.]+) ([-\d.]+)\)", r["c"])
+        if c:
+            out.append({"qid": r["s"].rsplit("/", 1)[-1], "label": r["sLabel"], "year": r["d"][:4] if r["d"] else "",
+                        "lat": c.group(2), "lon": c.group(1)})
+    out.sort(key=lambda r: int(r["qid"][1:]))
+    write_csv(ROOT / "data" / "ref" / "stations_wikidata.csv", ["qid", "label", "year", "lat", "lon"], out)
+    print(f"{len(rows)} Gemeinden, {len(out)} Bahnhöfe ({sum(1 for r in out if r['year'])} mit Eröffnungsjahr)")
+
+
 def find() -> None:
     P = open_csv(NORM / "ptt_entries.csv.gz")
     A = open_csv(NORM / "ab_entries.csv")
-    out = {"telefon": telephone(P), "berufe": occupations(P, A), "bahnhofstrasse": station_streets(P),
-           "groups": [k for k, _ in GROUPS]}
+    tel = telephone(P)
+    out = {"telefon": tel, "berufe": occupations(P, A), "bahnhofstrasse": station_streets(P),
+           "spuren": spuren(P, tel), "groups": [k for k, _ in GROUPS]}
     OUT.write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")) + "\n")
     t = out["telefon"]
     print(f"Stadtreihen: {', '.join(t['series'])}")
@@ -224,6 +496,17 @@ def find() -> None:
     for y, v in out["berufe"]["national"].items():
         print(y, v)
     print("Bahnhofstrasse", out["bahnhofstrasse"]["per_year"])
+    sp = out["spuren"]
+    for m, rows in sp["numbers"].items():
+        print("Nummern", m, rows)
+    print("Werke", sp["werke"]["per_year"], {k: len(v) for k, v in sp["werke"]["first"].items()})
+    print("Ämter", sp["aemter"]["per_year"], sp["aemter"]["with_phone"])
+    print("Tourismus", len(sp["tourismus"]["places"]), sp["tourismus"]["share"], sp["tourismus"]["places"][:15])
+    print("Einwohner", sp["einwohner"]["places"][:8])
+    for m, v in sp["einwohner"]["cities"].items():
+        print("  ", m, v)
+    b = sp["bahn"]
+    print("Bahn", {k: v for k, v in b.items() if k != "places"})
 
 
 def site() -> None:
@@ -236,4 +519,9 @@ def site() -> None:
 
 
 if __name__ == "__main__":
-    site() if sys.argv[1:] == ["site"] else find()
+    if sys.argv[1:2] == ["ref"]:
+        build_ref(sys.argv[2], sys.argv[3])
+    elif sys.argv[1:] == ["site"]:
+        site()
+    else:
+        find()

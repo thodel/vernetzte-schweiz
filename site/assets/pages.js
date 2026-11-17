@@ -1094,6 +1094,7 @@
     const yt = [];
     if (log) for (let d = y0; d <= y1; d *= 10) yt.push(d);
     else if (share) { const st = y1 > 0.3 ? 0.1 : y1 > 0.1 ? 0.05 : 0.02; for (let v = 0; v <= y1 + 1e-9; v += st) yt.push(Math.round(v * 100) / 100); }
+    else { const m = 10 ** Math.floor(Math.log10(y1 / 4)), st = [1, 2, 5, 10].map(k => k * m).find(k => y1 / k <= 5); for (let v = 0; v <= y1; v += st) yt.push(v); }
     for (const v of yt) {
       svg.append(sv("line", { x1: L, x2: W - R, y1: fy(v), y2: fy(v), class: "grid" }),
         sv("text", { x: L - 6, y: fy(v) + 4, "text-anchor": "end", class: "tick" }, share ? pf.format(v) : n(v)));
@@ -1115,7 +1116,7 @@
   let infData;
   async function infrastruktur(params) {
     const D = infData ??= await get("data/infrastruktur.json.gz");
-    const T = D.telefon;
+    const T = D.telefon, SP = D.spuren;
     const here = upd => {
       const p = new URLSearchParams(params);
       for (const [k, val] of Object.entries(upd)) val === null ? p.delete(k) : p.set(k, val);
@@ -1137,7 +1138,9 @@
 
     // A3: Karte und Kantone
     const view_ = params.get("k") || "telefon";
-    const layers = [["telefon", t.inf_map_phone], ["sprech", t.inf_map_call], ...D.groups.map(g => [g, gName(g)]), ["bahnhofstrasse", t.inf_map_station]];
+    const layers = [["telefon", t.inf_map_phone], ["sprech", t.inf_map_call], ["dichte", t.inf_map_density], ...D.groups.map(g => [g, gName(g)]),
+      ["bahnhofstrasse", t.inf_map_station], ...["strom", "gas", "wasser"].map(k => [`werk_${k}`, t[`inf_werk_${k}`]]),
+      ...["gemeinde", "bahnhof", "post"].map(k => [`amt_${k}`, t[`inf_amt_${k}`]])];
     const box = el("div", { class: "map tall" });
     const mapCtl = el("div", { class: "controls" }, select(layers, view_, t.inf_map_show));
     mapCtl.querySelector("select").addEventListener("change", e => set({ k: e.target.value }));
@@ -1148,12 +1151,20 @@
     if (view_ === "telefon") firstOf = new Map(T.places.map(p => [p[0], p[4]]));
     else if (view_ === "sprech") firstOf = new Map(T.places.filter(p => p[6]).map(p => [p[0], p[6]]));
     else if (view_ === "bahnhofstrasse") firstOf = new Map(Object.entries(D.bahnhofstrasse.first));
+    else if (view_.startsWith("werk_")) firstOf = new Map(Object.entries(SP.werke.first[view_.slice(5)] || {}));
+    else if (view_.startsWith("amt_")) firstOf = new Map(Object.entries(SP.aemter.first[view_.slice(4)] || {}));
+    else if (view_ === "dichte") firstOf = new Map();
     else firstOf = new Map(Object.entries(D.berufe.first[view_] || {}));
     const catCount = [0, 0, 0, 0, 0];
     for (const [m, y] of firstOf) if (geo.has(m) && y <= 1914) catCount[catOf(y)]++;
-    const mapLegend = el("div", { class: "inf-legend" }, ...cats.map(([, lab, col], i) => (view_ === "sprech" && i === 0) ? "" :
+    // Einträge je 1000 Einwohner (1911 / Volkszählung 1910)
+    const dens = [[0, "< 5", "#e8d9c4"], [5, "5–20", "#e7aeb2"], [20, "20–50", "#b54a54"], [50, "≥ 50", "#5c1620"]];
+    const densOf = v => dens.filter(d => v >= d[0]).length - 1;
+    const mapLegend = view_ === "dichte" ? el("div", { class: "inf-legend" }, ...dens.map(([, lab, col], i) =>
+      el("span", {}, el("span", { class: "dot", style: `background:${col}` }), `${lab} (${n(SP.einwohner.places.filter(r => densOf(r[6]) === i).length)})`)))
+      : el("div", { class: "inf-legend" }, ...cats.map(([, lab, col], i) => (view_ === "sprech" && i === 0) ? "" :
       el("span", {}, el("span", { class: "dot", style: `background:${col}` }), `${lab} (${n(catCount[i])})`)));
-    const exampleList = !["telefon", "sprech", "bahnhofstrasse"].includes(view_) && D.berufe.examples[view_]
+    const exampleList = D.groups.includes(view_) && D.berufe.examples[view_]
       ? el("details", { class: "inf-examples" }, el("summary", {}, t.inf_examples.replace("{g}", gName(view_))),
         el("ul", {}, ...D.berufe.examples[view_].slice(0, 60).map(([m, nm, occ]) => el("li", {}, el("b", {}, nm), ` · ${m}`, occ ? el("span", { class: "muted" }, ` · ${occ}`) : ""))))
       : "";
@@ -1192,6 +1203,43 @@
       }), el("tr", { class: "sum" }, el("td", {}, t.inf_col_entries), ...years.map(y => el("td", {}, n(D.berufe.national[y].eintraege))),
         el("td", {}, `+${pct(D.berufe.national[years.at(-1)].eintraege - D.berufe.national[years[0]].eintraege, D.berufe.national[years[0]].eintraege)}`)))));
 
+    // C: weitere Spuren
+    const table = (heads, rows, sum) => el("div", { class: "grid-scroll" }, el("table", { class: "entries inf-table" },
+      el("thead", {}, el("tr", {}, ...heads.map(h => el("th", {}, h)))),
+      el("tbody", {}, ...rows.map(r => el("tr", {}, ...r.map(c => el("td", {}, c)))), ...(sum ? [el("tr", { class: "sum" }, ...sum.map(c => el("td", {}, c)))] : []))));
+    const numCities = Object.keys(SP.numbers);
+    const numCity = numCities.includes(params.get("nr")) ? params.get("nr") : numCities[0];
+    const numCtl = el("div", { class: "controls" }, select(numCities.map(c => [c, c]), numCity, t.zz_city));
+    numCtl.querySelector("select").addEventListener("change", e => set({ nr: e.target.value }));
+    const chart3 = el("div", { class: "chart" });
+    const NR = SP.numbers[numCity];
+    const numTable = table([t.inf_col_year, t.inf_col_entries, t.inf_num_n, t.inf_num_top, t.inf_num_use],
+      NR.map(([y, e, k, top]) => [String(y), n(e), n(k), n(top), pct(k, top)]));
+    const W = SP.werke, A = SP.aemter;
+    const wy = Object.keys(W.per_year);
+    const werkTable = table([t.inf_col_kind, ...wy, t.inf_werk_before],
+      ["strom", "gas", "wasser"].map(k => [link(here({ k: `werk_${k}` }) + "#inf-karte", t[`inf_werk_${k}`]), ...wy.map(y => n(W.per_year[y][k])),
+        n(Object.values(W.first[k]).filter(y => y < 1911).length)]));
+    const amtTable = table([t.inf_col_kind, ...wy],
+      ["gemeinde", "bahnhof", "post"].map(k => [link(here({ k: `amt_${k}` }) + "#inf-karte", t[`inf_amt_${k}`]),
+        ...wy.map(y => `${n(A.per_year[y][k])} (${pct(A.per_year[y][k], A.with_phone[y])})`)]),
+      [t.inf_amt_all, ...wy.map(y => n(A.with_phone[y]))]);
+    const TS = SP.tourismus;
+    const tourShare = table([t.inf_tour_period, t.inf_tour_places, t.inf_tour_hotels, t.inf_tour_with],
+      Object.entries(TS.share).map(([k, [m, h, e, w]]) => [k.replace(/^(\d+)-\1$/, "$1").replace("-", "–"), n(m), `${n(h)} / ${n(e)} (${pct(h, e)})`, `${n(w)} (${pct(w, m)})`]));
+    const tourList = el("ul", { class: "hitlist cols" }, ...TS.places.map(([m, y, e, h]) =>
+      el("li", {}, el("b", {}, String(y)), " ", link(placeHref(m), m), el("span", { class: "muted" }, ` ${n(h)}/${n(e)}`))));
+    const E = SP.einwohner;
+    const popTable = table([t.zz_city, ...[1888, 1900, 1910].map(String)],
+      Object.entries(E.cities).map(([m, rows]) => [link(placeHref(m), m), ...[1888, 1900, 1910].map(py => {
+        const r = rows.find(x => x[0] === py);
+        return r ? el("span", { title: t.inf_pop_title.replace("{y}", r[1]).replace("{e}", n(r[2])).replace("{p}", n(r[3])) }, r[4].toFixed(1)) : "–";
+      })]));
+    const B = SP.bahn;
+    const rateTd = (k, all) => `${pct(k, all)}`;
+    const railTable = table([t.inf_rail_size, t.inf_rail_with, t.inf_rail_phone, t.inf_rail_call, t.inf_rail_without, t.inf_rail_phone, t.inf_rail_call],
+      B.classes.map(([lo, hi, a, ap, ac, b, bp, bc]) => [hi > 1e6 ? `≥ ${n(lo)}` : `${n(lo)}–${n(hi)}`, n(a), rateTd(ap, a), rateTd(ac, a), n(b), rateTd(bp, b), rateTd(bc, b)]));
+
     const bs = D.bahnhofstrasse.per_year;
     view.replaceChildren(el("h1", {}, t.inf_h), el("p", { class: "intro" }, t.inf_p),
       el("h2", {}, t.inf_phone_h), el("p", { class: "intro" }, t.inf_series_p), legend, chart1,
@@ -1207,12 +1255,23 @@
       el("h2", {}, t.inf_more_h),
       el("p", { class: "intro" }, t.inf_station_p.replace("{a}", n(bs[1911] || 0)).replace("{b}", n(bs[1914] || 0)), " ",
         link(here({ k: "bahnhofstrasse" }) + "#inf-karte", t.inf_station_link)),
-      el("ul", { class: "inf-ideas" }, ...[1, 2, 3, 4, 5].map(i => el("li", {}, t[`inf_idea_${i}`]))),
+      el("h3", {}, t.inf_num_h), el("p", { class: "intro" }, t.inf_num_p), numCtl, el("div", { class: "inf-legend" }, ...[[t.inf_num_top, "#d21938"], [t.inf_num_n, "#175b5b"], [t.inf_col_entries, "#8c8c8c"]].map(([lab, col]) =>
+        el("span", {}, el("span", { class: "dot", style: `background:${col}` }), lab))), chart3, numTable, el("p", { class: "sub note" }, t.inf_num_note),
+      el("h3", {}, t.inf_werk_h), el("p", { class: "intro" }, t.inf_werk_p), werkTable, el("p", { class: "sub note" }, t.inf_werk_note),
+      el("h3", {}, t.inf_amt_h), el("p", { class: "intro" }, t.inf_amt_p), amtTable, el("p", { class: "sub note" }, t.inf_amt_note),
+      el("h3", {}, t.inf_tour_h), el("p", { class: "intro" }, t.inf_tour_p), tourShare,
+      el("p", { class: "intro" }, t.inf_tour_list.replace("{n}", n(TS.places.length))), tourList, el("p", { class: "sub note" }, t.inf_tour_note),
+      el("h3", {}, t.inf_pop_h), el("p", { class: "intro" }, t.inf_pop_p, " ", link(here({ k: "dichte" }) + "#inf-karte", t.inf_station_link)), popTable,
+      el("p", { class: "sub note" }, t.inf_pop_note.replace("{n}", n(E.implausible.length)).replace("{x}", E.implausible.slice(0, 4).map(r => r[0]).join(", "))),
+      el("h3", {}, t.inf_rail_h), el("p", { class: "intro" }, t.inf_rail_p.replace("{s}", n(B.stations)).replace("{m}", n(B.dated_municipalities))), railTable,
+      el("p", { class: "sub note" }, t.inf_rail_note),
       el("p", { class: "sub note" }, link("https://github.com/thodel/vernetzte-schweiz/blob/main/docs/infrastruktur.md", t.mw_doc)));
 
     const draw = () => {
       lineChart(chart1, chosen.map(c => ({ name: c, color: color(c), pts: T.series[c] })), { log: true, label: t.inf_phone_h });
       lineChart(chart2, chosen.filter(c => T.home[c]).map(c => ({ name: c, color: color(c), pts: T.home[c] })), { share: true, label: t.inf_home_h });
+      lineChart(chart3, [{ name: t.inf_num_top, color: "#d21938", pts: NR.map(r => [r[0], r[3]]) }, { name: t.inf_num_n, color: "#175b5b", pts: NR.map(r => [r[0], r[2]]) },
+        { name: t.inf_col_entries, color: "#8c8c8c", pts: NR.map(r => [r[0], r[1]]) }], { label: t.inf_num_h });
     };
     draw();
     let rt;
@@ -1221,6 +1280,12 @@
 
     let L, mp;
     try { [L, mp] = await chMap(box); } catch { box.replaceChildren(el("p", { class: "muted" }, t.pg_map_error)); return; }
+    if (view_ === "dichte") {
+      L.layerGroup([...E.places].sort((a, b) => b[3] - a[3]).map(([m, lat, lon, p, e1911, , d]) =>
+        L.circleMarker([lat, lon], { radius: Math.min(16, Math.max(2.5, Math.sqrt(p) / 25)), color: "#555", weight: 0.5, fillColor: dens[densOf(d)][2], fillOpacity: 0.85 })
+          .bindTooltip(`${m}: ${t.inf_pop_tip.replace("{d}", d.toFixed(1)).replace("{e}", n(e1911)).replace("{p}", n(p))}`))).addTo(mp);
+      return;
+    }
     const big = view_ === "telefon";
     // grosse Kreise zuerst, kleine darüber; bei gleicher Grösse die späteren (farbigen) oben
     const pts = [...firstOf].filter(([m, y]) => geo.has(m) && y <= 1914)

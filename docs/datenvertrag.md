@@ -100,6 +100,8 @@ Zerlegung: `parse_ptt.py`).
 | `municipalities_1914.csv` | Gemeinden zum 1.1.1914 (BFS, Historisiertes Gemeindeverzeichnis) mit Bezirk, Kanton und heutiger BFS-Nummer über die Mutationen bis heute (`bfs_today`; der Schnappschuss selbst gibt Zürich, Bern u. a. die Platzhalter-Nummer 7700) |
 | `localities.csv` | amtliches Ortschaftenverzeichnis (swisstopo): Ortschaft, PLZ, heutige Gemeinde, Koordinaten |
 | `places_foreign.csv` | ausländische Orte, die in den Adressbüchern als Heimatort vorkommen (GeoNames DE, AT, FR, IT, LI, CC BY 4.0, geonames.org): Schlüssel, Name, Länder, Koordinaten des grössten Orts; `scripts/origins.py ref` |
+| `population_1850_2000.csv` | Wohnbevölkerung 1880–1920 je Gemeinde, Gebietsstand 2000 (BFS px-x-4004000000_101, Eidgenössische Volkszählungen, OPEN-BY-ASK); `scripts/infrastruktur.py ref` |
+| `stations_wikidata.csv` | Schweizer Bahnhöfe aus Wikidata (QID, Name, Eröffnungsjahr P1619 falls bekannt, Koordinaten; CC0); `scripts/infrastruktur.py ref` |
 | `forenames.csv` | Vornamenliste aus den Daten (Adressbücher, Telefonbücher), mit Häufigkeiten |
 
 Handkorrekturen der Orte: `data/review/places_manual.csv` (`place_raw` → `hist_code` oder
