@@ -1,7 +1,7 @@
 """Zuzüge: wer steht in einem Adressbuchband einer Stadt zum ersten Mal, und woher stammt er?
 
-Teil der Wanderungen (docs/wanderungen.md, Abschnitt «Zuzüge mit Heimatort»). Bisher nur Aarau
-1867–1899: die einzige Stadt, deren Bände über viele Jahrgänge den Heimatort nennen.
+Teil der Wanderungen (docs/wanderungen.md, Abschnitt «Zuzüge mit Heimatort»). Aarau 1867–1899 nennt
+den Heimatort über viele Bände; Zürich 1867–1914 hat mehrere Bände, aber keinen Heimatort.
 
 - Je Band eine Liste: Einwohnerliste, sonst Gebäudeliste. Fehlt der Einwohnerliste der Heimatort,
   kommt er aus der Gebäudeliste desselben Bandes.
@@ -10,7 +10,7 @@ Teil der Wanderungen (docs/wanderungen.md, Abschnitt «Zuzüge mit Heimatort»).
 - Status im späteren Band: bleibt, haushalt (gleicher Name im selben Haus), witwe, neu_familie
   (Name schon in der Stadt), neu. Zuzüge = neu + neu_familie.
 
-    python scripts/zuzuege.py        # links/zuzuege.csv, data/norm/zuzuege_stats.json
+    python scripts/zuzuege.py        # links/zuzuege.csv.gz, data/norm/zuzuege_stats.json
     python scripts/zuzuege.py site   # site/data/zuzuege.json.gz
 """
 
@@ -30,13 +30,17 @@ from occupations import classify as occ_class
 from origins import classify as origin
 
 LINKS = ROOT / "links"
-OUT = LINKS / "zuzuege.csv"
+OUT = LINKS / "zuzuege.csv.gz"
 STATS = NORM / "zuzuege_stats.json"
-# Städte mit Heimatort über mehrere Bände; Jahr der Umnummerierung der Gebäude (gemessen an verknüpften
-# Paaren: 1869 → 1877 gleiche Nummer in 29 von 565 Fällen, sonst ~75 %)
-CITIES = {"Aarau": 1877}
+# Städte mit mehreren Bänden: (Jahr der Umnummerierung der Gebäude oder 0, Nummern über die ganze Stadt).
+# Aarau nummeriert die Gebäude durch und hat zwischen 1869 und 1877 umnummeriert (gleiche Nummer bei
+# verknüpften Paaren 29 von 565, sonst ~75 %); Zürich nummeriert je Strasse.
+CITIES = {"Aarau": (1877, True), "Zürich": (0, False)}
+# Ein Quartier gilt im Vorband als nicht erfasst, wenn es dort weniger als ein Viertel der Einträge hat
+# (Zürich 1867: Riesbach 111, 1875: 1 571). Neue dort sind kein Zuzug, sondern Status «gebiet».
+COVERAGE = 0.25
 LOOKBACK = 2  # eine Person darf in einem Band fehlen (Lesefehler, Lücke)
-FIELDS = ["record_id", "entity_id", "city", "volume", "prev_volume", "status", "linked_from", "points", "evidence",
+FIELDS = ["record_id", "entity_id", "city", "volume", "district", "prev_volume", "status", "linked_from", "points", "evidence",
           "surname", "forename", "occupation", "occ_class", "origin", "origin_name", "origin_class", "origin_region",
           "origin_lat", "origin_lon"]
 
@@ -46,26 +50,41 @@ PERSONISH = re.compile(r"\b(Wittwe|Wwe|Witwe|geb\.|Frau|Jungfer|Jgfr|Frl|Töchte
                        r"|Dr\.|Pfarrer)", re.I)
 
 
+# Firma, Anstalt oder Verein im Namen selbst («Petranit A. G.», «Hämig, Söhne», «Eilboten-Institut»);
+# auch im geerbten Familiennamen einer «—»-Zeile («Erne & Cie.», dann «— Eduard»)
+FIRM_NAME = re.compile(r"&|\b(Cie|Comp|Co)\b|\bA\.?\s?-?G\.?$|\bAG\b|A\.E\.G|Aktien|G\.\s?m\.\s?b\.\s?H|GmbH|gesellschaft"
+                       r"|enossenschaft|\bVerein|\bSöhne\b|\bGebr\b|\bGebrüder\b|[Ff]abrik\b|[Ii]nstitut\b|[Aa]nstalt\b")
+
+
 def is_person(x: dict) -> bool:
-    """Firmen («&», Cie) und Gebäude («Scheune», «Holzschopf») der Gebäudelisten sind keine Personen."""
+    """Firmen («&», Cie, A.-G.), Anstalten und Gebäude («Scheune», «Holzschopf») sind keine Personen."""
     t = x["text"][:90]
     if "&" in t or re.search(r"\b(Cie|Comp)\b", t):
+        return False
+    if any(FIRM_NAME.search(x.get(f) or "") for f in ("surname", "forename")):
         return False
     if forename_tokens(x["forename"]):
         return not NOT_PERSON.search(t) or bool(x["occupation"])
     return bool(PERSONISH.search(t)) or bool(x["occupation"] and not NOT_PERSON.search(t))
 
 
-def prepare(x: dict, renumbered: int) -> dict:
+def prepare(x: dict, renumbered: int, global_no: bool = True) -> dict:
     o = origin(x["origin"]) if x["origin"] else None
     ok = nkey(o.name) if o and o.cls != "leer" else ""
     return {"id": x["id"], "vol": int(x["volume"]), "sk": nkey(x["surname"]), "surname": x["surname"],
             "forename": x["forename"], "fn": forename_tokens(x["forename"]), "origin": x["origin"], "ok": ok,
             "o": o if ok else None, "stems": stems(x["occupation"] or ""), "occ": x["occupation"] or "",
-            "street": skey(x["street"]), "house": re.sub(r"\D", "", x["building_no"] or ""),
+            "street": skey(x["street"]), "house": house_key(x, global_no),
             "sys": int(x["volume"]) < renumbered,
+            "district": x["district"],
             "widow": bool(WIDOW.search(" ".join([x["forename"], x["civil_status"], x["text"]]))),
             "maiden": nkey(x["maiden_name"]), "alliance": nkey(x["alliance_name"])}
+
+
+def house_key(x: dict, global_no: bool) -> str:
+    """Hausnummer; wo je Strasse nummeriert wird, mit der Strasse."""
+    no = re.sub(r"\D", "", x["building_no"] or "")
+    return no if global_no or not no else f"{skey(x['street'])}|{no}"
 
 
 def ratio(a: str, b: str) -> float:
@@ -96,31 +115,54 @@ def score(a: dict, b: dict) -> tuple[int, list[str]] | None:
     return pts, ev
 
 
+def similar_names(earlier: set[str], later: set[str]) -> dict[str, list[str]]:
+    """Ähnliche Familiennamen (Lesefehler: Rauchenstein/Rauschenstein): gleiche zwei Anfangsbuchstaben,
+    beide mindestens 5 Buchstaben, Ähnlichkeit ≥ 0,85. Je Name im späteren Band die früheren Namen."""
+    by2 = defaultdict(list)
+    for k in earlier:
+        if len(k) >= 5:
+            by2[k[:2]].append(k)
+    out = {}
+    for k in later:
+        if len(k) < 5:
+            continue
+        hits = []
+        for e in by2[k[:2]]:
+            if e == k or abs(len(e) - len(k)) > 3:
+                continue
+            m = difflib.SequenceMatcher(None, e, k)
+            if m.quick_ratio() >= 0.85 and m.ratio() >= 0.85:
+                hits.append(e)
+        if hits:
+            out[k] = hits
+    return out
+
+
 def link(earlier: list[dict], later: list[dict]) -> dict[str, tuple[str, int, list[str]]]:
     """Verknüpft Einträge eines Bandes mit den vorangehenden; 1:1, beste Punkte zuerst, bei Gleichstand
-    der jüngere Band."""
+    der jüngere Band. Kandidaten: gleicher Familienname, ähnlicher Familienname, oder im selben Haus
+    ein Name mit Ähnlichkeit ≥ 0,6 (Udel/Adel)."""
     by_name, by_house = defaultdict(list), defaultdict(list)
     for a in earlier:
-        by_name[a["sk"][:2]].append(a)
+        by_name[a["sk"]].append(a)
         if a["house"]:
             by_house[(a["house"], a["sys"])].append(a)
+    sim = similar_names(set(by_name), {b["sk"] for b in later})
     cands = []
     for b in later:
-        pool = {a["id"]: a for a in by_name[b["sk"][:2]]}
+        pool = {a["id"]: a for a in by_name[b["sk"]]}
+        for k in sim.get(b["sk"], ()):
+            pool.update({a["id"]: a for a in by_name[k]})
         if b["house"]:
             pool.update({a["id"]: a for a in by_house[(b["house"], b["sys"])]})
         for a in pool.values():
             same = a["sk"] == b["sk"]
-            if not same:
-                r = ratio(a["sk"], b["sk"])
-                same_house = a["house"] and a["house"] == b["house"] and a["sys"] == b["sys"]
-                # Lesefehler im Namen: ähnlich und lang genug, oder im selben Haus (Udel/Adel)
-                if not ((min(len(a["sk"]), len(b["sk"])) >= 5 and r >= 0.85) or (same_house and r >= 0.6)):
-                    continue
+            if not same and not (a["sk"] in sim.get(b["sk"], ()) or ratio(a["sk"], b["sk"]) >= 0.6):
+                continue
             s = score(a, b)
             if s and s[0] >= (3 if same else 5):
                 cands.append((s[0] - (0 if same else 1), a["vol"], a["id"], b["id"], s[1] + ([] if same else ["name:ähnlich"])))
-    cands.sort(key=lambda c: (-c[0], -c[1]))
+    cands.sort(key=lambda c: (-c[0], -c[1], c[2], c[3]))
     links, used_a = {}, set()
     for pts, _, aid, bid, ev in cands:
         if aid in used_a or bid in links:
@@ -130,35 +172,34 @@ def link(earlier: list[dict], later: list[dict]) -> dict[str, tuple[str, int, li
     return links
 
 
-def status(b: dict, prev: list[dict], linked: bool) -> str:
+def status(b: dict, prev_by_name: dict[str, list[dict]], linked: bool) -> str:
     if linked:
         return "bleibt"
-    same = [a for a in prev if a["sk"] == b["sk"]]
+    same = prev_by_name.get(b["sk"], [])
     # gleicher Name im selben Haus (über die Umnummerierung: in derselben Strasse): Sohn, Witwe, Angehörige
-    if any((a["house"] and a["house"] == b["house"]) if a["sys"] == b["sys"] else (a["street"] and a["street"] == b["street"])
-           for a in same):
+    if any((a["house"] and a["house"] == b["house"]) if a["sys"] == b["sys"]
+           else (a["street"] and a["street"] == b["street"]) for a in same):
         return "haushalt"
     if b["widow"] and same:
         return "witwe"
-    names = {a["sk"] for a in prev}
-    if same or (b["maiden"] and b["maiden"] in names) or (b["alliance"] and b["alliance"] in names):
+    if same or (b["maiden"] and b["maiden"] in prev_by_name) or (b["alliance"] and b["alliance"] in prev_by_name):
         return "neu_familie"
     return "neu"
 
 
-def rosters(rows: list[dict], renumbered: int) -> dict[int, list[dict]]:
+def rosters(rows: list[dict], renumbered: int, global_no: bool = True) -> dict[int, list[dict]]:
     kinds = defaultdict(set)
     for x in rows:
         kinds[x["volume"]].add(x["kind"])
     out = {}
     for v in sorted(kinds):
         main = "einwohner" if "einwohner" in kinds[v] else "bewohner"
-        R = [prepare(x, renumbered) for x in rows if x["volume"] == v and x["kind"] == main and is_person(x)]
+        R = [prepare(x, renumbered, global_no) for x in rows if x["volume"] == v and x["kind"] == main and is_person(x)]
         if main == "einwohner" and "bewohner" in kinds[v]:
             B = defaultdict(list)
             for x in rows:
                 if x["volume"] == v and x["kind"] == "bewohner" and x["origin"]:
-                    B[nkey(x["surname"])].append(prepare(x, renumbered))
+                    B[nkey(x["surname"])].append(prepare(x, renumbered, global_no))
             for r in R:
                 if r["ok"]:
                     continue
@@ -179,23 +220,35 @@ def find() -> None:
             if r["source"] == "ab" and r["municipality"] in CITIES:
                 entity[r["record_id"]] = r["entity_id"]
     out, stats = [], {}
-    for city, renumbered in CITIES.items():
-        R = rosters([x for x in entries if x["municipality"] == city], renumbered)
+    for city, (renumbered, global_no) in CITIES.items():
+        R = rosters([x for x in entries if x["municipality"] == city], renumbered, global_no)
         vols = sorted(R)
         st = {}
         for i, v in enumerate(vols):
             links = link([r for w in vols[max(0, i - LOOKBACK):i] for r in R[w]], R[v]) if i else {}
-            prev = R[vols[i - 1]] if i else []
+            prev = defaultdict(list)
+            for a in R[vols[i - 1]] if i else []:
+                prev[a["sk"]].append(a)
+            uncovered = set()
+            if i:
+                now = Counter(b["district"] for b in R[v])
+                before = Counter(a["district"] for a in R[vols[i - 1]])
+                if before[""] and city in now:  # Zürich 1867: die Stadt selbst ohne Quartiernamen
+                    before[city] += before.pop("")
+                if set(now) & set(before) - {""}:  # gleiche Quartiernamen in beiden Bänden
+                    uncovered = {d for d, k in now.items() if d and k >= 200 and before[d] < COVERAGE * k}
             c, fo = Counter(), Counter()
             for b in R[v]:
                 s = status(b, prev, b["id"] in links) if i else "erster_band"
+                if s in ("neu", "neu_familie") and b["district"] in uncovered:
+                    s = "gebiet"
                 c[s] += 1
                 o = b["o"]
                 if o and o.cls in ("CH", "CH?", "Ausland"):
                     grp = "zuzug" if s in ("neu", "neu_familie") else "bleibt" if s == "bleibt" else "andere"
                     fo[(grp, "Ausland" if o.cls == "Ausland" else "CH")] += 1
                 lk = links.get(b["id"])
-                out.append({"record_id": b["id"], "entity_id": entity.get(b["id"], ""), "city": city, "volume": v,
+                out.append({"record_id": b["id"], "entity_id": entity.get(b["id"], ""), "city": city, "volume": v, "district": b["district"],
                             "prev_volume": vols[i - 1] if i else "", "status": s, "linked_from": lk[0] if lk else "",
                             "points": lk[1] if lk else "", "evidence": " ".join(lk[2]) if lk else "",
                             "surname": b["surname"], "forename": b["forename"], "occupation": b["occ"],
@@ -203,7 +256,7 @@ def find() -> None:
                             "origin_name": o.name if o else "", "origin_class": o.cls if o else "",
                             "origin_region": o.region if o else "", "origin_lat": o.lat if o and o.lat else "",
                             "origin_lon": o.lon if o and o.lon else ""})
-            st[v] = {"personen": len(R[v]), **dict(c),
+            st[v] = {"personen": len(R[v]), **dict(c), "nicht_erfasst": sorted(uncovered),
                      "zuzug_mit_heimatort": fo[("zuzug", "CH")] + fo[("zuzug", "Ausland")], "zuzug_ausland": fo[("zuzug", "Ausland")],
                      "bleibt_mit_heimatort": fo[("bleibt", "CH")] + fo[("bleibt", "Ausland")], "bleibt_ausland": fo[("bleibt", "Ausland")]}
         stats[city] = st

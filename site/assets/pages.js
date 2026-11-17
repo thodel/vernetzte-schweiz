@@ -986,33 +986,43 @@
     const clsName = i => i < 0 ? t.mw_no_class : (t[`occ_${D.classes[i][0]}`] || D.classes[i][1]);
     const regName = r => r[8] === 2 ? countryName(r[9]) : r[9];
 
+    // Heimatort nur, wo die Bände ihn nennen (Aarau); sonst nur Zuzüge, ohne Herkunft und Karte
+    const hasOrigin = vols.some(v => S[v].zuzug_mit_heimatort >= 50);
+    const hasArea = vols.some(v => S[v].gebiet);
     const table = el("div", { class: "grid-scroll" }, el("table", { class: "entries zz-table" },
-      el("thead", {}, el("tr", {}, ...[t.zz_vol, t.zz_col_persons, t.zz_col_arr, t.zz_col_origin, t.zz_col_abroad, t.zz_col_stay].map(h => el("th", {}, h)))),
-      el("tbody", {}, ...vols.slice(1).map(v => {
+      el("thead", {}, el("tr", {}, ...[t.zz_vol, t.zz_col_prev, t.zz_col_persons, t.zz_col_arr, t.zz_col_new,
+        ...(hasOrigin ? [t.zz_col_origin, t.zz_col_abroad, t.zz_col_stay] : []), ...(hasArea ? [t.zz_col_area] : [])].map(h => el("th", {}, h)))),
+      el("tbody", {}, ...vols.slice(1).map((v, i) => {
         const s = S[v], z = (s.neu || 0) + (s.neu_familie || 0);
         return el("tr", { class: String(v) === vol ? "on" : "" },
-          el("td", { class: "yr" }, link(here({ b: String(v) === vol ? null : v }), String(v))),
-          el("td", {}, n(s.personen)), el("td", {}, n(z)), el("td", {}, n(s.zuzug_mit_heimatort)),
-          el("td", {}, `${n(s.zuzug_ausland)} (${pct(s.zuzug_ausland, s.zuzug_mit_heimatort)})`),
-          el("td", {}, `${n(s.bleibt_ausland)} / ${n(s.bleibt_mit_heimatort)} (${pct(s.bleibt_ausland, s.bleibt_mit_heimatort)})`));
+          el("td", { class: "yr" }, link(here({ b: String(v) === vol ? null : v }), String(v))), el("td", {}, String(vols[i])),
+          el("td", {}, n(s.personen)), el("td", {}, `${n(z)} (${pct(z, s.personen)})`), el("td", {}, n(s.neu || 0)),
+          ...(hasOrigin ? [el("td", {}, n(s.zuzug_mit_heimatort)),
+            el("td", {}, `${n(s.zuzug_ausland)} (${pct(s.zuzug_ausland, s.zuzug_mit_heimatort)})`),
+            el("td", {}, `${n(s.bleibt_ausland)} / ${n(s.bleibt_mit_heimatort)} (${pct(s.bleibt_ausland, s.bleibt_mit_heimatort)})`)] : []),
+          ...(hasArea ? [el("td", { title: (s.nicht_erfasst || []).join(", ") }, s.gebiet ? n(s.gebiet) : "")] : []));
       }))));
     const ctl = el("div", { class: "controls" });
     const keys = [];
     if (cities.length > 1) { ctl.append(select(cities.map(c => [c, c]), city, t.zz_city)); keys.push("s"); }
-    ctl.append(select([["alle", t.mp_all], ...vols.slice(1).map(v => [v, String(v)])], vol, t.zz_vol),
-      select([["alle", t.mp_all], ["ausland", t.zz_o_abroad], ["schweiz", t.zz_o_ch], ["offen", t.zz_o_none]], oc, t.zz_origin),
-      select([["alle", t.zz_st_all], ["neu", t.zz_st_new]], st, t.zz_status));
-    keys.push("b", "o", "z");
+    ctl.append(select([["alle", t.mp_all], ...vols.slice(1).map(v => [v, String(v)])], vol, t.zz_vol));
+    keys.push("b");
+    if (hasOrigin) {
+      ctl.append(select([["alle", t.mp_all], ["ausland", t.zz_o_abroad], ["schweiz", t.zz_o_ch], ["offen", t.zz_o_none]], oc, t.zz_origin));
+      keys.push("o");
+    }
+    ctl.append(select([["alle", t.zz_st_all], ["neu", t.zz_st_new]], st, t.zz_status));
+    keys.push("z");
     ctl.querySelectorAll("select").forEach((s, i) => s.addEventListener("change", () => set({ [keys[i]]: s.value })));
     const filt = reg || hp ? el("p", { class: "flow-filter" }, el("b", {}, hp ? t.zz_place_filter.replace("{g}", hp)
       : t.zz_region_filter.replace("{g}", reg.startsWith("x:") ? countryName(reg.slice(2)) : reg.slice(3))),
       " · ", link(here({ r: null, h: null }), t.zz_clear)) : "";
-    const box = el("div", { class: "map tall" });
+    const box = hasOrigin ? el("div", { class: "map tall" }) : "";
     const side = el("div", { class: "map-side" });
     const span = vol === "alle" ? `${vols[1]}–${vols[vols.length - 1]}` : vol;
-    view.replaceChildren(el("h1", {}, t.mw_h), migTabs("zuzug"), el("p", { class: "intro" }, t.zz_p.replace("{c}", city)),
+    view.replaceChildren(el("h1", {}, t.mw_h), migTabs("zuzug"), el("p", { class: "intro" }, (hasOrigin ? t.zz_p : t.zz_p_names).replace("{c}", city)),
       table, filt, ctl, box, side,
-      el("p", { class: "sub note" }, t.zz_note, " ", link("https://github.com/thodel/vernetzte-schweiz/blob/main/docs/wanderungen.md#zuzüge-mit-heimatort", t.mw_doc)));
+      el("p", { class: "sub note" }, hasOrigin ? t.zz_note : t.zz_note_names, " ", link("https://github.com/thodel/vernetzte-schweiz/blob/main/docs/wanderungen.md#zuzüge-mit-heimatort", t.mw_doc)));
 
     // Karte: je Heimatort ein Kreis (Fläche ∝ Zuzüge), rot Ausland, grün Schweiz; Klick filtert auf den Ort
     const pts = new Map();
@@ -1023,7 +1033,7 @@
       pts.get(k).c++;
     }
     let L, mp;
-    try { [L, mp] = await chMap(box); } catch { box.replaceChildren(el("p", { class: "muted" }, t.pg_map_error)); }
+    if (box) try { [L, mp] = await chMap(box); } catch { box.replaceChildren(el("p", { class: "muted" }, t.pg_map_error)); }
     if (mp) {
       const layer = [...pts.values()].sort((x, y) => y.c - x.c).map(({ r, c }) =>
         L.circleMarker([r[10], r[11]], { radius: Math.max(3, Math.sqrt(c) * 2.2), weight: 1, fillOpacity: 0.6, color: r[8] === 2 ? "#d21938" : "#175b5b" })
@@ -1034,7 +1044,8 @@
     }
 
     const count = (f, xs) => { const m = new Map(); for (const x of xs) { const k = f(x); if (k !== null) m.set(k, (m.get(k) || 0) + 1); } return [...m].sort((a, b) => b[1] - a[1]); };
-    const byCountry = count(r => r[8] === 2 ? r[9] : null, rows), byCanton = count(r => r[8] <= 1 && r[9] ? r[9] : null, rows);
+    const byCountry = hasOrigin ? count(r => r[8] === 2 ? r[9] : null, rows) : [];
+    const byCanton = hasOrigin ? count(r => r[8] <= 1 && r[9] ? r[9] : null, rows) : [];
     const byCls = count(r => r[5], rows);
     side.append(el("p", { class: "count" }, t.zz_count.replace("{n}", n(rows.length)).replace("{y}", span)),
       byCountry.length ? el("h2", {}, t.zz_by_country) : "",

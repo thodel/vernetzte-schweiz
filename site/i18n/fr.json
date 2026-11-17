@@ -570,7 +570,7 @@
   "es_why_name_selten": "nom rare",
   "es_why_name_eher_selten": "nom plutôt rare",
   "zz_tab_moves": "Entre localités",
-  "zz_tab": "Arrivées avec lieu d'origine",
+  "zz_tab": "Arrivées",
   "zz_p": "Qui apparaît pour la première fois dans un annuaire de {c}, et d'où vient-il ? Les listes des bâtiments et des habitants indiquent le lieu d'origine d'environ 60 % des personnes (« von Erfurt », « von Küttigen »). Les personnes sont reliées d'un volume à l'autre (nom, prénom, lieu d'origine, profession, maison) ; qui ne figure dans aucun des deux volumes précédents est une arrivée. Le tableau compare la part venue de l'étranger parmi les arrivées à celle parmi les personnes restées.",
   "zz_note": "Expérimental : « nouveau » peut aussi être une erreur de lecture du nom, et qui manque pendant deux volumes compte comme arrivée à son retour. Échantillon de 24 arrivées : 11 clairement nouvelles, 12 erreurs de lecture ou impossibles à juger. Aarau a renuméroté ses bâtiments entre 1869 et 1877 ; les numéros ne comptent pas au-delà de cette limite. Le lieu d'origine est le lieu de bourgeoisie, pas forcément le dernier domicile.",
   "zz_city": "Ville",
@@ -596,5 +596,10 @@
   "zz_click_point": "Clic : seulement les arrivées de là",
   "zz_place_filter": "Lieu d'origine {g}",
   "zz_region_filter": "Origine {g}",
-  "zz_clear": "tous les lieux d'origine"
+  "zz_clear": "tous les lieux d'origine",
+  "zz_col_prev": "Volume précédent",
+  "zz_col_new": "dont nom nouveau en ville",
+  "zz_col_area": "Quartier absent du volume précédent",
+  "zz_p_names": "Qui apparaît pour la première fois dans un annuaire de {c} ? Les personnes sont reliées d'un volume à l'autre (nom, prénom, profession, rue et maison) ; qui ne figure dans aucun des deux volumes précédents est une arrivée. Ces volumes n'indiquent pas le lieu d'origine : ni provenance ni carte.",
+  "zz_note_names": "Expérimental : les volumes sont espacés de 8 à 15 ans ; « arrivée » signifie donc « nouveau depuis le volume précédent » et inclut les fils qui obtiennent leur propre entrée. Les volumes sont lus sans correction ; un nom mal lu transforme une personne restée en arrivée. 1867 ne couvre presque que la vieille ville : qui figure en 1875 à Aussersihl, Riesbach, etc. ne compte pas comme arrivée (colonne « non couvert »). Après la fusion de 1893, des rues ont été renommées : entre 1885 et 1900, l'adresse aide donc peu."
 }

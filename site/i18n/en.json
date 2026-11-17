@@ -570,7 +570,7 @@
   "es_why_name_selten": "rare name",
   "es_why_name_eher_selten": "fairly rare name",
   "zz_tab_moves": "Between places",
-  "zz_tab": "Arrivals with home town",
+  "zz_tab": "Arrivals",
   "zz_p": "Who appears in an address book of {c} for the first time, and where did they come from? The building and resident lists give the home town for about 60 % of persons («von Erfurt», «von Küttigen»). Persons are linked from volume to volume (surname, forename, home town, occupation, house); anyone in neither of the two preceding volumes counts as an arrival. The table compares the share from abroad among arrivals with the share among those who stayed.",
   "zz_note": "Experimental: «new» can also be a misread name, and anyone missing for two volumes counts as an arrival on return. Sample of 24 arrivals: 11 clearly new, 12 reading errors or not decidable. Aarau renumbered its buildings between 1869 and 1877; house numbers do not count across that change. The home town is the place of citizenship, not necessarily the last residence.",
   "zz_city": "Town",
@@ -596,5 +596,10 @@
   "zz_click_point": "Click: only arrivals from there",
   "zz_place_filter": "Home town {g}",
   "zz_region_filter": "Origin {g}",
-  "zz_clear": "show all home towns"
+  "zz_clear": "show all home towns",
+  "zz_col_prev": "Previous volume",
+  "zz_col_new": "of these, surname new to the town",
+  "zz_col_area": "District not covered in previous volume",
+  "zz_p_names": "Who appears in an address book of {c} for the first time? Persons are linked from volume to volume (surname, forename, occupation, street and house); anyone in neither of the two preceding volumes counts as an arrival. These volumes give no home town, so there is no origin and no map.",
+  "zz_note_names": "Experimental: the volumes are 8 to 15 years apart, so «arrival» means «new since the previous volume» and includes sons who get an entry of their own. The volumes were read without correction; a misread name turns someone who stayed into an arrival. 1867 covers almost only the old town: anyone listed in Aussersihl, Riesbach etc. in 1875 does not count as an arrival (column «not covered»). Streets were partly renamed after the 1893 merger, so the address helps little from 1885 to 1900."
 }

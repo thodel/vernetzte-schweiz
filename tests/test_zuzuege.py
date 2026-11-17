@@ -40,9 +40,10 @@ class Origins(unittest.TestCase):
 def entry(vol, surname, forename, origin="", occ="", street="", no="", **kw):
     x = {"id": f"{vol}-{surname}-{forename}", "volume": str(vol), "surname": surname, "forename": forename,
          "origin": origin, "occupation": occ, "street": street, "building_no": no, "civil_status": "",
-         "text": f"{surname}, {forename}", "maiden_name": "", "alliance_name": ""}
+         "text": f"{surname}, {forename}", "maiden_name": "", "alliance_name": "", "district": ""}
+    global_no = kw.pop("global_no", True)
     x.update(kw)
-    return z.prepare(x, 1877)
+    return z.prepare(x, 1877 if global_no else 0, global_no)
 
 
 class Linking(unittest.TestCase):
@@ -68,16 +69,33 @@ class Linking(unittest.TestCase):
         self.assertNotIn("haus", z.score(a, b)[1])
 
     def test_status(self):
-        prev = [entry(1888, "Frey", "Johann", street="Rathausgasse", no="5")]
+        prev = {z.nkey("Frey"): [entry(1888, "Frey", "Johann", street="Rathausgasse", no="5")]}
         self.assertEqual(z.status(entry(1892, "Frey", "Anna", street="Rathausgasse", no="5"), prev, False), "haushalt")
         self.assertEqual(z.status(entry(1892, "Frey", "Anna", street="Kirchgasse", no="9"), prev, False), "neu_familie")
         self.assertEqual(z.status(entry(1892, "Meier", "Anna"), prev, False), "neu")
+
+    def test_similar_names_need_length_and_likeness(self):
+        sim = z.similar_names({"rauchenstein", "frey", "meier"}, {"rauschenstein", "frei", "meyer"})
+        self.assertEqual(sim, {"rauschenstein": ["rauchenstein"]})
+
+    def test_street_numbering_needs_the_same_street(self):
+        # Zürich nummeriert je Strasse: Nr. 5 an zwei Strassen ist nicht dasselbe Haus
+        a = entry(1900, "Udel", "Jakob", street="Seefeldstrasse", no="5", global_no=False)
+        b = entry(1914, "Adel", "Jakob", street="Bahnhofstrasse", no="5", global_no=False)
+        self.assertEqual(z.link([a], [b]), {})
+        c = entry(1914, "Adel", "Jakob", street="Seefeldstrasse", no="5", global_no=False)
+        self.assertIn(c["id"], z.link([a], [c]))
 
     def test_firms_and_buildings_are_not_persons(self):
         base = {"forename": "", "occupation": ""}
         self.assertFalse(z.is_person({**base, "text": "Erismann & Blattner, Eisenhandlung"}))
         self.assertFalse(z.is_person({**base, "forename": "Jakob", "text": "Frey, Jakob, Scheune"}))
         self.assertTrue(z.is_person({**base, "forename": "Jakob", "text": "Frey, Jakob"}))
+        self.assertFalse(z.is_person({**base, "surname": "Petranit A. G.", "text": "Petranit A. G., Verwertung von Patenten"}))
+        self.assertFalse(z.is_person({**base, "surname": "Erne & Cie.", "forename": "Eduard", "text": "— Eduard, Kaufmann"}))
+        self.assertFalse(z.is_person({**base, "surname": "Hämig", "forename": "Söhne, Heinr", "text": "— Söhne, Heinr., Cigarrenhdlg."}))
+        # Initialen sind keine Aktiengesellschaft
+        self.assertTrue(z.is_person({**base, "surname": "Wolters", "forename": "Joh. A. G. Otto", "text": "Wolters, Joh. A. G. Otto, Schlosser"}))
 
 
 if __name__ == "__main__":

@@ -400,12 +400,13 @@ Wanderungsstatistik.
 
 Die Paarsuche oben sucht dieselbe Person an zwei Orten. Die Zuzüge fragen anders: Wer steht in
 einem Band einer Stadt zum ersten Mal, und woher stammt er? Das geht nur, wo die Adressbücher den
-Heimatort nennen und mehrere Bände vorliegen, im Zeitfenster bisher nur in **Aarau 1867–1899**
-(Gebäude- und Einwohnerlisten, rund 60 % der Personen mit Heimatort). Die Seite zeigt sie unter
-`#/wanderungen?v=zuzug`.
+Heimatort nennen und mehrere Bände vorliegen, im Zeitfenster nur in **Aarau 1867–1899**
+(Gebäude- und Einwohnerlisten, rund 60 % der Personen mit Heimatort). **Zürich 1867–1914** hat
+mehrere Bände, aber keinen Heimatort: dort nur die Zuzüge selbst. Die Seite zeigt beide unter
+`#/wanderungen?v=zuzug` (Auswahl «Stadt»).
 
 ```bash
-make zuzuege                    # links/zuzuege.csv, data/norm/zuzuege_stats.json
+make zuzuege                    # links/zuzuege.csv.gz, data/norm/zuzuege_stats.json
 python scripts/zuzuege.py site  # site/data/zuzuege.json.gz (läuft im Pages-Workflow)
 python scripts/origins.py       # Auszählung: wie viele Heimatorte gehen auf?
 python scripts/origins.py ref DIR   # data/ref/places_foreign.csv neu aus GeoNames-Dumps (DE, AT, FR, IT, LI)
@@ -445,17 +446,45 @@ Aarau, 11 718 Einträge mit Heimatort: CH 9 674, CH? 383, Ausland 1 132, offen 2
 | Band | Personen | Zuzüge | mit Heimatort | davon Ausland | Ausland unter Bleibenden |
 |---|---|---|---|---|---|
 | 1869 | 1'460 | 306 | 190 | 18 (9 %) | 27/437 (6 %) |
-| 1877 | 1'665 | 639 | 414 | 56 (14 %) | 26/340 (8 %) |
-| 1879 | 1'659 | 315 | 219 | 30 (14 %) | 59/580 (10 %) |
+| 1877 | 1'664 | 638 | 414 | 56 (14 %) | 26/340 (8 %) |
+| 1879 | 1'658 | 315 | 219 | 30 (14 %) | 59/580 (10 %) |
 | 1881 | 1'795 | 291 | 205 | 28 (14 %) | 51/635 (8 %) |
 | 1884 | 1'839 | 495 | 393 | 52 (13 %) | 36/631 (6 %) |
 | 1888 | 1'836 | 379 | 291 | 33 (11 %) | 57/778 (7 %) |
 | 1892 | 1'939 | 390 | 327 | 28 (9 %) | 69/843 (8 %) |
-| 1896 | 2'125 | 575 | 240 | 46 (19 %) | 38/473 (8 %) |
-| 1899 | 2'091 | 380 | 161 | 27 (17 %) | 47/558 (8 %) |
+| 1896 | 2'116 | 568 | 240 | 46 (19 %) | 38/473 (8 %) |
+| 1899 | 2'080 | 374 | 161 | 27 (17 %) | 47/558 (8 %) |
 
-Ausländische Zuzüger: Deutschland 228, Frankreich 21, Österreich oder Deutschland 19,
+Ausländische Zuzüger in Aarau: Deutschland 230, Österreich oder Deutschland 19, Frankreich 19,
 Österreich 17, Italien 12.
+
+### Zürich 1867–1914 (ohne Heimatort)
+
+Die Zürcher Bände nennen keinen Heimatort (nur 1867 bei rund hundert Einträgen). Die Verknüpfung
+läuft gleich, mit drei Unterschieden: Zürich nummeriert je Strasse (Haus = Strasse + Nummer), eine
+Umnummerierung zeigt sich nicht (gleiche Nummer bei verknüpften Paaren in derselben Strasse 76–87 %),
+und ähnliche Familiennamen werden über eine Liste der Namen gesucht statt Eintrag gegen Eintrag
+(61 000 Einträge je Band; Lauf rund 4 Minuten).
+
+| Band | Vorband | Personen | Zuzüge | davon Name neu | bleibt | Quartier im Vorband nicht erfasst |
+|---|---|---|---|---|---|---|
+| 1875 | 1867 | 15'087 | 4'279 (28 %) | 1'535 | 2'207 | 7'516 |
+| 1885 | 1875 | 26'503 | 19'251 (73 %) | 4'339 | 6'013 |  |
+| 1900 | 1885 | 59'261 | 44'976 (76 %) | 11'684 | 11'539 |  |
+| 1914 | 1900 | 61'557 | 36'520 (59 %) | 7'402 | 23'106 |  |
+
+- **1867 umfasst fast nur die Altstadt** (Quartier leer; Riesbach 111 Einträge gegen 1 571 im Jahr
+  1875). Ein Quartier mit weniger als einem Viertel der Einträge im Vorband gilt als nicht erfasst;
+  wer dort neu ist, hat den Status `gebiet` und zählt nicht als Zuzug.
+- **Die Bände liegen 8 bis 15 Jahre auseinander.** «Zuzug» heisst «neu seit dem Vorband» und schliesst
+  Söhne ein, die einen eigenen Eintrag bekommen, ebenso Frauen, die neu unter eigenem Namen stehen.
+- **Nach der Eingemeindung 1893** wurden Strassen umbenannt: 1885→1900 haben nur 753 verknüpfte Paare
+  dieselbe Strasse, 1900→1914 sind es 5 905. Dort hängt die Verknüpfung an Name, Vorname und Beruf.
+- **Gelesen ohne Nachkorrektur:** Ein falsch gelesener Name oder Vorname macht aus einem Bleibenden
+  einen Zuzug. Stichprobe (24 Zuzüge aus 1900 und 1914): meist anderer Vorname, Beruf und Strasse als
+  jeder ähnliche Name im Vorband; einzelne Grenzfälle mit abgekürztem Vornamen («Kamer, Jos.» →
+  «Kamer, Jos. Ad.», anderer Beruf).
+- Firmen, Anstalten und Vereine im Namen («Petranit A. G.», «Eilboten-Institut», «— Söhne») zählen nicht.
 
 ### Nationalität aus dem Namen? (gemessen, nicht eingebaut)
 

@@ -30,7 +30,7 @@ make ingest   # Quellen am gepinnten Commit lesen, Orte auflösen, zerlegen → 
 make link     # Telefonbuch ↔ Adressbuch verknüpfen und messen → links/, data/norm/
 make entities # Einheiten über die Jahre bündeln, Normdaten, Messung → links/, data/norm/
 make wanderungen # Wer zieht wohin? Kandidaten (Versuch) → links/migration.csv
-make zuzuege     # Wer kommt neu nach Aarau, und woher? → links/zuzuege.csv
+make zuzuege     # Wer kommt neu nach Aarau und Zürich, und woher? → links/zuzuege.csv.gz
 make wikidata # Kandidaten für den Normdaten-Abgleich neu holen → data/ref/
 make site     # Kennzahlen, Suchindex, Einheiten-, Adress- und Ortsseiten → site/data/
 make serve    # Seite lokal auf http://localhost:8000
