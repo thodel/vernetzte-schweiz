@@ -1,10 +1,10 @@
 {
- "kandidaten_vor_eindeutigkeit": 29541,
+ "kandidaten_vor_eindeutigkeit": 29540,
  "ortszuweisung:gleiche_nummer": 1321,
- "mehrdeutig": 23621,
- "zu_schwach": 3049,
+ "mehrdeutig": 23619,
+ "zu_schwach": 3050,
  "ortszuweisung:nachbarzeilen_vom_alten_ort": 396,
- "mehrdeutig_aber_klar": 895,
+ "mehrdeutig_aber_klar": 894,
  "ortszuweisung:strasse_des_alten_orts": 63,
  "ortszuweisung:ähnlicher_ortsname": 243,
  "ortszuweisung:stadtnummer_im_dorf": 101,
@@ -19,8 +19,8 @@
  "ortszuweisung:gleiche_adresse": 13,
  "stark": 49,
  "ortszuweisung:strasse_des_alten_orts_im_zusatz": 21,
- "personen_einheiten": 466595,
- "geprueft": 308696,
- "später_am_alten_ort": 21514,
- "vorher_am_neuen_ort": 36872
+ "personen_einheiten": 466539,
+ "geprueft": 308678,
+ "später_am_alten_ort": 21511,
+ "vorher_am_neuen_ort": 36866
 }

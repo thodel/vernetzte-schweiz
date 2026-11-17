@@ -63,6 +63,13 @@ gleichauf und der Eintrag blieb mehrdeutig. Stichprobe aller 57 Einträge, die d
 so zurück, meist an die Firma; von den übrigen 16 waren 9 falsch (Holliger, Tapezierer ≠ Schriftsetzer), 5 unklar,
 2 richtig (Märki). Hinter «vorm.», «Vertr.» oder «i. Fa.» steht eine andere Firma oder der Inhaber selbst
 («Peschel, Ludw., i. Fa. Ludw. Peschel & Co., Wohnung»); dort zählt «& Co.» nicht.
+Mehrteilige Hausnummern meinen ein Haus, wenn eine Nummer ausserhalb der Klammern übereinstimmt: «Wasserwerkgasse
+4 und 6», «4, 6» und «(6) 4 u. 6» wurden zu 4, 46 und 64 zusammengezogen, so galten die beiden Firmeneinträge von
+Märki als zwei Personen. In Bern 1900 steht die andere Zählung in Klammern («Kramgasse (48) 16» = Nr. 16); sie trifft
+keine andere Nr. 48. Eine einzelne Nummer («Nr. 39») bleibt beim bisherigen Vergleich, sonst zog die Firma Rüfenacht &
+Co. die Bewohner desselben Hauses mit. Das bringt 190 Telefonbucheinträge dazu (meist Bern 1900) und ergänzt 586
+Verknüpfungen um weitere Einträge derselben Person; keine fällt weg. Zweifelhaft bleiben «Märki-Dick, Clara» an
+der Firma K. Märki (C/K als Initiale) und «Weber-Honegger, Fran J.» an Franz Carl Weber («Fran» = «Frau»).
 
 Ein späterer Vorname kann der Rufname sein: Es genügt ein passendes Paar
 («E.» ↔ «Hermann Emil»).

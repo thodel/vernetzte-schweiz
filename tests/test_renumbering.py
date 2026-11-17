@@ -62,6 +62,21 @@ class Renumbering(unittest.TestCase):
         self.assertFalse(own("Peschel Ludw. i. Fa. Ludw. Peschel & Co., Wohnung"))
         self.assertFalse(own("Braun Emil, Generalvertreter der Gebr. Körting"))
 
+    def test_multi_number_houses_are_one_house(self):
+        # Märki, Bern 1900: «Wasserwerkgasse 4 und 6» (Möbelhandlung) und «(6) 4 u. 6» (Möbelfabrik)
+        mk = lambda no: {"_group": ("marki", "", "k"), "_fn": [("k", True)], "_ak": "",
+                         "_no": l.house(no), "_nos": l.multi_numbers(no)}
+        self.assertTrue(l.same_person(mk("4 und 6"), mk("(6) 4 u. 6")))
+        self.assertTrue(l.same_person(mk("4 und 6"), mk("4, 6")))
+        self.assertFalse(l.same_person(mk("4 und 6"), mk("8")))
+        self.assertFalse(l.same_person(mk("46"), mk("64")))
+        # Bern 1900: «Kramgasse (48) 16» ist Nr. 16; die Klammer trifft keine andere Nr. 48 (Rüfenacht)
+        self.assertTrue(l.same_person(mk("(48) 16"), mk("16")))
+        self.assertFalse(l.same_person(mk("(39) 11"), mk("39")))
+        # eine einzelne Nummer mit «Nr.» bleibt beim bisherigen Vergleich (Rüfenacht & Co., Marktgasse Nr. 39)
+        self.assertFalse(l.same_person(mk("Nr. 39"), mk("39")))
+        self.assertEqual(l.persons([mk("4 und 6"), mk("(6) 4 u. 6")]), 1)
+
     def tearDown(self):
         l.RENUMBERED.clear()
 

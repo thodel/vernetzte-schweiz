@@ -256,6 +256,10 @@ def ab_index(entries: list[dict]) -> dict:
         r["_sk"], r["_ak"] = sk, nkey(r["alliance_name"])
         r["_mk"] = nkey(r["maiden_name"])
         r["_st"], r["_no"] = skey(r["street"]), house(r["building_no"])
+        # «4 und 6», «4, 6», «(6) 4 u. 6», «(48) 16»: house() zieht sie zu 46, 646, 4816 zusammen;
+        # die Nummer in Klammern ist die andere Zählung (Bern 1900) und zählt nicht
+        # nur bei mehreren Nummern; eine einzelne («Nr. 39») bleibt beim bisherigen Vergleich
+        r["_nos"] = multi_numbers(r["building_no"])
         r["_sys"], r["_bld"] = numbering(r["municipality"], r["volume"], r["_no"])
         r["_occ"] = stems(r["occupation"])
         r["_firm"] = r["entry_type"] == "firma" or bool(FIRM.search(f"{r['surname']} {r['forename']}"))
@@ -480,9 +484,27 @@ def same_person(a: dict, b: dict) -> bool:
         return False
     if a["_ak"] and b["_ak"] and a["_ak"] != b["_ak"]:
         return False
-    if a["_no"] and b["_no"] and num(a["_no"]) != num(b["_no"]):
+    if a["_no"] and b["_no"] and num(a["_no"]) != num(b["_no"]) and not same_numbers(a, b):
         return False
     return bool((fa and fb) or (a["_no"] and b["_no"]))
+
+
+def multi_numbers(no: str) -> frozenset:
+    """Nummern ausserhalb der Klammern, wenn die Angabe mehrere Zahlen hat («4 und 6», «(48) 16»), sonst leer."""
+    if len(re.findall(r"\d+", no or "")) < 2:
+        return frozenset()
+    return frozenset(re.findall(r"\d+", re.sub(r"\([^)]*\)", " ", no)))
+
+
+def same_numbers(a: dict, b: dict) -> bool:
+    """Mehrteilige Hausnummern («4 und 6», «4, 6», «(48) 16») meinen dasselbe Haus, wenn eine Nummer
+    ausserhalb der Klammern übereinstimmt."""
+    na, nb = a.get("_nos", frozenset()), b.get("_nos", frozenset())
+    if not na and not nb:
+        return False
+    na = na or frozenset({num(a["_no"])}) - {""}
+    nb = nb or frozenset({num(b["_no"])}) - {""}
+    return bool(na & nb)
 
 
 def same_house_or_name(a: dict, b: dict) -> bool:
