@@ -240,8 +240,8 @@ danach erstmals an einem anderen (gleicher Familienname, verträglicher Vorname,
 Allianzname, neue Adresse und Nummer, eindeutig in beide Richtungen)? Fehler der
 Ortszuweisung aus M1 (gleiche Nummer, Nachbarzeilen vom alten Ort, Nachbar im Alphabet, Ortswort des alten Eintrags,
 Stadtnummer im Dorf, Strasse des alten Orts, Sprache, ortsfester Betrieb) sowie Firmen,
-Ämter und Institutionen werden ausgeschlossen. Stand: 313 Kandidaten (42 stark, 149
-mittel, 122 schwach), Karte mit Linien und Saldo, nach Berufsklasse, Entfernung und Jahr.
+Ämter und Institutionen werden ausgeschlossen. Stand: 433 Kandidaten (49 stark, 256
+mittel, 128 schwach), Karte mit Linien und Saldo, nach Berufsklasse, Entfernung und Jahr.
 
 - **Messung 14.11.2026:**
   - Stichprobe 1 (zum Einstellen): stark 50–62 %.
@@ -256,9 +256,7 @@ mittel, 122 schwach), Karte mit Linien und Saldo, nach Berufsklasse, Entfernung 
   - Stichprobe 5, mit Vergleich von Geschlecht und Geburtsname: mittel 44–91 % (n = 32,
     3 falsch). Damit sind die Paare aufgebraucht.
 - **Offen:**
-  - «Fräulein» gegen «geb.»/«Witwe» vergleichen;
-  - Grenze für gleichen Wortlaut lockern, wo der Beruf selten ist (Tierarzt, Apotheker);
-  - mehrdeutige Paare über Heimatort und Lebensdaten;
+  - mehrdeutige Paare über Heimatort und Lebensdaten (klar vorne liegende sind seit 17.11. dabei);
   - Firmen mit neuem Sitz.
 
 ## Offene Fragen

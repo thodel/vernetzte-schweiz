@@ -336,18 +336,55 @@ Paaren, die in keiner früheren Stichprobe standen. In `mittel` waren nur noch 3
   jedes in `mittel` wurde schon einmal beurteilt. Weitere Regeln lassen sich an diesen
   Paaren nicht mehr unabhängig messen.
 
+**Verfeinerung (17.11.2026).** Drei Regeln kamen dazu:
+
+- **Zivilstand:** Wer früher verheiratet oder verwitwet war, steht später nicht als «Frl.» im
+  Buch. Wer früher «Frl. X» war, heisst später nicht «geb. Y». Der Zivilstand kommt aus dem
+  Feld `civil_status` der Adressbücher und aus Zusatz und Namenszeile der Telefonbücher
+  (Frl., Mlle; Frau, Mme, Wwe., Vve, geb.). Das Paar «Witwe geb. Burkhardt» / «Frl. Bertha
+  Kummer» aus Stichprobe 5 fällt damit weg.
+- **Seltene Berufe:** Gleicher Wortlaut ohne neue Nummer oder Adresse ergibt nicht mehr nur
+  `schwach`, wenn beide Seiten einen Beruf mit Patent oder Wahl nennen (Tierarzt, Apotheker,
+  Arzt, Zahnarzt, Notar, Fürsprecher, Pfarrer, Hebamme, Geometer, Architekt, Ingenieur,
+  Photograph, Optiker, Drogist, Förster; Beleg `beruf:selten`). An den beurteilten Paaren
+  steigen 7 von `schwach` nach `mittel`: 5 richtig, 2 unklar, keines falsch.
+- **Mehrdeutig, aber klar vorn:** Ein Paar, das nicht eindeutig ist, bleibt, wenn auf jeder
+  Seite höchstens drei Kandidaten stehen und es mindestens 2 Punkte vor jedem anderen Paar mit
+  A oder B liegt (Beleg `eindeutig:abstand`). Das nimmt 110 Paare auf.
+
+Übrig bleiben **433 Paare**: 49 `stark`, 256 `mittel`, 128 `schwach`
+(vorher 323: 42, 156, 125; dazwischen kamen neue Telefonbücher, Aarau 1867–1881 und Zürich
+1867 dazu).
+
+**Stichprobe 6** (`data/review/m10_wanderungen_6.csv`, Seed 15) prüft, was neu dazukommt:
+30 der 110 Paare aus «klar vorn» und 3 Paare mit seltenem Beruf.
+
+| Gruppe | n | richtig | unklar | falsch | Präzision |
+|---|---|---|---|---|---|
+| klar vorn, `stark` | 3 | 3 | 0 | 0 | 100 % |
+| klar vorn, `mittel` | 25 | 6 | 17 | 2 | 24–92 % |
+| klar vorn, `schwach` | 2 | 1 | 1 | 0 | 50–100 % |
+| seltener Beruf, `mittel` | 3 | 3 | 0 | 0 | 100 % |
+
+**Lesart:**
+- Die neuen Paare in `mittel` sind so gut wie die übrigen: 2 von 25 falsch (Stichprobe 5:
+  3 von 32).
+- Die beiden falschen sind kein Namensvetter, den der Abstand gewählt hätte. Das eine ist ein
+  anderer Beruf (Metzger und Wirt gegen Baumwollzwirnerei), das andere eine Genfer Zeile unter
+  Rohr (AG).
+- Unklar bleiben vor allem Wirte in Nachbarorten (Unterseen/Interlaken) und häufige Namen.
+
 Die Seite zeigt anfangs `stark` und `mittel`. Die Linien sind Hinweise, keine
 Wanderungsstatistik.
 
 ## Grenzen
 
-- **Geschlecht und Geburtsname** werden verglichen (Messung 5), «Fräulein» gegen
-  «geb.»/«Witwe» noch nicht. Ein anderer zweiter Vorname («Oskar Edmund» ≠ «Edmund Th.»)
+- **Geschlecht, Geburtsname und Zivilstand** werden verglichen (Messung 5 und 6). Ein anderer zweiter Vorname («Oskar Edmund» ≠ «Edmund Th.»)
   wird nur erkannt, wenn beide Seiten zwei ausgeschriebene Vornamen haben.
 - **Neue Stichproben** sind kaum mehr möglich: Fast alle Paare wurden schon einmal
   beurteilt.
-- **Gleicher Wortlaut ohne neue Nummer oder Adresse** ergibt höchstens `schwach`. Das trifft
-  auch Tierärzte und Apotheker, die tatsächlich umzogen (Messung 4).
+- **Gleicher Wortlaut ohne neue Nummer oder Adresse** ergibt höchstens `schwach`, ausser bei
+  seltenen Berufen mit Patent oder Wahl.
 - **Berufe ausserhalb der feinen Liste** («Seiler», «Treillageur») fallen auf die grobe
   Klasse zurück.
 - **Namensvettern** in grossen Städten (Paul Piccard, Lausanne/Genève) lassen sich ohne

@@ -6,8 +6,8 @@
  "links/authority.csv": "ea1efbb00fd0b734",
  "links/entities.csv.gz": "b8d49a974a82087c",
  "scripts/common.py": "7733e633eff6681b",
- "scripts/link_ptt_ab.py": "2c321b33037e4808",
- "scripts/migration.py": "187f9388f08f378c",
+ "scripts/link_ptt_ab.py": "432a8a242e41e732",
+ "scripts/migration.py": "5caaf1652ac7ea4d",
  "scripts/occupations.py": "5ad1d80b33eb9101",
  "scripts/occupations_fine.py": "21e179e3972ec5ee",
  "scripts/parse_ptt.py": "b984fd343f92ee87"

@@ -104,6 +104,15 @@ NEIGHBOURS = 10      # Zeilen davor und danach im selben Telefonbuch
 LINES: dict[str, list[tuple[int, str]]] = defaultdict(list)   # Band → [(Zeile, Eintrag)]
 ALLIANCE: dict[str, str] = {}   # Eintrag → Allianzname
 MAIDEN: dict[str, str] = {}     # Adressbuch-Eintrag → Geburtsname («geb. Sandmeier», «née Borel»)
+CIVIL: dict[str, str] = {}      # Eintrag → «ledig» (Frl., Mlle) oder «verheiratet» (Frau, Mme, geb., Witwe)
+SINGLE_MARK = re.compile(r"\b(Frl|Fräulein|Mlle|Mademoiselle|Jgfr|Jungfer|Demoiselle)\b\.?", re.I)
+MARRIED_MARK = re.compile(r"\b(Frau|Mme|Madame|Wwe|Witwe|Wittwe|Wb|Vve|Veuve|geb|née|dame)\b\.?", re.I)
+
+
+def civil_of(text: str) -> str:
+    if SINGLE_MARK.search(text):
+        return "ledig"
+    return "verheiratet" if MARRIED_MARK.search(text) else ""
 RAW: dict[str, str] = {}        # Telefonbuch-Eintrag → Zusatz und Strasse, wie gedruckt
 PLACE: dict[str, str] = {}      # Eintrag → Strasse und Zusatz ohne das erste Glied (meist der Beruf)
 MUNI_CANTON: dict[str, str] = {}
@@ -139,6 +148,8 @@ def coords() -> tuple[dict[str, tuple[float, float]], dict[str, Counter]]:
         if r["alliance_name"]:
             ALLIANCE[r["id"]] = r["alliance_name"]
         RAW[r["id"]] = f"{r['supplement']}, {r['street']}"
+        if c := civil_of(f"{r['name1']} {r['name2']} {r['supplement']}"):
+            CIVIL[r["id"]] = c
         PLACE[r["id"]] = ", ".join([r["street"], *r["supplement"].split(",")[1:]])
         m = r["municipality_1914"]
         if m and r["canton"]:
@@ -151,6 +162,8 @@ def coords() -> tuple[dict[str, tuple[float, float]], dict[str, Counter]]:
     for r in open_csv(NORM / "ab_entries.csv"):
         if r["alliance_name"]:
             ALLIANCE[r["id"]] = r["alliance_name"]
+        if c := civil_of(f"{r['civil_status']} {r['forename']}") or ("verheiratet" if r["maiden_name"] else ""):
+            CIVIL[r["id"]] = c
         m = r["maiden_name"] or (GEB.search(r["text"]) or [None, ""])[1]
         if m:
             MAIDEN[r["id"]] = m
@@ -202,6 +215,11 @@ def misplaced(a: dict, b: dict, streets: dict[str, Counter]) -> str:
         return "ortsfester_betrieb"
     return ""
 
+
+# Berufe mit Patent oder Wahl, die es an einem Ort nur wenige Male gibt: gleicher Wortlaut an einem
+# anderen Ort ist dann eher ein Umzug als dieselbe Zeile (Messung 4: Guetg, Bouvier, Henauer, Barras)
+RARE_PROFESSIONS = {"tierarzt", "apotheker", "arzt", "zahnarzt", "notar", "fürsprecher", "pfarrer", "hebamme",
+                    "geometer", "architekt", "ingenieur", "photograph", "optiker", "drogist", "förster"}
 
 GENERIC_STEMS = stems("gasthaus gasthof hotel hôtel albergo villa mühle moulin molino sindaco syndic präsident richter "
                       "juge giudice postablage postbureau deposito postale buraliste pfarrer café restaurant ristorante "
@@ -321,6 +339,17 @@ def birth_names_differ(a: dict, b: dict) -> bool:
     return False
 
 
+def civil_differs(a: dict, b: dict) -> bool:
+    """Zivilstand widerspricht der Zeitfolge: Wer früher verheiratet oder verwitwet war, steht
+    später nicht als «Frl.» im Buch. Wer früher «Frl. X» war, kann später nicht «geb. Y» heissen."""
+    ca, cb = a.get("civil", set()), b.get("civil", set())
+    if "verheiratet" in ca and "ledig" in cb and "verheiratet" not in cb:
+        return True
+    if "ledig" in ca and "verheiratet" not in ca and b.get("maiden") and a["sk"][:5] not in {m[:5] for m in b["maiden"]}:
+        return True
+    return False
+
+
 def evidence(a: dict, b: dict) -> tuple[int, list[str]] | None:
     """Punkte und Belege für «A ist B an einem anderen Ort», None bei Widerspruch."""
     f = compare_forenames(a["fn"], b["fn"])
@@ -330,6 +359,8 @@ def evidence(a: dict, b: dict) -> tuple[int, list[str]] | None:
         return None  # Jos. Anton ≠ Maria Josepha, Joseph ≠ Marie Jos. (Messung 4)
     if birth_names_differ(a, b):
         return None  # Louise Wächter-Lindenmann ≠ Louise geb. Sandmeier (Messung 4)
+    if civil_differs(a, b):
+        return None  # Witwe geb. Burkhardt ≠ später «Frl. Bertha» (Messung 5)
     if a["alli"] and b["alli"] and not ({x[:5] for x in a["alli"]} & {x[:5] for x in b["alli"]}):
         return None  # verschiedene Allianznamen: «Spörry-Streiff» ≠ «Spœrri-Duport» (Tröndli = Tröndle)
     full_a, full_b = ({k for k, short in e["fn"] if not short} for e in (a, b))
@@ -368,6 +399,8 @@ def evidence(a: dict, b: dict) -> tuple[int, list[str]] | None:
         pts += 1; ev.append("neu:adresse")
     if a["title"] & b["title"]:
         pts += 1; ev.append("titel")
+    if "beruf:wortlaut" in ev and a["fine"] & b["fine"] & RARE_PROFESSIONS:
+        ev.append("beruf:selten")
     # Normdaten: dieselbe Person in Wikidata/HLS/GND stützt, eine andere widerspricht
     if a.get("qid") and b.get("qid"):
         if a["qid"] != b["qid"]:
@@ -403,8 +436,9 @@ def tier(pts: int, ev: list[str], n_surname: int) -> str:
     moved = "neu:nummer" in ev or "neu:adresse" in ev
     if pts >= 6 and beruf and moved:
         return "stark"
-    if "beruf:wortlaut" in ev and not moved:
-        # gleicher Wortlaut ohne neue Nummer oder Adresse: oft dieselbe Zeile unter anderem Ort (Messung 3)
+    if "beruf:wortlaut" in ev and not moved and "beruf:selten" not in ev:
+        # gleicher Wortlaut ohne neue Nummer oder Adresse: oft dieselbe Zeile unter anderem Ort (Messung 3);
+        # nicht bei seltenen Berufen mit Patent (Tierarzt, Apotheker …), die meist wirklich umzogen (Messung 4)
         return "schwach" if pts >= 4 else ""
     if pts >= 4 and beruf:
         return "mittel"
@@ -443,6 +477,7 @@ def find() -> None:
         rids = recs_of.get(e["id"], [])
         e["alli"] = {nkey(ALLIANCE[x]) for x in rids if x in ALLIANCE} - {""}
         e["maiden"] = {nkey(MAIDEN[x]) for x in rids if x in MAIDEN} - {""}
+        e["civil"] = {CIVIL[x] for x in rids if x in CIVIL}
         if e["maiden"] and not e["sex"]:
             e["sex"] = "f"
         e["ab_tel"] = {AB_TEL[x] for x in rids if x in AB_TEL}
@@ -527,11 +562,28 @@ def find() -> None:
     outs, ins = Counter(c[0]["id"] for c in cand), Counter(c[1]["id"] for c in cand)
     out_rows, stats, dropped = [], Counter(), []
     stats["kandidaten_vor_eindeutigkeit"] = len(cand)
-    for a, b, pts, ev in cand:
+    # Mehrdeutig, aber klar vorn: höchstens drei Kandidaten je Seite und mindestens 2 Punkte vor jedem
+    # anderen Paar, das A oder B enthält (etwa gleicher Beruf gegen andere Berufe)
+    by_a: dict[str, list] = defaultdict(list)
+    by_b: dict[str, list] = defaultdict(list)
+    for c in cand:
+        by_a[c[0]["id"]].append(c)
+        by_b[c[1]["id"]].append(c)
+
+    def clear_best(c: tuple) -> bool:
+        a, b, pts, _ = c
+        rivals = [x[2] for x in by_a[a["id"]] + by_b[b["id"]] if x is not c]
+        return len(by_a[a["id"]]) <= 3 and len(by_b[b["id"]]) <= 3 and all(pts >= r + 2 for r in rivals)
+
+    for c in cand:
+        a, b, pts, ev = c
         if outs[a["id"]] > 1 or ins[b["id"]] > 1:
-            stats["mehrdeutig"] += 1
-            continue
-        if not (outs[a["id"]] == 1 and ins[b["id"]] == 1):
+            if not clear_best(c):
+                stats["mehrdeutig"] += 1
+                continue
+            ev = ev + ["eindeutig:abstand"]
+            stats["mehrdeutig_aber_klar"] += 1
+        elif not (outs[a["id"]] == 1 and ins[b["id"]] == 1):
             continue
         d = round(km(geo[a["muni"]], geo[b["muni"]]), 1) if a["muni"] in geo and b["muni"] in geo else ""
         to_city = min((km(geo[b["muni"]], geo[c]) for c in cities), default=0) if b["muni"] in geo else 0
