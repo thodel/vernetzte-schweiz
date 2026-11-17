@@ -395,3 +395,87 @@ Wanderungsstatistik.
 - **Firmen und Institutionen**, die den Sitz verlegen, sind nicht gesucht.
 - **Adressbücher allein** (Basel 1862, Zürich 1859–1914, Bern, Lausanne) zählen mit, wo sie
   vorliegen. Die meisten Orte stehen aber nur im Telefonbuch.
+
+## Zuzüge mit Heimatort
+
+Die Paarsuche oben sucht dieselbe Person an zwei Orten. Die Zuzüge fragen anders: Wer steht in
+einem Band einer Stadt zum ersten Mal, und woher stammt er? Das geht nur, wo die Adressbücher den
+Heimatort nennen und mehrere Bände vorliegen, im Zeitfenster bisher nur in **Aarau 1867–1899**
+(Gebäude- und Einwohnerlisten, rund 60 % der Personen mit Heimatort). Die Seite zeigt sie unter
+`#/wanderungen?v=zuzug`.
+
+```bash
+make zuzuege                    # links/zuzuege.csv, data/norm/zuzuege_stats.json
+python scripts/zuzuege.py site  # site/data/zuzuege.json.gz (läuft im Pages-Workflow)
+python scripts/origins.py       # Auszählung: wie viele Heimatorte gehen auf?
+python scripts/origins.py ref DIR   # data/ref/places_foreign.csv neu aus GeoNames-Dumps (DE, AT, FR, IT, LI)
+```
+
+### Heimatort auflösen (`scripts/origins.py`)
+
+1. Klammerzusatz: Kanton → Schweiz («Küttigen (Bern)»), «Großh. Baden», «Wtbg.», «Preussen»,
+   «Tirol» … → Ausland. «Grh. Baden» ohne Klammer gibt nur das Land, keinen Ort.
+2. Gemeinden 1914 und Ortschaften (`data/ref`), alte Schreibungen (-wyl, ß, y), Orte vor Fusionen
+   (Ryken, Fluntern …), erster Teil eines Doppelnamens («Langnau» → Langnau im Emmental), Kanton
+   allein («soloth»).
+3. Ausländische Orte aus `data/ref/places_foreign.csv`: nur die GeoNames-Namen, die als Heimatort
+   vorkommen und nicht schon als Schweizer Ort aufgehen (348 Namen). Koordinaten vom grössten Ort
+   dieses Namens; mehrdeutige Namen tragen mehrere Länder («AT/DE»).
+4. Unscharf gegen die Schweizer Liste (≥ 0,86) → `CH?` (Zezwyl, Erlisbach).
+
+Aarau, 11 718 Einträge mit Heimatort: CH 9 674, CH? 383, Ausland 1 132, offen 283, leer 246.
+
+### Zuzüge (`scripts/zuzuege.py`)
+
+- Je Band eine Liste: die Einwohnerliste, sonst die Gebäudeliste. Fehlt der Einwohnerliste der
+  Heimatort, kommt er aus der Gebäudeliste desselben Bandes (Name, Vorname, Haus; Vermerk
+  «[Gebäudeliste]»). Firmen («&», Cie) und Gebäude («Scheune», «Holzschopf») zählen nicht.
+- Paare über die Bände: gleicher Familienname, oder ähnlicher (≥ 0,85, mindestens 5 Buchstaben),
+  oder im selben Haus ähnlich genug (≥ 0,6, «Udel»/«Adel»). Vorname und Heimatort dürfen sich nicht
+  widersprechen. Punkte: Vorname gleich 3, Abkürzung 2, Initiale 1; Heimatort gleich 3; Beruf 2;
+  Strasse 1; Haus 1. Nötig sind 3 Punkte, bei ähnlichem Namen 5 (und ein Punkt Abzug). 1:1 nach
+  Punkten; eine Person darf in einem Band fehlen.
+- Aarau hat die Gebäude zwischen 1869 und 1877 neu nummeriert: Bei verknüpften Paaren stimmt die
+  Nummer über diese Grenze in 29 von 565 Fällen, sonst in rund 75 %. Hausnummern zählen über die
+  Grenze nicht, für «haushalt» gilt dort die Strasse.
+- Status im späteren Band: `bleibt`, `haushalt` (gleicher Name im selben Haus vorher: Sohn, Witwe,
+  Angehörige), `witwe`, `neu_familie` (Familien-, Geburts- oder Allianzname schon in der Stadt),
+  `neu`. **Zuzüge** = `neu` + `neu_familie`.
+
+| Band | Personen | Zuzüge | mit Heimatort | davon Ausland | Ausland unter Bleibenden |
+|---|---|---|---|---|---|
+| 1869 | 1'460 | 306 | 190 | 18 (9 %) | 27/437 (6 %) |
+| 1877 | 1'665 | 639 | 414 | 56 (14 %) | 26/340 (8 %) |
+| 1879 | 1'659 | 315 | 219 | 30 (14 %) | 59/580 (10 %) |
+| 1881 | 1'795 | 291 | 205 | 28 (14 %) | 51/635 (8 %) |
+| 1884 | 1'839 | 495 | 393 | 52 (13 %) | 36/631 (6 %) |
+| 1888 | 1'836 | 379 | 291 | 33 (11 %) | 57/778 (7 %) |
+| 1892 | 1'939 | 390 | 327 | 28 (9 %) | 69/843 (8 %) |
+| 1896 | 2'125 | 575 | 240 | 46 (19 %) | 38/473 (8 %) |
+| 1899 | 2'091 | 380 | 161 | 27 (17 %) | 47/558 (8 %) |
+
+Ausländische Zuzüger: Deutschland 228, Frankreich 21, Österreich oder Deutschland 19,
+Österreich 17, Italien 12.
+
+### Nationalität aus dem Namen? (gemessen, nicht eingebaut)
+
+An den 3 822 Aarauer Personen mit Heimatort (464 Ausland, drei Viertel Deutsche) gemessen:
+Ein Name, der nicht als Schweizer belegt ist, findet 62 % der Ausländer, aber zwei von drei
+Treffern sind Schweizer. Endungen (-ini, -ski, -eau) finden 3 %. Ein naiver Bayes aus Name, Vorname
+und Endung erreicht AUC 0,79, gpt-oss-120b 0,71. Für Städte ohne Heimatort taugen Namen höchstens für
+einen geschätzten Anteil, nicht für die einzelne Person: Deutsche und Deutschschweizer tragen dieselben
+Namen. Darum zeigt die Seite nur Zuzüge mit gelesenem Heimatort.
+
+### Grenzen der Zuzüge
+
+- **Lesefehler** im Familiennamen machen aus einem Bleibenden einen Zuzug, wenn kein gemeinsames Haus
+  hilft («Nieding»/«Riding»). Zeilen mit «—» erben den Familiennamen der Zeile darüber, 1899 manchmal
+  den falschen («— Abraham» unter «Erismann & Blattner»).
+- **Rückkehrer**: Wer zwei Bände lang fehlt, zählt bei der Rückkehr als Zuzug.
+- **Stichprobe** (24 Zuzüge aus 1881, 1892, 1899, vor dem letzten Fix): 11 klar neu, 1 Rückkehr nach
+  zwei Bänden, 1 seither verknüpft, 4 Lesevarianten oder Witwe unter anderem Namen, 7 «—»-Zeilen
+  nicht beurteilbar.
+- **Heimatort ist Bürgerort**, nicht letzter Wohnort: Ein Schweizer aus Basel kann aus Paris
+  zugezogen sein und umgekehrt.
+- 1896 und 1899 tragen den Heimatort bei weniger Personen (1 119 und 1 027 Einträge gegen 2 177 im Band
+  1892): die Anteile beruhen dort auf weniger Fällen.

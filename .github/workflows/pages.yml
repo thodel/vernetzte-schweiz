@@ -32,6 +32,7 @@ jobs:
       - run: python scripts/build_entries.py
       - run: python scripts/build_hls.py
       - run: python scripts/migration.py site
+      - run: python scripts/zuzuege.py site
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site

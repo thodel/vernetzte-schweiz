@@ -17,7 +17,7 @@ Plan, Entscheide und offene Fragen: [PLAN.md](PLAN.md) · Datenvertrag:
 - Telefonbücher 1880–1914 — PTT-Archiv P-260, aufbereitet von DH Bern und localsearch
   ([DHBern/PTT_phonebook_data_tsv](https://github.com/DHBern/PTT_phonebook_data_tsv),
   [historic.localsearch.ch](https://historic.localsearch.ch))
-- Ortsregister — Historisiertes Gemeindeverzeichnis (BFS), amtliches Ortschaftenverzeichnis (swisstopo)
+- Ortsregister — Historisiertes Gemeindeverzeichnis (BFS), amtliches Ortschaftenverzeichnis (swisstopo), ausländische Heimatorte aus GeoNames (CC BY 4.0)
 - Elites suisses — Wissensgraph der Universität Lausanne (LESSH/LOD4HSS), SPARQL; nur Links über Wikidata ([docs/elites_suisses.md](docs/elites_suisses.md))
 
 Jede Quelle ist in [config/sources.toml](config/sources.toml) an einen Commit gebunden.
@@ -30,6 +30,7 @@ make ingest   # Quellen am gepinnten Commit lesen, Orte auflösen, zerlegen → 
 make link     # Telefonbuch ↔ Adressbuch verknüpfen und messen → links/, data/norm/
 make entities # Einheiten über die Jahre bündeln, Normdaten, Messung → links/, data/norm/
 make wanderungen # Wer zieht wohin? Kandidaten (Versuch) → links/migration.csv
+make zuzuege     # Wer kommt neu nach Aarau, und woher? → links/zuzuege.csv
 make wikidata # Kandidaten für den Normdaten-Abgleich neu holen → data/ref/
 make site     # Kennzahlen, Suchindex, Einheiten-, Adress- und Ortsseiten → site/data/
 make serve    # Seite lokal auf http://localhost:8000

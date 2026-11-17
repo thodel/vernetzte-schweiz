@@ -799,8 +799,20 @@
 
   // ── Wanderungen (M10, experimentell; scripts/migration.py) ──────────────
   // moves: [von, nach, letztes Jahr alt, erstes Jahr neu, Klasse, Stufe 0–2, km, Name, Beruf alt, Beruf neu, entity alt, entity neu, beide vorliegend]
+  const migTabs = v => el("nav", { class: "tabs" }, ...[["orte", "#/wanderungen", t.zz_tab_moves], ["zuzug", "#/wanderungen?v=zuzug", t.zz_tab]]
+    .map(([k, href, txt]) => el("a", { href, class: v === k ? "on" : "", "aria-current": v === k ? "page" : "false" }, txt)));
+  // Balken der Seitenleiste. Zeile: [Beschriftung, Zahl, Zusatz, Link, aktiv]; mit Link ist der Balken ein Filter
+  // (aktiv: nochmals klicken hebt ihn auf)
+  const hbars = rows => {
+    const max = Math.max(1, ...rows.map(r => r[1]));
+    return el("div", { class: "hbars" }, ...rows.map(([lab, c, extra, href, on]) => (href = c || on ? href : "", el(href ? "a" : "div",
+      href ? { class: "hbar" + (on ? " on" : ""), href, title: on ? t.mw_click_bar_off : t.mw_click_bar, "aria-current": on ? "true" : "false" } : { class: "hbar" },
+      el("span", { class: "lab" }, lab), el("span", { class: "track" }, el("span", { class: "fill", style: `width:${c / max * 100}%` })),
+      el("span", { class: "num" }, n(c), extra ? el("span", { class: "muted" }, ` · ${extra}`) : "")))));
+  };
   let migData;
   async function wanderungen(params) {
+    if (params.get("v") === "zuzug") return zuzuege(params);
     const D = migData ??= await get("data/wanderungen.json.gz");
     const set = upd => {
       const p = new URLSearchParams(params);
@@ -848,7 +860,7 @@
       link(tabUrl({}).replace(/^[^#]*/, ""), t.mw_clear_place)) : "";
     const kmFilter = kb ? el("p", { class: "flow-filter" }, el("b", {}, t.mw_km_filter.replace("{k}", binName(kb))), " · ",
       link(here({ k: null }), t.mw_clear_km)) : "";
-    view.replaceChildren(el("h1", {}, t.mw_h), el("p", { class: "intro" }, t.mw_p), placeFilter, kmFilter, ctl, box, side,
+    view.replaceChildren(el("h1", {}, t.mw_h), migTabs("orte"), el("p", { class: "intro" }, t.mw_p), placeFilter, kmFilter, ctl, box, side,
       el("p", { class: "sub note" }, t.mw_note, " ", link("https://github.com/thodel/vernetzte-schweiz/blob/main/docs/wanderungen.md", t.mw_doc)));
     ctl.append(rangeSlider(1860, 1914, a, b, (x, y) => set({ a: x, b: y })),
       select([[0, tierNames[0]], [1, `${tierNames[0]} + ${tierNames[1]}`], [2, t.mp_all]], tier, t.mw_tier),
@@ -914,14 +926,6 @@
     }
 
     // Seitenleiste: Zahl, nach Berufsklasse, nach Entfernung, häufigste Ortspaare, Fälle
-    // Zeile: [Beschriftung, Zahl, Zusatz, Link, aktiv]; mit Link ist der Balken ein Filter (aktiv: nochmals klicken hebt ihn auf)
-    const hbars = rows => {
-      const max = Math.max(1, ...rows.map(r => r[1]));
-      return el("div", { class: "hbars" }, ...rows.map(([lab, c, extra, href, on]) => (href = c || on ? href : "", el(href ? "a" : "div",
-        href ? { class: "hbar" + (on ? " on" : ""), href, title: on ? t.mw_click_bar_off : t.mw_click_bar, "aria-current": on ? "true" : "false" } : { class: "hbar" },
-        el("span", { class: "lab" }, lab), el("span", { class: "track" }, el("span", { class: "fill", style: `width:${c / max * 100}%` })),
-        el("span", { class: "num" }, n(c), extra ? el("span", { class: "muted" }, ` · ${extra}`) : "")))));
-    };
     const med = xs => { const s2 = [...xs].sort((x, y) => x - y); return s2.length ? s2[Math.floor((s2.length - 1) / 2)] : 0; };
     const byCls = new Map();
     for (const m of moves) { if (!byCls.has(m[4])) byCls.set(m[4], []); byCls.get(m[4]).push(m[6]); }
@@ -949,6 +953,102 @@
         m[13] ? el("span", { class: "meta auth-mv" }, ...authLinks(m[13][0], m[13][2], m[13][3], m[13][6])) : "",
         m[14] && m[14].length ? el("span", { class: "meta" }, t.mv_hls_cand, " ", ...hlsCands(m[14])) : ""))),
       moves.length > 300 ? el("p", { class: "muted" }, t.mw_more.replace("{n}", n(moves.length - 300))) : "");
+  }
+
+  // ── Zuzüge mit Heimatort (scripts/zuzuege.py) ──────────────────────────
+  // rows: [Stadt, Band, Status (0 neu, 1 Name schon in der Stadt), Name, Beruf, Berufsklasse (-1 keine), Heimatort wie gelesen,
+  //        Ort, Klasse (0 CH, 1 CH?, 2 Ausland, 3 offen, 4 keiner), Kanton oder Land, Breite, Länge, entity]
+  let zzData;
+  const regionNames = (() => { try { return new Intl.DisplayNames([lang], { type: "region" }); } catch { return null; } })();
+  const countryName = c => c.split("/").map(x => (regionNames && regionNames.of(x)) || x).join(" / ");
+  const pf = new Intl.NumberFormat(lang === "en" ? "en" : `${lang}-CH`, { style: "percent" });
+  const pct = (a, b) => b ? pf.format(a / b) : "–";
+  async function zuzuege(params) {
+    const D = zzData ??= await get("data/zuzuege.json.gz");
+    const cities = Object.keys(D.stats);
+    const city = cities.includes(params.get("s")) ? params.get("s") : cities[0];
+    const vol = params.get("b") || "alle", oc = params.get("o") || "alle", st = params.get("z") || "alle";
+    const reg = params.get("r") || "", hp = params.get("h") || "";
+    const here = upd => {
+      const p = new URLSearchParams(params);
+      p.set("v", "zuzug");
+      for (const [k, val] of Object.entries(upd)) val === null || val === "alle" ? p.delete(k) : p.set(k, val);
+      return `#/wanderungen?${p}`;
+    };
+    const set = upd => location.replace(here(upd));
+    const S = D.stats[city];
+    const vols = Object.keys(S).map(Number).sort((x, y) => x - y);
+    // Herkunftsfilter «x:FR» (Frankreich) oder «ch:FR» (Kanton Freiburg): die Kürzel überschneiden sich
+    const rkey = r => `${r[8] === 2 ? "x" : "ch"}:${r[9]}`;
+    const ocOK = r => oc === "alle" || (oc === "ausland" ? r[8] === 2 : oc === "schweiz" ? r[8] <= 1 : r[8] >= 3);
+    const rows = D.rows.filter(r => r[0] === city && (vol === "alle" || r[1] === +vol) && (st === "alle" || r[2] === 0)
+      && ocOK(r) && (!reg || rkey(r) === reg) && (!hp || r[7] === hp));
+    const clsName = i => i < 0 ? t.mw_no_class : (t[`occ_${D.classes[i][0]}`] || D.classes[i][1]);
+    const regName = r => r[8] === 2 ? countryName(r[9]) : r[9];
+
+    const table = el("div", { class: "grid-scroll" }, el("table", { class: "entries zz-table" },
+      el("thead", {}, el("tr", {}, ...[t.zz_vol, t.zz_col_persons, t.zz_col_arr, t.zz_col_origin, t.zz_col_abroad, t.zz_col_stay].map(h => el("th", {}, h)))),
+      el("tbody", {}, ...vols.slice(1).map(v => {
+        const s = S[v], z = (s.neu || 0) + (s.neu_familie || 0);
+        return el("tr", { class: String(v) === vol ? "on" : "" },
+          el("td", { class: "yr" }, link(here({ b: String(v) === vol ? null : v }), String(v))),
+          el("td", {}, n(s.personen)), el("td", {}, n(z)), el("td", {}, n(s.zuzug_mit_heimatort)),
+          el("td", {}, `${n(s.zuzug_ausland)} (${pct(s.zuzug_ausland, s.zuzug_mit_heimatort)})`),
+          el("td", {}, `${n(s.bleibt_ausland)} / ${n(s.bleibt_mit_heimatort)} (${pct(s.bleibt_ausland, s.bleibt_mit_heimatort)})`));
+      }))));
+    const ctl = el("div", { class: "controls" });
+    const keys = [];
+    if (cities.length > 1) { ctl.append(select(cities.map(c => [c, c]), city, t.zz_city)); keys.push("s"); }
+    ctl.append(select([["alle", t.mp_all], ...vols.slice(1).map(v => [v, String(v)])], vol, t.zz_vol),
+      select([["alle", t.mp_all], ["ausland", t.zz_o_abroad], ["schweiz", t.zz_o_ch], ["offen", t.zz_o_none]], oc, t.zz_origin),
+      select([["alle", t.zz_st_all], ["neu", t.zz_st_new]], st, t.zz_status));
+    keys.push("b", "o", "z");
+    ctl.querySelectorAll("select").forEach((s, i) => s.addEventListener("change", () => set({ [keys[i]]: s.value })));
+    const filt = reg || hp ? el("p", { class: "flow-filter" }, el("b", {}, hp ? t.zz_place_filter.replace("{g}", hp)
+      : t.zz_region_filter.replace("{g}", reg.startsWith("x:") ? countryName(reg.slice(2)) : reg.slice(3))),
+      " · ", link(here({ r: null, h: null }), t.zz_clear)) : "";
+    const box = el("div", { class: "map tall" });
+    const side = el("div", { class: "map-side" });
+    const span = vol === "alle" ? `${vols[1]}–${vols[vols.length - 1]}` : vol;
+    view.replaceChildren(el("h1", {}, t.mw_h), migTabs("zuzug"), el("p", { class: "intro" }, t.zz_p.replace("{c}", city)),
+      table, filt, ctl, box, side,
+      el("p", { class: "sub note" }, t.zz_note, " ", link("https://github.com/thodel/vernetzte-schweiz/blob/main/docs/wanderungen.md#zuzüge-mit-heimatort", t.mw_doc)));
+
+    // Karte: je Heimatort ein Kreis (Fläche ∝ Zuzüge), rot Ausland, grün Schweiz; Klick filtert auf den Ort
+    const pts = new Map();
+    for (const r of rows) {
+      if (r[10] === null || r[8] > 2) continue;
+      const k = `${r[7]}|${r[10]}|${r[11]}`;
+      if (!pts.has(k)) pts.set(k, { r, c: 0 });
+      pts.get(k).c++;
+    }
+    let L, mp;
+    try { [L, mp] = await chMap(box); } catch { box.replaceChildren(el("p", { class: "muted" }, t.pg_map_error)); }
+    if (mp) {
+      const layer = [...pts.values()].sort((x, y) => y.c - x.c).map(({ r, c }) =>
+        L.circleMarker([r[10], r[11]], { radius: Math.max(3, Math.sqrt(c) * 2.2), weight: 1, fillOpacity: 0.6, color: r[8] === 2 ? "#d21938" : "#175b5b" })
+          .bindTooltip(`${t.zz_map_tip.replace("{g}", `${r[7]} (${regName(r)})`).replace("{n}", n(c))}<br><i>${t.zz_click_point}</i>`)
+          .on("click", () => set({ h: r[7], r: null })));
+      L.layerGroup(layer).addTo(mp);
+      if (layer.length) mp.fitBounds(L.latLngBounds([...pts.values()].map(({ r }) => [r[10], r[11]])), { padding: [20, 20], maxZoom: 10 });
+    }
+
+    const count = (f, xs) => { const m = new Map(); for (const x of xs) { const k = f(x); if (k !== null) m.set(k, (m.get(k) || 0) + 1); } return [...m].sort((a, b) => b[1] - a[1]); };
+    const byCountry = count(r => r[8] === 2 ? r[9] : null, rows), byCanton = count(r => r[8] <= 1 && r[9] ? r[9] : null, rows);
+    const byCls = count(r => r[5], rows);
+    side.append(el("p", { class: "count" }, t.zz_count.replace("{n}", n(rows.length)).replace("{y}", span)),
+      byCountry.length ? el("h2", {}, t.zz_by_country) : "",
+      hbars(byCountry.slice(0, 12).map(([c, k]) => [countryName(c), k, "", here({ r: reg === `x:${c}` ? null : `x:${c}`, h: null }), reg === `x:${c}`])),
+      byCanton.length ? el("h2", {}, t.zz_by_canton) : "",
+      hbars(byCanton.slice(0, 12).map(([c, k]) => [c, k, "", here({ r: reg === `ch:${c}` ? null : `ch:${c}`, h: null }), reg === `ch:${c}`])),
+      el("h2", {}, t.mw_by_class), hbars(byCls.map(([c, k]) => [clsName(c), k, "", "", false])),
+      el("h2", {}, t.mw_cases),
+      el("ul", { class: "hitlist" }, ...rows.slice(0, 300).map(r => el("li", {},
+        el("b", {}, r[3]), r[2] === 1 ? el("span", { class: "pill why", title: t.zz_family_tip }, t.zz_family) : "",
+        el("span", { class: "meta" }, r[12] ? link(`#/e/${r[12]}`, `${r[0]} ${r[1]}`) : `${r[0]} ${r[1]}`,
+          r[6] ? ` · ${t.zz_origin}: ${r[6]}` : "", r[8] <= 2 ? ` → ${r[7]} (${regName(r)})` : ""),
+        r[4] ? el("span", { class: "occ" }, r[4]) : ""))),
+      rows.length > 300 ? el("p", { class: "muted" }, t.mw_more.replace("{n}", n(rows.length - 300))) : "");
   }
 
   async function karten(params) {
