@@ -1070,6 +1070,170 @@
       rows.length > 300 ? el("p", { class: "muted" }, t.mw_more.replace("{n}", n(rows.length - 300))) : "");
   }
 
+  // ── Infrastruktur (scripts/infrastruktur.py) ──────────────────────────────
+  // Linien als SVG, Breite nach dem Behälter (Schrift bleibt auch auf dem Telefon lesbar)
+  const SVGNS = "http://www.w3.org/2000/svg";
+  const sv = (tag, attrs = {}, ...kids) => {
+    const e = document.createElementNS(SVGNS, tag);
+    for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v);
+    for (const k of kids) e.append(k);
+    return e;
+  };
+  const LINE_COLORS = ["#175b5b", "#d21938", "#1f4e9c", "#b07a10", "#6b3fa0", "#5a8f29", "#9e323c", "#2a9d8f", "#555555", "#c2185b"];
+  function lineChart(box, series, { log = false, share = false, x0 = 1880, x1 = 1914, label = "" }) {
+    const W = Math.max(300, box.clientWidth || 700), H = W < 500 ? 240 : 300, L = share ? 44 : 56, R = 10, T = 10, B = 26;
+    const ys = series.flatMap(s => s.pts.map(p => p[1])).filter(v => v > 0);
+    if (!ys.length) { box.replaceChildren(); return; }
+    let y0, y1;
+    if (log) { y0 = 10 ** Math.floor(Math.log10(Math.min(...ys))); y1 = 10 ** Math.ceil(Math.log10(Math.max(...ys))); }
+    else if (share) { y0 = 0; y1 = Math.min(1, Math.ceil(Math.max(...ys) * 50) / 50); }
+    else { y0 = 0; y1 = Math.max(...ys); }
+    const fx = x => L + (x - x0) / (x1 - x0) * (W - L - R);
+    const fy = y => T + (1 - (log ? (Math.log10(y) - Math.log10(y0)) / (Math.log10(y1) - Math.log10(y0)) : (y - y0) / ((y1 - y0) || 1))) * (H - T - B);
+    const svg = sv("svg", { viewBox: `0 0 ${W} ${H}`, width: W, height: H, class: "linechart", role: "img", "aria-label": label });
+    const yt = [];
+    if (log) for (let d = y0; d <= y1; d *= 10) yt.push(d);
+    else if (share) { const st = y1 > 0.3 ? 0.1 : y1 > 0.1 ? 0.05 : 0.02; for (let v = 0; v <= y1 + 1e-9; v += st) yt.push(Math.round(v * 100) / 100); }
+    for (const v of yt) {
+      svg.append(sv("line", { x1: L, x2: W - R, y1: fy(v), y2: fy(v), class: "grid" }),
+        sv("text", { x: L - 6, y: fy(v) + 4, "text-anchor": "end", class: "tick" }, share ? pf.format(v) : n(v)));
+    }
+    for (let x = Math.ceil(x0 / 5) * 5; x <= x1; x += 5) {
+      svg.append(sv("line", { x1: fx(x), x2: fx(x), y1: H - B, y2: H - B + 4, class: "axis" }),
+        sv("text", { x: fx(x), y: H - 6, "text-anchor": "middle", class: "tick" }, String(x)));
+    }
+    svg.append(sv("line", { x1: L, x2: W - R, y1: H - B, y2: H - B, class: "axis" }));
+    for (const s of series) {
+      const pts = s.pts.filter(p => p[1] > 0 || !log);
+      svg.append(sv("path", { d: pts.map((p, i) => `${i ? "L" : "M"}${fx(p[0]).toFixed(1)},${fy(p[1]).toFixed(1)}`).join(""), stroke: s.color, class: "series" }));
+      for (const p of pts) svg.append(sv("circle", { cx: fx(p[0]), cy: fy(p[1]), r: 3, fill: s.color },
+        sv("title", {}, `${s.name} ${p[0]}: ${share ? pf.format(p[1]) : n(p[1])}`)));
+    }
+    box.replaceChildren(svg);
+  }
+
+  let infData;
+  async function infrastruktur(params) {
+    const D = infData ??= await get("data/infrastruktur.json.gz");
+    const T = D.telefon;
+    const here = upd => {
+      const p = new URLSearchParams(params);
+      for (const [k, val] of Object.entries(upd)) val === null ? p.delete(k) : p.set(k, val);
+      return `#/infrastruktur?${p}`;
+    };
+    const set = upd => location.replace(here(upd));
+    const gName = g => t[`inf_g_${g}`] || g;
+
+    // A1/A2: Stadtreihen
+    const cities = Object.keys(T.series).sort((a, b) => T.series[b].at(-1)[1] - T.series[a].at(-1)[1]);
+    const defCities = ["Basel", "Bern", "St. Gallen", "Biel (BE)", "Lugano", "Thun", "Chur", "Aarau"].filter(c => cities.includes(c));
+    const chosen = (params.get("st") ? params.get("st").split("|") : defCities).filter(c => cities.includes(c));
+    const color = c => LINE_COLORS[cities.indexOf(c) % LINE_COLORS.length];
+    const toggle = c => { const s = chosen.includes(c) ? chosen.filter(x => x !== c) : [...chosen, c]; return here({ st: s.join("|") }); };
+    const legend = el("div", { class: "chips" }, ...cities.map(c => el("a", { href: toggle(c), class: "chip" + (chosen.includes(c) ? " on" : ""),
+      "aria-pressed": chosen.includes(c) ? "true" : "false", style: chosen.includes(c) ? `--chip:${color(c)}` : "" },
+      el("span", { class: "sw" }), c)));
+    const chart1 = el("div", { class: "chart" }), chart2 = el("div", { class: "chart" });
+
+    // A3: Karte und Kantone
+    const view_ = params.get("k") || "telefon";
+    const layers = [["telefon", t.inf_map_phone], ["sprech", t.inf_map_call], ...D.groups.map(g => [g, gName(g)]), ["bahnhofstrasse", t.inf_map_station]];
+    const box = el("div", { class: "map tall" });
+    const mapCtl = el("div", { class: "controls" }, select(layers, view_, t.inf_map_show));
+    mapCtl.querySelector("select").addEventListener("change", e => set({ k: e.target.value }));
+    const cats = [["vor", t.inf_before_1911, "#8c8c8c"], [1911, "1911", "#175b5b"], [1912, "1912", "#2a9d8f"], [1913, "1913", "#d98c00"], [1914, "1914", "#d21938"]];
+    const catOf = y => y < 1911 ? 0 : y - 1910;
+    const geo = new Map(T.places.map(p => [p[0], p]));
+    let firstOf;  // Gemeinde → erstes Jahr für die gewählte Ebene
+    if (view_ === "telefon") firstOf = new Map(T.places.map(p => [p[0], p[4]]));
+    else if (view_ === "sprech") firstOf = new Map(T.places.filter(p => p[6]).map(p => [p[0], p[6]]));
+    else if (view_ === "bahnhofstrasse") firstOf = new Map(Object.entries(D.bahnhofstrasse.first));
+    else firstOf = new Map(Object.entries(D.berufe.first[view_] || {}));
+    const catCount = [0, 0, 0, 0, 0];
+    for (const [m, y] of firstOf) if (geo.has(m) && y <= 1914) catCount[catOf(y)]++;
+    const mapLegend = el("div", { class: "inf-legend" }, ...cats.map(([, lab, col], i) => (view_ === "sprech" && i === 0) ? "" :
+      el("span", {}, el("span", { class: "dot", style: `background:${col}` }), `${lab} (${n(catCount[i])})`)));
+    const exampleList = !["telefon", "sprech", "bahnhofstrasse"].includes(view_) && D.berufe.examples[view_]
+      ? el("details", { class: "inf-examples" }, el("summary", {}, t.inf_examples.replace("{g}", gName(view_))),
+        el("ul", {}, ...D.berufe.examples[view_].slice(0, 60).map(([m, nm, occ]) => el("li", {}, el("b", {}, nm), ` · ${m}`, occ ? el("span", { class: "muted" }, ` · ${occ}`) : ""))))
+      : "";
+
+    const sumC = Object.values(T.cantons).reduce((a, c) => ({ g: a.g + c.gemeinden, t: a.t + c.bis_1914, nw: a.nw + c.bis_1914 - c.bis_1911, s: a.s + c.sprechstellen_1914 }), { g: 0, t: 0, nw: 0, s: 0 });
+    const cantonRows = Object.entries(T.cantons).filter(([c]) => c.length === 2 && T.cantons[c].gemeinden);
+    const cantonTable = el("div", { class: "grid-scroll" }, el("table", { class: "entries inf-table" },
+      el("thead", {}, el("tr", {}, ...[t.inf_col_canton, t.inf_col_munis, t.inf_col_phone, t.inf_col_new, t.inf_col_call].map(h => el("th", {}, h)))),
+      el("tbody", {}, ...cantonRows.map(([c, v]) => el("tr", {}, el("td", {}, c), el("td", {}, n(v.gemeinden)),
+        el("td", {}, `${n(v.bis_1914)} (${pct(v.bis_1914, v.gemeinden)})`), el("td", {}, n(v.bis_1914 - v.bis_1911)),
+        el("td", {}, `${n(v.sprechstellen_1914)} (${pct(v.sprechstellen_1914, v.gemeinden)})`))),
+        el("tr", { class: "sum" }, el("td", {}, t.inf_total), el("td", {}, n(sumC.g)), el("td", {}, `${n(sumC.t)} (${pct(sumC.t, sumC.g)})`),
+          el("td", {}, n(sumC.nw)), el("td", {}, `${n(sumC.s)} (${pct(sumC.s, sumC.g)})`)))));
+
+    // B: Berufe
+    const abCities = Object.keys(D.berufe.ab);
+    const abCity = abCities.includes(params.get("ab")) ? params.get("ab") : (abCities.includes("Zürich") ? "Zürich" : abCities[0]);
+    const abCtl = el("div", { class: "controls" }, select(abCities.map(c => [c, c]), abCity, t.zz_city));
+    abCtl.querySelector("select").addEventListener("change", e => set({ ab: e.target.value }));
+    const S = D.berufe.ab[abCity];
+    const maxPer = Math.max(...D.groups.flatMap(g => S.map(([, nn, gg]) => gg[g] / nn * 1000)));
+    const abTable = el("div", { class: "grid-scroll" }, el("table", { class: "entries inf-table" },
+      el("thead", {}, el("tr", {}, el("th", {}, t.inf_col_group), ...S.map(([v]) => el("th", {}, String(v))))),
+      el("tbody", {}, ...D.groups.map(g => el("tr", {}, el("td", {}, gName(g)), ...S.map(([, nn, gg]) => {
+        const v = gg[g] / nn * 1000;
+        return el("td", { class: "heat", style: `--h:${(v / (maxPer || 1)).toFixed(2)}`, title: `${n(gg[g])} / ${n(nn)}` }, v ? v.toFixed(1) : "–");
+      }))), el("tr", { class: "sum" }, el("td", {}, t.inf_col_entries), ...S.map(([, nn]) => el("td", {}, n(nn)))))));
+    const years = Object.keys(D.berufe.national);
+    const natTable = el("div", { class: "grid-scroll" }, el("table", { class: "entries inf-table" },
+      el("thead", {}, el("tr", {}, el("th", {}, t.inf_col_group), ...years.map(y => el("th", {}, y)), el("th", {}, t.inf_col_growth))),
+      el("tbody", {}, ...D.groups.map(g => {
+        const a = D.berufe.national[years[0]][g], b = D.berufe.national[years.at(-1)][g];
+        return el("tr", {}, el("td", {}, link(here({ k: g }) + "#inf-karte", gName(g))),
+          ...years.map(y => { const [e, m] = D.berufe.national[y][g]; return el("td", {}, `${n(e)} `, el("span", { class: "muted" }, `(${n(m)})`)); }),
+          el("td", {}, `${b[0] >= a[0] ? "+" : ""}${pct(b[0] - a[0], a[0])}`));
+      }), el("tr", { class: "sum" }, el("td", {}, t.inf_col_entries), ...years.map(y => el("td", {}, n(D.berufe.national[y].eintraege))),
+        el("td", {}, `+${pct(D.berufe.national[years.at(-1)].eintraege - D.berufe.national[years[0]].eintraege, D.berufe.national[years[0]].eintraege)}`)))));
+
+    const bs = D.bahnhofstrasse.per_year;
+    view.replaceChildren(el("h1", {}, t.inf_h), el("p", { class: "intro" }, t.inf_p),
+      el("h2", {}, t.inf_phone_h), el("p", { class: "intro" }, t.inf_series_p), legend, chart1,
+      el("p", { class: "sub note" }, t.inf_series_note),
+      el("h3", {}, t.inf_home_h), el("p", { class: "intro" }, t.inf_home_p), chart2,
+      el("h3", { id: "inf-karte" }, t.inf_map_h), el("p", { class: "intro" }, t.inf_map_p), mapCtl, mapLegend, box, exampleList,
+      el("p", { class: "sub note" }, t.inf_map_note),
+      el("h3", {}, t.inf_cantons_h), cantonTable,
+      el("p", { class: "sub note" }, t.inf_cantons_note.replace("{c}", n(Object.values(T.call_offices).at(-1) || 0))),
+      el("h2", {}, t.inf_occ_h), el("p", { class: "intro" }, t.inf_occ_p),
+      el("h3", {}, t.inf_ab_h), abCtl, abTable, el("p", { class: "sub note" }, t.inf_ab_note),
+      el("h3", {}, t.inf_nat_h), natTable, el("p", { class: "sub note" }, t.inf_nat_note),
+      el("h2", {}, t.inf_more_h),
+      el("p", { class: "intro" }, t.inf_station_p.replace("{a}", n(bs[1911] || 0)).replace("{b}", n(bs[1914] || 0)), " ",
+        link(here({ k: "bahnhofstrasse" }) + "#inf-karte", t.inf_station_link)),
+      el("ul", { class: "inf-ideas" }, ...[1, 2, 3, 4, 5].map(i => el("li", {}, t[`inf_idea_${i}`]))),
+      el("p", { class: "sub note" }, link("https://github.com/thodel/vernetzte-schweiz/blob/main/docs/infrastruktur.md", t.mw_doc)));
+
+    const draw = () => {
+      lineChart(chart1, chosen.map(c => ({ name: c, color: color(c), pts: T.series[c] })), { log: true, label: t.inf_phone_h });
+      lineChart(chart2, chosen.filter(c => T.home[c]).map(c => ({ name: c, color: color(c), pts: T.home[c] })), { share: true, label: t.inf_home_h });
+    };
+    draw();
+    let rt;
+    const onResize = () => { clearTimeout(rt); rt = setTimeout(() => { if (chart1.isConnected) draw(); else window.removeEventListener("resize", onResize); }, 150); };
+    window.addEventListener("resize", onResize);
+
+    let L, mp;
+    try { [L, mp] = await chMap(box); } catch { box.replaceChildren(el("p", { class: "muted" }, t.pg_map_error)); return; }
+    const big = view_ === "telefon";
+    // grosse Kreise zuerst, kleine darüber; bei gleicher Grösse die späteren (farbigen) oben
+    const pts = [...firstOf].filter(([m, y]) => geo.has(m) && y <= 1914)
+      .sort((a, b) => (big ? (geo.get(b[0])[5] || 0) - (geo.get(a[0])[5] || 0) : 0) || a[1] - b[1]);
+    L.layerGroup(pts.map(([m, y]) => {
+      const p = geo.get(m), [, lab, col] = cats[catOf(y)];
+      const r = big ? Math.max(2.5, Math.sqrt(p[5] || 1) * 0.55) : 4;
+      return L.circleMarker([p[2], p[3]], { radius: Math.min(r, 16), color: col, weight: 1, fillOpacity: catOf(y) ? 0.75 : 0.35 })
+        .bindTooltip(`${m} (${p[1]}): ${t.inf_first_seen} ${y < 1911 ? y : lab}${big ? ` · ${t.inf_entries_1914.replace("{n}", n(p[5]))}` : ""}`)
+        .on("click", () => { location.hash = placeHref(m); });
+    })).addTo(mp);
+  }
+
   async function karten(params) {
     const v = params.get("v") || "telefon";
     if (v === "wanderungen") { params.delete("v"); location.replace(`#/wanderungen?${params}`); return; }
@@ -1520,7 +1684,7 @@
   }
 
   // ── Router ───────────────────────────────────────────────────────────────
-  const routes = { suche: search, e: entity, a: address, g: place, orte: placeList, vorbehalte: caveats, karten, buch: phonebook, hls, quellen: sources, wanderungen };
+  const routes = { suche: search, e: entity, a: address, g: place, orte: placeList, vorbehalte: caveats, karten, buch: phonebook, hls, quellen: sources, wanderungen, infrastruktur };
   async function route() {
     dropMaps();
     sqBack();
@@ -1541,9 +1705,9 @@
     overview.hidden = true; view.hidden = false;
     if (!fn) { view.replaceChildren(el("h1", {}, t.pg_not_found)); return; }
     if (name !== "suche") window.scrollTo(0, 0);
-    document.title = `${t["nav_" + { suche: "search", orte: "places", vorbehalte: "caveats", karten: "maps", buch: "phone", hls: "hls", quellen: "sq", wanderungen: "migration" }[name]] || "…"} · Vernetzte Schweiz`;
+    document.title = `${t["nav_" + { suche: "search", orte: "places", vorbehalte: "caveats", karten: "maps", buch: "phone", hls: "hls", quellen: "sq", wanderungen: "migration", infrastruktur: "infra" }[name]] || "…"} · Vernetzte Schweiz`;
     view.replaceChildren(el("p", { class: "muted" }, t.loading));
-    try { await (name === "hls" ? fn(args, params) : ["suche", "orte", "karten", "buch", "wanderungen"].includes(name) ? fn(params) : fn(args)); }
+    try { await (name === "hls" ? fn(args, params) : ["suche", "orte", "karten", "buch", "wanderungen", "infrastruktur"].includes(name) ? fn(params) : fn(args)); }
     catch (err) { console.error(err); view.replaceChildren(el("h1", {}, t.pg_not_found)); }
   }
   const hero = document.getElementById("hero-search");

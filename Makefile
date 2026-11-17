@@ -1,6 +1,6 @@
 PY ?= python3
 
-.PHONY: ref ingest link entities wanderungen zuzuege check-wanderungen hls elites wikidata site serve test
+.PHONY: ref ingest link entities wanderungen zuzuege infrastruktur check-wanderungen hls elites wikidata site serve test
 ref:
 	$(PY) scripts/ref_places.py
 ingest:
@@ -18,6 +18,8 @@ wanderungen:
 	$(PY) scripts/migration.py
 zuzuege:
 	$(PY) scripts/zuzuege.py
+infrastruktur:
+	$(PY) scripts/infrastruktur.py
 check-wanderungen:
 	$(PY) scripts/check_migration.py --upstream
 hls:
@@ -35,6 +37,7 @@ site:
 	$(PY) scripts/build_hls.py
 	$(PY) scripts/migration.py site
 	$(PY) scripts/zuzuege.py site
+	$(PY) scripts/infrastruktur.py site
 serve: site
 	cd site && python3 -m http.server 8000
 test:

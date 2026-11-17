@@ -366,3 +366,24 @@ a.hbar.on .fill { background: #d21938; }
 .frame .frame-facts td { white-space: normal; text-align: left; overflow-wrap: anywhere; }
 .frame .frame-facts td:first-child { width: 38%; }
 .frame { min-width: 0; overflow-wrap: anywhere; }
+
+/* Infrastruktur (#/infrastruktur) */
+.chips a.chip { display: inline-flex; align-items: center; gap: 6px; color: var(--ink); text-decoration: none; }
+.chips a.chip .sw { width: 10px; height: 10px; border-radius: 2px; background: var(--border); }
+.chips a.chip.on { background: var(--chip, var(--cat-ann-dk)); border-color: var(--chip, var(--cat-ann-dk)); color: #fff; }
+.chips a.chip.on .sw { background: #fff; }
+.chart { width: 100%; margin: 4px 0 8px; background: var(--panel); border: 1px solid var(--border); }
+.linechart { display: block; font-family: var(--font-nav); }
+.linechart .grid { stroke: var(--border); stroke-width: 1; }
+.linechart .axis { stroke: var(--muted); stroke-width: 1; }
+.linechart .tick { font-size: 12px; fill: var(--muted); }
+.linechart .series { fill: none; stroke-width: 2; }
+.inf-legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font: 14px var(--font-nav); margin: 4px 0; }
+.inf-legend .dot { display: inline-block; width: 11px; height: 11px; border-radius: 50%; margin-right: 5px; vertical-align: -1px; }
+.inf-table td.heat { background: rgba(var(--cat-ann-rgb), calc(var(--h) * 0.45)); font-variant-numeric: tabular-nums; }
+.inf-table td, .inf-table th { white-space: nowrap; }
+.inf-table td:not(:first-child), .inf-table th:not(:first-child) { text-align: right; font-variant-numeric: tabular-nums; }
+.inf-table tr.sum td { font-weight: 600; border-top: 2px solid var(--border); }
+.inf-examples { margin: 6px 0; font-size: 14px; }
+.inf-examples ul { columns: 2 20rem; padding-left: 18px; }
+.inf-ideas li { margin: 6px 0; }
