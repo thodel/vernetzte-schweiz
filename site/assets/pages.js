@@ -807,7 +807,7 @@
     const max = Math.max(1, ...rows.map(r => r[1]));
     return el("div", { class: "hbars" }, ...rows.map(([lab, c, extra, href, on]) => (href = c || on ? href : "", el(href ? "a" : "div",
       href ? { class: "hbar" + (on ? " on" : ""), href, title: on ? t.mw_click_bar_off : t.mw_click_bar, "aria-current": on ? "true" : "false" } : { class: "hbar" },
-      el("span", { class: "lab" }, lab), el("span", { class: "track" }, el("span", { class: "fill", style: `width:${c / max * 100}%` })),
+      el("span", { class: "lab", title: lab }, lab), el("span", { class: "track" }, el("span", { class: "fill", style: `width:${c / max * 100}%` })),
       el("span", { class: "num" }, n(c), extra ? el("span", { class: "muted" }, ` · ${extra}`) : "")))));
   };
   let migData;
@@ -962,7 +962,8 @@
   const regionNames = (() => { try { return new Intl.DisplayNames([lang], { type: "region" }); } catch { return null; } })();
   const countryName = c => c.split("/").map(x => (regionNames && regionNames.of(x)) || x).join(" / ");
   const pf = new Intl.NumberFormat(lang === "en" ? "en" : `${lang}-CH`, { style: "percent" });
-  const pct = (a, b) => b ? pf.format(a / b) : "–";
+  // unter einem halben Prozent «< 1 %» statt «0 %»
+  const pct = (a, b) => !b ? "–" : a && a / b < 0.005 ? `< ${pf.format(0.01)}` : pf.format(a / b);
   async function zuzuege(params) {
     const D = zzData ??= await get("data/zuzuege.json.gz");
     const cities = Object.keys(D.stats);
@@ -1047,12 +1048,19 @@
     const byCountry = hasOrigin ? count(r => r[8] === 2 ? r[9] : null, rows) : [];
     const byCanton = hasOrigin ? count(r => r[8] <= 1 && r[9] ? r[9] : null, rows) : [];
     const byCls = count(r => r[5], rows);
+    // Anteile: Länder an den Zuzügen aus dem Ausland, Kantone an denen aus der Schweiz, Berufsklassen an allen gezeigten
+    const sum = xs => xs.reduce((a, [, k]) => a + k, 0);
+    const totC = sum(byCountry), totK = sum(byCanton);
+    const shareNote = txt => el("p", { class: "hbars-note muted" }, txt);
     side.append(el("p", { class: "count" }, t.zz_count.replace("{n}", n(rows.length)).replace("{y}", span)),
       byCountry.length ? el("h2", {}, t.zz_by_country) : "",
-      hbars(byCountry.slice(0, 12).map(([c, k]) => [countryName(c), k, "", here({ r: reg === `x:${c}` ? null : `x:${c}`, h: null }), reg === `x:${c}`])),
+      byCountry.length ? shareNote(t.zz_share_country.replace("{n}", n(totC))) : "",
+      byCountry.length ? hbars(byCountry.slice(0, 12).map(([c, k]) => [countryName(c), k, pct(k, totC), here({ r: reg === `x:${c}` ? null : `x:${c}`, h: null }), reg === `x:${c}`])) : "",
       byCanton.length ? el("h2", {}, t.zz_by_canton) : "",
-      hbars(byCanton.slice(0, 12).map(([c, k]) => [c, k, "", here({ r: reg === `ch:${c}` ? null : `ch:${c}`, h: null }), reg === `ch:${c}`])),
-      el("h2", {}, t.mw_by_class), hbars(byCls.map(([c, k]) => [clsName(c), k, "", "", false])),
+      byCanton.length ? shareNote(t.zz_share_canton.replace("{n}", n(totK))) : "",
+      byCanton.length ? hbars(byCanton.slice(0, 12).map(([c, k]) => [c, k, pct(k, totK), here({ r: reg === `ch:${c}` ? null : `ch:${c}`, h: null }), reg === `ch:${c}`])) : "",
+      el("h2", {}, t.mw_by_class), shareNote(t.zz_share_all.replace("{n}", n(rows.length))),
+      hbars(byCls.map(([c, k]) => [clsName(c), k, pct(k, rows.length), "", false])),
       el("h2", {}, t.mw_cases),
       el("ul", { class: "hitlist" }, ...rows.slice(0, 300).map(r => el("li", {},
         el("b", {}, r[3]), r[2] === 1 ? el("span", { class: "pill why", title: t.zz_family_tip }, t.zz_family) : "",

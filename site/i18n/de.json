@@ -601,5 +601,8 @@
   "zz_col_new": "davon Name neu in der Stadt",
   "zz_col_area": "Quartier im Vorband nicht erfasst",
   "zz_p_names": "Wer steht in einem Adressbuch von {c} zum ersten Mal? Personen werden von Band zu Band verknüpft (Familienname, Vorname, Beruf, Strasse und Haus); wer in keinem der zwei vorangehenden Bände steht, ist ein Zuzug. Diese Bände nennen keinen Heimatort, darum fehlen Herkunft und Karte.",
-  "zz_note_names": "Experimentell: Die Bände liegen 8 bis 15 Jahre auseinander, «Zuzug» heisst also «neu seit dem Vorband» und schliesst Söhne ein, die einen eigenen Eintrag bekommen. Die Bände sind ohne Nachkorrektur gelesen; ein falsch gelesener Name macht aus einem Bleibenden einen Zuzug. 1867 umfasst fast nur die Altstadt: Wer 1875 in Aussersihl, Riesbach usw. steht, zählt nicht als Zuzug (Spalte «nicht erfasst»). Die Strassen wurden nach der Eingemeindung 1893 teils umbenannt, 1885→1900 hilft die Adresse darum wenig."
+  "zz_note_names": "Experimentell: Die Bände liegen 8 bis 15 Jahre auseinander, «Zuzug» heisst also «neu seit dem Vorband» und schliesst Söhne ein, die einen eigenen Eintrag bekommen. Die Bände sind ohne Nachkorrektur gelesen; ein falsch gelesener Name macht aus einem Bleibenden einen Zuzug. 1867 umfasst fast nur die Altstadt: Wer 1875 in Aussersihl, Riesbach usw. steht, zählt nicht als Zuzug (Spalte «nicht erfasst»). Die Strassen wurden nach der Eingemeindung 1893 teils umbenannt, 1885→1900 hilft die Adresse darum wenig.",
+  "zz_share_country": "Anteil an den {n} Zuzügen aus dem Ausland",
+  "zz_share_canton": "Anteil an den {n} Zuzügen aus der Schweiz",
+  "zz_share_all": "Anteil an allen {n} gezeigten Zuzügen"
 }

@@ -330,8 +330,11 @@ table.hl-groups td.barcell { width: 55%; }
 .langs a[aria-current] { color: var(--ink); font-weight: 600; border-color: var(--cat-source); background: var(--cat-source-pale); }
 
 /* Wanderungen (M10): waagrechte Balken in der Seitenleiste */
-.hbars { display: grid; gap: 4px; margin: 0 0 16px; }
-.hbar { display: grid; grid-template-columns: minmax(8rem, 14rem) 1fr auto; gap: 8px; align-items: center; font-size: 14px; }
+/* Die Spalten gelten für alle Zeilen (subgrid): Balken beginnen und enden bündig, auch wenn die Zahlen verschieden breit sind */
+.hbars { display: grid; grid-template-columns: minmax(8rem, 14rem) 1fr minmax(6.5rem, auto); column-gap: 8px; row-gap: 4px; margin: 0 0 16px; }
+.hbar { display: grid; grid-column: 1 / -1; grid-template-columns: subgrid; align-items: center; font-size: 14px; }
+.hbar .num { text-align: right; }
+.hbars-note { font-size: 13px; margin: -4px 0 8px; }
 .hbar .lab { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .hbar .track { background: var(--border); height: 10px; border-radius: 2px; min-width: 40px; }
 .hbar .fill { display: block; height: 100%; background: #175b5b; border-radius: 2px; }
@@ -344,7 +347,7 @@ a.hbar.on .fill { background: #d21938; }
 .pill.mw-tier-0 { background: #175b5b; color: #fff; }
 .pill.mw-tier-1 { background: #cfe3e3; color: #123; }
 .pill.mw-tier-2 { background: #eee; color: #333; }
-@media (max-width: 600px) { .hbar { grid-template-columns: 7rem 1fr auto; } }
+@media (max-width: 600px) { .hbars { grid-template-columns: 7rem 1fr minmax(5.5rem, auto); } }
 .controls .q-job { min-width: 16rem; padding: 6px 10px; font-size: 1rem; }
 .pill.tr { background: var(--cat-source-pale, #eef2f6); color: #444; font-weight: 400; }
 .tr-note { margin: 6px 0; }
