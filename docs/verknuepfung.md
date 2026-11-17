@@ -37,9 +37,11 @@ anderen Familie. Er dient deshalb nie zum Blocken, nur als Beleg.
 | Aarau: stadtweite Gebäudenummer gleich (im selben System) | 6 | – |
 | Aarau: gleiches Gebäude über die Umnummerierung 1900 (alte Nr. → neue Nr.), gleiche Strasse | 6 | – |
 | Aarau: dasselbe über die Umnummerierung, andere Strasse | 2 | – |
+| Aarau: gleiche Strasse, über die Umnummerierung ein anderes Haus | – | −1 |
 | Beruf (gemeinsamer Wortstamm) | 1 | – |
 | Telefonzeichen im Adressbuch | 1 | – |
 | Firma gegen Firma | 2 | – |
+| Telefonbuch als Person gelesen, aber «& Co.», «& Cie.», «Gebr.», «Söhne», «Frères»: gegen eine Firma | 1 | – |
 | Witwe im Telefonbuch | – | Eintrag im Adressbuch ist keine Witwe (also ihr Mann) |
 
 **Umnummerierung Aarau 1900.** Aarau hat 1900 die Gebäude neu durchnummeriert, wieder stadtweit (neue Nummern
@@ -51,6 +53,10 @@ Adressbuch 1899: gleiche Ziffern 2–8 je Jahrgang, gleiches Haus über die Konk
 auf die Telefonbücher ab 1900: `sicher` 2 824 → 3 449, `wahrscheinlich` 1 505 → 2 418, `möglich` 2 660 → 1 638,
 verknüpfte Einträge 928 → 960; vor 1900 unverändert. Über die Konkordanz bei anderer Strasse nur 2 Punkte: ein
 Lesefehler in der Konkordanz trug sonst «Frey, R. & M.» zur Baumwollspinnerei «Frey & Cie.» in der Telli.
+Wie innerhalb eines Systems kostet eine andere Hausnummer an derselben Strasse einen Punkt, wenn die Konkordanz
+zeigt, dass es ein anderes Haus ist (sonst lag «Frey, Fr., Weinhandlung» 1910 mit einem vornamenlosen Frey derselben
+Strasse gleichauf). «Oehler, A., & Co.» ist im Telefonbuch als Person gelesen; der Firmenpunkt bringt ihn zur Firma
+«Oehler A. & Cie.», Gais 1405 = Industriestrasse 932, statt gleichauf mit dem Inhaber Alfred Oehler (17.11.2026).
 
 Ein späterer Vorname kann der Rufname sein: Es genügt ein passendes Paar
 («E.» ↔ «Hermann Emil»).

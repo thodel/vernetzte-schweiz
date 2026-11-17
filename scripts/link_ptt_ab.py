@@ -312,6 +312,10 @@ def score(p: dict, c: dict, city: str) -> tuple[int, list[str]] | None:
     ev, s = [], 0
     if p["_firm"] and p["_sk"] in GENERIC_FIRM and not (p["_st"] and p["_st"] == c["_st"]):
         return None
+    if not p["_firm"] and c["_firm"] and p.get("_firmlike"):
+        # «Oehler | A. & Co.»: als Person gelesen, aber eine Firma; die Firma des Adressbuchs vor ihrem Inhaber
+        s += 1
+        ev.append("firma")
     if p["_firm"]:
         if c["_firm"]:
             s += 2
@@ -362,6 +366,8 @@ def score(p: dict, c: dict, city: str) -> tuple[int, list[str]] | None:
                 ev.append("hausnummer")
             elif num(p["_no"]) and num(c["_no"]) and num(p["_no"]) != num(c["_no"]):
                 s -= 1
+        elif p["_bld"] and c["_bld"] and not p["_bld"] & c["_bld"]:
+            s -= 1  # über die Konkordanz ein anderes Haus derselben Strasse
     if p["_occ"] & c["_occ"]:
         s += 1
         ev.append("beruf")
@@ -429,6 +435,9 @@ def ptt_forenames(r: dict) -> list[tuple[str, bool]]:
     return out
 
 
+FIRMLIKE = re.compile(r"&\s*(Co|Cie|Comp)\b|\b(Gebr|Söhne|Frères)\b")
+
+
 def prepare_ptt(r: dict) -> dict | None:
     if r["entity_type"] == "person":
         sk = nkey(r["surname"])
@@ -453,6 +462,7 @@ def prepare_ptt(r: dict) -> dict | None:
     r["_st"], r["_no"] = skey(r["street_name"]), house(r["house_no"])
     r["_sys"], r["_bld"] = numbering(r["municipality_1914"], r["year"], r["_no"])
     r["_occ"] = stems(r["occupation"])
+    r["_firmlike"] = not r["_firm"] and bool(FIRMLIKE.search(" ".join((r["name1"], r["name2"], r["supplement"]))))
     return r
 
 

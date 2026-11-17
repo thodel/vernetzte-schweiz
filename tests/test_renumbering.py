@@ -32,6 +32,28 @@ class Renumbering(unittest.TestCase):
         self.assertEqual(l.building("aarau", self.rec(1898, "511"), self.rec(1899, "511")), "gleich")
         self.assertEqual(l.building("aarau", self.rec(1898, "12"), self.rec(1899, "12")), "")
 
+    def test_other_house_on_same_street_costs_a_point(self):
+        base = {"_firm": False, "_sk": "frey", "_ak": "", "_fn": [], "_widow": False, "_occ": set(),
+                "phone_flag": "", "_st": "laurenzenvorstadt"}
+        p = {**base, **self.rec(1910, "640")}
+        same = {**base, **self.rec(1896, "697")}
+        other = {**base, **self.rec(1896, "511")}
+        self.assertGreater(l.score(p, same, "aarau")[0], l.score(p, other, "aarau")[0])
+        self.assertEqual(l.score(p, other, "aarau")[0], 2)  # Strasse 3, anderes Haus −1
+
+    def test_firm_read_as_person_prefers_the_firm(self):
+        self.assertTrue(l.FIRMLIKE.search("Oehler A. & Co."))
+        base = {"_sk": "oehler", "_ak": "", "_fn": [("a", True)], "_widow": False, "_occ": set(),
+                "phone_flag": "", "_st": "", "_no": "", "_sys": "", "_bld": frozenset()}
+        p = {**base, "_firm": False, "_firmlike": True}
+        firm, owner = {**base, "_firm": True}, {**base, "_firm": False}
+        # ohne Adresse gleichauf (vorher lag die Firma einen Punkt hinter dem Inhaber) ...
+        self.assertEqual(l.score(p, firm, "aarau")[0], l.score(p, owner, "aarau")[0])
+        # ... mit dem Gebäude über die Konkordanz vorn (Oehler: Gais 1405 = Industriestrasse 932)
+        p2 = {**p, **self.rec(1910, "640"), "_st": "industriestrase"}
+        firm2 = {**firm, **self.rec(1899, "697"), "_st": "gais"}
+        self.assertGreater(l.score(p2, firm2, "aarau")[0], l.score(p2, owner, "aarau")[0])
+
     def tearDown(self):
         l.RENUMBERED.clear()
 
