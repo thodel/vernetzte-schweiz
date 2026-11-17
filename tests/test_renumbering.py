@@ -77,6 +77,29 @@ class Renumbering(unittest.TestCase):
         self.assertFalse(l.same_person(mk("Nr. 39"), mk("39")))
         self.assertEqual(l.persons([mk("4 und 6"), mk("(6) 4 u. 6")]), 1)
 
+    def test_fran_is_a_misread_frau(self):
+        self.assertEqual(l.forename_tokens("Fran J."), [("j", True)])
+        self.assertEqual(l.forename_tokens("Fran."), [("fran", True)])
+
+    def test_woman_is_not_a_firm_on_another_street(self):
+        base = {"_sk": "marki", "_ak": "", "_widow": False, "_occ": set(), "phone_flag": "1",
+                "_no": "", "_sys": "", "_bld": frozenset(), "_firmlike": False}
+        clara = {**base, "_firm": False, "_fn": [("clara", False)], "_ak": "dic", "_woman": True,
+                 "_st": "amthausgase"}
+        firm = {**base, "_firm": True, "_fn": [("c", True)], "_st": "matewaserwerkgase"}
+        self.assertIsNone(l.score(clara, firm, "bern"))
+        self.assertIsNotNone(l.score({**clara, "_st": "matewaserwerkgase"}, firm, "bern"))
+        self.assertIsNotNone(l.score({**clara, "_woman": False}, firm, "bern"))
+
+    def test_woman_of_another_line_does_not_count(self):
+        row = lambda sup, title="": {"entity_type": "person", "name1": "Gusthiot", "name2": "J.", "surname": "Gusthiot",
+                                     "forename": "", "initials": "J", "supplement": sup, "title": title,
+                                     "alliance_name": "", "street_name": "", "house_no": "", "occupation": "",
+                                     "municipality_1914": "Lausanne", "year": "1913"}
+        self.assertFalse(l.prepare_ptt(row("moulin, Michoud-Martignier, Mme", "Mme"))["_woman"])
+        self.assertTrue(l.prepare_ptt(row("Mme, Château de Chéserex", "Mme"))["_woman"])
+        self.assertTrue(l.prepare_ptt(row("Frau", "Frau"))["_woman"])
+
     def tearDown(self):
         l.RENUMBERED.clear()
 

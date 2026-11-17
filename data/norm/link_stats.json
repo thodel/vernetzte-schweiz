@@ -7,10 +7,10 @@
    "möglich": 2391,
    "sicher": 3398,
    "kein-name": 8768,
-   "mehrdeutig": 5031,
+   "mehrdeutig": 5025,
    "wahrscheinlich": 3283,
-   "zu-schwach": 4692,
-   "widerspruch": 2787
+   "zu-schwach": 4682,
+   "widerspruch": 2803
   },
   "by_tier": {
    "möglich": 4002,
@@ -21,17 +21,17 @@
  "basel": {
   "ptt_entries": 103903,
   "ptt_linked": 4169,
-  "pairs": 10495,
+  "pairs": 10494,
   "decisions": {
-   "zu-schwach": 22064,
+   "zu-schwach": 22055,
    "kein-name": 39756,
-   "widerspruch": 22854,
+   "widerspruch": 22863,
    "mehrdeutig": 15060,
    "möglich": 2953,
    "wahrscheinlich": 1216
   },
   "by_tier": {
-   "möglich": 7269,
+   "möglich": 7268,
    "wahrscheinlich": 3226
   }
  },
@@ -56,59 +56,59 @@
  },
  "bern": {
   "ptt_entries": 55380,
-  "ptt_linked": 25420,
-  "pairs": 64069,
+  "ptt_linked": 25405,
+  "pairs": 64029,
   "decisions": {
-   "wahrscheinlich": 13674,
-   "möglich": 7208,
+   "wahrscheinlich": 13671,
+   "möglich": 7193,
    "kein-name": 32407,
-   "zu-schwach": 19962,
-   "mehrdeutig": 17001,
-   "widerspruch": 10052,
-   "sicher": 10456
+   "zu-schwach": 19941,
+   "mehrdeutig": 16978,
+   "widerspruch": 10115,
+   "sicher": 10455
   },
   "by_tier": {
-   "wahrscheinlich": 26517,
-   "möglich": 11987,
-   "sicher": 25565
+   "wahrscheinlich": 26501,
+   "möglich": 11965,
+   "sicher": 25563
   }
  },
  "lausanne": {
   "ptt_entries": 13759,
-  "ptt_linked": 2607,
-  "pairs": 6466,
+  "ptt_linked": 2604,
+  "pairs": 6463,
   "decisions": {
-   "wahrscheinlich": 2023,
+   "wahrscheinlich": 2020,
    "möglich": 829,
    "kein-name": 9455,
-   "zu-schwach": 2276,
+   "zu-schwach": 2267,
    "mehrdeutig": 1589,
-   "widerspruch": 1752,
+   "widerspruch": 1764,
    "sicher": 349
   },
   "by_tier": {
-   "wahrscheinlich": 4248,
+   "wahrscheinlich": 4245,
    "möglich": 1401,
    "sicher": 817
   }
  },
  "zuerich": {
   "ptt_entries": 63245,
-  "ptt_linked": 36651,
-  "pairs": 95294,
+  "ptt_linked": 36621,
+  "pairs": 95117,
   "decisions": {
    "kein-name": 111655,
-   "möglich": 8486,
-   "zu-schwach": 49308,
-   "mehrdeutig": 50371,
-   "wahrscheinlich": 22416,
-   "widerspruch": 42684,
+   "möglich": 8461,
+   "zu-schwach": 49148,
+   "mehrdeutig": 50349,
+   "wahrscheinlich": 22367,
+   "widerspruch": 42940,
    "sicher": 24635
   },
   "by_tier": {
-   "möglich": 14159,
-   "wahrscheinlich": 33988,
-   "sicher": 47147
+   "möglich": 14134,
+   "wahrscheinlich": 33851,
+   "sicher": 47132
   }
  }
 }

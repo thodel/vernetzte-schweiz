@@ -68,8 +68,13 @@ Mehrteilige Hausnummern meinen ein Haus, wenn eine Nummer ausserhalb der Klammer
 Märki als zwei Personen. In Bern 1900 steht die andere Zählung in Klammern («Kramgasse (48) 16» = Nr. 16); sie trifft
 keine andere Nr. 48. Eine einzelne Nummer («Nr. 39») bleibt beim bisherigen Vergleich, sonst zog die Firma Rüfenacht &
 Co. die Bewohner desselben Hauses mit. Das bringt 190 Telefonbucheinträge dazu (meist Bern 1900) und ergänzt 586
-Verknüpfungen um weitere Einträge derselben Person; keine fällt weg. Zweifelhaft bleiben «Märki-Dick, Clara» an
-der Firma K. Märki (C/K als Initiale) und «Weber-Honegger, Fran J.» an Franz Carl Weber («Fran» = «Frau»).
+Verknüpfungen um weitere Einträge derselben Person; keine fällt weg.
+Eine Frau («Frau», «Frl.», «Mme», «Wwe.») passt nur an derselben Strasse auf eine Firma: «Märki-Dick, Clara, Frau»,
+Amthausgasse, ist nicht die Möbelfabrik «Märki, K.» an der Wasserwerkgasse (C/K als Initiale). Ein «Name, Mme» im
+Zusatz ist eine andere, in die Zeile gerutschte Person («Gusthiot, J., moulin …, Michoud-Martignier, Mme»).
+«Fran» ohne Punkt ist ein Lesefehler für «Frau», kein Vorname: «Weber-Honegger, Fran J.» hing an Franz Carl Weber,
+39 weitere Ehefrauen an einem Franz oder einer Franziska; «Fran.» mit Punkt bleibt Franz. Viele dieser Einträge hängen
+jetzt an der Frau selbst (Wagner, Fran Louise → Anna Luise Wagner, Wytikonerstrasse 68).
 
 Ein späterer Vorname kann der Rufname sein: Es genügt ein passendes Paar
 («E.» ↔ «Hermann Emil»).

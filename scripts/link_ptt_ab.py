@@ -145,6 +145,7 @@ ABBREVIATED = {a for a in LEXICON if a not in CANON and len(a) <= 4
     "fanie", "emi", "lili", "mina", "nina", "dora", "bertha", "berta", "jos"}
 
 DOUBLE_NAME = re.compile(r"^[A-ZÄÖÜ][\wäöüéè']+-[A-ZÄÖÜ][\wäöüéè']+$")
+WOMAN = re.compile(r"\b(Frau|Fr[äa]ulein|Frl|Jgfr|Mme|Mlle|Madame|Mademoiselle)\b\.?")
 WIDOW = re.compile(r"\b(Wwe|Witwe|Wittwe|Wb|Vve|Veuve|Ved)\b\.?")
 
 
@@ -163,6 +164,8 @@ def forename_tokens(s: str) -> list[tuple[str, bool]]:
         if skip:
             skip = False
             continue
+        if bare == "Fran" and not raw.endswith("."):
+            continue  # Lesefehler für «Frau» («Weber-Honegger, Fran J.»); «Fran.» bleibt Franz
         if bare.lower() in ("geb", "geborne", "geborene", "née", "nee"):
             skip = True
             continue
@@ -348,6 +351,9 @@ def score(p: dict, c: dict, city: str) -> tuple[int, list[str]] | None:
             else:
                 return None  # andere Ehe
         if c["_firm"] and not p["_firm"]:
+            sp, sc = p["_st"], c["_st"]
+            if p.get("_woman") and not (sp and sc and (sp in sc or sc in sp)):
+                return None  # «Märki-Dick, Clara, Frau» ist nicht die Möbelfabrik «Märki, K.» an anderer Strasse
             s -= 1
     bld = building(city, p, c)
     if bld == "konkordanz" and p["_st"] != c["_st"]:
@@ -464,6 +470,9 @@ def prepare_ptt(r: dict) -> dict | None:
     r["_fn"] = ptt_forenames(r) if not r["_firm"] else forename_tokens(
         " ".join(re.findall(r"\b[A-ZÄÖÜ][a-zäöü]{0,4}\.", r["name1"] + " " + r["name2"])))
     r["_widow"] = bool(WIDOW.search(" ".join((r["name2"], r["supplement"], r["title"]))))
+    # «Gusthiot, J., moulin …, Michoud-Martignier, Mme»: die Frau ist eine andere, in die Zeile gerutschte Person
+    other_woman = re.search(r"[A-ZÀ-Ý][\w'-]+,\s*" + WOMAN.pattern, r["supplement"])
+    r["_woman"] = r["_widow"] or (not other_woman and bool(WOMAN.search(" ".join((r["name2"], r["supplement"], r["title"])))))
     r["_st"], r["_no"] = skey(r["street_name"]), house(r["house_no"])
     r["_sys"], r["_bld"] = numbering(r["municipality_1914"], r["year"], r["_no"])
     r["_occ"] = stems(r["occupation"])
