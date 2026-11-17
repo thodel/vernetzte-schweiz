@@ -436,6 +436,7 @@ def ptt_forenames(r: dict) -> list[tuple[str, bool]]:
 
 
 FIRMLIKE = re.compile(r"&\s*(Co|Cie|Comp)\b|\b(Gebr|Söhne|Frères)\b")
+OTHER_FIRM = re.compile(r"(?:\b|general)(?:vorm|vertr\w*|i\.\s*/?\s*f(?:a|irma)?|in\s+f(?:a|irma))\.?\s", re.I)
 
 
 def prepare_ptt(r: dict) -> dict | None:
@@ -462,7 +463,11 @@ def prepare_ptt(r: dict) -> dict | None:
     r["_st"], r["_no"] = skey(r["street_name"]), house(r["house_no"])
     r["_sys"], r["_bld"] = numbering(r["municipality_1914"], r["year"], r["_no"])
     r["_occ"] = stems(r["occupation"])
-    r["_firmlike"] = not r["_firm"] and bool(FIRMLIKE.search(" ".join((r["name1"], r["name2"], r["supplement"]))))
+    # nur vor «vorm.», «Vertr.», «Generalvertreter», «i. Fa.», «in Fa.»: dahinter steht eine andere Firma
+    # bzw. der Inhaber selbst
+    # («Kirchhofer, H., vorm. Bourry-Séquin & Co.», «Peschel, Ludw., i. Fa. Ludw. Peschel & Co., Wohnung»)
+    own = OTHER_FIRM.split(" ".join((r["name1"], r["name2"], r["supplement"])))[0]
+    r["_firmlike"] = not r["_firm"] and bool(FIRMLIKE.search(own))
     return r
 
 
@@ -534,6 +539,11 @@ def link_city(city: dict, ptt: list[dict], idx: dict, volumes: dict[str, list[st
             top = max(s for s, _, _ in scored)
             best = [(s, ev, c) for s, ev, c in scored if s == top]
             n_groups = persons([c for _, _, c in best])
+            if n_groups > 1 and p.get("_firmlike"):
+                # «Lippmann, Rob. & Co.» gleichauf mit Robert Lippmann und Lippmann & Cie.: die Firma
+                firms = [t for t in best if t[2]["_firm"]]
+                if firms and persons([c for _, _, c in firms]) == 1:
+                    best, n_groups = firms, 1
             key = (muni, vol, p["_sk"])
             if key not in surname_persons:
                 surname_persons[key] = persons(cands)

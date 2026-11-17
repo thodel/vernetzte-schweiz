@@ -54,6 +54,14 @@ class Renumbering(unittest.TestCase):
         firm2 = {**firm, **self.rec(1899, "697"), "_st": "gais"}
         self.assertGreater(l.score(p2, firm2, "aarau")[0], l.score(p2, owner, "aarau")[0])
 
+    def test_firm_word_after_other_firm_marker_does_not_count(self):
+        own = lambda t: bool(l.FIRMLIKE.search(l.OTHER_FIRM.split(t)[0]))
+        self.assertTrue(own("Lippmann Rob. & Co."))
+        self.assertTrue(own("Pfister E. & Cie. Nachf. v. J. L. Reinhard"))
+        self.assertFalse(own("Kirchhofer H., vorm. Bourry-Séquin & Co., Patentbureau"))
+        self.assertFalse(own("Peschel Ludw. i. Fa. Ludw. Peschel & Co., Wohnung"))
+        self.assertFalse(own("Braun Emil, Generalvertreter der Gebr. Körting"))
+
     def tearDown(self):
         l.RENUMBERED.clear()
 

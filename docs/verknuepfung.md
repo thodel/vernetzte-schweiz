@@ -41,7 +41,7 @@ anderen Familie. Er dient deshalb nie zum Blocken, nur als Beleg.
 | Beruf (gemeinsamer Wortstamm) | 1 | – |
 | Telefonzeichen im Adressbuch | 1 | – |
 | Firma gegen Firma | 2 | – |
-| Telefonbuch als Person gelesen, aber «& Co.», «& Cie.», «Gebr.», «Söhne», «Frères»: gegen eine Firma | 1 | – |
+| Telefonbuch als Person gelesen, aber «& Co.», «& Cie.», «Gebr.», «Söhne», «Frères» (nicht hinter «vorm.», «Vertr.», «i. Fa.»): gegen eine Firma | 1 | – |
 | Witwe im Telefonbuch | – | Eintrag im Adressbuch ist keine Witwe (also ihr Mann) |
 
 **Umnummerierung Aarau 1900.** Aarau hat 1900 die Gebäude neu durchnummeriert, wieder stadtweit (neue Nummern
@@ -57,6 +57,12 @@ Wie innerhalb eines Systems kostet eine andere Hausnummer an derselben Strasse e
 zeigt, dass es ein anderes Haus ist (sonst lag «Frey, Fr., Weinhandlung» 1910 mit einem vornamenlosen Frey derselben
 Strasse gleichauf). «Oehler, A., & Co.» ist im Telefonbuch als Person gelesen; der Firmenpunkt bringt ihn zur Firma
 «Oehler A. & Cie.», Gais 1405 = Industriestrasse 932, statt gleichauf mit dem Inhaber Alfred Oehler (17.11.2026).
+Liegen ein solcher Eintrag und mehrere Personen gleichauf und bilden die Firmen darunter eine einzige, gilt die
+Firma: Inhaber und eigene Firma («Lippmann, Rob. & Co.» ↔ Robert Lippmann und Lippmann & Cie.) lagen sonst
+gleichauf und der Eintrag blieb mehrdeutig. Stichprobe aller 57 Einträge, die der Firmenpunkt allein verlor: 41 kommen
+so zurück, meist an die Firma; von den übrigen 16 waren 9 falsch (Holliger, Tapezierer ≠ Schriftsetzer), 5 unklar,
+2 richtig (Märki). Hinter «vorm.», «Vertr.» oder «i. Fa.» steht eine andere Firma oder der Inhaber selbst
+(«Peschel, Ludw., i. Fa. Ludw. Peschel & Co., Wohnung»); dort zählt «& Co.» nicht.
 
 Ein späterer Vorname kann der Rufname sein: Es genügt ein passendes Paar
 («E.» ↔ «Hermann Emil»).
