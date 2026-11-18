@@ -16,22 +16,22 @@ im Repo). Es läuft darum lokal, und sein Ergebnis wird eingecheckt.
 |---|---:|
 | HLS-Biografien mit Familienname und Geburtsjahr, 1880–1914 mindestens ein Jahr 25–80 Jahre alt | 7 879 |
 | ohne Schweizer Ort aus Text, Wikidata oder Sterbeort | − 872 |
-| Ort bekannt, dort aber kein Telefon- oder Adressbuch in ihren Jahren | − 786 |
-| **erwartet** | **6 221** |
+| Ort bekannt, dort aber kein Telefon- oder Adressbuch in ihren Jahren | − 788 |
+| **erwartet** | **6 219** |
 
 ### Woher die Orte kommen
 
-1. **Ort mit Jahr aus dem Artikeltext** (2 309 Personen). «1892-1894 Gemeinderat in Baar»
+1. **Ort mit Jahr aus dem Artikeltext** (2 307 Personen). «1892-1894 Gemeinderat in Baar»
    ergibt Baar 1892–1894.
    - Die Jahreszahl muss im selben Satzteil vor dem Ort stehen.
    - «ab 1897» gilt bis zum Tod, eine einzelne Jahreszahl für zehn Jahre.
    - Deutsche Namen werden übersetzt (Genf → Genève, Pruntrut → Porrentruy).
    - Stichprobe: 26 von 30 Fundstellen nennen einen Ort, an dem die Person damals war.
      Die übrigen nennen ein Ereignis (Promotion, Kongress) statt eines Wohnorts.
-2. **Wikidata:** Wohn- und Wirkungsort, nur wenn der Text keinen Ort liefert (263).
+2. **Wikidata:** Wohn- und Wirkungsort, nur wenn der Text keinen Ort liefert (262).
    - «Wirkungsort Bern» zählt nicht. Wikidata setzt ihn für alle Mitglieder der
      Bundesversammlung, und die meisten wohnten anderswo.
-3. **Nur Sterbeort** (3 649): aus Wikidata oder aus dem Kopf des Artikels. Wer 1940 in
+3. **Nur Sterbeort** (3 650): aus Wikidata oder aus dem Kopf des Artikels. Wer 1940 in
    Zürich starb, kann 1900 in Winterthur gelebt haben; diese Gruppe ist darum die
    unsicherste.
 
@@ -45,11 +45,11 @@ aus M6).
 
 | Stufe | Regel | Personen | richtig in der Stichprobe |
 |---|---|---:|---|
-| normdaten | Einheit trägt die HLS-Nummer (M3) | 599 | 97–100 % bzw. 70–95 % (M3) |
-| wahrscheinlich | Vorname ausgeschrieben oder abgekürzt **und** Beruf; oder Initiale, Beruf **und** Ort mit Jahr aus dem Text | 319 | 22–23 von 25, dazu 21 von 22 aus der ersten Runde |
-| möglich | Vorname ausgeschrieben oder abgekürzt, ohne Beruf | 560 | 23 von 36 (64 %) |
+| normdaten | Einheit trägt die HLS-Nummer (M3) | 607 | 97–100 % bzw. 70–95 % (M3) |
+| wahrscheinlich | Vorname ausgeschrieben oder abgekürzt **und** Beruf; oder Initiale, Beruf **und** Ort mit Jahr aus dem Text | 329 | 22–23 von 25, dazu 21 von 22 aus der ersten Runde |
+| möglich | Vorname ausgeschrieben oder abgekürzt, ohne Beruf | 569 | 23 von 36 (64 %) |
 | schwach | nur Initiale, oder Einheit ohne Vornamen | 1 168 | 7 von 20 |
-| nicht gefunden | | 3 575 | |
+| nicht gefunden | | 3 546 | |
 
 Was die Messung gezeigt hat:
 - **Der Beruf trägt die Zuordnung, der Ort aus dem Text allein nicht.** Ausgeschriebener
@@ -66,13 +66,13 @@ Was die Messung gezeigt hat:
 
 ## Quote
 
-Gewichtet mit den gemessenen Anteilen: 599 × 0,9 + 319 × 0,9 + 560 × 0,64 + 1 168 × 0,35
-≈ **1 590 von 6 221, rund 26 %** (grob 20–30 %; «schwach» ist mit 20 Fällen am
+Gewichtet mit den gemessenen Anteilen: 607 × 0,9 + 329 × 0,9 + 569 × 0,64 + 1 168 × 0,35
+≈ **1 620 von 6 219, rund 26 %** (grob 20–30 %; «schwach» ist mit 20 Fällen am
 schlechtesten gemessen).
 
-- **Mit Ort und Jahr aus dem Text** (die belastbarste Grundgesamtheit): etwa 750 von 2 309,
-  rund **32 %**.
-- **Frauen:** etwa 45 von 334, rund 13 %. Die Telefonbücher nennen meist den Mann oder die
+- **Mit Ort und Jahr aus dem Text** (die belastbarste Grundgesamtheit): etwa 760 von 2 307,
+  rund **33 %**.
+- **Frauen:** etwa 46 von 334, rund 14 %. Die Telefonbücher nennen meist den Mann oder die
   Firma.
 
 Gelesen: Die Bücher erfassen Gewerbe, freie Berufe und Behörden mit Telefon. Eine

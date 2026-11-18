@@ -4,7 +4,7 @@ Drei Teile (docs/infrastruktur.md, Seite #/infrastruktur):
 
 1. Telefonnetz
    - Reihen je Stadt: Einträge im Telefonbuch je Jahr. Je Stadt und Jahr zählt nur der Band mit den
-     meisten Einträgen (Basel 1899 liegt doppelt vor); ein Jahr mit weniger als 60 % des vorigen gilt
+     meisten Einträgen (Basel 1899 liegt doppelt vor); ein Jahr mit weniger als 90 % des bisher höchsten gilt
      als unvollständig gelesen und fällt weg.
    - Gemeinden: erstes Jahr mit einem Eintrag (vor 1911 nur, wo ein Regionalbuch vorliegt; ab 1911
      ganze Schweiz), Einträge 1914, öffentliche Sprechstellen.
@@ -46,7 +46,7 @@ from common import NORM, ROOT, open_csv, write_csv
 
 OUT = NORM / "infrastruktur.json"
 NATIONAL_FROM = 1911  # ab hier ganze Schweiz in den Telefonbüchern (Bände 1, 2a–2c, 3)
-DROP = 0.6            # Jahr mit < 60 % der Einträge des vorigen behaltenen Jahrs: unvollständig gelesen
+DROP = 0.9            # Jahr mit < 90 % des bisher höchsten Jahrs: unvollständig gelesen (ein Netz schrumpft in dieser Zeit nicht)
 MIN_POINTS = 8        # Stadtreihe: so viele Jahre vor 1911 …
 MIN_LAST = 150        # … und so viele Einträge im letzten Jahr
 
@@ -177,7 +177,7 @@ def telephone(P: list[dict]) -> dict:
             n = best[(m, y)][0]
             if n >= 20 and n >= DROP * last:
                 kept.append([y, n])
-                last = n
+                last = max(last, n)
         if m and sum(1 for y, _ in kept if y < NATIONAL_FROM) >= MIN_POINTS and kept[-1][1] >= MIN_LAST:
             series[m] = kept
             home[m] = [[y, round(kinds[(m, y, best[(m, y)][1])]["home"] / n, 4)] for y, n in kept if n >= HOME_MIN]
@@ -579,7 +579,7 @@ def durchdringung(P: list[dict], tel: dict) -> dict:
     nat: dict = {y: [0, set(), set()] for y in range(NATIONAL_FROM, 1915)}
     for x in P:
         m, y = x["municipality_1914"], int(x["year"])
-        if y in nat:                                      # Landesbuch: jeder Eintrag zählt, auch ohne Ort
+        if y in nat:                                      # gesamtschweizerische Bände: jeder Eintrag zählt, auch ohne Ort
             nat[y][0] += 1
             if x["phone_norm"]:
                 nat[y][1].add((x["refcode"].split("_")[1], m or x["locality"], x["phone_norm"]))
@@ -600,7 +600,7 @@ def durchdringung(P: list[dict], tel: dict) -> dict:
     swiss_pop = {y: sum(int(r[str(y)]) for r in pop_ref.values() if r[str(y)]) for y in CENSUS}
     national = [[y, round(interpolate(swiss_pop, y)), n, len(ns), len(ps),
                  round(interpolate(swiss_pop, y) / interpolate(size["CH"], y))] for y, (n, ns, ps) in nat.items()]
-    # Stand um 1910: das Jahr 1909–1914 mit den meisten Einträgen. In den Landesbüchern 1911–1914 fehlen vielen
+    # Stand um 1910: das Jahr 1909–1914 mit den meisten Einträgen. In den gesamtschweizerischen Bänden 1911–1914 fehlen vielen
     # Orten die Überschriften (Burgdorf: 238 Einträge im Regionalbuch 1910, 3–9 in den Jahren danach); ein
     # einzelnes Jahr wäre darum für die meisten Kleinstädte viel zu tief.
     def last(u: str) -> int:
@@ -626,7 +626,7 @@ def durchdringung(P: list[dict], tel: dict) -> dict:
             for y in ys:
                 if ent[(u, y)] >= DROP * prev:
                     kept.append(row(u, y))
-                    prev = ent[(u, y)]
+                    prev = max(prev, ent[(u, y)])
             cities[m] = kept
     places = {p[0] for p in tel["places"]}
     top = sorted(([name[u], canton[u], *end[u]] for u in pops

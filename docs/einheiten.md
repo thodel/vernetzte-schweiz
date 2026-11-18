@@ -8,7 +8,7 @@ Alles läuft mit `make entities`.
 ## Was gebündelt wird
 
 - **Telefonbuch:** alle Einträge ≤ 1914 mit Gemeinde (Ort `hoch` oder `mittel`, M1), Art
-  `person` oder `firma`: 916 201 Einträge mit den Adressbüchern zusammen (Stand 18.11.2026).
+  `person` oder `firma`: 925 009 Einträge mit den Adressbüchern zusammen (Stand 18.11.2026).
 - **Adressbuch:** alle Einträge der Bände von Aarau (1867–1899), Baden (1900, 1910), Basel (1862),
   Bern (1883, 1900), Lausanne (1896, 1907) und Zürich (1867–1914).
 
@@ -62,14 +62,14 @@ gleich, solange dieser Eintrag zur Einheit gehört; bei geänderten Regeln kann 
 
 | | Anzahl |
 |---|---|
-| Einträge | 916 201 |
-| Einheiten | 476 173 (Personen 408 354, Firmen und Ämter 67 819) |
-| Einheiten mit mehr als einem Eintrag | 140 273 (mit 580 301 Einträgen) |
-| über mindestens 10 Jahre belegt | 14 708 |
-| im Telefon- und im Adressbuch | 11 844 |
+| Einträge | 925 009 |
+| Einheiten | 477 153 (Personen 408 405, Firmen und Ämter 68 748) |
+| Einheiten mit mehr als einem Eintrag | 141 867 (mit 589 723 Einträgen) |
+| über mindestens 10 Jahre belegt | 14 966 |
+| im Telefon- und im Adressbuch | 11 856 |
 
 Stand 18.11.2026 (`data/norm/cluster_stats.json`), nach der neuen Ortszuordnung der Telefonbücher:
-Rund 34 000 Einträge, deren Ort vorher `unsicher` war, zählen jetzt mit. Beim Abschluss von M3
+Rund 43 000 Einträge, deren Ort vorher `unsicher` war, zählen jetzt mit. Beim Abschluss von M3
 (10.11.2026, nur Aarau 1884–1899 und Basel 1862 als Adressbücher) waren es 523 913 Einträge,
 181 215 Einheiten und 466 Einheiten in beiden Quellen. Basel trägt weiterhin wenig bei: Dort gibt
 es nur den Band 1862, 19 Jahre vor dem ersten Telefonbuch.
@@ -131,8 +131,8 @@ Sterbeort in der Gemeinde. Dann:
 
 | Stufe | Belege | Einheiten |
 |---|---|---|
-| `wahrscheinlich` | ausgeschriebener oder abgekürzter Vorname **und** passender Beruf | 349 |
-| `möglich` | Initiale und passender Beruf; oder Vorname und Wohn- bzw. Wirkungsort ohne Beruf | 647 |
+| `wahrscheinlich` | ausgeschriebener oder abgekürzter Vorname **und** passender Beruf | 358 |
+| `möglich` | Initiale und passender Beruf; oder Vorname und Wohn- bzw. Wirkungsort ohne Beruf | 655 |
 
 «Passender Beruf» heisst gleicher Wortstamm («Architekt» = «architecte») oder gleiche
 Berufsgruppe (Arzt = médecin = Dr. med., Advokat = avocat = Jurist, Pfarrer = pasteur =
@@ -155,6 +155,6 @@ Claude an Telefonbuch-Eintrag und Wikidata):
 | `wahrscheinlich` | 30 | 29 | 1 | 0 | 97–100 % |
 | `möglich` | 20 | 14 | 5 | 1 | 70–95 % |
 
-Zusammen tragen 949 Einheiten eine HLS-Nummer und 1 437 eine GND (Stand 18.11.2026). Dieselbe
-Person kann mehreren Einheiten zugeordnet sein (260 Personen): meist Einheiten, die getrennt
+Zusammen tragen 962 Einheiten eine HLS-Nummer und 1 453 eine GND (Stand 18.11.2026). Dieselbe
+Person kann mehreren Einheiten zugeordnet sein (266 Personen): meist Einheiten, die getrennt
 blieben, selten Wohnung und Geschäft in zwei Gemeinden (13).

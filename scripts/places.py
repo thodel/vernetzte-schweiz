@@ -24,6 +24,16 @@ eine Überschrift aus, erben ganze Seiten den falschen Ort: Zürich 1912 steht a
    ein Dorf weiter als `NEAR_KM` von der Überschrift zählen nicht: Name und kurze
    Rufnummer kehren landesweit wieder. Was so nicht zu klären ist, behält die Überschrift
    mit `place_confidence = unsicher`.
+3. **Namen je Seite vergleichen.** Viele Regionalbücher nennen keine Rufnummern, und in den Bänden ab
+   1911 fehlt die Überschrift ganzer Städte: Burgdorf steht unter «Büren zum Hof», Olten unter «Olsberg»,
+   Luzern 1912–1914 mitten unter «Basel». Für jede Seite eines Laufs der Charge B wird gezählt, in
+   welchem Ort mit Regionalbuch (höchstens `NAMES_YEARS` Jahre älter, mindestens `NAMES_MIN`
+   Familiennamen) ihre Familiennamen vorkommen; ein Name zählt umso mehr, in je weniger Orten er steht.
+   Die Seite geht an den Ort, der `NAMES_SHARE` der Zeilen erreicht und `NAMES_LEAD`-mal vor dem
+   zweitbesten liegt (`place_method = namensabgleich:seite`). Hat der Ort der Überschrift selbst ein
+   Regionalbuch, entscheidet dieser Vergleich; sonst muss der neue Ort im Alphabet des Bandes zwischen der
+   Überschrift und der nächsten lesbaren stehen. Eine Stadt ohne Regionalbuch (Genf) wird nicht geprüft.
+   In Charge A gilt das Netz des Buches als Zentrale: «Muri» im Netz Bern ist Muri bei Bern.
 
 Handkorrekturen: data/review/places_manual.csv (place_raw → hist_code oder Ortschaft).
 """
@@ -48,6 +58,12 @@ SIMILAR = 0.8         # Namensähnlichkeit für einen Ort nahe der Zentrale …
 SIMILAR_KM = 15      # … und wie nah er ihr sein muss
 SPAN_MIN = 20        # Stimmen, ab denen ein Lauf als Stadtblock gilt
 SPAN_SHARE = 0.8     # Anteil der Stimmen, der auf die Stadt fallen muss
+NAMES_MIN = 40       # Namensabgleich: ein Ort braucht so viele Familiennamen im Regionalbuch …
+NAMES_YEARS = 6      # … aus den letzten Jahren vor dem Band
+PAGE_MIN = 25        # … und eine Seite so viele Zeilen
+NAMES_SHARE = 0.2    # gewichteter Anteil der Zeilen, deren Familienname im Ort vorkommt
+NEXT_HEADS = 8       # so viele folgende Überschriften werden nach einer lesbaren abgesucht
+NAMES_LEAD = 2.0     # Vorsprung vor dem zweitbesten Ort
 
 CANTON_HINTS = {
     "b": "BE", "be": "BE", "bern": "BE", "sol": "SO", "so": "SO", "vd": "VD", "vaud": "VD",
@@ -303,8 +319,10 @@ class Resolver:
                 if math.isnan(c["lat"]):
                     continue
                 d = min(dist_km(c, (e["lat"], e["lon"])) for e in ex)
-                if d <= SIMILAR_KM and (best is None or d < best[0]):
-                    best = (d, c)
+                # eine Gemeinde 1914 geht einer gleich nahen Ortschaft vor («Muri bei Bern» vor «Muri b. Bern»)
+                rank = (c["kind"] != "gemeinde_1914", d)
+                if d <= SIMILAR_KM and (best is None or rank < best[0]):
+                    best = (rank, c)
         return best[1] if best else None
 
     def resolve(self, raw: str, ser: str, network: str) -> dict:
@@ -325,6 +343,14 @@ class Resolver:
                      or (man.get("name") and c["name"] == man["name"] and c["canton"] == man.get("canton", c["canton"]))]
             how = "hand"
         c, why = self.pick(cands, hint, paren, ser) if cands else (None, "")
+        if c is not None and not paren and raw and not man and ser.startswith("A") and len(ser) > 1:
+            # Charge A: «Muri» im Netz Bern ist Muri bei Bern, nicht Muri AG. Nur wenn es nahe am Netz einen
+            # ähnlichen Namen gibt; ein Netz reicht sonst weit (Interlaken steht im Berner Buch).
+            net = ser[1:].split("/")[0].strip()
+            if self.far_from_exchange(c, net):
+                near = self.near_exchange(name, net)
+                if near is not None:
+                    c, how, why = near, "ähnlich", "netz"
         if c is not None and paren and not man and self.far_from_exchange(c, paren):
             # «Betten (Echallens)» ist nicht Betten VS: ein Ort weit weg von seiner Zentrale
             # ist ein Lesefehler; ein ähnlicher Name nahe der Zentrale geht vor, sonst die
@@ -357,6 +383,30 @@ class Resolver:
             out.update({"place_method": f"{method_base}:{how or 'unbekannt'}:{why}", "place_confidence": "keine", "_plz": 0})
         self.cache[ck] = out
         return out
+
+
+def surname_key(name1: str) -> str:
+    """Erstes Wort der Namenszeile («Aebi. Fritz» → aebi); in Charge A und B gleich gebaut."""
+    k = key(name1).split()
+    return k[0] if k and len(k[0]) > 2 else ""
+
+
+def between(head: str, town: str, nxt: str | None) -> bool:
+    """Steht `town` im Alphabet des Bandes zwischen der Überschrift und der nächsten?
+
+    Die fehlende Überschrift folgt auf die vorhandene («Büren zum Hof» → Burgdorf). Die nächste Überschrift
+    ist oft verlesen: Sie begrenzt nur über den Anfangsbuchstaben, und nur wenn sie selbst nach `head` steht.
+    `nxt` = None: letzter Lauf des Bandes.
+    """
+    h, t = key(head), key(town)
+    if not h or not h[:1].isalpha() or t < h[:3]:
+        return False
+    if nxt is None:                          # letzter Lauf des Bandes: nichts begrenzt
+        return True
+    n = key(nxt)
+    if not n or n < h:                       # nächste Überschrift verlesen: nur derselbe Anfangsbuchstabe
+        return t[:1] == h[:1]
+    return t[:1] <= n[:1]
 
 
 def phone_key(p: str) -> str:
@@ -398,6 +448,7 @@ def resolve_all(rows: list[dict]) -> Counter:
             plausible.add(i)
         for r in run:
             r["_run"] = i
+            r["_head_pk"] = r["hist_code_1914"] or f"{r['place_name']}|{r['canton']}"
     # Stimmen aus plausiblen Läufen: Abonnent → Ort
     votes: dict[tuple, Counter] = defaultdict(Counter)
     place_of: dict[str, dict] = {}
@@ -497,8 +548,82 @@ def resolve_all(rows: list[dict]) -> Counter:
                 r["place_method"] += ":lauf-unplausibel"
                 r["place_confidence"] = "unsicher"
                 stats["unsicher"] += 1
+    # Namensabgleich je Seite. Viele Regionalbücher nennen keine Rufnummern (Burgdorf, Olten, Horgen 1910);
+    # der Jahresabgleich greift dort nicht. Die Familiennamen einer Seite verraten den Ort trotzdem: Burgdorf
+    # steht 1911 unter «Büren zum Hof», Olten unter «Olsberg». Ein Name zählt umso mehr, in je weniger Orten
+    # er vorkommt. Geprüft wird jeder Lauf der Charge B, auch der einer Stadt (Aarau steht unter «Basel»).
+    names: dict[str, dict[int, set]] = defaultdict(lambda: defaultdict(set))
+    for r in rows:
+        if r["batch"] == "A" and r["place_confidence"] in ("hoch", "mittel") and surname_key(r["name1"]):
+            names[r["hist_code_1914"] or f"{r['place_name']}|{r['canton']}"][int(r["year"])].add(surname_key(r["name1"]))
+
+    @lru_cache(maxsize=None)
+    def towns(year: int) -> tuple[dict, Counter]:
+        out = {}
+        for pk, ys in names.items():
+            near = [y for y in ys if year - NAMES_YEARS <= y < year]
+            if near and len(ys[max(near)]) >= NAMES_MIN and pk in place_of:
+                out[pk] = ys[max(near)]
+        return out, Counter(s for st in out.values() for s in st)
+
+    for i, run in enumerate(runs):
+        head = run[0]
+        if head["batch"] != "B":
+            continue
+        sets, df = towns(int(head["year"]))
+        head_name = split_locality(head["locality"])[0]
+        # die nächste lesbare Überschrift, die im Alphabet nach dieser steht (verlesene werden übersprungen)
+        later = [split_locality(rn[0]["locality"])[0] for rn in runs[i + 1:i + 1 + NEXT_HEADS] if rn[0]["refcode"] == head["refcode"]]
+        last_run = i + 1 >= len(runs) or runs[i + 1][0]["refcode"] != head["refcode"]
+        nxt = None if last_run else next((n for n in later if key(n)[:1].isalpha() and key(n) >= key(head_name)), "")
+        head_pk = head["_head_pk"]
+        if head_pk in cities and head_pk not in sets:
+            continue                     # Genf hat kein Regionalbuch zum Vergleich: jede Seite gliche einer anderen Stadt
+        chunks: dict[str, list[dict]] = defaultdict(list)
+        for r in run:
+            chunks[r["page"]].append(r)
+        prev = None
+        for n_chunk, chunk in enumerate(chunks.values()):
+            pk = None
+            if len(chunk) >= PAGE_MIN:
+                score: Counter = Counter()
+                n = 0
+                for r in chunk:
+                    sk = surname_key(r["name1"])
+                    if not sk:
+                        continue
+                    n += 1
+                    for t, st in sets.items():
+                        if sk in st:
+                            score[t] += 1 / df[sk]
+                best = score.most_common(2)
+                if best and best[0][1] >= NAMES_SHARE * n and best[0][1] >= NAMES_LEAD * (best[1][1] if len(best) > 1 else 0):
+                    t = best[0][0]
+                    # hat der Ort der Überschrift selbst ein Regionalbuch, entscheidet der Vergleich der Namen
+                    # (Luzern steht 1912–1914 mitten unter «Basel»); sonst muss das Alphabet passen
+                    if t != head_pk and (head_pk in sets or between(head_name, place_of[t]["place_name"], nxt)):
+                        pk = t
+            elif prev:
+                pk = prev                    # kurzer Rest der Stadt auf der nächsten Seite
+            prev = pk if len(chunk) >= PAGE_MIN or pk else None
+            if not pk:
+                continue
+            # auf der ersten Seite des Laufs gehören die Zeilen vor dem ersten Namen der Stadt zum Ort der Überschrift
+            start = 0
+            if n_chunk == 0:
+                start = next((j for j, r in enumerate(chunk) if surname_key(r["name1"]) in sets[pk]), 0)
+            for r in chunk[start:]:
+                if r["place_method"] == "jahresabgleich:zeile" and r["place_confidence"] == "hoch":
+                    continue
+                if (r["hist_code_1914"] or f"{r['place_name']}|{r['canton']}") == pk and r["place_confidence"] != "unsicher":
+                    continue             # der Jahresabgleich hat die Zeile schon in diesen Ort gestellt
+                if r["place_confidence"] == "unsicher":
+                    stats["unsicher"] -= 1
+                apply(r, pk, "namensabgleich:seite", "mittel")
+                stats["namensabgleich:seite"] += 1
     for r in rows:
         r.pop("_plz", None)
         r.pop("_run", None)
+        r.pop("_head_pk", None)
         stats[f"konfidenz {r['place_confidence']}"] += 1
     return stats

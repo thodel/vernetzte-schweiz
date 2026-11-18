@@ -33,9 +33,9 @@ Commits, Adapter für Aarau, Basel und PTT-Charge A nach `data/norm/`
 1880–1910: 308 481, Charge B 1911–1914: 330 220), eintragsweise zerlegt und verortet:
 
 - Orte gegen die Gemeinden zum 1.1.1914 (BFS) und das Ortschaftenverzeichnis (swisstopo)
-  aufgelöst: 2 631 Gemeinden bis 1914; Konfidenz hoch 473 591, mittel 133 602, unsicher 30 676,
-  keine 16 869 (Stand 18.11.2026: Charge A stimmt beim Jahresabgleich mit, verlesene Überschriften
-  werden an der Zentrale geprüft).
+  aufgelöst: 2 633 Gemeinden bis 1914; Konfidenz hoch 469 667, mittel 146 907, unsicher 21 696,
+  keine 16 468 (Stand 18.11.2026: Charge A stimmt beim Jahresabgleich mit, verlesene Überschriften
+  werden an der Zentrale geprüft, Städte ohne Überschrift über die Familiennamen der Seite gefunden).
 - Befund Charge B: die Ortsspalte ist eine übertragene Überschrift. Fehlt eine, erben ganze
   Seiten den falschen Ort (Zürich 1912 und 1914 als «Zwillikon (Affoltern a. A.)», Zürich
   1913 auf vier Fehlüberschriften, Genf 1913 als «Orsières», St. Gallen im Zürcher Block).

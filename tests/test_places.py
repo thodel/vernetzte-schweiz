@@ -65,5 +65,52 @@ class Runs(unittest.TestCase):
         self.assertEqual(r["place_name"], "Neuchâtel")
 
 
+class Names(unittest.TestCase):
+    """Eine Stadt ohne Überschrift, deren Regionalbuch keine Rufnummern nennt (Burgdorf unter «Büren zum Hof»)."""
+
+    SURNAMES = [f"{a}{b}mann" for a in "BDFGHKLMNPRSTW" for b in ("ach", "eck", "ing", "ohl", "urr")]   # 70 Namen
+
+    @classmethod
+    def setUpClass(cls):
+        rows = [entry("A", "1910", "Burgdorf", n, "", refcode="a", network="Burgdorf") for n in cls.SURNAMES]
+        rows += [entry("A", "1910", "Thun", f"Thuner{i}", "", refcode="t", network="Thun") for i in range(60)]
+        b = dict(refcode="P-260-1_2a_1911")
+        rows += [entry("B", "1911", "Büren zum Hof (Fraubrunnen)", "Zaugg", "3", page="92", **b)]
+        rows += [entry("B", "1911", "Büren zum Hof (Fraubrunnen)", f"{n}. Fritz", str(i), page="92", **b) for i, n in enumerate(cls.SURNAMES)]
+        rows += [entry("B", "1911", "Büren zum Hof (Fraubrunnen)", n, str(i), page="93", **b) for i, n in enumerate(cls.SURNAMES[:10])]
+        rows += [entry("B", "1911", "Busswil (Lyss)", "Meier", "1", page="93", **b)]
+        cls.rows = rows
+        places.resolve_all(rows)
+
+    def of(self, page, locality="Büren zum Hof (Fraubrunnen)"):
+        return [r for r in self.rows if r["batch"] == "B" and r["page"] == page and r["locality"] == locality]
+
+    def test_page_goes_to_the_town_whose_names_it_carries(self):
+        town = [r for r in self.of("92") if r["place_name"] == "Burgdorf"]
+        self.assertEqual(len(town), len(self.SURNAMES))
+        self.assertTrue(all(r["place_method"] == "namensabgleich:seite" for r in town))
+
+    def test_rows_before_the_alphabet_restarts_keep_the_heading(self):
+        self.assertEqual(self.of("92")[0]["place_name"], "Büren zum Hof")
+
+    def test_short_rest_on_next_page_follows(self):
+        self.assertTrue(all(r["place_name"] == "Burgdorf" for r in self.of("93")))
+
+    def test_next_heading_untouched(self):
+        self.assertTrue(self.of("93", "Busswil (Lyss)")[0]["place_name"].startswith("Busswil"))
+
+    def test_alphabet(self):
+        self.assertTrue(places.between("Büren zum Hof", "Burgdorf", "Busswil"))
+        self.assertFalse(places.between("Genève", "La Chaux-de-Fonds", "Genolier"))
+        self.assertFalse(places.between("Cousset", "Neuchâtel", ""))        # nächste Überschrift unlesbar
+        self.assertTrue(places.between("Acquarossa", "Lugano", None))       # letzter Lauf des Bandes
+        self.assertFalse(places.between("12.83 Gemeindeammann", "Herisau", "Hof"))
+
+    def test_network_of_a_regional_book_is_its_exchange(self):
+        res = places.Resolver(places.Gazetteer())
+        self.assertEqual(res.resolve("Muri", "ABern", "Bern")["municipality_1914"], "Muri bei Bern")
+        self.assertEqual(res.resolve("Interlaken", "ABern", "Bern")["place_name"], "Interlaken")   # weit weg, aber kein Doppelgänger
+
+
 if __name__ == "__main__":
     unittest.main()
