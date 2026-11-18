@@ -367,7 +367,7 @@
   "hl_h": "Du DHS à l'entrée",
   "hl_intro": "Quelles personnes du Dictionnaire historique de la Suisse devraient figurer dans les annuaires téléphoniques et d'adresses de 1880 à 1914, et où les trouvons-nous? Sont attendues les personnes adultes durant ces années qui vivaient ou mouraient dans un lieu pour lequel un annuaire existe pour ces années.",
   "hl_sum": "{e} personnes du DHS attendues; {s} trouvées (données d'autorité ou probable), plus {c} avec des candidats à vérifier.",
-  "hl_sum_note": "Pondéré par les taux de réussite mesurés, cela représente environ 25 %. Beaucoup de personnes manquantes n'avaient pas le téléphone ou ne vivaient pas au lieu de leur décès.",
+  "hl_sum_note": "Pondéré par les taux de réussite mesurés, cela représente environ 26 %. Beaucoup de personnes manquantes n'avaient pas le téléphone ou ne vivaient pas au lieu de leur décès.",
   "hl_method": "Méthode et mesure",
   "hl_t_normdaten": "données d'autorité",
   "hl_t_wahrscheinlich": "probable",

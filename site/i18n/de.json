@@ -367,7 +367,7 @@
   "hl_h": "Vom HLS zum Eintrag",
   "hl_intro": "Welche Personen des Historischen Lexikons der Schweiz müssten in den Telefon- und Adressbüchern 1880–1914 stehen, und wo finden wir sie? Erwartet ist, wer in diesen Jahren erwachsen war und an einem Ort lebte oder starb, für den in diesen Jahren ein Buch vorliegt.",
   "hl_sum": "{e} HLS-Personen erwartet; {s} gefunden (Normdaten oder wahrscheinlich), dazu {c} mit Kandidaten zum Prüfen.",
-  "hl_sum_note": "Gewichtet mit den gemessenen Trefferquoten sind es rund 25 %. Viele Fehlende hatten kein Telefon oder lebten nicht am Sterbeort.",
+  "hl_sum_note": "Gewichtet mit den gemessenen Trefferquoten sind es rund 26 %. Viele Fehlende hatten kein Telefon oder lebten nicht am Sterbeort.",
   "hl_method": "Methode und Messung",
   "hl_t_normdaten": "Normdaten",
   "hl_t_wahrscheinlich": "wahrscheinlich",

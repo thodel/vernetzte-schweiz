@@ -8,8 +8,9 @@ Alles läuft mit `make entities`.
 ## Was gebündelt wird
 
 - **Telefonbuch:** alle Einträge ≤ 1914 mit Gemeinde (Ort `hoch` oder `mittel`, M1), Art
-  `person` oder `firma`: 523 913 Einträge mit den Adressbüchern zusammen.
-- **Adressbuch:** alle Einträge der Bände von Aarau (1884–1899) und Basel (1862).
+  `person` oder `firma`: 916 201 Einträge mit den Adressbüchern zusammen (Stand 18.11.2026).
+- **Adressbuch:** alle Einträge der Bände von Aarau (1867–1899), Baden (1900, 1910), Basel (1862),
+  Bern (1883, 1900), Lausanne (1896, 1907) und Zürich (1867–1914).
 
 Gebündelt wird je **Gemeinde 1914** und **Namensschlüssel** (Personen: Familienname,
 Firmen: Leitname, wie in M2). Personen und Firmen bleiben getrennt. Zieht jemand in eine
@@ -61,14 +62,17 @@ gleich, solange dieser Eintrag zur Einheit gehört; bei geänderten Regeln kann 
 
 | | Anzahl |
 |---|---|
-| Einträge | 523 913 |
-| Einheiten | 181 215 (Personen 130 497, Firmen und Ämter 50 718) |
-| Einheiten mit mehr als einem Eintrag | 98 848 (mit 441 546 Einträgen) |
-| über mindestens 10 Jahre belegt | 8 867 |
-| im Telefon- und im Adressbuch | 466 (Aarau 1884–1899, Basel 1862) |
+| Einträge | 916 201 |
+| Einheiten | 476 173 (Personen 408 354, Firmen und Ämter 67 819) |
+| Einheiten mit mehr als einem Eintrag | 140 273 (mit 580 301 Einträgen) |
+| über mindestens 10 Jahre belegt | 14 708 |
+| im Telefon- und im Adressbuch | 11 844 |
 
-Dass nur 466 Einheiten in beiden Quellen stehen, liegt an den Adressbüchern: Aarau hat 3 035
-Telefonbuch-Einträge, Basel nur den Band 1862, 19 Jahre vor dem ersten Telefonbuch.
+Stand 18.11.2026 (`data/norm/cluster_stats.json`), nach der neuen Ortszuordnung der Telefonbücher:
+Rund 34 000 Einträge, deren Ort vorher `unsicher` war, zählen jetzt mit. Beim Abschluss von M3
+(10.11.2026, nur Aarau 1884–1899 und Basel 1862 als Adressbücher) waren es 523 913 Einträge,
+181 215 Einheiten und 466 Einheiten in beiden Quellen. Basel trägt weiterhin wenig bei: Dort gibt
+es nur den Band 1862, 19 Jahre vor dem ersten Telefonbuch.
 
 ## Messung
 
@@ -110,8 +114,9 @@ ist die Unsicherheit gross.
 
 **Übernahme der Städte.** Gehört ein Adressbuch-Eintrag mit Normdaten der Stadt
 (`data/norm/ab_authority.csv`) zu einer Einheit, erhält die ganze Einheit diese Normdaten:
-1 103 Einheiten (320 `wahrscheinlich`, 783 `möglich`). Nennen Einträge derselben Einheit
-verschiedene Personen (25 Einheiten), wird die beste Verknüpfung übernommen, aber auf
+608 Einheiten (319 `wahrscheinlich`, 289 `möglich`; Stand 18.11.2026; zur Prüfung dieser
+Verknüpfungen siehe [normdaten_audit.md](normdaten_audit.md)). Nennen Einträge derselben Einheit
+verschiedene Personen (3 Einheiten), wird die beste Verknüpfung übernommen, aber auf
 `möglich` gesetzt.
 
 **Zweiter Abgleich** für Personen ohne Normdaten der Stadt. Kandidaten sind 16 322 Menschen
@@ -126,8 +131,8 @@ Sterbeort in der Gemeinde. Dann:
 
 | Stufe | Belege | Einheiten |
 |---|---|---|
-| `wahrscheinlich` | ausgeschriebener oder abgekürzter Vorname **und** passender Beruf | 315 |
-| `möglich` | Initiale und passender Beruf; oder Vorname und Wohn- bzw. Wirkungsort ohne Beruf | 605 |
+| `wahrscheinlich` | ausgeschriebener oder abgekürzter Vorname **und** passender Beruf | 349 |
+| `möglich` | Initiale und passender Beruf; oder Vorname und Wohn- bzw. Wirkungsort ohne Beruf | 647 |
 
 «Passender Beruf» heisst gleicher Wortstamm («Architekt» = «architecte») oder gleiche
 Berufsgruppe (Arzt = médecin = Dr. med., Advokat = avocat = Jurist, Pfarrer = pasteur =
@@ -150,6 +155,6 @@ Claude an Telefonbuch-Eintrag und Wikidata):
 | `wahrscheinlich` | 30 | 29 | 1 | 0 | 97–100 % |
 | `möglich` | 20 | 14 | 5 | 1 | 70–95 % |
 
-Zusammen tragen 1 405 Einheiten eine HLS-Nummer und 1 844 eine GND. Dieselbe Person kann
-mehreren Einheiten zugeordnet sein (359 Personen): meist Einheiten, die getrennt blieben,
-selten Wohnung und Geschäft in zwei Gemeinden (28).
+Zusammen tragen 949 Einheiten eine HLS-Nummer und 1 437 eine GND (Stand 18.11.2026). Dieselbe
+Person kann mehreren Einheiten zugeordnet sein (260 Personen): meist Einheiten, die getrennt
+blieben, selten Wohnung und Geschäft in zwei Gemeinden (13).

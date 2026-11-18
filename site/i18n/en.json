@@ -367,7 +367,7 @@
   "hl_h": "From the HLS to the entry",
   "hl_intro": "Which persons in the Historical Dictionary of Switzerland (HLS) ought to appear in the telephone directories and address books of 1880–1914, and where do we find them? Expected are those who were adults in these years and lived or died in a place for which a book survives for these years.",
   "hl_sum": "{e} HLS persons expected; {s} found (authority data or probable), plus {c} with candidates to check.",
-  "hl_sum_note": "Weighted by the measured hit rates, this is around 25 %. Many of those missing had no telephone or did not live at their place of death.",
+  "hl_sum_note": "Weighted by the measured hit rates, this is around 26 %. Many of those missing had no telephone or did not live at their place of death.",
   "hl_method": "Method and measurement",
   "hl_t_normdaten": "authority data",
   "hl_t_wahrscheinlich": "probable",
