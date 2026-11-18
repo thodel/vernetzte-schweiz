@@ -1,0 +1,36 @@
+{
+ "mann→witwe": {
+  "n": 15,
+  "unklar": 4,
+  "richtig": 10,
+  "falsch": 1,
+  "precision_low": 0.667,
+  "precision_high": 0.933
+ },
+ "verheiratet→witwe": {
+  "n": 15,
+  "richtig": 12,
+  "unklar": 3,
+  "precision_low": 0.8,
+  "precision_high": 1.0
+ },
+ "ledig→verheiratet (gleiche Gemeinde)": {
+  "n": 15,
+  "unklar": 13,
+  "richtig": 2,
+  "precision_low": 0.133,
+  "precision_high": 1.0
+ },
+ "ledig→verheiratet (andere Gemeinde)": {
+  "n": 10,
+  "unklar": 10,
+  "precision_low": 0.0,
+  "precision_high": 1.0
+ },
+ "ledig→witwe": {
+  "n": 10,
+  "unklar": 10,
+  "precision_low": 0.0,
+  "precision_high": 1.0
+ }
+}

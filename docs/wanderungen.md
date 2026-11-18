@@ -378,6 +378,10 @@ Paaren, die in keiner früheren Stichprobe standen. In `mittel` waren nur noch 3
 Die Seite zeigt anfangs `stark` und `mittel`. Die Linien sind Hinweise, keine
 Wanderungsstatistik.
 
+Frauen, die mit der Heirat den Namen wechseln, findet diese Suche kaum. Ihre Wege über den
+Zivilstand (ledig → verheiratet → Witwe, Ehemann → Witwe) prüft ein eigener Versuch:
+[frauen_wege.md](frauen_wege.md).
+
 ## Grenzen
 
 - **Geschlecht, Geburtsname und Zivilstand** werden verglichen (Messung 5 und 6). Ein anderer zweiter Vorname («Oskar Edmund» ≠ «Edmund Th.»)

@@ -529,6 +529,15 @@
           m.hc && m.hc.length ? el("p", { class: "sub" }, t.mv_hls_cand, " ", ...hlsCands(m.hc)) : "")),
         el("p", { class: "sub note" }, t.mv_note, " ", link("#/wanderungen", t.mv_link))));
     }
+    if (e.zw) {
+      // M10b: Zivilstand (Versuch) — dieselbe Frau früher/später unter anderem Namen, oder ihr Mann
+      parts.push(el("section", { class: "card zw" }, el("h2", {}, t.zw_h),
+        ...e.zw.map(z => el("p", {}, t[`zw_${z.typ.replace("→", "_").replace("?", "")}_${z.d}`] || z.typ, " ",
+          z.e[0] ? link(`#/e/${z.e[0]}`, z.n) : el("b", {}, z.n), ` · ${z.m} ${z.y} `, tierBadge(z.t),
+          z.typ.startsWith("ledig") ? el("span", { class: "muted" }, ` — ${t.zw_unverified}`) : "",
+          el("span", { class: "muted" }, ` (${z.b.split("+").map(x => t["zw_ev_" + x.replace(/[:.]/g, "_")] || x).join(", ")})`))),
+        el("p", { class: "sub note" }, t.zw_note, " ", link("https://github.com/thodel/vernetzte-schweiz/blob/main/docs/frauen_wege.md", t.mw_doc))));
+    }
     parts.push(personFrames(e));
     parts.push(timeline(e.r));
     // gleiche Zeile im selben Jahr (mehrere Ausgaben, Haupt- und Nachtrag) nur einmal, mit allen Fundstellen

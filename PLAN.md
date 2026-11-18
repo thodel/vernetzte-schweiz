@@ -256,6 +256,9 @@ mittel, 128 schwach), Karte mit Linien und Saldo, nach Berufsklasse, Entfernung 
     sind verschiedene Menschen in den Adressbüchern (Geburtsname, Geschlecht, zweiter Vorname).
   - Stichprobe 5, mit Vergleich von Geschlecht und Geburtsname: mittel 44–91 % (n = 32,
     3 falsch). Damit sind die Paare aufgebraucht.
+- **M10b, Wege von Frauen (Versuch, 18.11.2026):** über den Zivilstand verbunden
+  ([docs/frauen_wege.md](docs/frauen_wege.md)). Ehemann → Witwe 185, Ehefrau → Witwe 345 Paare,
+  gemessen 67–93 % bzw. 80–100 %; ledig → verheiratet (695) aus den Büchern nicht prüfbar.
 - **Offen:**
   - mehrdeutige Paare über Heimatort und Lebensdaten (klar vorne liegende sind seit 17.11. dabei);
   - Firmen mit neuem Sitz.

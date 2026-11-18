@@ -198,6 +198,18 @@ def main() -> None:
             moved[w["to_entity"]].append({"d": "von", "e": w["from_entity"], "m": w["from_muni"], "y": int(w["from_last"]),
                                           "t": w["tier"], "au": au_w, "hc": hc})
 
+    # M10b: Wege von Frauen über den Zivilstand (links/frauen_wege.csv, Versuch); «schwach» nicht
+    zw: dict[str, list] = defaultdict(list)
+    if (ROOT / "links" / "frauen_wege.csv").exists():
+        for w in open_csv(ROOT / "links" / "frauen_wege.csv"):
+            if w["stufe"] == "schwach":
+                continue
+            for side, other, d in (("von", "nach", "nach"), ("nach", "von", "von")):
+                for eid in w[f"{side}_einheiten"].split():
+                    zw[eid].append({"d": d, "typ": w["typ"], "t": w["stufe"], "e": w[f"{other}_einheiten"].split()[:1],
+                                    "n": w[f"{other}_name"], "m": w[f"{other}_gemeinde"], "y": w[f"{other}_jahre"],
+                                    "b": w["belege"]})
+
     # Einheiten und Suchindex
     shards: dict[str, dict] = defaultdict(dict)
     names: dict[str, list] = defaultdict(list)
@@ -222,6 +234,8 @@ def main() -> None:
             ent["mv"] = moved[eid]
         if esc.get(eid):
             ent["esc"] = esc[eid]
+        if zw.get(eid):
+            ent["zw"] = zw[eid][:6]
         seen = {r["id"] for r in rs}
         mb = sorted({m["id"]: m for m in maybe.get(eid, []) if m["id"] not in seen}.values(), key=lambda m: (m["y"], m["id"]))
         if mb:
