@@ -387,3 +387,5 @@ a.hbar.on .fill { background: #d21938; }
 .inf-examples { margin: 6px 0; font-size: 14px; }
 .inf-examples ul { columns: 2 20rem; padding-left: 18px; }
 .inf-ideas li { margin: 6px 0; }
+.linechart a.pt circle { cursor: pointer; }
+.linechart a.pt:hover circle, .linechart a.pt:focus circle { r: 5; stroke: var(--fg, #000); stroke-width: 1; }

@@ -54,10 +54,35 @@ class Spuren(unittest.TestCase):
         self.assertIsNone(i.office(entry("Postkutscher", "person")))
 
     def test_works_need_a_business_name(self):
-        self.assertEqual(i.works(entry("Elektrizitätswerk", "firma")), "strom")
-        self.assertEqual(i.works(entry("Usine à gaz", "firma")), "gas")
-        self.assertEqual(i.works(entry("Wasserversorgung der Stadt Bern", "firma")), "wasser")
-        self.assertIsNone(i.works(entry("Kägi", "person", "Chefmonteur des Gaswerkes")))
+        self.assertEqual(i.works(entry("Elektrizitätswerk", "firma")), ["strom"])
+        self.assertEqual(i.works(entry("Usine à gaz", "firma")), ["gas"])
+        self.assertEqual(i.works(entry("Wasserversorgung der Stadt Bern", "firma")), ["wasser"])
+        self.assertEqual(i.works(entry("Kägi", "person", "Chefmonteur des Gaswerkes")), [])
+
+    def test_combined_works_count_for_each_kind(self):
+        self.assertEqual(i.works(entry("Gas-, Wasser- u. Elektrizitätswerk", "firma")), ["strom", "gas", "wasser"])
+        self.assertEqual(i.works(entry("Gas- und Wasserwerk", "firma")), ["gas", "wasser"])
+        self.assertEqual(i.works(entry("Mineralwasser- und Colonialwarenhandlung", "firma")), [])
+
+    def test_call_offices_are_not_stations_or_post(self):
+        # «Station communale» ist die Gemeindesprechstelle, «Poste de gendarmerie» ein Polizeiposten
+        for name in ("Station communale", "Station publique", "Stazione pubblica", "Stazione consortile", "Gemeindestation",
+                     "Gemeindesprechstation"):
+            self.assertTrue(i.CALL_OFFICE.search(name), name)
+            self.assertIsNone(i.office(entry(name)), name)
+        self.assertIsNone(i.office(entry("Poste de gendarmerie")))
+        self.assertIsNone(i.office(entry("Poste de police")))
+        self.assertEqual(i.office(entry("Station S. B. B.")), "bahnhof")
+        self.assertEqual(i.office(entry("Gare C. F. F.")), "bahnhof")
+        self.assertEqual(i.office(entry("Bureau des postes")), "post")
+
+    def test_cumulative_counts_first_years(self):
+        c = i.cumulative({"a": 1880, "b": 1890, "c": [1890, "Gaswerk"], "d": 1914})
+        self.assertEqual(len(c), 35)
+        self.assertEqual((c[0], c[9], c[10], c[33], c[34]), (1, 1, 3, 3, 4))
+
+    def test_term_is_the_searchable_start_of_the_name(self):
+        self.assertEqual(i.term({"name1": "Elektrizitätswerk (Bureau)"}), "Elektrizitätswerk")
 
     def test_hotels(self):
         for x in ("Hôtel Eiger", "Kurhaus Tarasp", "Pension Alpenblick", "Albergo Svizzero"):

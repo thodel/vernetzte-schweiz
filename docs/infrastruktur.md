@@ -1,7 +1,8 @@
 # Infrastruktur (Versuch)
 
-Was zeigen Telefon- und Adressbücher vom Ausbau der Infrastruktur? `scripts/infrastruktur.py` misst
-drei Dinge und einige weitere Spuren; die Seite zeigt sie unter `#/infrastruktur`.
+Was zeigen Telefon- und Adressbücher vom Ausbau der Infrastruktur zwischen 1880 und 1914?
+`scripts/infrastruktur.py` misst drei Dinge und einige weitere Spuren; die Seite zeigt sie unter
+`#/infrastruktur`.
 
 ```bash
 make infrastruktur                      # data/norm/infrastruktur.json
@@ -10,11 +11,25 @@ python scripts/infrastruktur.py site    # site/data/infrastruktur.json.gz (läuf
 
 ## Die Quellen und ihre Lücken
 
-Die Telefonbücher decken die ganze Schweiz erst ab **1911** (Landesbuch, Bände 1, 2a–2c, 3). Vorher
-liegen Regionalbücher vor, je nach Jahr für Basel, Bern, St. Gallen, Aarau, Chur, Bellinzona, Genève,
-Zürich (1909–1910) und ihre Netze. Ein Ort, der erst 1911 erscheint, kann früher ein Telefon gehabt
+Die Telefonbücher beginnen **1880** (Zürich, 99 Einträge) und decken die ganze Schweiz erst ab
+**1911** (Landesbuch, Bände 1, 2a–2c, 3). Dazwischen liegen Regionalbücher vor, je Jahr ein bis
+sieben Netze (Basel, Bern, St. Gallen, Zürich, Genève, Lausanne, Chur, Bellinzona …); 1891 fehlt
+ganz, 1907 liegt nur ein Netz vor. Ein Ort, der erst 1911 erscheint, kann früher ein Telefon gehabt
 haben, wenn sein Regionalbuch fehlt (vor allem Waadt und Wallis). Auch im Landesbuch ist nicht jeder
-Band ganz gelesen (Band 2c fehlt 1913 und 1914, Lausanne 1912–1914 und Chur 1911–1914 sind dünn).
+Band ganz gelesen (Band 2c fehlt 1913 und 1914, Lausanne 1912–1914, Luzern 1914 und Winterthur 1913
+sind dünn).
+
+Daraus folgen zwei Regeln für alles, was über die Jahre verglichen wird:
+
+- **Verläufe zählen «bis zum Jahr mindestens einmal belegt»** (`verlauf` in der Ausgabe, Funktion
+  `cumulative`). Ein fehlender Jahrgang oder ein schlecht gelesener Band senkt die Zahl nicht. Vor
+  1911 wächst sie auch, weil Bücher dazukommen; die Seite nennt darum daneben den Anteil an den
+  Gemeinden, die bis dahin überhaupt in einem Buch stehen.
+- **Jahre der Landesbücher werden nur mit den Bänden verglichen, die jedes Jahr vorliegen**
+  (1, 2a, 2b, 3).
+
+Die Seite zeigt den Bestand selbst («Was die Bücher abdecken»): Einträge und Gemeinden je Jahrgang
+und die Gemeinden bisher (1890: 209, 1900: 1'284, 1910: 2'145, 1914: 2'631).
 
 ## 1. Telefonnetz
 
@@ -27,17 +42,19 @@ Ein Eintrag ist nicht ein Anschluss: Firmen stehen unter mehreren Namen, Geschä
 Wohnungsanschluss zweimal.
 
 **Telefon in der Wohnung.** Anteil der Einträge mit einem Wohnungsanschluss («Wohnung», «Privat»,
-«domicile», «appartement», «abitazione»). Basel steigt von 0 % (1881–1886) auf 4,1 % (1914), Bern
-von 0,1–0,2 % (1890er Jahre) auf 9,7 % (1909), St. Gallen auf 6,8 % (1910). Der Anteil der Einträge
-unter Personennamen taugt dafür nicht: «Weitnauer, Cigarrenhandlung» ist eine Person mit Geschäft.
-Der frühe Gipfel in Bern (1881–1884, 2–5 %) beruht auf vier bis sechs Wohnungen unter 74 bis 192
-Einträgen.
+«domicile», «appartement», «abitazione»), nur Jahre mit mindestens 100 Einträgen (`HOME_MIN`):
+darunter entscheiden einzelne Fälle (Bern 1881: vier Wohnungen unter 74 Einträgen). Basel steigt von
+0 % (1881) auf 4,1 % (1914), Bern auf 9,7 % (1909), St. Gallen auf 6,8 % (1910). Der Anteil hängt
+auch davon ab, wie ein Buch Wohnungen kennzeichnet. Der Anteil der Einträge unter Personennamen
+taugt dafür nicht: «Weitnauer, Cigarrenhandlung» ist eine Person mit Geschäft.
 
 **Gemeinden.** Erstes Jahr, in dem eine Gemeinde in einem Telefonbuch steht, Einträge 1914 und
-öffentliche Sprechstellen («Gemeindesprechstation», «station téléphonique publique», «posto
-telefonico»). Von den 3'151 Gemeinden am 1.1.1914 (BFS) haben 2'626 bis 1914 mindestens einen
-Eintrag (83%), 2'330 schon bis 1911. Eine öffentliche Sprechstelle haben 1911–1914 zusammen
-733 Gemeinden, im Jahr 1914 allein 457.
+öffentliche Sprechstellen (`CALL_OFFICE`: «Gemeindestation», «Gemeindesprechstation», «Station
+communale», «Station publique», «Stazione pubblica», «Stazione consortile»). Von den 3'151 Gemeinden
+am 1.1.1914 (BFS) haben 2'631 bis 1914 mindestens einen Eintrag (83 %), 2'145 schon bis 1910. Eine
+öffentliche Sprechstelle haben bis 1914 1'739 Gemeinden, zwei von drei mit Telefon. Die Karte färbt
+nach Jahrzehnten (1880–1889, 1890–1899, 1900–1910, 1911–1914); die Kantonstabelle nennt den Stand
+1890, 1900, 1910 und 1914.
 
 ## 2. Berufe der Infrastruktur
 
@@ -67,26 +84,68 @@ Ingenieure und Bau.
 Zürich 1867 umfasst fast nur die Altstadt, 1875–1885 auch die Ausgemeinden (Bahnhof und Werkstätten
 in Aussersihl). Weitere Reihen: Aarau 1867–1899, Bern 1883/1900, Lausanne 1896/1907, Baden 1900/1910.
 
-**Landesbücher 1911–1914**, Einträge (Gemeinden):
+**Telefonbücher einer Stadt, je 1000 Einträge**, für die Städte mit langen Reihen ab ihrem ersten
+Buch (je Jahr der Band mit den meisten Einträgen, mindestens 100 Einträge). Basel:
+
+| Gruppe | 1885 | 1900 | 1914 |
+|---|---|---|---|
+| Bahn | 11.5 | 7.5 | 8.5 |
+| Post, Telegraf, Telefon | 1.0 | 0.9 | 4.5 |
+| Elektrizität | 0.0 | 3.6 | 4.5 |
+| Gas und Wasser | 8.6 | 4.8 | 2.3 |
+| Auto und Velo | 0.0 | 1.5 | 5.6 |
+| Tram, Schiff, Omnibus | 1.9 | 1.8 | 1.5 |
+| Ingenieure und Bau | 3.8 | 10.2 | 16.1 |
+
+**Landesbücher 1911–1914**, Einträge (Gemeinden), nur Bände 1, 2a, 2b und 3 (Band 2c mit dem Tessin
+fehlt 1913 und 1914):
 
 | Gruppe | 1911 | 1912 | 1913 | 1914 |
 |---|---|---|---|---|
-| Bahn | 398 (141) | 444 (154) | 481 (165) | 501 (164) |
-| Post, Telegraf, Telefon | 753 (275) | 838 (298) | 904 (349) | 963 (365) |
-| Elektrizität | 583 (180) | 600 (207) | 636 (219) | 664 (216) |
-| Gas und Wasser | 269 (75) | 289 (82) | 310 (84) | 331 (88) |
-| Auto und Velo | 363 (53) | 459 (66) | 542 (73) | 590 (78) |
-| Tram, Schiff, Omnibus | 139 (36) | 156 (42) | 163 (44) | 163 (43) |
-| Ingenieure und Bau | 1'350 (211) | 1'345 (230) | 1'327 (241) | 1'369 (247) |
-| Einträge insgesamt | 73'403 | 79'216 | 86'262 | 91'339 |
+| Bahn | 397 (142) | 444 (155) | 481 (160) | 501 (165) |
+| Post, Telegraf, Telefon | 721 (269) | 802 (293) | 904 (346) | 963 (362) |
+| Elektrizität | 541 (175) | 556 (197) | 636 (214) | 664 (215) |
+| Gas und Wasser | 269 (76) | 289 (82) | 310 (84) | 331 (93) |
+| Auto und Velo | 357 (55) | 454 (66) | 542 (67) | 590 (78) |
+| Tram, Schiff, Omnibus | 135 (40) | 153 (44) | 163 (43) | 163 (44) |
+| Ingenieure und Bau | 1'341 (209) | 1'335 (232) | 1'327 (242) | 1'369 (250) |
+| Einträge insgesamt | 71'849 | 77'496 | 86'262 | 91'339 |
 
 Die Telefonbücher nennen nur Abonnenten: ein Elektrizitätswerk oder eine Garage mit Telefon, nicht
 jeden Elektriker oder Chauffeur.
 
 ## 3. Weitere Spuren
 
-**Bahnhofstrasse:** Gemeinden mit Einträgen an einer Bahnhofstrasse, Rue de la Gare, Via Stazione:
-52 (1911), 65 (1914).
+**Sprechstellen, Ämter und Werke am Netz.** Gemeinden, in denen bis zum Jahr mindestens einmal ein
+solcher Eintrag steht; in Klammern der Anteil an den Gemeinden mit Telefon bis dahin:
+
+| Art | bis 1890 | bis 1900 | bis 1910 | bis 1914 |
+|---|---|---|---|---|
+| Öffentliche Sprechstelle | 8 (4 %) | 465 (36 %) | 1'058 (49 %) | 1'739 (66 %) |
+| Gemeindekanzlei | 17 (8 %) | 67 (5 %) | 278 (13 %) | 745 (28 %) |
+| Post- und Telegrafenbüro | 6 (3 %) | 111 (9 %) | 348 (16 %) | 465 (18 %) |
+| Bahnhof, Station | 11 (5 %) | 42 (3 %) | 105 (5 %) | 260 (10 %) |
+| Elektrizitätswerk | 0 | 25 (2 %) | 127 (6 %) | 314 (12 %) |
+| Gaswerk | 7 (3 %) | 15 (1 %) | 49 (2 %) | 124 (5 %) |
+| Wasserversorgung | 7 (3 %) | 15 (1 %) | 41 (2 %) | 92 (3 %) |
+| Bahnhofstrasse in einer Adresse | 15 (7 %) | 38 (3 %) | 88 (4 %) | 167 (6 %) |
+| Gemeinden mit Telefon | 209 | 1'284 | 2'145 | 2'631 |
+
+- Werke (`WORKS`): nach dem Namen eines Betriebs oder Amts, nicht nach dem Beruf einer Person. Ein
+  «Gas-, Wasser- u. Elektrizitätswerk» zählt dreifach; «Mineralwasser- und Colonialwarenhandlung»
+  ist kein Wasserwerk. Das erste Elektrizitätswerk steht 1893 im Buch.
+- Ämter (`OFFICES`): eigener Eintrag einer Gemeindekanzlei, eines Bahnhofs, eines Post- oder
+  Telegrafenbüros, Gaststätten ausgenommen. **Kein Bahnhof** sind «Station communale», «Station
+  publique», «Stazione pubblica» und «Stazione consortile»: Das sind Gemeindesprechstellen (rund
+  2'300 von 4'166 Einträgen, die das Muster zuerst als Bahnhof zählte). **Keine Post** sind «Poste
+  de gendarmerie» und «Poste de police» (`NOT_OFFICE`).
+- Die Sprechstellen waren vorher um mehr als die Hälfte unterzählt (447 statt 998 Gemeinden im Jahr
+  1914), weil «Gemeindestation» und «Station communale» im Muster fehlten.
+
+**Städte: was wann im Buch steht.** Für die 19 Städte mit langen Reihen das erste Jahr mit
+Sprechstelle, Amt oder Werk. Jede Jahreszahl führt auf der Seite zum Eintrag
+(`#/buch?kt=…&y=…&g=…&q=…`; das Suchwort ist der Anfang des Namens, Funktion `term`). Kein Jahr liegt
+vor dem ersten gelesenen Buch der Stadt.
 
 **Rufnummern.** Verschiedene Nummern je Stadt und Jahr zählen die Anschlüsse (eine Firma unter
 mehreren Namen hat eine Nummer); die höchste Nummer zeigt, wie weit die Zentrale ihre Nummern
@@ -95,16 +154,6 @@ einer Lücke über 300 zählt nicht (Bern 1914 hat einen Block 8000–9999, St. 
 Nur Jahre mit mindestens 80 % lesbaren Nummern. Basel springt 1896 von höchstens 2'200 auf 4'302 bei
 2'146 Nummern (belegt 50 %), bleibt bis 1905 bei rund 4'300 und füllt den Bereich auf (88 % im Jahr 1905).
 Basel 1914: 8'813 Einträge, 5'643 Nummern.
-
-**Gemeindewerke.** Elektrizitäts-, Gas- und Wasserwerke unter ihrem eigenen Namen (`WORKS`), nicht
-der Beruf einer Person. Gemeinden mit mindestens einem Werk: Strom 106 (1911) → 148 (1914), Gas
-28 → 45, Wasser 26 → 35; vor 1911 schon 127 / 32 / 37, wo Regionalbücher vorliegen. 1914 liegt unter
-1913, weil Band 2c fehlt.
-
-**Ämter am Netz.** Eigener Eintrag einer Gemeindekanzlei, eines Bahnhofs, eines Post- oder
-Telegrafenbüros (`OFFICES`, Gaststätten ausgenommen). 1911: 278 / 257 / 111 Gemeinden, 1914:
-374 / 393 / 151, je etwa ein Fünftel der Gemeinden mit Einträgen im selben Jahr (Post 8–9 %: sie
-ist oft die öffentliche Sprechstelle).
 
 **Fremdenverkehr.** Hotels, Kurhäuser, Pensionen (`HOTEL`) unter den Einträgen im ersten Jahr einer
 Gemeinde: 6 % (1880–1899), 8 % (1900–1914). In 22 Gemeinden stellen sie mindestens die Hälfte
@@ -116,10 +165,10 @@ Volkszählungen 1850–2000, Gebietsstand 5.12.2000; Lizenz OPEN-BY-ASK: freie n
 Nutzung mit Quellenangabe), Auszug in `data/ref/population_1850_2000.csv`. Eine Gemeinde von 1914
 zählt zu ihrer Gemeinde von 2000 (eigene Nummer, sonst die heutige). Städte mit späteren
 Eingemeindungen fallen aus der Städtetabelle (der Nenner wäre zu gross). Die Karte zeigt 1911 je
-Gemeinde von 2000, nur sicher verortete Einträge (`place_confidence` ≠ `unsicher`); 12 Gemeinden mit
-mehr als 250 je 1000 bleiben weg, dort ist die Ortszuordnung falsch (z. B. Kammersrohr, Betten).
-Städte, 1910: Basel 40, Aarau 55, Solothurn 42, Interlaken 104, St. Moritz 77 Einträge je 1000
-Einwohner.
+Gemeinde von 2000, nur sicher verortete Einträge (`place_confidence` ≠ `unsicher`); 10 Gemeinden mit
+mehr als 250 je 1000 bleiben weg, dort ist die Ortszuordnung falsch (z. B. Kammersrohr, Fiez).
+Städte: Basel 2 (1880), 23 (1888), 31 (1900), 40 (1910); 1910 Aarau 55, Solothurn 43, Interlaken 104,
+St. Moritz 77 Einträge je 1000 Einwohner.
 
 **Bahn und Telefon.** Bahnhöfe aus Wikidata (`P31 Q55488`, `P17 Q39`, Eröffnung `P1619`; CC0),
 Auszug in `data/ref/stations_wikidata.csv`; nur 728 von 1'811 haben ein Eröffnungsjahr. Ein Bahnhof
@@ -129,12 +178,13 @@ bis 2000 unverändert), Anteil mit Telefon bis 1911:
 | Einwohner 1910 | mit Bahnhof (bis 1910) | ohne |
 |---|---|---|
 | unter 500 | 71 % (91) | 58 % (1'133) |
-| 500–999 | 92 % (87) | 86 % (500) |
-| 1'000–1'999 | 93 % (88) | 87 % (326) |
-| 2'000–4'999 | 99 % (95) | 91 % (147) |
-| ab 5'000 | 100 % (40) | 100 % (17) |
+| 500–999 | 92 % (86) | 86 % (501) |
+| 1'000–1'999 | 92 % (89) | 87 % (325) |
+| 2'000–4'999 | 99 % (95) | 90 % (147) |
+| ab 5'000 | 100 % (41) | 100 % (16) |
 
-Der Bahnhof macht 6–13 Punkte aus, die Grösse den Rest des Unterschieds (91 % gegen 71 % insgesamt).
+Der Bahnhof macht 5–13 Punkte aus, die Grösse den Rest des Unterschieds (91 % gegen 71 % insgesamt).
+Eine öffentliche Sprechstelle bis 1914 haben mit Bahnhof 63–98 % je Grössenklasse, ohne 50–75 %.
 
 Abfrage der Bahnhöfe (CSV von https://query.wikidata.org/sparql):
 

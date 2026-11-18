@@ -1080,7 +1080,7 @@
     return e;
   };
   const LINE_COLORS = ["#175b5b", "#d21938", "#1f4e9c", "#b07a10", "#6b3fa0", "#5a8f29", "#9e323c", "#2a9d8f", "#555555", "#c2185b"];
-  function lineChart(box, series, { log = false, share = false, x0 = 1880, x1 = 1914, label = "" }) {
+  function lineChart(box, series, { log = false, share = false, x0 = 1880, x1 = 1914, label = "", href = null, fmt = null }) {
     const W = Math.max(300, box.clientWidth || 700), H = W < 500 ? 240 : 300, L = share ? 44 : 56, R = 10, T = 10, B = 26;
     const ys = series.flatMap(s => s.pts.map(p => p[1])).filter(v => v > 0);
     if (!ys.length) { box.replaceChildren(); return; }
@@ -1097,7 +1097,7 @@
     else { const m = 10 ** Math.floor(Math.log10(y1 / 4)), st = [1, 2, 5, 10].map(k => k * m).find(k => y1 / k <= 5); for (let v = 0; v <= y1; v += st) yt.push(v); }
     for (const v of yt) {
       svg.append(sv("line", { x1: L, x2: W - R, y1: fy(v), y2: fy(v), class: "grid" }),
-        sv("text", { x: L - 6, y: fy(v) + 4, "text-anchor": "end", class: "tick" }, share ? pf.format(v) : n(v)));
+        sv("text", { x: L - 6, y: fy(v) + 4, "text-anchor": "end", class: "tick" }, fmt ? fmt(v) : share ? pf.format(v) : n(v)));
     }
     for (let x = Math.ceil(x0 / 5) * 5; x <= x1; x += 5) {
       svg.append(sv("line", { x1: fx(x), x2: fx(x), y1: H - B, y2: H - B + 4, class: "axis" }),
@@ -1107,8 +1107,12 @@
     for (const s of series) {
       const pts = s.pts.filter(p => p[1] > 0 || !log);
       svg.append(sv("path", { d: pts.map((p, i) => `${i ? "L" : "M"}${fx(p[0]).toFixed(1)},${fy(p[1]).toFixed(1)}`).join(""), stroke: s.color, class: "series" }));
-      for (const p of pts) svg.append(sv("circle", { cx: fx(p[0]), cy: fy(p[1]), r: 3, fill: s.color },
-        sv("title", {}, `${s.name} ${p[0]}: ${share ? pf.format(p[1]) : n(p[1])}`)));
+      for (const p of pts) {
+        const dot = sv("circle", { cx: fx(p[0]), cy: fy(p[1]), r: 3, fill: s.color },
+          sv("title", {}, `${s.name} ${p[0]}: ${fmt ? fmt(p[1]) : share ? pf.format(p[1]) : n(p[1])}`));
+        const to = href && href(s, p);
+        svg.append(to ? sv("a", { href: to, class: "pt" }, dot) : dot);
+      }
     }
     box.replaceChildren(svg);
   }
@@ -1116,7 +1120,12 @@
   let infData;
   async function infrastruktur(params) {
     const D = infData ??= await get("data/infrastruktur.json.gz");
-    const T = D.telefon, SP = D.spuren;
+    const T = D.telefon, SP = D.spuren, V = D.verlauf;
+    const geo = new Map(T.places.map(p => [p[0], p]));
+    // das Telefonbuch einer Gemeinde in einem Jahr, wahlweise auf ein Wort gefiltert
+    const bookHref = (m, y, q = "") => geo.has(m) && geo.get(m)[1]
+      ? `#/buch?kt=${encodeURIComponent(geo.get(m)[1])}&y=${y}&g=${encodeURIComponent(m)}${q ? `&q=${encodeURIComponent(q)}` : ""}` : null;
+    const at = (k, y) => V[k][y - V.years[0]];
     const here = upd => {
       const p = new URLSearchParams(params);
       for (const [k, val] of Object.entries(upd)) val === null ? p.delete(k) : p.set(k, val);
@@ -1144,40 +1153,46 @@
     const box = el("div", { class: "map tall" });
     const mapCtl = el("div", { class: "controls" }, select(layers, view_, t.inf_map_show));
     mapCtl.querySelector("select").addEventListener("change", e => set({ k: e.target.value }));
-    const cats = [["vor", t.inf_before_1911, "#8c8c8c"], [1911, "1911", "#175b5b"], [1912, "1912", "#2a9d8f"], [1913, "1913", "#d98c00"], [1914, "1914", "#d21938"]];
-    const catOf = y => y < 1911 ? 0 : y - 1910;
-    const geo = new Map(T.places.map(p => [p[0], p]));
+    const cats = [[1880, "1880–1889", "#3b1f5e"], [1890, "1890–1899", "#1f4e9c"], [1900, "1900–1910", "#2a9d8f"], [1911, "1911–1914", "#d98c00"]];
+    const catOf = y => y < 1890 ? 0 : y < 1900 ? 1 : y < 1911 ? 2 : 3;
     let firstOf;  // Gemeinde → erstes Jahr für die gewählte Ebene
     if (view_ === "telefon") firstOf = new Map(T.places.map(p => [p[0], p[4]]));
     else if (view_ === "sprech") firstOf = new Map(T.places.filter(p => p[6]).map(p => [p[0], p[6]]));
     else if (view_ === "bahnhofstrasse") firstOf = new Map(Object.entries(D.bahnhofstrasse.first));
-    else if (view_.startsWith("werk_")) firstOf = new Map(Object.entries(SP.werke.first[view_.slice(5)] || {}));
-    else if (view_.startsWith("amt_")) firstOf = new Map(Object.entries(SP.aemter.first[view_.slice(4)] || {}));
+    else if (view_.startsWith("werk_")) firstOf = new Map(Object.entries(SP.werke.first[view_.slice(5)] || {}).map(([m, v]) => [m, v[0]]));
+    else if (view_.startsWith("amt_")) firstOf = new Map(Object.entries(SP.aemter.first[view_.slice(4)] || {}).map(([m, v]) => [m, v[0]]));
     else if (view_ === "dichte") firstOf = new Map();
     else firstOf = new Map(Object.entries(D.berufe.first[view_] || {}));
-    const catCount = [0, 0, 0, 0, 0];
+    const catCount = [0, 0, 0, 0];
     for (const [m, y] of firstOf) if (geo.has(m) && y <= 1914) catCount[catOf(y)]++;
     // Einträge je 1000 Einwohner (1911 / Volkszählung 1910)
     const dens = [[0, "< 5", "#e8d9c4"], [5, "5–20", "#e7aeb2"], [20, "20–50", "#b54a54"], [50, "≥ 50", "#5c1620"]];
     const densOf = v => dens.filter(d => v >= d[0]).length - 1;
     const mapLegend = view_ === "dichte" ? el("div", { class: "inf-legend" }, ...dens.map(([, lab, col], i) =>
       el("span", {}, el("span", { class: "dot", style: `background:${col}` }), `${lab} (${n(SP.einwohner.places.filter(r => densOf(r[6]) === i).length)})`)))
-      : el("div", { class: "inf-legend" }, ...cats.map(([, lab, col], i) => (view_ === "sprech" && i === 0) ? "" :
+      : el("div", { class: "inf-legend" }, ...cats.map(([, lab, col], i) =>
       el("span", {}, el("span", { class: "dot", style: `background:${col}` }), `${lab} (${n(catCount[i])})`)));
     const exampleList = D.groups.includes(view_) && D.berufe.examples[view_]
       ? el("details", { class: "inf-examples" }, el("summary", {}, t.inf_examples.replace("{g}", gName(view_))),
-        el("ul", {}, ...D.berufe.examples[view_].slice(0, 60).map(([m, nm, occ]) => el("li", {}, el("b", {}, nm), ` · ${m}`, occ ? el("span", { class: "muted" }, ` · ${occ}`) : ""))))
+        el("ul", {}, ...D.berufe.examples[view_].slice(0, 60).map(([m, nm, occ]) => el("li", {}, el("b", {}, nm), " · ", m ? link(bookHref(m, 1914, nm.split(/[ ,.(]/)[0]) || placeHref(m), m) : "", occ ? el("span", { class: "muted" }, ` · ${occ}`) : ""))))
       : "";
 
-    const sumC = Object.values(T.cantons).reduce((a, c) => ({ g: a.g + c.gemeinden, t: a.t + c.bis_1914, nw: a.nw + c.bis_1914 - c.bis_1911, s: a.s + c.sprechstellen_1914 }), { g: 0, t: 0, nw: 0, s: 0 });
+    const cy = [1890, 1900, 1910, 1914];
+    const sumC = Object.values(T.cantons).reduce((a, c) => ({ g: a.g + c.gemeinden, s: a.s + c.sprechstellen_1914, y: a.y.map((v, i) => v + c[`bis_${cy[i]}`]) }), { g: 0, s: 0, y: [0, 0, 0, 0] });
     const cantonRows = Object.entries(T.cantons).filter(([c]) => c.length === 2 && T.cantons[c].gemeinden);
     const cantonTable = el("div", { class: "grid-scroll" }, el("table", { class: "entries inf-table" },
-      el("thead", {}, el("tr", {}, ...[t.inf_col_canton, t.inf_col_munis, t.inf_col_phone, t.inf_col_new, t.inf_col_call].map(h => el("th", {}, h)))),
-      el("tbody", {}, ...cantonRows.map(([c, v]) => el("tr", {}, el("td", {}, c), el("td", {}, n(v.gemeinden)),
-        el("td", {}, `${n(v.bis_1914)} (${pct(v.bis_1914, v.gemeinden)})`), el("td", {}, n(v.bis_1914 - v.bis_1911)),
+      el("thead", {}, el("tr", {}, ...[t.inf_col_canton, t.inf_col_munis, ...cy.map(y => t.inf_col_by.replace("{y}", y)), t.inf_col_call].map(h => el("th", {}, h)))),
+      el("tbody", {}, ...cantonRows.map(([c, v]) => el("tr", {}, el("td", {}, link(`#/karten?v=telefon&kt=${c}&a=1880&b=1914`, c)), el("td", {}, n(v.gemeinden)),
+        ...cy.map(y => el("td", {}, v[`bis_${y}`] ? `${n(v[`bis_${y}`])} (${pct(v[`bis_${y}`], v.gemeinden)})` : "–")),
         el("td", {}, `${n(v.sprechstellen_1914)} (${pct(v.sprechstellen_1914, v.gemeinden)})`))),
-        el("tr", { class: "sum" }, el("td", {}, t.inf_total), el("td", {}, n(sumC.g)), el("td", {}, `${n(sumC.t)} (${pct(sumC.t, sumC.g)})`),
-          el("td", {}, n(sumC.nw)), el("td", {}, `${n(sumC.s)} (${pct(sumC.s, sumC.g)})`)))));
+        el("tr", { class: "sum" }, el("td", {}, t.inf_total), el("td", {}, n(sumC.g)), ...sumC.y.map(v => el("td", {}, `${n(v)} (${pct(v, sumC.g)})`)),
+          el("td", {}, `${n(sumC.s)} (${pct(sumC.s, sumC.g)})`)))));
+    // Bestand der Quelle
+    const chartCov = el("div", { class: "chart" });
+    const covSeries = [{ name: t.inf_col_entries, color: "#8c8c8c", pts: T.coverage.map(r => [r[0], r[2]]) },
+      { name: t.inf_cov_munis, color: "#175b5b", pts: T.coverage.map(r => [r[0], r[3]]) },
+      { name: t.inf_cov_cum, color: "#d21938", pts: V.years.map((y, i) => [y, V.telefon[i]]) }];
+    const swatches = list => el("div", { class: "inf-legend" }, ...list.map(([lab, col]) => el("span", {}, el("span", { class: "dot", style: `background:${col}` }), lab)));
 
     // B: Berufe
     const abCities = Object.keys(D.berufe.ab);
@@ -1192,6 +1207,12 @@
         const v = gg[g] / nn * 1000;
         return el("td", { class: "heat", style: `--h:${(v / (maxPer || 1)).toFixed(2)}`, title: `${n(gg[g])} / ${n(nn)}` }, v ? v.toFixed(1) : "–");
       }))), el("tr", { class: "sum" }, el("td", {}, t.inf_col_entries), ...S.map(([, nn]) => el("td", {}, n(nn)))))));
+    const occCities = Object.keys(D.berufe.cities).filter(c => D.berufe.cities[c].length >= 5);
+    const occCity = occCities.includes(params.get("bt")) ? params.get("bt") : (occCities.includes("Basel") ? "Basel" : occCities[0]);
+    const occCtl = el("div", { class: "controls" }, select(occCities.map(c => [c, c]), occCity, t.zz_city));
+    occCtl.querySelector("select").addEventListener("change", e => set({ bt: e.target.value }));
+    const chartOcc = el("div", { class: "chart" });
+    const occSeries = D.groups.map((g, i) => ({ name: gName(g), color: LINE_COLORS[i], pts: D.berufe.cities[occCity].map(([y, nn, gg]) => [y, gg[g] / nn * 1000]) }));
     const years = Object.keys(D.berufe.national);
     const natTable = el("div", { class: "grid-scroll" }, el("table", { class: "entries inf-table" },
       el("thead", {}, el("tr", {}, el("th", {}, t.inf_col_group), ...years.map(y => el("th", {}, y)), el("th", {}, t.inf_col_growth))),
@@ -1216,31 +1237,38 @@
     const numTable = table([t.inf_col_year, t.inf_col_entries, t.inf_num_n, t.inf_num_top, t.inf_num_use],
       NR.map(([y, e, k, top]) => [String(y), n(e), n(k), n(top), pct(k, top)]));
     const W = SP.werke, A = SP.aemter;
-    const wy = Object.keys(W.per_year);
-    const werkTable = table([t.inf_col_kind, ...wy, t.inf_werk_before],
-      ["strom", "gas", "wasser"].map(k => [link(here({ k: `werk_${k}` }) + "#inf-karte", t[`inf_werk_${k}`]), ...wy.map(y => n(W.per_year[y][k])),
-        n(Object.values(W.first[k]).filter(y => y < 1911).length)]));
-    const amtTable = table([t.inf_col_kind, ...wy],
-      ["gemeinde", "bahnhof", "post"].map(k => [link(here({ k: `amt_${k}` }) + "#inf-karte", t[`inf_amt_${k}`]),
-        ...wy.map(y => `${n(A.per_year[y][k])} (${pct(A.per_year[y][k], A.with_phone[y])})`)]),
-      [t.inf_amt_all, ...wy.map(y => n(A.with_phone[y]))]);
+    const trend = [["sprech", t.inf_map_call, "#d21938"], ["amt_gemeinde", t.inf_amt_gemeinde, "#1f4e9c"], ["amt_post", t.inf_amt_post, "#b07a10"],
+      ["amt_bahnhof", t.inf_amt_bahnhof, "#555555"], ["werk_strom", t.inf_werk_strom, "#6b3fa0"], ["werk_gas", t.inf_werk_gas, "#5a8f29"],
+      ["werk_wasser", t.inf_werk_wasser, "#2a9d8f"], ["bahnhofstrasse", t.inf_map_station, "#c2185b"]];
+    const chartTrend = el("div", { class: "chart" });
+    const trendSeries = [{ name: t.inf_map_phone, color: "#8c8c8c", pts: V.years.map((y, i) => [y, V.telefon[i]]) },
+      ...trend.map(([k, lab, col]) => ({ name: lab, color: col, pts: V.years.map((y, i) => [y, V[k][i]]) }))];
+    const trendTable = table([t.inf_col_kind, ...cy.map(y => t.inf_col_by.replace("{y}", y))],
+      trend.map(([k, lab]) => [link(here({ k }) + "#inf-karte", lab), ...cy.map(y => `${n(at(k, y))} (${pct(at(k, y), at("telefon", y))})`)]),
+      [t.inf_map_phone, ...cy.map(y => n(at("telefon", y)))]);
+    // Städte mit langer Reihe: in welchem Jahr was zum ersten Mal im Buch steht
+    const cityCols = [["sprech", t.inf_rail_call, m => geo.get(m)?.[6] ? [geo.get(m)[6], ""] : null],
+      ...["gemeinde", "bahnhof", "post"].map(k => [`amt_${k}`, t[`inf_amt_${k}`], m => A.first[k][m]]),
+      ...["strom", "gas", "wasser"].map(k => [`werk_${k}`, t[`inf_werk_${k}`], m => W.first[k][m]])];
+    const cityTable = table([t.zz_city, t.inf_city_first, ...cityCols.map(c => c[1])],
+      cities.map(m => [link(placeHref(m), m), link(bookHref(m, T.series[m][0][0]), String(T.series[m][0][0])),
+        ...cityCols.map(([, , f]) => { const v = f(m); return v ? link(bookHref(m, v[0], v[1]), String(v[0])) : "–"; })]));
     const TS = SP.tourismus;
     const tourShare = table([t.inf_tour_period, t.inf_tour_places, t.inf_tour_hotels, t.inf_tour_with],
       Object.entries(TS.share).map(([k, [m, h, e, w]]) => [k.replace(/^(\d+)-\1$/, "$1").replace("-", "–"), n(m), `${n(h)} / ${n(e)} (${pct(h, e)})`, `${n(w)} (${pct(w, m)})`]));
     const tourList = el("ul", { class: "hitlist cols" }, ...TS.places.map(([m, y, e, h]) =>
       el("li", {}, el("b", {}, String(y)), " ", link(placeHref(m), m), el("span", { class: "muted" }, ` ${n(h)}/${n(e)}`))));
     const E = SP.einwohner;
-    const popTable = table([t.zz_city, ...[1888, 1900, 1910].map(String)],
-      Object.entries(E.cities).map(([m, rows]) => [link(placeHref(m), m), ...[1888, 1900, 1910].map(py => {
+    const popTable = table([t.zz_city, ...[1880, 1888, 1900, 1910].map(String)],
+      Object.entries(E.cities).map(([m, rows]) => [link(placeHref(m), m), ...[1880, 1888, 1900, 1910].map(py => {
         const r = rows.find(x => x[0] === py);
-        return r ? el("span", { title: t.inf_pop_title.replace("{y}", r[1]).replace("{e}", n(r[2])).replace("{p}", n(r[3])) }, r[4].toFixed(1)) : "–";
+        return r ? el("a", { href: bookHref(m, r[1]), title: t.inf_pop_title.replace("{y}", r[1]).replace("{e}", n(r[2])).replace("{p}", n(r[3])) }, r[4].toFixed(1)) : "–";
       })]));
     const B = SP.bahn;
     const rateTd = (k, all) => `${pct(k, all)}`;
     const railTable = table([t.inf_rail_size, t.inf_rail_with, t.inf_rail_phone, t.inf_rail_call, t.inf_rail_without, t.inf_rail_phone, t.inf_rail_call],
       B.classes.map(([lo, hi, a, ap, ac, b, bp, bc]) => [hi > 1e6 ? `≥ ${n(lo)}` : `${n(lo)}–${n(hi)}`, n(a), rateTd(ap, a), rateTd(ac, a), n(b), rateTd(bp, b), rateTd(bc, b)]));
 
-    const bs = D.bahnhofstrasse.per_year;
     view.replaceChildren(el("h1", {}, t.inf_h), el("p", { class: "intro" }, t.inf_p),
       el("h2", {}, t.inf_phone_h), el("p", { class: "intro" }, t.inf_series_p), legend, chart1,
       el("p", { class: "sub note" }, t.inf_series_note),
@@ -1248,17 +1276,21 @@
       el("h3", { id: "inf-karte" }, t.inf_map_h), el("p", { class: "intro" }, t.inf_map_p), mapCtl, mapLegend, box, exampleList,
       el("p", { class: "sub note" }, t.inf_map_note),
       el("h3", {}, t.inf_cantons_h), cantonTable,
-      el("p", { class: "sub note" }, t.inf_cantons_note.replace("{c}", n(Object.values(T.call_offices).at(-1) || 0))),
+      el("p", { class: "sub note" }, t.inf_cantons_note),
+      el("h3", {}, t.inf_cov_h), el("p", { class: "intro" }, t.inf_cov_p), swatches(covSeries.map(x => [x.name, x.color])), chartCov,
+      el("p", { class: "sub note" }, t.inf_cov_note),
       el("h2", {}, t.inf_occ_h), el("p", { class: "intro" }, t.inf_occ_p),
       el("h3", {}, t.inf_ab_h), abCtl, abTable, el("p", { class: "sub note" }, t.inf_ab_note),
+      el("h3", {}, t.inf_occ_tel_h), el("p", { class: "intro" }, t.inf_occ_tel_p), occCtl, swatches(occSeries.map(x => [x.name, x.color])), chartOcc,
+      el("p", { class: "sub note" }, t.inf_occ_tel_note),
       el("h3", {}, t.inf_nat_h), natTable, el("p", { class: "sub note" }, t.inf_nat_note),
       el("h2", {}, t.inf_more_h),
-      el("p", { class: "intro" }, t.inf_station_p.replace("{a}", n(bs[1911] || 0)).replace("{b}", n(bs[1914] || 0)), " ",
-        link(here({ k: "bahnhofstrasse" }) + "#inf-karte", t.inf_station_link)),
+      el("h3", {}, t.inf_trend_h), el("p", { class: "intro" }, t.inf_trend_p), swatches(trendSeries.map(x => [x.name, x.color])), chartTrend, trendTable,
+      el("p", { class: "sub note" }, t.inf_trend_note),
+      el("p", { class: "sub note" }, t.inf_werk_note), el("p", { class: "sub note" }, t.inf_amt_note),
+      el("h3", {}, t.inf_city_h), el("p", { class: "intro" }, t.inf_city_p), cityTable, el("p", { class: "sub note" }, t.inf_city_note),
       el("h3", {}, t.inf_num_h), el("p", { class: "intro" }, t.inf_num_p), numCtl, el("div", { class: "inf-legend" }, ...[[t.inf_num_top, "#d21938"], [t.inf_num_n, "#175b5b"], [t.inf_col_entries, "#8c8c8c"]].map(([lab, col]) =>
         el("span", {}, el("span", { class: "dot", style: `background:${col}` }), lab))), chart3, numTable, el("p", { class: "sub note" }, t.inf_num_note),
-      el("h3", {}, t.inf_werk_h), el("p", { class: "intro" }, t.inf_werk_p), werkTable, el("p", { class: "sub note" }, t.inf_werk_note),
-      el("h3", {}, t.inf_amt_h), el("p", { class: "intro" }, t.inf_amt_p), amtTable, el("p", { class: "sub note" }, t.inf_amt_note),
       el("h3", {}, t.inf_tour_h), el("p", { class: "intro" }, t.inf_tour_p), tourShare,
       el("p", { class: "intro" }, t.inf_tour_list.replace("{n}", n(TS.places.length))), tourList, el("p", { class: "sub note" }, t.inf_tour_note),
       el("h3", {}, t.inf_pop_h), el("p", { class: "intro" }, t.inf_pop_p, " ", link(here({ k: "dichte" }) + "#inf-karte", t.inf_station_link)), popTable,
@@ -1268,8 +1300,11 @@
       el("p", { class: "sub note" }, link("https://github.com/thodel/vernetzte-schweiz/blob/main/docs/infrastruktur.md", t.mw_doc)));
 
     const draw = () => {
-      lineChart(chart1, chosen.map(c => ({ name: c, color: color(c), pts: T.series[c] })), { log: true, label: t.inf_phone_h });
-      lineChart(chart2, chosen.filter(c => T.home[c]).map(c => ({ name: c, color: color(c), pts: T.home[c] })), { share: true, label: t.inf_home_h });
+      lineChart(chart1, chosen.map(c => ({ name: c, color: color(c), pts: T.series[c] })), { log: true, label: t.inf_phone_h, href: (s, p) => bookHref(s.name, p[0]) });
+      lineChart(chartCov, covSeries, { log: true, label: t.inf_cov_h });
+      lineChart(chartOcc, occSeries, { label: t.inf_occ_tel_h, fmt: v => v.toLocaleString(lang, { maximumFractionDigits: 1 }), href: (s, p) => bookHref(occCity, p[0]) });
+      lineChart(chartTrend, trendSeries, { log: true, label: t.inf_trend_h });
+      lineChart(chart2, chosen.filter(c => T.home[c]).map(c => ({ name: c, color: color(c), pts: T.home[c] })), { share: true, label: t.inf_home_h, href: (s, p) => bookHref(s.name, p[0], "Wohnung") });
       lineChart(chart3, [{ name: t.inf_num_top, color: "#d21938", pts: NR.map(r => [r[0], r[3]]) }, { name: t.inf_num_n, color: "#175b5b", pts: NR.map(r => [r[0], r[2]]) },
         { name: t.inf_col_entries, color: "#8c8c8c", pts: NR.map(r => [r[0], r[1]]) }], { label: t.inf_num_h });
     };
@@ -1283,18 +1318,19 @@
     if (view_ === "dichte") {
       L.layerGroup([...E.places].sort((a, b) => b[3] - a[3]).map(([m, lat, lon, p, e1911, , d]) =>
         L.circleMarker([lat, lon], { radius: Math.min(16, Math.max(2.5, Math.sqrt(p) / 25)), color: "#555", weight: 0.5, fillColor: dens[densOf(d)][2], fillOpacity: 0.85 })
-          .bindTooltip(`${m}: ${t.inf_pop_tip.replace("{d}", d.toFixed(1)).replace("{e}", n(e1911)).replace("{p}", n(p))}`))).addTo(mp);
+          .bindTooltip(`${m}: ${t.inf_pop_tip.replace("{d}", d.toFixed(1)).replace("{e}", n(e1911)).replace("{p}", n(p))}`)
+          .on("click", () => { if (geo.has(m)) location.hash = placeHref(m); }))).addTo(mp);
       return;
     }
     const big = view_ === "telefon";
     // grosse Kreise zuerst, kleine darüber; bei gleicher Grösse die späteren (farbigen) oben
     const pts = [...firstOf].filter(([m, y]) => geo.has(m) && y <= 1914)
-      .sort((a, b) => (big ? (geo.get(b[0])[5] || 0) - (geo.get(a[0])[5] || 0) : 0) || a[1] - b[1]);
+      .sort((a, b) => (big ? (geo.get(b[0])[5] || 0) - (geo.get(a[0])[5] || 0) : 0) || b[1] - a[1]);
     L.layerGroup(pts.map(([m, y]) => {
       const p = geo.get(m), [, lab, col] = cats[catOf(y)];
       const r = big ? Math.max(2.5, Math.sqrt(p[5] || 1) * 0.55) : 4;
-      return L.circleMarker([p[2], p[3]], { radius: Math.min(r, 16), color: col, weight: 1, fillOpacity: catOf(y) ? 0.75 : 0.35 })
-        .bindTooltip(`${m} (${p[1]}): ${t.inf_first_seen} ${y < 1911 ? y : lab}${big ? ` · ${t.inf_entries_1914.replace("{n}", n(p[5]))}` : ""}`)
+      return L.circleMarker([p[2], p[3]], { radius: Math.min(r, 16), color: col, weight: 1, fillColor: col, fillOpacity: 0.7 })
+        .bindTooltip(`${m} (${p[1]}): ${t.inf_first_seen} ${y}${big ? ` · ${t.inf_entries_1914.replace("{n}", n(p[5]))}` : ""}`)
         .on("click", () => { location.hash = placeHref(m); });
     })).addTo(mp);
   }

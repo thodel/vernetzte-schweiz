@@ -14,8 +14,8 @@ Drei Teile (docs/infrastruktur.md, Seite #/infrastruktur):
    Aarau 1867–1899 …) und in den Telefonbüchern; Gemeinden mit mindestens einem solchen Eintrag 1911–1914.
 3. Bahnhofstrasse: Gemeinden mit einer Bahnhofstrasse / Rue de la Gare in den Adressen 1911–1914.
 4. Weitere Spuren (spuren()):
-   - Rufnummern: verschiedene Nummern (≈ Anschlüsse) und höchste Nummer (99. Perzentil) je Stadt und Jahr.
-   - Gemeindewerke: Elektrizitäts-, Gas- und Wasserwerke als Abonnenten, erstes Jahr je Gemeinde.
+   - Rufnummern: verschiedene Nummern (≈ Anschlüsse) und höchste Nummer des geschlossenen Bereichs je Stadt und Jahr.
+   - Gemeindewerke: Elektrizitäts-, Gas- und Wasserwerke als Abonnenten, erstes Jahr je Gemeinde (mit Suchwort).
    - Ämter am Netz: Gemeindekanzlei, Bahnhof, Post mit eigenem Eintrag.
    - Fremdenverkehr: Anteil der Hotels und Kurhäuser im ersten Jahrgang einer Gemeinde.
    - Einwohner: Einträge je 1000 Einwohner (Volkszählungen 1888, 1900, 1910; BFS, Gemeindestand 2000).
@@ -76,8 +76,9 @@ COMPILED = [(k, re.compile(p, re.I)) for k, p in GROUPS]
 INN = re.compile(r"hotel|hôtel|wirtschaft|restaur|café|cafe\b|buffet|gasthof|gasthaus|pension|brasserie|auberge|albergo"
                  r"|\bz(um|ur)?\.? ?(post|bahnhof)|de la (gare|poste)|alla (stazione|posta)", re.I)
 # Öffentliche Sprechstellen des Telefonnetzes
-CALL_OFFICE = re.compile(r"sprechstation|sprechstelle|station téléphonique|cabine téléphonique|telefono pubblico"
-                         r"|posto telefonico|stazione telefonica", re.I)
+CALL_OFFICE = re.compile(r"sprechstation|sprechstelle|gemeinde-?station|station (téléphonique|publique|communale)"
+                         r"|cabine (téléphonique|publique)|telefono pubblico|posto telefonico"
+                         r"|stazione (telefonica|pubblica|comunale|consortile)", re.I)
 # Anschluss in der Wohnung (meist zweite Linie neben dem Geschäft)
 HOME = re.compile(r"\bwohnung\b|\bwhg\b|\bprivat\b|domicile|appartement|\bappart\b|abitazione|\bpriv\.", re.I)
 STATION_STREET = re.compile(r"bahnhof(str|platz|weg|quai)|rue de la gare|avenue de la gare|place de la gare|via (della )?stazione"
@@ -88,8 +89,10 @@ STATION_STREET = re.compile(r"bahnhof(str|platz|weg|quai)|rue de la gare|avenue 
 WORKS = [
     ("strom", re.compile(r"elektri[cz]itätswerk|electricitätswerk|kraftwerk|lichtwerk|usine électrique|service (de l'|de l’|des? )?électricité"
                          r"|azienda elettrica|officina elettrica|société (d'|d’)électricité|elektrizitätsgenossenschaft", re.I)),
-    ("gas", re.compile(r"gaswerk|gasanstalt|usine à gaz|service du gaz|officina del gas", re.I)),
-    ("wasser", re.compile(r"wasserwerk|wasserversorg|service des eaux|wasser- und|acquedotto", re.I)),
+    ("gas", re.compile(r"gaswerk|gasanstalt|usine à gaz|service du gaz|officina del gas"
+                       r"|(?<![a-zäöü])gas-,? ?(wasser|(und|u\.|&) ?(wasser|elektri))", re.I)),
+    # «Wasser- und Elektrizitätswerk», nicht «Mineralwasser- und Colonialwarenhandlung»
+    ("wasser", re.compile(r"wasserwerk|wasserversorg|service des eaux|(?<![a-zäöü])wasser- ?(und|u\.|&) ?(elektri|licht|gas)|acquedotto", re.I)),
 ]
 # Ämter mit eigenem Eintrag
 OFFICES = [
@@ -100,8 +103,12 @@ OFFICES = [
     ("post", re.compile(r"^(post|postbureau|postablage|postbüro|bureau (de|des) postes?|poste|ufficio postale|posta|telegraph"
                         r"|telegraphenbureau|bureau télégraphique|télégraphe)\b", re.I)),
 ]
+# kein Amt: «Station communale» ist die Gemeindesprechstelle, «Poste de gendarmerie» ein Polizeiposten
+NOT_OFFICE = re.compile(r"gendarm|police|polizei|douane|pompier|secours|d['’]appel|\bgarde\b", re.I)
 HOTEL = re.compile(r"hotel|hôtel|kurhaus|kuranstalt|grand-hôtel|pension\b|albergo|sanatori|kurort|fremdenpension", re.I)
-POP_YEARS = (1888, 1900, 1910)
+POP_YEARS = (1880, 1888, 1900, 1910)
+YEARS = list(range(1880, 1915))
+HOME_MIN = 100       # Wohnungsanteil erst ab so vielen Einträgen: darunter entscheiden einzelne Fälle
 GAP = 300  # Lücke, die einen eigenen Nummernblock (Nachbarzentrale, Lesefehler) vom Hauptbereich trennt
 MAX_DENSITY = 250    # Einträge je 1000 Einwohner darüber: Ortszuordnung falsch (La Chaux-de-Fonds unter La Chaux VD)
 STATION_RADIUS = 3.0  # km: Bahnhof gehört zur nächsten Gemeinde in diesem Umkreis
@@ -171,22 +178,28 @@ def telephone(P: list[dict]) -> dict:
                 last = n
         if m and sum(1 for y, _ in kept if y < NATIONAL_FROM) >= MIN_POINTS and kept[-1][1] >= MIN_LAST:
             series[m] = kept
-            home[m] = [[y, round(kinds[(m, y, best[(m, y)][1])]["home"] / n, 4)] for y, n in kept]
+            home[m] = [[y, round(kinds[(m, y, best[(m, y)][1])]["home"] / n, 4)] for y, n in kept if n >= HOME_MIN]
     # Gemeinden: erstes Jahr, Einträge im letzten Jahr, Sprechstellen
     first: dict = {}
     n1914: Counter = Counter()
     geo: dict = {}
     call: dict = defaultdict(set)
+    per_year: Counter = Counter()
+    seen: dict = defaultdict(set)
+    books: dict = defaultdict(set)
     for x in P:
         m, y = x["municipality_1914"], int(x["year"])
+        per_year[y] += 1
+        books[y].add(x["refcode"])
         if not m:
             continue
+        seen[y].add(m)
         first[m] = min(first.get(m, 9999), y)
         if y == 1914:
             n1914[m] += 1
         if x["lat"] and m not in geo:
             geo[m] = (x["canton"], round(float(x["lat"]), 4), round(float(x["lon"]), 4))
-        if y >= NATIONAL_FROM and CALL_OFFICE.search(" ".join(ptt_text(x))):
+        if CALL_OFFICE.search(" ".join((x["name1"], x["name2"], x["occupation"], x["supplement"]))):
             call[y].add(m)
     call_first = {}
     for y in sorted(call):
@@ -198,13 +211,15 @@ def telephone(P: list[dict]) -> dict:
     for c in sorted(total):
         ms = [p for p in places if p[1] == c]
         cantons[c] = {"gemeinden": total[c],
-                      **{f"bis_{y}": sum(1 for p in ms if p[4] <= y) for y in (1910, 1911, 1912, 1913, 1914)},
+                      **{f"bis_{y}": sum(1 for p in ms if p[4] <= y) for y in (1890, 1900, 1910, 1914)},
                       "sprechstellen_1914": sum(1 for p in ms if p[6] and p[6] <= 1914)}
-    return {"series": series, "home": home, "places": places, "cantons": cantons,
+    # Bestand der Quelle je Jahr: Bücher, Einträge, Gemeinden mit Eintrag
+    coverage = [[y, len(books[y]), per_year[y], len(seen[y])] for y in YEARS]
+    return {"series": series, "home": home, "places": places, "cantons": cantons, "coverage": coverage,
             "call_offices": {y: len(v) for y, v in sorted(call.items())}}
 
 
-def occupations(P: list[dict], A: list[dict]) -> dict:
+def occupations(P: list[dict], A: list[dict], tel: dict) -> dict:
     # Adressbuchreihen: Städte mit mindestens zwei Bänden, je 1000 Einträge
     ab: dict = defaultdict(Counter)
     ab_n: Counter = Counter()
@@ -227,14 +242,28 @@ def occupations(P: list[dict], A: list[dict]) -> dict:
     nat_n: Counter = Counter()
     first: dict = defaultdict(dict)
     examples: dict = defaultdict(list)
+    # Band 2c (Tessin) ist nur 1911 und 1912 gelesen: für den Vergleich der Jahre zählen nur Bände, die jedes Jahr vorliegen
+    vols: dict = defaultdict(set)
+    for x in P:
+        if int(x["year"]) >= NATIONAL_FROM:
+            vols[int(x["year"])].add(x["refcode"].split("_")[1])
+    every = set.intersection(*vols.values()) if vols else set()
+    city: dict = defaultdict(Counter)
+    city_n: Counter = Counter()
     for x in P:
         y = int(x["year"])
         gs = groups(*ptt_text(x))
-        if y >= NATIONAL_FROM:
+        national = y >= NATIONAL_FROM and x["refcode"].split("_")[1] in every
+        if national:
             nat_n[y] += 1
+        if x["municipality_1914"] in tel["series"]:
+            ck = (x["municipality_1914"], y, x["refcode"])
+            city_n[ck] += 1
+            for g in gs:
+                city[ck][g] += 1
         for g in gs:
             m = x["municipality_1914"]
-            if y >= NATIONAL_FROM:
+            if national:
                 nat[y][g] += 1
                 if m:
                     nat_m[y][g].add(m)
@@ -244,7 +273,15 @@ def occupations(P: list[dict], A: list[dict]) -> dict:
                 examples[g].append([x["municipality_1914"], (x["name1"] + (" " + x["forename"] if x["forename"] else "")).strip()[:60],
                                     (x["occupation"] or x["supplement"])[:70]])
     national = {y: {"eintraege": nat_n[y], **{g: [nat[y][g], len(nat_m[y][g])] for g, _ in GROUPS}} for y in sorted(nat_n)}
-    return {"ab": ab_series, "national": national, "first": {g: first[g] for g, _ in GROUPS},
+    # je Stadt und Jahr der Band mit den meisten Einträgen, wie in den Stadtreihen
+    best: dict = {}
+    for (m, y, ref), n in city_n.items():
+        if n > best.get((m, y), (0, ""))[0]:
+            best[(m, y)] = (n, ref)
+    cities = {m: [[y, n, {g: city[(m, y, best[(m, y)][1])][g] for g, _ in GROUPS}] for y, n in rows if n >= HOME_MIN]
+              for m, rows in tel["series"].items()}
+    return {"ab": ab_series, "national": national, "first": {g: first[g] for g, _ in GROUPS}, "cities": cities,
+            "volumes": sorted(every),
             "examples": {g: examples[g] for g, _ in GROUPS}}
 
 
@@ -267,7 +304,7 @@ def office(x: dict) -> str | None:
     if x["entity_type"] == "person":
         return None
     name = " ".join(p for p in (x["name1"], x["name2"]) if p).strip()
-    if INN.search(name):
+    if INN.search(name) or CALL_OFFICE.search(name) or NOT_OFFICE.search(name):
         return None
     for k, rx in OFFICES:
         if rx.search(name):
@@ -275,14 +312,27 @@ def office(x: dict) -> str | None:
     return None
 
 
-def works(x: dict) -> str | None:
+def works(x: dict) -> list[str]:
+    """Arten der Werke im Namen eines Betriebs oder Amts («Gas-, Wasser- u. Elektrizitätswerk» ist dreierlei)."""
     if x["entity_type"] == "person":
-        return None
+        return []
     name = " ".join((x["name1"], x["name2"]))
-    for k, rx in WORKS:
-        if rx.search(name):
-            return k
-    return None
+    return [k for k, rx in WORKS if rx.search(name)]
+
+
+def term(x: dict) -> str:
+    """Suchwort, mit dem der Eintrag im Buch seiner Gemeinde zu finden ist."""
+    return re.sub(r"[^\w .&'’-]+.*$", "", x["name1"]).strip()[:40]
+
+
+def cumulative(first: dict) -> list[int]:
+    """Gemeinden, die bis zum Jahr mindestens einmal vorkommen, für jedes Jahr in YEARS."""
+    ys = Counter(v[0] if isinstance(v, list) else v for v in first.values())
+    out, n = [], 0
+    for y in YEARS:
+        n += ys.get(y, 0)
+        out.append(n)
+    return out
 
 
 def top_of_range(numbers: list[int]) -> int:
@@ -341,26 +391,18 @@ def spuren(P: list[dict], tel: dict) -> dict:
     # Gemeindewerke, Ämter, Fremdenverkehr
     werk_first: dict = defaultdict(dict)
     office_first: dict = defaultdict(dict)
-    office_year: dict = defaultdict(lambda: defaultdict(set))
-    werk_year: dict = defaultdict(lambda: defaultdict(set))
     first_year: dict = {}
     for x in P:
         m, y = x["municipality_1914"], int(x["year"])
         if not m:
             continue
         first_year[m] = min(first_year.get(m, 9999), y)
-        w = works(x)
-        if w:
-            werk_first[w][m] = min(werk_first[w].get(m, 9999), y)
-            if y >= NATIONAL_FROM:
-                werk_year[y][w].add(m)
+        for w in works(x):
+            if y < werk_first[w].get(m, [9999])[0]:
+                werk_first[w][m] = [y, term(x)]
         o = office(x)
-        if o:
-            office_first[o][m] = min(office_first[o].get(m, 9999), y)
-            if y >= NATIONAL_FROM:
-                office_year[y][o].add(m)
-    with_phone = {y: len({x["municipality_1914"] for x in P if int(x["year"]) == y and x["municipality_1914"]})
-                  for y in range(NATIONAL_FROM, 1915)}
+        if o and y < office_first[o].get(m, [9999])[0]:
+            office_first[o][m] = [y, term(x)]
     first_n: Counter = Counter()
     first_hotel: Counter = Counter()
     for x in P:
@@ -444,11 +486,8 @@ def spuren(P: list[dict], tel: dict) -> dict:
             "phone_1911": len(phone_1911), "call_1914": len(call_1914), "gemeinden": total, "places": stations}
     return {
         "numbers": numbers,
-        "werke": {"first": {k: werk_first[k] for k, _ in WORKS},
-                  "per_year": {y: {k: len(werk_year[y][k]) for k, _ in WORKS} for y in sorted(werk_year)}},
-        "aemter": {"first": {k: office_first[k] for k, _ in OFFICES},
-                   "per_year": {y: {k: len(office_year[y][k]) for k, _ in OFFICES} for y in sorted(office_year)},
-                   "with_phone": with_phone},
+        "werke": {"first": {k: werk_first[k] for k, _ in WORKS}},
+        "aemter": {"first": {k: office_first[k] for k, _ in OFFICES}},
         "tourismus": {"places": tourism, "share": hotel_share},
         "einwohner": {"places": density, "cities": city_density, "implausible": [[r[0], r[3], r[4]] for r in implausible]},
         "bahn": rail,
@@ -485,8 +524,20 @@ def find() -> None:
     P = open_csv(NORM / "ptt_entries.csv.gz")
     A = open_csv(NORM / "ab_entries.csv")
     tel = telephone(P)
-    out = {"telefon": tel, "berufe": occupations(P, A), "bahnhofstrasse": station_streets(P),
+    out = {"telefon": tel, "berufe": occupations(P, A, tel), "bahnhofstrasse": station_streets(P),
            "spuren": spuren(P, tel), "groups": [k for k, _ in GROUPS]}
+    # Verlauf 1880–1914: Gemeinden, die bis zum Jahr mindestens einmal vorkommen. Ein Jahr ohne Buch oder ein
+    # schlecht gelesener Band senkt die Zahl nicht; vor 1911 wächst sie auch, weil Bücher dazukommen.
+    sp = out["spuren"]
+    out["verlauf"] = {
+        "years": YEARS,
+        "telefon": cumulative({p[0]: p[4] for p in tel["places"]}),
+        "sprech": cumulative({p[0]: p[6] for p in tel["places"] if p[6]}),
+        "bahnhofstrasse": cumulative(out["bahnhofstrasse"]["first"]),
+        **{f"werk_{k}": cumulative(v) for k, v in sp["werke"]["first"].items()},
+        **{f"amt_{k}": cumulative(v) for k, v in sp["aemter"]["first"].items()},
+        **{k: cumulative(v) for k, v in out["berufe"]["first"].items()},
+    }
     OUT.write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")) + "\n")
     t = out["telefon"]
     print(f"Stadtreihen: {', '.join(t['series'])}")
@@ -496,11 +547,12 @@ def find() -> None:
     for y, v in out["berufe"]["national"].items():
         print(y, v)
     print("Bahnhofstrasse", out["bahnhofstrasse"]["per_year"])
-    sp = out["spuren"]
     for m, rows in sp["numbers"].items():
         print("Nummern", m, rows)
-    print("Werke", sp["werke"]["per_year"], {k: len(v) for k, v in sp["werke"]["first"].items()})
-    print("Ämter", sp["aemter"]["per_year"], sp["aemter"]["with_phone"])
+    V = out["verlauf"]
+    for k, v in V.items():
+        if k != "years":
+            print("Verlauf", k, {y: v[y - 1880] for y in (1885, 1890, 1900, 1910, 1914)})
     print("Tourismus", len(sp["tourismus"]["places"]), sp["tourismus"]["share"], sp["tourismus"]["places"][:15])
     print("Einwohner", sp["einwohner"]["places"][:8])
     for m, v in sp["einwohner"]["cities"].items():
