@@ -80,7 +80,7 @@ Zerlegung: `parse_ptt.py`).
 | `hist_code_1914`, `municipality_1914` | Historisierungsnummer und Name der Gemeinde 1914 (BFS); leer bei Ortschaften |
 | `bfs_today`, `canton`, `lat`, `lon` | heutige BFS-Nummer(n), Kanton, Koordinaten (WGS84) |
 | `exchange_raw` | Zentrale in Klammern, wie gelesen |
-| `place_method` | Weg der Auflösung, z. B. `überschrift:name:eindeutig`, `überschrift:abkürzung:zentrale`, `jahresabgleich:zeile`, `…:lauf-unplausibel` |
+| `place_method` | Weg der Auflösung, z. B. `überschrift:name:eindeutig`, `überschrift:abkürzung:zentrale`, `überschrift:ähnlich:zentrale` (verlesener Name, ähnlicher Ort nahe der Zentrale), `jahresabgleich:zeile` / `:seite` / `:block` (Charge A und andere Jahrgänge), `…:lauf-unplausibel` |
 | `place_confidence` | `hoch` (Name genau, eindeutig oder durch Kanton/Zentrale bestimmt, oder zwei Jahrgänge stimmen überein), `mittel`, `unsicher` (Überschrift trägt mehr Zeilen, als der Ort haben kann, und kein anderer Jahrgang klärt sie), `keine` |
 | **Zerlegung** | |
 | `entity_type` | `person`, `firma` (auch Hotels, Vereine, Einrichtungen), `amt` (Gemeinde-Sprechstationen, Post, Polizei …), `zusatz` (zweite Zeile eines Abonnenten: Wohnung, Filiale …) |

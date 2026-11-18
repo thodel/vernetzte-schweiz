@@ -102,7 +102,7 @@ def build_forenames(rows: list[dict]) -> set[str]:
             continue
         if (ab[t] >= 2 or n2[t] >= 15) and n1[t] < max(n2[t], ab[t]):
             out.append({"forename": t, "adressbuch": ab[t], "telefonbuch": n2[t], "als_name": n1[t]})
-    out.sort(key=lambda r: -(r["adressbuch"] + r["telefonbuch"]))
+    out.sort(key=lambda r: (-(r["adressbuch"] + r["telefonbuch"]), r["forename"]))
     path = ROOT / "data" / "ref" / "forenames.csv"
     with open(path, "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=list(out[0]), lineterminator="\n")

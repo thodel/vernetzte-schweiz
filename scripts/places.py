@@ -8,15 +8,22 @@ eine Überschrift aus, erben ganze Seiten den falschen Ort: Zürich 1912 steht a
 1. **Name → Ort.** Ortsteil, Zentrale und Kantonszusatz trennen, bekannte Lesefehler
    (Ea→La, 8t.→St.) beheben, im Gemeindeverzeichnis 1914 und im Ortschaftenverzeichnis
    suchen (genau, als Abkürzung, unscharf). Gleichnamige Orte trennt der Kantonszusatz, die
-   Nähe zur Zentrale und die Kantone, die ein Band sonst abdeckt.
+   Nähe zur Zentrale und die Kantone, die ein Band sonst abdeckt. Liegt der gefundene Ort
+   weiter als `NEAR_KM` von der Zentrale in der Klammer, ist die Überschrift verlesen
+   («Betten (Echallens)» ist Bettens VD, nicht Betten VS): ein ähnlicher Name bis
+   `SIMILAR_KM` von der Zentrale geht vor, sonst die Zentrale selbst.
 2. **Lauf prüfen.** Eine Folge gleicher Überschriften ist plausibel, wenn sie nicht mehr
    als `CAP` Zeilen hat oder der Ort eine Stadt ist (mindestens drei Postleitzahlen). Ein
    unplausibler Lauf wird über die anderen Jahrgänge geprüft: dieselben Abonnenten (Name
    und Rufnummer, oder Name und Strasse) stehen meist mehrere Jahre im Buch; was die
-   plausiblen Läufe der anderen Jahre für sie sagen, entscheidet je Zeile (eindeutige
-   Stimmen) oder je Seite (nur wenn die Mehrheit eine Stadt ist: Stadtblöcke sind
-   seitenweise einheitlich, Seiten zusammengelegter Dörfer nicht). Was so nicht zu klären
-   ist, behält die Überschrift mit `place_confidence = unsicher`.
+   plausiblen Läufe der anderen Jahre (auch Charge A bis 1910, die den Ort je Eintrag
+   nennt) für sie sagen, entscheidet je Zeile (eindeutige Stimmen), je Seite oder für den
+   ganzen Block zwischen erster und letzter Stimme (beides nur für eine Stadt: Stadtblöcke
+   sind einheitlich, Seiten zusammengelegter Dörfer nicht). Stadt ist dabei auch, was in
+   einem Jahrgang mehr als `CAP` Einträge hat (La Chaux-de-Fonds, Neuchâtel). Stimmen für
+   ein Dorf weiter als `NEAR_KM` von der Überschrift zählen nicht: Name und kurze
+   Rufnummer kehren landesweit wieder. Was so nicht zu klären ist, behält die Überschrift
+   mit `place_confidence = unsicher`.
 
 Handkorrekturen: data/review/places_manual.csv (place_raw → hist_code oder Ortschaft).
 """
@@ -37,6 +44,10 @@ REF = ROOT / "data" / "ref"
 CAP = 150            # Zeilen, die eine Dorf-Überschrift höchstens trägt
 CITY_PLZ = 3         # ab so vielen Postleitzahlen gilt ein Ort als Stadt
 NEAR_KM = 40
+SIMILAR = 0.8         # Namensähnlichkeit für einen Ort nahe der Zentrale …
+SIMILAR_KM = 15      # … und wie nah er ihr sein muss
+SPAN_MIN = 20        # Stimmen, ab denen ein Lauf als Stadtblock gilt
+SPAN_SHARE = 0.8     # Anteil der Stimmen, der auf die Stadt fallen muss
 
 CANTON_HINTS = {
     "b": "BE", "be": "BE", "bern": "BE", "sol": "SO", "so": "SO", "vd": "VD", "vaud": "VD",
@@ -150,8 +161,9 @@ class Gazetteer:
         self.manual = {}
         mp = ROOT / "data" / "review" / "places_manual.csv"
         if mp.exists():
-            for r in csv.DictReader(open(mp, encoding="utf-8")):
-                self.manual[r["place_raw"]] = r
+            with open(mp, encoding="utf-8") as f:
+                for r in csv.DictReader(f):
+                    self.manual[r["place_raw"]] = r
 
     @lru_cache(maxsize=None)
     def lookup(self, name: str) -> tuple[tuple, str]:
@@ -263,6 +275,38 @@ class Resolver:
             return (gem or pool)[0], "nah"
         return None, "mehrdeutig"
 
+    def exchanges(self, paren: str) -> list[dict]:
+        out = []
+        for part in re.split(r"[,;]", paren):
+            ex, _ = self.gaz.candidates(split_locality(part.strip())[0])
+            out += [e for e in ex if not math.isnan(e["lat"])]
+        return out
+
+    def far_from_exchange(self, c: dict, paren: str) -> bool:
+        ex = self.exchanges(paren)
+        if not ex or math.isnan(c["lat"]):
+            return False
+        return min(dist_km(c, (e["lat"], e["lon"])) for e in ex) > NEAR_KM
+
+    def near_exchange(self, name: str, paren: str) -> dict | None:
+        k = key(name)
+        if not k:
+            return None
+        ex = self.exchanges(paren)
+        pool = self.gaz.by_first.get(k[:1], ())
+        sim = [h for h in pool if h != k and (difflib.SequenceMatcher(None, k, h).ratio() >= SIMILAR
+                                             or k in h.split())]
+        sim += [h for h in self.gaz.cands if h[:1] != k[:1] and k in h.split()]   # «Bellerive» → «Collonge-Bellerive»
+        best = None
+        for h in sim:
+            for c in self.gaz.cands[h]:
+                if math.isnan(c["lat"]):
+                    continue
+                d = min(dist_km(c, (e["lat"], e["lon"])) for e in ex)
+                if d <= SIMILAR_KM and (best is None or d < best[0]):
+                    best = (d, c)
+        return best[1] if best else None
+
     def resolve(self, raw: str, ser: str, network: str) -> dict:
         ck = (raw, ser)
         if ck in self.cache:
@@ -281,11 +325,21 @@ class Resolver:
                      or (man.get("name") and c["name"] == man["name"] and c["canton"] == man.get("canton", c["canton"]))]
             how = "hand"
         c, why = self.pick(cands, hint, paren, ser) if cands else (None, "")
+        if c is not None and paren and not man and self.far_from_exchange(c, paren):
+            # «Betten (Echallens)» ist nicht Betten VS: ein Ort weit weg von seiner Zentrale
+            # ist ein Lesefehler; ein ähnlicher Name nahe der Zentrale geht vor, sonst die
+            # Zentrale selbst
+            near = self.near_exchange(name, paren)
+            if near is not None:
+                c, how, why = near, "ähnlich", "zentrale"
+            else:
+                c = None
         if c is None and paren and not man:
-            # Ortsteil unbekannt: auf die Zentrale zurückfallen
-            first = re.split(r"[,;]", paren)[0]
+            # Ortsteil unbekannt: auf die Zentrale zurückfallen; weitere Angaben in der
+            # Klammer («Cottens, Fribourg») trennen gleichnamige Zentralen
+            first, _, rest = paren.replace(";", ",").partition(",")
             ecands, _ = self.gaz.candidates(split_locality(first)[0])
-            c, why = self.pick(ecands, hint, "", ser) if ecands else (None, "")
+            c, why = self.pick(ecands, hint, rest, ser) if ecands else (None, "")
             if c is not None:
                 how, why = "zentrale", why
         if c is not None:
@@ -348,6 +402,7 @@ def resolve_all(rows: list[dict]) -> Counter:
     votes: dict[tuple, Counter] = defaultdict(Counter)
     place_of: dict[str, dict] = {}
     cities: set[str] = set()
+    size: Counter = Counter()
 
     def keys(r: dict) -> list[tuple]:
         n1 = key(r["name1"])
@@ -360,13 +415,17 @@ def resolve_all(rows: list[dict]) -> Counter:
 
     for i in plausible:
         for r in runs[i]:
-            if r["place_confidence"] in ("hoch", "mittel") and r["batch"] == "B":
+            if r["place_confidence"] in ("hoch", "mittel"):
                 pk = r["hist_code_1914"] or f"{r['place_name']}|{r['canton']}"
                 place_of[pk] = {f: r[f] for f in PLACE_FIELDS if f not in ("place_raw", "exchange_raw", "place_method", "place_confidence")}
                 if r["_plz"] >= CITY_PLZ:
                     cities.add(pk)
+                size[(pk, r["year"])] += 1
                 for k in keys(r):
                     votes[k][(pk, r["year"])] += 1
+
+    # eine Stadt ist auch, was in einem Jahrgang mehr Einträge hat, als ein Dorf tragen kann
+    cities |= {pk for (pk, _), n in size.items() if n > CAP}
 
     def row_vote(r: dict) -> Counter:
         c: Counter = Counter()
@@ -386,7 +445,18 @@ def resolve_all(rows: list[dict]) -> Counter:
             stats["zeilen in plausiblen läufen"] += len(run)
             continue
         stats["zeilen in unplausiblen läufen"] += len(run)
-        rv = {id(r): row_vote(r) for r in run}
+        # Name und kurze Rufnummer kehren landesweit wieder: ein Dorf weit weg von der
+        # Überschrift zählt nicht, nur eine Stadt, deren Überschrift ausgefallen ist
+        h = run[0]
+        here = (float(h["lat"]), float(h["lon"])) if h["lat"] != "" else None
+
+        def plausible_vote(pk: str) -> bool:
+            if pk in cities or here is None or place_of[pk]["lat"] == "":
+                return True
+            p = place_of[pk]
+            return dist_km({"lat": float(p["lat"]), "lon": float(p["lon"])}, here) <= NEAR_KM
+
+        rv = {id(r): Counter({pk: n for pk, n in row_vote(r).items() if plausible_vote(pk)}) for r in run}
         total: Counter = Counter()
         by_page: dict[str, Counter] = defaultdict(Counter)
         for r in run:
@@ -395,7 +465,16 @@ def resolve_all(rows: list[dict]) -> Counter:
                 top = v.most_common(1)[0][0]
                 total[top] += 1
                 by_page[r["page"]][top] += 1
-        for r in run:
+        # Stadtblock: stimmen die entschiedenen Zeilen des Laufs fast alle für eine Stadt,
+        # gehört alles zwischen ihrer ersten und letzten Stimme dieser Stadt (die Zeilen
+        # davor sind das Dorf der Überschrift)
+        span = None
+        if total:
+            pk, n = total.most_common(1)[0]
+            if pk in cities and n >= SPAN_MIN and n / sum(total.values()) >= SPAN_SHARE:
+                idx = [j for j, r in enumerate(run) if rv[id(r)] and rv[id(r)].most_common(1)[0][0] == pk]
+                span = (pk, idx[0], idx[-1])
+        for j, r in enumerate(run):
             v = rv[id(r)]
             pv = by_page.get(r["page"])
             page_pk = None
@@ -411,6 +490,9 @@ def resolve_all(rows: list[dict]) -> Counter:
             elif page_pk:
                 apply(r, page_pk, "jahresabgleich:seite", "mittel")
                 stats["jahresabgleich:seite"] += 1
+            elif span and span[1] <= j <= span[2]:
+                apply(r, span[0], "jahresabgleich:block", "mittel")
+                stats["jahresabgleich:block"] += 1
             else:
                 r["place_method"] += ":lauf-unplausibel"
                 r["place_confidence"] = "unsicher"
