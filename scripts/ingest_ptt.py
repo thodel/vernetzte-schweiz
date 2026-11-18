@@ -5,6 +5,8 @@ auf dem Commit aus `config/sources.toml` steht. Übernommen werden
 - Charge A: die eintragsweise aufbereiteten Dateien tsv/a/<RefCode>.tsv (nicht die alte
   seitenweise Sammeldatei a1*.tsv),
 - Charge B: die Zeilen aus tsv/b*.tsv,
+- Neulesungen: data/override/ptt/<Band>.tsv ersetzt alle Zeilen dieses Bandes aus Charge B (Spalten wie
+  dort, dazu `Image` = Nummer des Seitenbilds); so gelesen ist bisher Band 2c (Tessin) 1911 und 1912,
 jeweils Jahre im Zeitfenster. Die Zeilennummer `seq` zählt je Quelldatei (A) bzw. je
 Band (`File`, B) in Lesereihenfolge, auch über Zeilen ohne Namen hinweg; sie ist Teil der Id.
 """
@@ -12,6 +14,7 @@ Band (`File`, B) in Lesereihenfolge, auch über Zeilen ohne Namen hinweg; sie is
 from __future__ import annotations
 
 import csv
+import os
 import subprocess
 import sys
 from collections import Counter
@@ -21,7 +24,8 @@ from common import config, in_window, write_csv
 
 FIELDS = ["id", "batch", "seq", "year", "network", "refcode", "page", "image",
           "name1", "name2", "supplement", "street", "locality", "phone"]
-RAW = Path(__file__).resolve().parent.parent / ".cache" / "ptt_raw.csv.gz"
+ROOT = Path(__file__).resolve().parent.parent
+RAW = ROOT / ".cache" / "ptt_raw.csv.gz"
 
 
 def clean(v: str | None) -> str:
@@ -31,7 +35,8 @@ def clean(v: str | None) -> str:
 def main() -> None:
     cfg = config()
     ptt = cfg["ptt"]
-    repo = Path(ptt["local"]).expanduser()
+    repo = Path(os.environ.get("PTT_LOCAL") or ptt["local"]).expanduser()   # PTT_LOCAL: anderer Checkout am gepinnten Commit
+    overrides = {p.stem: p for p in sorted((ROOT / ptt["overrides"]).glob("*.tsv"))} if ptt.get("overrides") else {}
     head = subprocess.run(["git", "-C", str(repo), "rev-parse", "HEAD"],
                           capture_output=True, text=True, check=True).stdout.strip()
     if head != ptt["commit"]:
@@ -50,7 +55,7 @@ def main() -> None:
         rows.append({
             "id": f"ptt:{stem}:{n}", "batch": batch, "seq": n, "year": year,
             "network": clean(r.get("Network")), "refcode": refcode, "page": clean(r.get("Page")),
-            "image": clean(r.get("File")) if batch == "A" else "",
+            "image": clean(r.get("File")) if batch == "A" else clean(r.get("Image")),
             "name1": clean(r.get("EntityName1")), "name2": clean(r.get("EntityName2")),
             "supplement": clean(r.get("Supplement")), "street": clean(r.get("Street")),
             "locality": clean(r.get("Locality")), "phone": clean(r.get("PhoneNumber")),
@@ -69,8 +74,15 @@ def main() -> None:
         counter: Counter = Counter()
         for r in read_tsv(path):
             stem = clean(r.get("File"))
+            if stem in overrides:
+                stats["B: durch Neulesung ersetzt"] += 1
+                continue
             counter[stem] += 1
             take(r, "B", stem, counter[stem], stem)
+    for stem, path in overrides.items():
+        for n, r in enumerate(read_tsv(path), start=1):
+            take(r, "B", stem, n, stem)
+            stats["B: aus Neulesung"] += 1
 
     write_csv(RAW, FIELDS, rows)
     for k, v in sorted(stats.items()):

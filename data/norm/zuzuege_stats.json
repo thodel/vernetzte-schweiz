@@ -1,8 +1,8 @@
 {
  "Aarau": {
   "1867": {
-   "personen": 1386,
-   "erster_band": 1386,
+   "personen": 1385,
+   "erster_band": 1385,
    "nicht_erfasst": [],
    "zuzug_mit_heimatort": 0,
    "zuzug_ausland": 0,
@@ -10,9 +10,9 @@
    "bleibt_ausland": 0
   },
   "1869": {
-   "personen": 1460,
+   "personen": 1459,
    "haushalt": 211,
-   "bleibt": 923,
+   "bleibt": 922,
    "neu_familie": 200,
    "neu": 106,
    "witwe": 20,
@@ -25,9 +25,9 @@
   "1877": {
    "personen": 1664,
    "haushalt": 243,
-   "bleibt": 737,
+   "bleibt": 736,
    "neu": 241,
-   "neu_familie": 397,
+   "neu_familie": 398,
    "witwe": 46,
    "nicht_erfasst": [],
    "zuzug_mit_heimatort": 414,
@@ -64,9 +64,9 @@
   "1884": {
    "personen": 1839,
    "neu": 133,
-   "bleibt": 1107,
+   "bleibt": 1106,
    "neu_familie": 362,
-   "haushalt": 194,
+   "haushalt": 195,
    "witwe": 43,
    "nicht_erfasst": [],
    "zuzug_mit_heimatort": 393,
@@ -76,10 +76,10 @@
   },
   "1888": {
    "personen": 1836,
-   "bleibt": 1324,
+   "bleibt": 1323,
    "neu_familie": 285,
    "neu": 94,
-   "haushalt": 99,
+   "haushalt": 100,
    "witwe": 34,
    "nicht_erfasst": [],
    "zuzug_mit_heimatort": 291,
@@ -162,8 +162,8 @@
    "bleibt_ausland": 0
   },
   "1885": {
-   "personen": 26503,
-   "neu": 4339,
+   "personen": 26502,
+   "neu": 4338,
    "neu_familie": 14912,
    "bleibt": 6013,
    "witwe": 771,

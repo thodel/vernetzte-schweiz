@@ -29,7 +29,7 @@ Daraus folgen zwei Regeln für alles, was über die Jahre verglichen wird:
   (1, 2a, 2b, 3).
 
 Die Seite zeigt den Bestand selbst («Was die Bücher abdecken»): Einträge und Gemeinden je Jahrgang
-und die Gemeinden bisher (1890: 210, 1900: 1'285, 1910: 2'149, 1914: 2'633).
+und die Gemeinden bisher (1890: 220, 1900: 1'319, 1910: 2'192, 1914: 2'697).
 
 ## 1. Telefonnetz
 
@@ -37,7 +37,7 @@ und die Gemeinden bisher (1890: 210, 1900: 1'285, 1910: 2'149, 1914: 2'633).
 zählt der mit den meisten Einträgen. Ein Jahr mit weniger als 90 % des bisher höchsten Jahrs gilt
 als unvollständig gelesen und fällt weg (ein Netz schrumpft in dieser Zeit nicht). Gezeigt sind 21 Städte mit mindestens acht Jahrgängen
 vor 1911 und mindestens 150 Einträgen im letzten Jahr. Basel wächst von 145 Einträgen
-(1881) auf 7'440 (1914), Bern von 74 auf 6'189. (Basel stand vorher bei 8'813: Darunter waren 1'350
+(1881) auf 7'440 (1914), Bern von 74 auf 6'191. (Basel stand vorher bei 8'813: Darunter waren 1'350
 Einträge von Luzern, die im Band unter der Überschrift «Basel» stehen.)
 Ein Eintrag ist nicht ein Anschluss: Firmen stehen unter mehreren Namen, Geschäftsleute mit
 Wohnungsanschluss zweimal.
@@ -52,8 +52,8 @@ taugt dafür nicht: «Weitnauer, Cigarrenhandlung» ist eine Person mit Geschäf
 **Gemeinden.** Erstes Jahr, in dem eine Gemeinde in einem Telefonbuch steht, Einträge 1914 und
 öffentliche Sprechstellen (`CALL_OFFICE`: «Gemeindestation», «Gemeindesprechstation», «Station
 communale», «Station publique», «Stazione pubblica», «Stazione consortile»). Von den 3'151 Gemeinden
-am 1.1.1914 (BFS) haben 2'633 bis 1914 mindestens einen Eintrag (84 %), 2'149 schon bis 1910. Eine
-öffentliche Sprechstelle haben bis 1914 1'737 Gemeinden, zwei von drei mit Telefon. Die Karte färbt
+am 1.1.1914 (BFS) haben 2'697 bis 1914 mindestens einen Eintrag (86 %), 2'192 schon bis 1910. Eine
+öffentliche Sprechstelle haben bis 1914 1'816 Gemeinden, zwei von drei mit Telefon. Die Karte färbt
 nach Jahrzehnten (1880–1889, 1890–1899, 1900–1910, 1911–1914); die Kantonstabelle nennt den Stand
 1890, 1900, 1910 und 1914.
 
@@ -103,13 +103,13 @@ fehlt 1913 und 1914):
 
 | Gruppe | 1911 | 1912 | 1913 | 1914 |
 |---|---|---|---|---|
-| Bahn | 397 (148) | 444 (154) | 481 (164) | 501 (170) |
-| Post, Telegraf, Telefon | 721 (277) | 802 (297) | 904 (350) | 963 (367) |
-| Elektrizität | 541 (178) | 556 (202) | 636 (217) | 664 (220) |
-| Gas und Wasser | 269 (77) | 289 (86) | 310 (88) | 331 (97) |
-| Auto und Velo | 357 (57) | 454 (69) | 542 (74) | 590 (83) |
-| Tram, Schiff, Omnibus | 135 (41) | 153 (45) | 163 (43) | 163 (46) |
-| Ingenieure und Bau | 1'341 (218) | 1'335 (238) | 1'327 (247) | 1'369 (260) |
+| Bahn | 393 (163) | 438 (165) | 477 (177) | 495 (183) |
+| Post, Telegraf, Telefon | 721 (301) | 802 (319) | 903 (374) | 963 (396) |
+| Elektrizität | 541 (191) | 556 (221) | 636 (239) | 664 (244) |
+| Gas und Wasser | 267 (86) | 289 (94) | 310 (94) | 331 (106) |
+| Auto und Velo | 357 (61) | 454 (74) | 540 (80) | 588 (90) |
+| Tram, Schiff, Omnibus | 135 (45) | 152 (47) | 161 (45) | 161 (47) |
+| Ingenieure und Bau | 1'341 (242) | 1'332 (256) | 1'326 (265) | 1'368 (278) |
 | Einträge insgesamt | 71'849 | 77'496 | 86'262 | 91'339 |
 
 Die Telefonbücher nennen nur Abonnenten: ein Elektrizitätswerk oder eine Garage mit Telefon, nicht
@@ -122,15 +122,15 @@ solcher Eintrag steht; in Klammern der Anteil an den Gemeinden mit Telefon bis d
 
 | Art | bis 1890 | bis 1900 | bis 1910 | bis 1914 |
 |---|---|---|---|---|
-| Öffentliche Sprechstelle | 8 (4 %) | 463 (36 %) | 1'059 (49 %) | 1'737 (66 %) |
-| Gemeindekanzlei | 17 (8 %) | 67 (5 %) | 279 (13 %) | 738 (28 %) |
-| Post- und Telegrafenbüro | 6 (3 %) | 110 (9 %) | 347 (16 %) | 456 (17 %) |
-| Bahnhof, Station | 11 (5 %) | 42 (3 %) | 104 (5 %) | 253 (10 %) |
-| Elektrizitätswerk | 0 | 25 (2 %) | 127 (6 %) | 303 (12 %) |
-| Gaswerk | 7 (3 %) | 15 (1 %) | 49 (2 %) | 115 (4 %) |
-| Wasserversorgung | 7 (3 %) | 15 (1 %) | 41 (2 %) | 92 (3 %) |
-| Bahnhofstrasse in einer Adresse | 15 (7 %) | 38 (3 %) | 88 (4 %) | 159 (6 %) |
-| Gemeinden mit Telefon | 210 | 1'285 | 2'149 | 2'633 |
+| Öffentliche Sprechstelle | 8 (4 %) | 475 (36 %) | 1'105 (50 %) | 1'816 (67 %) |
+| Gemeindekanzlei | 18 (8 %) | 70 (5 %) | 290 (13 %) | 788 (29 %) |
+| Post- und Telegrafenbüro | 7 (3 %) | 115 (9 %) | 361 (16 %) | 485 (18 %) |
+| Bahnhof, Station | 11 (5 %) | 42 (3 %) | 112 (5 %) | 286 (11 %) |
+| Elektrizitätswerk | 0 | 25 (2 %) | 136 (6 %) | 330 (12 %) |
+| Gaswerk | 7 (3 %) | 15 (1 %) | 51 (2 %) | 124 (5 %) |
+| Wasserversorgung | 7 (3 %) | 16 (1 %) | 43 (2 %) | 100 (4 %) |
+| Bahnhofstrasse in einer Adresse | 15 (7 %) | 38 (3 %) | 90 (4 %) | 173 (6 %) |
+| Gemeinden mit Telefon | 220 | 1'319 | 2'192 | 2'697 |
 
 - Werke (`WORKS`): nach dem Namen eines Betriebs oder Amts, nicht nach dem Beruf einer Person. Ein
   «Gas-, Wasser- u. Elektrizitätswerk» zählt dreifach; «Mineralwasser- und Colonialwarenhandlung»
@@ -154,10 +154,10 @@ vergeben hat. Höchste Nummer = Ende des geschlossenen Bereichs um die mittlere 
 einer Lücke über 300 zählt nicht (Bern 1914 hat einen Block 8000–9999, St. Gallen 1911 einen um 5000–6000).
 Nur Jahre mit mindestens 80 % lesbaren Nummern. Basel springt 1896 von höchstens 2'200 auf 4'302 bei
 2'146 Nummern (belegt 50 %), bleibt bis 1905 bei rund 4'300 und füllt den Bereich auf (88 % im Jahr 1905).
-Basel 1914: 7'440 Einträge, 5'664 Nummern.
+Basel 1914: 7'440 Einträge, 5'674 Nummern.
 
 **Fremdenverkehr.** Hotels, Kurhäuser, Pensionen (`HOTEL`) unter den Einträgen im ersten Jahr einer
-Gemeinde: 6 % (1880–1899), 9 % (1900–1914). In 22 Gemeinden stellen sie mindestens die Hälfte
+Gemeinde: 6 % (1880–1899), 9 % (1900–1914). In 25 Gemeinden stellen sie mindestens die Hälfte
 (mindestens 5 Einträge), darunter Grindelwald 1893 (8 von 8), Beatenberg 1895 (11/13), Lenk 1898
 (10/10), Adelboden 1900 (20/30), Kandersteg 1900 (18/21), Salvan 1911 (11/12).
 
@@ -190,23 +190,26 @@ Händler oder Ärzte mit dem Telefon im Geschäft.
 
 | Jahr | Einwohner | Einträge | Rufnummern | Personen | Einträge je 100 Einwohner | Personen je 100 Haushalte |
 |---|---|---|---|---|---|---|
-| 1911 | 3'765'806 | 73'403 | 61'426 | 41'085 | 1,95 | 4,9 % |
-| 1912 | 3'778'361 | 79'216 | 64'197 | 47'383 | 2,10 | 5,7 % |
-| 1913 | 3'790'958 | 86'262 | 69'597 | 50'184 | 2,28 | 6,0 % |
-| 1914 | 3'803'597 | 91'339 | 74'085 | 54'541 | 2,40 | 6,5 % |
+| 1911 | 3'765'806 | 73'752 | 63'388 | 44'333 | 1,96 | 5,3 % |
+| 1912 | 3'778'361 | 79'598 | 65'725 | 50'034 | 2,11 | 6,0 % |
+| 1913 | 3'790'958 | 86'262 | 70'446 | 53'468 | 2,28 | 6,4 % |
+| 1914 | 3'803'597 | 91'339 | 74'359 | 56'789 | 2,40 | 6,8 % |
 
-1913 und 1914 fehlt Band 2c (Tessin, 1'500–1'700 Einträge); die Zahlen dieser Jahre liegen darum um
-etwa 2 % zu tief.
+1913 und 1914 fehlt Band 2c (Tessin, 1'900–2'100 Einträge); die Zahlen dieser Jahre liegen darum um
+etwa 2 % zu tief. Band 2c ist für 1911 und 1912 neu gelesen ([neulesung_2c.md](neulesung_2c.md)); die
+Zeile «Personen» stieg am 18.11.2026 in allen Jahren um 2'200–3'300, weil die Namenszeilen besser
+zerlegt werden (Partikel, Doppelnamen, italienische Firmenwörter).
 
 *Städte* (je Jahr der Band mit den meisten Einträgen, ab 100 Einträgen), Personen je 100 Haushalte:
-Basel 0,7 (1881), 9,6 (1900), 15,1 (1914); Bern 1,0 (1882), 9,2 (1900), 15,0 (1914);
-St. Gallen 1,5 (1886), 6,5 (1900), 14,9 (1914); Interlaken 18,9 (1900), 34,6 (1914).
+Basel 0,7 (1881), 9,6 (1900), 15,3 (1914); Bern 1,0 (1882), 9,7 (1900), 16,2 (1914);
+St. Gallen 1,5 (1886), 6,6 (1900), 15,2 (1914); Interlaken 19,2 (1900), 38,7 (1914);
+Lugano 4,3 (1900), 13,5 (1914).
 
 *Nach Gemeindegrösse, um 1910.* **In den gesamtschweizerischen Bänden 1911–1914 fehlen vielen Orten die
 Überschriften**: Burgdorf steht unter «Büren zum Hof», Olten unter «Olsberg», Luzern 1912–1914 mitten
 unter «Basel». `places.py` findet diese Einträge über die Familiennamen des Regionalbuchs wieder
-(21'242 Zeilen), aber nicht vollständig: Burgdorf hat 238 Einträge im Regionalbuch 1910 und danach
-219, 153, 4 und 44; Aarau 530 und danach 345, 283, 205 und 130. Orte ohne Regionalbuch zum Vergleich
+(19'846 Zeilen), aber nicht vollständig: Burgdorf hat 239 Einträge im Regionalbuch 1910 und danach
+220, 154, 5 und 47; Aarau 530 und danach 347, 283, 204 und 129. Orte ohne Regionalbuch zum Vergleich
 (Vevey, Montreux) bleiben leer. Ein einzelnes Jahr taugt darum nicht. Gezählt wird je Gemeinde das
 Jahr 1909–1914 mit den meisten Einträgen (`END_YEARS`), nur sicher verortete Einträge, und gezeigt wird
 der Median der Klasse, nicht die Summe: Ein Lauf, der in ein Dorf gerutscht ist, verzerrt die Summe,
@@ -214,20 +217,20 @@ nicht den Median.
 
 | Einwohner 1910 | Gemeinden | mit Telefon | Einträge je 100 Einwohner (Median) | Personen je 100 Haushalte (Median) |
 |---|---|---|---|---|
-| unter 500 | 1'242 | 71 % | 0,60 | 0,0 % |
-| 500–999 | 623 | 90 % | 0,60 | 1,5 % |
-| 1'000–1'999 | 465 | 92 % | 0,72 | 2,0 % |
-| 2'000–4'999 | 266 | 94 % | 1,08 | 3,2 % |
-| 5'000–19'999 | 67 | 96 % | 1,91 | 5,6 % |
-| ab 20'000 | 12 | 100 % | 5,23 | 15,0 % |
+| unter 500 | 1'242 | 74 % | 0,64 | 1,0 % |
+| 500–999 | 623 | 92 % | 0,68 | 1,7 % |
+| 1'000–1'999 | 465 | 95 % | 0,89 | 2,6 % |
+| 2'000–4'999 | 266 | 96 % | 1,24 | 3,8 % |
+| 5'000–19'999 | 67 | 96 % | 1,91 | 6,0 % |
+| ab 20'000 | 12 | 100 % | 5,23 | 15,3 % |
 
 Die Werte der kleinen und mittleren Gemeinden sind Untergrenzen: Wo weder ein Regionalbuch von
 1909/1910 vorliegt noch die Überschrift im gesamtschweizerischen Band gelesen ist, fehlen die Einträge. Eine Tabelle
 nach Kantonen gibt es aus demselben Grund nicht. Die Rangliste der Seite nennt nur Gemeinden ab 5'000
-Einwohnern (`TOWN`): Genève 23,9 %, Frauenfeld 17,0 %, Aarau 15,9 %, St. Gallen 15,5 %, Zürich und
-Basel 15,1 %.
+Einwohnern (`TOWN`): Genève 25,6 %, Frauenfeld 18,3 %, St. Gallen 16,4 %, Bern 16,2 %, Aarau 16,0 %,
+Zürich 15,5 %.
 
-Die Karte «Einträge je 1000 Einwohner» zeigt ebenfalls das beste Jahr 1909–1914; 34 Gemeinden mit
+Die Karte «Einträge je 1000 Einwohner» zeigt ebenfalls das beste Jahr 1909–1914; 38 Gemeinden mit
 mehr als 250 je 1000 bleiben weg, dort ist die Ortszuordnung falsch (z. B. Kammersrohr, Bettens).
 
 **Bahn und Telefon.** Bahnhöfe aus Wikidata (`P31 Q55488`, `P17 Q39`, Eröffnung `P1619`; CC0),
@@ -237,14 +240,14 @@ bis 2000 unverändert), Anteil mit Telefon bis 1911:
 
 | Einwohner 1910 | mit Bahnhof (bis 1910) | ohne |
 |---|---|---|
-| unter 500 | 71 % (91) | 58 % (1'133) |
-| 500–999 | 92 % (86) | 86 % (501) |
-| 1'000–1'999 | 92 % (89) | 87 % (325) |
-| 2'000–4'999 | 100 % (94) | 91 % (148) |
-| ab 5'000 | 100 % (41) | 100 % (16) |
+| unter 500 | 75 % (91) | 61 % (1'133) |
+| 500–999 | 91 % (90) | 89 % (497) |
+| 1'000–1'999 | 95 % (93) | 91 % (321) |
+| 2'000–4'999 | 100 % (93) | 94 % (149) |
+| ab 5'000 | 100 % (42) | 100 % (15) |
 
-Der Bahnhof macht 5–13 Punkte aus, die Grösse den Rest des Unterschieds (91 % gegen 71 % insgesamt).
-Eine öffentliche Sprechstelle bis 1914 haben mit Bahnhof 62–98 % je Grössenklasse, ohne 50–81 %.
+Der Bahnhof macht 2–14 Punkte aus, die Grösse den Rest des Unterschieds (91 % gegen 75 % insgesamt).
+Eine öffentliche Sprechstelle bis 1914 haben mit Bahnhof 59–98 % je Grössenklasse, ohne 52–87 %.
 
 Abfrage der Bahnhöfe (CSV von https://query.wikidata.org/sparql):
 

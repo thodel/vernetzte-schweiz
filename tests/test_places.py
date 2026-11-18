@@ -33,6 +33,38 @@ class Resolve(unittest.TestCase):
     def test_exchange_disambiguated_by_rest_of_parenthesis(self):
         self.assertEqual(self.place("Autiçpiy (Cottens, Fribourg)"), ("Cottens (FR)", "FR"))
 
+    def test_locality_gets_its_1914_municipality(self):
+        """Eine Ortschaft trägt die Gemeinde von 1914, wenn ihre heutige Gemeinde aus genau einer hervorgeht,
+        oder wenn data/ref/place_aliases.csv sie nennt."""
+        def mun(raw):
+            r = dict(self.res.resolve(raw, "B2c", ""))             # Kopie: der Resolver merkt sich das Ergebnis
+            places.municipality_of_locality(r, self.res.gaz)       # die eindeutige Regel greift erst am Ende
+            return r["municipality_1914"]
+        self.assertEqual(mun("Tenero"), "Tenero-Contra")           # eindeutig
+        self.assertEqual(mun("Paradiso"), "Calprino")              # Liste: 1914 hiess die Gemeinde Calprino
+        self.assertEqual(mun("Cassarate"), "Castagnola")           # Liste: kein Eintrag im Ortschaftenverzeichnis
+        self.assertEqual(mun("Ambrì"), "Quinto")                   # Liste: Quinto hat heute zwei Vorgänger
+        self.assertEqual(mun("Acquarossa"), "")                    # liegt in mehreren Gemeinden von 1914
+
+    def test_name_matching_reads_the_source_line(self):
+        """Der Namensabgleich zählt die Namenszeile der Quelle, nicht die von repair() gereinigte:
+        «64 Müller» blieb ohne Schlüssel, und daran sind die Schwellen geeicht."""
+        self.assertEqual(places.source_surname({"name1": "Müller", "_name1_raw": "64 Müller"}), "")
+        self.assertEqual(places.source_surname({"name1": "Müller"}), "muller")
+
+    def test_locality_rule_comes_last(self):
+        """Die Regel «eindeutige Ortschaft» darf die Auflösung selbst nicht ändern (Eidberg bliebe sonst Seen
+        und die Seiten von Einsiedeln fielen nicht mehr an Einsiedeln)."""
+        r = dict(self.res.resolve("Tenero", "B2c", ""))
+        self.assertEqual(r["hist_code_1914"], "")
+        places.municipality_of_locality(r, self.res.gaz)
+        self.assertEqual(r["municipality_1914"], "Tenero-Contra")
+
+    def test_reread_volume_is_reliable(self):
+        self.assertTrue(places.reliable({"batch": "A", "image": ""}))
+        self.assertTrue(places.reliable({"batch": "B", "image": "0057"}))      # neu gelesen, Ort je Eintrag
+        self.assertFalse(places.reliable({"batch": "B", "image": ""}))
+
     def test_near_heading_kept(self):
         self.assertEqual(self.place("Fiez (Grandson)"), ("Fiez", "VD"))
 

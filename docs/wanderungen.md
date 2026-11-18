@@ -355,7 +355,8 @@ Paaren, die in keiner früheren Stichprobe standen. In `mittel` waren nur noch 3
 Übrig bleiben **433 Paare**: 49 `stark`, 256 `mittel`, 128 `schwach`
 (vorher 323: 42, 156, 125; dazwischen kamen neue Telefonbücher, Aarau 1867–1881 und Zürich
 1867 dazu). Stand 18.11.2026, nach der neuen Ortszuordnung der Telefonbücher: **426 Paare**
-(49 `stark`, 255 `mittel`, 122 `schwach`).
+(49 `stark`, 255 `mittel`, 122 `schwach`); am Abend desselben Tags, nach der besseren Zerlegung der
+Namenszeilen und der Neulesung von Band 2c: **423 Paare** (50, 252, 121).
 
 **Stichprobe 6** (`data/review/m10_wanderungen_6.csv`, Seed 15) prüft, was neu dazukommt:
 30 der 110 Paare aus «klar vorn» und 3 Paare mit seltenem Beruf.

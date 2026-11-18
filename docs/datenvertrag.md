@@ -73,8 +73,8 @@ Zerlegung: `parse_ptt.py`).
 | `id` | `ptt:<Datei oder Band>:<seq>` |
 | `batch`, `seq` | Charge `A`/`B`; Zeilennummer je Datei (A) bzw. je Band (B) in Lesereihenfolge |
 | `year`, `network` | Jahrgang; Telefonnetz (nur Charge A) |
-| `refcode`, `page`, `image` | Archivsignatur bzw. Band, Seite, Bilddatei (nur A) |
-| `name1`, `name2`, `supplement`, `street`, `locality`, `phone` | die Spalten der Quelle, Leerraum bereinigt |
+| `refcode`, `page`, `image` | Archivsignatur bzw. Band, Seite, Bilddatei (A und neu gelesene Bände, [neulesung_2c.md](neulesung_2c.md); dort ist `page` die Bildnummer) |
+| `name1`, `name2`, `supplement`, `street`, `locality`, `phone` | die Spalten der Quelle, Leerraum bereinigt; Führungspunkte entfernt, eine vor den Namen gerutschte Zahl entfernt bzw. an die Rufnummer gesetzt (`parse_flags`) |
 | **Ort** | |
 | `place_name`, `place_kind` | aufgelöster Ort; `gemeinde_1914` (Gemeinde zum 1.1.1914) oder `ortschaft` (Ortschaft des amtlichen Verzeichnisses, nie Gemeinde gewesen) |
 | `hist_code_1914`, `municipality_1914` | Historisierungsnummer und Name der Gemeinde 1914 (BFS); leer bei Ortschaften |
@@ -91,7 +91,7 @@ Zerlegung: `parse_ptt.py`).
 | `occupation` | Beruf und übrige Zusätze, `; `-getrennt |
 | `street_name`, `house_no`, `street_key` | Strasse und Nummer wie gelesen; `street_key` vereinheitlicht (`Limmatstr.` → `limmatstrasse`, `r. du Flon` → `rue flon`) |
 | `phone_norm` | Rufnummer nur Ziffern |
-| `parse_flags` | `vorname-im-namen`, `strasse-umgestellt` (Adresse stand nicht in der Strassenspalte) |
+| `parse_flags` | `vorname-im-namen`, `strasse-umgestellt` (Adresse stand nicht in der Strassenspalte), `zusatz-im-namen` («Münzer. J.. Bijoutier»), `fuehrungspunkte`, `nummer-zusammengesetzt` («64» + «16» vor dem Namen → «64.16»), `zahl-im-namen` (Zahl der Taxspalte entfernt) |
 
 ## data/ref/ — Register
 

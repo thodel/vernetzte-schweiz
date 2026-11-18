@@ -8,7 +8,7 @@ Alles läuft mit `make entities`.
 ## Was gebündelt wird
 
 - **Telefonbuch:** alle Einträge ≤ 1914 mit Gemeinde (Ort `hoch` oder `mittel`, M1), Art
-  `person` oder `firma`: 925 009 Einträge mit den Adressbüchern zusammen (Stand 18.11.2026).
+  `person` oder `firma`: 938 034 Einträge mit den Adressbüchern zusammen (Stand 18.11.2026).
 - **Adressbuch:** alle Einträge der Bände von Aarau (1867–1899), Baden (1900, 1910), Basel (1862),
   Bern (1883, 1900), Lausanne (1896, 1907) und Zürich (1867–1914).
 
@@ -62,14 +62,16 @@ gleich, solange dieser Eintrag zur Einheit gehört; bei geänderten Regeln kann 
 
 | | Anzahl |
 |---|---|
-| Einträge | 925 009 |
-| Einheiten | 477 153 (Personen 408 405, Firmen und Ämter 68 748) |
-| Einheiten mit mehr als einem Eintrag | 141 867 (mit 589 723 Einträgen) |
-| über mindestens 10 Jahre belegt | 14 966 |
-| im Telefon- und im Adressbuch | 11 856 |
+| Einträge | 938 034 |
+| Einheiten | 479 258 (Personen 416 896, Firmen und Ämter 62 362) |
+| Einheiten mit mehr als einem Eintrag | 145 148 (mit 603 924 Einträgen) |
+| über mindestens 10 Jahre belegt | 15 228 |
+| im Telefon- und im Adressbuch | 12 127 |
 
 Stand 18.11.2026 (`data/norm/cluster_stats.json`), nach der neuen Ortszuordnung der Telefonbücher:
-Rund 43 000 Einträge, deren Ort vorher `unsicher` war, zählen jetzt mit. Beim Abschluss von M3
+Rund 43 000 Einträge, deren Ort vorher `unsicher` war, zählen jetzt mit. Am Abend des 18.11. kamen
+13 000 Einträge dazu (Ortschaften mit eindeutiger Gemeinde von 1914, Band 2c neu gelesen), und die
+Personen nahmen um rund 8 500 zu, Firmen und Ämter um 6 400 ab, weil die Namenszeilen besser zerlegt werden. Beim Abschluss von M3
 (10.11.2026, nur Aarau 1884–1899 und Basel 1862 als Adressbücher) waren es 523 913 Einträge,
 181 215 Einheiten und 466 Einheiten in beiden Quellen. Basel trägt weiterhin wenig bei: Dort gibt
 es nur den Band 1862, 19 Jahre vor dem ersten Telefonbuch.

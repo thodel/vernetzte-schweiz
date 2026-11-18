@@ -7,8 +7,10 @@ Einträge (parse_ptt.py) → eine Tabelle, ein Eintrag je Zeile (Datenvertrag).
 from __future__ import annotations
 
 import time
+from collections import Counter
 
 from common import NORM, ROOT, open_csv, write_csv
+from parse_ptt import repair
 from places import PLACE_FIELDS, resolve_all
 
 RAW = ROOT / ".cache" / "ptt_raw.csv.gz"
@@ -19,7 +21,12 @@ BASE = ["id", "batch", "seq", "year", "network", "refcode", "page", "image",
 def main() -> None:
     t = time.time()
     rows = open_csv(RAW)
+    repaired: Counter = Counter()
+    for r in rows:                      # vor der Ortsauflösung: sie vergleicht Familiennamen und Rufnummern
+        r["_repair"] = repair(r)
+        repaired.update(f"repariert {f}" for f in r["_repair"])
     stats = resolve_all(rows)
+    stats.update(repaired)
     fields = BASE + [f for f in PLACE_FIELDS if f != "place_raw"]
     try:
         from parse_ptt import PARSE_FIELDS, parse_all

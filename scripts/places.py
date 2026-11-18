@@ -165,6 +165,27 @@ class Gazetteer:
                             g["lat"], g["lon"] = c["lat"], c["lon"]
                         c["merged"] = True
             self.cands[k] = [c for c in cs if not c.get("merged")]
+        # Ortschaft → Gemeinde 1914: eindeutig, wenn ihre heutige Gemeinde aus genau einer Gemeinde von 1914
+        # hervorgeht (Tenero → Tenero-Contra); sonst nur über data/ref/place_aliases.csv (Cassarate → Castagnola).
+        # Die eindeutige Regel greift erst am Ende von resolve_all (`parent`, `municipality_of_locality`):
+        # Lauf-, Jahres- und Namensabgleich sind an Ortschaften ohne Gemeinde geeicht. Trüge «Eidberg (Seen)»
+        # schon vorher die Gemeinde Seen, bliebe die verlesene Überschrift über den Seiten von Einsiedeln stehen.
+        by_today: dict[str, list[dict]] = defaultdict(list)
+        by_name: dict[tuple[str, str], dict] = {}
+        for cs in self.cands.values():
+            for c in cs:
+                if c["kind"] == "gemeinde_1914":
+                    by_name[(c["name"], c["canton"])] = c
+                    for b in c["bfs_today"].split(";"):
+                        by_today[b].append(c)
+        self.parent = {b: gs[0] for b, gs in by_today.items() if len(gs) == 1}
+        for a in open_csv(REF / "place_aliases.csv"):
+            g = by_name[(a["municipality_1914"], a["canton"])]
+            same = [c for c in self.cands[key(a["name"])] if c["canton"] == a["canton"]]
+            for c in same:
+                c["hist_code"], c["municipality_1914"] = g["hist_code"], g["municipality_1914"]
+            if not same:
+                self.cands[key(a["name"])].append({**g, "kind": "ortschaft", "name": a["name"]})
         # «La Chaux-de-Fonds» auch ohne Artikel auffindbar
         for k in list(self.cands):
             m = re.match(r"^(la|le|les|l) (.+)$", k)
@@ -232,6 +253,18 @@ def dist_km(a: dict, b: tuple[float, float]) -> float:
     dy = (a["lat"] - b[0]) * 111.2
     dx = (a["lon"] - b[1]) * 111.2 * math.cos(math.radians(b[0]))
     return math.hypot(dx, dy)
+
+
+def municipality_of_locality(r: dict, gaz: "Gazetteer") -> None:
+    """Letzter Schritt: eine Ortschaft ohne Gemeinde von 1914 bekommt sie, wenn sie eindeutig ist."""
+    if r.get("place_kind") == "ortschaft" and not r.get("hist_code_1914") and r.get("bfs_today") in gaz.parent:
+        g = gaz.parent[r["bfs_today"]]
+        r["hist_code_1914"], r["municipality_1914"] = g["hist_code"], g["municipality_1914"]
+
+
+def reliable(row: dict) -> bool:
+    """Ort je Eintrag gelesen, nicht als übertragene Überschrift: Charge A und neu gelesene Bände (mit Seitenbild)."""
+    return row["batch"] == "A" or bool(row.get("image"))
 
 
 def series(row: dict) -> str:
@@ -391,6 +424,13 @@ def surname_key(name1: str) -> str:
     return k[0] if k and len(k[0]) > 2 else ""
 
 
+def source_surname(r: dict) -> str:
+    """Wie surname_key, aber an der Namenszeile der Quelle: `repair()` (parse_ptt.py) nimmt Zahlen und
+    Führungspunkte weg, und die Schwellen des Namensabgleichs sind an den ungereinigten Zeilen geeicht.
+    Mit den gereinigten Zeilen verloren Burgdorf, Einsiedeln, Payerne und Kriens ihre Seiten."""
+    return surname_key(r.get("_name1_raw", r["name1"]))
+
+
 def between(head: str, town: str, nxt: str | None) -> bool:
     """Steht `town` im Alphabet des Bandes zwischen der Überschrift und der nächsten?
 
@@ -444,7 +484,7 @@ def resolve_all(rows: list[dict]) -> Counter:
         head = run[0]
         city = head["_plz"] >= CITY_PLZ
         # Charge A nennt den Ort je Eintrag, nicht als übertragene Überschrift
-        if head["batch"] == "A" or len(run) <= CAP or city:
+        if reliable(head) or len(run) <= CAP or city:
             plausible.add(i)
         for r in run:
             r["_run"] = i
@@ -468,7 +508,9 @@ def resolve_all(rows: list[dict]) -> Counter:
         for r in runs[i]:
             if r["place_confidence"] in ("hoch", "mittel"):
                 pk = r["hist_code_1914"] or f"{r['place_name']}|{r['canton']}"
-                place_of[pk] = {f: r[f] for f in PLACE_FIELDS if f not in ("place_raw", "exchange_raw", "place_method", "place_confidence")}
+                # eine Ortschaft der Gemeinde (Monti della Trinità → Locarno) ersetzt die Gemeinde selbst nicht
+                if r["place_kind"] == "gemeinde_1914" or place_of.get(pk, {}).get("place_kind") != "gemeinde_1914":
+                    place_of[pk] = {f: r[f] for f in PLACE_FIELDS if f not in ("place_raw", "exchange_raw", "place_method", "place_confidence")}
                 if r["_plz"] >= CITY_PLZ:
                     cities.add(pk)
                 size[(pk, r["year"])] += 1
@@ -554,8 +596,8 @@ def resolve_all(rows: list[dict]) -> Counter:
     # er vorkommt. Geprüft wird jeder Lauf der Charge B, auch der einer Stadt (Aarau steht unter «Basel»).
     names: dict[str, dict[int, set]] = defaultdict(lambda: defaultdict(set))
     for r in rows:
-        if r["batch"] == "A" and r["place_confidence"] in ("hoch", "mittel") and surname_key(r["name1"]):
-            names[r["hist_code_1914"] or f"{r['place_name']}|{r['canton']}"][int(r["year"])].add(surname_key(r["name1"]))
+        if r["batch"] == "A" and r["place_confidence"] in ("hoch", "mittel") and source_surname(r):
+            names[r["hist_code_1914"] or f"{r['place_name']}|{r['canton']}"][int(r["year"])].add(source_surname(r))
 
     @lru_cache(maxsize=None)
     def towns(year: int) -> tuple[dict, Counter]:
@@ -568,7 +610,7 @@ def resolve_all(rows: list[dict]) -> Counter:
 
     for i, run in enumerate(runs):
         head = run[0]
-        if head["batch"] != "B":
+        if reliable(head):
             continue
         sets, df = towns(int(head["year"]))
         head_name = split_locality(head["locality"])[0]
@@ -589,7 +631,7 @@ def resolve_all(rows: list[dict]) -> Counter:
                 score: Counter = Counter()
                 n = 0
                 for r in chunk:
-                    sk = surname_key(r["name1"])
+                    sk = source_surname(r)
                     if not sk:
                         continue
                     n += 1
@@ -611,7 +653,7 @@ def resolve_all(rows: list[dict]) -> Counter:
             # auf der ersten Seite des Laufs gehören die Zeilen vor dem ersten Namen der Stadt zum Ort der Überschrift
             start = 0
             if n_chunk == 0:
-                start = next((j for j, r in enumerate(chunk) if surname_key(r["name1"]) in sets[pk]), 0)
+                start = next((j for j, r in enumerate(chunk) if source_surname(r) in sets[pk]), 0)
             for r in chunk[start:]:
                 if r["place_method"] == "jahresabgleich:zeile" and r["place_confidence"] == "hoch":
                     continue
@@ -625,5 +667,7 @@ def resolve_all(rows: list[dict]) -> Counter:
         r.pop("_plz", None)
         r.pop("_run", None)
         r.pop("_head_pk", None)
+        r.pop("_name1_raw", None)
+        municipality_of_locality(r, gaz)
         stats[f"konfidenz {r['place_confidence']}"] += 1
     return stats

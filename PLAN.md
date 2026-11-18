@@ -33,8 +33,8 @@ Commits, Adapter für Aarau, Basel und PTT-Charge A nach `data/norm/`
 1880–1910: 308 481, Charge B 1911–1914: 330 220), eintragsweise zerlegt und verortet:
 
 - Orte gegen die Gemeinden zum 1.1.1914 (BFS) und das Ortschaftenverzeichnis (swisstopo)
-  aufgelöst: 2 633 Gemeinden bis 1914; Konfidenz hoch 469 667, mittel 146 907, unsicher 21 696,
-  keine 16 468 (Stand 18.11.2026: Charge A stimmt beim Jahresabgleich mit, verlesene Überschriften
+  aufgelöst: 2 697 Gemeinden bis 1914; Konfidenz hoch 473 930, mittel 144 481, unsicher 20 576,
+  keine 16 482 (Stand 18.11.2026: Charge A stimmt beim Jahresabgleich mit, verlesene Überschriften
   werden an der Zentrale geprüft, Städte ohne Überschrift über die Familiennamen der Seite gefunden).
 - Befund Charge B: die Ortsspalte ist eine übertragene Überschrift. Fehlt eine, erben ganze
   Seiten den falschen Ort (Zürich 1912 und 1914 als «Zwillikon (Affoltern a. A.)», Zürich
@@ -257,8 +257,8 @@ mittel, 128 schwach), Karte mit Linien und Saldo, nach Berufsklasse, Entfernung 
   - Stichprobe 5, mit Vergleich von Geschlecht und Geburtsname: mittel 44–91 % (n = 32,
     3 falsch). Damit sind die Paare aufgebraucht.
 - **M10b, Wege von Frauen (Versuch, 18.11.2026):** über den Zivilstand verbunden
-  ([docs/frauen_wege.md](docs/frauen_wege.md)). Ehemann → Witwe 185, Ehefrau → Witwe 345 Paare,
-  gemessen 67–93 % bzw. 80–100 %; ledig → verheiratet (695) aus den Büchern nicht prüfbar.
+  ([docs/frauen_wege.md](docs/frauen_wege.md)). Ehemann → Witwe 187, Ehefrau → Witwe 342 Paare,
+  gemessen 67–93 % bzw. 80–100 % (am Stand vor der Neulesung von Band 2c); ledig → verheiratet (696) aus den Büchern nicht prüfbar.
 - **Offen:**
   - mehrdeutige Paare über Heimatort und Lebensdaten (klar vorne liegende sind seit 17.11. dabei);
   - Firmen mit neuem Sitz.
