@@ -1259,11 +1259,20 @@
     const tourList = el("ul", { class: "hitlist cols" }, ...TS.places.map(([m, y, e, h]) =>
       el("li", {}, el("b", {}, String(y)), " ", link(placeHref(m), m), el("span", { class: "muted" }, ` ${n(h)}/${n(e)}`))));
     const E = SP.einwohner;
-    const popTable = table([t.zz_city, ...[1880, 1888, 1900, 1910].map(String)],
-      Object.entries(E.cities).map(([m, rows]) => [link(placeHref(m), m), ...[1880, 1888, 1900, 1910].map(py => {
-        const r = rows.find(x => x[0] === py);
-        return r ? el("a", { href: bookHref(m, r[1]), title: t.inf_pop_title.replace("{y}", r[1]).replace("{e}", n(r[2])).replace("{p}", n(r[3])) }, r[4].toFixed(1)) : "–";
-      })]));
+    // Durchdringung: Einträge je 100 Einwohner, Personen mit Eintrag je 100 Haushalte
+    const DU = D.durchdringung;
+    const p1 = v => v.toLocaleString(lang, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+    const p2 = v => v.toLocaleString(lang, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const duNat = table([t.inf_col_year, t.inf_du_pop, t.inf_col_entries, t.inf_num_n, t.inf_du_persons, t.inf_du_per100, t.inf_du_hh],
+      DU.national.map(([y, p, e, k, ps, hh]) => [String(y), n(p), n(e), n(k), n(ps), p2(100 * e / p), `${p1(100 * ps / hh)} %`]));
+    const duClass = table([t.inf_rail_size, t.inf_tour_places, t.inf_du_with, t.inf_du_per100, t.inf_du_hh],
+      DU.classes.map(([lo, hi, u, w, , rate, share]) => [hi > 1e6 ? `≥ ${n(lo)}` : `${n(lo)}–${n(hi)}`, n(u), `${n(w)} (${pct(w, u)})`, p2(rate), `${p1(share)} %`]));
+    const duCities = chosen.filter(c => DU.cities[c]?.length);
+    const chartDu = el("div", { class: "chart" });
+    const duSeries = duCities.map(c => ({ name: c, color: color(c), pts: DU.cities[c].map(r => [r[0], r[4] / r[5]]) }));
+    const duTop = el("ul", { class: "hitlist cols" }, ...DU.top.map(r =>
+      el("li", {}, el("b", {}, `${p1(100 * r[6] / r[7])} %`), " ", r[8] ? link(placeHref(r[0]), r[0]) : r[0],
+        el("span", { class: "muted" }, ` ${r[2]} · ${t.inf_du_tip.replace("{e}", n(r[6])).replace("{h}", n(r[7]))}`))));
     const B = SP.bahn;
     const rateTd = (k, all) => `${pct(k, all)}`;
     const railTable = table([t.inf_rail_size, t.inf_rail_with, t.inf_rail_phone, t.inf_rail_call, t.inf_rail_without, t.inf_rail_phone, t.inf_rail_call],
@@ -1293,7 +1302,12 @@
         el("span", {}, el("span", { class: "dot", style: `background:${col}` }), lab))), chart3, numTable, el("p", { class: "sub note" }, t.inf_num_note),
       el("h3", {}, t.inf_tour_h), el("p", { class: "intro" }, t.inf_tour_p), tourShare,
       el("p", { class: "intro" }, t.inf_tour_list.replace("{n}", n(TS.places.length))), tourList, el("p", { class: "sub note" }, t.inf_tour_note),
-      el("h3", {}, t.inf_pop_h), el("p", { class: "intro" }, t.inf_pop_p, " ", link(here({ k: "dichte" }) + "#inf-karte", t.inf_station_link)), popTable,
+      el("h3", {}, t.inf_pop_h), el("p", { class: "intro" }, t.inf_pop_p), duNat,
+      el("p", { class: "sub note" }, t.inf_du_nat_note),
+      el("p", { class: "intro" }, t.inf_du_city_p), swatches(duSeries.map(x => [x.name, x.color])), chartDu,
+      el("p", { class: "intro" }, t.inf_du_class_p, " ", link(here({ k: "dichte" }) + "#inf-karte", t.inf_station_link)), duClass,
+      el("p", { class: "intro" }, t.inf_du_top_p), duTop,
+      el("p", { class: "sub note" }, t.inf_du_src.replace("{h}", n(DU.sources.hls)).replace("{b}", n(DU.sources.bfs)).replace("{i}", n(DU.sources.identical)).replace("{c}", n(DU.sources.compared))),
       el("p", { class: "sub note" }, t.inf_pop_note.replace("{n}", n(E.implausible.length)).replace("{x}", E.implausible.slice(0, 4).map(r => r[0]).join(", "))),
       el("h3", {}, t.inf_rail_h), el("p", { class: "intro" }, t.inf_rail_p.replace("{s}", n(B.stations)).replace("{m}", n(B.dated_municipalities))), railTable,
       el("p", { class: "sub note" }, t.inf_rail_note),
@@ -1304,6 +1318,7 @@
       lineChart(chartCov, covSeries, { log: true, label: t.inf_cov_h });
       lineChart(chartOcc, occSeries, { label: t.inf_occ_tel_h, fmt: v => v.toLocaleString(lang, { maximumFractionDigits: 1 }), href: (s, p) => bookHref(occCity, p[0]) });
       lineChart(chartTrend, trendSeries, { log: true, label: t.inf_trend_h });
+      lineChart(chartDu, duSeries, { share: true, label: t.inf_pop_h, href: (s, p) => bookHref(s.name, p[0]) });
       lineChart(chart2, chosen.filter(c => T.home[c]).map(c => ({ name: c, color: color(c), pts: T.home[c] })), { share: true, label: t.inf_home_h, href: (s, p) => bookHref(s.name, p[0], "Wohnung") });
       lineChart(chart3, [{ name: t.inf_num_top, color: "#d21938", pts: NR.map(r => [r[0], r[3]]) }, { name: t.inf_num_n, color: "#175b5b", pts: NR.map(r => [r[0], r[2]]) },
         { name: t.inf_col_entries, color: "#8c8c8c", pts: NR.map(r => [r[0], r[1]]) }], { label: t.inf_num_h });

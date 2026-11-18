@@ -160,15 +160,70 @@ Gemeinde: 6 % (1880–1899), 8 % (1900–1914). In 22 Gemeinden stellen sie mind
 (mindestens 5 Einträge), darunter Grindelwald 1893 (8 von 8), Beatenberg 1895 (11/13), Lenk 1898
 (10/10), Adelboden 1900 (20/30), Kandersteg 1900 (18/21), Salvan 1911 (11/12).
 
-**Je 1000 Einwohner.** Einwohner aus der BFS-Tabelle px-x-4004000000_101 (Eidgenössische
-Volkszählungen 1850–2000, Gebietsstand 5.12.2000; Lizenz OPEN-BY-ASK: freie nichtkommerzielle
-Nutzung mit Quellenangabe), Auszug in `data/ref/population_1850_2000.csv`. Eine Gemeinde von 1914
-zählt zu ihrer Gemeinde von 2000 (eigene Nummer, sonst die heutige). Städte mit späteren
-Eingemeindungen fallen aus der Städtetabelle (der Nenner wäre zu gross). Die Karte zeigt 1911 je
-Gemeinde von 2000, nur sicher verortete Einträge (`place_confidence` ≠ `unsicher`); 10 Gemeinden mit
-mehr als 250 je 1000 bleiben weg, dort ist die Ortszuordnung falsch (z. B. Kammersrohr, Fiez).
-Städte: Basel 2 (1880), 23 (1888), 31 (1900), 40 (1910); 1910 Aarau 55, Solothurn 43, Interlaken 104,
-St. Moritz 77 Einträge je 1000 Einwohner.
+**Telefon je Einwohner und Haushalt** (`durchdringung()`).
+
+*Einwohner.* Grundlage sind die Gemeindeartikel des HLS (`scripts/hls_population.py` →
+`data/ref/hls_population.csv`): die Reihe im Kopf des Artikels («1850 2253; 1900 2390; 1950 2831») oder
+die Zeile «Einwohner» der Tabelle «Bevölkerungsstruktur». Das ergibt Zahlen für 1'753 Gemeinden von
+1914, fast immer für 1850, 1900 und 1950, selten für 1880, 1888 oder 1910. Im HLS-Bestand (derselbe
+Export wie hls_mcp, 3'867 Ortsartikel) fehlen aber die Gemeindeartikel fast aller Städte: Von 27
+geprüften Städten ist nur St. Gallen dabei. Für sie und für die übrigen Zähljahre dient die BFS-Tabelle
+px-x-4004000000_101 (Eidgenössische Volkszählungen, Gebietsstand 5.12.2000; Lizenz OPEN-BY-ASK),
+Auszug in `data/ref/population_1850_2000.csv`. Beide nennen dieselben Zählungen: 1'694 von 1'714
+vergleichbaren Werten sind gleich. HLS-Werte gelten für 1'499 Gemeinden, BFS allein für 1'176.
+Zwischen den Zähljahren wird geometrisch interpoliert. Eine Gemeinde von 1914 zählt zu ihrer Gemeinde
+von 2000; was bis 2000 zusammenging, wird zusammengezählt.
+
+*Haushalte.* Das HLS nennt keine Haushalte. Haushalte = Einwohner / Personen je Haushaltung im Kanton
+(`data/ref/household_size.csv`; Statistisches Bureau, «Die Verteilung der Bevölkerung auf die
+bewohnten Häuser und auf die Haushaltungen», Zeitschrift für schweizerische Statistik 1914, S. 222,
+vom Scan abgelesen: Schweiz 4,66 (1880), 4,57 (1888), 4,55 (1900), 4,53 (1910); Genf 3,52, Luzern
+5,03 im Jahr 1910).
+
+*Zähler.* Einträge; verschiedene Rufnummern; «Personen» = Einträge unter einem Personennamen, jede
+Person je Ort einmal (Geschäft und Wohnung zählen nicht doppelt). Der Anteil der Personen an den
+Haushalten ist eine **Obergrenze** für Haushalte mit eigenem Anschluss: Viele sind Handwerker,
+Händler oder Ärzte mit dem Telefon im Geschäft.
+
+*Schweiz* (Landesbücher, jeder Eintrag, auch ohne aufgelösten Ort):
+
+| Jahr | Einwohner | Einträge | Rufnummern | Personen | Einträge je 100 Einwohner | Personen je 100 Haushalte |
+|---|---|---|---|---|---|---|
+| 1911 | 3'765'806 | 73'403 | 60'117 | 41'033 | 1,95 | 4,9 % |
+| 1912 | 3'778'361 | 79'216 | 63'055 | 47'326 | 2,10 | 5,7 % |
+| 1913 | 3'790'958 | 86'262 | 68'503 | 50'161 | 2,28 | 6,0 % |
+| 1914 | 3'803'597 | 91'339 | 72'517 | 54'488 | 2,40 | 6,5 % |
+
+1913 und 1914 fehlt Band 2c (Tessin, 1'500–1'700 Einträge); die Zahlen dieser Jahre liegen darum um
+etwa 2 % zu tief.
+
+*Städte* (je Jahr der Band mit den meisten Einträgen, ab 100 Einträgen), Personen je 100 Haushalte:
+Basel 0,7 (1881), 4,1 (1890), 9,6 (1900), 17,8 (1914); Bern 1,0 (1882), 9,2 (1900), 15,0 (1914);
+St. Gallen 1,5 (1886), 6,5 (1900), 15,2 (1914); Interlaken 18,9 (1900), 34,5 (1914).
+
+*Nach Gemeindegrösse, um 1910.* **In den Landesbüchern 1911–1914 fehlen vielen Orten die
+Überschriften**: Burgdorf hat 238 Einträge im Regionalbuch 1910 und 3 bis 9 in den Jahren danach,
+Aarau 155 (1911) und dann 2 bis 4; Vevey, Montreux und Davos haben keinen. Ein einzelnes Jahr taugt
+darum nicht. Gezählt wird je Gemeinde das Jahr 1909–1914 mit den meisten Einträgen (`END_YEARS`), nur
+sicher verortete Einträge, und gezeigt wird der Median der Klasse, nicht die Summe: Ein Lauf, der in
+ein Dorf gerutscht ist, verzerrt die Summe, nicht den Median.
+
+| Einwohner 1910 | Gemeinden | mit Telefon | Einträge je 100 Einwohner (Median) | Personen je 100 Haushalte (Median) |
+|---|---|---|---|---|
+| unter 500 | 1'242 | 71 % | 0,60 | 0,0 % |
+| 500–999 | 623 | 89 % | 0,61 | 1,5 % |
+| 1'000–1'999 | 465 | 93 % | 0,73 | 2,0 % |
+| 2'000–4'999 | 266 | 94 % | 1,14 | 3,2 % |
+| 5'000–19'999 | 67 | 96 % | 1,70 | 5,0 % |
+| ab 20'000 | 12 | 100 % | 5,15 | 14,3 % |
+
+Die Werte der kleinen und mittleren Gemeinden sind Untergrenzen: Wo weder ein Regionalbuch von
+1909/1910 vorliegt noch die Überschrift im Landesbuch gelesen ist, fehlen die Einträge. Eine Tabelle
+nach Kantonen gibt es aus demselben Grund nicht. Die Rangliste der Seite nennt nur Gemeinden ab 5'000
+Einwohnern (`TOWN`): Genève 23,9 %, Basel 17,8 %, Frauenfeld 17,0 %, St. Gallen 16,3 %, Aarau 15,9 %.
+
+Die Karte «Einträge je 1000 Einwohner» zeigt ebenfalls das beste Jahr 1909–1914; 39 Gemeinden mit
+mehr als 250 je 1000 bleiben weg, dort ist die Ortszuordnung falsch (z. B. Kammersrohr, Bettens).
 
 **Bahn und Telefon.** Bahnhöfe aus Wikidata (`P31 Q55488`, `P17 Q39`, Eröffnung `P1619`; CC0),
 Auszug in `data/ref/stations_wikidata.csv`; nur 728 von 1'811 haben ein Eröffnungsjahr. Ein Bahnhof
@@ -195,4 +250,5 @@ SELECT ?s ?sLabel ?d ?c WHERE { ?s wdt:P31 wd:Q55488; wdt:P17 wd:Q39; wdt:P625 ?
 
 ```bash
 python scripts/infrastruktur.py ref bfs_px-x-4004000000_101.px stations.csv
+python scripts/hls_population.py        # data/ref/hls_population.csv, braucht den HLS-Export (lokal)
 ```

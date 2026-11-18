@@ -101,6 +101,8 @@ Zerlegung: `parse_ptt.py`).
 | `localities.csv` | amtliches Ortschaftenverzeichnis (swisstopo): Ortschaft, PLZ, heutige Gemeinde, Koordinaten |
 | `places_foreign.csv` | ausländische Orte, die in den Adressbüchern als Heimatort vorkommen (GeoNames DE, AT, FR, IT, LI, CC BY 4.0, geonames.org): Schlüssel, Name, Länder, Koordinaten des grössten Orts; `scripts/origins.py ref` |
 | `population_1850_2000.csv` | Wohnbevölkerung 1880–1920 je Gemeinde, Gebietsstand 2000 (BFS px-x-4004000000_101, Eidgenössische Volkszählungen, OPEN-BY-ASK); `scripts/infrastruktur.py ref` |
+| `hls_population.csv` | Einwohner je Gemeinde 1914 und Jahr (1850–1950) aus den Gemeindeartikeln des HLS, mit HLS-Nummer und Artikeltitel (hls-dhs-dss.ch, CC BY-SA 4.0); `scripts/hls_population.py`, braucht den HLS-Export lokal |
+| `household_size.csv` | Personen je Haushaltung nach Kanton, Volkszählungen 1880, 1888, 1900, 1910 (Statistisches Bureau, Zeitschrift für schweizerische Statistik 1914, S. 222; vom Scan abgelesen) |
 | `stations_wikidata.csv` | Schweizer Bahnhöfe aus Wikidata (QID, Name, Eröffnungsjahr P1619 falls bekannt, Koordinaten; CC0); `scripts/infrastruktur.py ref` |
 | `forenames.csv` | Vornamenliste aus den Daten (Adressbücher, Telefonbücher), mit Häufigkeiten |
 

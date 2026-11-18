@@ -18,7 +18,9 @@ Drei Teile (docs/infrastruktur.md, Seite #/infrastruktur):
    - Gemeindewerke: Elektrizitäts-, Gas- und Wasserwerke als Abonnenten, erstes Jahr je Gemeinde (mit Suchwort).
    - Ämter am Netz: Gemeindekanzlei, Bahnhof, Post mit eigenem Eintrag.
    - Fremdenverkehr: Anteil der Hotels und Kurhäuser im ersten Jahrgang einer Gemeinde.
-   - Einwohner: Einträge je 1000 Einwohner (Volkszählungen 1888, 1900, 1910; BFS, Gemeindestand 2000).
+   - Einwohner: Einträge je 1000 Einwohner um 1910 (Karte).
+5. Durchdringung (durchdringung()): Einträge je 100 Einwohner und Personen mit Eintrag je 100 Haushalte;
+   Einwohner aus den Gemeindeartikeln des HLS, ergänzt aus der BFS-Tabelle, Haushaltsgrösse je Kanton.
    - Bahn: Bahnhöfe mit Eröffnungsjahr (Wikidata, P1619) und Telefon 1911 in Gemeinden mit und ohne Bahnhof.
 
     python scripts/infrastruktur.py        # data/norm/infrastruktur.json
@@ -436,9 +438,10 @@ def spuren(P: list[dict], tel: dict) -> dict:
             ms = [m for m in unit if unit[m] == u and m in places]
             lat = sum(places[m][2] for m in ms) / len(ms) if ms else 0
             lon = sum(places[m][3] for m in ms) / len(ms) if ms else 0
-            if ms and c.get(1911):
-                density.append([pop[u]["name"], round(lat, 4), round(lon, 4), p, c[1911], c[1914],
-                                round(1000 * c[1911] / p, 1)])
+            top = max(c.get(y, 0) for y in END_YEARS)   # bestes gelesenes Jahr um 1910 (siehe durchdringung())
+            if ms and top:
+                density.append([pop[u]["name"], round(lat, 4), round(lon, 4), p, top, c[1914],
+                                round(1000 * top / p, 1)])
     implausible = sorted((r for r in density if r[6] > MAX_DENSITY), key=lambda r: -r[6])
     density = sorted((r for r in density if r[6] <= MAX_DENSITY), key=lambda r: -r[3])
     city_density = {}
@@ -494,6 +497,146 @@ def spuren(P: list[dict], tel: dict) -> dict:
     }
 
 
+CENSUS = (1880, 1888, 1900, 1910, 1920)
+END_YEARS = range(1909, 1915)   # «um 1910»: bestes gelesenes Jahr in diesem Fenster
+TOWN = 5000          # Rangliste erst ab so vielen Einwohnern: darunter verzerren falsch verortete Läufe
+SIZE_CLASSES = ((0, 499), (500, 999), (1000, 1999), (2000, 4999), (5000, 19999), (20000, 10**7))
+
+
+def interpolate(values: dict[int, float], y: int) -> float:
+    """Wert im Jahr y zwischen den Zähljahren, geometrisch (gleiche Wachstumsrate); ausserhalb der nächste."""
+    ys = sorted(values)
+    if not ys:
+        return 0.0
+    if y <= ys[0]:
+        return values[ys[0]]
+    if y >= ys[-1]:
+        return values[ys[-1]]
+    a = max(v for v in ys if v <= y)
+    b = min(v for v in ys if v >= y)
+    if a == b or values[a] <= 0 or values[b] <= 0:
+        return values[a]
+    return values[a] * (values[b] / values[a]) ** ((y - a) / (b - a))
+
+
+def person_key(x: dict) -> tuple:
+    """Dieselbe Person steht mit Geschäft und Wohnung zweimal im Buch: einmal zählen."""
+    return (x["surname"].lower(), (x["forename"] or x["initials"]).lower())
+
+
+def durchdringung(P: list[dict], tel: dict) -> dict:
+    """Telefon je Einwohner und je Haushalt.
+
+    Einwohner: Gemeindeartikel des HLS (data/ref/hls_population.csv), wo sie ein Zähljahr 1880–1910 nennen;
+    sonst und für die übrigen Zähljahre die BFS-Tabelle (dieselben Volkszählungen, Gebietsstand 2000).
+    Zwischen den Zähljahren geometrisch interpoliert. Haushalte = Einwohner / Personen je Haushaltung im
+    Kanton (data/ref/household_size.csv). Einheit ist die Gemeinde von 2000 (unit_2000).
+    """
+    pop_ref = {r["bfs"]: r for r in open_csv(ROOT / "data" / "ref" / "population_1850_2000.csv")}
+    ref = ref_municipalities()
+    unit = {m: unit_2000(r, set(pop_ref)) for m, r in ref.items()}
+    members: dict = defaultdict(list)
+    for m, u in unit.items():
+        if u:
+            members[u].append(m)
+    canton = {u: ref[ms[0]]["canton"] for u, ms in members.items()}
+    hls: dict = defaultdict(dict)
+    for r in open_csv(ROOT / "data" / "ref" / "hls_population.csv"):
+        if int(r["year"]) in CENSUS:
+            hls[r["municipality_1914"]][int(r["year"])] = int(r["population"])
+    pops: dict = {}
+    source = Counter()
+    same = compared = 0
+    for u, ms in members.items():
+        v = {y: int(pop_ref[u][str(y)]) for y in CENSUS if pop_ref[u][str(y)]}
+        h = hls.get(ms[0], {}) if len(ms) == 1 else {}    # das HLS zählt die Gemeinde, die BFS-Tabelle das Gebiet von 2000
+        for y, n in h.items():
+            if y in v:
+                compared += 1
+                same += v[y] == n
+        if h:
+            v.update(h)
+        if v:
+            pops[u] = v
+            source["hls" if h else "bfs"] += 1
+    size = {r["canton"]: {int(y): float(r[y]) for y in ("1880", "1888", "1900", "1910")}
+            for r in open_csv(ROOT / "data" / "ref" / "household_size.csv")}
+
+    def households(u: str, y: int) -> float:
+        return interpolate(pops[u], y) / interpolate(size.get(canton[u], size["CH"]), y)
+
+    # je Gemeinde und Jahr der Band mit den meisten Einträgen (Basel 1899 liegt doppelt vor)
+    per_book: Counter = Counter()
+    for x in P:
+        per_book[(x["municipality_1914"], int(x["year"]), x["refcode"])] += 1
+    best: dict = {}
+    for (m, y, refc), n in per_book.items():
+        if n > best.get((m, y), (0, ""))[0]:
+            best[(m, y)] = (n, refc)
+    ent: Counter = Counter()
+    nums: dict = defaultdict(set)
+    pers: dict = defaultdict(set)
+    nat: dict = {y: [0, set(), set()] for y in range(NATIONAL_FROM, 1915)}
+    for x in P:
+        m, y = x["municipality_1914"], int(x["year"])
+        if y in nat:                                      # Landesbuch: jeder Eintrag zählt, auch ohne Ort
+            nat[y][0] += 1
+            if x["phone_norm"]:
+                nat[y][1].add((x["refcode"].split("_")[1], m or x["locality"], x["phone_norm"]))
+            if x["entity_type"] == "person":
+                nat[y][2].add((m or x["locality"], *person_key(x)))
+        u = unit.get(m, "")
+        if not u or u not in pops or x["place_confidence"] == "unsicher" or best[(m, y)][1] != x["refcode"]:
+            continue
+        ent[(u, y)] += 1
+        if x["phone_norm"]:
+            nums[(u, y)].add(x["phone_norm"])
+        if x["entity_type"] == "person":
+            pers[(u, y)].add((m, *person_key(x)))
+
+    def row(u: str, y: int) -> list:
+        return [y, round(interpolate(pops[u], y)), ent[(u, y)], len(nums[(u, y)]), len(pers[(u, y)]), round(households(u, y))]
+
+    swiss_pop = {y: sum(int(r[str(y)]) for r in pop_ref.values() if r[str(y)]) for y in CENSUS}
+    national = [[y, round(interpolate(swiss_pop, y)), n, len(ns), len(ps),
+                 round(interpolate(swiss_pop, y) / interpolate(size["CH"], y))] for y, (n, ns, ps) in nat.items()]
+    # Stand um 1910: das Jahr 1909–1914 mit den meisten Einträgen. In den Landesbüchern 1911–1914 fehlen vielen
+    # Orten die Überschriften (Burgdorf: 238 Einträge im Regionalbuch 1910, 3–9 in den Jahren danach); ein
+    # einzelnes Jahr wäre darum für die meisten Kleinstädte viel zu tief.
+    def last(u: str) -> int:
+        return max(END_YEARS, key=lambda y: (ent[(u, y)], y))
+
+    end = {u: row(u, last(u)) for u in pops}
+    name = {u: pop_ref[u]["name"] for u in pops}
+    classes = []
+    for lo, hi in SIZE_CLASSES:
+        us = [u for u in pops if lo <= interpolate(pops[u], 1910) <= hi]
+        # Median statt Summe: ein Lauf, der in ein Dorf gerutscht ist (places.py), verzerrt die Summe, nicht den Median
+        rate = sorted(100 * end[u][2] / end[u][1] for u in us)
+        share = sorted(100 * end[u][4] / end[u][5] for u in us)
+        mid = len(us) // 2
+        classes.append([lo, hi, len(us), sum(1 for u in us if end[u][2]), sum(end[u][1] for u in us),
+                        round(rate[mid], 2), round(share[mid], 1), round(share[len(us) * 9 // 10], 1)])
+    cities = {}
+    for m in tel["series"]:
+        u = unit.get(m, "")
+        if u in pops:
+            ys = sorted({y for uu, y in ent if uu == u and ent[(uu, y)] >= HOME_MIN})
+            kept, prev = [], 0
+            for y in ys:
+                if ent[(u, y)] >= DROP * prev:
+                    kept.append(row(u, y))
+                    prev = ent[(u, y)]
+            cities[m] = kept
+    places = {p[0] for p in tel["places"]}
+    top = sorted(([name[u], canton[u], *end[u]] for u in pops
+                  if end[u][1] >= TOWN and end[u][4]),
+                 key=lambda r: -r[6] / r[7])[:30]
+    return {"national": national, "classes": classes, "cities": cities,
+            "top": [[*r, r[0] in places] for r in top],
+            "sources": {**source, "compared": compared, "identical": same}}
+
+
 def build_ref(px: str, stations: str) -> None:
     """Referenzdateien aus der BFS-Tabelle (PX) und der Wikidata-Abfrage der Bahnhöfe."""
     s = open(px, encoding="latin-1").read()
@@ -525,7 +668,7 @@ def find() -> None:
     A = open_csv(NORM / "ab_entries.csv")
     tel = telephone(P)
     out = {"telefon": tel, "berufe": occupations(P, A, tel), "bahnhofstrasse": station_streets(P),
-           "spuren": spuren(P, tel), "groups": [k for k, _ in GROUPS]}
+           "spuren": spuren(P, tel), "durchdringung": durchdringung(P, tel), "groups": [k for k, _ in GROUPS]}
     # Verlauf 1880–1914: Gemeinden, die bis zum Jahr mindestens einmal vorkommen. Ein Jahr ohne Buch oder ein
     # schlecht gelesener Band senkt die Zahl nicht; vor 1911 wächst sie auch, weil Bücher dazukommen.
     sp = out["spuren"]
@@ -557,6 +700,15 @@ def find() -> None:
     print("Einwohner", sp["einwohner"]["places"][:8])
     for m, v in sp["einwohner"]["cities"].items():
         print("  ", m, v)
+    du = out["durchdringung"]
+    print("Durchdringung", du["sources"])
+    for r in du["national"]:
+        print("  Schweiz", r, f"{100 * r[2] / r[1]:.2f} Einträge je 100 Einw., {100 * r[4] / r[5]:.1f} % der Haushalte")
+    for r in du["classes"]:
+        print("  Klasse", r)
+    for m, rows in du["cities"].items():
+        print("  ", m, [(r[0], round(100 * r[4] / r[5], 1)) for r in rows if r[0] in (rows[0][0], 1890, 1900, 1910, rows[-1][0])])
+    print("  top", [(r[0], r[2], round(100 * r[6] / r[7])) for r in du["top"][:15]])
     b = sp["bahn"]
     print("Bahn", {k: v for k, v in b.items() if k != "places"})
 
