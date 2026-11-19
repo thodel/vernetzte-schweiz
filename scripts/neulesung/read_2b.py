@@ -1,11 +1,19 @@
-"""Band 2b 1913/14 neu lesen (ab dem Block Luzern): eine Seite → JSONL. read_2b.py VOL RUN SCALE FIRST LAST [PAR] [SEITENLISTE]"""
+"""Band 2c (Tessin) 1911/1912 neu lesen: eine Seite → JSONL. read2c.py VOL RUN SCALE FIRST LAST [PAR]"""
 import json, os, sys
 from concurrent.futures import ThreadPoolExecutor
 sys.path.insert(0, os.path.expanduser("~/Desktop/claude-workspace/ptt-1947-qwen-test/scripts"))
 from PIL import Image
 from run_qwen import call
 
-PROMPT = """You are transcribing one page of the 1913/1914 Swiss telephone directory "Verzeichnis der Telephon-Abonnenten, Netzgruppe IIb" (Basel, Aargau, central Switzerland and Ticino; printed in German and Italian). The page has two columns; read the left column top to bottom, then the right column.
+INTRO = {
+    "2b_1913": '1913/1914 Swiss telephone directory "Verzeichnis der Telephon-Abonnenten, Netzgruppe IIb" (Basel, Aargau, central Switzerland and Ticino; printed in German and Italian)',
+    "2b_1911": '1911/1912 Swiss telephone directory "Verzeichnis der Telephon-Abonnenten, Netzgruppe IIb" (Basel, Aargau, Solothurn and central Switzerland; printed in German)',
+    "2a": 'Swiss telephone directory of 1911-1914 "Verzeichnis der Telephon-Abonnenten, Netzgruppe IIa" (Bern, Bernese Oberland, Emmental, Seeland, Bernese Jura and Solothurn; printed in German and French)',
+}
+INTRO["1"] = 'Swiss telephone directory of 1911-1914 "Liste des abonnés au téléphone, groupe de réseaux I" (Geneva, Vaud, Valais, Fribourg and Neuchâtel; printed in French, some places in German)'
+INTRO["3"] = 'Swiss telephone directory of 1911-1914 "Verzeichnis der Telephon-Abonnenten, Netzgruppe III" (Zürich, eastern Switzerland and Graubünden; printed in German, some places in Italian)'
+INTRO["2b_1914"], INTRO["2b_1912"] = INTRO["2b_1913"], INTRO["2b_1911"]
+PROMPT = """You are transcribing one page of the @INTRO@. The page has two columns; read the left column top to bottom, then the right column.
 If the page is NOT a list of subscribers (title page, instructions, tariff tables, advertisements, blank or memo page), output only {"header": "", "end": true, "entries": 0}.
 
 First output one line {"header": "..."} with the running title printed at the very top of the page (e.g. "Meggen-Mellingen" or "M-S Baden"), "" if none.
@@ -34,7 +42,7 @@ def page(vol, run, scale, n):
     img = Image.open(f"img/{vol}/{n:04d}.jpg").convert("RGB")
     if scale != 1:
         img = img.resize((int(img.width * scale), int(img.height * scale)), Image.LANCZOS)
-    resp, dt = call(img, PROMPT, max_tokens=16000)
+    resp, dt = call(img, PROMPT.replace("@INTRO@", INTRO.get(vol) or INTRO[vol.split("_")[0]]), max_tokens=16000)
     ch = resp["choices"][0]
     os.makedirs(os.path.dirname(out), exist_ok=True)
     with open(out + ".tmp", "w") as f:

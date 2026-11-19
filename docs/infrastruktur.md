@@ -38,7 +38,7 @@ und die Gemeinden bisher (1890: 220, 1900: 1'320, 1910: 2'193, 1914: 2'703).
 zählt der mit den meisten Einträgen. Ein Jahr mit weniger als 90 % des bisher höchsten Jahrs gilt
 als unvollständig gelesen und fällt weg (ein Netz schrumpft in dieser Zeit nicht). Gezeigt sind 21 Städte mit mindestens acht Jahrgängen
 vor 1911 und mindestens 150 Einträgen im letzten Jahr. Basel wächst von 145 Einträgen
-(1881) auf 6'115 (1914), Bern von 74 auf 6'191. (Basel stand vorher bei 8'813 und dann bei 7'440: Darunter
+(1881) auf 6'329 (1914), Bern von 74 auf 6'191. (Basel stand vorher bei 8'813 und dann bei 7'440: Darunter
 waren Einträge von Luzern, die in der Quelle unter der Überschrift «Basel» stehen. Seit der Neulesung von
 Band 2b, [neulesung_2b.md](neulesung_2b.md), sind sie getrennt.)
 Ein Eintrag ist nicht ein Anschluss: Firmen stehen unter mehreren Namen, Geschäftsleute mit
@@ -47,7 +47,7 @@ Wohnungsanschluss zweimal.
 **Telefon in der Wohnung.** Anteil der Einträge mit einem Wohnungsanschluss («Wohnung», «Privat»,
 «domicile», «appartement», «abitazione»), nur Jahre mit mindestens 100 Einträgen (`HOME_MIN`):
 darunter entscheiden einzelne Fälle (Bern 1881: vier Wohnungen unter 74 Einträgen). Basel steigt von
-0 % (1881) auf 4,0 % (1914), Bern auf 9,7 % (1909), St. Gallen auf 6,8 % (1910). Der Anteil hängt
+0 % (1881) auf 4,1 % (1914), Bern auf 9,7 % (1909), St. Gallen auf 6,8 % (1910). Der Anteil hängt
 auch davon ab, wie ein Buch Wohnungen kennzeichnet. Der Anteil der Einträge unter Personennamen
 taugt dafür nicht: «Weitnauer, Cigarrenhandlung» ist eine Person mit Geschäft.
 
@@ -92,27 +92,27 @@ Buch (je Jahr der Band mit den meisten Einträgen, mindestens 100 Einträge). Ba
 
 | Gruppe | 1885 | 1900 | 1914 |
 |---|---|---|---|
-| Bahn | 11.5 | 7.5 | 9.2 |
-| Post, Telegraf, Telefon | 1.0 | 0.9 | 2.1 |
+| Bahn | 11.5 | 7.5 | 12.6 |
+| Post, Telegraf, Telefon | 1.0 | 0.9 | 2.8 |
 | Elektrizität | 0.0 | 3.6 | 4.3 |
 | Gas und Wasser | 8.6 | 4.8 | 1.1 |
-| Auto und Velo | 0.0 | 1.5 | 4.6 |
-| Tram, Schiff, Omnibus | 1.9 | 1.8 | 1.5 |
-| Ingenieure und Bau | 3.8 | 10.2 | 14.2 |
+| Auto und Velo | 0.0 | 1.5 | 5.4 |
+| Tram, Schiff, Omnibus | 1.9 | 1.8 | 2.1 |
+| Ingenieure und Bau | 3.8 | 10.2 | 14.1 |
 
 **Gesamtschweizerische Bände 1911–1914**, Einträge (Gemeinden), nur Bände 1, 2a, 2b und 3 (Band 2c mit dem Tessin
 gibt es nur 1911 und 1912; 1913 und 1914 steht das Tessin in Band 2b und zählt hier mit):
 
 | Gruppe | 1911 | 1912 | 1913 | 1914 |
 |---|---|---|---|---|
-| Bahn | 393 (163) | 438 (166) | 480 (181) | 499 (189) |
-| Post, Telegraf, Telefon | 721 (302) | 802 (321) | 906 (385) | 982 (416) |
-| Elektrizität | 541 (190) | 556 (221) | 642 (244) | 676 (251) |
+| Bahn | 393 (163) | 438 (166) | 499 (181) | 523 (189) |
+| Post, Telegraf, Telefon | 721 (302) | 802 (321) | 908 (385) | 977 (416) |
+| Elektrizität | 541 (190) | 556 (221) | 650 (244) | 676 (251) |
 | Gas und Wasser | 267 (85) | 289 (93) | 313 (94) | 335 (106) |
-| Auto und Velo | 357 (60) | 454 (72) | 545 (81) | 589 (90) |
-| Tram, Schiff, Omnibus | 135 (45) | 152 (47) | 162 (46) | 162 (47) |
-| Ingenieure und Bau | 1'341 (241) | 1'332 (255) | 1'330 (264) | 1'376 (277) |
-| Einträge insgesamt | 71'849 | 77'496 | 86'415 | 91'709 |
+| Auto und Velo | 357 (60) | 454 (72) | 545 (81) | 595 (90) |
+| Tram, Schiff, Omnibus | 135 (45) | 152 (47) | 162 (46) | 166 (47) |
+| Ingenieure und Bau | 1'341 (241) | 1'332 (255) | 1'335 (264) | 1'380 (278) |
+| Einträge insgesamt | 71'849 | 77'496 | 86'510 | 91'923 |
 
 Die Telefonbücher nennen nur Abonnenten: ein Elektrizitätswerk oder eine Garage mit Telefon, nicht
 jeden Elektriker oder Chauffeur.
@@ -127,7 +127,7 @@ solcher Eintrag steht; in Klammern der Anteil an den Gemeinden mit Telefon bis d
 | Öffentliche Sprechstelle | 8 (4 %) | 475 (36 %) | 1'107 (50 %) | 1'773 (66 %) |
 | Gemeindekanzlei | 18 (8 %) | 70 (5 %) | 291 (13 %) | 761 (28 %) |
 | Post- und Telegrafenbüro | 7 (3 %) | 115 (9 %) | 361 (16 %) | 472 (17 %) |
-| Bahnhof, Station | 11 (5 %) | 42 (3 %) | 112 (5 %) | 298 (11 %) |
+| Bahnhof, Station | 11 (5 %) | 42 (3 %) | 112 (5 %) | 295 (11 %) |
 | Elektrizitätswerk | 0 | 25 (2 %) | 136 (6 %) | 318 (12 %) |
 | Gaswerk | 7 (3 %) | 15 (1 %) | 51 (2 %) | 118 (4 %) |
 | Wasserversorgung | 7 (3 %) | 16 (1 %) | 43 (2 %) | 96 (4 %) |
@@ -156,7 +156,7 @@ vergeben hat. Höchste Nummer = Ende des geschlossenen Bereichs um die mittlere 
 einer Lücke über 300 zählt nicht (Bern 1914 hat einen Block 8000–9999, St. Gallen 1911 einen um 5000–6000).
 Nur Jahre mit mindestens 80 % lesbaren Nummern. Basel springt 1896 von höchstens 2'200 auf 4'302 bei
 2'146 Nummern (belegt 50 %), bleibt bis 1905 bei rund 4'300 und füllt den Bereich auf (88 % im Jahr 1905).
-Basel 1914: 6'115 Einträge, 5'421 Nummern.
+Basel 1914: 6'329 Einträge, 5'551 Nummern.
 
 **Fremdenverkehr.** Hotels, Kurhäuser, Pensionen (`HOTEL`) unter den Einträgen im ersten Jahr einer
 Gemeinde: 6 % (1880–1899), 9 % (1900–1914). In 25 Gemeinden stellen sie mindestens die Hälfte
@@ -192,19 +192,19 @@ Händler oder Ärzte mit dem Telefon im Geschäft.
 
 | Jahr | Einwohner | Einträge | Rufnummern | Personen | Einträge je 100 Einwohner | Personen je 100 Haushalte |
 |---|---|---|---|---|---|---|
-| 1911 | 3'765'806 | 73'752 | 63'566 | 44'340 | 1,96 | 5,3 % |
-| 1912 | 3'778'361 | 79'598 | 65'645 | 50'046 | 2,11 | 6,0 % |
-| 1913 | 3'790'958 | 86'415 | 71'348 | 53'639 | 2,28 | 6,4 % |
-| 1914 | 3'803'597 | 91'709 | 75'781 | 57'078 | 2,41 | 6,8 % |
+| 1911 | 3'765'806 | 73'752 | 63'567 | 44'339 | 1,96 | 5,3 % |
+| 1912 | 3'778'361 | 79'598 | 65'645 | 50'045 | 2,11 | 6,0 % |
+| 1913 | 3'790'958 | 86'510 | 71'414 | 53'710 | 2,28 | 6,4 % |
+| 1914 | 3'803'597 | 91'923 | 75'911 | 57'114 | 2,42 | 6,8 % |
 
 Einen eigenen Band 2c (Tessin) gibt es nur 1911 und 1912; 1913 und 1914 steht das Tessin in Band 2b
 (2'200–2'400 Einträge). Band 2c ist für 1911 und 1912 neu gelesen ([neulesung_2c.md](neulesung_2c.md)),
-Band 2b für 1913 und 1914 ab dem Block Luzern ([neulesung_2b.md](neulesung_2b.md)); die
+Band 2b für 1913 und 1914 ganz ([neulesung_2b.md](neulesung_2b.md)); die
 Zeile «Personen» stieg am 18.11.2026 in allen Jahren um 2'200–3'300, weil die Namenszeilen besser
 zerlegt werden (Partikel, Doppelnamen, italienische Firmenwörter).
 
 *Städte* (je Jahr der Band mit den meisten Einträgen, ab 100 Einträgen), Personen je 100 Haushalte:
-Basel 0,7 (1881), 9,6 (1900), 12,8 (1914); Bern 1,0 (1882), 9,7 (1900), 16,2 (1914);
+Basel 0,7 (1881), 9,6 (1900), 12,9 (1914); Bern 1,0 (1882), 9,7 (1900), 16,2 (1914);
 St. Gallen 1,5 (1886), 6,6 (1900), 15,2 (1914); Interlaken 19,2 (1900), 38,7 (1914);
 Lugano 4,4 (1900), 13,4 (1914).
 
@@ -213,7 +213,7 @@ Lugano 4,4 (1900), 13,4 (1914).
 unter «Basel» (1913 und 1914 ebenso, bis zur Neulesung von Band 2b). `places.py` findet diese Einträge über die Familiennamen des Regionalbuchs wieder
 (14'158 Zeilen), aber nicht vollständig: Burgdorf hat 239 Einträge im Regionalbuch 1910 und danach
 219, 153, 5 und 47; Aarau 530 und danach 347 und 283 (1913 und 1914 nach der Neulesung von Band 2b
-wieder 528 und 544). Orte ohne Regionalbuch zum Vergleich
+wieder 527 und 543). Orte ohne Regionalbuch zum Vergleich
 (Vevey, Montreux) bleiben leer. Ein einzelnes Jahr taugt darum nicht. Gezählt wird je Gemeinde das
 Jahr 1909–1914 mit den meisten Einträgen (`END_YEARS`), nur sicher verortete Einträge, und gezeigt wird
 der Median der Klasse, nicht die Summe: Ein Lauf, der in ein Dorf gerutscht ist, verzerrt die Summe,
@@ -231,7 +231,7 @@ nicht den Median.
 Die Werte der kleinen und mittleren Gemeinden sind Untergrenzen: Wo weder ein Regionalbuch von
 1909/1910 vorliegt noch die Überschrift im gesamtschweizerischen Band gelesen ist, fehlen die Einträge. Eine Tabelle
 nach Kantonen gibt es aus demselben Grund nicht. Die Rangliste der Seite nennt nur Gemeinden ab 5'000
-Einwohnern (`TOWN`): Genève 25,6 %, Frauenfeld 18,3 %, St. Gallen 16,4 %, Bern 16,2 %, Aarau 16,0 %,
+Einwohnern (`TOWN`): Genève 25,6 %, Frauenfeld 18,3 %, St. Gallen 16,4 %, Bern 16,2 %, Aarau 16,1 %,
 Luzern 16,0 %, Zürich 15,5 %.
 
 Die Karte «Einträge je 1000 Einwohner» zeigt ebenfalls das beste Jahr 1909–1914; 32 Gemeinden mit
