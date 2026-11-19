@@ -1,4 +1,7 @@
-# Neulesung von Band 2b 1913 und 1914
+# Neulesung von Band 2b 1911–1914
+
+Zuerst neu gelesen sind die Bände 1913 und 1914; davon handelt der Hauptteil. Die Bände 1911 und 1912 folgten
+mit demselben Verfahren, siehe [Die Bände 1911 und 1912](#die-bände-1911-und-1912).
 
 Band 2b deckt Basel, Aargau, Baselland, Solothurn, die Innerschweiz und 1913/14 auch das Tessin und das
 Misox ab (einen eigenen Band 2c gibt es nur 1911 und 1912). Er beginnt mit Basel und Luzern als eigenen
@@ -174,6 +177,62 @@ Folgen:
 - Die Verknüpfung mit den Basler Adressbüchern ändert sich kaum (4 193 statt 4 192 verknüpfte Einträge). Zum Historischen Grundbuch führen 16 001 statt 15 997 Paare.
 - In den übrigen Bänden wechseln vier Einträge die Gemeinde.
 
+## Die Bände 1911 und 1912
+
+Dieselben Skripte, derselbe Auftrag, drei Läufe, die Quelle als vierte Stimme, Übernahme des ganzen Bands
+(`data/override/ptt/P-260-1_2b_1911.tsv`, `…_1912.tsv`). Das Tessin steht in diesen Jahren im eigenen Band 2c.
+
+- **Aufbau:** 1911 (191 Bilder, gelesen ab Bild 13) beginnt mit dem Block Basel (Bild 13–84) und ordnet alles
+  Übrige in einem Alphabet, auch Luzern (Bild 127–154). 1912 (211 Bilder, gelesen ab Bild 13) hat wie 1913/14
+  die Blöcke Basel (Bild 13–90) und Luzern (Bild 93–122). Leere Seiten: 1911 Bild 188, 189, 191; 1912 Bild 91,
+  92, 123, 124.
+- **Seitenzahl der Quelle:** In beiden Bänden fasst die Quelle oft mehrere Bilder unter einer Seitenzahl
+  zusammen (bis 389 Zeilen auf einer «Seite»). Die Zuordnung über die gemeinsamen Rufnummern trägt das: Nur 4
+  (1911) und 2 (1912) Bilder fanden keine Seite der Quelle.
+- **«Pro memoria»:** Die letzte bedruckte Seite jedes Bands ist ein Merkblatt mit den Nummern von Polizei und
+  Feuerwache in Basel, kein Verzeichnis. `convert_2b.py` lässt sie jetzt weg; damit entfallen auch 1913 und
+  1914 je sechs und sieben Zeilen, die zuerst mit übernommen waren (jetzt 16 856 und 17 850 Zeilen).
+
+| | Quelle 1911 | Neulesung 1911 | Quelle 1912 | Neulesung 1912 |
+|---|---|---|---|---|
+| Einträge | 12 136 | 13 223 | 13 437 | 13 860 |
+| verschiedene Ortsangaben | 445 | 711 | 486 | 717 |
+| Gemeinden von 1914 | 350 | 496 | 371 | 508 |
+| Einträge ohne Gemeinde | 74 | 9 | 235 | 10 |
+
+Einträge je Gemeinde (Quelle samt Jahres- und Namensabgleich → Neulesung), 1911: Luzern 1 519 → 1 893, Aarau
+346 → 509, Altdorf 1 → 104, Olten 244 → 267, Liestal 248 → 173, Brugg 235 → 136, Basel 5 519 → 5 582. 1912:
+Luzern 1 840 → 1 962, Aarau 281 → 521, Altdorf 71 → 112, Lenzburg 47 → 112, Liestal 94 → 174, Olten 370 → 281,
+Brugg 254 → 148, Basel 5 830 → 5 717. Wo die Zahl sinkt, standen vorher fremde Einträge unter dem Ort.
+
+Abstimmung: Die Mehrheit überstimmte Lauf A bei 507 Namen, 895 Resten und 92 Orten (1911) und bei 327, 547 und
+55 (1912). Die Quelle entschied 412 und 293 Namen und bestätigte 51 und 17 unsichere. Vermerke in `Check`:
+`uneins` 77 und 45, `ergänzt` 9 und 7, `zwei-lesungen` 7 und 1, `nur-A` 1 und 0, `nummer-quelle` 30 und 5.
+Trennstriche vor dem Grundwort einer Strasse fielen in 657 und 753 Einträgen weg.
+
+Stichprobe: 24 zufällig gezogene Einträge aus beiden Bänden (Zufallszahl 19111912), 21 davon am Ausschnitt
+des Seitenbilds aufgefunden (geprüft von Claude):
+
+- Rufnummer: 21 von 21 richtig. Der Ort stimmt überall, wo der Ausschnitt die Überschrift zeigt.
+- Name (erstes Feld): 19 von 21. Fehler: «Acher mann» statt «Achermann», «Hosch & Ruckhüberle» statt
+  «Hosch & Ruckhäberle» (dieser mit Vermerk `uneins`). Bei «Schlemmer-Hofmann Söhne» steht «Söhne» im zweiten
+  Feld.
+
+Die Stichprobe ist klein: Bei 19 von 21 reicht die Spanne für den Namen etwa von 70 bis 99 %.
+
+Folgen:
+
+- Ausserhalb der beiden Bände wechseln 28 Einträge die Gemeinde (Jahresabgleich in den Bänden 2a und 3).
+- Über den Namensabgleich verortet sind noch 11 427 statt 14 158 Zeilen aller Bände.
+- Eine öffentliche Sprechstelle haben bis 1914 1 727 statt 1 773 Gemeinden. In Band 2b 1911 stehen jetzt 256
+  Sprechstellen in 239 Gemeinden (Quelle: 251 in 201), 1912 272 in 254 (260 in 213); weggefallen sind
+  Gemeinden, die ihre Sprechstelle nur durch eine fehlende Überschrift hatten (1911: 39, 1912: 33).
+- Einheiten: 471 959 statt 476 489, bei 942 422 statt 940 636 Einträgen. Zum Historischen Grundbuch führen
+  15 979 statt 16 001 Paare.
+- In Gemeinden unter 500 Einwohnern sinkt der Median der Personen je 100 Haushalte von 1,0 auf 0,0 %: Mehr als
+  die Hälfte dieser Gemeinden hat jetzt keinen als Person erkannten Eintrag mehr (vorher standen dort Einträge
+  grösserer Orte).
+
 ## Was offen bleibt
 
 - Unterzeilen eines Betriebs («Bauleitung», «Bureau» unter «Elektrizitätswerk u. Wasserversorgung») stehen
@@ -181,7 +240,8 @@ Folgen:
   Im Block Basel betrifft das die Filialen des Consumvereins und die Listen der Wirtschaften («Rest. „ …»): Die
   drei Läufe geben das Wiederholungszeichen dort uneinheitlich wieder, ein Teil der Wirtschaften steht ohne
   «Rest.».
-- 71 Einträge bleiben ohne Gemeinde (Weiler im Tessin und im Luzerner Hinterland).
+- 1913 und 1914 bleiben 71 Einträge ohne Gemeinde (Weiler im Tessin und im Luzerner Hinterland).
 - Trennstriche am Zeilenende ausserhalb von Strassennamen bleiben stehen.
-- Die Bände 2b 1911 und 1912 sind nicht neu gelesen (die Lesung läuft); dort greifen weiter Jahres- und
-  Namensabgleich.
+- 1911 und 1912 bleiben 9 und 10 Einträge ohne Gemeinde (Schinznach-Dorf, Kasteln, Starrkirch, Weiler bei Zell).
+- Die Bände 2a, 1 und 3 (1911–1914) sind noch nicht neu gelesen (die Lesung läuft); dort greifen weiter
+  Jahres- und Namensabgleich.

@@ -1,8 +1,9 @@
-"""Lesungen von Band 2b 1913/14 → Tabelle im Format der Charge B.
+"""Lesungen von Band 2b 1911–1914 → Tabelle im Format der Charge B.
 convert_2b.py VOL YEAR OUT.tsv [--ganz] [--quelle ORDNER] [--report]
 
-Der Band beginnt mit Basel und Luzern als eigenen Blöcken und ordnet danach alle Orte der Netzgruppe (Aargau,
-Baselland, Innerschweiz, Solothurn, Tessin) in einem Alphabet. Lauf A (Massstab 1,3) gibt Reihenfolge und Bestand
+Der Band beginnt mit Basel und (ausser 1911) Luzern als eigenen Blöcken und ordnet danach alle Orte der Netzgruppe
+(Aargau, Baselland, Innerschweiz, Solothurn, 1913/14 auch Tessin) in einem Alphabet. Das Merkblatt «Pro memoria»
+am Ende des Bands bleibt weg. Lauf A (Massstab 1,3) gibt Reihenfolge und Bestand
 vor; je Feld (Name, Rest, Ort) gilt, was zwei von drei Läufen (B 1,0, C 1,6) gleich lesen, sonst A. Zugeordnet
 wird über die Rufnummer auf derselben Seite. Spalte Check wie in convert_2c.py. Wiederholungszeichen » werden aus
 dem Eintrag darüber aufgelöst. Der Ort gilt über den Seitenwechsel weiter; nennt der Kolumnentitel eine einzelne
@@ -126,6 +127,8 @@ def resolve(pages):
     rows, place, net, name = [], "", "", ""
     for n in sorted(pages):
         entries, meta = pages[n]
+        if re.match(r"(?i)\s*pro memoria", meta.get("header", "")):     # Merkblatt auf dem Umschlag (Polizei, Feuerwache): kein Verzeichnis
+            continue
         town = header_town(meta.get("header", ""))
         if town and key(town) != key(place) and entries and not entries[0]["place"]:
             place, net, name = town, "", ""             # Stadtblock: der Kolumnentitel nennt den Ort
@@ -208,6 +211,7 @@ def witness(rows, vol):
             s_by.setdefault(ph, set()).add(nm)
             s_name.setdefault(nm, set()).add(ph)
         if len(phones & set(s_by)) < 0.5 * len(phones):
+            n["bilder ohne quelle"] = n.get("bilder ohne quelle", 0) + 1
             continue                                        # Seite fehlt in der Quelle
         for i, r in enumerate(rs):
             ph, nm = key(r["phone"]), key(r["name"])

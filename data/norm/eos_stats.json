@@ -1,24 +1,24 @@
 {
- "paare": 16001,
- "einheiten": 10209,
+ "paare": 15979,
+ "einheiten": 10186,
  "häuser": 2580,
  "ab:adresse": 15284,
  "ab:adresse+hausname": 2,
  "ab:einträge": 15478,
  "ab:hausname": 2,
  "ab:strasse_im_grundbuch": 12313,
- "einheiten:adresse": 15959,
+ "einheiten:adresse": 15937,
  "einheiten:adresse+hausname": 29,
- "einheiten:familie": 87,
+ "einheiten:familie": 84,
  "einheiten:hausname": 13,
- "ptt:adresse": 39202,
- "ptt:adresse+hausname": 147,
- "ptt:einträge": 95705,
+ "ptt:adresse": 39676,
+ "ptt:adresse+hausname": 151,
+ "ptt:einträge": 95852,
  "ptt:hausname": 19,
- "ptt:strasse_im_grundbuch": 34652,
+ "ptt:strasse_im_grundbuch": 35017,
  "stufe:möglich": 9594,
  "stufe:sicher": 29,
- "stufe:wahrscheinlich": 6378,
+ "stufe:wahrscheinlich": 6356,
  "nummernprüfung": {
   "ab:1860:anders": 2,
   "ab:1860:gleich": 2,
@@ -31,7 +31,7 @@
   "ptt:1900:gleich": 24,
   "ptt:1900:nachbar": 11,
   "ptt:1910:anders": 3,
-  "ptt:1910:gleich": 17
+  "ptt:1910:gleich": 21
  },
  "eos_commit": "e57f771f3dab2cfb473b427726680b0062b7555a"
 }

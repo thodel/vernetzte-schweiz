@@ -68,3 +68,20 @@ class Witness(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class ProMemoria(unittest.TestCase):
+    """Das Merkblatt am Ende des Bands (Polizei, Feuerwache) ist kein Verzeichnis."""
+
+    def entry(self, place, phone, name):
+        return {"place": place, "net": "", "phone": phone, "name": name, "rest": ""}
+
+    def test_page_with_header_pro_memoria_is_skipped(self):
+        pages = {186: ([self.entry("Zofingen", "42", "Häfliger & Co.")], {"header": "Zofingen"}),
+                 190: ([self.entry("BASEL", "4.03", "Polizeidepartement:")], {"header": "Pro memoria"})}
+        rows = c.resolve(pages)
+        self.assertEqual([(r["image"], r["place"]) for r in rows], [(186, "Zofingen")])
+
+    def test_other_pages_stay(self):
+        pages = {20: ([self.entry("Basel", "8.21", "Bruder-Nyfeler")], {"header": "Basel B"})}
+        self.assertEqual(len(c.resolve(pages)), 1)
