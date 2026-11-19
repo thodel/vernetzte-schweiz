@@ -79,4 +79,5 @@ Die Stichprobe ist klein; die Spanne für «Name buchstabengenau» reicht bei 73
   Ortszuordnung: Vorgezogen gab sie verlesenen Überschriften eine Gemeinde, und der Namensabgleich
   stellte die Seiten von Einsiedeln, Payerne und Kriens nicht mehr richtig. 4–5 % der Einträge von Band
   2c bleiben ohne Gemeinde (Weiler, die weder im Ortschaftenverzeichnis noch in der Liste stehen).
-- Band 2c fehlt in der Quelle für 1913 und 1914; das Tessin steht dann in Band 2b und ist nicht neu gelesen.
+- Einen eigenen Band 2c gibt es 1913 und 1914 nicht; das Tessin steht dann in Band 2b. Dieser ist ab dem
+  Block Luzern ebenfalls neu gelesen: [neulesung_2b.md](neulesung_2b.md).

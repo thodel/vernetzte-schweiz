@@ -6,7 +6,10 @@ auf dem Commit aus `config/sources.toml` steht. Übernommen werden
   seitenweise Sammeldatei a1*.tsv),
 - Charge B: die Zeilen aus tsv/b*.tsv,
 - Neulesungen: data/override/ptt/<Band>.tsv ersetzt alle Zeilen dieses Bandes aus Charge B (Spalten wie
-  dort, dazu `Image` = Nummer des Seitenbilds); so gelesen ist bisher Band 2c (Tessin) 1911 und 1912,
+  dort, dazu `Image` = Nummer des Seitenbilds); so gelesen ist Band 2c (Tessin) 1911 und 1912.
+  Liegt daneben <Band>.ersetzt.txt (Zeilennummern der Quelle, einzeln oder als Spanne «5867-16604»), ersetzt
+  die Neulesung nur diese Zeilen; die übrigen behalten ihre Id, die neu gelesenen zählen ab 100 001 (Band 2b
+  1913 und 1914: alles nach dem Block Basel, docs/neulesung_2b.md),
 jeweils Jahre im Zeitfenster. Die Zeilennummer `seq` zählt je Quelldatei (A) bzw. je
 Band (`File`, B) in Lesereihenfolge, auch über Zeilen ohne Namen hinweg; sie ist Teil der Id.
 """
@@ -26,6 +29,7 @@ FIELDS = ["id", "batch", "seq", "year", "network", "refcode", "page", "image",
           "name1", "name2", "supplement", "street", "locality", "phone"]
 ROOT = Path(__file__).resolve().parent.parent
 RAW = ROOT / ".cache" / "ptt_raw.csv.gz"
+PARTIAL_START = 100_001      # erste Zeilennummer neu gelesener Zeilen bei Teil-Ersatz
 
 
 def clean(v: str | None) -> str:
@@ -37,6 +41,8 @@ def main() -> None:
     ptt = cfg["ptt"]
     repo = Path(os.environ.get("PTT_LOCAL") or ptt["local"]).expanduser()   # PTT_LOCAL: anderer Checkout am gepinnten Commit
     overrides = {p.stem: p for p in sorted((ROOT / ptt["overrides"]).glob("*.tsv"))} if ptt.get("overrides") else {}
+    partial = {stem: replaced_rows(p.with_suffix(".ersetzt.txt")) for stem, p in overrides.items()
+               if p.with_suffix(".ersetzt.txt").exists()}
     head = subprocess.run(["git", "-C", str(repo), "rev-parse", "HEAD"],
                           capture_output=True, text=True, check=True).stdout.strip()
     if head != ptt["commit"]:
@@ -74,13 +80,19 @@ def main() -> None:
         counter: Counter = Counter()
         for r in read_tsv(path):
             stem = clean(r.get("File"))
-            if stem in overrides:
+            if stem in partial:
+                counter[stem] += 1                      # Teil-Ersatz: Zählung der Quelle bleibt stehen
+                if counter[stem] in partial[stem]:
+                    stats["B: durch Neulesung ersetzt"] += 1
+                    continue
+            elif stem in overrides:
                 stats["B: durch Neulesung ersetzt"] += 1
                 continue
-            counter[stem] += 1
+            else:
+                counter[stem] += 1
             take(r, "B", stem, counter[stem], stem)
     for stem, path in overrides.items():
-        for n, r in enumerate(read_tsv(path), start=1):
+        for n, r in enumerate(read_tsv(path), start=PARTIAL_START if stem in partial else 1):
             take(r, "B", stem, n, stem)
             stats["B: aus Neulesung"] += 1
 
@@ -88,6 +100,15 @@ def main() -> None:
     for k, v in sorted(stats.items()):
         print(f"{k:30} {v:>8}")
     print(f"Bände/Dateien: {len({r['refcode'] for r in rows})} → {RAW.relative_to(RAW.parent.parent)}")
+
+
+def replaced_rows(path: Path) -> set[int]:
+    """Zeilennummern der Quelle, die eine Neulesung ersetzt: je Zeile eine Nummer oder eine Spanne «5867-16604»."""
+    out: set[int] = set()
+    for item in path.read_text(encoding="utf-8").split():
+        a, _, b = item.partition("-")
+        out.update(range(int(a), int(b or a) + 1))
+    return out
 
 
 def read_tsv(path: Path):

@@ -268,10 +268,10 @@ def reliable(row: dict) -> bool:
 
 
 def series(row: dict) -> str:
-    """Band-Reihe für die Kantons-Vorlieben: B «1», «2a», …; A das Netz."""
+    """Band für die Kantons-Vorlieben: B «2b:1913» (die Netzgruppen wechseln über die Jahre ihr Gebiet); A das Netz."""
     if row["batch"] == "B":
         parts = row["refcode"].split("_")
-        return f"B{parts[2]}" if len(parts) > 2 else "B"
+        return f"B{':'.join(parts[1:3])}" if len(parts) > 2 else "B"
     return f"A{row['network']}"
 
 

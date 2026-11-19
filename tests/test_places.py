@@ -69,6 +69,21 @@ class Resolve(unittest.TestCase):
         self.assertEqual(self.place("Fiez (Grandson)"), ("Fiez", "VD"))
 
 
+class Series(unittest.TestCase):
+    """Die Kantons-Vorliebe gilt je Band: «2b» und «3» desselben Jahres decken verschiedene Landesteile ab."""
+
+    def test_volume_not_year(self):
+        a = places.series({"batch": "B", "refcode": "P-260-1_2b_1914", "network": ""})
+        b = places.series({"batch": "B", "refcode": "P-260-1_3_1914", "network": ""})
+        c = places.series({"batch": "B", "refcode": "P-260-1_2b_1913", "network": ""})
+        self.assertNotEqual(a, b)
+        self.assertNotEqual(a, c)
+        self.assertIn("2b", a)
+
+    def test_batch_a_by_network(self):
+        self.assertEqual(places.series({"batch": "A", "refcode": "x", "network": "Bern"}), "ABern")
+
+
 class Runs(unittest.TestCase):
     """Ein Dorf-Lauf, in dem die Überschrift einer Stadt ausgefallen ist."""
 

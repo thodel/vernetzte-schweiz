@@ -8,7 +8,7 @@ Alles läuft mit `make entities`.
 ## Was gebündelt wird
 
 - **Telefonbuch:** alle Einträge ≤ 1914 mit Gemeinde (Ort `hoch` oder `mittel`, M1), Art
-  `person` oder `firma`: 938 034 Einträge mit den Adressbüchern zusammen (Stand 18.11.2026).
+  `person` oder `firma`: 940 391 Einträge mit den Adressbüchern zusammen (Stand 19.11.2026).
 - **Adressbuch:** alle Einträge der Bände von Aarau (1867–1899), Baden (1900, 1910), Basel (1862),
   Bern (1883, 1900), Lausanne (1896, 1907) und Zürich (1867–1914).
 
@@ -62,13 +62,16 @@ gleich, solange dieser Eintrag zur Einheit gehört; bei geänderten Regeln kann 
 
 | | Anzahl |
 |---|---|
-| Einträge | 938 034 |
-| Einheiten | 479 258 (Personen 416 896, Firmen und Ämter 62 362) |
-| Einheiten mit mehr als einem Eintrag | 145 148 (mit 603 924 Einträgen) |
-| über mindestens 10 Jahre belegt | 15 228 |
-| im Telefon- und im Adressbuch | 12 127 |
+| Einträge | 940 391 |
+| Einheiten | 476 736 (Personen 415 188, Firmen und Ämter 61 548) |
+| Einheiten mit mehr als einem Eintrag | 145 945 (mit 609 600 Einträgen) |
+| über mindestens 10 Jahre belegt | 15 305 |
+| im Telefon- und im Adressbuch | 12 137 |
 
-Stand 18.11.2026 (`data/norm/cluster_stats.json`), nach der neuen Ortszuordnung der Telefonbücher:
+Stand 19.11.2026 (`data/norm/cluster_stats.json`), nach der Neulesung von Band 2b 1913/14
+([neulesung_2b.md](neulesung_2b.md)): rund 2 500 Einheiten weniger als am Vortag, weil Einträge von Luzern,
+Aarau, Olten und Liestal nicht mehr unter falschen Orten als eigene Einheiten stehen. Am 18.11.2026, nach der
+neuen Ortszuordnung der Telefonbücher:
 Rund 43 000 Einträge, deren Ort vorher `unsicher` war, zählen jetzt mit. Am Abend des 18.11. kamen
 13 000 Einträge dazu (Ortschaften mit eindeutiger Gemeinde von 1914, Band 2c neu gelesen), und die
 Personen nahmen um rund 8 500 zu, Firmen und Ämter um 6 400 ab, weil die Namenszeilen besser zerlegt werden. Beim Abschluss von M3
