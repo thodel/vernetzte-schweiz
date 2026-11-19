@@ -751,5 +751,13 @@
   "fw_measure": "Gemessen (Stichprobe von 65 Paaren): Ehemann → Witwe 67–93 %, Ehefrau → Witwe 80–100 % richtig; ledig → verheiratet lässt sich aus den Büchern nicht prüfen (fast alle unklar), über Gemeinden hinweg trägt es nicht.",
   "fw_unverified": "nicht prüfbar",
   "fw_more": "… und {n} weitere (Filter enger stellen).",
-  "fw_show_text": "Einträge zeigen"
+  "fw_show_text": "Einträge zeigen",
+  "eos_h": "Historisches Grundbuch Basel (EOS)",
+  "eos_years": "im Grundbuch {y}",
+  "eos_persons": "{n} Personen",
+  "eos_how_adresse_hausname": "Adresse und Hausname gleich",
+  "eos_how_hausname": "Hausname an derselben Strasse",
+  "eos_how_adresse": "gleiche Adresse",
+  "eos_family": "gleicher Name im Haus",
+  "eos_note": "Dasselbe Haus, nicht dieselbe Person: Das Grundbuch reicht von etwa 1400 bis 1700. Verbunden über die heutige Adresse und den Hausnamen; in den Telefonbüchern entsprechen die Nummern zu 73 % genau, zu 89 % bis auf zwei der heutigen Nummerierung, im Adressbuch 1862 ist das nicht geprüft."
 }

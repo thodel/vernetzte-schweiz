@@ -751,5 +751,13 @@
   "fw_measure": "Mesuré (échantillon de 65 paires): mari → veuve 67–93 %, épouse → veuve 80–100 % justes; célibataire → mariée ne peut être vérifié dans les annuaires (presque tout incertain), et d'une commune à l'autre cela ne tient pas.",
   "fw_unverified": "non vérifiable",
   "fw_more": "… et {n} autres (resserrer les filtres).",
-  "fw_show_text": "afficher les inscriptions"
+  "fw_show_text": "afficher les inscriptions",
+  "eos_h": "Registre foncier historique de Bâle (EOS)",
+  "eos_years": "au registre {y}",
+  "eos_persons": "{n} personnes",
+  "eos_how_adresse_hausname": "même adresse et même nom de maison",
+  "eos_how_hausname": "nom de maison dans la même rue",
+  "eos_how_adresse": "même adresse",
+  "eos_family": "même nom dans la maison",
+  "eos_note": "La même maison, pas la même personne: le registre couvre environ 1400 à 1700. Relié par l'adresse actuelle et le nom de la maison; dans les annuaires téléphoniques, les numéros correspondent à la numérotation actuelle dans 73 % des cas exactement, dans 89 % à deux près; pour l'annuaire de 1862, ce n'est pas vérifié."
 }

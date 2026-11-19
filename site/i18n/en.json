@@ -751,5 +751,13 @@
   "fw_measure": "Measured (sample of 65 pairs): husband → widow 67–93 %, wife → widow 80–100 % correct; unmarried → married cannot be checked from the directories (almost all unclear), and across municipalities it does not hold.",
   "fw_unverified": "cannot be verified",
   "fw_more": "… and {n} more (narrow the filters).",
-  "fw_show_text": "show entries"
+  "fw_show_text": "show entries",
+  "eos_h": "Historical Land Register of Basel (EOS)",
+  "eos_years": "in the register {y}",
+  "eos_persons": "{n} persons",
+  "eos_how_adresse_hausname": "same address and house name",
+  "eos_how_hausname": "house name in the same street",
+  "eos_how_adresse": "same address",
+  "eos_family": "same name in the house",
+  "eos_note": "The same house, not the same person: the register covers about 1400 to 1700. Linked through today's address and the house name; in the phone books the numbers match today's numbering in 73 % exactly and in 89 % within two; for the 1862 directory this is not verified."
 }

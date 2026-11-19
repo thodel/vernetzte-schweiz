@@ -538,6 +538,18 @@
           el("span", { class: "muted" }, ` (${z.b.split("+").map(x => t["zw_ev_" + x.replace(/[:.]/g, "_")] || x).join(", ")})`))),
         el("p", { class: "sub note" }, t.zw_note, " ", link("https://github.com/thodel/vernetzte-schweiz/blob/main/docs/frauen_wege.md", t.mw_doc))));
     }
+    if (e.eos) {
+      // Historisches Grundbuch Basel (EOS, ca. 1400–1700): dasselbe Haus, nicht dieselbe Person
+      const EOS = "https://thodel.github.io/eos_persons/";
+      const surname = (e.n || "").split(",")[0].split("-")[0].trim();
+      parts.push(el("section", { class: "card eos" }, el("h2", {}, t.eos_h),
+        ...e.eos.map(([dos, addr, yrs, np, tier, how, fam, vy, vaddr]) => el("p", {},
+          link(`${EOS}map.html?dossier=${encodeURIComponent(dos)}`, addr), ` · ${t.eos_years.replace("{y}", yrs)} · `,
+          t.eos_persons.replace("{n}", n(np)), " ", tierBadge(tier),
+          el("span", { class: "muted" }, ` — ${t["eos_how_" + how.replace("+", "_")] || how} (${vaddr}, ${vy})`),
+          fam ? el("span", { class: "pill fam" }, " ", link(`${EOS}index.html?q=${encodeURIComponent(surname)}`, t.eos_family)) : "")),
+        el("p", { class: "sub note" }, t.eos_note, " ", link("https://github.com/thodel/vernetzte-schweiz/blob/main/docs/eos.md", t.mw_doc))));
+    }
     parts.push(personFrames(e));
     parts.push(timeline(e.r));
     // gleiche Zeile im selben Jahr (mehrere Ausgaben, Haupt- und Nachtrag) nur einmal, mit allen Fundstellen

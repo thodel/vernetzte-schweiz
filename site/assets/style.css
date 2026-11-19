@@ -393,3 +393,4 @@ a.hbar.on .fill { background: #d21938; }
 .fw-typ { font-weight: 600; }
 .fw-pair { margin: 2px 0; }
 .fw-text summary { cursor: pointer; color: #555; font-size: .9rem; }
+.card.eos .pill.fam { margin-left: 6px; }

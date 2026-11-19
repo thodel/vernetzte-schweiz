@@ -50,3 +50,6 @@ Je Einheit gelten diese Quellen, die sicherste zuerst. Jede ergibt eine Reihe vo
   die Einheit; sie stehen daneben.
 - Personen ohne Normdaten, ohne HLS-Kandidaten und ohne Wanderung mit Normdaten bekommen
   keine Rahmen.
+
+Ausserdem zeigt die Seite einer Basler Einheit die Häuser des Historischen Grundbuchs Basel
+(EOS, etwa 1400–1700) an derselben Adresse: [eos.md](eos.md). Das ist dasselbe Haus, nicht dieselbe Person.

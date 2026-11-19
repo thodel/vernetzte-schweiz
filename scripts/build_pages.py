@@ -219,6 +219,16 @@ def main() -> None:
              [w["nach_name"], w["nach_gemeinde"], w["nach_jahre"], (w["nach_einheiten"].split() or [""])[0], w["nach_text"][:160]]]
             for w in open_csv(ROOT / "links" / "frauen_wege.csv") if w["typ"] in types]})
 
+    # Historisches Grundbuch Basel (EOS): Häuser zu Einträgen in Basel (scripts/eos_link.py)
+    eos: dict[str, list] = defaultdict(list)
+    if (ROOT / "links" / "eos_haeuser.csv").exists():
+        order = {"sicher": 0, "wahrscheinlich": 1, "möglich": 2}
+        for w in open_csv(ROOT / "links" / "eos_haeuser.csv"):
+            eos[w["entity_id"]].append([w["dossier"], w["hgb_adresse"], w["hgb_jahre"], int(w["hgb_personen"] or 0),
+                                        w["stufe"], w["beleg"], w["familie"], w["jahre"], w["adresse"]])
+        for v in eos.values():
+            v.sort(key=lambda x: (order.get(x[4], 3), -x[3]))
+
     # Einheiten und Suchindex
     shards: dict[str, dict] = defaultdict(dict)
     names: dict[str, list] = defaultdict(list)
@@ -243,6 +253,8 @@ def main() -> None:
             ent["mv"] = moved[eid]
         if esc.get(eid):
             ent["esc"] = esc[eid]
+        if eos.get(eid):
+            ent["eos"] = eos[eid][:4]
         if zw.get(eid):
             ent["zw"] = zw[eid][:6]
         seen = {r["id"] for r in rs}
