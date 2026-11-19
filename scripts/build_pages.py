@@ -210,6 +210,15 @@ def main() -> None:
                                     "n": w[f"{other}_name"], "m": w[f"{other}_gemeinde"], "y": w[f"{other}_jahre"],
                                     "b": w["belege"]})
 
+    # Unterreiter «Wege von Frauen» (#/wanderungen?v=frauen): alle Paare, kompakt
+    if (ROOT / "links" / "frauen_wege.csv").exists():
+        types = ["mann→witwe", "verheiratet→witwe", "ledig→verheiratet", "ledig→witwe"]
+        dump(OUT / "frauen_wege.json.gz", {"types": types, "pairs": [
+            [types.index(w["typ"]), ["wahrscheinlich", "möglich", "schwach"].index(w["stufe"]), w["belege"],
+             [w["von_name"], w["von_gemeinde"], w["von_jahre"], (w["von_einheiten"].split() or [""])[0], w["von_text"][:160]],
+             [w["nach_name"], w["nach_gemeinde"], w["nach_jahre"], (w["nach_einheiten"].split() or [""])[0], w["nach_text"][:160]]]
+            for w in open_csv(ROOT / "links" / "frauen_wege.csv") if w["typ"] in types]})
+
     # Einheiten und Suchindex
     shards: dict[str, dict] = defaultdict(dict)
     names: dict[str, list] = defaultdict(list)

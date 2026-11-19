@@ -16,7 +16,8 @@ Repo.
 | `#/orte` | alle Gemeinden, nach Zahl der Einträge |
 | `#/vorbehalte` | was die Daten können und was nicht |
 | `#/quellen/<quellen\|telefon\|ortsqualitaet\|verknuepfung\|einheiten\|vorgehen>` | Quellen & Qualität: die Abschnitte, die früher auf der Startseite standen, mit Unternavigation |
-| `#/wanderungen?…&vo=…&na=…&ort=…` | Wanderungen (M10, Versuch, [docs/wanderungen.md](wanderungen.md)); `vo`/`na`/`ort` grenzen auf einen Ort ein (Klick auf Linie oder Punkt öffnet so einen neuen Tab); früher `#/karten?v=wanderungen`, das weiterleitet |
+| `#/wanderungen?v=frauen&typ=…&t=w\|wm\|all&m=…` | Migration › Wege von Frauen (M10b, Versuch, [docs/frauen_wege.md](frauen_wege.md)) |
+| `#/wanderungen?…&vo=…&na=…&ort=…` | Migration (bis 18.11.2026 «Wanderungen»; M10, Versuch, [docs/wanderungen.md](wanderungen.md)); `vo`/`na`/`ort` grenzen auf einen Ort ein (Klick auf Linie oder Punkt öffnet so einen neuen Tab); früher `#/karten?v=wanderungen`, das weiterleitet |
 | `#/karten?v=telefon\|berufe\|namen` | Karten (M6, [docs/karten.md](karten.md)) |
 | `#/suche?b=…&q=…` | Suche nach Berufen mit Karte (M6); `q` grenzt nach Name ein (Weitere Filter), `u=1` sucht den Beruf auch übersetzt |
 | `#/suche?v=ft&q=…` | Volltext über alle Einträge (M8, [docs/volltext.md](volltext.md)) |

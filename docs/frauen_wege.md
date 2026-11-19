@@ -97,10 +97,13 @@ wie «Fabrikinspektors Wittwe», Telefonnummer).
 
 ## Auf der Seite
 
-Die Seite einer Einheit zeigt unter «Zivilstand (Versuch)» die Gegenstücke der Stufen
-`wahrscheinlich` und `möglich`, mit Stufe und Belegen. Das ist die Witwe zu einem Mann, der
-Mann zur Witwe, die Ehefrau zur Witwe und umgekehrt. Übergänge von ledig sind als «nicht
-prüfbar» gekennzeichnet.
+- **Migration › Wege von Frauen** (`#/wanderungen?v=frauen`): alle Paare als Liste, mit Filtern
+  nach Übergang, Stufe (Standard: wahrscheinlich und möglich) und Gemeinde, mit der Zahl je
+  Übergang. Beide Seiten sind verlinkt, die gedruckten Einträge lassen sich aufklappen.
+  Übergänge von ledig sind als «nicht prüfbar» gekennzeichnet.
+- **Seite einer Einheit:** Unter «Zivilstand (Versuch)» stehen die Gegenstücke der Stufen
+  `wahrscheinlich` und `möglich`: die Witwe zu einem Mann, der Mann zur Witwe, die Ehefrau
+  zur Witwe und umgekehrt.
 
 ## Grenzen
 

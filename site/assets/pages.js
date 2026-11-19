@@ -808,7 +808,8 @@
 
   // ── Wanderungen (M10, experimentell; scripts/migration.py) ──────────────
   // moves: [von, nach, letztes Jahr alt, erstes Jahr neu, Klasse, Stufe 0–2, km, Name, Beruf alt, Beruf neu, entity alt, entity neu, beide vorliegend]
-  const migTabs = v => el("nav", { class: "tabs" }, ...[["orte", "#/wanderungen", t.zz_tab_moves], ["zuzug", "#/wanderungen?v=zuzug", t.zz_tab]]
+  const migTabs = v => el("nav", { class: "tabs" }, ...[["orte", "#/wanderungen", t.zz_tab_moves], ["zuzug", "#/wanderungen?v=zuzug", t.zz_tab],
+    ["frauen", "#/wanderungen?v=frauen", t.mw_sub_women]]
     .map(([k, href, txt]) => el("a", { href, class: v === k ? "on" : "", "aria-current": v === k ? "page" : "false" }, txt)));
   // Balken der Seitenleiste. Zeile: [Beschriftung, Zahl, Zusatz, Link, aktiv]; mit Link ist der Balken ein Filter
   // (aktiv: nochmals klicken hebt ihn auf)
@@ -820,7 +821,49 @@
       el("span", { class: "num" }, n(c), extra ? el("span", { class: "muted" }, ` · ${extra}`) : "")))));
   };
   let migData;
+  // ── Wege von Frauen (M10b, scripts/frauen_wege.py; data/frauen_wege.json.gz) ──
+  let fwData;
+  async function frauenWege(params) {
+    const D = fwData ??= await get("data/frauen_wege.json.gz");
+    const typ = params.get("typ") ?? "", tier = params.get("t") || "wm", muni = params.get("m") || "";
+    const set = upd => {
+      const p = new URLSearchParams(params);
+      for (const [k, val] of Object.entries(upd)) val === "" ? p.delete(k) : p.set(k, val);
+      p.set("v", "frauen");
+      location.replace(`#/wanderungen?${p}`);
+    };
+    const typName = i => t[`fw_t_${D.types[i].replace("→", "_")}`] || D.types[i];
+    const tierNames = ["wahrscheinlich", "möglich", "schwach"];
+    const mf = fold(muni);
+    const okTier = st => tier === "all" || (tier === "w" ? st === 0 : st <= 1);
+    const okMuni = (a, b) => !mf || fold(a[1]).includes(mf) || fold(b[1]).includes(mf);
+    const rows = D.pairs.filter(([ti, st, , a, b]) => (typ === "" || ti === +typ) && okTier(st) && okMuni(a, b))
+      .sort((x, y) => x[0] - y[0] || x[1] - y[1]);  // Ehemann → Witwe zuerst, sicherste Stufe zuerst
+    const byTyp = D.types.map((_, i) => D.pairs.filter(([ti, st, , a, b]) => ti === i && okTier(st) && okMuni(a, b)).length);
+    const muniIn = el("input", { type: "search", value: muni, placeholder: t.fw_place_ph, "aria-label": t.fw_place_ph, class: "q q-place" });
+    let timer;
+    muniIn.addEventListener("input", () => { clearTimeout(timer); timer = setTimeout(() => set({ m: muniIn.value }), 350); });
+    const ctl = el("div", { class: "controls" },
+      select([["", t.fw_all], ...D.types.map((_, i) => [String(i), typName(i)])], typ, t.fw_typ),
+      select([["wm", t.fw_tier_wm], ["w", t.fw_tier_w], ["all", t.fw_tier_all]], tier, t.fw_tier),
+      el("label", { class: "ctl wide" }, el("span", {}, t.fw_place), muniIn));
+    ctl.querySelectorAll("select").forEach((sel, i) => sel.addEventListener("change", () => set({ [["typ", "t"][i]]: sel.value })));
+    const side = p => el("span", {}, p[3] ? link(`#/e/${p[3]}`, p[0]) : el("b", {}, p[0]), ` · ${p[1]} ${p[2]}`);
+    const list = el("ul", { class: "hitlist fw" }, ...rows.slice(0, 300).map(([ti, st, ev, a, b]) => el("li", {},
+      el("span", { class: "fw-typ" }, typName(ti)), " ", tierBadge(tierNames[st]),
+      D.types[ti].startsWith("ledig") ? el("span", { class: "muted" }, ` ${t.fw_unverified}`) : "",
+      el("div", { class: "fw-pair" }, side(a), " → ", side(b)),
+      el("span", { class: "meta" }, ev.split("+").map(x => t["zw_ev_" + x.replace(/[:.]/g, "_")] || x).join(", ")),
+      el("details", { class: "fw-text" }, el("summary", {}, t.fw_show_text), el("p", { class: "sub" }, a[4]), el("p", { class: "sub" }, b[4])))));
+    view.replaceChildren(el("h1", {}, t.mw_h), migTabs("frauen"), el("p", { class: "intro" }, t.fw_p), ctl,
+      el("p", { class: "count" }, t.fw_count.replace("{n}", n(rows.length)), " · ",
+        ...D.types.flatMap((_, i) => [i ? " · " : "", `${typName(i)} ${n(byTyp[i])}`])),
+      list, rows.length > 300 ? el("p", { class: "muted" }, t.fw_more.replace("{n}", n(rows.length - 300))) : "",
+      el("p", { class: "sub note" }, t.fw_measure, " ", link("https://github.com/thodel/vernetzte-schweiz/blob/main/docs/frauen_wege.md", t.mw_doc)));
+  }
+
   async function wanderungen(params) {
+    if (params.get("v") === "frauen") return frauenWege(params);
     if (params.get("v") === "zuzug") return zuzuege(params);
     const D = migData ??= await get("data/wanderungen.json.gz");
     const set = upd => {
