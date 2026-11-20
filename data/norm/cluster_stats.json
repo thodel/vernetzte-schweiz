@@ -1,23 +1,23 @@
 {
- "records": 1023615,
- "entities": 492457,
- "entities_multi": 182647,
- "records_in_multi": 713805,
- "with_ptt_and_ab": 12522,
- "span_10y": 16715,
+ "records": 1091538,
+ "entities": 505853,
+ "entities_multi": 195028,
+ "records_in_multi": 780713,
+ "with_ptt_and_ab": 12706,
+ "span_10y": 17176,
  "edges": {
-  "vereinigt": 531158,
-  "witwe": 2726,
-  "gleichzeitig": 59425,
-  "nachfolger": 6700,
-  "allianzname": 6109,
-  "schon": 974596,
-  "vorname": 11849
+  "vereinigt": 585685,
+  "witwe": 3164,
+  "gleichzeitig": 64141,
+  "nachfolger": 8078,
+  "allianzname": 7814,
+  "schon": 1073431,
+  "vorname": 13985
  },
- "m2_edges": 181001,
+ "m2_edges": 214229,
  "by_kind": {
-  "person": 432523,
-  "firma": 59934
+  "person": 445345,
+  "firma": 60508
  },
  "largest": 184
 }

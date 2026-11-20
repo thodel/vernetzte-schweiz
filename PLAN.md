@@ -152,6 +152,12 @@ Verknüpfung und Bau laufen durch.
   Schwarzenburg, «Wangen a. A.» …): 39 Zeilen in `data/ref/place_aliases.csv`. Telefonbücher ohne Gemeinde
   27 338 → 24 139 Einträge, in Band 2a 1911–1914 noch 37–57 je Band. Einträge 1 020 732 → 1 023 615, Einheiten
   491 791 → 492 457; Wanderungen 480 → 484.
+- ✔ 20.11.2026 **Zürich 1902** (Wochenlauf, qwen3.8 auf tei; adressbuecher-zuerich 144354d, Stichprobe 18/20 voll
+  richtig): 55 419 Einwohner und 12 510 Einträge im Berufsregister (14 Seiten fehlen, Lesung nicht sauber beendet).
+  Einträge 1 023 615 → 1 091 538, Einheiten 492 457 → 505 853 (mit mehr als einem Eintrag 182 647 → 195 028);
+  Telefonbuch Zürich verknüpft 38 736 → 39 480 von 62 940; Wanderungen 484 → 493 (stark 58, mittel 309, schwach 126).
+  Hinweis: das Zeichen am Zeilenanfang, das als Telefon gewertet wird, ist in Zürich 1901/1902 das Zeichen des
+  Gewerbe-Verbands; `phone_flag` ist dort unzuverlässig. Die Telefonbuch-Stufe blieb auf dem gepinnten Stand.
 - offen: Bern 1860 (Fraktur, nicht ganz gelesen).
 
 **M6 — Visualisierungen.** ✔ 10.11.2026: Karten «Wer bekam wann ein Telefon», «Berufe», «Namen» (`#/karten`), Berufssuche mit Karte und Quellenfilter in der Suche; [Aufbau und Messung](docs/karten.md). Umgesetzt sind die ersten drei Punkte; die weiteren Ideen bleiben offen. Nachgetragen: Regler für Jahre (ein Jahr oder Bereich) statt Zeiträumen, Quelle Telefon-/Adressbuch in «Berufe» und «Namen». Grundlage sind die Einheiten aus M3 (eine Person oder Firma

@@ -62,13 +62,13 @@ gleich, solange dieser Eintrag zur Einheit gehört; bei geänderten Regeln kann 
 
 | | Anzahl |
 |---|---|
-| Einträge | 1 023 615 |
-| Einheiten | 492 457 (Personen 432 523, Firmen und Ämter 59 934) |
-| Einheiten mit mehr als einem Eintrag | 182 647 (mit 713 805 Einträgen) |
-| über mindestens 10 Jahre belegt | 16 715 |
-| im Telefon- und im Adressbuch | 12 522 |
+| Einträge | 1 091 538 |
+| Einheiten | 505 853 (Personen 445 345, Firmen und Ämter 60 508) |
+| Einheiten mit mehr als einem Eintrag | 195 028 (mit 780 713 Einträgen) |
+| über mindestens 10 Jahre belegt | 17 176 |
+| im Telefon- und im Adressbuch | 12 706 |
 
-Stand 20.11.2026 (`data/norm/cluster_stats.json`), mit Zürich 1901 (74 787 Einträge, adressbuecher-zuerich 9db327f) und
+Stand 20.11.2026, 20:35 MEZ (`data/norm/cluster_stats.json`), mit Zürich 1902 (67 929 Einträge, adressbuecher-zuerich 144354d; davor 1 023 615 Einträge und 492 457 Einheiten), Zürich 1901 (74 787 Einträge, adressbuecher-zuerich 9db327f) und
 nach der Neulesung von Band 2a 1911–1914 ([neulesung_2a.md](neulesung_2a.md)); dazu zählen rund 2 900 Einträge neu mit,
 deren Ortschaft jetzt eine Gemeinde hat (`data/ref/place_aliases.csv`). Die Neulesung allein: rund 4 000
 Einheiten weniger bei 3 500 Einträgen mehr (vorher 1 017 210 Einträge und 495 788 Einheiten), weil Einträge von
