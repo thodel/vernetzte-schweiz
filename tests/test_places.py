@@ -45,6 +45,9 @@ class Resolve(unittest.TestCase):
         self.assertEqual(mun("Cassarate"), "Castagnola")           # Liste: kein Eintrag im Ortschaftenverzeichnis
         self.assertEqual(mun("Ambrì"), "Quinto")                   # Liste: Quinto hat heute zwei Vorgänger
         self.assertEqual(mun("Acquarossa"), "")                    # liegt in mehreren Gemeinden von 1914
+        self.assertEqual(mun("Wengen"), "Lauterbrunnen")           # Liste: Lauterbrunnen hat heute zwei Vorgänger
+        self.assertEqual(mun("Ostermundigen (Bern)"), "Bolligen")  # Liste: 1914 noch keine eigene Gemeinde
+        self.assertEqual(mun("Wangen a. A."), "Wangen an der Aare")  # Liste: abgekürzter Gemeindename
 
     def test_name_matching_reads_the_source_line(self):
         """Der Namensabgleich zählt die Namenszeile der Quelle, nicht die von repair() gereinigte:

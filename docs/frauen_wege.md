@@ -14,7 +14,7 @@ Skript: [scripts/frauen_wege.py](../scripts/frauen_wege.py) → `links/frauen_we
 ## Vorgehen
 
 **Einträge**
-- Grundlage sind alle Einträge der Adress- und Telefonbücher (344 359 mit erkennbarem Zivilstand
+- Grundlage sind alle Einträge der Adress- und Telefonbücher (344 804 mit erkennbarem Zivilstand
   oder Geschlecht), nicht die Einheiten aus M3: Diese bündeln nach dem Familiennamen.
 - Einträge mit gleicher Gemeinde, gleichem Zivilstand und gleichem Namen (Familien-, Geburts-,
   Vorname) bilden eine **Spur** mit Jahren, Nummern, Adressen und Berufen.
@@ -23,11 +23,11 @@ Skript: [scripts/frauen_wege.py](../scripts/frauen_wege.py) → `links/frauen_we
 
 | Zivilstand | Woran erkannt | Spuren |
 |---|---|---|
-| `witwe` | Wwe., Witwe, Wittwe, Wb., Vve, veuve | 17 238 |
-| `verheiratet` | Frau, Mme, geb., née; Frau mit Allianzname («Wächter-Lindenmann»: der zweite Name ist ihr Geburtsname) | 24 083 |
-| `ledig` | Frl., Fräulein, Mlle, Jgfr. (ausdrücklich) | 1 792 |
-| `ledig?` | Frau nach Vorname oder Berufsform (Näherin), ohne jedes Zeichen einer Ehe (vermutet) | 27 921 |
-| `mann` | Mann nach Vorname (für Ehemann → Witwe) | 84 106 |
+| `witwe` | Wwe., Witwe, Wittwe, Wb., Vve, veuve | 17 251 |
+| `verheiratet` | Frau, Mme, geb., née; Frau mit Allianzname («Wächter-Lindenmann»: der zweite Name ist ihr Geburtsname) | 24 098 |
+| `ledig` | Frl., Fräulein, Mlle, Jgfr. (ausdrücklich) | 1 796 |
+| `ledig?` | Frau nach Vorname oder Berufsform (Näherin), ohne jedes Zeichen einer Ehe (vermutet) | 27 924 |
+| `mann` | Mann nach Vorname (für Ehemann → Witwe) | 84 181 |
 
 Steht bei einer Witwe ein Männername («Suter, Jakob, Becks Wittwe»), ist er der Vorname ihres
 Mannes.
@@ -54,10 +54,10 @@ Mannes.
 
 | Übergang | Paare | gleiche Gemeinde | wahrscheinlich | möglich | schwach | mehrdeutig (weggefallen) |
 |---|---|---|---|---|---|---|
-| Ehemann → Witwe | 191 | 191 | 152 | 39 | 0 | 24 |
+| Ehemann → Witwe | 193 | 193 | 153 | 40 | 0 | 24 |
 | Ehefrau → Witwe | 355 | 313 | 249 | 56 | 50 | 448 |
 | ledig → verheiratet | 756 | 480 | 17 | 386 | 353 | 2 401 |
-| ledig → Witwe | 298 | 171 | 3 | 125 | 170 | 1 125 |
+| ledig → Witwe | 299 | 171 | 3 | 125 | 171 | 1 125 |
 
 Ganze Ketten ledig → verheiratet → Witwe gibt es 7. Die Bücher liegen in grossen Abständen vor
 (Zürich 1867, 1875, 1885, 1900, 1901, 1914), und die Ehefrau steht selten mit eigenem Eintrag im Buch.

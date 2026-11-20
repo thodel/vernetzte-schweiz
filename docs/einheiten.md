@@ -8,7 +8,7 @@ Alles läuft mit `make entities`.
 ## Was gebündelt wird
 
 - **Telefonbuch:** alle Einträge ≤ 1914 mit Gemeinde (Ort `hoch` oder `mittel`, M1), Art
-  `person` oder `firma`: 1 020 732 Einträge mit den Adressbüchern zusammen (Stand 20.11.2026).
+  `person` oder `firma`: 1 023 615 Einträge mit den Adressbüchern zusammen (Stand 20.11.2026).
 - **Adressbuch:** alle Einträge der Bände von Aarau (1867–1899), Baden (1900, 1910), Basel (1862),
   Bern (1883, 1900), Lausanne (1896, 1907) und Zürich (1867–1914).
 
@@ -62,14 +62,15 @@ gleich, solange dieser Eintrag zur Einheit gehört; bei geänderten Regeln kann 
 
 | | Anzahl |
 |---|---|
-| Einträge | 1 020 732 |
-| Einheiten | 491 791 (Personen 432 103, Firmen und Ämter 59 688) |
-| Einheiten mit mehr als einem Eintrag | 182 209 (mit 711 150 Einträgen) |
-| über mindestens 10 Jahre belegt | 16 642 |
-| im Telefon- und im Adressbuch | 12 524 |
+| Einträge | 1 023 615 |
+| Einheiten | 492 457 (Personen 432 523, Firmen und Ämter 59 934) |
+| Einheiten mit mehr als einem Eintrag | 182 647 (mit 713 805 Einträgen) |
+| über mindestens 10 Jahre belegt | 16 715 |
+| im Telefon- und im Adressbuch | 12 522 |
 
 Stand 20.11.2026 (`data/norm/cluster_stats.json`), mit Zürich 1901 (74 787 Einträge, adressbuecher-zuerich 9db327f) und
-nach der Neulesung von Band 2a 1911–1914 ([neulesung_2a.md](neulesung_2a.md)). Die Neulesung allein: rund 4 000
+nach der Neulesung von Band 2a 1911–1914 ([neulesung_2a.md](neulesung_2a.md)); dazu zählen rund 2 900 Einträge neu mit,
+deren Ortschaft jetzt eine Gemeinde hat (`data/ref/place_aliases.csv`). Die Neulesung allein: rund 4 000
 Einheiten weniger bei 3 500 Einträgen mehr (vorher 1 017 210 Einträge und 495 788 Einheiten), weil Einträge von
 Burgdorf, Langnau, Grenchen, Spiez oder Meiringen nicht mehr unter falschen Orten als eigene Einheiten stehen.
 Am 19.11.2026, ohne 1901: 942 422 Einträge, 471 959 Einheiten, nach der Neulesung von Band 2b 1911–1914

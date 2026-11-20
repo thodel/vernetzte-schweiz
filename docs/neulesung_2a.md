@@ -45,12 +45,20 @@ Gelesen ab Bild 8. `Orte` sind verschiedene Überschriften, `Gemeinden` die Geme
 
 | Band | Bilder | Einträge neu | Quelle | Orte neu | Quelle | Gemeinden neu | vorher | ohne Gemeinde neu | vorher |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| 2a 1911 | 168 | 11 041 | 10 615 | 867 | 596 | 410 | 326 | 321 | 350 |
-| 2a 1912 | 184 | 11 801 | 11 459 | 861 | 632 | 421 | 338 | 242 | 584 |
-| 2a 1913 | 194 | 12 693 | 12 330 | 884 | 629 | 419 | 338 | 268 | 508 |
-| 2a 1914 | 218 | 13 914 | 13 547 | 897 | 637 | 421 | 328 | 296 | 655 |
+| 2a 1911 | 168 | 11 041 | 10 615 | 867 | 596 | 413 | 326 | 42 | 350 |
+| 2a 1912 | 184 | 11 801 | 11 459 | 861 | 632 | 424 | 338 | 37 | 584 |
+| 2a 1913 | 194 | 12 693 | 12 330 | 884 | 629 | 423 | 338 | 47 | 508 |
+| 2a 1914 | 218 | 13 914 | 13 547 | 897 | 637 | 424 | 328 | 57 | 655 |
 
 (Die Tabellen haben 11 043, 11 809, 12 708 und 13 922 Zeilen; `ingest_ptt.py` lässt Zeilen ohne Namen weg.)
+
+Von den Einträgen ohne Gemeinde blieben nach der Neulesung zuerst 242 bis 321 je Band: Ortschaften, die 1914 keine
+eigene Gemeinde waren und die `places.py` nicht eindeutig zuordnet (Wengen und Mürren in Lauterbrunnen,
+Ostermundigen in Bolligen, Wabern in Köniz, Gümligen in Muri bei Bern, Schwarzenburg in Wahlern) oder deren
+Gemeinde abgekürzt steht («Wangen a. A.»). 39 Zeilen in `data/ref/place_aliases.csv` ordnen sie zu; das wirkt auch
+auf die Berner Regionalbücher 1898–1910. In allen Telefonbüchern zusammen sind 24 139 statt 27 338 Einträge ohne
+Gemeinde, und 634 wechseln die Gemeinde (Schwarzenburg stand unter Guggisberg, Hohfluh unter Meiringen,
+Dürrenast unter Thun, Papiermühle unter Bern).
 
 Einträge je Gemeinde, vorher und nachher:
 
@@ -93,19 +101,19 @@ Abstimmung (Spalte `Check`):
 ## Folgen für die abgeleiteten Zahlen
 
 - Einheiten: 491 791 statt 495 788, bei 1 020 732 statt 1 017 210 Einträgen ([einheiten.md](einheiten.md); beide
-  Stände mit Zürich 1901, das am selben Tag dazukam).
-- Eine öffentliche Sprechstelle bis 1914 haben 1 685 statt 1 727 Gemeinden: Die falschen Überschriften hatten
+  Stände mit Zürich 1901, das am selben Tag dazukam). Mit den Ortschaften aus `place_aliases.csv`: 492 457
+  Einheiten und 1 023 615 Einträge.
+- Eine öffentliche Sprechstelle bis 1914 haben 1 685 statt 1 727 Gemeinden (mit den Ortschaften aus der Liste 1 691): Die falschen Überschriften hatten
   Sprechstellen auf Gemeinden verteilt, die keine hatten ([infrastruktur.md](infrastruktur.md)).
-- Der Namensabgleich über das Regionalbuch greift noch für 9 847 Zeilen (vorher 11 427).
+- Der Namensabgleich über das Regionalbuch greift noch für 9 714 Zeilen (vorher 11 427).
 - Die Reihen je Stadt zeigen neu auch Grenchen und Langnau im Emmental (23 statt 21 Städte).
-- Wanderungen: 480 statt 482 Paare ([wanderungen.md](wanderungen.md)).
+- Wanderungen: 480 statt 482 Paare, mit den Ortschaften aus der Liste 484 ([wanderungen.md](wanderungen.md)).
 
 ## Was offen bleibt
 
-- **Ortschaften ohne Gemeinde von 1914** (242 bis 321 Einträge je Band): Wengen und Mürren (Lauterbrunnen),
-  Ostermundigen (Bolligen), Wabern (Köniz), Gümligen (Muri bei Bern), «Wangen a. A.». Die Überschrift ist richtig
-  gelesen; `places.py` ordnet die Ortschaft keiner Gemeinde zu, auch im Regionalbuch 1910 nicht. Einträge in
-  `data/ref/place_aliases.csv` würden das lösen.
+- **Ohne Gemeinde** bleiben 37 bis 57 Einträge je Band: Wichtrach und Konolfingen (1914 je zwei Gemeinden),
+  Goldiwil (seit 1913 bei Thun), verlesene oder zusammengezogene Überschriften («Habstetten (Papiermühle, Bern)»).
+  «Büren» ohne Zusatz bleibt in den Regionalbüchern ohne Gemeinde.
 - **Trennstriche vom Zeilenende** bleiben ausser vor dem Grundwort einer Strasse stehen, wie in Band 2b.
 - **Zeilen ohne Rufnummer** (Abteilungen einer Behörde, Verweise) stehen in der Tabelle (54 bis 99 je Band).
 - Die Bände 1 und 3 sind für 1911–1914 noch nicht neu gelesen.

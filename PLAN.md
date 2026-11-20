@@ -147,7 +147,11 @@ Verknüpfung und Bau laufen durch.
 - ✔ 20.11.2026 **Telefonbuch Band 2a 1911–1914 neu gelesen** (Bern, Mittelland, Oberland, Solothurn;
   [docs/neulesung_2a.md](docs/neulesung_2a.md)): Burgdorf 259/285/305/316 statt 218/152/5/46 Einträge; ohne Gemeinde
   242–321 statt 350–655 je Band. Einträge 1 017 210 → 1 020 732, Einheiten 495 788 → 491 791; Wanderungen 482 → 480.
-  Offen: Bände 1 und 3; Ortschaften ohne Gemeinde von 1914 (Wengen, Ostermundigen, Wabern …).
+  Offen: Bände 1 und 3.
+- ✔ 20.11.2026 **Ortschaften ohne Gemeinde von 1914** (Wengen, Mürren, Ostermundigen, Wabern, Gümligen,
+  Schwarzenburg, «Wangen a. A.» …): 39 Zeilen in `data/ref/place_aliases.csv`. Telefonbücher ohne Gemeinde
+  27 338 → 24 139 Einträge, in Band 2a 1911–1914 noch 37–57 je Band. Einträge 1 020 732 → 1 023 615, Einheiten
+  491 791 → 492 457; Wanderungen 480 → 484.
 - offen: Bern 1860 (Fraktur, nicht ganz gelesen).
 
 **M6 — Visualisierungen.** ✔ 10.11.2026: Karten «Wer bekam wann ein Telefon», «Berufe», «Namen» (`#/karten`), Berufssuche mit Karte und Quellenfilter in der Suche; [Aufbau und Messung](docs/karten.md). Umgesetzt sind die ersten drei Punkte; die weiteren Ideen bleiben offen. Nachgetragen: Regler für Jahre (ein Jahr oder Bereich) statt Zeiträumen, Quelle Telefon-/Adressbuch in «Berufe» und «Namen». Grundlage sind die Einheiten aus M3 (eine Person oder Firma

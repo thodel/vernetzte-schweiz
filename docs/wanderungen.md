@@ -359,7 +359,8 @@ Paaren, die in keiner früheren Stichprobe standen. In `mittel` waren nur noch 3
 Namenszeilen und der Neulesung von Band 2c: **423 Paare** (50, 252, 121). Stand 19.11.2026, nach der
 Neulesung von Band 2b 1913/14 ([neulesung_2b.md](neulesung_2b.md)): **430 Paare** (50, 258, 122). Stand 20.11.2026,
 mit Zürich 1901: 482 Paare; nach der Neulesung von Band 2a 1911–1914 ([neulesung_2a.md](neulesung_2a.md)):
-**480 Paare** (57, 298, 125).
+**480 Paare** (57, 298, 125); mit den Ortschaften aus `data/ref/place_aliases.csv` (Wengen, Ostermundigen,
+Wabern …): **484 Paare** (56, 303, 125).
 
 **Stichprobe 6** (`data/review/m10_wanderungen_6.csv`, Seed 15) prüft, was neu dazukommt:
 30 der 110 Paare aus «klar vorn» und 3 Paare mit seltenem Beruf.
