@@ -45,11 +45,11 @@ aus M6).
 
 | Stufe | Regel | Personen | richtig in der Stichprobe |
 |---|---|---:|---|
-| normdaten | Einheit trägt die HLS-Nummer (M3) | 622 | 97–100 % bzw. 70–95 % (M3) |
-| wahrscheinlich | Vorname ausgeschrieben oder abgekürzt **und** Beruf; oder Initiale, Beruf **und** Ort mit Jahr aus dem Text | 334 | 22–23 von 25, dazu 21 von 22 aus der ersten Runde |
-| möglich | Vorname ausgeschrieben oder abgekürzt, ohne Beruf | 588 | 23 von 36 (64 %) |
-| schwach | nur Initiale, oder Einheit ohne Vornamen | 1 227 | 7 von 20 |
-| nicht gefunden | | 3 459 | |
+| normdaten | Einheit trägt die HLS-Nummer (M3) | 623 | 97–100 % bzw. 70–95 % (M3) |
+| wahrscheinlich | Vorname ausgeschrieben oder abgekürzt **und** Beruf; oder Initiale, Beruf **und** Ort mit Jahr aus dem Text | 340 | 22–23 von 25, dazu 21 von 22 aus der ersten Runde |
+| möglich | Vorname ausgeschrieben oder abgekürzt, ohne Beruf | 591 | 23 von 36 (64 %) |
+| schwach | nur Initiale, oder Einheit ohne Vornamen | 1 206 | 7 von 20 |
+| nicht gefunden | | 3 473 | |
 
 Was die Messung gezeigt hat:
 - **Der Beruf trägt die Zuordnung, der Ort aus dem Text allein nicht.** Ausgeschriebener
@@ -66,7 +66,7 @@ Was die Messung gezeigt hat:
 
 ## Quote
 
-Gewichtet mit den gemessenen Anteilen: 622 × 0,9 + 334 × 0,9 + 588 × 0,64 + 1 227 × 0,35
+Gewichtet mit den gemessenen Anteilen: 623 × 0,9 + 340 × 0,9 + 591 × 0,64 + 1 206 × 0,35
 ≈ **1 670 von 6 230, rund 27 %** (grob 20–30 %; «schwach» ist mit 20 Fällen am
 schlechtesten gemessen).
 

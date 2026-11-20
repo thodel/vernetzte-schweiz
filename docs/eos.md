@@ -23,7 +23,7 @@ als Abzug in `data/ref/eos/`.
     Megt»).
 - **Vernetzte Schweiz:** alle Einträge in Basel mit Strasse:
   - das Adressbuch 1862: 15 478 Einträge;
-  - die Telefonbücher 1880–1914: 95 852 Einträge.
+  - die Telefonbücher 1880–1914: 95 851 Einträge.
 
   Neuere Strassen (Austrasse, Güterstrasse) liegen ausserhalb des Grundbuchs.
 
@@ -67,7 +67,7 @@ Strasse, wird verglichen, unter welcher Nummer er dort steht.
 - Für das Adressbuch 1862 reichen vier Fälle nicht. Basel hat die Häuser 1862 nach Strassen
   nummeriert; ob diese Nummern den heutigen entsprechen, ist hier nicht geprüft.
 
-## Stufen und Ergebnis (19.11.2026)
+## Stufen und Ergebnis (20.11.2026)
 
 | Stufe | Bedeutung | Paare Einheit–Haus |
 |---|---|---|

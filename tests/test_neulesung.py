@@ -85,3 +85,91 @@ class ProMemoria(unittest.TestCase):
     def test_other_pages_stay(self):
         pages = {20: ([self.entry("Basel", "8.21", "Bruder-Nyfeler")], {"header": "Basel B"})}
         self.assertEqual(len(c.resolve(pages)), 1)
+
+
+def entry(phone, name, place="", net="", rest=""):
+    return {"place": place, "net": net, "phone": phone, "name": name, "rest": rest}
+
+
+class Band2a(unittest.TestCase):
+    """Eigenheiten des Berner Bands 2a 1911–1914."""
+
+    def load(self, line):
+        import tempfile
+        with tempfile.NamedTemporaryFile("w", suffix=".jsonl", delete=False, encoding="utf-8") as f:
+            f.write(line + "\n")
+        return c.load(f.name)[0][0]
+
+    def test_im_emmental_keeps_its_e(self):
+        # «E.» ist sonst ein Kürzel für Dienststunden und fällt aus der Zentrale
+        e = self.load('{"place": "Trub", "net": "Langnau i. E.", "phone": "1", "name": "Post", "rest": ""}')
+        self.assertEqual(e["net"], "Langnau i. E.")
+        e = self.load('{"place": "Olten", "net": "Aarau) E", "phone": "1", "name": "Post", "rest": ""}')
+        self.assertEqual(e["net"], "Aarau")
+
+    def test_bei_belongs_to_the_place(self):
+        e = self.load('{"place": "Ried", "net": "b. Frutigen (Frutigen)", "phone": "1", "name": "Post", "rest": ""}')
+        self.assertEqual((e["place"], e["net"]), ("Ried b. Frutigen", "Frutigen"))
+        e = self.load('{"place": "Schwarzenegg", "net": "b. Thun", "phone": "1", "name": "Post", "rest": ""}')
+        self.assertEqual((e["place"], e["net"]), ("Schwarzenegg b. Thun", ""))
+
+    def test_service_hours_after_the_exchange(self):
+        e = self.load('{"place": "Bümpliz", "net": "Bern) 6/7 v bis 9 n", "phone": "1", "name": "Post", "rest": ""}')
+        self.assertEqual(e["net"], "Bern")
+
+    def test_header_in_capitals_and_with_equals(self):
+        self.assertEqual(c.header_town("J=K BERN"), "Bern")
+        self.assertEqual(c.header_town("B BERN"), "Bern")
+        self.assertEqual(c.header_town("Belp=Biel"), "")           # Spanne zweier Orte
+        self.assertEqual(c.heading("BERN"), "Bern")
+
+    def test_header_town_does_not_shorten_the_place(self):
+        # Titel «Langnau», Ort «Langnau i. E.»: der Ort bleibt, wie er in der Überschrift steht
+        pages = {1: ([entry("1", "Abt", place="Langnau i. E.")], {"header": "Langenthal-Langnau"}),
+                 2: ([entry("2", "Aebi")], {"header": "Langnau"})}
+        self.assertEqual([r["place"] for r in c.resolve(pages, dots=True)], ["Langnau i. E.", "Langnau i. E."])
+        pages = {1: ([entry("1", "Abt", place="Neufeld")], {"header": "B BERN"}),
+                 2: ([entry("2", "Aebi")], {"header": "BERN B"})}
+        self.assertEqual([r["place"] for r in c.resolve(pages)], ["Neufeld", "Bern"])
+
+    def test_front_pages_belong_to_one_town(self):
+        # Landesausstellung 1914: «Neufeld», «Mittelfeld» sind Zwischentitel, keine Orte
+        pages = {8: ([entry("51.00", "Feuerwehrposten", place="Neufeld")], {"header": ""}),
+                 9: ([entry("51.30", "Postbureau")], {"header": ""}),
+                 31: ([entry("1.01", "Abt", place="Bern")], {"header": "Bern A"})}
+        rows = c.resolve(pages, c.FRONT["2a_1914"])
+        self.assertEqual([r["place"] for r in rows], ["Bern", "Bern", "Bern"])
+
+    def test_abbreviation_keeps_its_period_outside_2b(self):
+        pages = {1: ([entry("1", "Abt", place="Trub", net="Langnau i. E.")], {"header": ""})}
+        self.assertEqual(c.resolve(pages, dots=True)[0]["net"], "Langnau i. E.")
+        pages = {1: ([entry("1", "Abt", place="Soazza", net="Mesocco S.")], {"header": ""})}
+        self.assertEqual(c.resolve(pages)[0]["net"], "Mesocco S")
+
+
+class Invented(unittest.TestCase):
+    """Leere Seiten mit durchscheinender Rückseite: jeder Lauf erfindet eine andere Liste."""
+
+    def page(self, name, n=30):
+        return ([entry(f"1.{i:02d}", name) for i in range(n)], {"header": "Bern A"})
+
+    def test_three_different_inventions_are_dropped(self):
+        runs = {"A": {19: self.page("Aeppli-Roth")}, "B": {19: self.page("Aeschbach")}, "C": {19: self.page("Administration der")}}
+        self.assertEqual(c.invented(runs), [19])
+        self.assertEqual([len(runs[r][19][0]) for r in "ABC"], [0, 0, 0])
+
+    def test_one_run_alone_is_dropped(self):
+        runs = {"A": {118: ([], {})}, "B": {118: self.page("Bär")}, "C": {118: ([], {})}}
+        self.assertEqual(c.invented(runs), [118])
+        self.assertEqual(len(runs["B"][118][0]), 0)
+
+    def test_real_repetition_stays(self):
+        # die Feuer- und Unfallmeldestationen der Landesausstellung stehen wirklich 40-mal untereinander
+        runs = {r: {8: self.page("Feuer- und Unfallmeldestation", 40)} for r in "ABC"}
+        self.assertEqual(c.invented(runs), [])
+        self.assertEqual(len(runs["A"][8][0]), 40)
+
+    def test_ordinary_page_stays(self):
+        mixed = ([entry(f"1.{i:02d}", "Müller" if i < 23 else f"Name{i}") for i in range(66)], {"header": "Bern M"})
+        runs = {r: {69: mixed} for r in "ABC"}
+        self.assertEqual(c.invented(runs), [])

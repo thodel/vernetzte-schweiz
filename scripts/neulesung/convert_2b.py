@@ -1,19 +1,23 @@
-"""Lesungen von Band 2b 1911–1914 → Tabelle im Format der Charge B.
-convert_2b.py VOL YEAR OUT.tsv [--ganz] [--quelle ORDNER] [--report]
+"""Lesungen der Bände 2a und 2b 1911–1914 → Tabelle im Format der Charge B.
+convert_2b.py VOL YEAR OUT.tsv [--ganz] [--quelle ORDNER] [--report]      (VOL: 2b_1913, 2a_1911 …)
 
-Der Band beginnt mit Basel und (ausser 1911) Luzern als eigenen Blöcken und ordnet danach alle Orte der Netzgruppe
-(Aargau, Baselland, Innerschweiz, Solothurn, 1913/14 auch Tessin) in einem Alphabet. Das Merkblatt «Pro memoria»
-am Ende des Bands bleibt weg. Lauf A (Massstab 1,3) gibt Reihenfolge und Bestand
-vor; je Feld (Name, Rest, Ort) gilt, was zwei von drei Läufen (B 1,0, C 1,6) gleich lesen, sonst A. Zugeordnet
-wird über die Rufnummer auf derselben Seite. Spalte Check wie in convert_2c.py. Wiederholungszeichen » werden aus
-dem Eintrag darüber aufgelöst. Der Ort gilt über den Seitenwechsel weiter; nennt der Kolumnentitel eine einzelne
-Stadt («M-N Luzern»), gilt sie für die Einträge am Seitenkopf.
+Band 2b beginnt mit Basel und (ausser 1911) Luzern als eigenen Blöcken und ordnet danach alle Orte der Netzgruppe
+(Aargau, Baselland, Innerschweiz, Solothurn, 1913/14 auch Tessin) in einem Alphabet. Band 2a beginnt mit Bern und
+ordnet danach die Orte der Netzgruppe Bern (Kanton Bern ohne Jura, Solothurn, Teile von Freiburg und Luzern); 1914
+stehen davor sieben Seiten der Landesausstellung, die zu Bern gehören (FRONT). Das Merkblatt «Pro memoria» am Ende
+des Bands bleibt weg, ebenso leere Seiten, auf denen das Modell Einträge erfindet (invented()).
 
---ganz nimmt den ganzen Band samt Block Basel (so veröffentlicht); ohne den Schalter beginnt die Tabelle mit dem
-Block Luzern. --quelle nennt den Ordner tsv/ der Quelle (DHBern/PTT_phonebook_data_tsv): ihre Lesung dient als
+Lauf A (Massstab 1,3) gibt Reihenfolge und Bestand vor; je Feld (Name, Rest, Ort) gilt, was zwei von drei Läufen
+(B 1,0, C 1,6) gleich lesen, sonst A. Zugeordnet wird über die Rufnummer auf derselben Seite. Spalte Check wie in
+convert_2c.py. Wiederholungszeichen » werden aus dem Eintrag darüber aufgelöst. Der Ort gilt über den Seitenwechsel
+weiter; nennt der Kolumnentitel eine einzelne Stadt («M-N Luzern», «B BERN», 1911 auch «Aarberg»), gilt sie für die
+Einträge am Seitenkopf.
+
+--ganz nimmt den ganzen Band samt erstem Block (so veröffentlicht); ohne den Schalter beginnt die Tabelle nach dem
+Block Basel. --quelle nennt den Ordner tsv/ der Quelle (DHBern/PTT_phonebook_data_tsv): ihre Lesung dient als
 vierte Stimme für den Namen und deckt verrutschte Rufnummern auf, siehe witness().
 """
-import csv, glob, json, os, re, sys, unicodedata
+import collections, csv, glob, json, os, re, sys, unicodedata
 
 
 
@@ -24,14 +28,19 @@ COLS = ["EntityName1", "EntityName2", "Supplement", "Street", "Locality", "Phone
 
 
 MONTHS = r"(?i)\b(jan|feb|märz|april|mai|juni|juli|aug|sept|okt|nov|dez|luglio|ottobre|giugno|settembre|agosto|maggio)"
-CANTON = r"(?i)(aarg|luz|nidw|obw|sol|soloth|b\.-l|bas\.-l|ticino|tic|schw)\.?"
+CANTON = r"(?i)(aarg|luz|nidw|obw|sol|soloth|b\.-l|bas\.-l|ticino|tic|schw|b|frib|freib|neuch)\.?"
+# Seiten vor dem Verzeichnis, die zu einem Ort gehören: {Band: (erstes Bild, letztes Bild, Ort)}
+FRONT = {"2a_1914": (8, 14, "Bern")}       # Schweizerische Landesausstellung Bern 1914 (farbige Seiten, nach Feldern geordnet)
+# Versatz zwischen Bild und gedruckter Seite der Quelle: Band 2b 8–22, Band 2a 6–31 (1914 liegen 23 Seiten vor dem Verzeichnis)
+def offset(vol):
+    return (8, 23) if vol.startswith("2b") else (4, 33)
 
 
 # Trennstrich vor dem Grundwort einer Strasse: am Zeilenende gesetzt, die Lesung gibt ihn mit oder ohne Leerzeichen wieder
 BREAK = re.compile(r"(?<=[a-zäöü])-\s?(?=[a-zäöü]*(?:(?:strasse|gasse|gässlein|vorstadt|graben|weg|platz|ring|allee|anlage|rain)\b|str\.))")
 
 
-def load(path):
+def load(path, bei=True):
     out, meta = [], {}
     for line in open(path, encoding="utf-8"):
         line = line.strip().rstrip(",").replace("\u00ad", "")      # auch als JSON-Liste ausgegeben; weiche Trennstriche weg
@@ -52,15 +61,19 @@ def load(path):
             e = {k: " ".join(str(d.get(k) or "").split()) for k in ("place", "net", "phone", "name", "rest")}
             for k in ("name", "rest"):                           # Trennstrich am Zeilenende: «Sevogel-strasse 60»
                 e[k] = BREAK.sub("", e[k])
+            m = re.match(r"((?:b\.|bei) [^()]+?)\)?\s*(?:\((.*))?$", e["net"])    # «Ried (b. Frutigen) (Frutigen)»: Zusatz zum Ortsnamen
+            if m and e["place"] and bei:                       # nicht in Band 2b: dort bleibt «Wil, bei Olten», wie veröffentlicht
+                e["place"], e["net"] = f"{e['place']} {m.group(1).strip()}", (m.group(2) or "").strip(" )")
             m = re.match(r"^([^()]*?)\)?\s*\((.*)$", e["net"])       # «Aarg. (Aarau»: Kantonszusatz und Zentrale in einem
             if m and e["place"]:
                 e["place"], e["net"] = f"{e['place']}, {m.group(1).strip()}", m.group(2).strip(" )")
+            e["net"] = re.sub(r"\)\s*\d.*$", "", e["net"])                    # «Bern) 6/7 v bis 9 n»: Dienststunden
             e["net"] = re.sub(r"\)\s*[A-Z0-9][A-Za-z0-9-]{0,4}$", "", e["net"]).strip(" ()")    # «Luzern) N»
             if not re.search(r"[a-zäöüàèéìòù]{3}", e["net"]):       # «(N)», «ER»: Kürzel der Zentrale, kein Netzort
                 e["net"] = ""
             if re.search(MONTHS, e["net"]):                      # «(April—Okt)»: Betriebszeit, kein Netzort
                 e["net"] = ""
-            e["net"] = re.sub(r"(?<![\w-])(C-[a-z]|E[RN]?|N|C)(?![\w-])\.?", "", e["net"]).strip(" ,;()")   # Dienststunden-Kürzel
+            e["net"] = re.sub(r"(?<![\w-])(?<!i\. )(?<!i\.)(C-[a-z]|E[RN]?|N|C)(?![\w-])\.?", "", e["net"]).strip(" ,;()")   # Dienststunden-Kürzel
             if e["place"] and re.fullmatch(CANTON, e["net"]):    # «Bremgarten (Aarg.)»: Kantonszusatz, keine Zentrale
                 e["place"], e["net"] = f"{e['place']}, {e['net']}", ""
             if ", " in e["name"]:                                # Fettdruck bis zum Vornamen: wie die Quelle am Komma teilen
@@ -102,44 +115,79 @@ def volume(vol, run):
     """Seiten eines Laufs: {Bildnummer: (Einträge, Meta)}."""
     pages = {}
     for p in sorted(glob.glob(f"raw/{vol}/{run}/*.jsonl")):
-        pages[int(os.path.basename(p)[:4])] = load(p)
+        pages[int(os.path.basename(p)[:4])] = load(p, not vol.startswith("2b"))
     return pages
+
+
+def invented(runs):
+    """Leere Seiten, auf denen die Rückseite durchscheint: das Modell erfindet eine Liste mit einem einzigen Namen
+    und fortlaufenden Nummern, in jedem Lauf eine andere (2a 1913, Bild 19: 198× «Aeppli-Roth», 185× «Aeschbach»,
+    89× «Administration der»). Eine Seite gilt in einem Lauf als erfunden, wenn ein Name vier Fünftel von
+    mindestens 20 Einträgen stellt und nicht alle drei Läufe denselben Namen so oft lesen (die Meldestationen der
+    Landesausstellung 1914 stehen wirklich 40-mal untereinander). Die Seite wird in diesem Lauf geleert."""
+    top = {}
+    for run, pages in runs.items():
+        for n, (entries, _) in pages.items():
+            names = [e["name"] for e in entries if e["name"].strip(" »")]
+            if len(entries) >= 20 and names:
+                name, k = collections.Counter(names).most_common(1)[0]
+                if k >= 0.8 * len(entries):
+                    top.setdefault(n, {})[run] = key(name)
+    dropped = set()
+    for n, by in top.items():
+        if len(by) == len(runs) and len(set(by.values())) == 1:
+            continue
+        for run in by:
+            runs[run][n] = ([], runs[run][n][1])
+        dropped.add(n)
+    return sorted(dropped)
 
 
 def header_town(header: str) -> str:
     """«M-N Luzern», «Luzern S-T-U» → Luzern; «Meggen-Mellingen» (Spanne zweier Orte) → nichts."""
     words = [w for w in re.split(r"[\s,]+", header)
-             if w and (w == "St." or not re.fullmatch(r"(?:[A-ZÄÖÜ][a-z]?\.?)(?:[-–—][A-ZÄÖÜ][a-z]?\.?)*", w))]
-    town = " ".join(words)
-    return "" if re.search(r"[-–—]", town) else town      # Spanne zweier Orte: kein einzelner Ort
+             if w and (w == "St." or not re.fullmatch(r"(?:[A-ZÄÖÜ][a-z]?\.?)(?:[-–—=][A-ZÄÖÜ][a-z]?\.?)*", w))]
+    town = " ".join(w.title() if w.isupper() and len(w) > 3 else w for w in words)
+    return "" if re.search(r"[-–—=]", town) else town      # Spanne zweier Orte: kein einzelner Ort
 
 
-def heading(place: str) -> str:
+def heading(place: str, dots: bool = False) -> str:
     """«Münster (Luz.)» → «Münster, Luz.»: der Kantonszusatz steht in der Quelle nach einem Komma."""
     p = place.strip(" —-,")
+    if p.isupper() and len(p) > 3:                          # «BERN» im Kolumnentitel und als Überschrift des Blocks
+        p = p.title()
     m = re.fullmatch(r"(.+?)\s*\(([^()]*)\)?\.?", p)
     if m:
         p = f"{m.group(1).strip(' ,')}, {m.group(2).strip()}"
+    if dots and re.search(r"(?:^|[ .])[A-Za-z]\.$", p):      # «Langnau i. E.», «Muri b. B.»: der Punkt gehört zur Abkürzung
+        return p
     return p if re.search(r"\b[A-Za-z]{1,5}\.$", p) and "," in p else p.rstrip(".")
 
 
-def resolve(pages):
+def resolve(pages, front=None, dots=False):
     rows, place, net, name = [], "", "", ""
     for n in sorted(pages):
         entries, meta = pages[n]
+        if front and front[0] <= n <= front[1]:             # Seiten vor dem Verzeichnis: der Ort steht fest, Zwischentitel sind keine Orte
+            for e in entries:
+                e["place"], e["net"] = "", ""
+            place, net, name = front[2], "", ""
         if re.match(r"(?i)\s*pro memoria", meta.get("header", "")):     # Merkblatt auf dem Umschlag (Polizei, Feuerwache): kein Verzeichnis
             continue
         town = header_town(meta.get("header", ""))
-        if town and key(town) != key(place) and entries and not entries[0]["place"]:
+        if town and key(town) != key(place) and entries and not entries[0]["place"] and not (
+                key(place).startswith(key(town)) and re.match(r"\s*(,|[bi]\. )", place[len(town):])):   # «Langnau» im Titel, «Langnau i. E.» als Ort
             place, net, name = town, "", ""             # Stadtblock: der Kolumnentitel nennt den Ort
         for e in entries:
             if e["place"] and key(e["place"]) == key(meta.get("header", "")) and not town:
                 e["place"] = ""                             # Kolumnentitel «Gersau-Giubiasco» als Ort gelesen: weitertragen
             if e["place"]:
-                p = heading(e["place"])
+                p = heading(e["place"], dots)
                 if key(p) != key(place):
                     name = ""                               # neuer Ort: kein Zeichen greift über die Überschrift
                 place, net = p, e["net"].strip(" ().,")
+                if dots and re.search(r"(?:^|[ .])[A-Za-z]$", net):   # «Langnau i. E.», «Biel, B.»: der Punkt gehört zur Abkürzung (nicht in Band 2b: dort steht «S.» für den Sommerbetrieb)
+                    net += "."
             while e["rest"].startswith("» ") and "«" not in e["rest"]:   # Zeichen des Namens, in den Rest gerutscht
                 e["name"], e["rest"] = e["name"] + " »", e["rest"][2:]
             toks, ptoks = e["name"].split(), name.split()
@@ -203,7 +251,7 @@ def witness(rows, vol):
         by.setdefault(r["image"], []).append(r)
     for img, rs in by.items():
         phones = {key(r["phone"]) for r in rs if r["phone"]}
-        page = max(range(img - 22, img - 7), key=lambda p: len(phones & {key(ph) for ph, _ in src.get(p, [])}))
+        page = max(range(img - offset(vol)[1] + 1, img - offset(vol)[0] + 1), key=lambda p: len(phones & {key(ph) for ph, _ in src.get(p, [])}))
         s_by, s_name, fmt = {}, {}, {}
         for raw, nm in src.get(page, []):
             ph = key(raw)
@@ -242,11 +290,14 @@ def witness(rows, vol):
 
 def main():
     vol, year, out = sys.argv[1], sys.argv[2], sys.argv[3]
-    A = resolve(volume(vol, "A"))
+    runs = {run: volume(vol, run) for run in "ABC"}
+    empty = invented(runs)
+    dots = not vol.startswith("2b")
+    A = resolve(runs["A"], FRONT.get(vol), dots)
     others = []
     for run in ("B", "C"):
         by = {}
-        for r in resolve(volume(vol, run)):
+        for r in resolve(runs[run], FRONT.get(vol), dots):
             by.setdefault(r["image"], []).append(r)
         others.append(by)
     stats = {"entries": 0, "voted": {f: 0 for f in ("name", "rest", "place")}, "uneins": 0, "nur-A": 0, "ergänzt": 0}
@@ -298,7 +349,7 @@ def main():
                         "Locality": r["locality"], "PhoneNumber": r["phone"], "Year": year, "Page": r["image"],
                         "File": f"P-260-1_{vol}", "Network": "", "Image": f"{r['image']:04d}", "Check": r["check"]})
     if "--report" in sys.argv:
-        print(json.dumps({"gelesen": total, **stats, "orte": len({r["locality"] for r in rows})}, ensure_ascii=False))
+        print(json.dumps({"gelesen": total, "erfundene seiten": empty, **stats, "orte": len({r["locality"] for r in rows})}, ensure_ascii=False))
 
 
 if __name__ == "__main__":
