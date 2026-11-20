@@ -137,6 +137,13 @@ Verknüpfung und Bau laufen durch.
   `sicher` falsch). Stichprobe `data/review/m5_zuerich.csv` (1914, 30): sicher 10/10, wahrscheinlich 10/10, möglich 7/10.
   Die Regel nimmt Bern 2 369 Zusatz-Paare weg, Aarau 147; gelesen waren die weggefallenen überwiegend falsch.
   HLS (M9): +18 wahrscheinlich, +13 Normdaten, +22 möglich.
+- ✔ 20.11.2026 **Zürich 1901** (Wochenlauf, qwen3.8 auf tei über IIIF der ZB; adressbuecher-zuerich 9db327f, Stichprobe
+  18/20 voll richtig): 62 835 Einwohner und 11 952 Einträge im Berufsregister. Zürich zusammen 284 408 Einträge.
+  Mit dem Pin kommen auch die Korrekturen von `convert.py` seit c2eabb4 an 1885–1914 (Vorname bzw. Firmenkopf als
+  Familienname). Einträge 942 422 → 1 017 210, Einheiten 471 959 → 495 788 (mit mehr als einem Eintrag
+  145 455 → 182 672); Telefonbuch Zürich verknüpft 37 493 → 38 741 von 62 940; Wanderungen 430 → 482 (stark
+  52 → 58, mittel 257 → 297, schwach 121 → 127). Die Telefonbuch-Stufe blieb auf dem gepinnten Stand (ingest_ptt
+  nicht neu gelaufen). Die übrigen Bände 1877–1913 kommen im Wochenlauf nach.
 - offen: Bern 1860 (Fraktur, nicht ganz gelesen).
 
 **M6 — Visualisierungen.** ✔ 10.11.2026: Karten «Wer bekam wann ein Telefon», «Berufe», «Namen» (`#/karten`), Berufssuche mit Karte und Quellenfilter in der Suche; [Aufbau und Messung](docs/karten.md). Umgesetzt sind die ersten drei Punkte; die weiteren Ideen bleiben offen. Nachgetragen: Regler für Jahre (ein Jahr oder Bereich) statt Zeiträumen, Quelle Telefon-/Adressbuch in «Berufe» und «Namen». Grundlage sind die Einheiten aus M3 (eine Person oder Firma
