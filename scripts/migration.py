@@ -159,7 +159,7 @@ def coords() -> tuple[dict[str, tuple[float, float]], dict[str, Counter]]:
             x[0] += float(r["lat"]); x[1] += float(r["lon"]); x[2] += 1
             if r["street_name"]:
                 streets[m][street_of(r["street_name"])] += 1
-    for r in open_csv(NORM / "ab_entries.csv"):
+    for r in open_csv(NORM / "ab_entries.csv.gz"):
         if r["alliance_name"]:
             ALLIANCE[r["id"]] = r["alliance_name"]
         if c := civil_of(f"{r['civil_status']} {r['forename']}") or ("verheiratet" if r["maiden_name"] else ""):

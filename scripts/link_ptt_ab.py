@@ -606,7 +606,7 @@ def link_city(city: dict, ptt: list[dict], idx: dict, volumes: dict[str, list[st
 def main() -> None:
     cfg = config()
     load_renumbering(cfg)
-    entries = open_csv(NORM / "ab_entries.csv")
+    entries = open_csv(NORM / "ab_entries.csv.gz")
     idx = ab_index(entries)
     volumes: dict = defaultdict(lambda: defaultdict(set))  # Stadt → Gemeinde → Bände
     city_of = {}

@@ -203,7 +203,7 @@ def classify(o: str) -> Origin:
 def build_ref(gn_dir: str) -> None:
     """data/ref/places_foreign.csv: GeoNames-Orte (P, A) mit einem Namen, der als Heimatort vorkommt
     und nicht schon als Schweizer Ort aufgeht. Koordinaten vom grössten Ort dieses Namens."""
-    wanted = {key(swiss_only(x["origin"]).name) for x in open_csv(NORM / "ab_entries.csv")
+    wanted = {key(swiss_only(x["origin"]).name) for x in open_csv(NORM / "ab_entries.csv.gz")
               if x["origin"] and swiss_only(x["origin"]).cls in ("offen", "Ausland")}
     wanted.discard("")
     hits: dict[str, dict] = defaultdict(lambda: {"countries": set(), "pop": -1, "lat": "", "lon": "", "name": ""})
@@ -230,7 +230,7 @@ def build_ref(gn_dir: str) -> None:
 def report() -> None:
     res: Counter = Counter()
     by: dict[str, Counter] = defaultdict(Counter)
-    for x in open_csv(NORM / "ab_entries.csv"):
+    for x in open_csv(NORM / "ab_entries.csv.gz"):
         if x["origin"] and x["entry_type"] == "person":
             o = classify(x["origin"])
             res[o.cls] += 1

@@ -1,4 +1,4 @@
-"""Adressbuch-Einträge und Normdaten der Städte → data/norm/ab_entries.csv, ab_authority.csv.
+"""Adressbuch-Einträge und Normdaten der Städte → data/norm/ab_entries.csv.gz, ab_authority.csv.
 
 Liest jede Stadt aus `config/sources.toml` am gepinnten Commit (siehe docs/datenvertrag.md).
 """
@@ -125,7 +125,7 @@ def main() -> None:
             authority.append({**r, "id": f"{cid}:{r['entry_id']}", "city": cid})
             stats[(cid, "normdaten sichtbar")] += 1
     missing = [a["id"] for a in authority if a["id"] not in entries]
-    write_csv(NORM / "ab_entries.csv", ENTRY_FIELDS, sorted(entries.values(), key=lambda e: e["id"]))
+    write_csv(NORM / "ab_entries.csv.gz", ENTRY_FIELDS, sorted(entries.values(), key=lambda e: e["id"]))
     write_csv(NORM / "ab_authority.csv", AUTH_FIELDS, sorted(authority, key=lambda a: (a["id"], a["qid"])))
     for k in sorted(stats):
         print(f"{k[0]:8} {k[1]:26} {stats[k]:>7}")

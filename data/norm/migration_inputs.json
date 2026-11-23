@@ -1,16 +1,16 @@
 {"inputs": {
- "data/norm/ab_entries.csv": "7efdb1bbe5e228f7",
+ "data/norm/ab_entries.csv.gz": "7efdb1bbe5e228f7",
  "data/norm/entities.csv.gz": "72240a23177a9d1e",
  "data/norm/hls_candidates.csv.gz": "6cea2995c75146de",
  "data/norm/ptt_entries.csv.gz": "d72f3a8709408847",
  "links/authority.csv": "6b74493817748701",
  "links/entities.csv.gz": "57293f2b862ea6b1",
  "scripts/common.py": "7733e633eff6681b",
- "scripts/link_ptt_ab.py": "31157ec0a9625610",
- "scripts/migration.py": "5caaf1652ac7ea4d",
+ "scripts/link_ptt_ab.py": "e0492183b27bd046",
+ "scripts/migration.py": "9b6d15f13629584c",
  "scripts/occupations.py": "5ad1d80b33eb9101",
  "scripts/occupations_fine.py": "21e179e3972ec5ee",
- "scripts/parse_ptt.py": "7b10d25360ce6d1c"
+ "scripts/parse_ptt.py": "05fdd89461f41c46"
 },
 "volumes": {
 "Aadorf": {"1909":20,"1910":22,"1911":2,"1912":156,"1913":203,"1914":256},

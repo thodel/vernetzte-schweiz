@@ -16,7 +16,7 @@ from common import NORM, ROOT, open_csv
 def main() -> None:
     with open(ROOT / "config" / "sources.toml", "rb") as f:
         cfg = tomllib.load(f)
-    ab = open_csv(NORM / "ab_entries.csv")
+    ab = open_csv(NORM / "ab_entries.csv.gz")
     auth = open_csv(NORM / "ab_authority.csv")
     ptt = open_csv(NORM / "ptt_entries.csv.gz")
 

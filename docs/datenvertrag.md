@@ -20,7 +20,7 @@ Die Bezeichner der Quellen bleiben unverändert erhalten; das Präfix macht sie 
 hinweg eindeutig. Ändert eine Quelle ihre `entry_id` (neue Zeilentrennung), zeigt der
 Diff in `data/norm/` die verlorenen Bezeichner.
 
-## data/norm/ab_entries.csv — Adressbuch-Einträge
+## data/norm/ab_entries.csv.gz — Adressbuch-Einträge
 
 | Spalte | Inhalt |
 |---|---|

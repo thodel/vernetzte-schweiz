@@ -671,7 +671,7 @@ def build_ref(px: str, stations: str) -> None:
 
 def find() -> None:
     P = open_csv(NORM / "ptt_entries.csv.gz")
-    A = open_csv(NORM / "ab_entries.csv")
+    A = open_csv(NORM / "ab_entries.csv.gz")
     tel = telephone(P)
     out = {"telefon": tel, "berufe": occupations(P, A, tel), "bahnhofstrasse": station_streets(P),
            "spuren": spuren(P, tel), "durchdringung": durchdringung(P, tel), "groups": [k for k, _ in GROUPS]}

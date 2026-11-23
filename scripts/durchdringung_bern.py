@@ -4,7 +4,7 @@
     python scripts/durchdringung_bern.py --stichprobe 20  # zieht die Stichprobe 3 neu (20 Einträge je Jahr, ohne Urteile)
     python scripts/durchdringung_bern.py site             # site/data/durchdringung_bern.json.gz für #/infrastruktur
 
-Liest nur: data/norm/ptt_entries.csv.gz, data/norm/ab_entries.csv, links/ptt_ab.csv und data/ref/bernhist/
+Liest nur: data/norm/ptt_entries.csv.gz, data/norm/ab_entries.csv.gz, links/ptt_ab.csv und data/ref/bernhist/
 (scripts/ref_bernhist.py). Baut keine abgeleiteten Daten neu.
 
 Zwei Teile:
@@ -879,7 +879,7 @@ def main() -> None:
     st = stadt_zeilen(w, z)
     write_csv(OUT_STADT, list(st[0]), st)
     ab = neben_adressbuch(st)
-    adr = adressbuch_mit_telefon(open_csv(NORM / "ab_entries.csv"), open_csv(ROOT / "links" / "ptt_ab.csv"))
+    adr = adressbuch_mit_telefon(open_csv(NORM / "ab_entries.csv.gz"), open_csv(ROOT / "links" / "ptt_ab.csv"))
     tq = {"1_damals": trefferquote(STICHPROBE, damals=True), "2_damals": trefferquote(STICHPROBE_2, damals=True),
           "3_damals": trefferquote(STICHPROBE_3, damals=True), "1": trefferquote(STICHPROBE), "2": trefferquote(STICHPROBE_2),
           "3": trefferquote(STICHPROBE_3)}

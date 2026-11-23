@@ -41,7 +41,7 @@ STAMP = NORM / "migration_inputs.json"
 SCRIPTS = ROOT / "scripts"
 # alles, was migration.py find() liest: Daten und die Regeln aus den importierten Skripten
 INPUTS = [
-    NORM / "entities.csv.gz", NORM / "ptt_entries.csv.gz", NORM / "ab_entries.csv", NORM / "hls_candidates.csv.gz",
+    NORM / "entities.csv.gz", NORM / "ptt_entries.csv.gz", NORM / "ab_entries.csv.gz", NORM / "hls_candidates.csv.gz",
     LINKS / "entities.csv.gz", LINKS / "authority.csv",
     SCRIPTS / "migration.py", SCRIPTS / "link_ptt_ab.py", SCRIPTS / "parse_ptt.py",
     SCRIPTS / "occupations.py", SCRIPTS / "occupations_fine.py", SCRIPTS / "common.py",

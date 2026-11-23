@@ -49,7 +49,7 @@ def texts(ids: set[str]) -> dict[str, list[tuple[int, str]]]:
             parts = [f"{r['name1']}, {r['name2']}".strip(", "), r["supplement"], r["street"], f"Nr {r['phone']}" if r["phone"] else "",
                      f"[{r['place_name']}]"]
             out[e].append((int(r["year"]), f"{r['year']} TB " + " | ".join(p for p in parts if p)))
-    for r in open_csv(NORM / "ab_entries.csv"):
+    for r in open_csv(NORM / "ab_entries.csv.gz"):
         e = rec_ent.get(r["id"])
         if e:
             out[e].append((int(r["volume"][:4]), f"{r['volume'][:4]} AB {r['city']}: {r['text']}"))

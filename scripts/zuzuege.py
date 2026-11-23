@@ -212,7 +212,7 @@ def rosters(rows: list[dict], renumbered: int, global_no: bool = True) -> dict[i
 
 
 def find() -> None:
-    entries = [x for x in open_csv(NORM / "ab_entries.csv") if x["municipality"] in CITIES and x["entry_type"] == "person"]
+    entries = [x for x in open_csv(NORM / "ab_entries.csv.gz") if x["municipality"] in CITIES and x["entry_type"] == "person"]
     entity = {}
     with gzip.open(LINKS / "entities.csv.gz", "rt", encoding="utf-8") as f:
         import csv  # noqa: PLC0415

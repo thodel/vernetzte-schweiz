@@ -152,7 +152,7 @@ def main() -> None:
 
     # Adressbücher
     ab_text = {}
-    for r in open_csv(NORM / "ab_entries.csv"):
+    for r in open_csv(NORM / "ab_entries.csv.gz"):
         ab_text[r["id"]] = r
         eid = member.get(r["id"])
         if not eid:

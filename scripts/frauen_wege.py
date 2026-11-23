@@ -96,7 +96,7 @@ def record(src: str, rid: str, muni: str, year: int, surname: str, alliance: str
 
 def load() -> list[dict]:
     recs = []
-    for r in open_csv(NORM / "ab_entries.csv"):
+    for r in open_csv(NORM / "ab_entries.csv.gz"):
         maiden = r["maiden_name"] or ((GEB.search(r["text"]) or [None, ""])[1])
         rec = record("ab", r["id"], r["municipality"] or r["city"], int(r["volume"][:4]), r["surname"], r["alliance_name"],
                      maiden, r["forename"], f"{r['civil_status']} {r['forename']} {r['text'][:120]}", r["occupation"], "",

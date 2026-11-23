@@ -102,7 +102,7 @@ def build_forenames(rows: list[dict]) -> set[str]:
     """Vornamenliste aus Adressbüchern und Telefonbüchern; schreibt data/ref/forenames.csv."""
     word = re.compile(r"^[A-ZÄÖÜÉÈ][a-zäöüéèàçë]+$")
     cap = r"[A-ZÄÖÜÉÈ][a-zäöüéèàçë]+"
-    ab_rows = open_csv(NORM / "ab_entries.csv")
+    ab_rows = open_csv(NORM / "ab_entries.csv.gz")
     ab = Counter(t for r in ab_rows for t in re.findall(cap, r["forename"]))
     n2 = Counter(r["name2"] for r in rows if word.match(r["name2"]) and len(r["name1"].split()) == 1)
     n1 = Counter(r["name1"] for r in rows if word.match(r["name1"]))

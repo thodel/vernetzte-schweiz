@@ -43,7 +43,7 @@ def precision() -> dict:
 
 
 def recall(links: list[dict]) -> list[dict]:
-    ab = [r for r in open_csv(NORM / "ab_entries.csv") if r["city"] == "aarau"]
+    ab = [r for r in open_csv(NORM / "ab_entries.csv.gz") if r["city"] == "aarau"]
     ptt_years: dict[str, set[int]] = defaultdict(set)
     for r in open_csv(NORM / "ptt_entries.csv.gz"):
         if r["municipality_1914"] == "Aarau":

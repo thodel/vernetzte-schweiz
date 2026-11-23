@@ -152,7 +152,7 @@ def main() -> None:
 
     # Einträge in Basel mit Strasse
     recs = []
-    for r in open_csv(NORM / "ab_entries.csv"):
+    for r in open_csv(NORM / "ab_entries.csv.gz"):
         if r["city"] == "basel" and r["street"]:
             recs.append(("ab", r["id"], int(r["volume"][:4]), r["street"], r["building_no"], r["text"]))
     for r in open_csv(NORM / "ptt_entries.csv.gz"):

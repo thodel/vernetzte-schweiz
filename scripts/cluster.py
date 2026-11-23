@@ -148,7 +148,7 @@ def ptt_records(cfg: dict) -> list[dict]:
 def ab_records(cfg: dict) -> list[dict]:
     labels = {c["id"]: c["label"] for c in cfg["city"]}
     out = []
-    for r in open_csv(NORM / "ab_entries.csv"):
+    for r in open_csv(NORM / "ab_entries.csv.gz"):
         firm = r["entry_type"] == "firma" or bool(FIRM.search(f"{r['surname']} {r['forename']}"))
         sk = firm_key(r["surname"]) if firm else nkey(r["surname"])
         if not sk or len(sk) < 2:
