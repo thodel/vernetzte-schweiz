@@ -59,6 +59,57 @@ Anschluss der Haushalte wird.
   1901 ein Telefon; im 3. Sektor 8,4 %, im 2. Sektor 5,7 %, Ärzte 45,5 %, Spezereihändler 25,4 %, Witwen 3,7 %.
   1883–84 sind es 1,4 % (3. Sektor 2,0 %, 2. Sektor 1,0 %, Ärzte 14 %).
 
+## Adressbuch und Telefon in der Stadt Bern, 1795–1914
+
+Zusammenführung mit den beiden Adressbuch-Repos, die dieselben BERNHIST-Nenner verwenden:
+[adressbuecher-bern-frueh](https://thodel.github.io/adressbuecher-bern-frueh/abdeckung.html) (1795–1848, Commit
+d134c15) und [adressbuecher-bern](https://thodel.github.io/adressbuecher-bern/abdeckung.html) (1883–84 und 1900,
+Commit 8692f31). Die Zahlen sind dort hergeleitet; hier stehen sie nebeneinander. Haushalte vor 1847 und nach
+1888 sind geschätzt (Haushaltsgrösse eines Stichjahrs), Nenner für Gruppen vor 1856 mit der Bevölkerung
+umgerechnet; die Werte sind darum Grössenordnungen.
+
+**Wie viele stehen im Buch?** Verschiedene Personen je 100 Einwohner und je 100 Haushalte:
+
+| Jahr | Verzeichnis | je 100 Einwohner | je 100 Haushalte |
+|---|---|---:|---:|
+| 1795 | Address-Handbuch der Handelshäuser | 0,9 | 4 |
+| 1810 | Livre d'adresses | 3,1 | 13 |
+| 1822 | Adressbuch der Stadt Bern | 6,5 | 28 |
+| 1836 | Adressenbuch der Republik Bern (Einwohnerschaft der Stadt) | 13,7 | 58 |
+| 1848 | Verzeichnis der Einsassen (ohne Burger) | 8,6 | 38 |
+| 1883–84 | Adressbuch der Stadt Bern | 18,0 | 83 |
+| 1885 | Telefonbuch | 0,3 | 1,6 |
+| 1900 | Adressbuch der Stadt Bern | 22,1 | 102 |
+| 1900 | Telefonbuch | 1,9 | 8,9 |
+| 1910 | Telefonbuch | 2,6 | 12,3 |
+
+Das Adressbuch erreicht um 1900 rechnerisch jeden Haushalt (über 100 heisst: mehr als eine genannte Person je
+Haushalt, etwa Witwen und erwerbstätige Kinder mit eigener Zeile). Das Telefonbuch steht 1910 dort, wo das
+Adressbuch 1810 stand. 1848 ist kein Rückgang: Das Verzeichnis nennt nur Einsassen, und von ihnen steht ein
+Drittel der Köpfe in den verzeichneten Haushalten.
+
+**Wer steht drin?** Anteil der Gruppe, der im Buch steht (in %):
+
+| Gruppe | 1822 | 1836 | 1848 | 1883–84 | 1900 | Telefon 1885 | Telefon 1900 | Telefon 1910 |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| Ärzte | 81 | 93 | 17 | 26–63 | 80 | 13 | 56 | 83 |
+| Erwerbstätige 3. Sektor | 31 | 64 | 35 | 38 | 50 | 1,4 | 6,7 | 9,6 |
+| Erwerbstätige 2. Sektor | 22 | 27 | 27 | 31 | 37 | 0,6 | 3,3 | 4,5 |
+| Frauen (alle Alter) | 1,1 | 3,2 | 3,3 | 6,6 | 9,0 | 0,01 | 0,3 | 0,6 |
+| Witwen | 2,8 | 3,9 | 5,0 | 20 | 45 | 0,05 | 1,3 | 2,1 |
+| Dienstboten | 0,4 | 0,4 | 1,0 | 0,3 | 0,3 | | | |
+
+- **Die Reihenfolge der Gruppen ist in beiden Büchern dieselbe** und über 120 Jahre stabil: Ärzte vor Handel und
+  Verwaltung (3. Sektor) vor Handwerk und Gewerbe (2. Sektor), Frauen und Dienstboten fast gar nicht. Das Telefon
+  wiederholt die Rangfolge des Adressbuchs auf tieferem Niveau; nur die Ärzte holen bis 1910 ganz auf.
+- **Das Adressbuch öffnet sich für Frauen erst nach 1850,** und zwar über die Witwen (von 5 % auf 45 % zwischen
+  1848 und 1900); Frauen insgesamt bleiben unter 10 %. Im Telefonbuch sind Frauen 1910 so selten wie im
+  Adressbuch von 1822.
+- **Dienstboten fehlen in jedem Verzeichnis** (unter 1 %): Sie wohnen im Haushalt der Herrschaft und haben keine
+  eigene Zeile. Das ist eine Grenze der Quelle, nicht der Lesung.
+- **Ärzte 1848 und 1883–84 sind kein Einbruch:** 1848 fehlen die Burger, 1883–84 nennt das Einwohnerverzeichnis
+  den Beruf oft nur als «Dr.» (26 % mit Beruf «Arzt», 63 % mit «Dr. med.» im Titel).
+
 ## Referenz: BERNHIST an den Gemeinden von 1914
 
 `scripts/ref_bernhist.py` liest den lokal geladenen Dump (Repo `ub-unibe-ch/bernhist`, Stand 22.03.2024) und legt
