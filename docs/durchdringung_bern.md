@@ -313,21 +313,21 @@ Ab 5000 Einwohnern ohne die Stadt Bern: 13 Einheiten, 2,6 Einträge je 100 Einwo
 | Gruppe | 1885: Buch | Nenner | Quote | 1900: Buch | Nenner | Quote | 1910: Buch | Nenner | Quote |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | Einträge im Telefonbuch | 484 | 44 954 | 1,1 % | 2 322 | 64 227 | 3,6 % | 4 304 | 85 651 | 5,0 % |
-| Personen mit Eintrag je Einwohner | 151 | 44 954 | 0,34 % | 1 227 | 64 227 | 1,9 % | 2 269 | 85 651 | 2,6 % |
-| Personen mit Eintrag je Haushalt | 151 | 9 703 | 1,6 % | 1 227 | 13 863 | 8,9 % | 2 269 | 18 488 | 12,3 % |
+| Personen mit Eintrag je Einwohner | 151 | 44 954 | 0,34 % | 1 227 | 64 227 | 1,9 % | 2 268 | 85 651 | 2,6 % |
+| Personen mit Eintrag je Haushalt | 151 | 9 703 | 1,6 % | 1 227 | 13 863 | 8,9 % | 2 268 | 18 488 | 12,3 % |
 | Personen mit Wohnungsanschluss | 4 | 9 703 | 0,04 % | 159 | 13 863 | 1,1 % | 361 | 18 488 | 2,0 % |
 | Firmen | 76 | – | – | 400 | – | – | 768 | – | – |
 | Ämter und Anstalten | 45 | – | – | 348 | – | – | 405 | – | – |
 | Frauen | 3 | 24 718 | 0,01 % | 106 | 35 316 | 0,30 % | 265 | 47 099 | 0,56 % |
 | Witwen | 1 | 2 097 | 0,05 % | 35 | 2 721 | 1,3 % | 71 | 3 384 | 2,1 % |
 | Fräulein | 0 | – | – | 15 | – | – | 49 | – | – |
-| Personen und Firmen mit Sektor je Erwerbstätige | 191 | 19 171 | 1,0 % | 1 330 | 26 816 | 5,0 % | 2 460 | 35 250 | 7,0 % |
+| Personen und Firmen mit Sektor je Erwerbstätige | 191 | 19 171 | 1,0 % | 1 330 | 26 816 | 5,0 % | 2 463 | 35 250 | 7,0 % |
 | 1. Sektor | 2 | 368 | 0,54 % | 17 | 514 | 3,3 % | 21 | 676 | 3,1 % |
 | 2. Sektor | 57 | 9 396 | 0,61 % | 433 | 13 143 | 3,3 % | 778 | 17 277 | 4,5 % |
-| 3. Sektor | 132 | 9 407 | 1,4 % | 880 | 13 158 | 6,7 % | 1 661 | 17 297 | 9,6 % |
+| 3. Sektor | 132 | 9 407 | 1,4 % | 880 | 13 158 | 6,7 % | 1 664 | 17 297 | 9,6 % |
 | ohne Erwerb (Privatier, Rentier) | 1 | – | – | 22 | – | – | 33 | – | – |
-| Angabe ohne Sektor | 16 | – | – | 92 | – | – | 161 | – | – |
-| keine Angabe (nur Name, «Wohnung») | 19 | – | – | 183 | – | – | 383 | – | – |
+| Angabe ohne Sektor | 16 | – | – | 92 | – | – | 158 | – | – |
+| keine Angabe (nur Name, «Wohnung») | 19 | – | – | 183 | – | – | 382 | – | – |
 | Ärzte (Angabe nennt «Arzt») | 11 | 84 | 13,1 % | 3 | 103 | 2,9 % | 31 | 116 | 26,7 % |
 | Ärzte (dazu Titel «Dr. med.») | 11 | 84 | 13,1 % | 58 | 103 | 56,2 % | 96 | 116 | 82,8 % |
 | verschiedene Rufnummern | – | – | – | 1 785 | 64 227 | 2,8 % | 3 464 | 85 651 | 4,0 % |

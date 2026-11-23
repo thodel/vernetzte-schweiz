@@ -39,21 +39,21 @@ jahr,gruppe,zaehler,nenner,nenner_art,nenner_herleitung,quote_prozent,bemerkung
 1900,Spezereihandlungen,35,243,geschätzt,"Spezereigeschäfte 1901, mit der Bevölkerung auf 1900 umgerechnet",14.4,Nenner: Arbeitsstätten 1901 und 1909
 1910,Einträge im Telefonbuch,4304,85651,direkt,Volkszählung 1910,5.0,alle Zeilen der Stadt im Band
 1910,verschiedene Rufnummern,3464,85651,direkt,Volkszählung 1910,4.0,1885 nennt das Buch keine Nummern
-1910,Personen mit Eintrag je Einwohner,2269,85651,direkt,Volkszählung 1910,2.6,jede Person einmal (Geschäft und Wohnung zusammen)
-1910,Personen mit Eintrag je Haushalt,2269,18488,geschätzt,Bevölkerung 1910 durch die Haushaltsgrösse von 1888 (4.63 Personen),12.3,Obergrenze für den Anteil der Haushalte mit Telefon
+1910,Personen mit Eintrag je Einwohner,2268,85651,direkt,Volkszählung 1910,2.6,jede Person einmal (Geschäft und Wohnung zusammen)
+1910,Personen mit Eintrag je Haushalt,2268,18488,geschätzt,Bevölkerung 1910 durch die Haushaltsgrösse von 1888 (4.63 Personen),12.3,Obergrenze für den Anteil der Haushalte mit Telefon
 1910,Personen mit Wohnungsanschluss,361,18488,geschätzt,Bevölkerung 1910 durch die Haushaltsgrösse von 1888 (4.63 Personen),2.0,"Eintrag nennt «Wohnung», «Privat», «domicile»"
 1910,Firmen,768,,,,,"Personenfirmen (&, Cie., Gebr.), Gesellschaften, Betriebe mit eigenem Namen"
 1910,Ämter und Anstalten,405,,,,,"Bund, Kanton, Stadt, Schulen, Spitäler, Gesandtschaften"
 1910,Frauen,265,47099,geschätzt,"Bevölkerung mal Frauenanteil, zwischen 1856 und 1930 interpoliert",0.56,"erkannt an Stand, Vorname oder Berufsform: Untergrenze"
 1910,Witwen,71,3384,geschätzt,Verwitwete 1910 mal Frauenanteil der Verwitweten 1846,2.1,
 1910,Fräulein,49,,,,,
-1910,Personen und Firmen mit Sektor je Erwerbstätige,2460,35250,direkt,Volkszählung 1910 (Reihe A),7.0,
+1910,Personen und Firmen mit Sektor je Erwerbstätige,2463,35250,direkt,Volkszählung 1910 (Reihe A),7.0,
 1910,1. Sektor,21,676,direkt,Volkszählung 1910 (Reihe A),3.1,Personen und Firmen
 1910,2. Sektor,778,17277,direkt,Volkszählung 1910 (Reihe A),4.5,Personen und Firmen
-1910,3. Sektor,1661,17297,direkt,"Volkszählung 1910 (Reihe A, 3. Sektor als Rest)",9.6,"Personen und Firmen, ohne Ämter"
+1910,3. Sektor,1664,17297,direkt,"Volkszählung 1910 (Reihe A, 3. Sektor als Rest)",9.6,"Personen und Firmen, ohne Ämter"
 1910,"ohne Erwerb (Privatier, Rentier)",33,,,,,
-1910,Angabe ohne Sektor,161,,,,,
-1910,"keine Angabe (nur Name, «Wohnung»)",383,,,,,
+1910,Angabe ohne Sektor,158,,,,,
+1910,"keine Angabe (nur Name, «Wohnung»)",382,,,,,
 1910,Ärzte (Angabe nennt «Arzt»),31,116,direkt,Ärzte 1910,26.7,ohne Zahn- und Tierärzte
 1910,Ärzte (dazu Titel «Dr. med.»),96,116,direkt,Ärzte 1910,82.8,
 1910,Spezereihandlungen,52,289,geschätzt,"Spezereigeschäfte 1909, mit der Bevölkerung auf 1910 umgerechnet",18.0,Nenner: Arbeitsstätten 1901 und 1909

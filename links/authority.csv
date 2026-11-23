@@ -180,7 +180,6 @@ e4f5d98e478,Q1654410,Samuel Bachofen,1806,1889,023299,1076339999,wahrscheinlich,
 e4fc658be6a,Q107000468,Johann Jakob Burckhardt,1836,1890,005947,1048084728,möglich,stadt,Basel-Bezug,ungeprüft,basel:1862-gebaeude-163-L021
 e4fc7d52095,Q133089196,Christian Friedrich Beck,1818,1893,,1073443337,möglich,stadt,Basel-Bezug (Namensvetter im Band),,basel:1862-einwohner-322-L109
 e50231fe605,Q662013,Josef Martin Knüsel,1813,1889,004184,105132338X,wahrscheinlich,stadt,Basler Amt,"bestätigt: Bundesrat 1855-75, Finanzdepartement 1862-63 = Chef Finanz-Dep. 1862 (eidg. Behörde)",basel:C00605-1862
-e50bc619613,Q18021448,Jost Winteler,1846,1929,012406,118769391,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS nennt Aarau,"bestätigt: Dr. phil., 1884–1914 Gymnasiallehrer in Aarau; von Filzbach liegt in Kerenzen, kein Widerspruch.",aarau:1892-einwohner-150-L023
 e516b414010,Q117870,Johann Ulrich von Salis-Soglio,1790,1874,024231,116764791,möglich,stadt,Basler Amt,ungeprüft,basel:C00942-1862
 e516db2151b,Q62098691,Johann Jakob Schneider,1822,1889,,1015350887,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-404-L030
 e51a83fc4f1,Q123861,Johann Jakob Bachofen,1815,1887,011480,118505645,möglich,stadt,Basel-Bezug (Namensvetter im Band),"bestätigt: Dr. iur. 1837, Prof. 1841 = «J. U. Dr» 1841. Tuchscherer, Traiteur und Bachofen-Brenner sind andere Personen (∞ erst 1865 Burckhardt)",basel:1862-einwohner-320-L060
@@ -212,7 +211,7 @@ e5b9639c7a8,Q17305219,Hans Riniker,1841,1892,003786,1050547020,wahrscheinlich,st
 e5cb086ed89,Q6226098,Wilhelm Vischer,1833,1886,014818,117436828,möglich,stadt,Basel-Bezug (Namensvetter im Band),"bestätigt: ∞ 1859 Heussler = Vischer-Heusler 1862; PD Basel bis 1862. «Vischer-Bilsinger, Professor» ist Vater (032175)",basel:1862-einwohner-418-L100
 e5e4cb6cdf0,Q1127106,Conradin Zschokke,1842,1918,019957,119048280,möglich,stadt,Aarau-Bezug+Beruf,"zweifelhaft: Ingenieur passt und er war ab 1892 Aargauer Grossrat, doch der Artikel verortet ihn in Frankreich und Zürich und nennt die definitive Rückkehr nach Aarau erst 1909.",aarau:1888-einwohner-142-L027
 e5f50582c7f,Q94905555,Traugott Geering,1821,1871,,116478993,wahrscheinlich,stadt,Basel-Bezug,,basel:1862-einwohner-346-L115
-e5fb28c3607,Q96261262,Oswald Bargetzi,1856,1914,032126,1070137227,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS nennt Aarau,"bestätigt: Bauingenieur, ab 1890 Chef des technischen Büros der Firma Zschokke in Aarau, von Solothurn.",aarau:1899-einwohner-107-L009
+e5fb28c3607,Q96261262,Oswald Bargetzi,1856,1914,032126,1070137227,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS nennt Aarau+HLS-Heimatort+Heimatort,"bestätigt: Bauingenieur, ab 1890 Chef des technischen Büros der Firma Zschokke in Aarau, von Solothurn.",aarau:1899-gebaeude-082-L028
 e6040ebc52e,Q15454321,August Walter,1821,1896,026979,117128511,wahrscheinlich,stadt,Basel-Bezug,bestätigt: ab 1846 Musiklehrer und Dirigent in Basel = Musikdirektor 1862; ∞ 1854 Fastlinger = Walter-Fastlinger,basel:1862-einwohner-421-L039
 e617803dd33,Q78064711,Adolf Jenny,1851,1941,029516,105377558X,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS nennt Aarau+Heimatort+Beruf,"bestätigt: Ab 1876 Inhaber einer Wollstofffärberei in Aarau, von Iffwil.",aarau:1892-gebaeude-042-L021
 e61c82bcf89,Q123437,Johann Jakob Bernoulli,1831,1919,,120208016,möglich,stadt,Basel-Bezug (Namensvetter im Band),,basel:1862-gebaeude-125-L035
@@ -443,7 +442,6 @@ eb469695095,Q2547333,Walther Merz,1868,1938,027083,116913150,wahrscheinlich,stad
 eb56065cae6,Q61993428,Luigi Picchioni,1784,1869,017093,1044607378,wahrscheinlich,stadt,Basel-Bezug+Basler Amt,bestätigt: ab 1836 ao. Professor für italienische Literatur Basel = außerord. Prof. der italien. Sprache und Litteratur 1862,basel:C00849-1862
 eb606431636,Q123861,Johann Jakob Bachofen,1815,1887,011480,118505645,möglich,stadt,Basel-Bezug,"bestätigt: Dr. iur. 1837, Prof. 1841 = «J. U. Dr» 1841. Tuchscherer, Traiteur und Bachofen-Brenner sind andere Personen (∞ erst 1865 Burckhardt)",basel:1862-einwohner-320-L056
 eb68389e2c8,Q94919611,Johann Jakob Uebelin,1793,1873,,1089726341,wahrscheinlich,stadt,Basel-Bezug+Basler Amt,,basel:C01170-1862
-eb6aab16ca7,Q998080,Olivier Zschokke,1826,1898,003808,138527431,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug+Beruf,"bestätigt: Ingenieur, 1880–1898 Inhaber von Zschokke & Cie. in Aarau.",aarau:1888-einwohner-142-L030
 eb71047e82d,Q55194535,Johann Georg Müller,1800,1875,,137826141,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-386-L040
 eb79c07c2d8,Q107000468,Johann Jakob Burckhardt,1836,1890,005947,1048084728,möglich,stadt,Basel-Bezug,ungeprüft,basel:1862-gebaeude-107-L028
 eb7b97e8843,Q94901755,,1812,1897,,116095059,wahrscheinlich,stadt,Basel-Bezug+Beruf,,basel:1862-gebaeude-157-L010
@@ -464,7 +462,6 @@ ebd369427e4,Q78070738,Johann Jakob Schäublin,1822,1901,046156,123237890,möglic
 ebdc580740d,Q63108464,Carl Roth,1833,1886,,108979052X,wahrscheinlich,stadt,Basel-Bezug+Basler Amt,,basel:C00921-1862
 ebdd03bbb8c,Q23061637,Balthasar Reber,1805,1875,029450,10081896X,wahrscheinlich,stadt,Basel-Bezug,"bestätigt: ordinierter Theologe, Lehrer, ab 1855 ao. Prof. Schweizer Geschichte; ∞ 1832 Sulger = Reber-Sulger 1841/50",basel:1862-gebaeude-139-L050
 ebe3363043b,Q55194535,Johann Georg Müller,1800,1875,,137826141,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-385-L087
-ebeab369ee8,Q96261262,Oswald Bargetzi,1856,1914,032126,1070137227,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS nennt Aarau+HLS-Heimatort+Heimatort,"bestätigt: Bauingenieur, ab 1890 Chef des technischen Büros der Firma Zschokke in Aarau, von Solothurn.",aarau:1899-gebaeude-082-L028
 ebf22f973dc,Q139009803,,1817,1895,,1021164313,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-331-L122
 ebf295081cf,Q133314962,,1819,1867,,1081666188,möglich,stadt,Basel-Bezug (Namensvetter im Band),,basel:1862-einwohner-332-L020
 ebff60458ea,Q2597747,Xaver Fischer,1837,1921,027544,1069188956,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort+Beruf,"bestätigt: Ab 1877 erster christkatholischer Pfarrer in Aarau, von Triengen.",aarau:1888-einwohner-103-L018
@@ -618,6 +615,7 @@ e010abca981,Q96413883,Adrien Wyss,1856-03-02,1938-11-22,009659,1023627108,mögli
 e0116c7d3f7,Q123054423,Robert Schweizer,1875-01-01,1936-07-26,,,möglich,telefonbuch,vorname:initiale+wirkungsort+beruf,,
 e0120b2794e,Q1871631,Louis Duparc,1866-02-14,1932-10-20,031310,116252294,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
 e0137fbcb36,Q94917867,Friedrich Wehrli,1858-04-16,1925-05-03,,1065019971,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
+e01702476f4,Q55847233,Emil Zürcher,1850-06-11,1926-10-03,003736,119320339,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 e01be2cdc4c,Q43268874,Carl Locher,1843-01-01,1915-01-01,,117075051,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
 e0274ed4469,Q1580978,Hans Lanz,1867-11-17,1941-04-11,006485,1052362486,möglich,telefonbuch,vorname:abkürzung+wirkungsort,,
 e02a6a06193,Q120084,Hermann Rüfenacht,1867-06-28,1934-02-22,014886,119088525,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
@@ -636,6 +634,7 @@ e0777cbb50d,Q125029882,Jakob Stamm,1861-08-07,1933-09-25,,1201887445,möglich,te
 e078d2b4f6e,Q1047982,Caspar Melliger,1868-12-27,1924-03-31,024913,127733086,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 e079baf3cf9,Q125030827,Charles Barde,1848-01-01,1932-01-01,,1166815250,möglich,telefonbuch,vorname:initiale+wirkungsort+beruf,,
 e07d5ffb212,Q5049011,Caspar Badrutt,1848-07-21,1904-06-28,030123,1080265708,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
+e07ed168783,Q137307239,Julius Brunner,1842-12-05,1911-01-25,,103469958X,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
 e08755262ba,Q2645035,Alfred Gigon,1883-09-24,1975-07-25,014378,1024559378,wahrscheinlich,telefonbuch,vorname:abkürzung+sterbeort+beruf,,
 e08b06e8ee5,Q113870108,Fritz Meyer,1868-08-31,1941-10-28,029557,1041811438,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 e09064d1203,Q1609970,Max Tièche,1878-05-22,1938-04-13,,125552866,wahrscheinlich,telefonbuch,vorname:abkürzung+sterbeort+beruf,,
@@ -652,6 +651,7 @@ e0d23862292,Q136567523,Adolf Steiger,1862-08-19,1920-03-10,014653,1055424806,mö
 e0d249c975e,Q3188627,Jules Gonin,1870-08-10,1935-05-01,014384,143223348,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 e0d49469c20,Q137130357,Ferdinand Schubiger,1870-06-02,1951-04-30,,12691740X,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 e0e281f6e06,Q127700196,Victor Gautier,1824-01-01,1890-01-01,,1055424350,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
+e0e7ced2d3c,Q1911595,Maurizio Conti,1857-11-20,1942-08-14,,,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
 e0ecab217b2,Q133848140,Louis Molly,1871-12-18,1950-01-01,,,möglich,telefonbuch,vorname:initiale+wirkungsort+beruf,,
 e0f2edaa13a,Q96337472,Heinrich Albert Liebetrau,1886-09-03,1953-09-04,047830,1046600478,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
 e0f3ba2ba62,Q2678863,Alfred Scheurer,1840-05-05,1921-05-02,004683,1063314275,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
@@ -834,6 +834,7 @@ e3b6f2290cd,Q94861886,Ernst Gottfried Miescher,1848-02-19,1930-01-30,,1018662227
 e3d0a530eeb,Q120141,August Socin,1837-02-21,1899-01-22,014644,118761633,wahrscheinlich,telefonbuch,vorname:abkürzung+sterbeort+beruf,,
 e3d1578a0c3,Q1555645,Gustav Benz,1866-08-02,1937-01-25,010531,101533475X,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 e3d3ecb59a5,Q2575009,Wilhelm Schulthess,1855-05-18,1917-03-06,014635,118611372,möglich,telefonbuch,vorname:initiale+sterbeort+wirkungsort+beruf,,
+e3d65a42a25,Q1599407,Heinrich Zangger,1874-12-06,1957-03-15,014703,118772228,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 e3d82bc0eca,Q94838551,Hans von Wyss,1847-02-04,1901-09-20,,1043271775,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
 e3d930dcfca,Q47086867,Leo Wehrli,1870-02-25,1954-03-28,,117233226,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 e3dc6450821,Q992532,Eugen Probst,1873-12-14,1970-08-15,,112862723X,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
@@ -849,6 +850,7 @@ e3fb5ac60d8,Q1335937,Emil Bürgin,1848-08-23,1933-07-15,029862,1021089257,mögli
 e3fe3737ee1,Q78068778,Heinrich Pletscher,1878-10-20,1952-08-05,006092,1049718895,möglich,telefonbuch,vorname:initiale+sterbeort+wohnort+beruf,,
 e40130fc7ef,Q274421,Édouard Odier,1844-01-17,1919-12-07,003880,127824065,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
 e4022273bf0,Q15997592,Henri Berthoud,1877-04-17,1948-08-03,005983,1051897890,möglich,telefonbuch,vorname:gleich+wirkungsort,,
+e402a2b48ca,Q21544101,Johannes Frei,1821-11-17,1900-01-01,,116749601,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
 e404ffe2a63,Q56760741,Alfred Zweifel,1851-01-01,1920-01-01,,1212205979,möglich,telefonbuch,vorname:gleich+wohnort,,
 e405484b261,Q56760741,Alfred Zweifel,1851-01-01,1920-01-01,,1212205979,möglich,telefonbuch,vorname:gleich+wohnort,,
 e40810f9c43,Q5373332,Emmanuel Pettavel,1836-11-16,1910-11-15,011289,1080094334,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
@@ -932,7 +934,6 @@ e4e7af52499,Q19258730,Albert Gerster,1864-11-10,1935-08-22,019852,143873768,wahr
 e4e9d7735e7,Q131671727,Walter Wettstein,1880-01-01,1918-10-15,,1056152699,möglich,telefonbuch,vorname:gleich+wohnort,,
 e4ed0131c1a,Q106803708,Andreas Osterwalder,1853-01-01,1925-01-01,,,möglich,telefonbuch,vorname:initiale+wirkungsort+beruf,,
 e4edf353c01,Q118187,Karl Scheurer,1872-09-27,1929-11-14,004640,1043068147,möglich,telefonbuch,vorname:initiale+sterbeort+wirkungsort+beruf,,
-e4f0e09c18d,Q1567304,Alex Meyer,1879-12-15,1978-08-21,,118581740,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 e4f190fc4c8,Q78063576,Alexandre Guillot,1849-01-11,1930-10-31,011222,1078010587,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
 e4f239a178a,Q3785234,Hermann Geiger,1870-09-10,1962-04-02,,136419380,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 e4f7886a93b,Q55677504,Louis Bechstein,1848-08-26,1923-07-24,,136265685,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
@@ -967,6 +968,7 @@ e5493154ee7,Q55674887,Paul Hindermann,1868-05-28,1925-07-24,,116896604,möglich,
 e54d870acce,Q56760741,Alfred Zweifel,1851-01-01,1920-01-01,,1212205979,möglich,telefonbuch,vorname:abkürzung+wohnort,,
 e54f2253004,Q115478,Theodor Kocher,1841-08-25,1917-07-27,014435,118564110,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 e55271460d3,Q131629545,Jakob Welti,1871-10-01,1952-01-07,,1089546696,wahrscheinlich,telefonbuch,vorname:abkürzung+sterbeort+beruf,,
+e5534a5779d,Q99305139,Theodor Frey,1842-11-19,1912-11-19,003635,105159877X,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 e5538b2d297,Q18414741,Marc Morel,1843-11-29,1931-05-19,004342,1047355035,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
 e55c606b25c,Q117207,Otto Haab,1850-04-19,1931-10-17,031379,118800256,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 e561cca958e,Q124125,Jacob Wackernagel,1853-12-11,1938-05-22,041196,118805835,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
@@ -1016,6 +1018,7 @@ e624e211925,Q59710993,Hermann Fischer,1855-11-12,1923-01-01,,,wahrscheinlich,tel
 e625f95f7a4,Q15447175,Otto Bridler,1864-05-09,1938-05-14,005029,128010614,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
 e62615f85dd,Q15857053,Carl Moser,1873-01-01,1961-03-26,032169,1064712711,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 e62e7e1a7b7,Q96364087,Heinrich Fehlmann,1880-04-15,1952-08-21,029591,1080528431,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
+e639f9da7c5,Q15810590,Friedrich Fissler,1875-11-06,1964-02-18,,1020504773,wahrscheinlich,telefonbuch,vorname:abkürzung+sterbeort+beruf,,
 e63bf8820cf,Q1782244,Konrad Nägeli,1881-01-17,1951-10-01,018276,106753640X,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 e63d7eea3fb,Q96337548,Franz Vital Lusser,1849-04-28,1927-09-19,031934,1053159676,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
 e643910fd02,Q85841760,Friedrich Klingelfuss,1859-05-24,1932-06-21,046484,1017141843,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
@@ -1039,6 +1042,7 @@ e674558b74f,Q115780,Eduard Fischer,1861-06-16,1939-11-18,028819,117508659,mögli
 e676147eb81,Q84986263,William Henssler,1875-03-18,1951-05-02,,,wahrscheinlich,telefonbuch,vorname:abkürzung+sterbeort+beruf,,
 e68144ba6a6,Q69968459,Fritz Studer,1873-06-26,1945-08-12,023084,1051854261,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 e6832c9f763,Q2637724,Albert Buss-Wenger,1862-01-17,1912-10-01,030306,1021044172,möglich,telefonbuch,vorname:abkürzung+sterbeort+wirkungsort,,
+e683c7a1e89,Q94911363,Rudolf Meyer,1844-05-15,1924-08-13,,117004197,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
 e684cb67b0d,Q546965,Eduard von Steiger,1881-07-02,1962-02-10,004645,129967262,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 e68cf54784c,Q1818490,Leo Bloch,1864-03-23,1920-04-08,,116202459,möglich,telefonbuch,vorname:abkürzung+wirkungsort,,
 e693c11e19a,Q2637957,Albert Froelich,1876-01-28,1953-09-03,019841,119405350,wahrscheinlich,telefonbuch,vorname:abkürzung+sterbeort+beruf,,
@@ -1062,6 +1066,7 @@ e6c51721d6b,Q118511,Aimée Rapin,1868-12-14,1956-05-08,042610,1056474246,wahrsch
 e6c7a189558,Q125878543,Heinrich Stamm,1860-12-10,1940-04-01,,,möglich,telefonbuch,vorname:gleich+wohnort,,
 e6c91120bd6,Q115584,Albert Meyer,1870-03-13,1953-10-22,003666,119066386,möglich,telefonbuch,vorname:abkürzung+wirkungsort,,
 e6d3a8d5da0,Q2198686,Heinrich Nägeli,1850-07-01,1932-10-27,005905,1051655579,wahrscheinlich,telefonbuch,vorname:abkürzung+sterbeort+beruf,,
+e6daf2202e8,Q55855143,Fritz Locher,1874-09-13,1942-01-25,031510,137878281,wahrscheinlich,telefonbuch,vorname:abkürzung+sterbeort+beruf,,
 e6db28aab66,Q97621664,Wilhelm Bartsch,1873-08-30,1959-12-08,,1075558352,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 e6def03fb57,Q116979469,Antoine Goüy,1842-01-01,1892-01-01,,,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 e6df2acf4bd,Q15808488,Ernst Jung,1841-02-27,1912-02-03,019870,133772314,möglich,telefonbuch,vorname:initiale+sterbeort+wirkungsort+beruf,,
@@ -1157,6 +1162,7 @@ e871ad87c32,Q828100,Berthold van Muyden,1852-06-15,1912-04-19,031587,1055171754,
 e87733bc41f,Q94789253,Jakob Büchi,1879-03-06,1960-05-12,031315,130052590,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
 e87bf0c3d8a,Q137123309,Fritz Egger,1882-12-19,1945-07-10,,143979655,möglich,telefonbuch,vorname:initiale+wirkungsort+beruf,,
 e882c40a0cb,Q5504956,Fritz Kuchen,1877-09-10,1973-05-26,,,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
+e88456173fe,Q94919234,Johann Friedrich Boscovits,1845-01-06,1918-03-23,,1089346034,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 e885594a569,Q117620,Eduard Locher,1840-01-15,1910-06-02,030954,13027299X,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 e885eff1ca9,Q20676096,Carl Theodor Meyer-Basel,1860-05-15,1932-08-28,022523,117003859,wahrscheinlich,telefonbuch,vorname:gleich+wirkungsort+beruf,,
 e8879a20fdd,Q55908754,Oscar Wyss-Kienast,1840-08-17,1918-05-01,014699,118771523,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
@@ -1220,6 +1226,7 @@ e94f653a697,Q94930892,Hugo Richter,1841-01-01,1921-09-27,,1073509257,wahrscheinl
 e94f6ad7e31,Q3157998,Jaques-Louis Reverdin,1842-08-28,1929-01-09,014592,118600052,möglich,telefonbuch,vorname:gleich+sterbeort+wohnort,,
 e95eb784772,Q1818855,Leon Asher,1865-04-13,1943-08-08,,117666823,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 e962dd6861e,Q110176701,Alexandre Mottu,1883-06-11,1943-11-24,020713,133019489,wahrscheinlich,telefonbuch,vorname:abkürzung+wirkungsort+beruf,,
+e96bd3fe9c7,Q55677944,Friedrich Bertheau,1829-12-17,1913-06-08,027837,139577025,wahrscheinlich,telefonbuch,vorname:abkürzung+sterbeort+beruf,,
 e96cfde233c,Q113620,Walter Boveri,1865-02-21,1924-10-28,029605,118662457,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 e97095f5fe5,Q15456769,Carl Christoph Burckhardt,1862-12-05,1915-02-19,004448,12065153X,wahrscheinlich,telefonbuch,vorname:gleich+wirkungsort+beruf,,
 e975f03e248,Q4069515,Georges Louis Arlaud,1869-06-24,1944-08-29,,1179801512,möglich,telefonbuch,vorname:initiale+wirkungsort+beruf,,
@@ -1239,9 +1246,11 @@ e9b8340fbae,Q131670528,Rudolf Fischli,1860-01-01,1916-08-19,,,möglich,telefonbu
 e9b88c931cf,Q1523213,Hans J. Wehrli,1871-07-02,1945-02-26,028980,128275995,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 e9b8f244fcb,Q655614,Henri Fehr,1870-02-02,1954-11-02,043114,116433876,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 e9cb0ba4dee,Q57338574,Johann Jakob Burckhardt,1809-08-15,1888-04-12,007162,137562268,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
+e9cdd547466,Q55680046,Giovanni Ambrogio Stoppany,1868-12-11,1945-12-24,014655,1020271132,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 e9d05d96512,Q27791747,Eugène Demole,1850-12-22,1928-01-06,031422,141500840,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 e9d4e02659e,Q55452616,Ernst Linck,1874-02-13,1963-02-21,,1056304219,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 e9da9d4ff83,Q55676439,Otto Pfleghard,1869-12-12,1958-10-30,006656,126826978,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
+e9dd242cc9c,Q55908754,Oscar Wyss-Kienast,1840-08-17,1918-05-01,014699,118771523,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
 e9e08185385,Q1335920,Emil Burckhardt-De Bary,1853-12-06,1905-10-12,,117641073,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
 e9e0a44c79a,Q27323148,Fritz Fleiner,1867-01-24,1937-10-26,015841,11868390X,möglich,telefonbuch,vorname:initiale+wirkungsort+beruf,,
 e9e32ab6948,Q96412578,Heinrich-Julius Weisflog,1872-04-04,1939-01-07,006749,1051890500,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
@@ -1253,7 +1262,6 @@ e9f772cb88b,Q55683849,Caspar Friedrich Hausmann,1845-10-03,1920-08-11,030323,108
 ea06868a329,Q667117,Théodore Flournoy,1853-08-15,1920-11-05,014361,117514241,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 ea06b8d3f62,Q130357561,Louis Naegeli,1858-01-01,1951-03-02,,,möglich,telefonbuch,vorname:gleich+wirkungsort,,
 ea0c0419d00,Q139215724,Gottlieb Maier,1880-05-24,1942-02-17,,1255707348,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
-ea0e6c84abb,Q1558309,Jean Briner,1876-07-28,1967-03-29,006213,1048703576,möglich,telefonbuch,vorname:gleich+sterbeort+wirkungsort,,
 ea0f62fc02c,Q94943306,Adolf Christen,1843-05-31,1919-10-22,027540,138471045,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
 ea1302e70b1,Q16832444,Henri Morel,1838-06-13,1912-05-18,004614,1052065392,möglich,telefonbuch,vorname:gleich+wirkungsort,,
 ea15d03860b,Q131739308,Heinrich Fischer,1882-01-01,,,,möglich,telefonbuch,vorname:abkürzung+wohnort,,
@@ -1272,7 +1280,6 @@ ea54644ae94,Q96758102,Adolf Wäber,1841-10-11,1913-03-20,,128024143,möglich,tel
 ea56e0ba1fc,Q122191,Hermann Sahli,1856-05-23,1933-04-28,014612,117600008,möglich,telefonbuch,vorname:initiale+sterbeort+wirkungsort+beruf,,
 ea68340dfcc,Q18616464,August Rikli,1864-01-24,1933-08-06,004663,1052434436,wahrscheinlich,telefonbuch,vorname:abkürzung+sterbeort+beruf,,
 ea77bb41b2b,Q94806355,Ernst Hess,1860-01-01,1920-01-01,,136765009,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
-ea78fa9788c,Q96268890,Leo Bodmer,1880-01-28,1961-03-17,029533,1080243895,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 ea790645906,Q101600371,Heinrich Bräm,1887-09-02,1956-08-13,,1071467107,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
 ea7966ea712,Q123457,Fred Boissonnas,1858-06-18,1946-10-17,027196,122328213,wahrscheinlich,telefonbuch,vorname:abkürzung+sterbeort+wirkungsort+beruf,,
 ea7bc87347c,Q695670,Arnold Lang,1855-06-18,1914-11-30,028871,119435861,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
@@ -1303,6 +1310,7 @@ ead10392929,Q20978924,Karl Marti,1855-04-25,1925-04-22,010748,116801727,möglich
 ead57aaf9f1,Q1672127,Max Lüdin,1883-07-13,1960-07-06,,1274950309,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 ead8b9c506d,Q106527440,Ernest Martin,1849-03-25,1910-02-01,011259,1080093885,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
 eade9c531a5,Q124845990,Otto Schäfer,1879-12-27,1953-11-14,019926,1047109166,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
+eae3d6e1412,Q55680046,Giovanni Ambrogio Stoppany,1868-12-11,1945-12-24,014655,1020271132,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 eae730be3ea,Q78067029,Alexandre Moriaud,1871-03-07,1955-11-08,006526,1026246377,wahrscheinlich,telefonbuch,vorname:abkürzung+sterbeort+beruf,,
 eaea19530dc,Q78071703,Johannes Spörri,1837-02-26,1921-11-28,030930,1081690666,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 eaf056e41de,Q764071,August Stadler,1850-08-24,1910-05-16,,117195596,wahrscheinlich,telefonbuch,vorname:abkürzung+sterbeort+beruf,,
@@ -1345,7 +1353,6 @@ eb8fe6e9ec3,Q1673489,Isaak Iselin,1851-07-18,1930-06-16,004542,117205583,wahrsch
 eb939f9b551,Q112763468,Louys Châtelain,1877-01-22,1947-05-31,,,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
 eb95e2a1d0a,Q24284599,Léonore Gourfein Welt,1859-07-30,1944-01-08,,,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 eb9b3b804ec,Q694925,Arnold Bovet,1843-01-19,1903-05-11,010550,118514075,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
-eb9c83972c5,Q2215846,Saly Mayer,1882-06-03,1950-07-30,018273,129409995,möglich,telefonbuch,vorname:gleich+wirkungsort,,
 eba75259944,Q2575009,Wilhelm Schulthess,1855-05-18,1917-03-06,014635,118611372,möglich,telefonbuch,vorname:abkürzung+sterbeort+wirkungsort,,
 ebad7fae029,Q2047903,Henri Simonin,1855-11-19,1927-11-06,013599,1052617573,möglich,telefonbuch,vorname:initiale+sterbeort+wirkungsort+beruf,,
 ebb3a8ff7f8,Q1555377,Johann Jenny,1857-09-08,1937-12-11,004549,1052299334,möglich,telefonbuch,vorname:gleich+sterbeort+wirkungsort,,
@@ -1417,6 +1424,8 @@ ec766e318bb,Q25973,Hermann Hesse,1877-07-02,1962-08-09,011946,11855042X,möglich
 ec789db580b,Q2637724,Albert Buss-Wenger,1862-01-17,1912-10-01,030306,1021044172,möglich,telefonbuch,vorname:gleich+sterbeort+wirkungsort,,
 ec85e8a6860,Q1037592,Carl Eigenmann,1849-09-19,1931-07-27,004059,1051036038,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 ec866160a75,Q1643108,Paul Essek,1875-06-26,1948-01-07,,134848861,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
+ec8942b3e1e,Q94922952,Albert Isler,1874-01-22,1933-07-05,,1077372426,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
+ec8cae6df5c,Q96319079,Johann Gysin,1852-04-02,1909-09-22,043791,1047895064,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 ec8d9750190,Q78064516,Albert Jäggi,1838-02-15,1920-06-24,030393,1052353258,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
 ec972e3fdd6,Q109632706,Ernest Lorson,1843-01-01,1923-01-05,,1383200831,möglich,telefonbuch,vorname:initiale+wirkungsort+beruf,,
 ec9797b7b9a,Q55679572,August Jenny,1866-05-20,1916-11-05,,1016625898,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
@@ -1439,7 +1448,6 @@ ecc43f7a53f,Q118266,Johannes Baumann,1874-11-27,1953-09-08,004139,1045515728,mö
 ecc7d9a52a0,Q18625496,Henri Cuenat,1840-03-28,1918-03-25,013593,105205109X,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
 ecc909caf82,Q30050991,Auguste Reverdin,1848-12-02,1908-06-18,014594,117526509,wahrscheinlich,telefonbuch,vorname:abkürzung+sterbeort+beruf,,
 ecc9546813a,Q1733024,Johann Karl Bossard,1846-10-11,1914-12-27,022166,124634648,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
-eccc5192c36,Q2671045,Conrad Brunner,1859-08-31,1927-06-08,014306,11867479X,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 eccc7ca85ff,Q1539755,Gottlieb Berger,1826-12-29,1903-07-03,004416,1051818982,möglich,telefonbuch,vorname:initiale+wirkungsort+beruf,,
 eccd198733b,Q80802662,Adolf Schild,1844-01-21,1915-12-08,030404,139569650,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 ecd00fc69e2,Q134585124,Theodor Hoffmann,1860-01-01,1925-01-01,,,möglich,telefonbuch,vorname:abkürzung+wirkungsort,,
@@ -1450,7 +1458,6 @@ ecd72d16406,Q115694430,Julius Dübendorfer,1859-03-23,1934-11-04,,,wahrscheinlic
 ece4d13329c,Q1730362,Karl August Hiller,1852-02-27,1901-04-19,,1018389334,möglich,telefonbuch,vorname:initiale+sterbeort+wirkungsort+beruf,,
 ece66aebebf,Q3638799,Bernardo Ramelli,1873-06-29,1930-10-29,044549,1027463851,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 ecec515e0e8,Q123052296,Josef Abächerli,1868-03-03,1929-09-18,,,wahrscheinlich,telefonbuch,vorname:abkürzung+sterbeort+beruf,,
-ecec6457408,Q94353610,Werner Pfister,1884-01-01,1950-01-01,,122751744,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
 ecede75829e,Q1599168,Heinrich Walther,1862-09-07,1954-05-18,004210,1020828196,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 ecef74aa7fb,Q2828090,Aimé Schwob,1864-12-19,1926-10-18,049716,1049792793,wahrscheinlich,telefonbuch,vorname:abkürzung+sterbeort+beruf,,
 ecfaf7a8a03,Q112569753,Ernest Picot,1853-05-28,1921-05-09,043789,1049201116,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
@@ -1464,6 +1471,7 @@ ed0d652bc47,Q14906426,Peter Robert Berry,1864-09-11,1942-11-14,,124203248,mögli
 ed11f543f97,Q364437,Adolf Vivell,1878-05-19,1959-07-07,049202,104712565X,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 ed15b7200bd,Q55681629,Alfred Möri,1880-10-24,1936-02-28,027388,1046853856,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
 ed178246230,Q118516583,Josef Müller,1872-02-02,1947-08-10,,1028870027,möglich,telefonbuch,vorname:abkürzung+wirkungsort,,
+ed2dc1800a5,Q65997485,Julius Frey,1855-11-22,1925-05-03,042084,1017289751,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 ed2f702d8db,Q1556126,Gustav König,1863-03-21,1934-03-26,004572,116292202,möglich,telefonbuch,vorname:initiale+sterbeort+wirkungsort+beruf,,
 ed312c7e492,Q133674105,Victor Litzelmann,1863-01-15,1949-11-04,,133044726,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
 ed344d9428c,Q99305163,Marc Peter,1873-12-21,1966-09-05,003883,1052757421,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
@@ -1478,6 +1486,7 @@ ed556c27640,Q97154,Heinrich Burkhardt,1861-10-15,1914-11-02,043107,117173967,wah
 ed58b682f2f,Q55846723,Conrad Sonderegger,1858-06-12,1938-04-17,049648,139562818,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 ed658a32fec,Q15621587,Alfred Olivet,1863-04-24,1942-05-03,042785,1046866206,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 ed68ce41b8c,Q19628932,Albert Reverdin,1881-01-01,1929-01-01,,,wahrscheinlich,telefonbuch,vorname:abkürzung+sterbeort+beruf,,
+ed68d2437f6,Q117207,Otto Haab,1850-04-19,1931-10-17,031379,118800256,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 ed792946878,Q1310485,Rudolf Lämmel,1879-03-02,1962-08-09,046081,116644036,wahrscheinlich,telefonbuch,vorname:abkürzung+sterbeort+beruf,,
 ed7a1bd4a98,Q1927851,Michael Hofer,1851-07-09,1922-04-04,032765,1052912761,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
 ed7b3055d60,Q18910649,Justus Gaule,1849-11-04,1939-06-25,,116467274,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
@@ -1507,7 +1516,7 @@ edd95743a92,Q3725632,Enrico Bignami,1844-12-03,1921-10-13,027670,12056887X,mögl
 edde8ff4151,Q50810348,Leonhard Steiner,1836-11-09,1920-12-13,012319,1044935634,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 ede3439340b,Q666875,Aurel Stodola,1859-05-10,1942-12-25,031674,119072181,möglich,telefonbuch,vorname:initiale+sterbeort+wirkungsort+beruf,,
 ede9f179353,Q18132142,Carl August Bächtold,1838-02-15,1921-02-05,041371,117766909,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
-edf00d05dd6,Q96319079,Johann Gysin,1852-04-02,1909-09-22,043791,1047895064,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
+edf00d05dd6,Q96319079,Johann Gysin,1852-04-02,1909-09-22,043791,1047895064,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 edf0ce705f0,Q124860,François Naville,1883-06-14,1968-04-03,048604,126588724,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 edf5980124a,Q78065341,Fritz Emil Lüdy,1865-01-15,1936-08-20,042554,104761510X,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 edf5ea67367,Q97621664,Wilhelm Bartsch,1873-08-30,1959-12-08,,1075558352,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
@@ -1558,7 +1567,7 @@ ee79e98d960,Q55676573,Arthur Mamelok,1876-07-14,1926-07-05,,12823525X,möglich,t
 ee8070c985b,Q68696411,Karl Emil Hilgard,1858-02-21,1938-06-21,031392,1031122028,möglich,telefonbuch,vorname:initiale+sterbeort+wirkungsort+beruf,,
 ee82cf16ad4,Q3261423,Louis Cardinaux,1859-05-16,1914-05-11,003913,1054282587,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
 ee898f29f42,Q742532,Philippe-Auguste Guye,1862-06-12,1922-03-27,028842,116936959,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
-ee8a604243d,Q7109740,Otto Münch,1885-10-23,1965-01-26,022542,118735012,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
+ee8b1dd0a37,Q24175452,Walter Bion,1830-04-29,1909-09-03,010540,135548896,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 ee927839fc0,Q119204,Maurice Turrettini,1878-07-24,1932-10-25,,142913316,möglich,telefonbuch,vorname:gleich+wirkungsort,,
 ee97c301020,Q670852,Friedrich Hegar,1841-10-11,1927-06-02,020675,11889112X,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 ee97d4182e4,Q20827598,Gunnar Hammershaimb,1862-05-16,1947-06-01,,,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,

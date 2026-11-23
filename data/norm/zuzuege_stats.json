@@ -1,8 +1,8 @@
 {
  "Aarau": {
   "1867": {
-   "personen": 1385,
-   "erster_band": 1385,
+   "personen": 1386,
+   "erster_band": 1386,
    "nicht_erfasst": [],
    "zuzug_mit_heimatort": 0,
    "zuzug_ausland": 0,
@@ -10,9 +10,9 @@
    "bleibt_ausland": 0
   },
   "1869": {
-   "personen": 1459,
+   "personen": 1460,
    "haushalt": 211,
-   "bleibt": 922,
+   "bleibt": 923,
    "neu_familie": 200,
    "neu": 106,
    "witwe": 20,
@@ -25,9 +25,9 @@
   "1877": {
    "personen": 1664,
    "haushalt": 243,
-   "bleibt": 736,
+   "bleibt": 737,
    "neu": 241,
-   "neu_familie": 398,
+   "neu_familie": 397,
    "witwe": 46,
    "nicht_erfasst": [],
    "zuzug_mit_heimatort": 414,
@@ -37,15 +37,15 @@
   },
   "1879": {
    "personen": 1658,
-   "haushalt": 167,
-   "bleibt": 1147,
+   "haushalt": 168,
+   "bleibt": 1146,
    "neu_familie": 207,
    "neu": 108,
    "witwe": 29,
    "nicht_erfasst": [],
    "zuzug_mit_heimatort": 219,
    "zuzug_ausland": 30,
-   "bleibt_mit_heimatort": 580,
+   "bleibt_mit_heimatort": 579,
    "bleibt_ausland": 59
   },
   "1881": {
@@ -64,9 +64,9 @@
   "1884": {
    "personen": 1839,
    "neu": 133,
-   "bleibt": 1106,
+   "bleibt": 1107,
    "neu_familie": 362,
-   "haushalt": 195,
+   "haushalt": 194,
    "witwe": 43,
    "nicht_erfasst": [],
    "zuzug_mit_heimatort": 393,
@@ -76,10 +76,10 @@
   },
   "1888": {
    "personen": 1836,
-   "bleibt": 1323,
+   "bleibt": 1324,
    "neu_familie": 285,
    "neu": 94,
-   "haushalt": 100,
+   "haushalt": 99,
    "witwe": 34,
    "nicht_erfasst": [],
    "zuzug_mit_heimatort": 291,
@@ -108,9 +108,9 @@
    "haushalt": 110,
    "witwe": 30,
    "nicht_erfasst": [],
-   "zuzug_mit_heimatort": 240,
+   "zuzug_mit_heimatort": 242,
    "zuzug_ausland": 46,
-   "bleibt_mit_heimatort": 473,
+   "bleibt_mit_heimatort": 472,
    "bleibt_ausland": 38
   },
   "1899": {
@@ -121,9 +121,9 @@
    "haushalt": 59,
    "witwe": 20,
    "nicht_erfasst": [],
-   "zuzug_mit_heimatort": 161,
-   "zuzug_ausland": 27,
-   "bleibt_mit_heimatort": 558,
+   "zuzug_mit_heimatort": 162,
+   "zuzug_ausland": 28,
+   "bleibt_mit_heimatort": 560,
    "bleibt_ausland": 47
   }
  },
@@ -140,9 +140,9 @@
   "1875": {
    "personen": 15087,
    "gebiet": 7515,
-   "neu_familie": 2744,
+   "neu_familie": 2743,
    "witwe": 733,
-   "bleibt": 2208,
+   "bleibt": 2209,
    "haushalt": 352,
    "neu": 1535,
    "nicht_erfasst": [
@@ -162,10 +162,10 @@
    "bleibt_ausland": 0
   },
   "1885": {
-   "personen": 26503,
-   "neu": 4329,
-   "neu_familie": 14920,
-   "bleibt": 6015,
+   "personen": 26504,
+   "neu": 4330,
+   "neu_familie": 14923,
+   "bleibt": 6012,
    "witwe": 771,
    "haushalt": 468,
    "nicht_erfasst": [],
@@ -175,10 +175,10 @@
    "bleibt_ausland": 0
   },
   "1900": {
-   "personen": 59262,
-   "neu": 11492,
-   "neu_familie": 33425,
-   "bleibt": 11588,
+   "personen": 59263,
+   "neu": 11494,
+   "neu_familie": 33426,
+   "bleibt": 11586,
    "witwe": 2271,
    "haushalt": 486,
    "nicht_erfasst": [],
@@ -188,11 +188,11 @@
    "bleibt_ausland": 0
   },
   "1901": {
-   "personen": 61368,
-   "neu_familie": 7458,
-   "neu": 3131,
-   "bleibt": 49368,
-   "haushalt": 1048,
+   "personen": 61369,
+   "neu_familie": 7462,
+   "neu": 3132,
+   "bleibt": 49361,
+   "haushalt": 1051,
    "witwe": 363,
    "nicht_erfasst": [],
    "zuzug_mit_heimatort": 0,
@@ -200,17 +200,95 @@
    "bleibt_mit_heimatort": 1,
    "bleibt_ausland": 0
   },
-  "1914": {
-   "personen": 61558,
-   "neu": 6279,
-   "bleibt": 26773,
-   "neu_familie": 26731,
-   "witwe": 674,
-   "haushalt": 1101,
+  "1902": {
+   "personen": 53897,
+   "bleibt": 48279,
+   "neu": 1062,
+   "neu_familie": 3693,
+   "haushalt": 631,
+   "witwe": 232,
    "nicht_erfasst": [],
-   "zuzug_mit_heimatort": 6,
+   "zuzug_mit_heimatort": 0,
    "zuzug_ausland": 0,
    "bleibt_mit_heimatort": 2,
+   "bleibt_ausland": 0
+  },
+  "1903": {
+   "personen": 46996,
+   "bleibt": 42589,
+   "neu_familie": 3084,
+   "haushalt": 317,
+   "witwe": 106,
+   "neu": 900,
+   "nicht_erfasst": [],
+   "zuzug_mit_heimatort": 1,
+   "zuzug_ausland": 0,
+   "bleibt_mit_heimatort": 3,
+   "bleibt_ausland": 0
+  },
+  "1904": {
+   "personen": 45517,
+   "bleibt": 40189,
+   "neu": 1678,
+   "haushalt": 330,
+   "neu_familie": 3143,
+   "witwe": 177,
+   "nicht_erfasst": [],
+   "zuzug_mit_heimatort": 0,
+   "zuzug_ausland": 0,
+   "bleibt_mit_heimatort": 2,
+   "bleibt_ausland": 0
+  },
+  "1907": {
+   "personen": 49745,
+   "neu_familie": 10515,
+   "bleibt": 34976,
+   "neu": 2794,
+   "haushalt": 1061,
+   "witwe": 399,
+   "nicht_erfasst": [],
+   "zuzug_mit_heimatort": 1,
+   "zuzug_ausland": 0,
+   "bleibt_mit_heimatort": 2,
+   "bleibt_ausland": 0
+  },
+  "1909": {
+   "personen": 51934,
+   "bleibt": 40645,
+   "neu": 2167,
+   "neu_familie": 7743,
+   "haushalt": 1009,
+   "witwe": 370,
+   "nicht_erfasst": [],
+   "zuzug_mit_heimatort": 2,
+   "zuzug_ausland": 0,
+   "bleibt_mit_heimatort": 2,
+   "bleibt_ausland": 0
+  },
+  "1910": {
+   "personen": 55974,
+   "neu": 2018,
+   "bleibt": 47585,
+   "neu_familie": 5628,
+   "haushalt": 650,
+   "witwe": 93,
+   "nicht_erfasst": [],
+   "zuzug_mit_heimatort": 1,
+   "zuzug_ausland": 0,
+   "bleibt_mit_heimatort": 5,
+   "bleibt_ausland": 0
+  },
+  "1914": {
+   "personen": 61562,
+   "bleibt": 42253,
+   "neu": 3767,
+   "neu_familie": 14107,
+   "haushalt": 1268,
+   "witwe": 167,
+   "nicht_erfasst": [],
+   "zuzug_mit_heimatort": 2,
+   "zuzug_ausland": 0,
+   "bleibt_mit_heimatort": 6,
    "bleibt_ausland": 1
   }
  }
