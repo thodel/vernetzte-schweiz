@@ -17,7 +17,7 @@ Zwei Teile:
    → data/norm/durchdringung_bern_stadt.csv
 
 Die Zuordnung der Berufsangaben zu Sektoren ist die von adressbuecher-bern (scripts/85_abdeckung.py, Commit
-8692f31), damit Telefon und Adressbuch dieselben Gruppen messen; TEL_* ergänzt, was nur im Telefonbuch vorkommt
+20b0405), damit Telefon und Adressbuch dieselben Gruppen messen; TEL_* ergänzt, was nur im Telefonbuch vorkommt
 (Geschäftsbezeichnungen statt Berufe). Geprüft an data/review/durchdringung_bern_stichprobe.csv.
 """
 

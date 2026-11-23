@@ -18,7 +18,7 @@ Christian Pfister, heute bei der Universitätsbibliothek Bern, <https://www.bern
 | `gemeinden_1914.csv` | Gemeinde von 1914 (Kanton BE) → BERNHIST-Ort, Einheit, Status |
 | `einheiten.csv` | je Einheit Wohnbevölkerung 1880, 1888, 1900, 1910, Haushalte 1888, Erwerbstätige nach Sektor 1910 |
 | `vergleich_bfs.csv` | Bevölkerung 1900 und 1910 gegen `data/ref/population_1850_2000.csv` (BFS) |
-| `adressbuch_bern.csv` | Zähler und Quoten der Adressbücher 1883–84 und 1900 aus `thodel/adressbuecher-bern`, `data/abdeckung/abdeckung.csv`, Commit 8692f31 |
+| `adressbuch_bern.csv` | Zähler und Quoten der Adressbücher 1883–84 und 1900 aus `thodel/adressbuecher-bern`, `data/abdeckung/abdeckung.csv`, Commit 20b0405 |
 
 Reihen in `werte.csv`: für alle Einwohnergemeinden `bev_1880`, `bev_1888`, `bev_1900`, `bev_1910` (Thema 990),
 `haushalte_1888` (543), `erw_1910`, `erw_s1_1910`, `erw_s2_1910`, `erw_s3_1910` (342, 305, 314, 327); nur für

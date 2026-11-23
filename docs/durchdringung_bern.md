@@ -64,7 +64,7 @@ Anschluss der Haushalte wird.
 Zusammenführung mit den beiden Adressbuch-Repos, die dieselben BERNHIST-Nenner verwenden:
 [adressbuecher-bern-frueh](https://thodel.github.io/adressbuecher-bern-frueh/abdeckung.html) (1795–1848, Commit
 d134c15) und [adressbuecher-bern](https://thodel.github.io/adressbuecher-bern/abdeckung.html) (1883–84 und 1900,
-Commit 8692f31). Die Zahlen sind dort hergeleitet; hier stehen sie nebeneinander. Haushalte vor 1847 und nach
+Commit 20b0405, Erwerbstätige 1910 ohne Bümpliz). Die Zahlen sind dort hergeleitet; hier stehen sie nebeneinander. Haushalte vor 1847 und nach
 1888 sind geschätzt (Haushaltsgrösse eines Stichjahrs), Nenner für Gruppen vor 1856 mit der Bevölkerung
 umgerechnet; die Werte sind darum Grössenordnungen.
 
@@ -93,8 +93,8 @@ Drittel der Köpfe in den verzeichneten Haushalten.
 | Gruppe | 1822 | 1836 | 1848 | 1883–84 | 1900 | Telefon 1885 | Telefon 1900 | Telefon 1910 |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
 | Ärzte | 81 | 93 | 17 | 26–63 | 80 | 13 | 56 | 83 |
-| Erwerbstätige 3. Sektor | 31 | 64 | 35 | 38 | 50 | 1,4 | 6,7 | 9,6 |
-| Erwerbstätige 2. Sektor | 22 | 27 | 27 | 31 | 37 | 0,6 | 3,3 | 4,5 |
+| Erwerbstätige 3. Sektor | 31 | 64 | 35 | 38 | 51 | 1,4 | 6,7 | 9,6 |
+| Erwerbstätige 2. Sektor | 22 | 27 | 27 | 32 | 39 | 0,6 | 3,3 | 4,5 |
 | Frauen (alle Alter) | 1,1 | 3,2 | 3,3 | 6,6 | 9,0 | 0,01 | 0,3 | 0,6 |
 | Witwen | 2,8 | 3,9 | 5,0 | 20 | 45 | 0,05 | 1,3 | 2,1 |
 | Dienstboten | 0,4 | 0,4 | 1,0 | 0,3 | 0,3 | | | |
@@ -123,7 +123,7 @@ Bindung an `data/ref/municipalities_1914.csv` geht über den Namen.
 | `gemeinden_1914.csv` | jede der 503 Berner Gemeinden von 1914: BERNHIST-Ort, Einheit oder «nicht in BERNHIST» |
 | `einheiten.csv` | je Einheit Wohnbevölkerung 1880, 1888, 1900, 1910, Haushalte 1888, Erwerbstätige nach Sektor 1910 |
 | `vergleich_bfs.csv` | Bevölkerung 1900 und 1910 gegen `data/ref/population_1850_2000.csv` |
-| `adressbuch_bern.csv` | Zähler und Quoten aus `adressbuecher-bern` (Commit 8692f31), zum Vergleich |
+| `adressbuch_bern.csv` | Zähler und Quoten aus `adressbuecher-bern` (Commit 20b0405), zum Vergleich |
 
 **Zuordnung.** 421 der 450 Orte sind an eine Gemeinde von 1914 gebunden: 388 mit gleichem Namen, 29 nach
 Normalisierung (Zusätze wie «(bis 1919)» und «(BE)» weg, «Ferrière, La» = «La Ferrière», «Interlaken / Aarmühle»
@@ -198,7 +198,7 @@ gelesen sind («Weibel, Gebr.», «Schweizerhof, Hôtel»). Gezählt werden Ansc
 Berufsform (Hebamme). «Fr.» ist im Telefonbuch Fritz oder Friedrich und zählt nicht. Viele Vornamen sind
 abgekürzt; die Zahl der Frauen ist eine Untergrenze.
 
-**Sektor** (`sektor()`): die Wortlisten von `adressbuecher-bern` (`scripts/85_abdeckung.py`, Commit 8692f31),
+**Sektor** (`sektor()`): die Wortlisten von `adressbuecher-bern` (`scripts/85_abdeckung.py`, Commit 20b0405),
 unverändert, damit Telefon und Adressbuch dieselben Gruppen messen. Die Einteilung folgt BERNHIST für 1910:
 1 = Landwirtschaft, Gärtnerei, Forst; 2 = Gewerbe und Industrie mit Bau-, Nahrungsmittel-, Bekleidungs- und
 Reinigungsgewerbe und Druck; 3 = Handel, Banken, Gastgewerbe, Verkehr, Verwaltung, Schule, Kirche, Gesundheit.
@@ -345,9 +345,9 @@ Ab 5000 Einwohnern ohne die Stadt Bern: 13 Einheiten, 2,6 Einträge je 100 Einwo
 | Firmen | 151 | – | 76 | – | 50,3 | 262 | – | 400 | – | 152,7 |
 | Frauen | 1 611 | 6,6 % | 3 | 0,01 % | 0,20 | 3 189 | 9,0 % | 106 | 0,30 % | 3,3 |
 | Witwen | 425 | 20,3 % | 1 | 0,05 % | 0,20 | 1 217 | 44,7 % | 35 | 1,3 % | 2,9 |
-| 1. Sektor | 118 | 21,4 % | 2 | 0,54 % | 1,7 | 218 | 27,5 % | 17 | 3,3 % | 7,8 |
-| 2. Sektor | 2 954 | 30,8 % | 57 | 0,61 % | 1,9 | 5 132 | 37,1 % | 433 | 3,3 % | 8,4 |
-| 3. Sektor | 3 493 | 37,6 % | 132 | 1,4 % | 3,8 | 6 651 | 49,6 % | 880 | 6,7 % | 13,2 |
+| 1. Sektor | 118 | 32,5 % | 2 | 0,54 % | 1,7 | 218 | 42,4 % | 17 | 3,3 % | 7,8 |
+| 2. Sektor | 2 954 | 31,8 % | 57 | 0,61 % | 1,9 | 5 132 | 39,0 % | 433 | 3,3 % | 8,4 |
+| 3. Sektor | 3 493 | 37,6 % | 132 | 1,4 % | 3,8 | 6 651 | 50,5 % | 880 | 6,7 % | 13,2 |
 | Ärzte (mit Titel «Dr. med.») | 51 | 62,6 % | 11 | 13,1 % | 21,6 | 121 | 117,2 % | 58 | 56,2 % | 47,9 |
 | Spezereihandlungen | 119 | 71,1 % | – | – | – | 215 | 88,5 % | 35 | 14,4 % | 16,3 |
 

@@ -9,11 +9,11 @@ band,band_name,gruppe,zaehler,nenner,nenner_art,quote_prozent
 1883,1883–84,Frauen,1611,24331,geschätzt,6.6
 1883,1883–84,Witwen,425,2090,geschätzt,20.3
 1883,1883–84,Fräulein,166,,,
-1883,1883–84,Personen mit Erwerb,6776,19440,geschätzt,34.9
-1883,1883–84,Frauen mit Erwerb,969,5906,geschätzt,16.4
-1883,1883–84,1. Sektor,118,551,geschätzt,21.4
-1883,1883–84,2. Sektor,2954,9595,geschätzt,30.8
-1883,1883–84,3. Sektor,3493,9294,geschätzt,37.6
+1883,1883–84,Personen mit Erwerb,6776,18924,geschätzt,35.8
+1883,1883–84,Frauen mit Erwerb,969,5750,geschätzt,16.9
+1883,1883–84,1. Sektor,118,363,geschätzt,32.5
+1883,1883–84,2. Sektor,2954,9275,geschätzt,31.8
+1883,1883–84,3. Sektor,3493,9286,geschätzt,37.6
 1883,1883–84,Berufsregister: Einheiten,3880,6151,geschätzt,63.1
 1883,1883–84,Berufsregister: im Einwohnerverzeichnis wiedergefunden,3535,4222,direkt,83.7
 1883,1883–84,Berufsregister: mit gleicher Adresse wiedergefunden,1667,4222,direkt,39.5
@@ -38,11 +38,11 @@ band,band_name,gruppe,zaehler,nenner,nenner_art,quote_prozent
 1900,1900,Frauen,3189,35316,geschätzt,9.0
 1900,1900,Witwen,1217,2721,geschätzt,44.7
 1900,1900,Fräulein,399,,,
-1900,1900,Personen mit Erwerb,12303,28036,geschätzt,43.9
-1900,1900,Frauen mit Erwerb,1909,8518,geschätzt,22.4
-1900,1900,1. Sektor,218,794,geschätzt,27.5
-1900,1900,2. Sektor,5132,13838,geschätzt,37.1
-1900,1900,3. Sektor,6651,13404,geschätzt,49.6
+1900,1900,Personen mit Erwerb,12303,26816,geschätzt,45.9
+1900,1900,Frauen mit Erwerb,1909,8147,geschätzt,23.4
+1900,1900,1. Sektor,218,514,geschätzt,42.4
+1900,1900,2. Sektor,5132,13143,geschätzt,39.0
+1900,1900,3. Sektor,6651,13158,geschätzt,50.5
 1900,1900,Berufsregister: Einheiten,6240,8068,geschätzt,77.3
 1900,1900,Berufsregister: im Einwohnerverzeichnis wiedergefunden,6219,7086,direkt,87.8
 1900,1900,Berufsregister: mit gleicher Adresse wiedergefunden,2625,7086,direkt,37.0
