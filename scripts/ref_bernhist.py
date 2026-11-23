@@ -37,6 +37,7 @@ from collections import defaultdict
 from pathlib import Path
 
 from common import ROOT, open_csv, write_csv
+from infrastruktur import unit_2000
 
 OUT = ROOT / "data" / "ref" / "bernhist"
 HAND = ROOT / "config" / "bernhist_orte.csv"
@@ -281,15 +282,6 @@ def einheiten(orte: list[dict], w: dict) -> list[dict]:
 
 
 # ── Abgleich mit der BFS-Tabelle ─────────────────────────────────────────────────────────────────────
-def unit_2000(r: dict, units: set[str]) -> str:
-    """Gemeinde der BFS-Tabelle (Gebietsstand 2000), zu der eine Gemeinde von 1914 gehört.
-
-    Anders als infrastruktur.unit_2000 zählt hier nur, ob die eigene Nummer in der Tabelle steht: «valid_to
-    31.12.1978» ist im Kanton Bern keine Fusion, sondern die Neunummerierung der Bezirke beim Abgang des Juras.
-    """
-    return r["bfs"] if r["bfs"] in units else r["bfs_today"] if r["bfs_today"] in units else ""
-
-
 def vergleich_bfs(einh: list[dict], gemeinden: list[dict], bfs: list[dict], schwelle: float = 2.0) -> list[dict]:
     """Bevölkerung 1900 und 1910: BERNHIST gegen die BFS-Tabelle (Gebietsstand 2000).
 

@@ -172,17 +172,19 @@ die Zeile «Einwohner» der Tabelle «Bevölkerungsstruktur». Das ergibt Zahlen
 Export wie hls_mcp, 3'867 Ortsartikel) fehlen aber die Gemeindeartikel fast aller Städte: Von 27
 geprüften Städten ist nur St. Gallen dabei. Für sie und für die übrigen Zähljahre dient die BFS-Tabelle
 px-x-4004000000_101 (Eidgenössische Volkszählungen, Gebietsstand 5.12.2000; Lizenz OPEN-BY-ASK),
-Auszug in `data/ref/population_1850_2000.csv`. Beide nennen dieselben Zählungen: 1'694 von 1'714
-vergleichbaren Werten sind gleich. HLS-Werte gelten für 1'499 Gemeinden, BFS allein für 1'176.
+Auszug in `data/ref/population_1850_2000.csv`. Beide nennen dieselben Zählungen: 1'762 von 1'791
+vergleichbaren Werten sind gleich. HLS-Werte gelten für 1'565 Gemeinden, BFS allein für 1'226.
 Zwischen den Zähljahren wird geometrisch interpoliert. Eine Gemeinde von 1914 zählt zu ihrer Gemeinde
-von 2000; was bis 2000 zusammenging, wird zusammengezählt.
+von 2000; was bis 2000 zusammenging, wird zusammengezählt. Ob eine Gemeinde 2000 noch bestand, sagt die BFS-Tabelle,
+nicht das Feld `valid_to`: Ein Datum vor 2000 steht dort auch bei Umbenennungen und neuen Bezirken (Kanton Bern
+31.12.1978). Bis 23.11.2026 las `unit_2000()` das als Fusion; 116 Gemeinden zählten darum zur heutigen Gemeinde oder
+fielen weg (Ilanz, Maienfeld). Die Summen für die Schweiz ändern sich dadurch nicht, die Mediane der Klassen um
+höchstens 0,3 Punkte.
 
 *Kanton Bern.* Für die Berner Gemeinden gibt es mit BERNHIST eine zweite Referenz, die auch die Erwerbstätigen
 nach Sektor 1910 nennt. Dichte gegen Grösse und Erwerbsstruktur und die Stadt Bern nach Gruppen (Sektoren, Ärzte,
 Frauen, neben dem Adressbuch) stehen in [durchdringung_bern.md](durchdringung_bern.md)
-(`scripts/ref_bernhist.py`, `scripts/durchdringung_bern.py`). Der Abgleich dort zeigt nebenbei: `unit_2000()`
-liest «valid_to 31.12.1978» als Fusion; im Kanton Bern ist das die Neunummerierung der Bezirke von 1979, und
-die betroffenen Gemeinden zählen hier zu ihrer heutigen Gemeinde statt zu der von 2000.
+(`scripts/ref_bernhist.py`, `scripts/durchdringung_bern.py`).
 
 *Haushalte.* Das HLS nennt keine Haushalte. Haushalte = Einwohner / Personen je Haushaltung im Kanton
 (`data/ref/household_size.csv`; Statistisches Bureau, «Die Verteilung der Bevölkerung auf die
@@ -228,11 +230,11 @@ nicht den Median.
 
 | Einwohner 1910 | Gemeinden | mit Telefon | Einträge je 100 Einwohner (Median) | Personen je 100 Haushalte (Median) |
 |---|---|---|---|---|
-| unter 500 | 1'242 | 75 % | 0,55 | 0,0 % |
-| 500–999 | 623 | 92 % | 0,55 | 1,4 % |
-| 1'000–1'999 | 465 | 95 % | 0,80 | 2,4 % |
-| 2'000–4'999 | 266 | 97 % | 1,24 | 3,7 % |
-| 5'000–19'999 | 67 | 96 % | 1,92 | 6,2 % |
+| unter 500 | 1'326 | 75 % | 0,54 | 0,0 % |
+| 500–999 | 642 | 91 % | 0,54 | 1,4 % |
+| 1'000–1'999 | 473 | 95 % | 0,80 | 2,4 % |
+| 2'000–4'999 | 269 | 96 % | 1,24 | 3,7 % |
+| 5'000–19'999 | 69 | 96 % | 1,91 | 6,0 % |
 | ab 20'000 | 12 | 100 % | 5,23 | 14,3 % |
 
 Die Werte der kleinen und mittleren Gemeinden sind Untergrenzen: Wo weder ein Regionalbuch von
@@ -241,7 +243,7 @@ nach Kantonen gibt es aus demselben Grund nicht. Die Rangliste der Seite nennt n
 Einwohnern (`TOWN`): Genève 25,6 %, Frauenfeld 18,3 %, Bern 17,1 %, St. Gallen 16,4 %, Aarau 16,1 %,
 Luzern 16,0 %, Zürich 15,5 %.
 
-Die Karte «Einträge je 1000 Einwohner» zeigt ebenfalls das beste Jahr 1909–1914; 26 Gemeinden mit
+Die Karte «Einträge je 1000 Einwohner» zeigt ebenfalls das beste Jahr 1909–1914; 27 Gemeinden mit
 mehr als 250 je 1000 bleiben weg, dort ist die Ortszuordnung falsch (z. B. Kammersrohr, Bettens).
 
 **Bahn und Telefon.** Bahnhöfe aus Wikidata (`P31 Q55488`, `P17 Q39`, Eröffnung `P1619`; CC0),
@@ -251,14 +253,14 @@ bis 2000 unverändert), Anteil mit Telefon bis 1911:
 
 | Einwohner 1910 | mit Bahnhof (bis 1910) | ohne |
 |---|---|---|
-| unter 500 | 75 % (91) | 61 % (1'133) |
-| 500–999 | 91 % (90) | 89 % (497) |
-| 1'000–1'999 | 95 % (93) | 92 % (321) |
-| 2'000–4'999 | 100 % (92) | 95 % (150) |
-| ab 5'000 | 100 % (42) | 100 % (15) |
+| unter 500 | 75 % (93) | 63 % (1'220) |
+| 500–999 | 91 % (93) | 89 % (515) |
+| 1'000–1'999 | 95 % (97) | 92 % (333) |
+| 2'000–4'999 | 100 % (96) | 94 % (154) |
+| ab 5'000 | 100 % (43) | 100 % (17) |
 
-Der Bahnhof macht 2–14 Punkte aus, die Grösse den Rest des Unterschieds (91 % gegen 75 % insgesamt).
-Eine öffentliche Sprechstelle bis 1914 haben mit Bahnhof 55–95 % je Grössenklasse, ohne 49–73 %.
+Der Bahnhof macht 2–12 Punkte aus, die Grösse den Rest des Unterschieds (91 % gegen 75 % insgesamt).
+Eine öffentliche Sprechstelle bis 1914 haben mit Bahnhof 56–95 % je Grössenklasse, ohne 49–76 %.
 
 Abfrage der Bahnhöfe (CSV von https://query.wikidata.org/sparql):
 

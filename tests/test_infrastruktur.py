@@ -95,6 +95,11 @@ class Spuren(unittest.TestCase):
         # Oerlikon, 1934 eingemeindet: zählt zu Zürich
         self.assertEqual(i.unit_2000({"bfs": "245", "valid_to": "31.12.1933", "bfs_today": "261"}, units), "261")
         self.assertEqual(i.unit_2000({"bfs": "9999", "valid_to": "", "bfs_today": "9998"}, units), "")
+        # Büren zum Hof: «valid_to 31.12.1978» ist die Neunummerierung der Berner Bezirke, keine Fusion
+        units = {"534", "538"}
+        self.assertEqual(i.unit_2000({"bfs": "534", "valid_to": "31.12.1978", "bfs_today": "538"}, units), "534")
+        # Ilanz: 2000 eigene Gemeinde, die heutige Nummer (Ilanz/Glion) steht nicht in der Tabelle von 2000
+        self.assertEqual(i.unit_2000({"bfs": "3574", "valid_to": "31.12.1977", "bfs_today": "3619"}, {"3574"}), "3574")
 
 
 if __name__ == "__main__":

@@ -359,10 +359,16 @@ def ref_municipalities() -> dict[str, dict]:
 
 
 def unit_2000(r: dict, units: set[str]) -> str:
-    """Gemeinde von 2000, zu der eine Gemeinde von 1914 gehört: die eigene Nummer, wenn es sie 2000 noch gab, sonst die heutige."""
-    if r["bfs"] in units and not (r["valid_to"] and int(r["valid_to"][-4:]) < 2000):
-        return r["bfs"]
-    return r["bfs_today"] if r["bfs_today"] in units else ""
+    """Gemeinde von 2000, zu der eine Gemeinde von 1914 gehört: die eigene Nummer, wenn die BFS-Tabelle (Gebietsstand
+    2000) sie führt, sonst die heutige.
+
+    Ob es die Gemeinde 2000 noch gab, sagt nur die Tabelle. «valid_to» vor 2000 heisst oft keine Fusion, sondern
+    Umbenennung oder neuer Bezirk (Kanton Bern 31.12.1978, Baselland 1993, Solothurn 1990: «Büren zum Hof» blieb bis
+    2013 eigene Gemeinde). Wer daraus auf die heutige Gemeinde schliesst, zählt die Einträge von Büren zum Hof gegen
+    die Einwohner von Fraubrunnen im Gebiet von 2000, und Ilanz oder Maienfeld fallen ganz weg, weil ihre heutige
+    Nummer in der Tabelle fehlt.
+    """
+    return r["bfs"] if r["bfs"] in units else r["bfs_today"] if r["bfs_today"] in units else ""
 
 
 def spuren(P: list[dict], tel: dict) -> dict:
