@@ -183,6 +183,6 @@ Was fehlt, sind vor allem:
 
 ## Ergebnis
 
-`links/ptt_ab.csv`: ein Paar je Zeile. Felder siehe [Datenvertrag](datenvertrag.md).
+`links/ptt_ab.csv.gz`: ein Paar je Zeile. Felder siehe [Datenvertrag](datenvertrag.md).
 Kennzahlen je Stadt in `data/norm/link_stats.json`, Messung in
 `data/norm/link_quality.json`.

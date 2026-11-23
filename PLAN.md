@@ -54,7 +54,7 @@ Commits, Adapter für Aarau, Basel und PTT-Charge A nach `data/norm/`
 
 **M2 — Zentraler Verknüpfer Telefonbuch ↔ Adressbuch.** ✔ 10.11.2026.
 Regeln, Stufen und Messung: [docs/verknuepfung.md](docs/verknuepfung.md); Ergebnis
-`links/ptt_ab.csv`.
+`links/ptt_ab.csv.gz`.
 
 - Geblockt wird nach Stadt, Band und Familienname (Firmen: Leitname, nie Allianzname).
   Belege: Vorname bzw. Abkürzung bzw. Initiale, Allianzname, Strasse, Hausnummer (Aarau:

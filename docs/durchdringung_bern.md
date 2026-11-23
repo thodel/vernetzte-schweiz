@@ -228,7 +228,7 @@ wie `adressbuecher-bern` sie ausweist; vergleichbar ohne diesen Unterschied ist 
 Adressbuch», die keinen Nenner aus BERNHIST braucht.
 
 **Verknüpfte Personen.** Die dritte Tabelle zählt Personen im Einwohnerverzeichnis 1883–84 und 1900, die über
-`links/ptt_ab.csv` (Stufen `sicher` und `wahrscheinlich`) in einem Telefonbuch der Jahre 1884–1886 oder 1900–1901
+`links/ptt_ab.csv.gz` (Stufen `sicher` und `wahrscheinlich`) in einem Telefonbuch der Jahre 1884–1886 oder 1900–1901
 stehen. Gruppen nach der Berufsangabe des Adressbuchs, mit derselben Regel.
 
 **Stichproben.** Je 60 Einträge (20 je Jahr), zufällig mit festem Startwert gezogen, beurteilt nach Art des

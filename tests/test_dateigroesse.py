@@ -22,9 +22,10 @@ class Dateigroesse(unittest.TestCase):
         ]
         self.assertEqual(zu_gross, [], "über 90 MB, als .gz ablegen")
 
-    def test_adressbuch_eintraege_gepackt(self):
-        self.assertTrue((ROOT / "data" / "norm" / "ab_entries.csv.gz").exists())
-        self.assertFalse((ROOT / "data" / "norm" / "ab_entries.csv").exists())
+    def test_grosse_tabellen_gepackt(self):
+        for p in (ROOT / "data" / "norm" / "ab_entries.csv", ROOT / "links" / "ptt_ab.csv"):
+            self.assertTrue(p.with_suffix(".csv.gz").exists(), p)
+            self.assertFalse(p.exists(), p)
 
 
 if __name__ == "__main__":

@@ -6,7 +6,7 @@
  "links/authority.csv": "6b74493817748701",
  "links/entities.csv.gz": "57293f2b862ea6b1",
  "scripts/common.py": "7733e633eff6681b",
- "scripts/link_ptt_ab.py": "e0492183b27bd046",
+ "scripts/link_ptt_ab.py": "189c98b3517b3f50",
  "scripts/migration.py": "9b6d15f13629584c",
  "scripts/occupations.py": "5ad1d80b33eb9101",
  "scripts/occupations_fine.py": "21e179e3972ec5ee",

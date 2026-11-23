@@ -8,7 +8,7 @@ die Einträge des Bandes verglichen. Einträge desselben Bandes, die dieselbe Pe
 (Einwohner-, Berufs-, Gebäudeverzeichnis), bilden eine Gruppe; verknüpft wird nur, wenn
 genau eine Gruppe am besten passt. Merkmale und Stufen: docs/verknuepfung.md.
 
-Ausgabe: links/ptt_ab.csv (ein Paar je Zeile) und data/norm/link_stats.json.
+Ausgabe: links/ptt_ab.csv.gz (ein Paar je Zeile) und data/norm/link_stats.json.
 """
 
 from __future__ import annotations
@@ -632,7 +632,7 @@ def main() -> None:
         }
         print(f"{c['id']}: {len(ptt)} Telefonbuch-Einträge, {len(linked)} verknüpft, {len(rows)} Paare", dict(stats))
     links.sort(key=lambda r: (r["city"], r["ptt_id"], r["ab_volume"], r["ab_id"]))
-    write_csv(LINKS / "ptt_ab.csv", LINK_FIELDS, links)
+    write_csv(LINKS / "ptt_ab.csv.gz", LINK_FIELDS, links)
     (NORM / "link_stats.json").write_text(json.dumps(report, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
 
 

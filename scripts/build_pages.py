@@ -170,7 +170,7 @@ def main() -> None:
 
     # mögliche weitere Adressbuch-Einträge (M2-Paare ausserhalb der Einheit)
     maybe: dict[str, list] = defaultdict(list)
-    for l in open_csv(ROOT / "links" / "ptt_ab.csv"):
+    for l in open_csv(ROOT / "links" / "ptt_ab.csv.gz"):
         eid = member.get(l["ptt_id"])
         if eid and member.get(l["ab_id"]) != eid and l["ab_id"] in ab_text:
             maybe[eid].append({"id": l["ab_id"], "y": int(l["ab_volume"]), "tier": l["tier"], "t": ab_text[l["ab_id"]]["text"]})

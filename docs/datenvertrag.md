@@ -109,7 +109,7 @@ Zerlegung: `parse_ptt.py`).
 Handkorrekturen der Orte: `data/review/places_manual.csv` (`place_raw` → `hist_code` oder
 Ortschaft `name` + `canton`).
 
-## links/ptt_ab.csv — Telefonbuch ↔ Adressbuch (M2)
+## links/ptt_ab.csv.gz — Telefonbuch ↔ Adressbuch (M2)
 
 Ein Paar je Zeile: dieser Telefonbuch-Eintrag ist in diesem Adressbuch-Band diese Person
 oder Firma. Steht die Person im Band mehrfach (Einwohner-, Berufs-, Gebäudeverzeichnis),

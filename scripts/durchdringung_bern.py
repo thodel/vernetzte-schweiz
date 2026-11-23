@@ -4,7 +4,7 @@
     python scripts/durchdringung_bern.py --stichprobe 20  # zieht die Stichprobe 3 neu (20 Einträge je Jahr, ohne Urteile)
     python scripts/durchdringung_bern.py site             # site/data/durchdringung_bern.json.gz für #/infrastruktur
 
-Liest nur: data/norm/ptt_entries.csv.gz, data/norm/ab_entries.csv.gz, links/ptt_ab.csv und data/ref/bernhist/
+Liest nur: data/norm/ptt_entries.csv.gz, data/norm/ab_entries.csv.gz, links/ptt_ab.csv.gz und data/ref/bernhist/
 (scripts/ref_bernhist.py). Baut keine abgeleiteten Daten neu.
 
 Zwei Teile:
@@ -13,7 +13,7 @@ Zwei Teile:
    je BERNHIST-Einheit, gegen Grösse und Erwerbsstruktur 1910 → data/norm/durchdringung_bern_gemeinden.csv
 2. Stadt Bern: Wer hat 1885, 1900 und 1910 ein Telefon? Art des Eintrags, Frauen und Witwen, Sektor und einzelne
    Gruppen, gegen Nenner aus BERNHIST; daneben die Adressbuchquoten aus adressbuecher-bern (1883–84, 1900) und
-   die Personen des Adressbuchs, die über links/ptt_ab.csv ein Telefon haben
+   die Personen des Adressbuchs, die über links/ptt_ab.csv.gz ein Telefon haben
    → data/norm/durchdringung_bern_stadt.csv
 
 Die Zuordnung der Berufsangaben zu Sektoren ist die von adressbuecher-bern (scripts/85_abdeckung.py, Commit
@@ -626,7 +626,7 @@ def stadt_zeilen(w: dict, z: dict[int, dict]) -> list[dict]:
 
 # ── Verknüpfte Einheiten: Wer aus dem Adressbuch hat ein Telefon? ────────────────────────────────────
 def adressbuch_mit_telefon(A: list[dict], links: list[dict]) -> list[dict]:
-    """Personen im Einwohnerverzeichnis 1883–84 und 1900, die über links/ptt_ab.csv (sicher, wahrscheinlich) in
+    """Personen im Einwohnerverzeichnis 1883–84 und 1900, die über links/ptt_ab.csv.gz (sicher, wahrscheinlich) in
     einem gleichzeitigen Telefonbuch stehen, nach Gruppe. Untergrenze: nicht jede Person wird wiedergefunden."""
     hat: dict = defaultdict(set)
     for l in links:
@@ -879,7 +879,7 @@ def main() -> None:
     st = stadt_zeilen(w, z)
     write_csv(OUT_STADT, list(st[0]), st)
     ab = neben_adressbuch(st)
-    adr = adressbuch_mit_telefon(open_csv(NORM / "ab_entries.csv.gz"), open_csv(ROOT / "links" / "ptt_ab.csv"))
+    adr = adressbuch_mit_telefon(open_csv(NORM / "ab_entries.csv.gz"), open_csv(ROOT / "links" / "ptt_ab.csv.gz"))
     tq = {"1_damals": trefferquote(STICHPROBE, damals=True), "2_damals": trefferquote(STICHPROBE_2, damals=True),
           "3_damals": trefferquote(STICHPROBE_3, damals=True), "1": trefferquote(STICHPROBE), "2": trefferquote(STICHPROBE_2),
           "3": trefferquote(STICHPROBE_3)}

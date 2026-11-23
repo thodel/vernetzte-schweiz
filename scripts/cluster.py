@@ -12,7 +12,7 @@ Kanten (Belege, dass zwei Einträge dieselbe Einheit meinen):
   Adresse, Beruf (Regeln in `edge`).
 - **Adressbuch ↔ Adressbuch** desselben Bandes (Einwohner-, Berufs-, Gebäudeverzeichnis)
   und benachbarter Bände: dieselben Regeln ohne Telefonnummer.
-- **Telefonbuch ↔ Adressbuch**: die Paare aus M2 (`links/ptt_ab.csv`) der Stufen `sicher`
+- **Telefonbuch ↔ Adressbuch**: die Paare aus M2 (`links/ptt_ab.csv.gz`) der Stufen `sicher`
   und `wahrscheinlich`. `möglich` bleibt ein Paar und bündelt nicht.
 
 Die Kanten werden nach Stärke verarbeitet. Zwei Bündel werden nur vereinigt, wenn nichts
@@ -402,7 +402,7 @@ def main() -> None:
         if j is not None:
             edges.append((9, j, i, ["derselbe"]))
     m2 = 0
-    for l in csv.DictReader(open(LINKS / "ptt_ab.csv", encoding="utf-8")):
+    for l in open_csv(LINKS / "ptt_ab.csv.gz"):
         if l["tier"] in ("sicher", "wahrscheinlich") and "firma-person" not in l["evidence"]:
             i, j = pos.get(l["ptt_id"]), pos.get(l["ab_id"])
             if i is not None and j is not None and recs[i]["firm"] == recs[j]["firm"]:

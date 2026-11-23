@@ -64,7 +64,7 @@ def recall(links: list[dict]) -> list[dict]:
 
 
 def main() -> None:
-    links = list(csv.DictReader(open(LINKS / "ptt_ab.csv", encoding="utf-8")))
+    links = list(open_csv(LINKS / "ptt_ab.csv.gz"))
     q = {"precision": precision(), "recall_aarau_phone_sign": recall(links)}
     (NORM / "link_quality.json").write_text(json.dumps(q, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     for sample, strata in q["precision"].items():
