@@ -1,0 +1,504 @@
+hist_code,name,district,bernhist_id,einheit_id,einheit_name,status
+11737,Aarberg,Amtsbezirk Aarberg,419,419,Aarberg,zugeordnet
+11739,Aarwangen,Amtsbezirk Aarwangen,431,431,Aarwangen,zugeordnet
+10533,Adelboden,Amtsbezirk Frutigen,568,568,Adelboden,zugeordnet
+11746,Aefligen,Amtsbezirk Burgdorf,487,487,Aefligen,zugeordnet
+10604,Aegerten,Amtsbezirk Nidau,682,682,Aegerten,zugeordnet
+10532,Aeschi bei Spiez,Amtsbezirk Frutigen,569,569,Aeschi bei Spiez,zugeordnet
+10686,Aeschlen,Amtsbezirk Konolfingen,598,598,Aeschlen,zugeordnet
+11170,Affoltern im Emmental,Amtsbezirk Trachselwald,796,796,Affoltern im Emmental,zugeordnet
+11103,Albligen,Amtsbezirk Schwarzenburg,729,729,Albligen,zugeordnet
+11731,Alchenstorf,Amtsbezirk Burgdorf,488,488,Alchenstorf,zugeordnet
+10972,Alle,District de Porrentruy,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+11087,Amsoldingen,Amtsbezirk Thun,769,769,Amsoldingen,zugeordnet
+11752,Arch,Amtsbezirk Büren,473,473,Arch,zugeordnet
+10685,Arni,Amtsbezirk Konolfingen,599,599,Arni (BE),zugeordnet
+10973,Asuel,District de Porrentruy,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+11124,Attiswil,Amtsbezirk Wangen,806,806,Attiswil,zugeordnet
+16528,Ausserbirrmoos,Amtsbezirk Konolfingen,947,611,Linden,Teil einer Einheit
+11654,Auswil,Amtsbezirk Aarwangen,432,432,Auswil,zugeordnet
+10500,Ballmoos,Amtsbezirk Fraubrunnen,541,541,Ballmoos,zugeordnet
+10499,Bangerten,Amtsbezirk Fraubrunnen,542,542,Bangerten,zugeordnet
+11716,Bannwil,Amtsbezirk Aarwangen,433,433,Bannwil,zugeordnet
+11687,Bargen (BE),Amtsbezirk Aarberg,420,420,Bargen (BE),zugeordnet
+10982,Bassecourt,District de Delémont,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+10511,Beatenberg,Amtsbezirk Interlaken,575,575,Beatenberg,zugeordnet
+10603,Bellmund,Amtsbezirk Nidau,683,683,Bellmund,zugeordnet
+11107,Belp,Amtsbezirk Seftigen,733,733,Belp,zugeordnet
+11108,Belpberg,Amtsbezirk Seftigen,734,734,Belpberg,zugeordnet
+10696,Belprahon,District de Moutier,650,650,Belprahon,zugeordnet
+11125,Berken,Amtsbezirk Wangen,807,807,Berken,zugeordnet
+16401,Bern,Amtsbezirk Bern,457,457,Bern (ab 1920 mit Bümpliz),zugeordnet
+11126,Bettenhausen,Amtsbezirk Wangen,808,808,Bettenhausen,zugeordnet
+10974,Beurnevésin,District de Porrentruy,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+16390,Biel (BE),Amtsbezirk Biel,468,468,"Biel / Bienne (BE) (ab 1920 mit Bözingen, Mett, Madretsch)",zugeordnet
+10684,Biglen,Amtsbezirk Konolfingen,600,600,Biglen,zugeordnet
+10712,Blauen,Amtsbezirk Laufen,626,626,Blauen,zugeordnet
+11810,Bleienbach,Amtsbezirk Aarwangen,434,434,Bleienbach,zugeordnet
+10683,Bleiken bei Oberdiessbach,Amtsbezirk Konolfingen,601,601,Bleiken bei Oberdiessbach,zugeordnet
+11119,Blumenstein,Amtsbezirk Thun,770,770,Blumenstein,zugeordnet
+11296,Bolligen,Amtsbezirk Bern,458,458,"Bolligen (mit Ittigen, Ostermundigen)",zugeordnet
+11127,Bollodingen,Amtsbezirk Wangen,809,809,Bollodingen,zugeordnet
+11096,Boltigen,Amtsbezirk Obersimmental,722,722,Boltigen,zugeordnet
+10975,Boncourt,District de Porrentruy,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+11007,Bonfol,District de Porrentruy,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+10984,Bourrignon,District de Delémont,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+10682,Bowil,Amtsbezirk Konolfingen,602,602,Bowil,zugeordnet
+10983,Boécourt,District de Delémont,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+11825,Bremgarten bei Bern,Amtsbezirk Bern,459,459,Bremgarten bei Bern,zugeordnet
+10681,Brenzikofen,Amtsbezirk Konolfingen,603,603,Brenzikofen,zugeordnet
+10951,Bressaucourt,District de Porrentruy,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+10540,Brienz (BE),Amtsbezirk Interlaken,577,577,Brienz (BE),zugeordnet
+10523,Brienzwiler,Amtsbezirk Interlaken,578,578,Brienzwiler,zugeordnet
+10713,Brislach,Amtsbezirk Laufen,627,627,Brislach,zugeordnet
+10646,Brügg,Amtsbezirk Nidau,684,684,Brügg,zugeordnet
+16388,Brüttelen,Amtsbezirk Erlach,529,529,Brüttelen,zugeordnet
+11063,Buchholterberg,Amtsbezirk Thun,771,771,Buchholterberg,zugeordnet
+10992,Buix,District de Porrentruy,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+11035,Bure,District de Porrentruy,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+10723,Burg im Leimental,Amtsbezirk Laufen,628,628,Burg im Leimental,zugeordnet
+11504,Burgdorf,Amtsbezirk Burgdorf,490,490,Burgdorf,zugeordnet
+11109,Burgistein,Amtsbezirk Seftigen,735,735,Burgistein,zugeordnet
+11516,Busswil bei Büren,Amtsbezirk Büren,476,476,Busswil bei Büren,zugeordnet
+11493,Busswil bei Melchnau,Amtsbezirk Aarwangen,435,435,Busswil bei Melchnau,zugeordnet
+11689,Bäriswil,Amtsbezirk Burgdorf,489,489,Bäriswil,zugeordnet
+10498,Bätterkinden,Amtsbezirk Fraubrunnen,543,543,Bätterkinden,zugeordnet
+10695,Bévilard,District de Moutier,651,651,Bévilard,zugeordnet
+10525,Bönigen,Amtsbezirk Interlaken,576,576,Bönigen,zugeordnet
+16391,Bözingen,Amtsbezirk Biel,470,470,Bözingen,zugeordnet
+11458,Büetigen,Amtsbezirk Büren,474,474,Büetigen,zugeordnet
+10661,Bühl,Amtsbezirk Nidau,685,685,Bühl,zugeordnet
+16402,Bümpliz,Amtsbezirk Bern,456,456,Bümpliz (bis 1919),zugeordnet
+11482,Büren an der Aare,Amtsbezirk Büren,475,475,Büren an der Aare,zugeordnet
+10497,Büren zum Hof,Amtsbezirk Fraubrunnen,544,544,Büren zum Hof,zugeordnet
+10694,Champoz,District de Moutier,652,652,Champoz,zugeordnet
+11036,Charmoille,District de Porrentruy,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+11037,Chevenez,District de Porrentruy,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+10648,Châtelat,District de Moutier,653,653,Châtelat,zugeordnet
+10985,Châtillon (BE),District de Moutier,,,,nicht in BERNHIST
+10714,Clavaleyres,Amtsbezirk Laupen,639,639,Clavaleyres,zugeordnet
+11038,Coeuve,District de Porrentruy,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+10986,Corban,District de Moutier,,,,nicht in BERNHIST
+10615,Corcelles (BE),District de Moutier,654,654,Corcelles (BE),zugeordnet
+11621,Corgémont,District de Courtelary,511,511,Corgémont,zugeordnet
+11618,Cormoret,District de Courtelary,512,512,Cormoret,zugeordnet
+11039,Cornol,District de Porrentruy,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+11536,Cortébert,District de Courtelary,513,513,Cortébert,zugeordnet
+10987,Courchapoix,District de Moutier,,,,nicht in BERNHIST
+11040,Courchavon,District de Porrentruy,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+10988,Courfaivre,District de Delémont,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+11041,Courgenay,District de Porrentruy,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+10989,Courrendlin,District de Moutier,,,,nicht in BERNHIST
+11005,Courroux,District de Delémont,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+10676,Court,District de Moutier,655,655,Court,zugeordnet
+11042,Courtedoux,District de Porrentruy,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+11546,Courtelary,District de Courtelary,514,514,Courtelary,zugeordnet
+11043,Courtemaîche,District de Porrentruy,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+10991,Courtételle,District de Delémont,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+10629,Crémines,District de Moutier,656,656,Crémines,zugeordnet
+11044,Damphreux,District de Porrentruy,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+11045,Damvant,District de Porrentruy,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+10481,Deisswil bei Münchenbuchsee,Amtsbezirk Fraubrunnen,545,545,Deisswil bei Münchenbuchsee,zugeordnet
+10978,Delémont,District de Delémont,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+10993,Develier,District de Delémont,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+16580,Dicki,Amtsbezirk Laupen,644,644,Kriechenwil / Dicki,zugeordnet
+10495,Diemerswil,Amtsbezirk Fraubrunnen,546,546,Diemerswil,zugeordnet
+10639,Diemtigen,Amtsbezirk Niedersimmental,708,708,Diemtigen,zugeordnet
+11561,Diessbach bei Büren,Amtsbezirk Büren,477,477,Diessbach bei Büren,zugeordnet
+10609,Diesse,District de la Neuveville,677,677,Diesse,zugeordnet
+10715,Dittingen,Amtsbezirk Laufen,629,629,Dittingen,zugeordnet
+12196,Dotzigen,Amtsbezirk Büren,478,478,Dotzigen,zugeordnet
+10708,Duggingen,Amtsbezirk Laufen,630,630,Duggingen,zugeordnet
+10522,Därligen,Amtsbezirk Interlaken,579,579,Därligen,zugeordnet
+10640,Därstetten,Amtsbezirk Niedersimmental,707,707,Därstetten,zugeordnet
+11171,Dürrenroth,Amtsbezirk Trachselwald,797,797,Dürrenroth,zugeordnet
+10994,Ederswiler,District de Delémont,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+11078,Eggiwil,Amtsbezirk Signau,760,760,Eggiwil,zugeordnet
+11110,Englisberg,Amtsbezirk Seftigen,736,736,Englisberg,zugeordnet
+10958,Epauvillers,District des Franches-Montagnes,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+10959,Epiquerez,District des Franches-Montagnes,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+10617,Epsach,Amtsbezirk Nidau,686,686,Epsach,zugeordnet
+11172,Eriswil,Amtsbezirk Trachselwald,798,798,Eriswil,zugeordnet
+11104,Eriz,Amtsbezirk Thun,772,772,Eriz,zugeordnet
+10587,Erlach,Amtsbezirk Erlach,530,530,Erlach,zugeordnet
+10638,Erlenbach im Simmental,Amtsbezirk Niedersimmental,709,709,Erlenbach im Simmental,zugeordnet
+12239,Ersigen,Amtsbezirk Burgdorf,491,491,Ersigen,zugeordnet
+10628,Eschert,District de Moutier,657,657,Eschert,zugeordnet
+10510,Etzelkofen,Amtsbezirk Fraubrunnen,547,547,Etzelkofen,zugeordnet
+12271,Evilard,Amtsbezirk Biel,469,469,Evilard,zugeordnet
+11147,Fahrni,Amtsbezirk Thun,773,773,Fahrni,zugeordnet
+11061,Fahy,District de Porrentruy,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+11128,Farnern,Amtsbezirk Wangen,810,810,Farnern,zugeordnet
+10706,Ferenbalm,Amtsbezirk Laupen,640,640,Ferenbalm,zugeordnet
+10554,Finsterhennen,Amtsbezirk Erlach,531,531,Finsterhennen,zugeordnet
+11047,Fontenais,District de Porrentruy,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+11148,Forst,Amtsbezirk Thun,774,774,Forst,zugeordnet
+10493,Fraubrunnen,Amtsbezirk Fraubrunnen,548,548,Fraubrunnen,zugeordnet
+10705,Frauenkappelen,Amtsbezirk Laupen,641,641,Frauenkappelen,zugeordnet
+11034,Fregiécourt,District de Porrentruy,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+10680,Freimettigen,Amtsbezirk Konolfingen,604,604,Freimettigen,zugeordnet
+10531,Frutigen,Amtsbezirk Frutigen,570,570,Frutigen,zugeordnet
+10979,Gadmen,Amtsbezirk Oberhasli,716,716,Gadmen,zugeordnet
+10509,Gals,Amtsbezirk Erlach,532,532,Gals,zugeordnet
+10508,Gampelen,Amtsbezirk Erlach,533,533,Gampelen,zugeordnet
+11111,Gelterfingen,Amtsbezirk Seftigen,737,737,Gelterfingen,zugeordnet
+11112,Gerzensee,Amtsbezirk Seftigen,738,738,Gerzensee,zugeordnet
+10995,Glovelier,District de Delémont,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+10704,Golaten,Amtsbezirk Laupen,642,642,Golaten,zugeordnet
+11991,Gondiswil,Amtsbezirk Aarwangen,436,436,Gondiswil,zugeordnet
+10961,Goumois,District des Franches-Montagnes,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+11129,Graben,Amtsbezirk Wangen,811,811,Graben,zugeordnet
+10492,Grafenried,Amtsbezirk Fraubrunnen,549,549,Grafenried,zugeordnet
+11049,Grandfontaine,District de Porrentruy,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+10627,Grandval,District de Moutier,658,658,Grandval,zugeordnet
+10717,Grellingen,Amtsbezirk Laufen,631,631,Grellingen,zugeordnet
+10521,Grindelwald,Amtsbezirk Interlaken,580,580,Grindelwald,zugeordnet
+11948,Grossaffoltern,Amtsbezirk Aarberg,421,421,Grossaffoltern / Affoltern,zugeordnet
+10679,Grosshöchstetten,Amtsbezirk Konolfingen,605,605,Grosshöchstetten / Höchstetten,zugeordnet
+11100,Gsteig,Amtsbezirk Saanen,726,726,Gsteig,zugeordnet
+10520,Gsteigwiler,Amtsbezirk Interlaken,581,581,Gsteigwiler,zugeordnet
+11090,Guggisberg,Amtsbezirk Schwarzenburg,730,730,Guggisberg,zugeordnet
+10703,Gurbrü,Amtsbezirk Laupen,643,643,Gurbrü,zugeordnet
+11113,Gurzelen,Amtsbezirk Seftigen,739,739,Gurzelen,zugeordnet
+11942,Gutenburg,Amtsbezirk Aarwangen,437,437,Gutenburg,zugeordnet
+11091,Guttannen,Amtsbezirk Oberhasli,717,717,Guttannen,zugeordnet
+16451,Gysenstein,Amtsbezirk Konolfingen,952,609,Konolfingen,Teil einer Einheit
+16389,Gäserz,Amtsbezirk Erlach,923,529,Brüttelen,Teil einer Einheit
+10519,Gündlischwand,Amtsbezirk Interlaken,582,582,Gündlischwand,zugeordnet
+10518,Habkern,Amtsbezirk Interlaken,583,583,Habkern,zugeordnet
+10649,Hagneck,Amtsbezirk Nidau,687,687,Hagneck,zugeordnet
+11980,Hasle bei Burgdorf,Amtsbezirk Burgdorf,492,492,Hasle bei Burgdorf,zugeordnet
+11092,Hasliberg,Amtsbezirk Oberhasli,718,718,Hasliberg,zugeordnet
+11149,Heiligenschwendi,Amtsbezirk Thun,775,775,Heiligenschwendi,zugeordnet
+11150,Heimberg,Amtsbezirk Thun,776,776,Heimberg,zugeordnet
+11145,Heimenhausen,Amtsbezirk Wangen,812,812,Heimenhausen,zugeordnet
+12258,Heimiswil,Amtsbezirk Burgdorf,493,493,Heimiswil,zugeordnet
+12231,Hellsau,Amtsbezirk Burgdorf,494,494,Hellsau,zugeordnet
+10677,Herbligen,Amtsbezirk Konolfingen,607,607,Herbligen,zugeordnet
+11131,Hermiswil,Amtsbezirk Wangen,813,813,Hermiswil,zugeordnet
+10650,Hermrigen,Amtsbezirk Nidau,688,688,Hermrigen,zugeordnet
+11118,Herzogenbuchsee,Amtsbezirk Wangen,814,814,Herzogenbuchsee,zugeordnet
+11151,Hilterfingen,Amtsbezirk Thun,777,777,Hilterfingen,zugeordnet
+12155,Hindelbank,Amtsbezirk Burgdorf,495,495,Hindelbank,zugeordnet
+10517,Hofstetten bei Brienz,Amtsbezirk Interlaken,584,584,Hofstetten bei Brienz,zugeordnet
+11153,Homberg,Amtsbezirk Thun,779,779,Homberg,zugeordnet
+11154,Horrenbach-Buchen,Amtsbezirk Thun,780,780,Horrenbach-Buchen,zugeordnet
+11132,Huttwil,Amtsbezirk Trachselwald,799,799,Huttwil,zugeordnet
+10663,Häutligen,Amtsbezirk Konolfingen,606,606,Häutligen,zugeordnet
+12169,Höchstetten,Amtsbezirk Burgdorf,496,496,Höchstetten,zugeordnet
+11152,Höfen,Amtsbezirk Thun,778,778,Höfen,zugeordnet
+10490,Iffwil,Amtsbezirk Fraubrunnen,551,551,Iffwil,zugeordnet
+11133,Inkwil,Amtsbezirk Wangen,815,815,Inkwil,zugeordnet
+16529,Innerbirrmoos,Amtsbezirk Konolfingen,954,611,Linden,Teil einer Einheit
+11093,Innertkirchen,Amtsbezirk Oberhasli,719,719,Innertkirchen,zugeordnet
+10507,Ins,Amtsbezirk Erlach,534,534,Ins / Anet,zugeordnet
+10516,Interlaken,Amtsbezirk Interlaken,585,585,Interlaken / Aarmühle,zugeordnet
+10652,Ipsach,Amtsbezirk Nidau,690,690,Ipsach,zugeordnet
+10515,Iseltwald,Amtsbezirk Interlaken,586,586,Iseltwald,zugeordnet
+11226,Isenfluh,Amtsbezirk Interlaken,998,587,Lauterbrunnen,Teil einer Einheit
+16636,Jaberg,Amtsbezirk Seftigen,740,740,Jaberg,zugeordnet
+10491,Jegenstorf,Amtsbezirk Fraubrunnen,550,550,Jegenstorf,zugeordnet
+10651,Jens,Amtsbezirk Nidau,689,689,Jens,zugeordnet
+12647,Kallnach,Amtsbezirk Aarberg,422,422,Kallnach,zugeordnet
+10530,Kandergrund,Amtsbezirk Frutigen,571,571,Kandergrund (bis 1909 mit Kandersteg),zugeordnet
+10529,Kandersteg,Amtsbezirk Frutigen,572,,,ohne Bevölkerung in BERNHIST
+12639,Kappelen,Amtsbezirk Aarberg,423,423,Kappelen,zugeordnet
+11115,Kaufdorf,Amtsbezirk Seftigen,741,741,Kaufdorf,zugeordnet
+11116,Kehrsatz,Amtsbezirk Seftigen,742,742,Kehrsatz,zugeordnet
+12687,Kernenried,Amtsbezirk Burgdorf,497,497,Kernenried,zugeordnet
+11076,Kienersrüti,Amtsbezirk Seftigen,743,743,Kienersrüti,zugeordnet
+10692,Kiesen,Amtsbezirk Konolfingen,608,608,Kiesen,zugeordnet
+12695,Kirchberg (BE),Amtsbezirk Burgdorf,498,498,Kirchberg (BE),zugeordnet
+11074,Kirchdorf (BE),Amtsbezirk Seftigen,744,744,Kirchdorf (BE),zugeordnet
+11102,Kirchenthurnen,Amtsbezirk Seftigen,745,745,Kirchenthurnen / Thurnen,zugeordnet
+12697,Kirchlindach,Amtsbezirk Bern,460,460,Kirchlindach,zugeordnet
+12678,Kleindietwil,Amtsbezirk Aarwangen,438,438,Kleindietwil,zugeordnet
+12679,Koppigen,Amtsbezirk Burgdorf,499,499,Koppigen,zugeordnet
+10528,Krattigen,Amtsbezirk Frutigen,573,573,Krattigen,zugeordnet
+12682,Krauchthal,Amtsbezirk Burgdorf,500,500,Krauchthal,zugeordnet
+12670,Köniz,Amtsbezirk Bern,461,461,Köniz,zugeordnet
+10956,La Chaux-des-Breuleux,District des Franches-Montagnes,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+12596,La Ferrière,District de Courtelary,515,515,"Ferrière, La",zugeordnet
+12576,La Heutte,District de Courtelary,516,516,"Heutte, La",zugeordnet
+10977,Lajoux (BE),District de Moutier,,,,nicht in BERNHIST
+10608,Lamboing,District de la Neuveville,678,678,Lamboing,zugeordnet
+10674,Landiswil,Amtsbezirk Konolfingen,610,610,Landiswil,zugeordnet
+12627,Langenthal,Amtsbezirk Aarwangen,439,439,Langenthal,zugeordnet
+11079,Langnau im Emmental,Amtsbezirk Signau,761,761,Langnau im Emmental,zugeordnet
+11101,Lauenen,Amtsbezirk Saanen,727,727,Lauenen,zugeordnet
+10718,Laufen,Amtsbezirk Laufen,632,632,Laufen,zugeordnet
+10701,Laupen,Amtsbezirk Laupen,645,645,Laupen,zugeordnet
+11080,Lauperswil,Amtsbezirk Signau,762,762,Lauperswil,zugeordnet
+11211,Lauterbrunnen,Amtsbezirk Interlaken,587,587,Lauterbrunnen,zugeordnet
+10953,Le Bémont (BE),District des Franches-Montagnes,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+10966,Le Noirmont,District des Franches-Montagnes,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+10967,Le Peuchapatte,District des Franches-Montagnes,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+12785,Leimiswil,Amtsbezirk Aarwangen,440,440,Leimiswil,zugeordnet
+10514,Leissigen,Amtsbezirk Interlaken,588,588,Leissigen,zugeordnet
+12787,Lengnau (BE),Amtsbezirk Büren,479,479,Lengnau (BE),zugeordnet
+11097,Lenk,Amtsbezirk Obersimmental,723,723,Lenk,zugeordnet
+10954,Les Bois,District des Franches-Montagnes,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+10955,Les Breuleux,District des Franches-Montagnes,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+10957,Les Enfers,District des Franches-Montagnes,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+10960,Les Genevez (BE),District de Moutier,,,,nicht in BERNHIST
+10968,Les Pommerats,District des Franches-Montagnes,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+12779,Leuzigen,Amtsbezirk Büren,480,480,Leuzigen,zugeordnet
+10719,Liesberg,Amtsbezirk Laufen,633,633,Liesberg,zugeordnet
+10662,Ligerz,Amtsbezirk Nidau,691,691,Ligerz,zugeordnet
+10489,Limpach,Amtsbezirk Fraubrunnen,552,552,Limpach,zugeordnet
+11064,Lohnstorf,Amtsbezirk Seftigen,746,746,Lohnstorf,zugeordnet
+12810,Lotzwil,Amtsbezirk Aarwangen,441,441,Lotzwil,zugeordnet
+10626,Loveresse,District de Moutier,659,659,Loveresse,zugeordnet
+11050,Lugnez,District de Porrentruy,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+12707,Lyss,Amtsbezirk Aarberg,424,424,Lyss,zugeordnet
+12717,Lyssach,Amtsbezirk Burgdorf,501,501,Lyssach,zugeordnet
+11155,Längenbühl,Amtsbezirk Thun,781,781,Längenbühl,zugeordnet
+10506,Lüscherz,Amtsbezirk Erlach,535,535,Lüscherz,zugeordnet
+10513,Lütschental,Amtsbezirk Interlaken,589,589,Lütschenthal,zugeordnet
+11130,Lützelflüh,Amtsbezirk Trachselwald,800,800,Lützelflüh,zugeordnet
+12709,Madiswil,Amtsbezirk Aarwangen,442,442,Madiswil,zugeordnet
+16407,Madretsch,Amtsbezirk Biel,471,471,Madretsch,zugeordnet
+10625,Malleray,District de Moutier,660,660,Malleray,zugeordnet
+10512,Matten bei Interlaken,Amtsbezirk Interlaken,590,590,Matten bei Interlaken,zugeordnet
+10488,Mattstetten,Amtsbezirk Fraubrunnen,553,553,Mattstetten,zugeordnet
+12405,Meienried,Amtsbezirk Büren,481,481,Meienried,zugeordnet
+12407,Meikirch,Amtsbezirk Aarberg,425,425,Meikirch,zugeordnet
+12410,Meinisberg,Amtsbezirk Büren,482,482,Meinisberg,zugeordnet
+11094,Meiringen,Amtsbezirk Oberhasli,720,720,Meiringen,zugeordnet
+12390,Melchnau,Amtsbezirk Aarwangen,443,443,Melchnau,zugeordnet
+10996,Mervelier,District de Moutier,,,,nicht in BERNHIST
+10654,Merzligen,Amtsbezirk Nidau,692,692,Merzligen,zugeordnet
+16406,Mett,Amtsbezirk Biel,472,472,Mett,zugeordnet
+10997,Mettemberg,District de Delémont,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+10672,Mirchel,Amtsbezirk Konolfingen,612,612,Mirchel,zugeordnet
+11051,Miécourt,District de Porrentruy,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+10624,Monible,District de Moutier,661,661,Monible,zugeordnet
+12396,Mont-Tramelan,District de Courtelary,517,517,Mont-Tramelan,zugeordnet
+11052,Montenol,District de Porrentruy,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+10963,Montfaucon,District des Franches-Montagnes,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+10950,Montfavergier,District des Franches-Montagnes,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+11053,Montignez,District de Porrentruy,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+11054,Montmelon,District de Porrentruy,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+10998,Montsevelier,District de Delémont,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+10487,Moosseedorf,Amtsbezirk Fraubrunnen,554,554,Moosseedorf,zugeordnet
+10623,Moutier,District de Moutier,662,662,Moutier,zugeordnet
+10999,Movelier,District de Delémont,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+16526,Mullen,Amtsbezirk Erlach,924,539,Tschugg,Teil einer Einheit
+12527,Muri bei Bern,Amtsbezirk Bern,462,462,Muri bei Bern,zugeordnet
+10965,Muriaux,District des Franches-Montagnes,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+10647,Mörigen,Amtsbezirk Nidau,693,693,Mörigen,zugeordnet
+12376,Mötschwil,Amtsbezirk Burgdorf,502,502,Mötschwil,zugeordnet
+10700,Mühleberg,Amtsbezirk Laupen,646,646,Mühleberg,zugeordnet
+11065,Mühledorf (BE),Amtsbezirk Seftigen,747,747,Mühledorf (BE),zugeordnet
+11066,Mühlethurnen,Amtsbezirk Seftigen,748,748,Mühlethurnen,zugeordnet
+10486,Mülchi,Amtsbezirk Fraubrunnen,555,555,Mülchi,zugeordnet
+10485,Münchenbuchsee,Amtsbezirk Fraubrunnen,556,556,Münchenbuchsee,zugeordnet
+10699,Münchenwiler,Amtsbezirk Laupen,647,647,Münchenwiler,zugeordnet
+10484,Münchringen,Amtsbezirk Fraubrunnen,557,557,Münchringen,zugeordnet
+10671,Münsingen,Amtsbezirk Konolfingen,613,613,Münsingen,zugeordnet
+10505,Müntschemier,Amtsbezirk Erlach,536,536,Müntschemier,zugeordnet
+10720,Nenzlingen,Amtsbezirk Laufen,634,634,Nenzlingen,zugeordnet
+10698,Neuenegg,Amtsbezirk Laupen,648,648,Neuenegg,zugeordnet
+16533,Neuveville,District de la Neuveville,679,679,"Neuveville, La",zugeordnet
+10656,Nidau,Amtsbezirk Nidau,694,694,Nidau,zugeordnet
+11134,Niederbipp,Amtsbezirk Wangen,816,816,Niederbipp,zugeordnet
+10670,Niederhünigen,Amtsbezirk Konolfingen,614,614,Niederhünigen,zugeordnet
+11067,Niedermuhlern,Amtsbezirk Seftigen,749,749,Niedermuhlern,zugeordnet
+10630,Niederried bei Interlaken,Amtsbezirk Interlaken,591,591,Niederried bei Interlaken,zugeordnet
+12573,Niederried bei Kallnach,Amtsbezirk Aarberg,426,426,Niederried bei Kallnach,zugeordnet
+10637,Niederstocken,Amtsbezirk Niedersimmental,710,710,Niederstocken,zugeordnet
+10669,Niederwichtrach,Amtsbezirk Konolfingen,615,615,Niederwichtrach,zugeordnet
+11135,Niederönz,Amtsbezirk Wangen,817,817,Niederönz,zugeordnet
+12563,Niederösch,Amtsbezirk Burgdorf,503,503,Niederösch,zugeordnet
+10606,Nods,District de la Neuveville,680,680,Nods,zugeordnet
+16637,Noflen,Amtsbezirk Seftigen,750,750,Noflen,zugeordnet
+12552,Oberbalm,Amtsbezirk Bern,463,463,Oberbalm,zugeordnet
+11136,Oberbipp,Amtsbezirk Wangen,818,818,Oberbipp,zugeordnet
+12554,Oberburg,Amtsbezirk Burgdorf,504,504,Oberburg,zugeordnet
+10668,Oberdiessbach,Amtsbezirk Konolfingen,616,616,Oberdiessbach,zugeordnet
+11156,Oberhofen am Thunersee,Amtsbezirk Thun,782,782,Oberhofen am Thunersee,zugeordnet
+11157,Oberlangenegg,Amtsbezirk Thun,783,783,Oberlangenegg,zugeordnet
+10709,Oberried am Brienzersee,Amtsbezirk Interlaken,592,592,Oberried am Brienzersee (ab 1915 mit Ebligen),zugeordnet
+12458,Obersteckholz,Amtsbezirk Aarwangen,444,444,Obersteckholz,zugeordnet
+10636,Oberstocken,Amtsbezirk Niedersimmental,711,711,Oberstocken,zugeordnet
+10667,Oberthal,Amtsbezirk Konolfingen,617,617,Oberthal,zugeordnet
+10666,Oberwichtrach,Amtsbezirk Konolfingen,618,618,Oberwichtrach,zugeordnet
+12496,Oberwil bei Büren,Amtsbezirk Büren,483,483,Oberwil bei Büren,zugeordnet
+10635,Oberwil im Simmental,Amtsbezirk Niedersimmental,712,712,Oberwil im Simmental,zugeordnet
+11137,Oberönz,Amtsbezirk Wangen,819,819,Oberönz,zugeordnet
+12449,Oberösch,Amtsbezirk Burgdorf,505,505,Oberösch,zugeordnet
+11138,Ochlenberg,Amtsbezirk Wangen,820,820,Ochlenberg,zugeordnet
+11055,Ocourt,District de Porrentruy,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+12499,Oeschenbach,Amtsbezirk Aarwangen,445,445,Oeschenbach,zugeordnet
+10665,Oppligen,Amtsbezirk Konolfingen,619,619,Oppligen,zugeordnet
+10657,Orpund,Amtsbezirk Nidau,695,695,Orpund,zugeordnet
+13132,Orvin,District de Courtelary,518,518,Orvin,zugeordnet
+16530,Otterbach,Amtsbezirk Konolfingen,956,611,Linden,Teil einer Einheit
+10622,Perrefitte,District de Moutier,663,663,Perrefitte,zugeordnet
+13140,Pieterlen,Amtsbezirk Büren,484,484,Pieterlen,zugeordnet
+13149,Plagne,District de Courtelary,520,520,Plagne,zugeordnet
+11000,Pleigne,District de Delémont,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+11056,Pleujouse,District de Porrentruy,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+11173,Pohlern,Amtsbezirk Thun,784,784,Pohlern,zugeordnet
+10621,Pontenet,District de Moutier,664,664,Pontenet,zugeordnet
+11057,Porrentruy,District de Porrentruy,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+10658,Port,Amtsbezirk Nidau,696,696,Port,zugeordnet
+10605,Prêles,District de la Neuveville,681,681,Prêles,zugeordnet
+13152,Péry,District de Courtelary,519,519,Péry,zugeordnet
+13091,Radelfingen,Amtsbezirk Aarberg,427,427,Radelfingen,zugeordnet
+13171,Rapperswil (BE),Amtsbezirk Aarberg,428,428,Rapperswil (BE),zugeordnet
+11001,Rebeuvelier,District de Delémont,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+11247,Rebévelier,District de Delémont,676,676,Rebévelier,zugeordnet
+10620,Reconvilier,District de Moutier,665,665,Reconvilier,zugeordnet
+16578,Reichenbach bei Frutigen,Amtsbezirk Frutigen,574,574,Reichenbach im Kandertal,zugeordnet
+13177,Reisiswil,Amtsbezirk Aarwangen,446,446,Reisiswil,zugeordnet
+13178,Renan (BE),District de Courtelary,521,521,Renan (BE),zugeordnet
+10634,Reutigen,Amtsbezirk Niedersimmental,713,713,Reutigen,zugeordnet
+11069,Riggisberg,Amtsbezirk Seftigen,751,751,Riggisberg,zugeordnet
+10572,Ringgenberg (BE),Amtsbezirk Interlaken,593,593,Ringgenberg (BE) (ab 1852 mit Goldswil),zugeordnet
+11059,Roche-d'Or,District de Porrentruy,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+10619,Roches (BE),District de Moutier,666,666,Roches (BE),zugeordnet
+11060,Rocourt,District de Porrentruy,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+11246,Roggenburg,District de Delémont,638,638,Roggenburg,zugeordnet
+12938,Roggwil (BE),Amtsbezirk Aarwangen,447,447,Roggwil (BE),zugeordnet
+12934,Rohrbach,Amtsbezirk Aarwangen,448,448,Rohrbach,zugeordnet
+12918,Rohrbachgraben,Amtsbezirk Aarwangen,449,449,Rohrbachgraben,zugeordnet
+12925,Romont (BE),District de Courtelary,522,522,Romont (BE),zugeordnet
+11002,Rossemaison,District de Moutier,,,,nicht in BERNHIST
+10664,Rubigen,Amtsbezirk Konolfingen,620,620,Rubigen,zugeordnet
+12836,Rumendingen,Amtsbezirk Burgdorf,507,507,Rumendingen,zugeordnet
+11140,Rumisberg,Amtsbezirk Wangen,822,822,Rumisberg,zugeordnet
+10483,Ruppoldsried,Amtsbezirk Fraubrunnen,558,558,Ruppoldsried,zugeordnet
+11058,Réclère,District de Porrentruy,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+10721,Röschenz,Amtsbezirk Laufen,635,635,Röschenz,zugeordnet
+11139,Röthenbach bei Herzogenbuchsee,Amtsbezirk Wangen,821,821,Röthenbach bei Herzogenbuchsee,zugeordnet
+11081,Röthenbach im Emmental,Amtsbezirk Signau,763,763,Röthenbach im Emmental,zugeordnet
+11082,Rüderswil,Amtsbezirk Signau,764,764,Rüderswil,zugeordnet
+16428,Rüdtligen,Amtsbezirk Burgdorf,506,506,Rüdtligen-Alchenflüh,zugeordnet
+11070,Rüeggisberg,Amtsbezirk Seftigen,752,752,Rüeggisberg,zugeordnet
+11158,Rüegsau,Amtsbezirk Trachselwald,801,801,Rüegsau,zugeordnet
+11071,Rümligen,Amtsbezirk Seftigen,753,753,Rümligen,zugeordnet
+11105,Rüschegg,Amtsbezirk Schwarzenburg,731,731,Rüschegg,zugeordnet
+12882,Rüti bei Büren,Amtsbezirk Büren,485,485,Rüti bei Büren,zugeordnet
+12881,Rüti bei Lyssach,Amtsbezirk Burgdorf,508,508,Rüti bei Lyssach,zugeordnet
+11072,Rüti bei Riggisberg,Amtsbezirk Seftigen,754,754,Rüti bei Riggisberg,zugeordnet
+12880,Rütschelen,Amtsbezirk Aarwangen,450,450,Rütschelen,zugeordnet
+11117,Saanen,Amtsbezirk Saanen,728,728,Saanen,zugeordnet
+10659,Safnern,Amtsbezirk Nidau,697,697,Safnern,zugeordnet
+10618,Saicourt,District de Moutier,667,667,Saicourt,zugeordnet
+10969,Saignelégier,District des Franches-Montagnes,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+10970,Saint-Brais,District des Franches-Montagnes,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+12862,Saint-Imier,District de Courtelary,523,523,Saint-Imier,zugeordnet
+11020,Saint-Ursanne,District de Porrentruy,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+11003,Saulcy,District de Delémont,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+10602,Saules (BE),District de Moutier,668,668,Saules (BE),zugeordnet
+10690,Saxeten,Amtsbezirk Interlaken,594,594,Saxeten,zugeordnet
+10524,Schalunen,Amtsbezirk Fraubrunnen,559,559,Schalunen,zugeordnet
+11083,Schangnau,Amtsbezirk Signau,765,765,Schangnau,zugeordnet
+11095,Schattenhalb,Amtsbezirk Oberhasli,721,721,Schattenhalb,zugeordnet
+10616,Schelten,District de Moutier,669,669,"Scheulte, La / Schelten",zugeordnet
+10494,Scheunen,Amtsbezirk Fraubrunnen,560,560,Scheunen,zugeordnet
+10660,Scheuren,Amtsbezirk Nidau,698,698,Scheuren,zugeordnet
+11370,Schlosswil,Amtsbezirk Konolfingen,621,621,Schlosswil-Oberhünigen,zugeordnet
+10632,Schwadernau,Amtsbezirk Nidau,699,699,Schwadernau,zugeordnet
+10689,Schwanden bei Brienz,Amtsbezirk Interlaken,595,595,Schwanden bei Brienz,zugeordnet
+12959,Schwarzhäusern,Amtsbezirk Aarwangen,451,451,Schwarzhäusern,zugeordnet
+11159,Schwendibach,Amtsbezirk Thun,785,785,Schwendibach,zugeordnet
+12966,Schüpfen,Amtsbezirk Aarberg,429,429,Schüpfen,zugeordnet
+11141,Seeberg,Amtsbezirk Wangen,823,823,Seeberg,zugeordnet
+12953,Seedorf (BE),Amtsbezirk Aarberg,430,430,Seedorf (BE),zugeordnet
+10631,Seehof,District de Moutier,670,670,Seehof,zugeordnet
+11073,Seftigen,Amtsbezirk Seftigen,755,755,Seftigen,zugeordnet
+11018,Seleute,District de Porrentruy,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+11084,Signau,Amtsbezirk Signau,766,766,Signau,zugeordnet
+11146,Sigriswil,Amtsbezirk Thun,786,786,Sigriswil,zugeordnet
+10504,Siselen,Amtsbezirk Erlach,537,537,Siselen,zugeordnet
+10408,Sonceboz-Sombeval,District de Courtelary,524,524,Sonceboz-Sombeval,zugeordnet
+10412,Sonvilier,District de Courtelary,525,525,Sonvilier,zugeordnet
+10614,Sornetan,District de Moutier,671,671,Sornetan,zugeordnet
+10613,Sorvilier,District de Moutier,672,672,Sorvilier,zugeordnet
+10971,Soubey,District des Franches-Montagnes,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+10612,Souboz,District de Moutier,673,673,Souboz,zugeordnet
+11004,Soulce,District de Delémont,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+10964,Soyhières,District de Delémont,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+10633,Spiez,Amtsbezirk Niedersimmental,714,714,Spiez,zugeordnet
+11098,St. Stephan,Amtsbezirk Obersimmental,724,724,St. Stephan,zugeordnet
+16452,Stalden im Emmental,Amtsbezirk Konolfingen,958,609,Konolfingen,Teil einer Einheit
+11161,Steffisburg,Amtsbezirk Thun,787,787,Steffisburg,zugeordnet
+10601,Stettlen,Amtsbezirk Bern,464,464,Stettlen,zugeordnet
+16404,Strättligen,Amtsbezirk Thun,980,790,Thun,Teil einer Einheit
+10655,Studen,Amtsbezirk Nidau,700,700,Studen,zugeordnet
+11120,Sumiswald,Amtsbezirk Trachselwald,802,802,Sumiswald,zugeordnet
+10653,Sutz-Lattrigen,Amtsbezirk Nidau,701,701,Sutz-Lattrigen,zugeordnet
+10611,Tavannes,District de Moutier,674,674,Tavannes,zugeordnet
+11162,Teuffenthal (BE),Amtsbezirk Thun,788,788,Teuffenthal (BE),zugeordnet
+11163,Thierachern,Amtsbezirk Thun,789,789,Thierachern,zugeordnet
+16403,Thun,Amtsbezirk Thun,790,790,Thun,zugeordnet
+10758,Thunstetten,Amtsbezirk Aarwangen,452,452,Thunstetten,zugeordnet
+11142,Thörigen,Amtsbezirk Wangen,824,824,Thörigen,zugeordnet
+11089,Toffen,Amtsbezirk Seftigen,756,756,Toffen,zugeordnet
+11121,Trachselwald,Amtsbezirk Trachselwald,803,803,Trachselwald,zugeordnet
+16543,Tramelan-Dessous,District de Courtelary,921,526,Tramelan,Teil einer Einheit
+16542,Tramelan-Dessus,District de Courtelary,922,526,Tramelan,Teil einer Einheit
+10503,Treiten,Amtsbezirk Erlach,538,538,Treiten,zugeordnet
+11085,Trub,Amtsbezirk Signau,767,767,Trub,zugeordnet
+11086,Trubschachen,Amtsbezirk Signau,768,768,Trubschachen,zugeordnet
+16527,Tschugg,Amtsbezirk Erlach,539,539,Tschugg,zugeordnet
+10643,Twann,Amtsbezirk Nidau,704,704,Twann,zugeordnet
+10722,Tägertschi,Amtsbezirk Konolfingen,622,622,Tägertschi,zugeordnet
+10645,Täuffelen,Amtsbezirk Nidau,702,702,Täuffelen,zugeordnet
+10644,Tüscherz-Alfermée,Amtsbezirk Nidau,703,703,Tüscherz-Alfermée,zugeordnet
+11165,Uebeschi,Amtsbezirk Thun,791,791,Uebeschi,zugeordnet
+11166,Uetendorf,Amtsbezirk Thun,792,792,Uetendorf,zugeordnet
+10962,Undervelier,District de Delémont,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+11167,Unterlangenegg,Amtsbezirk Thun,793,793,Unterlangenegg,zugeordnet
+10688,Unterseen,Amtsbezirk Interlaken,596,596,Unterseen,zugeordnet
+10948,Untersteckholz,Amtsbezirk Aarwangen,453,453,Untersteckholz,zugeordnet
+10945,Ursenbach,Amtsbezirk Aarwangen,454,454,Ursenbach,zugeordnet
+10496,Urtenen,Amtsbezirk Fraubrunnen,561,561,Urtenen,zugeordnet
+11075,Uttigen,Amtsbezirk Seftigen,757,757,Uttigen,zugeordnet
+10539,Utzenstorf,Amtsbezirk Fraubrunnen,562,562,Utzenstorf,zugeordnet
+10904,Vauffelin,District de Courtelary,527,527,Vauffelin,zugeordnet
+10910,Vechigen,Amtsbezirk Bern,465,465,Vechigen,zugeordnet
+10610,Vellerat,District de Moutier,675,675,Vellerat,zugeordnet
+11046,Vendlincourt,District de Porrentruy,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+10990,Vermes,District de Delémont,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+10952,Vicques,District de Delémont,,,,"nicht in BERNHIST (Nordjura, seit 1979 Kanton Jura)"
+10207,Villeret,District de Courtelary,528,528,Villeret,zugeordnet
+10501,Vinelz,Amtsbezirk Erlach,540,540,Vinelz,zugeordnet
+11168,Wachseldorn,Amtsbezirk Thun,794,794,Wachseldorn,zugeordnet
+10693,Wahlen,Amtsbezirk Laufen,636,636,Wahlen,zugeordnet
+11106,Wahlern,Amtsbezirk Schwarzenburg,732,732,Wahlern,zugeordnet
+10678,Walkringen,Amtsbezirk Konolfingen,623,623,Walkringen,zugeordnet
+11143,Walliswil bei Niederbipp,Amtsbezirk Wangen,825,825,Walliswil bei Niederbipp,zugeordnet
+11144,Walliswil bei Wangen,Amtsbezirk Wangen,826,826,Walliswil bei Wangen,zugeordnet
+10642,Walperswil,Amtsbezirk Nidau,705,705,Walperswil,zugeordnet
+11122,Walterswil (BE),Amtsbezirk Trachselwald,804,804,Walterswil (BE),zugeordnet
+11048,Wangen an der Aare,Amtsbezirk Wangen,827,827,Wangen an der Aare,zugeordnet
+10976,Wangenried,Amtsbezirk Wangen,828,828,Wangenried,zugeordnet
+11088,Wanzwil,Amtsbezirk Wangen,829,829,Wanzwil,zugeordnet
+11062,Wattenwil,Amtsbezirk Seftigen,758,758,Wattenwil,zugeordnet
+10273,Wengi,Amtsbezirk Büren,486,486,Wengi,zugeordnet
+10980,Wiedlisbach,Amtsbezirk Wangen,830,830,Wiedlisbach,zugeordnet
+10538,Wiggiswil,Amtsbezirk Fraubrunnen,563,563,Wiggiswil,zugeordnet
+10687,Wilderswil,Amtsbezirk Interlaken,597,597,Wilderswil,zugeordnet
+10537,Wiler bei Utzenstorf,Amtsbezirk Fraubrunnen,564,564,Wiler bei Utzenstorf,zugeordnet
+10697,Wileroltigen,Amtsbezirk Laupen,649,649,Wileroltigen,zugeordnet
+10340,Willadingen,Amtsbezirk Burgdorf,509,509,Willadingen,zugeordnet
+10382,Wimmis,Amtsbezirk Niedersimmental,715,715,Wimmis,zugeordnet
+10355,Wohlen bei Bern,Amtsbezirk Bern,466,466,Wohlen bei Bern,zugeordnet
+10981,Wolfisberg,Amtsbezirk Wangen,831,831,Wolfisberg,zugeordnet
+10710,Worb,Amtsbezirk Konolfingen,624,624,Worb,zugeordnet
+10641,Worben,Amtsbezirk Nidau,706,706,Worben,zugeordnet
+10304,Wynau,Amtsbezirk Aarwangen,455,455,Wynau,zugeordnet
+10305,Wynigen,Amtsbezirk Burgdorf,510,510,Wynigen,zugeordnet
+11123,Wyssachen,Amtsbezirk Trachselwald,805,805,Wyssachen,zugeordnet
+10536,Zauggenried,Amtsbezirk Fraubrunnen,565,565,Zauggenried,zugeordnet
+10535,Zielebach,Amtsbezirk Fraubrunnen,566,566,Zielebach,zugeordnet
+11077,Zimmerwald,Amtsbezirk Seftigen,759,759,Zimmerwald,zugeordnet
+10320,Zollikofen,Amtsbezirk Bern,467,467,Zollikofen,zugeordnet
+10534,Zuzwil (BE),Amtsbezirk Fraubrunnen,567,567,Zuzwil (BE),zugeordnet
+11099,Zweisimmen,Amtsbezirk Obersimmental,725,725,Zweisimmen,zugeordnet
+11169,Zwieselberg,Amtsbezirk Thun,795,795,Zwieselberg,zugeordnet
+10716,Zwingen,Amtsbezirk Laufen,637,637,Zwingen,zugeordnet
+10711,Zäziwil,Amtsbezirk Konolfingen,625,625,Zäziwil,zugeordnet

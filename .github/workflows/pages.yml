@@ -34,6 +34,7 @@ jobs:
       - run: python scripts/migration.py site
       - run: python scripts/zuzuege.py site
       - run: python scripts/infrastruktur.py site
+      - run: python scripts/durchdringung_bern.py site
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site

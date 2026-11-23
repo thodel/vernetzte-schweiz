@@ -1,0 +1,62 @@
+jahr,gruppe,zaehler,nenner,nenner_art,nenner_herleitung,quote_prozent,bemerkung
+1885,Einträge im Telefonbuch,484,44954,interpoliert,"Volkszählungen 1880 und 1888, linear auf 1885",1.1,alle Zeilen der Stadt im Band
+1885,Personen mit Eintrag je Einwohner,151,44954,interpoliert,"Volkszählungen 1880 und 1888, linear auf 1885",0.34,jede Person einmal (Geschäft und Wohnung zusammen)
+1885,Personen mit Eintrag je Haushalt,151,9703,geschätzt,Bevölkerung 1885 durch die Haushaltsgrösse von 1888 (4.63 Personen),1.6,Obergrenze für den Anteil der Haushalte mit Telefon
+1885,Personen mit Wohnungsanschluss,4,9703,geschätzt,Bevölkerung 1885 durch die Haushaltsgrösse von 1888 (4.63 Personen),0.04,"Eintrag nennt «Wohnung», «Privat», «domicile»"
+1885,Firmen,76,,,,,"Personenfirmen (&, Cie., Gebr.), Gesellschaften, Betriebe mit eigenem Namen"
+1885,Ämter und Anstalten,45,,,,,"Bund, Kanton, Stadt, Schulen, Spitäler, Gesandtschaften"
+1885,Frauen,3,24718,geschätzt,"Bevölkerung mal Frauenanteil, zwischen 1856 und 1930 interpoliert",0.01,"erkannt an Stand, Vorname oder Berufsform: Untergrenze"
+1885,Witwen,1,2097,geschätzt,"Bevölkerung mal Anteil der Verwitweten, zwischen 1856 und 1910 interpoliert mal Frauenanteil der Verwitweten 1846",0.05,
+1885,Fräulein,0,,,,,
+1885,Personen und Firmen mit Sektor je Erwerbstätige,191,19171,geschätzt,"Bevölkerung 1885 mal Erwerbsquote, zwischen 1856 und 1910 interpoliert (42.6 %)",1.0,
+1885,1. Sektor,2,368,geschätzt,geschätzte Erwerbstätige mal Anteil des 1. Sektors 1910,0.54,Personen und Firmen
+1885,2. Sektor,57,9396,geschätzt,geschätzte Erwerbstätige mal Anteil des 2. Sektors 1910,0.61,Personen und Firmen
+1885,3. Sektor,132,9407,geschätzt,geschätzte Erwerbstätige mal Anteil des 3. Sektors 1910,1.4,"Personen und Firmen, ohne Ämter"
+1885,"ohne Erwerb (Privatier, Rentier)",1,,,,,
+1885,Angabe ohne Sektor,16,,,,,
+1885,"keine Angabe (nur Name, «Wohnung»)",19,,,,,
+1885,Ärzte (Angabe nennt «Arzt»),11,84,interpoliert,"Zahl der Ärzte 1856 und 1910, linear",13.1,ohne Zahn- und Tierärzte
+1885,Ärzte (dazu Titel «Dr. med.»),11,84,interpoliert,"Zahl der Ärzte 1856 und 1910, linear",13.1,
+1900,Einträge im Telefonbuch,2322,64227,direkt,Volkszählung 1900,3.6,alle Zeilen der Stadt im Band
+1900,verschiedene Rufnummern,1785,64227,direkt,Volkszählung 1900,2.8,1885 nennt das Buch keine Nummern
+1900,Personen mit Eintrag je Einwohner,1227,64227,direkt,Volkszählung 1900,1.9,jede Person einmal (Geschäft und Wohnung zusammen)
+1900,Personen mit Eintrag je Haushalt,1227,13863,geschätzt,Bevölkerung 1900 durch die Haushaltsgrösse von 1888 (4.63 Personen),8.9,Obergrenze für den Anteil der Haushalte mit Telefon
+1900,Personen mit Wohnungsanschluss,159,13863,geschätzt,Bevölkerung 1900 durch die Haushaltsgrösse von 1888 (4.63 Personen),1.1,"Eintrag nennt «Wohnung», «Privat», «domicile»"
+1900,Firmen,400,,,,,"Personenfirmen (&, Cie., Gebr.), Gesellschaften, Betriebe mit eigenem Namen"
+1900,Ämter und Anstalten,348,,,,,"Bund, Kanton, Stadt, Schulen, Spitäler, Gesandtschaften"
+1900,Frauen,106,35316,geschätzt,"Bevölkerung mal Frauenanteil, zwischen 1856 und 1930 interpoliert",0.3,"erkannt an Stand, Vorname oder Berufsform: Untergrenze"
+1900,Witwen,35,2721,geschätzt,"Bevölkerung mal Anteil der Verwitweten, zwischen 1856 und 1910 interpoliert mal Frauenanteil der Verwitweten 1846",1.3,
+1900,Fräulein,15,,,,,
+1900,Personen und Firmen mit Sektor je Erwerbstätige,1330,26816,geschätzt,"Bevölkerung 1900 mal Erwerbsquote, zwischen 1856 und 1910 interpoliert (41.8 %)",5.0,
+1900,1. Sektor,17,514,geschätzt,geschätzte Erwerbstätige mal Anteil des 1. Sektors 1910,3.3,Personen und Firmen
+1900,2. Sektor,433,13143,geschätzt,geschätzte Erwerbstätige mal Anteil des 2. Sektors 1910,3.3,Personen und Firmen
+1900,3. Sektor,880,13158,geschätzt,geschätzte Erwerbstätige mal Anteil des 3. Sektors 1910,6.7,"Personen und Firmen, ohne Ämter"
+1900,"ohne Erwerb (Privatier, Rentier)",22,,,,,
+1900,Angabe ohne Sektor,92,,,,,
+1900,"keine Angabe (nur Name, «Wohnung»)",183,,,,,
+1900,Ärzte (Angabe nennt «Arzt»),3,103,interpoliert,"Zahl der Ärzte 1856 und 1910, linear",2.9,ohne Zahn- und Tierärzte
+1900,Ärzte (dazu Titel «Dr. med.»),58,103,interpoliert,"Zahl der Ärzte 1856 und 1910, linear",56.2,
+1900,Spezereihandlungen,35,243,geschätzt,"Spezereigeschäfte 1901, mit der Bevölkerung auf 1900 umgerechnet",14.4,Nenner: Arbeitsstätten 1901 und 1909
+1910,Einträge im Telefonbuch,4304,85651,direkt,Volkszählung 1910,5.0,alle Zeilen der Stadt im Band
+1910,verschiedene Rufnummern,3464,85651,direkt,Volkszählung 1910,4.0,1885 nennt das Buch keine Nummern
+1910,Personen mit Eintrag je Einwohner,2269,85651,direkt,Volkszählung 1910,2.6,jede Person einmal (Geschäft und Wohnung zusammen)
+1910,Personen mit Eintrag je Haushalt,2269,18488,geschätzt,Bevölkerung 1910 durch die Haushaltsgrösse von 1888 (4.63 Personen),12.3,Obergrenze für den Anteil der Haushalte mit Telefon
+1910,Personen mit Wohnungsanschluss,361,18488,geschätzt,Bevölkerung 1910 durch die Haushaltsgrösse von 1888 (4.63 Personen),2.0,"Eintrag nennt «Wohnung», «Privat», «domicile»"
+1910,Firmen,768,,,,,"Personenfirmen (&, Cie., Gebr.), Gesellschaften, Betriebe mit eigenem Namen"
+1910,Ämter und Anstalten,405,,,,,"Bund, Kanton, Stadt, Schulen, Spitäler, Gesandtschaften"
+1910,Frauen,265,47099,geschätzt,"Bevölkerung mal Frauenanteil, zwischen 1856 und 1930 interpoliert",0.56,"erkannt an Stand, Vorname oder Berufsform: Untergrenze"
+1910,Witwen,71,3384,geschätzt,Verwitwete 1910 mal Frauenanteil der Verwitweten 1846,2.1,
+1910,Fräulein,49,,,,,
+1910,Personen und Firmen mit Sektor je Erwerbstätige,2460,35250,direkt,Volkszählung 1910 (Reihe A),7.0,
+1910,1. Sektor,21,676,direkt,Volkszählung 1910 (Reihe A),3.1,Personen und Firmen
+1910,2. Sektor,778,17277,direkt,Volkszählung 1910 (Reihe A),4.5,Personen und Firmen
+1910,3. Sektor,1661,17297,direkt,"Volkszählung 1910 (Reihe A, 3. Sektor als Rest)",9.6,"Personen und Firmen, ohne Ämter"
+1910,"ohne Erwerb (Privatier, Rentier)",33,,,,,
+1910,Angabe ohne Sektor,161,,,,,
+1910,"keine Angabe (nur Name, «Wohnung»)",383,,,,,
+1910,Ärzte (Angabe nennt «Arzt»),31,116,direkt,Ärzte 1910,26.7,ohne Zahn- und Tierärzte
+1910,Ärzte (dazu Titel «Dr. med.»),96,116,direkt,Ärzte 1910,82.8,
+1910,Spezereihandlungen,52,289,geschätzt,"Spezereigeschäfte 1909, mit der Bevölkerung auf 1910 umgerechnet",18.0,Nenner: Arbeitsstätten 1901 und 1909
+1910,Gastgewerbe: Anschlüsse je 100 Erwerbstätige,238,2441,direkt,Erwerbstätige 1910: Gastgewerbe,9.8,"Betriebe gegen Beschäftigte, keine Quote der Betriebe"
+1910,Nahrungs- und Genussmittel: Anschlüsse je 100 Erwerbstätige,235,1804,direkt,Erwerbstätige 1910: Nahrungs- und Genussmittel,13.0,Betriebe gegen Beschäftigte
+1910,Druck und Buchbinderei: Anschlüsse je 100 Erwerbstätige,101,1284,direkt,Erwerbstätige 1910: Polygraphisches Gewerbe,7.9,Betriebe gegen Beschäftigte

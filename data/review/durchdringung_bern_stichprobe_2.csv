@@ -1,0 +1,61 @@
+id,jahr,entity_type,name1,name2,supplement,surname,forename,initials,title,occupation,art,frau,sektor,soll_art,soll_frau,soll_sektor,richtig,bemerkung
+ptt:P-260-1_Bern_Biel_1885:590,1885,person,Giger,Joseph,"Chapellerie fine, en gros, en détail, Mützenfabrik, Militærartikel",Giger,Joseph,J,,Chapellerie fine; en gros; en détail; Mützenfabrik; Militærartikel,person,,3,person,,3,ja,"Grenzfall: Chapellerie mit Mützenfabrik, erste Angabe als Handel gelesen"
+ptt:P-260-1_Bern_Biel_1885:188,1885,firma,Spar- und Leihkasse,,,,,,,,firma,,3,firma,,3,ja,
+ptt:P-260-1_Bern_Biel_1885:515,1885,person,Böhlen,A.,"Müller, Matte",Böhlen,,A,,Müller; Matte,person,,2,person,,2,ja,
+ptt:P-260-1_Bern_Biel_1885:10,1885,person,FISCHER-BORN,,Spezereihl.,FISCHER,,,,Spezereihl,person,,3,person,,3,ja,
+ptt:P-260-1_Bern_Biel_1885:122,1885,person,Krebs,,Gärtnerei,Krebs,,,,Gärtnerei,person,,1,person,,1,ja,Gärtnerei zählt wie in BERNHIST zum 1. Sektor
+ptt:P-260-1_Bern_Biel_1885:514,1885,person,Wander,,"Dr (Malzextrakt), Mineralwasser-Fabrik",Wander,,,Dr,Malzextrakt; Mineralwasser-Fabrik,person,,unbestimmt,person,,2,nein,"Dr. Wander, Mineralwasser-Fabrik: die erste Angabe «Malzextrakt» nennt keinen Sektor"
+ptt:P-260-1_Bern_Biel_1885:577,1885,firma,Imboden & Sohn,,Wein- und Spirituosen-Handlungen,,,,,Wein- und Spirituosen-Handlungen,firma,,3,firma,,3,ja,
+ptt:P-260-1_Bern_Biel_1885:523,1885,person,Müller,,Notariate,Müller,,,,Notariate,person,,3,person,,3,ja,
+ptt:P-260-1_Bern_Biel_1885:17,1885,firma,Balsiger & Sohn,,Speditor,,,,,Speditor,firma,,3,firma,,3,ja,
+ptt:P-260-1_Bern_Biel_1885:85,1885,person,Hemmann,,Bierbrauer,Hemmann,,,,Bierbrauer,person,,2,person,,2,ja,
+ptt:P-260-1_Bern_Biel_1885:483,1885,person,Falken,,"(Blau), Hôtels",Falken,,,,Blau; Hôtels,person,,unbestimmt,firma,,3,nein,Hôtel Falken (Inhaber Blau) im Branchenteil: als Person gelesen
+ptt:P-260-1_Bern_Biel_1885:412,1885,firma,Hirter & Werthmüller,,,,,,,,firma,,2,firma,,,nein,Personenfirma ohne Angabe: «Werthmüller» als Müller gelesen
+ptt:P-260-1_Bern_Biel_1885:424,1885,person,Lichtheim,,"Doctoren (Aerzte), Prof.",Lichtheim,,,Prof.,Doctoren; Aerzte,person,,3,person,,3,ja,
+ptt:P-260-1_Bern_Biel_1885:183,1885,person,Schweizerhof,,Hôtel,Schweizerhof,,,,Hôtel,person,,3,firma,,3,nein,Hôtel Schweizerhof: als Person gelesen
+ptt:P-260-1_Bern_Biel_1885:56,1885,person,Demme,,Gebrüder,Demme,,,,Gebrüder,person,,,firma,,,nein,Gebrüder Demme: als Person gelesen
+ptt:P-260-1_Bern_Biel_1885:40,1885,firma,Café Frick,,,,,,,,firma,,3,firma,,3,ja,
+ptt:P-260-1_Bern_Biel_1885:393,1885,person,Rhyn,,,Rhyn,,,,,person,,,person,,,ja,
+ptt:P-260-1_Bern_Biel_1885:567,1885,person,Hug-Braun,J. L.,Spitäler und Krankenanstalten,Hug,,JL,,Spitäler und Krankenanstalten; Belpstrasse,person,,3,person,,3,ja,Branchenteil: Privatklinik unter «Spitäler und Krankenanstalten»
+ptt:P-260-1_Bern_Biel_1885:65,1885,firma,Französische Gesandtschaft,,Kanzlei,,,,,Kanzlei,amt,,,amt,,,ja,
+ptt:P-260-1_Bern_Biel_1885:466,1885,person,Manuel,,,Manuel,,,,,person,,,person,,,ja,
+ptt:P-260-1_Bern_1900_2:2171,1900,person,Sahli,H.,Prof. Dr. med.,Sahli,,H,,Prof. Dr. med,person,,3,person,,3,ja,
+ptt:P-260-1_Bern_1900_2:1388,1900,person,Kaiser,A.,"Dr., Apotheker",Kaiser,,A,Dr.,Apotheker,person,,3,person,,3,ja,
+ptt:P-260-1_Bern_1900_2:1004,1900,firma,Genossenschafts-Buchdruckerei,,,,,,,,firma,,3,firma,,2,nein,Buchdruckerei: «Genossenschaft» steht davor
+ptt:P-260-1_Bern_1900_2:995,1900,firma,Geismar & Picard,,Papiers en gros,,,,,Papiers en gros,firma,,3,firma,,3,ja,
+ptt:P-260-1_Bern_1900_2:1302,1900,person,Tivoli,,(Gottfried Christen),Tivoli,,,,Gottfried Christen,person,,unbestimmt,firma,,,nein,"Tivoli (Wirtschaft, Inhaber Christen): als Person gelesen"
+ptt:P-260-1_Bern_1900_2:1687,1900,person,Lehmann,J.,Lithographie und Buchdruckerei,Lehmann,,J,,Lithographie und Buchdruckerei,person,,2,person,,2,ja,
+ptt:P-260-1_Bern_1900_2:506,1900,firma,Bürgi & Co.,,Käsehandlung engros,,,,,Käsehandlung engros,firma,,3,firma,,3,ja,
+ptt:P-260-1_Bern_1900_2:2375,1900,firma,Spar- und Leihkasse,,,,,,,,firma,,3,firma,,3,ja,
+ptt:P-260-1_Bern_1900_2:1130,1900,person,Haldimann,Chr.,Gypser- und Malermeister,Haldimann,,C,,Gypser- und Malermeister,person,,2,person,,2,ja,
+ptt:P-260-1_Bern_1900_2:908,1900,person,Flury,E.,Cigarrenhandlung,Flury,,E,,Cigarrenhandlung,person,,3,person,,3,ja,
+ptt:P-260-1_Bern_1900_2:264,1900,person,Ausrüstungsmagazin,,eidg. (Administr. Abteilung),Ausrüstungsmagazin,,,,eidg; Administr. Abteilung,amt,,,amt,,,ja,
+ptt:P-260-1_Bern_1900_2:2192,1900,person,Schärer,Ed.,Knopffabrikant,Schärer,,E,,Knopffabrikant,person,,2,person,,2,ja,
+ptt:P-260-1_Bern_1900_2:1373,1900,person,Jonquière,Frl. Martha,,Jonquière,Martha,FM,,,person,weiblich,,person,fraeulein,,nein,"«Frl.» steht beim Vornamen: als weiblich erkannt, nicht als Fräulein"
+ptt:P-260-1_Bern_1900_2:1387,1900,firma,Kaffeerösterei Bern,,(E. Schulthess),,,,,E. Schulthess,firma,,3,firma,,2,nein,"Kaffeerösterei: Nahrungs- und Genussmittel, über «Kaffee» zum 3. Sektor"
+ptt:P-260-1_Bern_1900_2:831,1900,firma,"Eidg. Landwirtschaftsdepartement, Versicherungsamt",,,,,,,,amt,,,amt,,,ja,
+ptt:P-260-1_Bern_1900_2:2205,1900,person,Scheidegger-Moser,M.,"Frau Wwe., Droguerie, Spezerei- u. Farbwaren",Scheidegger,,M,,Frau Wwe; Droguerie; Spezerei- u. Farbwaren,person,weiblich,,person,witwe,3,nein,"«Frau Wwe., Droguerie»: Stand in der Berufsangabe, Sektor dahinter nicht gelesen"
+ptt:P-260-1_Bern_1900_2:1792,1900,person,Märki,Kasp.,Schreinermeister,Märki,,K,,Schreinermeister,person,,2,person,,2,ja,
+ptt:P-260-1_Bern_1900_2:495,1900,firma,Burger & Heimlicher,,,,,,,,firma,,unbestimmt,firma,,unbestimmt,ja,Firma ohne Angabe: kein Sektor
+ptt:P-260-1_Bern_1900_2:936,1900,person,Frey,N.,Kolonialwarenhandlg.,Frey,,N,,Kolonialwarenhandlg,person,,3,person,,3,ja,
+ptt:P-260-1_Bern_1900_2:2513,1900,firma,Civilstandsamt Bern,,Städtische Verwaltung,,,,,Städtische Verwaltung,firma,,3,amt,,,nein,Civilstandsamt Bern: als Firma gelesen
+ptt:P-260-1_Bern_1910:2681,1910,person,Moser,W.,Direktor der Schweiz. Volksbank (Wohnung),Moser,,W,,Direktor der Schweiz. Volksbank; Wohnung,person,,3,person,,3,ja,
+ptt:P-260-1_Bern_1910:2919,1910,firma,Pension Rüegg,,,,,,,,firma,,3,firma,,3,ja,
+ptt:P-260-1_Bern_1910:2959,1910,firma,Piguet & Co.,André,"Internationale Auskunftei u. Inkasso-Bureaux, Direktion für die Schweiz, Carl Grüring, Kaufmann",,,,,André; Internationale Auskunftei u. Inkasso-Bureaux; Direktion für die Schweiz; Carl Grüring; Kaufmann,firma,,3,firma,,3,ja,
+ptt:P-260-1_Bern_1910:2993,1910,person,von Pourtalès-von Werdt,Frau A.,,von Pourtalès,,,,Frau A,person,frau,,person,frau,,ja,
+ptt:P-260-1_Bern_1910:3697,1910,person,Steimle,Ludw.,Schreinermeister,Steimle,,L,,Schreinermeister,person,,2,person,,2,ja,
+ptt:P-260-1_Bern_1910:2024,1910,firma,"Kasino, Café","Reitinger, Th.",Maschinist,,,,,Reitinger; Th; Maschinist,firma,,2,firma,,3,nein,"Kasino, Café: «Maschinist» des Zusatzes vor dem Namen gelesen"
+ptt:P-260-1_Bern_1910:860,1910,firma,Civilstandsamt Bern,,Neues Polizeigebäude,,,,,Neues Polizeigebäude,firma,,3,amt,,,nein,Civilstandsamt Bern: als Firma gelesen
+ptt:P-260-1_Bern_1910:3485,1910,firma,Section technique militaire,,Magazin de l'équipement,,,,,Magazin de l'équipement,amt,,,amt,,,ja,
+ptt:P-260-1_Bern_1910:1203,1910,person,Buri,R.,"Fleischinspektor, Dr.",Buri,,R,Dr.,Fleischinspektor,person,,3,person,,3,ja,
+ptt:P-260-1_Bern_1910:3231,1910,person,Rytz,Rosa,Hebamme,Rytz,Rosa,R,,Hebamme,person,weiblich,3,person,weiblich,3,ja,
+ptt:P-260-1_Bern_1910:1305,1910,firma,Garage Eiger,,"Schneiter, Plattner & Spycher",,,,,Schneiter; Plattner & Spycher,firma,,3,firma,,3,ja,Garage: 3. Sektor (Verkehr)
+ptt:P-260-1_Bern_1910:2114,1910,person,Kocher,,alt Oberrichter,Kocher,,,,alt Oberrichter,person,,ohne,person,,ohne,ja,
+ptt:P-260-1_Bern_1910:1180,1910,amt,"Finanzkontrolle, eidg.",,Chef,,,,,Chef,amt,,,amt,,,ja,
+ptt:P-260-1_Bern_1910:3102,1910,person,Rindlisbacher,Joh.,"Mercerie-Bonneterie, Weisswaren en gros et détail",Rindlisbacher,,J,,Mercerie-Bonneterie; Weisswaren en gros et détail,person,,3,person,,3,ja,
+ptt:P-260-1_Bern_1910:955,1910,firma,Direction cant. de l'instruction,,(Directeur),,,,,Directeur,amt,,,amt,,,ja,
+ptt:P-260-1_Bern_1910:587,1910,amt,Bundeshaus,,"Westbau, Hauswart",,,,,Westbau; Hauswart,amt,,,amt,,,ja,
+ptt:P-260-1_Bern_1910:3981,1910,firma,Waffenchef der Kavallerie,,,,,,,,firma,,3,amt,,,nein,"Waffenchef der Kavallerie: Amtsstelle, als Firma gelesen"
+ptt:P-260-1_Bern_1910:677,1910,firma,Café,,"Beundenfeld, Plüss, Fr.",,,,Fr.,Beundenfeld; Plüss,firma,,3,firma,,3,ja,
+ptt:P-260-1_Bern_1910:3992,1910,person,Walch,A.,Kleidergeschäft,Walch,,A,,Kleidergeschäft,person,,2,person,,3,nein,Kleidergeschäft: Handel; die Regel liest «Kleider» (Schneiderei)
+ptt:P-260-1_Bern_1910:942,1910,person,Diehl-Günter,Ad.,,Diehl,,A,,,person,,,person,,,ja,

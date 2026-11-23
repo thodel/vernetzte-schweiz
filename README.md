@@ -8,7 +8,7 @@ Seite: https://thodel.github.io/vernetzte-schweiz/
 
 Plan, Entscheide und offene Fragen: [PLAN.md](PLAN.md) · Datenvertrag:
 [docs/datenvertrag.md](docs/datenvertrag.md) · Verknüpfung:
-[docs/verknuepfung.md](docs/verknuepfung.md), [docs/einheiten.md](docs/einheiten.md) · Seite: [docs/seite.md](docs/seite.md), [docs/karten.md](docs/karten.md), [docs/suche.md](docs/suche.md), [docs/berufssuche.md](docs/berufssuche.md), [docs/volltext.md](docs/volltext.md) · Wanderungen (Versuch): [docs/wanderungen.md](docs/wanderungen.md), Wege von Frauen: [docs/frauen_wege.md](docs/frauen_wege.md) · Infrastruktur (Versuch): [docs/infrastruktur.md](docs/infrastruktur.md) · Elites suisses (SPARQL): [docs/elites_suisses.md](docs/elites_suisses.md) · Angaben aus anderen Projekten: [docs/angaben.md](docs/angaben.md) · Historisches Grundbuch Basel (EOS): [docs/eos.md](docs/eos.md)
+[docs/verknuepfung.md](docs/verknuepfung.md), [docs/einheiten.md](docs/einheiten.md) · Seite: [docs/seite.md](docs/seite.md), [docs/karten.md](docs/karten.md), [docs/suche.md](docs/suche.md), [docs/berufssuche.md](docs/berufssuche.md), [docs/volltext.md](docs/volltext.md) · Wanderungen (Versuch): [docs/wanderungen.md](docs/wanderungen.md), Wege von Frauen: [docs/frauen_wege.md](docs/frauen_wege.md) · Infrastruktur (Versuch): [docs/infrastruktur.md](docs/infrastruktur.md), Kanton Bern gegen BERNHIST: [docs/durchdringung_bern.md](docs/durchdringung_bern.md) · Elites suisses (SPARQL): [docs/elites_suisses.md](docs/elites_suisses.md) · Angaben aus anderen Projekten: [docs/angaben.md](docs/angaben.md) · Historisches Grundbuch Basel (EOS): [docs/eos.md](docs/eos.md)
 
 ## Quellen
 
@@ -32,6 +32,7 @@ make entities # Einheiten über die Jahre bündeln, Normdaten, Messung → links
 make wanderungen # Wer zieht wohin? Kandidaten (Versuch) → links/migration.csv
 make zuzuege     # Wer kommt neu nach Aarau und Zürich, und woher? → links/zuzuege.csv.gz
 make infrastruktur # Telefonnetz, Infrastruktur-Berufe, Bahnhofstrasse → data/norm/infrastruktur.json
+make durchdringung-bern # Telefon im Kanton Bern gegen BERNHIST (liest nur) → data/norm/durchdringung_bern*.csv
 make wikidata # Kandidaten für den Normdaten-Abgleich neu holen → data/ref/
 make site     # Kennzahlen, Suchindex, Einheiten-, Adress- und Ortsseiten → site/data/
 make serve    # Seite lokal auf http://localhost:8000
@@ -52,5 +53,7 @@ dass der Checkout auf dem gepinnten Commit steht. GitHub Pages baut `site/` bei 
 - **Daten in `data/` und Verknüpfungen in `links/`:** entsprechend frei weiterzunutzen, als
   [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/deed.de) (Entscheid
   11.11.2026).
-- **Ausnahmen:** Wikidata-Angaben stehen ebenfalls unter CC0. Aus dem HLS übernehmen wir
+- **Ausnahmen:** `data/ref/bernhist/` enthält Einzelwerte aus BERNHIST (Universitätsbibliothek Bern), deren
+  Nutzungsrechte nicht ausgewiesen sind; der Ordner steht nicht unter CC0 (siehe das README dort).
+  Wikidata-Angaben stehen ebenfalls unter CC0. Aus dem HLS übernehmen wir
   nur Fakten (Name, Lebensdaten, Nummer, Fachgebiet), keinen Artikeltext.

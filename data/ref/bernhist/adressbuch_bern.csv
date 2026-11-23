@@ -1,0 +1,59 @@
+band,band_name,gruppe,zaehler,nenner,nenner_art,quote_prozent
+1883,1883–84,Einträge im Einwohnerverzeichnis,8241,44252,interpoliert,18.6
+1883,1883–84,Personen je Einwohner,7969,44252,interpoliert,18.0
+1883,1883–84,Personen je Haushalt,7969,9552,geschätzt,83.4
+1883,1883–84,Firmen,151,,,
+1883,1883–84,"Ämter, Vereine, Betriebe",96,,,
+1883,1883–84,Verweise,25,,,
+1883,1883–84,Verschiedene Namen,7420,44252,interpoliert,16.8
+1883,1883–84,Frauen,1611,24331,geschätzt,6.6
+1883,1883–84,Witwen,425,2090,geschätzt,20.3
+1883,1883–84,Fräulein,166,,,
+1883,1883–84,Personen mit Erwerb,6776,19440,geschätzt,34.9
+1883,1883–84,Frauen mit Erwerb,969,5906,geschätzt,16.4
+1883,1883–84,1. Sektor,118,551,geschätzt,21.4
+1883,1883–84,2. Sektor,2954,9595,geschätzt,30.8
+1883,1883–84,3. Sektor,3493,9294,geschätzt,37.6
+1883,1883–84,Berufsregister: Einheiten,3880,6151,geschätzt,63.1
+1883,1883–84,Berufsregister: im Einwohnerverzeichnis wiedergefunden,3535,4222,direkt,83.7
+1883,1883–84,Berufsregister: mit gleicher Adresse wiedergefunden,1667,4222,direkt,39.5
+1883,1883–84,Ärzte (Beruf nennt «Arzt»),21,82,interpoliert,25.8
+1883,1883–84,Ärzte (dazu Titel «Dr. med.»),51,82,interpoliert,62.6
+1883,1883–84,"Ärzte (dazu Titel «Dr. med.», gegen Ärztedichte)",51,69,geschätzt,73.5
+1883,1883–84,Ärzte (Rubrik im Berufsregister),,,,
+1883,1883–84,Lehrer und Lehrerinnen (Primarschule genannt),31,102,geschätzt,30.3
+1883,1883–84,Lehrer und Lehrerinnen (ohne Fach- und höhere Schulen),152,102,geschätzt,148.5
+1883,1883–84,Lehrer und Lehrerinnen (alle),316,,,
+1883,1883–84,Spezereihandlungen (Rubrik im Berufsregister),119,167,geschätzt,71.1
+1883,1883–84,Spezereihandlungen (Einwohnerverzeichnis),61,167,geschätzt,36.4
+1883,1883–84,Dienstboten,16,5061,geschätzt,0.3
+1883,1883–84,Taglöhner und Handlanger,44,2794,geschätzt,1.6
+1900,1900,Einträge im Einwohnerverzeichnis,15182,64227,direkt,23.6
+1900,1900,Personen je Einwohner,14184,64227,direkt,22.1
+1900,1900,Personen je Haushalt,14184,13863,geschätzt,102.3
+1900,1900,Firmen,262,,,
+1900,1900,"Ämter, Vereine, Betriebe",453,,,
+1900,1900,Verweise,283,,,
+1900,1900,Verschiedene Namen,13200,64227,direkt,20.6
+1900,1900,Frauen,3189,35316,geschätzt,9.0
+1900,1900,Witwen,1217,2721,geschätzt,44.7
+1900,1900,Fräulein,399,,,
+1900,1900,Personen mit Erwerb,12303,28036,geschätzt,43.9
+1900,1900,Frauen mit Erwerb,1909,8518,geschätzt,22.4
+1900,1900,1. Sektor,218,794,geschätzt,27.5
+1900,1900,2. Sektor,5132,13838,geschätzt,37.1
+1900,1900,3. Sektor,6651,13404,geschätzt,49.6
+1900,1900,Berufsregister: Einheiten,6240,8068,geschätzt,77.3
+1900,1900,Berufsregister: im Einwohnerverzeichnis wiedergefunden,6219,7086,direkt,87.8
+1900,1900,Berufsregister: mit gleicher Adresse wiedergefunden,2625,7086,direkt,37.0
+1900,1900,Ärzte (Beruf nennt «Arzt»),83,103,interpoliert,80.4
+1900,1900,Ärzte (dazu Titel «Dr. med.»),121,103,interpoliert,117.2
+1900,1900,"Ärzte (dazu Titel «Dr. med.», gegen Ärztedichte)",121,92,geschätzt,131.4
+1900,1900,Ärzte (Rubrik im Berufsregister),58,103,interpoliert,56.2
+1900,1900,Lehrer und Lehrerinnen (Primarschule genannt),142,149,geschätzt,95.6
+1900,1900,Lehrer und Lehrerinnen (ohne Fach- und höhere Schulen),221,149,geschätzt,148.8
+1900,1900,Lehrer und Lehrerinnen (alle),462,,,
+1900,1900,Spezereihandlungen (Rubrik im Berufsregister),215,243,geschätzt,88.5
+1900,1900,Spezereihandlungen (Einwohnerverzeichnis),150,243,geschätzt,61.8
+1900,1900,Dienstboten,24,7346,geschätzt,0.3
+1900,1900,Taglöhner und Handlanger,14,4055,geschätzt,0.3

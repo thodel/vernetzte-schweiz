@@ -1,0 +1,61 @@
+id,jahr,entity_type,name1,name2,supplement,surname,forename,initials,title,occupation,art,frau,sektor,soll_art,soll_frau,soll_sektor,richtig,bemerkung
+ptt:P-260-1_Bern_Biel_1885:540,1885,person,Studer-Leuzinger,F.,,Studer,,F,,,person,,,person,,,ja,
+ptt:P-260-1_Bern_Biel_1885:456,1885,firma,Maschinenfabrik Bern,,,,,,,,firma,,2,firma,,2,ja,
+ptt:P-260-1_Bern_Biel_1885:76,1885,person,Gygax,,Fürsprecher,Gygax,,,,Fürsprecher,person,,3,person,,3,ja,
+ptt:P-260-1_Bern_Biel_1885:493,1885,person,Waldau,,Irrenanstalt,Waldau,,,,Irrenanstalt,person,,3,amt,,,nein,"Kantonale Irrenanstalt Waldau: Anstalt, als Person gelesen"
+ptt:P-260-1_Bern_Biel_1885:416,1885,person,Heuberger,,"Confiseurs, Lorraine",Heuberger,,,,Confiseurs; Lorraine,person,,2,person,,2,ja,
+ptt:P-260-1_Bern_Biel_1885:176,1885,person,Schobert,R.,Apotheke Wildbolz,Schobert,,R,,Apotheke Wildbolz,person,,3,person,,3,ja,
+ptt:P-260-1_Bern_Biel_1885:182,1885,firma,Schwanenapotheke,,(Studer),,,,,Studer,firma,,3,firma,,3,ja,
+ptt:P-260-1_Bern_Biel_1885:569,1885,person,Wetli,J.,Tapezierer,Wetli,,J,,Tapezierer,person,,2,person,,2,ja,
+ptt:P-260-1_Bern_Biel_1885:447,1885,person,Christen,A. G.,,Christen,,AG,,,person,,,person,,,ja,
+ptt:P-260-1_Bern_Biel_1885:142,1885,person,Müller,,Dr. Prof.,Müller,,,,Dr. Prof,person,,3,person,,3,ja,
+ptt:P-260-1_Bern_Biel_1885:438,1885,amt,Generalstabs-Bureau,,"Eidgenössische Verwaltungen, eidgen., alte Cav.-Kaserne",,,,,Eidgenössische Verwaltungen; eidgen; alte Cav.-Kaserne,amt,,,amt,,,ja,
+ptt:P-260-1_Bern_Biel_1885:587,1885,firma,Hirter & Werthmüller,,"SUCCESSEURS DE J. SCHEGG & Cie, Camionnage, Expéditions, COMMISSION, ENCAISSEMENT, Entrepositaires et cammioneurs officiels des chemins de fer",,,,,SUCCESSEURS DE J. SCHEGG & Cie; Camionnage; Expéditions; COMMISSION; ENCAISSEMENT; Entrepositaires et cammioneurs officiels des chemins de fer,firma,,3,firma,,3,ja,
+ptt:P-260-1_Bern_Biel_1885:361,1885,person,Ingold,G.,Baumeister,Ingold,,G,,Baumeister,person,,2,person,,2,ja,
+ptt:P-260-1_Bern_Biel_1885:366,1885,person,Hemmann,,Bierbrauereien,Hemmann,,,,Bierbrauereien,person,,2,person,,2,ja,
+ptt:P-260-1_Bern_Biel_1885:530,1885,person,Wicky,,Photographie,Wicky,,,,Photographie,person,,2,person,,2,ja,Photographie zählt wie im Adressbuch zum 2. Sektor
+ptt:P-260-1_Bern_Biel_1885:189,1885,firma,Staatsapotheke,,kantonale,,,,,kantonale,amt,,,amt,,,ja,
+ptt:P-260-1_Bern_Biel_1885:114,1885,amt,Kantons-Kriegskommissariat,,,,,,,,amt,,,amt,,,ja,
+ptt:P-260-1_Bern_Biel_1885:135,1885,person,Locher,J. F.,Wohnung,Locher,,JF,,Wohnung,person,,,person,,,ja,
+ptt:P-260-1_Bern_Biel_1885:148,1885,person,Niehans,P.,Dr.,Niehans,,P,Dr.,,person,,3,person,,3,ja,
+ptt:P-260-1_Bern_Biel_1885:383,1885,person,Biehly,Hans,"Cantinier, Kaserne",Biehly,Hans,H,,Cantinier; Kaserne,person,,3,person,,3,ja,
+ptt:P-260-1_Bern_1900_2:2276,1900,firma,Schreibbücherfabrik Bern,,(J. M. Neher & Söhne),,,,,J. M. Neher & Söhne,firma,,2,firma,,2,ja,
+ptt:P-260-1_Bern_1900_2:1540,1900,person,Krenger,Joh.,Bäckermeister,Krenger,,J,,Bäckermeister,person,,2,person,,2,ja,
+ptt:P-260-1_Bern_1900_2:1256,1900,firma,Hôtel Alpenblick,Rob.,Weck-Hirsbrunner,,,,,Rob; Weck-Hirsbrunner,firma,,3,firma,,3,ja,
+ptt:P-260-1_Bern_1900_2:2325,1900,firma,Schweizer Bauer und Bernische Blätter f. Landwirtschaft,,Administration,,,,,Administration; Bahnhofgebäude,firma,,3,firma,,3,ja,"Zeitung: 3. Sektor trifft zu, erkannt an «Administration»"
+ptt:P-260-1_Bern_1900_2:2578,1900,firma,Tobler & Co.,,Berner-Chocolade-Fabrik,,,,,Berner-Chocolade-Fabrik,firma,,2,firma,,2,ja,
+ptt:P-260-1_Bern_1900_2:546,1900,person,Christen,Gottfried,(Hôtel und Restaurant Tivoli),Christen,Gottfried,G,,Hôtel und Restaurant Tivoli,person,,3,person,,3,ja,
+ptt:P-260-1_Bern_1900_2:2517,1900,person,Aberegg-Bourguignon,P.,"Fleischinspektor, Städtische Verwaltung",Aberegg,,P,,Fleischinspektor; Städtische Verwaltung,person,,3,person,,3,ja,
+ptt:P-260-1_Bern_1900_2:1220,1900,person,Hofer,Michael,Velo- und Nähmaschinenhandlung,Hofer,Michael,M,,Velo- und Nähmaschinenhandlung,person,,2,person,,3,nein,Handlung: «Näh» und «Maschinen» stehen vor «-handlung»
+ptt:P-260-1_Bern_1900_2:1312,1900,amt,Industrie-Departement,,Siehe unter Departemente (S. 65),,,,,Siehe unter Departemente,amt,,,amt,,,ja,"Grenzfall: Verweis («Siehe unter Departemente»), als Amt gezählt"
+ptt:P-260-1_Bern_1900_2:2278,1900,firma,Schüler & Balmer,,Graphische Anstalt,,,,,Graphische Anstalt,firma,,3,firma,,2,nein,"Graphische Anstalt: Druck, über «Anstalt» zum 3. Sektor"
+ptt:P-260-1_Bern_1900_2:1245,1900,person,Hugi,Karl,Schreinermeister,Hugi,Karl,K,,Schreinermeister,person,,2,person,,2,ja,
+ptt:P-260-1_Bern_1900_2:564,1900,firma,Café Antoniotti,,,,,,,,firma,,3,firma,,3,ja,
+ptt:P-260-1_Bern_1900_2:990,1900,firma,"Gebhardt, Roesch & Schatzmann",,Buchdruckerei,,,,,Buchdruckerei,firma,,2,firma,,2,ja,
+ptt:P-260-1_Bern_1900_2:2116,1900,person,Rooschüz,Hans,Fabrikant,Rooschüz,Hans,H,,Fabrikant,person,,2,person,,2,ja,
+ptt:P-260-1_Bern_1900_2:1948,1900,person,Oberfeldarzt,,eidg.,Oberfeldarzt,,,,Bundeshaus Ostbau,person,,3,amt,,,nein,"Amtsstelle des Bundes, als Person gelesen"
+ptt:P-260-1_Bern_1900_2:589,1900,firma,Café zur Innern Enge,,Böschenstein,,,,,Böschenstein,firma,,3,firma,,3,ja,
+ptt:P-260-1_Bern_1900_2:1554,1900,person,Küenzi,Ed.,Zeugschmied,Küenzi,,E,,Zeugschmied,person,,2,person,,2,ja,
+ptt:P-260-1_Bern_1900_2:2496,1900,person,v. Stürler-v. Hegner,,Frau,v. Stürler,,,Frau,,person,frau,,person,frau,,ja,
+ptt:P-260-1_Bern_1900_2:309,1900,person,Bauer,G.,Buchbinderei,Bauer,,G,,Buchbinderei,person,,2,person,,2,ja,
+ptt:P-260-1_Bern_1900_2:287,1900,person,Balsiger-Streit,,Weinhandlung u. Sauerkrautfabrik,Balsiger,,,,Weinhandlung u. Sauerkrautfabrik,person,,3,person,,3,ja,
+ptt:P-260-1_Bern_1910:95,1910,person,Amrein,Franz,Bäckerei,Amrein,Franz,F,,Bäckerei,person,,2,person,,2,ja,
+ptt:P-260-1_Bern_1910:3731,1910,person,Stooss,M.,Prof. Dr. med. (Wohnung),Stooss,,M,,Prof. Dr. med; Wohnung,person,,3,person,,3,ja,
+ptt:P-260-1_Bern_1910:4097,1910,person,Wernly-Kind,G.,Gymnasiallehrer,Wernly,,,,Gymnasiallehrer; kleiner Muristalden 22,person,,3,person,,3,ja,
+ptt:P-260-1_Bern_1910:3908,1910,person,Uhlmann,Karl,Bäckerei,Uhlmann,Karl,K,,Bäckerei,person,,2,person,,2,ja,
+ptt:P-260-1_Bern_1910:1330,1910,firma,Geiger & Eggenberger,,Zimmergeschäft,,,,,Zimmergeschäft,firma,,2,firma,,2,ja,
+ptt:P-260-1_Bern_1910:902,1910,firma,"David, A., & Co.",,(Wohnung),,,,,Wohnung,firma,,unbestimmt,firma,,unbestimmt,ja,Grenzfall: Firma ohne Angabe; «unbestimmt» und leer gelten beide als kein Sektor
+ptt:P-260-1_Bern_1910:946,1910,person,Dinkel,Albert,Privatier,Dinkel,Albert,A,,Privatier,person,,ohne,person,,ohne,ja,
+ptt:P-260-1_Bern_1910:2945,1910,person,Pfluger,A.,"Direktor der Möbelfabrik A. Pfluger & Co., A.-G.",Pfluger,,A,,Direktor der Möbelfabrik A. Pfluger & Co; A.-G,person,,3,person,,2,nein,Direktor einer Möbelfabrik: nach dem Erwerbszweig 2. Sektor; die Regel liest «Direktor»
+ptt:P-260-1_Bern_1910:3282,1910,person,Schaub,B.,Bäckermeister,Schaub,,B,,Bäckermeister,person,,2,person,,2,ja,
+ptt:P-260-1_Bern_1910:3208,1910,firma,Rutishauser & Ludwig,,Buchdruckerei,,,,,Buchdruckerei,firma,,2,firma,,2,ja,
+ptt:P-260-1_Bern_1910:1923,1910,person,Jahn,Karl,Wohnung,Jahn,Karl,K,,Wohnung,person,,,person,,,ja,
+ptt:P-260-1_Bern_1910:1390,1910,firma,"Gewerbeverein, schweiz.",,(Sekretariat),,,,,Sekretariat,firma,,3,firma,,3,ja,"Grenzfall: Verein, als Firma im 3. Sektor gezählt"
+ptt:P-260-1_Bern_1910:3437,1910,person,Schweinfurth,H.,,Schweinfurth,,H,,,person,,,person,,,ja,
+ptt:P-260-1_Bern_1910:3919,1910,person,Untersuchungsrichter,,ausserordentlicher,Untersuchungsrichter,,,,ausserordentlicher,person,,unbestimmt,amt,,,nein,"Amtsstelle, als Person gelesen"
+ptt:P-260-1_Bern_1910:7780,1910,person,Böhme-Sterchi,,"vorm. Hausmann & Co., Fabrik",Böhme,,,,vorm. Hausmann & Co; Fabrik,person,,unbestimmt,person,,2,nein,"«vorm. Hausmann & Co., Fabrik»: die erste Angabe ist der Vorgänger"
+ptt:P-260-1_Bern_1910:2632,1910,amt,"Militärdepartement, eidg.",,Pulververwaltung,,,,,Pulververwaltung,amt,,,amt,,,ja,
+ptt:P-260-1_Bern_1910:2978,1910,amt,Polizeidirektor,,"(Bureau), Neues Polizeigebäude",,,,,Bureau; Neues Polizeigebäude,amt,,,amt,,,ja,
+ptt:P-260-1_Bern_1910:1087,1910,person,Fabrega,J.,,Fabrega,,J,,,person,,,person,,,ja,
+ptt:P-260-1_Bern_1910:4120,1910,person,Wiedmer-Stern,J.,Direktor des historischen Museums (Wohnung),Wiedmer,,J,,Direktor des historischen Museums; Wohnung,person,,3,person,,3,ja,
+ptt:P-260-1_Bern_1910:582,1910,person,Bahningenieur I,,Dienstgebäude Personenbahnhof,Bahningenieur,,I,,Dienstgebäude Personenbahnhof,person,,3,amt,,,nein,"Dienststelle der Bahn, als Person gelesen"

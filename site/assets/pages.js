@@ -1337,6 +1337,18 @@
     const duTop = el("ul", { class: "hitlist cols" }, ...DU.top.map(r =>
       el("li", {}, el("b", {}, `${p1(100 * r[6] / r[7])} %`), " ", r[8] ? link(placeHref(r[0]), r[0]) : r[0],
         el("span", { class: "muted" }, ` ${r[2]} · ${t.inf_du_tip.replace("{e}", n(r[6])).replace("{h}", n(r[7]))}`))));
+    // Kanton Bern gegen BERNHIST (scripts/durchdringung_bern.py): Grösse × Erwerbsstruktur, Stadt Bern nach Gruppen
+    let BE = null;
+    try { BE = await get("data/durchdringung_bern.json.gz"); } catch { /* Abschnitt fällt weg */ }
+    const beBlock = !BE ? [] : [
+      el("h3", { id: "inf-bern" }, t.inf_be_h), el("p", { class: "intro" }, t.inf_be_p),
+      table([t.inf_rail_size, ...BE.gruppen.map(g => t[`inf_be_g_${g}`])],
+        BE.kreuz.map(([k, cells]) => [k.replace(/^ab (\d+)$/, "≥ $1"), ...cells.map(([m, c]) => c >= 5 ? `${p2(m)} (${n(c)})` : `– (${n(c)})`)])),
+      el("p", { class: "intro" }, t.inf_be_city_p),
+      table([t.inf_be_col_group, ...BE.jahre.map(String)],
+        BE.stadt.map(([key, vals]) => [t[`inf_be_r_${key}`], ...vals.map(([z, nn, art]) => `${(100 * z / nn < 1 ? p2 : p1)(100 * z / nn)}${art === "direkt" ? "" : " *"} (${n(z)})`)])),
+      el("p", { class: "sub note" }, t.inf_be_note.replace("{n}", n(BE.n)).replace("{a}", n(BE.stichprobe[0])).replace("{b}", n(BE.stichprobe[1])), " ",
+        link("https://github.com/thodel/vernetzte-schweiz/blob/main/docs/durchdringung_bern.md", t.inf_be_doc))];
     const B = SP.bahn;
     const rateTd = (k, all) => `${pct(k, all)}`;
     const railTable = table([t.inf_rail_size, t.inf_rail_with, t.inf_rail_phone, t.inf_rail_call, t.inf_rail_without, t.inf_rail_phone, t.inf_rail_call],
@@ -1373,6 +1385,7 @@
       el("p", { class: "intro" }, t.inf_du_top_p), duTop,
       el("p", { class: "sub note" }, t.inf_du_src.replace("{h}", n(DU.sources.hls)).replace("{b}", n(DU.sources.bfs)).replace("{i}", n(DU.sources.identical)).replace("{c}", n(DU.sources.compared))),
       el("p", { class: "sub note" }, t.inf_pop_note.replace("{n}", n(E.implausible.length)).replace("{x}", E.implausible.slice(0, 4).map(r => r[0]).join(", "))),
+      ...beBlock,
       el("h3", {}, t.inf_rail_h), el("p", { class: "intro" }, t.inf_rail_p.replace("{s}", n(B.stations)).replace("{m}", n(B.dated_municipalities))), railTable,
       el("p", { class: "sub note" }, t.inf_rail_note),
       el("p", { class: "sub note" }, link("https://github.com/thodel/vernetzte-schweiz/blob/main/docs/infrastruktur.md", t.mw_doc)));

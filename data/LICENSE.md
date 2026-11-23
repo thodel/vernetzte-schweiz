@@ -9,3 +9,6 @@ keine Schöpfungshöhe, und wo doch ein Werk vorläge, ist die Schutzfrist (Art.
 Verknüpfungen) werden ebenso frei gegeben. Entscheid vom 11.11.2026, siehe README.md.
 
 Aus dem HLS stammen nur Fakten (Name, Lebensdaten, Nummer, Fachgebiet), kein Artikeltext.
+
+Ausnahme: `ref/bernhist/` enthält Einzelwerte aus BERNHIST (Universitätsbibliothek Bern), deren
+Nutzungsrechte nicht ausgewiesen sind. Der Ordner steht nicht unter CC0; siehe `ref/bernhist/README.md`.

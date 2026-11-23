@@ -1,6 +1,6 @@
 PY ?= python3
 
-.PHONY: ref ingest link entities wanderungen zuzuege infrastruktur check-wanderungen hls elites wikidata site serve test
+.PHONY: ref ingest link entities wanderungen zuzuege infrastruktur durchdringung-bern check-wanderungen hls elites wikidata site serve test
 ref:
 	$(PY) scripts/ref_places.py
 ingest:
@@ -20,6 +20,10 @@ zuzuege:
 	$(PY) scripts/zuzuege.py
 infrastruktur:
 	$(PY) scripts/infrastruktur.py
+# BERNHIST_SQLITE=<Dump> liest die Referenz neu aus BERNHIST; ohne rechnet ref_bernhist.py aus data/ref/bernhist/werte.csv
+durchdringung-bern:
+	$(PY) scripts/ref_bernhist.py
+	$(PY) scripts/durchdringung_bern.py
 check-wanderungen:
 	$(PY) scripts/check_migration.py --upstream
 hls:
@@ -38,6 +42,7 @@ site:
 	$(PY) scripts/migration.py site
 	$(PY) scripts/zuzuege.py site
 	$(PY) scripts/infrastruktur.py site
+	$(PY) scripts/durchdringung_bern.py site
 serve: site
 	cd site && python3 -m http.server 8000
 test:

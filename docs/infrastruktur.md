@@ -177,6 +177,13 @@ vergleichbaren Werten sind gleich. HLS-Werte gelten für 1'499 Gemeinden, BFS al
 Zwischen den Zähljahren wird geometrisch interpoliert. Eine Gemeinde von 1914 zählt zu ihrer Gemeinde
 von 2000; was bis 2000 zusammenging, wird zusammengezählt.
 
+*Kanton Bern.* Für die Berner Gemeinden gibt es mit BERNHIST eine zweite Referenz, die auch die Erwerbstätigen
+nach Sektor 1910 nennt. Dichte gegen Grösse und Erwerbsstruktur und die Stadt Bern nach Gruppen (Sektoren, Ärzte,
+Frauen, neben dem Adressbuch) stehen in [durchdringung_bern.md](durchdringung_bern.md)
+(`scripts/ref_bernhist.py`, `scripts/durchdringung_bern.py`). Der Abgleich dort zeigt nebenbei: `unit_2000()`
+liest «valid_to 31.12.1978» als Fusion; im Kanton Bern ist das die Neunummerierung der Bezirke von 1979, und
+die betroffenen Gemeinden zählen hier zu ihrer heutigen Gemeinde statt zu der von 2000.
+
 *Haushalte.* Das HLS nennt keine Haushalte. Haushalte = Einwohner / Personen je Haushaltung im Kanton
 (`data/ref/household_size.csv`; Statistisches Bureau, «Die Verteilung der Bevölkerung auf die
 bewohnten Häuser und auf die Haushaltungen», Zeitschrift für schweizerische Statistik 1914, S. 222,
