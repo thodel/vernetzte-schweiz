@@ -176,7 +176,8 @@ Verknüpfung und Bau laufen durch.
   Chur haben ihre Einträge wieder (Lausanne 1914 41 → 4 377, Winterthur 1914 449 → 1 145); Gemeinden je Band
   331–553 → 681–843. Dazu Normdaten Basel nach EOS-Prüfung (53ccb22) und fünf Ortsaliase (Davos-Platz …).
   Einträge 1 488 236 → 1 511 686, Einheiten 568 645 → 549 188; Wanderungen 526 → 557 (stark 61, mittel 367,
-  schwach 129). Offen: Montreux ohne Gemeinde (1914 zwei Gemeinden).
+  schwach 129). Montreux danach (Entscheid 24.11.) bei Le Châtelard-Montreux: Einträge 1 515 778, Einheiten
+  550 624, Wanderungen 563.
 - offen: Bern 1860 (Fraktur, nicht ganz gelesen).
 
 **M6 — Visualisierungen.** ✔ 10.11.2026: Karten «Wer bekam wann ein Telefon», «Berufe», «Namen» (`#/karten`), Berufssuche mit Karte und Quellenfilter in der Suche; [Aufbau und Messung](docs/karten.md). Umgesetzt sind die ersten drei Punkte; die weiteren Ideen bleiben offen. Nachgetragen: Regler für Jahre (ein Jahr oder Bereich) statt Zeiträumen, Quelle Telefon-/Adressbuch in «Berufe» und «Namen». Grundlage sind die Einheiten aus M3 (eine Person oder Firma

@@ -57,21 +57,22 @@ Einträgen unter «Müller» (Zürich); dort fällt nur Lauf C weg, A und B blei
 
 `Gemeinden` sind die Gemeinden von 1914 nach `places.py`; `Einträge` ohne Zeilen ohne Namen.
 
-| Band | Einträge neu | vorher | Gemeinden neu | vorher | ohne Gemeinde neu | davon Montreux | vorher |
-|---|---:|---:|---:|---:|---:|---:|---:|
-| 1 1911 | 22 699 | 21 793 | 805 | 331 | 1 170 | 959 | 1 299 |
-| 1 1912 | 24 137 | 23 374 | 820 | 471 | 1 251 | 994 | 271 |
-| 1 1913 | 26 060 | 25 671 | 835 | 489 | 1 364 | 1 069 | 2 108 |
-| 1 1914 | 27 732 | 27 250 | 843 | 483 | 1 492 | 1 142 | 390 |
-| 3 1911 | 28 289 | 27 305 | 681 | 504 | 431 | 0 | 968 |
-| 3 1912 | 30 227 | 29 226 | 696 | 502 | 543 | 0 | 1 136 |
-| 3 1913 | 32 611 | 31 671 | 725 | 526 | 513 | 0 | 1 431 |
-| 3 1914 | 34 466 | 33 294 | 731 | 553 | 598 | 0 | 1 580 |
+| Band | Einträge neu | vorher | Gemeinden neu | vorher | ohne Gemeinde neu | vorher |
+|---|---:|---:|---:|---:|---:|---:|
+| 1 1911 | 22 699 | 21 793 | 806 | 331 | 206 | 1 299 |
+| 1 1912 | 24 137 | 23 374 | 821 | 471 | 251 | 271 |
+| 1 1913 | 26 060 | 25 671 | 836 | 489 | 289 | 2 108 |
+| 1 1914 | 27 732 | 27 250 | 843 | 483 | 343 | 390 |
+| 3 1911 | 28 289 | 27 305 | 681 | 504 | 431 | 968 |
+| 3 1912 | 30 227 | 29 226 | 696 | 502 | 543 | 1 136 |
+| 3 1913 | 32 611 | 31 671 | 725 | 526 | 513 | 1 431 |
+| 3 1914 | 34 466 | 33 294 | 731 | 553 | 598 | 1 580 |
 
-In Band 1 steigt die Zahl ohne Gemeinde, weil Montreux jetzt als Montreux dasteht; vorher standen seine Einträge
-unter Dörfern wie «Naz (Echallens)» und hatten so eine (falsche) Gemeinde. Ohne Montreux bleiben 211 bis 350
-Einträge je Band ohne Gemeinde. Fünf Zeilen in `data/ref/place_aliases.csv` ordnen Davos-Platz und Davos-Dorf
-Davos zu, «Commune de Plainpalais», «Commune du Petit-Saconnex» und «Ville de Carouge» ihren Gemeinden; das wirkt
+Montreux stand in der Quelle zum Teil unter Dörfern wie «Naz (Echallens)». Der Ort lag 1914 in zwei Gemeinden
+(Le Châtelard-Montreux und Les Planches); auf Entscheid vom 24.11.2026 gehört «Montreux» ohne nähere Angabe zu
+Le Châtelard-Montreux, der grösseren der beiden (964 bis 1 150 Einträge je Band, dazu 38 bis 110 je Regionalbuch
+Montreux 1884 und Genève–Lausanne 1885/1890). Sechs Zeilen in `data/ref/place_aliases.csv`: Montreux, Davos-Platz
+und Davos-Dorf (Davos), «Commune de Plainpalais», «Commune du Petit-Saconnex» und «Ville de Carouge»; das wirkt
 auch auf die Regionalbücher Chur 1894–1909.
 
 Einträge je Gemeinde, vorher und nachher (Auswahl):
@@ -112,26 +113,26 @@ Abstimmung (Spalte `Check`):
 
 ## Folgen für die abgeleiteten Zahlen
 
-Gerechnet zusammen mit den Normdaten von Basel nach der Prüfung gegen die EOS-Personen (adressbuecher-basel
+Gerechnet mit Montreux bei Le Châtelard-Montreux und zusammen mit den Normdaten von Basel nach der Prüfung gegen die EOS-Personen (adressbuecher-basel
 53ccb22, vorher b94acb6).
 
-- Einträge 1 488 236 → 1 511 686, Einheiten 568 645 → 549 188 (mit mehr als einem Eintrag 247 307 → 249 056); im
-  Telefon- und im Adressbuch 14 274 → 15 926 ([einheiten.md](einheiten.md)). Weniger Einheiten bei mehr
+- Einträge 1 488 236 → 1 515 778, Einheiten 568 645 → 550 624 (mit mehr als einem Eintrag 247 307 → 250 108); im
+  Telefon- und im Adressbuch 14 274 → 15 949 ([einheiten.md](einheiten.md)). Weniger Einheiten bei mehr
   Einträgen: Einträge von Lausanne, Winterthur oder Davos stehen nicht mehr unter falschen Orten als eigene
   Einheiten.
 - Telefon nach Gemeinden ([infrastruktur.md](infrastruktur.md)): 2 786 statt 2 709 Gemeinden haben bis 1914
   einen Eintrag. Ämter und Werke sinken, weil die falschen Überschriften sie auf Dörfer verteilt hatten: In Band 1
   1913 stand ganz Aigle unter «Aclens (Morges)», mit Greffe municipal, Gendarmerie und Préfecture. Bis 1914 eine
   Gemeindekanzlei 589 statt 706 Gemeinden, ein Elektrizitätswerk 223 statt 289, eine öffentliche Sprechstelle
-  1 629 statt 1 691.
+  1 630 statt 1 691.
 - Rangliste der Gemeinden ab 5 000 Einwohnern: Genève 18,7 % statt 25,6 % Personen je 100 Haushalte (der Lausanner
-  Block zählte mit), neu vorn Davos 18,6 % und Lausanne 18,2 %; die Reihen je Stadt zeigen neu Davos und Delémont
+  Block zählte mit), neu vorn Davos 18,6 %, Lausanne 18,2 % und Montreux 17,9 %; die Reihen je Stadt zeigen neu Davos und Delémont
   (25 statt 23 Städte).
-- Wanderungen 526 → 557 Paare (stark 61, mittel 367, schwach 129; [wanderungen.md](wanderungen.md)).
+- Wanderungen 526 → 563 Paare (stark 62, mittel 370, schwach 131; [wanderungen.md](wanderungen.md)).
 
 ## Was offen bleibt
 
-- **Montreux** (959 bis 1 142 Einträge je Band) bleibt ohne Gemeinde: Der Ort lag 1914 in zwei Gemeinden
-  (Le Châtelard-Montreux und Les Planches); `places.py` ordnet ihn darum nicht zu, wie schon in den Regionalbüchern
-  Genève–Lausanne 1885/1890.
+- **Montreux** steht ganz bei Le Châtelard-Montreux, auch Einträge, die zu Les Planches gehören (ein Teil des Orts
+  lag in Les Planches). Die Telefondichte von Montreux rechnet darum mit der heutigen Gemeinde Montreux als
+  Nenner.
 - **Trennstriche vom Zeilenende** bleiben ausser vor dem Grundwort einer Strasse stehen, wie in Band 2a und 2b.

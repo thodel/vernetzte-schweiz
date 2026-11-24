@@ -55,7 +55,7 @@ taugt dafür nicht: «Weitnauer, Cigarrenhandlung» ist eine Person mit Geschäf
 öffentliche Sprechstellen (`CALL_OFFICE`: «Gemeindestation», «Gemeindesprechstation», «Station
 communale», «Station publique», «Stazione pubblica», «Stazione consortile»). Von den 3'151 Gemeinden
 am 1.1.1914 (BFS) haben 2'786 bis 1914 mindestens einen Eintrag (88 %), 2'196 schon bis 1910. Eine
-öffentliche Sprechstelle haben bis 1914 1'629 Gemeinden, knapp sechs von zehn mit Telefon. Die Karte färbt
+öffentliche Sprechstelle haben bis 1914 1'630 Gemeinden, knapp sechs von zehn mit Telefon. Die Karte färbt
 nach Jahrzehnten (1880–1889, 1890–1899, 1900–1910, 1911–1914); die Kantonstabelle nennt den Stand
 1890, 1900, 1910 und 1914.
 
@@ -124,14 +124,14 @@ solcher Eintrag steht; in Klammern der Anteil an den Gemeinden mit Telefon bis d
 
 | Art | bis 1890 | bis 1900 | bis 1910 | bis 1914 |
 |---|---|---|---|---|
-| Öffentliche Sprechstelle | 8 (4 %) | 476 (36 %) | 1'113 (51 %) | 1'629 (58 %) |
+| Öffentliche Sprechstelle | 8 (4 %) | 476 (36 %) | 1'113 (51 %) | 1'630 (59 %) |
 | Gemeindekanzlei | 18 (8 %) | 70 (5 %) | 293 (13 %) | 589 (21 %) |
-| Post- und Telegrafenbüro | 7 (3 %) | 117 (9 %) | 365 (17 %) | 420 (15 %) |
-| Bahnhof, Station | 11 (5 %) | 42 (3 %) | 113 (5 %) | 240 (9 %) |
+| Post- und Telegrafenbüro | 7 (3 %) | 117 (9 %) | 365 (17 %) | 421 (15 %) |
+| Bahnhof, Station | 11 (5 %) | 42 (3 %) | 113 (5 %) | 241 (9 %) |
 | Elektrizitätswerk | 0 | 26 (2 %) | 139 (6 %) | 223 (8 %) |
 | Gaswerk | 7 (3 %) | 15 (1 %) | 52 (2 %) | 88 (3 %) |
-| Wasserversorgung | 7 (3 %) | 16 (1 %) | 43 (2 %) | 69 (2 %) |
-| Bahnhofstrasse in einer Adresse | 15 (7 %) | 38 (3 %) | 91 (4 %) | 112 (4 %) |
+| Wasserversorgung | 7 (3 %) | 16 (1 %) | 43 (2 %) | 70 (3 %) |
+| Bahnhofstrasse in einer Adresse | 15 (7 %) | 38 (3 %) | 91 (4 %) | 113 (4 %) |
 | Gemeinden mit Telefon | 220 | 1'322 | 2'196 | 2'786 |
 
 - Werke (`WORKS`): nach dem Namen eines Betriebs oder Amts, nicht nach dem Beruf einer Person. Ein
@@ -201,10 +201,10 @@ Händler oder Ärzte mit dem Telefon im Geschäft.
 
 | Jahr | Einwohner | Einträge | Rufnummern | Personen | Einträge je 100 Einwohner | Personen je 100 Haushalte |
 |---|---|---|---|---|---|---|
-| 1911 | 3'765'806 | 77'155 | 67'966 | 47'848 | 2,05 | 5,8 % |
-| 1912 | 3'778'361 | 82'127 | 73'231 | 51'604 | 2,17 | 6,2 % |
-| 1913 | 3'790'958 | 88'196 | 77'958 | 55'526 | 2,33 | 6,6 % |
-| 1914 | 3'803'597 | 93'937 | 82'427 | 58'567 | 2,47 | 7,0 % |
+| 1911 | 3'765'806 | 77'155 | 67'965 | 47'847 | 2,05 | 5,8 % |
+| 1912 | 3'778'361 | 82'127 | 73'228 | 51'603 | 2,17 | 6,2 % |
+| 1913 | 3'790'958 | 88'196 | 77'955 | 55'525 | 2,33 | 6,6 % |
+| 1914 | 3'803'597 | 93'937 | 82'423 | 58'566 | 2,47 | 7,0 % |
 
 Einen eigenen Band 2c (Tessin) gibt es nur 1911 und 1912; 1913 und 1914 steht das Tessin in Band 2b
 (2'200–2'400 Einträge). Band 2c ist für 1911 und 1912 neu gelesen ([neulesung_2c.md](neulesung_2c.md)),
@@ -222,8 +222,7 @@ Lugano 4,4 (1900), 13,4 (1914).
 unter «Basel», in Band 1 der Lausanner Block 1914 unter «Genève» und Aigle 1913 unter «Aclens», in Band 3 Winterthur unter «Winterberg», bis zur Neulesung der Bände (1911–1914, [neulesung_2b.md](neulesung_2b.md), [neulesung_2a.md](neulesung_2a.md), [neulesung_13.md](neulesung_13.md)). `places.py` findet diese Einträge über die Familiennamen des Regionalbuchs wieder
 (9'714 Zeilen), aber nicht vollständig. Zum Vergleich: Burgdorf hat 239 Einträge im Regionalbuch 1910 und nach der Neulesung
 von Band 2a 259, 285, 305 und 316 (vorher 218, 152, 5 und 46); Aarau 530 und nach der Neulesung von Band 2b 510, 522, 528
-und 544 (vorher 1911 und 1912: 347 und 283). Orte ohne Regionalbuch zum Vergleich
-(Montreux, auf zwei Gemeinden verteilt) bleiben leer. Ein einzelnes Jahr taugt darum nicht. Gezählt wird je Gemeinde das
+und 544 (vorher 1911 und 1912: 347 und 283). Orte ohne Regionalbuch zum Vergleich bleiben leer. Ein einzelnes Jahr taugt darum nicht. Gezählt wird je Gemeinde das
 Jahr 1909–1914 mit den meisten Einträgen (`END_YEARS`), nur sicher verortete Einträge, und gezeigt wird
 der Median der Klasse, nicht die Summe: Ein Lauf, der in ein Dorf gerutscht ist, verzerrt die Summe,
 nicht den Median.
@@ -234,13 +233,13 @@ nicht den Median.
 | 500–999 | 642 | 96 % | 0,49 | 1,2 % |
 | 1'000–1'999 | 473 | 97 % | 0,77 | 2,3 % |
 | 2'000–4'999 | 269 | 99 % | 1,36 | 3,9 % |
-| 5'000–19'999 | 69 | 100 % | 2,24 | 6,5 % |
+| 5'000–19'999 | 69 | 100 % | 2,28 | 6,5 % |
 | ab 20'000 | 12 | 100 % | 5,25 | 15,1 % |
 
 Die Werte der kleinen und mittleren Gemeinden sind Untergrenzen: Wo weder ein Regionalbuch von
 1909/1910 vorliegt noch die Überschrift im gesamtschweizerischen Band gelesen ist, fehlen die Einträge. Eine Tabelle
 nach Kantonen gibt es aus demselben Grund nicht. Die Rangliste der Seite nennt nur Gemeinden ab 5'000
-Einwohnern (`TOWN`): Genève 18,7 %, Davos 18,6 %, Lausanne 18,2 %, Bern 17,1 %, Zürich 16,3 %, Aarau 16,1 %, Luzern 16,0 %. Vor der Neulesung der Bände 1 und 3 stand Genève mit 25,6 % vorn: In Band 1 1914 zählte der Lausanner Block mit.
+Einwohnern (`TOWN`): Genève 18,7 %, Davos 18,6 %, Lausanne 18,2 %, Montreux 17,9 %, Bern 17,1 %, Zürich 16,3 %, Aarau 16,1 %. Vor der Neulesung der Bände 1 und 3 stand Genève mit 25,6 % vorn: In Band 1 1914 zählte der Lausanner Block mit.
 
 Die Karte «Einträge je 1000 Einwohner» zeigt ebenfalls das beste Jahr 1909–1914; 27 Gemeinden mit
 mehr als 250 je 1000 bleiben weg, dort ist die Ortszuordnung falsch (z. B. Kammersrohr, Bettens).
