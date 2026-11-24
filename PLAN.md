@@ -167,6 +167,10 @@ Verknüpfung und Bau laufen durch.
   1905, 1906 und 1908 sind im Zürcher Repo abgelehnt (Stichprobe unter 80 %). Die neuen Vornamen verschieben die
   Zerlegung von 977 Telefonbuch-Einträgen (Vorname, Initialen, Beruf); in der Stadt Bern 1910 ändert das die Zähler
   um 1 bis 3, die Quoten nicht.
+- ✔ 24.11.2026 **Zürich 1911** (Wochenlauf, qwen3.8 auf tei; adressbuecher-zuerich c3545ec; Stichprobe 19 von 20 voll
+  richtig): 77 121 Einträge (Einwohner 60 524, Berufsregister 16 597). Zürich jetzt 749 092 Einträge. Einträge
+  1 411 128 → 1 488 236, Einheiten 558 776 → 568 645 (mit mehr als einem Eintrag 237 632 → 247 307); Telefonbuch
+  Zürich verknüpft 43 763 → 44 193; Wanderungen 524 → 526 (stark 59, mittel 336, schwach 131).
 - offen: Bern 1860 (Fraktur, nicht ganz gelesen).
 
 **M6 — Visualisierungen.** ✔ 10.11.2026: Karten «Wer bekam wann ein Telefon», «Berufe», «Namen» (`#/karten`), Berufssuche mit Karte und Quellenfilter in der Suche; [Aufbau und Messung](docs/karten.md). Umgesetzt sind die ersten drei Punkte; die weiteren Ideen bleiben offen. Nachgetragen: Regler für Jahre (ein Jahr oder Bereich) statt Zeiträumen, Quelle Telefon-/Adressbuch in «Berufe» und «Namen». Grundlage sind die Einheiten aus M3 (eine Person oder Firma

@@ -97,11 +97,11 @@ files = [
 id = "zuerich"
 label = "Zürich"
 repo = "thodel/adressbuecher-zuerich"
-commit = "f07f0a967ab68a3480119083cd9c7f2ce6111922"
+commit = "c3545ec9f1552ac23991f0e3857200151e3f8da3"
 site = "https://thodel.github.io/adressbuecher-zuerich/"
 authority = "data/csv/10_authority_links.csv"
 # Gelesen mit qwen3.8 (ohne Nachkorrektur; Stichprobe der Verknüpfung in data/review/m5_zuerich.csv).
-# Bände 1859–1945; übernommen werden die Bände im Zeitfenster, 1867–1914. Seit 9db327f auch 1901, seit 144354d auch 1902, seit f07f0a9 auch 1903, 1904, 1907, 1909 und 1910 (Wochenlauf,
+# Bände 1859–1945; übernommen werden die Bände im Zeitfenster, 1867–1914. Seit 9db327f auch 1901, seit 144354d auch 1902, seit f07f0a9 auch 1903, 1904, 1907, 1909 und 1910, seit c3545ec auch 1911 (Wochenlauf,
 # scripts/weekly/ im Zürcher Repo); die übrigen Bände 1877–1913 kommen nach und nach.
 # Seit c2eabb4 je Band eine Datei (zusammen über 100 MB); 1900 hat kein Berufsregister.
 # Schema wie Aarau, dazu Spalte `district` (Kreis 1900/1914, alte Gemeinde 1867–1885, Grosse/Kleine Stadt 1859);
@@ -118,6 +118,7 @@ files = [
   { path = "data/csv/04_entries_1907.csv", kind = "einwohner" },
   { path = "data/csv/04_entries_1909.csv", kind = "einwohner" },
   { path = "data/csv/04_entries_1910.csv", kind = "einwohner" },
+  { path = "data/csv/04_entries_1911.csv", kind = "einwohner" },
   { path = "data/csv/04_entries_1914.csv", kind = "einwohner" },
   { path = "data/csv/04_berufe_1867.csv",  kind = "berufe" },
   { path = "data/csv/04_berufe_1875.csv",  kind = "berufe" },
@@ -128,6 +129,7 @@ files = [
   { path = "data/csv/04_berufe_1907.csv",  kind = "berufe" },
   { path = "data/csv/04_berufe_1909.csv",  kind = "berufe" },
   { path = "data/csv/04_berufe_1910.csv",  kind = "berufe" },
+  { path = "data/csv/04_berufe_1911.csv",  kind = "berufe" },
   { path = "data/csv/04_berufe_1914.csv",  kind = "berufe" },
 ]
 
