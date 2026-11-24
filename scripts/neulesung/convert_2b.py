@@ -1,11 +1,13 @@
-"""Lesungen der Bände 2a und 2b 1911–1914 → Tabelle im Format der Charge B.
-convert_2b.py VOL YEAR OUT.tsv [--ganz] [--quelle ORDNER] [--report]      (VOL: 2b_1913, 2a_1911 …)
+"""Lesungen der Bände 1, 2a, 2b und 3 1911–1914 → Tabelle im Format der Charge B.
+convert_2b.py VOL YEAR OUT.tsv [--ganz] [--quelle ORDNER] [--report]      (VOL: 2b_1913, 2a_1911, 1_1912, 3_1914 …)
 
 Band 2b beginnt mit Basel und (ausser 1911) Luzern als eigenen Blöcken und ordnet danach alle Orte der Netzgruppe
 (Aargau, Baselland, Innerschweiz, Solothurn, 1913/14 auch Tessin) in einem Alphabet. Band 2a beginnt mit Bern und
 ordnet danach die Orte der Netzgruppe Bern (Kanton Bern ohne Jura, Solothurn, Teile von Freiburg und Luzern); 1914
 stehen davor sieben Seiten der Landesausstellung, die zu Bern gehören (FRONT). Das Merkblatt «Pro memoria» am Ende
-des Bands bleibt weg, ebenso leere Seiten, auf denen das Modell Einträge erfindet (invented()).
+des Bands bleibt weg, ebenso leere Seiten, auf denen das Modell Einträge erfindet (invented()). Band 1 (Westschweiz)
+beginnt mit Genève, Band 3 (Ostschweiz) mit Zürich, danach je ein Alphabet; die grossen Städte (Lausanne, St. Gallen)
+stehen als Block mit Überschrift in Versalien darin.
 
 Lauf A (Massstab 1,3) gibt Reihenfolge und Bestand vor; je Feld (Name, Rest, Ort) gilt, was zwei von drei Läufen
 (B 1,0, C 1,6) gleich lesen, sonst A. Zugeordnet wird über die Rufnummer auf derselben Seite. Spalte Check wie in
@@ -151,6 +153,12 @@ def header_town(header: str) -> str:
     return "" if re.search(r"[-–—=]", town) else town      # Spanne zweier Orte: kein einzelner Ort
 
 
+def is_span(header: str) -> bool:
+    """«Gersau-Giubiasco», «Romanshorn - Rorbas»: zwei Orte. «La Chaux-de-Fonds» ist einer (vor «de» steht ein
+    Bindestrich, aber kein zweiter Ort)."""
+    return bool(re.search(r"[A-ZÄÖÜÀ-Þ][\w'.]*\s*[-–—=]\s*[A-ZÄÖÜÀ-Þ]", header))
+
+
 def heading(place: str, dots: bool = False) -> str:
     """«Münster (Luz.)» → «Münster, Luz.»: der Kantonszusatz steht in der Quelle nach einem Komma."""
     p = place.strip(" —-,")
@@ -164,6 +172,17 @@ def heading(place: str, dots: bool = False) -> str:
     return p if re.search(r"\b[A-Za-z]{1,5}\.$", p) and "," in p else p.rstrip(".")
 
 
+def same_in_capitals(raw: str, place: str) -> bool:
+    """Überschrift oder Kolumnentitel in Versalien, die den laufenden Ort meinen: «GENEVE» unter «Genève» (der Akzent
+    fehlt) und, in Band 1 1914, «CLAUSANNE», «PLAUSANNE» unter «Lausanne»: der Buchstabe des Abschnitts («C LAUSANNE»)
+    ist ohne Leerzeichen gelesen."""
+    raw = raw.strip(" —-,")
+    if not place or not raw.isupper() or len(raw) < 4:
+        return False
+    k, kp = key(raw), key(place)
+    return k == kp or (k[1:] == kp and raw[:1].isalpha())
+
+
 def resolve(pages, front=None, dots=False):
     rows, place, net, name = [], "", "", ""
     for n in sorted(pages):
@@ -175,14 +194,17 @@ def resolve(pages, front=None, dots=False):
         if re.match(r"(?i)\s*pro memoria", meta.get("header", "")):     # Merkblatt auf dem Umschlag (Polizei, Feuerwache): kein Verzeichnis
             continue
         town = header_town(meta.get("header", ""))
-        if town and key(town) != key(place) and entries and not entries[0]["place"] and not (
+        if town and key(town) != key(place) and entries and not entries[0]["place"] and not same_in_capitals(
+                meta.get("header", ""), place) and not (
                 key(place).startswith(key(town)) and re.match(r"\s*(,|[bi]\. )", place[len(town):])):   # «Langnau» im Titel, «Langnau i. E.» als Ort
             place, net, name = town, "", ""             # Stadtblock: der Kolumnentitel nennt den Ort
         for e in entries:
-            if e["place"] and key(e["place"]) == key(meta.get("header", "")) and not town:
+            if e["place"] and key(e["place"]) == key(meta.get("header", "")) and not town and is_span(meta.get("header", "")):
                 e["place"] = ""                             # Kolumnentitel «Gersau-Giubiasco» als Ort gelesen: weitertragen
             if e["place"]:
                 p = heading(e["place"], dots)
+                if same_in_capitals(e["place"], place):
+                    p = place                               # «GENEVE» unter «Genève», «CLAUSANNE» unter «Lausanne»
                 if key(p) != key(place):
                     name = ""                               # neuer Ort: kein Zeichen greift über die Überschrift
                 place, net = p, e["net"].strip(" ().,")

@@ -16,7 +16,7 @@ Die Telefonbücher beginnen **1880** (Zürich, 99 Einträge) und decken die ganz
 sieben Netze (Basel, Bern, St. Gallen, Zürich, Genève, Lausanne, Chur, Bellinzona …); 1891 fehlt
 ganz, 1907 liegt nur ein Netz vor. Ein Ort, der erst 1911 erscheint, kann früher ein Telefon gehabt
 haben, wenn sein Regionalbuch fehlt (vor allem Waadt und Wallis). Auch in den gesamtschweizerischen Bänden ist nicht jeder
-Band ganz gelesen (Lausanne 1912–1914 und Winterthur 1913 sind dünn; einen eigenen Band 2c gibt es 1913 und 1914
+Band ganz gelesen (einen eigenen Band 2c gibt es 1913 und 1914
 nicht, das Tessin steht dann in Band 2b),
 und vielen Orten fehlt die Überschrift (siehe unten und `scripts/places.py`, Schritt 3).
 
@@ -30,13 +30,13 @@ Daraus folgen zwei Regeln für alles, was über die Jahre verglichen wird:
   (1, 2a, 2b, 3).
 
 Die Seite zeigt den Bestand selbst («Was die Bücher abdecken»): Einträge und Gemeinden je Jahrgang
-und die Gemeinden bisher (1890: 220, 1900: 1'322, 1910: 2'196, 1914: 2'709).
+und die Gemeinden bisher (1890: 220, 1900: 1'322, 1910: 2'196, 1914: 2'786).
 
 ## 1. Telefonnetz
 
 **Reihen je Stadt.** Einträge je Stadt und Jahr. Liegen für ein Jahr mehrere Bände vor (Basel 1899),
 zählt der mit den meisten Einträgen. Ein Jahr mit weniger als 90 % des bisher höchsten Jahrs gilt
-als unvollständig gelesen und fällt weg (ein Netz schrumpft in dieser Zeit nicht). Gezeigt sind 23 Städte mit mindestens acht Jahrgängen
+als unvollständig gelesen und fällt weg (ein Netz schrumpft in dieser Zeit nicht). Gezeigt sind 25 Städte mit mindestens acht Jahrgängen
 vor 1911 und mindestens 150 Einträgen im letzten Jahr. Basel wächst von 145 Einträgen
 (1881) auf 6'327 (1914), Bern von 74 auf 6'355. (Basel stand vorher bei 8'813 und dann bei 7'440: Darunter
 waren Einträge von Luzern, die in der Quelle unter der Überschrift «Basel» stehen. Seit der Neulesung von
@@ -54,8 +54,8 @@ taugt dafür nicht: «Weitnauer, Cigarrenhandlung» ist eine Person mit Geschäf
 **Gemeinden.** Erstes Jahr, in dem eine Gemeinde in einem Telefonbuch steht, Einträge 1914 und
 öffentliche Sprechstellen (`CALL_OFFICE`: «Gemeindestation», «Gemeindesprechstation», «Station
 communale», «Station publique», «Stazione pubblica», «Stazione consortile»). Von den 3'151 Gemeinden
-am 1.1.1914 (BFS) haben 2'709 bis 1914 mindestens einen Eintrag (86 %), 2'196 schon bis 1910. Eine
-öffentliche Sprechstelle haben bis 1914 1'691 Gemeinden, gut sechs von zehn mit Telefon. Die Karte färbt
+am 1.1.1914 (BFS) haben 2'786 bis 1914 mindestens einen Eintrag (88 %), 2'196 schon bis 1910. Eine
+öffentliche Sprechstelle haben bis 1914 1'629 Gemeinden, knapp sechs von zehn mit Telefon. Die Karte färbt
 nach Jahrzehnten (1880–1889, 1890–1899, 1900–1910, 1911–1914); die Kantonstabelle nennt den Stand
 1890, 1900, 1910 und 1914.
 
@@ -124,15 +124,15 @@ solcher Eintrag steht; in Klammern der Anteil an den Gemeinden mit Telefon bis d
 
 | Art | bis 1890 | bis 1900 | bis 1910 | bis 1914 |
 |---|---|---|---|---|
-| Öffentliche Sprechstelle | 8 (4 %) | 476 (36 %) | 1'113 (51 %) | 1'691 (62 %) |
-| Gemeindekanzlei | 18 (8 %) | 70 (5 %) | 293 (13 %) | 706 (26 %) |
-| Post- und Telegrafenbüro | 7 (3 %) | 116 (9 %) | 364 (17 %) | 453 (17 %) |
-| Bahnhof, Station | 11 (5 %) | 42 (3 %) | 113 (5 %) | 295 (11 %) |
-| Elektrizitätswerk | 0 | 25 (2 %) | 138 (6 %) | 289 (11 %) |
-| Gaswerk | 7 (3 %) | 15 (1 %) | 51 (2 %) | 116 (4 %) |
-| Wasserversorgung | 7 (3 %) | 16 (1 %) | 43 (2 %) | 91 (3 %) |
-| Bahnhofstrasse in einer Adresse | 15 (7 %) | 38 (3 %) | 91 (4 %) | 155 (6 %) |
-| Gemeinden mit Telefon | 220 | 1'322 | 2'196 | 2'709 |
+| Öffentliche Sprechstelle | 8 (4 %) | 476 (36 %) | 1'113 (51 %) | 1'629 (58 %) |
+| Gemeindekanzlei | 18 (8 %) | 70 (5 %) | 293 (13 %) | 589 (21 %) |
+| Post- und Telegrafenbüro | 7 (3 %) | 117 (9 %) | 365 (17 %) | 420 (15 %) |
+| Bahnhof, Station | 11 (5 %) | 42 (3 %) | 113 (5 %) | 240 (9 %) |
+| Elektrizitätswerk | 0 | 26 (2 %) | 139 (6 %) | 223 (8 %) |
+| Gaswerk | 7 (3 %) | 15 (1 %) | 52 (2 %) | 88 (3 %) |
+| Wasserversorgung | 7 (3 %) | 16 (1 %) | 43 (2 %) | 69 (2 %) |
+| Bahnhofstrasse in einer Adresse | 15 (7 %) | 38 (3 %) | 91 (4 %) | 112 (4 %) |
+| Gemeinden mit Telefon | 220 | 1'322 | 2'196 | 2'786 |
 
 - Werke (`WORKS`): nach dem Namen eines Betriebs oder Amts, nicht nach dem Beruf einer Person. Ein
   «Gas-, Wasser- u. Elektrizitätswerk» zählt dreifach; «Mineralwasser- und Colonialwarenhandlung»
@@ -145,7 +145,7 @@ solcher Eintrag steht; in Klammern der Anteil an den Gemeinden mit Telefon bis d
 - Die Sprechstellen waren vorher um mehr als die Hälfte unterzählt (447 statt 998 Gemeinden im Jahr
   1914), weil «Gemeindestation» und «Station communale» im Muster fehlten.
 
-**Städte: was wann im Buch steht.** Für die 23 Städte mit langen Reihen das erste Jahr mit
+**Städte: was wann im Buch steht.** Für die 25 Städte mit langen Reihen das erste Jahr mit
 Sprechstelle, Amt oder Werk. Jede Jahreszahl führt auf der Seite zum Eintrag
 (`#/buch?kt=…&y=…&g=…&q=…`; das Suchwort ist der Anfang des Namens, Funktion `term`). Kein Jahr liegt
 vor dem ersten gelesenen Buch der Stadt.
@@ -201,47 +201,46 @@ Händler oder Ärzte mit dem Telefon im Geschäft.
 
 | Jahr | Einwohner | Einträge | Rufnummern | Personen | Einträge je 100 Einwohner | Personen je 100 Haushalte |
 |---|---|---|---|---|---|---|
-| 1911 | 3'765'806 | 75'265 | 65'252 | 45'418 | 2,00 | 5,5 % |
-| 1912 | 3'778'361 | 80'363 | 67'026 | 50'381 | 2,13 | 6,0 % |
-| 1913 | 3'790'958 | 86'867 | 71'741 | 53'948 | 2,29 | 6,4 % |
-| 1914 | 3'803'597 | 92'283 | 76'258 | 57'380 | 2,43 | 6,8 % |
+| 1911 | 3'765'806 | 77'155 | 67'966 | 47'848 | 2,05 | 5,8 % |
+| 1912 | 3'778'361 | 82'127 | 73'231 | 51'604 | 2,17 | 6,2 % |
+| 1913 | 3'790'958 | 88'196 | 77'958 | 55'526 | 2,33 | 6,6 % |
+| 1914 | 3'803'597 | 93'937 | 82'427 | 58'567 | 2,47 | 7,0 % |
 
 Einen eigenen Band 2c (Tessin) gibt es nur 1911 und 1912; 1913 und 1914 steht das Tessin in Band 2b
 (2'200–2'400 Einträge). Band 2c ist für 1911 und 1912 neu gelesen ([neulesung_2c.md](neulesung_2c.md)),
-die Bände 2a und 2b für 1911–1914 ganz ([neulesung_2a.md](neulesung_2a.md), [neulesung_2b.md](neulesung_2b.md)); die
+die Bände 1, 2a, 2b und 3 für 1911–1914 ganz ([neulesung_13.md](neulesung_13.md), [neulesung_2a.md](neulesung_2a.md), [neulesung_2b.md](neulesung_2b.md)); die
 Zeile «Personen» stieg am 18.11.2026 in allen Jahren um 2'200–3'300, weil die Namenszeilen besser
 zerlegt werden (Partikel, Doppelnamen, italienische Firmenwörter).
 
 *Städte* (je Jahr der Band mit den meisten Einträgen, ab 100 Einträgen), Personen je 100 Haushalte:
 Basel 0,7 (1881), 9,6 (1900), 12,9 (1914); Bern 1,0 (1882), 9,7 (1900), 17,1 (1914);
-St. Gallen 1,5 (1886), 6,6 (1900), 15,3 (1914); Interlaken 19,2 (1900), 36,0 (1914);
+St. Gallen 1,5 (1886), 6,6 (1900), 14,4 (1914); Interlaken 19,2 (1900), 36,0 (1914);
 Lugano 4,4 (1900), 13,4 (1914).
 
 *Nach Gemeindegrösse, um 1910.* **In den gesamtschweizerischen Bänden 1911–1914 fehlen vielen Orten die
 Überschriften**: In Band 2a stand Burgdorf unter «Büren zum Hof», in Band 2b standen Olten unter «Olsberg» und Luzern mitten
-unter «Basel», bis zur Neulesung der beiden Bände (1911–1914, [neulesung_2b.md](neulesung_2b.md), [neulesung_2a.md](neulesung_2a.md)). In den Bänden 1 und 3 ist es noch so. `places.py` findet diese Einträge über die Familiennamen des Regionalbuchs wieder
+unter «Basel», in Band 1 der Lausanner Block 1914 unter «Genève» und Aigle 1913 unter «Aclens», in Band 3 Winterthur unter «Winterberg», bis zur Neulesung der Bände (1911–1914, [neulesung_2b.md](neulesung_2b.md), [neulesung_2a.md](neulesung_2a.md), [neulesung_13.md](neulesung_13.md)). `places.py` findet diese Einträge über die Familiennamen des Regionalbuchs wieder
 (9'714 Zeilen), aber nicht vollständig. Zum Vergleich: Burgdorf hat 239 Einträge im Regionalbuch 1910 und nach der Neulesung
 von Band 2a 259, 285, 305 und 316 (vorher 218, 152, 5 und 46); Aarau 530 und nach der Neulesung von Band 2b 510, 522, 528
 und 544 (vorher 1911 und 1912: 347 und 283). Orte ohne Regionalbuch zum Vergleich
-(Vevey, Montreux) bleiben leer. Ein einzelnes Jahr taugt darum nicht. Gezählt wird je Gemeinde das
+(Montreux, auf zwei Gemeinden verteilt) bleiben leer. Ein einzelnes Jahr taugt darum nicht. Gezählt wird je Gemeinde das
 Jahr 1909–1914 mit den meisten Einträgen (`END_YEARS`), nur sicher verortete Einträge, und gezeigt wird
 der Median der Klasse, nicht die Summe: Ein Lauf, der in ein Dorf gerutscht ist, verzerrt die Summe,
 nicht den Median.
 
 | Einwohner 1910 | Gemeinden | mit Telefon | Einträge je 100 Einwohner (Median) | Personen je 100 Haushalte (Median) |
 |---|---|---|---|---|
-| unter 500 | 1'326 | 75 % | 0,54 | 0,0 % |
-| 500–999 | 642 | 91 % | 0,54 | 1,4 % |
-| 1'000–1'999 | 473 | 95 % | 0,80 | 2,4 % |
-| 2'000–4'999 | 269 | 96 % | 1,24 | 3,7 % |
-| 5'000–19'999 | 69 | 96 % | 1,91 | 6,0 % |
-| ab 20'000 | 12 | 100 % | 5,23 | 14,3 % |
+| unter 500 | 1'326 | 82 % | 0,51 | 0,0 % |
+| 500–999 | 642 | 96 % | 0,49 | 1,2 % |
+| 1'000–1'999 | 473 | 97 % | 0,77 | 2,3 % |
+| 2'000–4'999 | 269 | 99 % | 1,36 | 3,9 % |
+| 5'000–19'999 | 69 | 100 % | 2,24 | 6,5 % |
+| ab 20'000 | 12 | 100 % | 5,25 | 15,1 % |
 
 Die Werte der kleinen und mittleren Gemeinden sind Untergrenzen: Wo weder ein Regionalbuch von
 1909/1910 vorliegt noch die Überschrift im gesamtschweizerischen Band gelesen ist, fehlen die Einträge. Eine Tabelle
 nach Kantonen gibt es aus demselben Grund nicht. Die Rangliste der Seite nennt nur Gemeinden ab 5'000
-Einwohnern (`TOWN`): Genève 25,6 %, Frauenfeld 18,3 %, Bern 17,1 %, St. Gallen 16,4 %, Aarau 16,1 %,
-Luzern 16,0 %, Zürich 15,5 %.
+Einwohnern (`TOWN`): Genève 18,7 %, Davos 18,6 %, Lausanne 18,2 %, Bern 17,1 %, Zürich 16,3 %, Aarau 16,1 %, Luzern 16,0 %. Vor der Neulesung der Bände 1 und 3 stand Genève mit 25,6 % vorn: In Band 1 1914 zählte der Lausanner Block mit.
 
 Die Karte «Einträge je 1000 Einwohner» zeigt ebenfalls das beste Jahr 1909–1914; 27 Gemeinden mit
 mehr als 250 je 1000 bleiben weg, dort ist die Ortszuordnung falsch (z. B. Kammersrohr, Bettens).

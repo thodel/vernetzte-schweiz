@@ -1,7 +1,7 @@
 {
  "stand": {
-  "ptt_eintraege": 659296,
-  "ptt_be_fenster": 67314
+  "ptt_eintraege": 665933,
+  "ptt_be_fenster": 68934
  },
  "gemeinden": {
   "n": 405,
@@ -11,16 +11,16 @@
     "Erwerbstätige über 60 % der Bevölkerung (Baustelle oder Anstalt)"
    ],
    [
+    "Mont-Tramelan",
+    "Ortszuordnung unplausibel (über 25 Einträge je 100 Einwohner)"
+   ],
+   [
     "Frutigen",
     "Bevölkerung weicht von der BFS-Tabelle ab"
    ],
    [
     "Kandergrund (bis 1909 mit Kandersteg)",
     "Erwerbstätige über 60 % der Bevölkerung (Baustelle oder Anstalt)"
-   ],
-   [
-    "Roches (BE)",
-    "Ortszuordnung unplausibel (über 25 Einträge je 100 Einwohner)"
    ],
    [
     "Kirchdorf (BE)",
@@ -39,8 +39,8 @@
    "n": 405,
    "mit_telefon": 384,
    "anteil_mit_telefon": 95,
-   "bev": 574141,
-   "eintraege": 13777,
+   "bev": 574284,
+   "eintraege": 13784,
    "je_100": 2.4,
    "median": 0.65
   },
@@ -49,9 +49,9 @@
     "n": 161,
     "mit_telefon": 146,
     "anteil_mit_telefon": 91,
-    "bev": 46995,
-    "eintraege": 364,
-    "je_100": 0.77,
+    "bev": 47138,
+    "eintraege": 373,
+    "je_100": 0.79,
     "median": 0.56
    },
    "500–999": {
@@ -59,8 +59,8 @@
     "mit_telefon": 95,
     "anteil_mit_telefon": 96,
     "bev": 71177,
-    "eintraege": 706,
-    "je_100": 0.99,
+    "eintraege": 640,
+    "je_100": 0.9,
     "median": 0.57
    },
    "1000–1999": {
@@ -68,17 +68,17 @@
     "mit_telefon": 71,
     "anteil_mit_telefon": 97,
     "bev": 103092,
-    "eintraege": 1112,
-    "je_100": 1.08,
-    "median": 0.73
+    "eintraege": 1053,
+    "je_100": 1.02,
+    "median": 0.7
    },
    "2000–4999": {
     "n": 58,
     "mit_telefon": 58,
     "anteil_mit_telefon": 100,
     "bev": 158999,
-    "eintraege": 2388,
-    "je_100": 1.5,
+    "eintraege": 2456,
+    "je_100": 1.54,
     "median": 1.06
    },
    "ab 5000": {
@@ -86,45 +86,45 @@
     "mit_telefon": 14,
     "anteil_mit_telefon": 100,
     "bev": 193878,
-    "eintraege": 9207,
-    "je_100": 4.75,
+    "eintraege": 9262,
+    "je_100": 4.78,
     "median": 1.67
    }
   },
   "sektorgruppen": {
    "bäuerlich (1. Sektor ab 60 %)": {
-    "n": 170,
-    "mit_telefon": 157,
+    "n": 169,
+    "mit_telefon": 156,
     "anteil_mit_telefon": 92,
-    "bev": 122109,
-    "eintraege": 763,
+    "bev": 121963,
+    "eintraege": 760,
     "je_100": 0.62,
     "median": 0.44
    },
    "gemischt": {
-    "n": 124,
-    "mit_telefon": 119,
+    "n": 125,
+    "mit_telefon": 120,
     "anteil_mit_telefon": 96,
-    "bev": 137497,
-    "eintraege": 1336,
-    "je_100": 0.97,
-    "median": 0.67
+    "bev": 137786,
+    "eintraege": 1349,
+    "je_100": 0.98,
+    "median": 0.65
    },
    "gewerblich-industriell (2. Sektor ab 50 %)": {
     "n": 66,
     "mit_telefon": 63,
     "anteil_mit_telefon": 95,
     "bev": 101739,
-    "eintraege": 1213,
-    "je_100": 1.19,
-    "median": 0.8
+    "eintraege": 1198,
+    "je_100": 1.18,
+    "median": 0.76
    },
    "Dienstleistung (3. Sektor ab 25 %)": {
     "n": 45,
     "mit_telefon": 45,
     "anteil_mit_telefon": 100,
     "bev": 212796,
-    "eintraege": 10465,
+    "eintraege": 10477,
     "je_100": 4.92,
     "median": 2.08
    }
@@ -132,21 +132,21 @@
   "kreuz": {
    "0–499": {
     "bäuerlich (1. Sektor ab 60 %)": {
-     "n": 93,
-     "mit_telefon": 83,
+     "n": 92,
+     "mit_telefon": 82,
      "anteil_mit_telefon": 89,
-     "bev": 23714,
-     "eintraege": 155,
-     "je_100": 0.65,
+     "bev": 23568,
+     "eintraege": 152,
+     "je_100": 0.64,
      "median": 0.47
     },
     "gemischt": {
-     "n": 48,
-     "mit_telefon": 46,
+     "n": 49,
+     "mit_telefon": 47,
      "anteil_mit_telefon": 96,
-     "bev": 16261,
-     "eintraege": 159,
-     "je_100": 0.98,
+     "bev": 16550,
+     "eintraege": 172,
+     "je_100": 1.04,
      "median": 0.65
     },
     "gewerblich-industriell (2. Sektor ab 50 %)": {
@@ -154,8 +154,8 @@
      "mit_telefon": 12,
      "anteil_mit_telefon": 80,
      "bev": 5148,
-     "eintraege": 29,
-     "je_100": 0.56,
+     "eintraege": 28,
+     "je_100": 0.54,
      "median": 0.5
     },
     "Dienstleistung (3. Sektor ab 25 %)": {
@@ -192,9 +192,9 @@
      "mit_telefon": 15,
      "anteil_mit_telefon": 100,
      "bev": 11648,
-     "eintraege": 173,
-     "je_100": 1.49,
-     "median": 0.74
+     "eintraege": 107,
+     "je_100": 0.92,
+     "median": 0.7
     },
     "Dienstleistung (3. Sektor ab 25 %)": {
      "n": 7,
@@ -230,18 +230,18 @@
      "mit_telefon": 21,
      "anteil_mit_telefon": 100,
      "bev": 30010,
-     "eintraege": 312,
-     "je_100": 1.04,
-     "median": 0.75
+     "eintraege": 289,
+     "je_100": 0.96,
+     "median": 0.73
     },
     "Dienstleistung (3. Sektor ab 25 %)": {
      "n": 11,
      "mit_telefon": 11,
      "anteil_mit_telefon": 100,
      "bev": 15472,
-     "eintraege": 402,
-     "je_100": 2.6,
-     "median": 2.55
+     "eintraege": 366,
+     "je_100": 2.37,
+     "median": 2.29
     }
    },
    "2000–4999": {
@@ -268,8 +268,8 @@
      "mit_telefon": 11,
      "anteil_mit_telefon": 100,
      "bev": 30279,
-     "eintraege": 360,
-     "je_100": 1.19,
+     "eintraege": 380,
+     "je_100": 1.25,
      "median": 1.13
     },
     "Dienstleistung (3. Sektor ab 25 %)": {
@@ -277,9 +277,9 @@
      "mit_telefon": 16,
      "anteil_mit_telefon": 100,
      "bev": 48166,
-     "eintraege": 1394,
-     "je_100": 2.89,
-     "median": 1.81
+     "eintraege": 1442,
+     "je_100": 2.99,
+     "median": 2.0
     }
    },
    "ab 5000": {
@@ -306,8 +306,8 @@
      "mit_telefon": 4,
      "anteil_mit_telefon": 100,
      "bev": 24654,
-     "eintraege": 339,
-     "je_100": 1.38,
+     "eintraege": 394,
+     "je_100": 1.6,
      "median": 1.11
     },
     "Dienstleistung (3. Sektor ab 25 %)": {
@@ -326,63 +326,63 @@
     "s3_prozent": {
      "median": 8.3,
      "unter": {
-      "n": 80,
-      "mit_telefon": 70,
-      "anteil_mit_telefon": 88,
-      "bev": 20563,
-      "eintraege": 129,
-      "je_100": 0.63,
-      "median": 0.46
+      "n": 79,
+      "mit_telefon": 69,
+      "anteil_mit_telefon": 87,
+      "bev": 20417,
+      "eintraege": 125,
+      "je_100": 0.61,
+      "median": 0.45
      },
      "ab": {
-      "n": 81,
-      "mit_telefon": 76,
+      "n": 82,
+      "mit_telefon": 77,
       "anteil_mit_telefon": 94,
-      "bev": 26432,
-      "eintraege": 235,
-      "je_100": 0.89,
-      "median": 0.65
+      "bev": 26721,
+      "eintraege": 248,
+      "je_100": 0.93,
+      "median": 0.64
      }
     },
     "s1_prozent": {
-     "median": 64.7,
+     "median": 64.4,
      "unter": {
       "n": 80,
       "mit_telefon": 75,
       "anteil_mit_telefon": 94,
-      "bev": 26776,
-      "eintraege": 226,
-      "je_100": 0.84,
+      "bev": 26607,
+      "eintraege": 236,
+      "je_100": 0.89,
       "median": 0.64
      },
      "ab": {
       "n": 81,
       "mit_telefon": 71,
       "anteil_mit_telefon": 88,
-      "bev": 20219,
-      "eintraege": 138,
-      "je_100": 0.68,
+      "bev": 20531,
+      "eintraege": 137,
+      "je_100": 0.67,
       "median": 0.47
      }
     },
     "s2_prozent": {
-     "median": 25.9,
+     "median": 26.0,
      "unter": {
       "n": 80,
       "mit_telefon": 70,
       "anteil_mit_telefon": 88,
-      "bev": 20705,
-      "eintraege": 159,
-      "je_100": 0.77,
-      "median": 0.5
+      "bev": 20885,
+      "eintraege": 157,
+      "je_100": 0.75,
+      "median": 0.47
      },
      "ab": {
       "n": 81,
       "mit_telefon": 76,
       "anteil_mit_telefon": 94,
-      "bev": 26290,
-      "eintraege": 205,
-      "je_100": 0.78,
+      "bev": 26253,
+      "eintraege": 216,
+      "je_100": 0.82,
       "median": 0.63
      }
     }
@@ -395,8 +395,8 @@
       "mit_telefon": 49,
       "anteil_mit_telefon": 100,
       "bev": 34020,
-      "eintraege": 266,
-      "je_100": 0.78,
+      "eintraege": 200,
+      "je_100": 0.59,
       "median": 0.47
      },
      "ab": {
@@ -416,9 +416,9 @@
       "mit_telefon": 47,
       "anteil_mit_telefon": 96,
       "bev": 35898,
-      "eintraege": 450,
-      "je_100": 1.25,
-      "median": 0.7
+      "eintraege": 384,
+      "je_100": 1.07,
+      "median": 0.67
      },
      "ab": {
       "n": 50,
@@ -446,9 +446,9 @@
       "mit_telefon": 48,
       "anteil_mit_telefon": 96,
       "bev": 36686,
-      "eintraege": 442,
-      "je_100": 1.2,
-      "median": 0.66
+      "eintraege": 376,
+      "je_100": 1.02,
+      "median": 0.63
      }
     }
    },
@@ -460,8 +460,8 @@
       "mit_telefon": 34,
       "anteil_mit_telefon": 94,
       "bev": 50357,
-      "eintraege": 297,
-      "je_100": 0.59,
+      "eintraege": 291,
+      "je_100": 0.58,
       "median": 0.44
      },
      "ab": {
@@ -469,9 +469,9 @@
       "mit_telefon": 37,
       "anteil_mit_telefon": 100,
       "bev": 52735,
-      "eintraege": 815,
-      "je_100": 1.55,
-      "median": 1.25
+      "eintraege": 762,
+      "je_100": 1.44,
+      "median": 0.93
      }
     },
     "s1_prozent": {
@@ -481,9 +481,9 @@
       "mit_telefon": 36,
       "anteil_mit_telefon": 100,
       "bev": 51339,
-      "eintraege": 734,
-      "je_100": 1.43,
-      "median": 0.92
+      "eintraege": 675,
+      "je_100": 1.31,
+      "median": 0.86
      },
      "ab": {
       "n": 37,
@@ -502,18 +502,18 @@
       "mit_telefon": 34,
       "anteil_mit_telefon": 94,
       "bev": 50320,
-      "eintraege": 422,
-      "je_100": 0.84,
-      "median": 0.56
+      "eintraege": 386,
+      "je_100": 0.77,
+      "median": 0.46
      },
      "ab": {
       "n": 37,
       "mit_telefon": 37,
       "anteil_mit_telefon": 100,
       "bev": 52772,
-      "eintraege": 690,
-      "je_100": 1.31,
-      "median": 0.83
+      "eintraege": 667,
+      "je_100": 1.26,
+      "median": 0.77
      }
     }
    },
@@ -525,7 +525,7 @@
       "mit_telefon": 29,
       "anteil_mit_telefon": 100,
       "bev": 72001,
-      "eintraege": 467,
+      "eintraege": 468,
       "je_100": 0.65,
       "median": 0.64
      },
@@ -534,9 +534,9 @@
       "mit_telefon": 29,
       "anteil_mit_telefon": 100,
       "bev": 86998,
-      "eintraege": 1921,
-      "je_100": 2.21,
-      "median": 1.64
+      "eintraege": 1988,
+      "je_100": 2.29,
+      "median": 1.76
      }
     },
     "s1_prozent": {
@@ -546,9 +546,9 @@
       "mit_telefon": 29,
       "anteil_mit_telefon": 100,
       "bev": 82551,
-      "eintraege": 1745,
-      "je_100": 2.11,
-      "median": 1.43
+      "eintraege": 1813,
+      "je_100": 2.2,
+      "median": 1.7
      },
      "ab": {
       "n": 29,
@@ -567,8 +567,8 @@
       "mit_telefon": 29,
       "anteil_mit_telefon": 100,
       "bev": 80507,
-      "eintraege": 848,
-      "je_100": 1.05,
+      "eintraege": 884,
+      "je_100": 1.1,
       "median": 0.65
      },
      "ab": {
@@ -576,9 +576,9 @@
       "mit_telefon": 29,
       "anteil_mit_telefon": 100,
       "bev": 78492,
-      "eintraege": 1540,
-      "je_100": 1.96,
-      "median": 1.28
+      "eintraege": 1572,
+      "je_100": 2.0,
+      "median": 1.47
      }
     }
    },
@@ -590,8 +590,8 @@
       "mit_telefon": 7,
       "anteil_mit_telefon": 100,
       "bev": 43199,
-      "eintraege": 537,
-      "je_100": 1.24,
+      "eintraege": 592,
+      "je_100": 1.37,
       "median": 1.11
      },
      "ab": {
@@ -611,8 +611,8 @@
       "mit_telefon": 7,
       "anteil_mit_telefon": 100,
       "bev": 149542,
-      "eintraege": 8640,
-      "je_100": 5.78,
+      "eintraege": 8695,
+      "je_100": 5.81,
       "median": 3.76
      },
      "ab": {
@@ -641,9 +641,9 @@
       "mit_telefon": 7,
       "anteil_mit_telefon": 100,
       "bev": 63663,
-      "eintraege": 1887,
-      "je_100": 2.96,
-      "median": 2.11
+      "eintraege": 1942,
+      "je_100": 3.05,
+      "median": 2.85
      }
     }
    }
@@ -653,23 +653,23 @@
     "bev_1910": -0.11,
     "s1_prozent": -0.07,
     "s2_prozent": 0.08,
-    "s3_prozent": 0.12
+    "s3_prozent": 0.13
    },
    "500–999": {
-    "bev_1910": 0.28,
-    "s1_prozent": -0.36,
-    "s2_prozent": 0.3,
-    "s3_prozent": 0.41
+    "bev_1910": 0.27,
+    "s1_prozent": -0.34,
+    "s2_prozent": 0.26,
+    "s3_prozent": 0.44
    },
    "1000–1999": {
-    "bev_1910": 0.11,
-    "s1_prozent": -0.43,
-    "s2_prozent": 0.25,
-    "s3_prozent": 0.65
+    "bev_1910": 0.17,
+    "s1_prozent": -0.41,
+    "s2_prozent": 0.24,
+    "s3_prozent": 0.64
    },
    "2000–4999": {
-    "bev_1910": 0.31,
-    "s1_prozent": -0.65,
+    "bev_1910": 0.32,
+    "s1_prozent": -0.68,
     "s2_prozent": 0.32,
     "s3_prozent": 0.85
    },
@@ -680,9 +680,9 @@
     "s3_prozent": 0.87
    },
    "alle": {
-    "bev_1910": 0.27,
-    "s1_prozent": -0.4,
-    "s2_prozent": 0.29,
+    "bev_1910": 0.28,
+    "s1_prozent": -0.39,
+    "s2_prozent": 0.28,
     "s3_prozent": 0.46
    }
   },
@@ -691,8 +691,8 @@
    "mit_telefon": 13,
    "anteil_mit_telefon": 100,
    "bev": 108227,
-   "eintraege": 2852,
-   "je_100": 2.64,
+   "eintraege": 2907,
+   "je_100": 2.69,
    "median": 1.48
   }
  },
@@ -751,16 +751,16 @@
    "person_sektor_1": 13,
    "person_sektor_2": 340,
    "person_sektor_3": 614,
-   "person_sektor_keine": 161,
+   "person_sektor_keine": 160,
    "person_sektor_ohne": 21,
-   "person_sektor_unbestimmt": 78,
+   "person_sektor_unbestimmt": 79,
    "person_wohnung": 159,
    "sektor_1": 17,
    "sektor_2": 433,
    "sektor_3": 880,
-   "sektor_keine": 183,
+   "sektor_keine": 182,
    "sektor_ohne": 22,
-   "sektor_unbestimmt": 92,
+   "sektor_unbestimmt": 93,
    "spezerei": 35
   },
   "1910": {

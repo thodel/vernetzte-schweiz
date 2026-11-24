@@ -116,4 +116,4 @@ Abstimmung (Spalte `Check`):
   «Büren» ohne Zusatz bleibt in den Regionalbüchern ohne Gemeinde.
 - **Trennstriche vom Zeilenende** bleiben ausser vor dem Grundwort einer Strasse stehen, wie in Band 2b.
 - **Zeilen ohne Rufnummer** (Abteilungen einer Behörde, Verweise) stehen in der Tabelle (54 bis 99 je Band).
-- Die Bände 1 und 3 sind für 1911–1914 noch nicht neu gelesen.
+- Die Bände 1 und 3 sind seit dem 24.11.2026 ebenfalls neu gelesen ([neulesung_13.md](neulesung_13.md)).

@@ -6,8 +6,8 @@ auf dem Commit aus `config/sources.toml` steht. Übernommen werden
   seitenweise Sammeldatei a1*.tsv),
 - Charge B: die Zeilen aus tsv/b*.tsv,
 - Neulesungen: data/override/ptt/<Band>.tsv ersetzt alle Zeilen dieses Bandes aus Charge B (Spalten wie
-  dort, dazu `Image` = Nummer des Seitenbilds); so gelesen sind Band 2c (Tessin) 1911 und 1912 und Band 2b
-  1913 und 1914 (docs/neulesung_2c.md, docs/neulesung_2b.md),
+  dort, dazu `Image` = Nummer des Seitenbilds); so gelesen sind Band 2c (Tessin) 1911 und 1912 und die
+  Bände 1, 2a, 2b und 3 1911–1914 (docs/neulesung_2c.md, neulesung_2b.md, neulesung_2a.md, neulesung_13.md),
 jeweils Jahre im Zeitfenster. Die Zeilennummer `seq` zählt je Quelldatei (A) bzw. je
 Band (`File`, B) in Lesereihenfolge, auch über Zeilen ohne Namen hinweg; sie ist Teil der Id.
 """

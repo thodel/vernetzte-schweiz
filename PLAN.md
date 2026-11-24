@@ -147,7 +147,7 @@ Verknüpfung und Bau laufen durch.
 - ✔ 20.11.2026 **Telefonbuch Band 2a 1911–1914 neu gelesen** (Bern, Mittelland, Oberland, Solothurn;
   [docs/neulesung_2a.md](docs/neulesung_2a.md)): Burgdorf 259/285/305/316 statt 218/152/5/46 Einträge; ohne Gemeinde
   242–321 statt 350–655 je Band. Einträge 1 017 210 → 1 020 732, Einheiten 495 788 → 491 791; Wanderungen 482 → 480.
-  Offen: Bände 1 und 3.
+  Bände 1 und 3: siehe 24.11.2026.
 - ✔ 20.11.2026 **Ortschaften ohne Gemeinde von 1914** (Wengen, Mürren, Ostermundigen, Wabern, Gümligen,
   Schwarzenburg, «Wangen a. A.» …): 39 Zeilen in `data/ref/place_aliases.csv`. Telefonbücher ohne Gemeinde
   27 338 → 24 139 Einträge, in Band 2a 1911–1914 noch 37–57 je Band. Einträge 1 020 732 → 1 023 615, Einheiten
@@ -171,6 +171,12 @@ Verknüpfung und Bau laufen durch.
   richtig): 77 121 Einträge (Einwohner 60 524, Berufsregister 16 597). Zürich jetzt 749 092 Einträge. Einträge
   1 411 128 → 1 488 236, Einheiten 558 776 → 568 645 (mit mehr als einem Eintrag 237 632 → 247 307); Telefonbuch
   Zürich verknüpft 43 763 → 44 193; Wanderungen 524 → 526 (stark 59, mittel 336, schwach 131).
+- ✔ 24.11.2026 **Telefonbuch Bände 1 und 3 1911–1914 neu gelesen** (Westschweiz und Ostschweiz;
+  [docs/neulesung_13.md](docs/neulesung_13.md)): Lausanne, La Chaux-de-Fonds, Vevey, Le Locle, Winterthur, Davos,
+  Chur haben ihre Einträge wieder (Lausanne 1914 41 → 4 377, Winterthur 1914 449 → 1 145); Gemeinden je Band
+  331–553 → 681–843. Dazu Normdaten Basel nach EOS-Prüfung (53ccb22) und fünf Ortsaliase (Davos-Platz …).
+  Einträge 1 488 236 → 1 511 686, Einheiten 568 645 → 549 188; Wanderungen 526 → 557 (stark 61, mittel 367,
+  schwach 129). Offen: Montreux ohne Gemeinde (1914 zwei Gemeinden).
 - offen: Bern 1860 (Fraktur, nicht ganz gelesen).
 
 **M6 — Visualisierungen.** ✔ 10.11.2026: Karten «Wer bekam wann ein Telefon», «Berufe», «Namen» (`#/karten`), Berufssuche mit Karte und Quellenfilter in der Suche; [Aufbau und Messung](docs/karten.md). Umgesetzt sind die ersten drei Punkte; die weiteren Ideen bleiben offen. Nachgetragen: Regler für Jahre (ein Jahr oder Bereich) statt Zeiträumen, Quelle Telefon-/Adressbuch in «Berufe» und «Namen». Grundlage sind die Einheiten aus M3 (eine Person oder Firma

@@ -32,8 +32,8 @@ jahr,gruppe,zaehler,nenner,nenner_art,nenner_herleitung,quote_prozent,bemerkung
 1900,2. Sektor,433,13143,geschätzt,geschätzte Erwerbstätige mal Anteil des 2. Sektors 1910,3.3,Personen und Firmen
 1900,3. Sektor,880,13158,geschätzt,geschätzte Erwerbstätige mal Anteil des 3. Sektors 1910,6.7,"Personen und Firmen, ohne Ämter"
 1900,"ohne Erwerb (Privatier, Rentier)",22,,,,,
-1900,Angabe ohne Sektor,92,,,,,
-1900,"keine Angabe (nur Name, «Wohnung»)",183,,,,,
+1900,Angabe ohne Sektor,93,,,,,
+1900,"keine Angabe (nur Name, «Wohnung»)",182,,,,,
 1900,Ärzte (Angabe nennt «Arzt»),3,103,interpoliert,"Zahl der Ärzte 1856 und 1910, linear",2.9,ohne Zahn- und Tierärzte
 1900,Ärzte (dazu Titel «Dr. med.»),58,103,interpoliert,"Zahl der Ärzte 1856 und 1910, linear",56.2,
 1900,Spezereihandlungen,35,243,geschätzt,"Spezereigeschäfte 1901, mit der Bevölkerung auf 1900 umgerechnet",14.4,Nenner: Arbeitsstätten 1901 und 1909

@@ -132,6 +132,34 @@ class Band2a(unittest.TestCase):
                  2: ([entry("2", "Aebi")], {"header": "BERN B"})}
         self.assertEqual([r["place"] for r in c.resolve(pages)], ["Neufeld", "Bern"])
 
+    def test_capitals_keep_the_accent(self):
+        # Band 1: Block «Genève», auf einer späteren Seite die Überschrift «GENEVE» in Versalien
+        pages = {1: ([entry("1", "Abt", place="Genève")], {"header": ""}),
+                 2: ([entry("2", "Berner", place="GENEVE"), entry("3", "Berney")], {"header": "GENEVE B"})}
+        self.assertEqual([r["place"] for r in c.resolve(pages)], ["Genève", "Genève", "Genève"])
+        pages = {1: ([entry("1", "Abt", place="GENEVE")], {"header": ""})}
+        self.assertEqual(c.resolve(pages)[0]["place"], "Geneve")      # ohne frühere Schreibung bleibt die Lesung
+
+    def test_section_letter_glued_to_the_town(self):
+        # Band 1 1914: Kolumnentitel «C LAUSANNE» als «CLAUSANNE», «PLAUSANNE» gelesen, auch als Überschrift
+        pages = {1: ([entry("1", "Abt", place="Lausanne")], {"header": "A LAUSANNE"}),
+                 2: ([entry("2", "Cuénod")], {"header": "CLAUSANNE"}),
+                 3: ([entry("3", "Favre", place="FLAUSANNE")], {"header": "FLAUSANNE"}),
+                 4: ([entry("4", "Abbaye", place="L'Abbaye")], {"header": ""})}
+        self.assertEqual([r["place"] for r in c.resolve(pages)], ["Lausanne", "Lausanne", "Lausanne", "L'Abbaye"])
+        self.assertFalse(c.same_in_capitals("Clausanne", "Lausanne"))     # nur in Versalien
+
+    def test_heading_equal_to_column_title_is_kept(self):
+        # Band 1: «La Chaux-de-Fonds» im Kolumnentitel ist ein Ort, «Châtel-La Chaux-d'Abel» eine Spanne
+        self.assertFalse(c.is_span("La Chaux-de-Fonds"))
+        self.assertTrue(c.is_span("Châtel-La Chaux-d'Abel"))
+        self.assertTrue(c.is_span("Gersau-Giubiasco"))
+        self.assertTrue(c.is_span("Romanshorn - Rorbas"))
+        pages = {1: ([entry("1", "Brechbühler", place="La Chaux-d'Abel", net="Les Bois")], {"header": "Châtel-La Chaux-d'Abel"}),
+                 2: ([entry("2", "Abattoirs", place="La Chaux-de-Fonds"), entry("3", "Portier")], {"header": "La Chaux-de-Fonds"})}
+        self.assertEqual([r["place"] for r in c.resolve(pages, dots=True)],
+                         ["La Chaux-d'Abel", "La Chaux-de-Fonds", "La Chaux-de-Fonds"])
+
     def test_front_pages_belong_to_one_town(self):
         # Landesausstellung 1914: «Neufeld», «Mittelfeld» sind Zwischentitel, keine Orte
         pages = {8: ([entry("51.00", "Feuerwehrposten", place="Neufeld")], {"header": ""}),

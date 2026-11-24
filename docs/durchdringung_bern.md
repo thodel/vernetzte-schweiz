@@ -243,70 +243,70 @@ ist die Zuordnung der gelesenen Angabe, nicht die Lesung selbst.
 ## Ergebnis
 
 <!-- TABELLEN:START -->
-Stand der Daten: `data/norm/ptt_entries.csv.gz` mit 659 296 Einträgen, davon 67 314 im Kanton Bern 1909–1914.
+Stand der Daten: `data/norm/ptt_entries.csv.gz` mit 665 933 Einträgen, davon 68 934 im Kanton Bern 1909–1914.
 
 **Gemeinden um 1910: Grössenklasse**
 
 | Einwohner 1910 | Einheiten | mit Telefon | Einwohner | Einträge | Einträge je 100 Einw. | Median der Einheiten |
 |---|---:|---:|---:|---:|---:|---:|
-| 0–499 | 161 | 146 (91 %) | 46 995 | 364 | 0,77 | 0,56 |
-| 500–999 | 99 | 95 (96 %) | 71 177 | 706 | 0,99 | 0,57 |
-| 1000–1999 | 73 | 71 (97 %) | 103 092 | 1 112 | 1,1 | 0,73 |
-| 2000–4999 | 58 | 58 (100 %) | 158 999 | 2 388 | 1,5 | 1,1 |
-| ab 5000 | 14 | 14 (100 %) | 193 878 | 9 207 | 4,8 | 1,7 |
-| alle | 405 | 384 (95 %) | 574 141 | 13 777 | 2,4 | 0,65 |
+| 0–499 | 161 | 146 (91 %) | 47 138 | 373 | 0,79 | 0,56 |
+| 500–999 | 99 | 95 (96 %) | 71 177 | 640 | 0,90 | 0,57 |
+| 1000–1999 | 73 | 71 (97 %) | 103 092 | 1 053 | 1,0 | 0,70 |
+| 2000–4999 | 58 | 58 (100 %) | 158 999 | 2 456 | 1,5 | 1,1 |
+| ab 5000 | 14 | 14 (100 %) | 193 878 | 9 262 | 4,8 | 1,7 |
+| alle | 405 | 384 (95 %) | 574 284 | 13 784 | 2,4 | 0,65 |
 
-Ab 5000 Einwohnern ohne die Stadt Bern: 13 Einheiten, 2,6 Einträge je 100 Einwohner (Median 1,5).
+Ab 5000 Einwohnern ohne die Stadt Bern: 13 Einheiten, 2,7 Einträge je 100 Einwohner (Median 1,5).
 
 **Gemeinden um 1910: Erwerbsstruktur**
 
 | Erwerbsstruktur 1910 | Einheiten | mit Telefon | Einwohner | Einträge je 100 Einw. | Median der Einheiten |
 |---|---:|---:|---:|---:|---:|
-| bäuerlich (1. Sektor ab 60 %) | 170 | 157 (92 %) | 122 109 | 0,62 | 0,44 |
-| gemischt | 124 | 119 (96 %) | 137 497 | 0,97 | 0,67 |
-| gewerblich-industriell (2. Sektor ab 50 %) | 66 | 63 (95 %) | 101 739 | 1,2 | 0,80 |
+| bäuerlich (1. Sektor ab 60 %) | 169 | 156 (92 %) | 121 963 | 0,62 | 0,44 |
+| gemischt | 125 | 120 (96 %) | 137 786 | 0,98 | 0,65 |
+| gewerblich-industriell (2. Sektor ab 50 %) | 66 | 63 (95 %) | 101 739 | 1,2 | 0,76 |
 | Dienstleistung (3. Sektor ab 25 %) | 45 | 45 (100 %) | 212 796 | 4,9 | 2,1 |
 
 **Grösse × Erwerbsstruktur: Median der Einträge je 100 Einwohner (Zahl der Einheiten); in Klammern nichts, wenn weniger als 5**
 
 | Einwohner 1910 | bäuerlich | gemischt | gewerblich-industriell | Dienstleistung |
 |---|---:|---:|---:|---:|
-| 0–499 | 0,47 (93) | 0,65 (48) | 0,50 (15) | 0,35 (5) |
-| 500–999 | 0,47 (41) | 0,54 (36) | 0,74 (15) | 1,8 (7) |
-| 1000–1999 | 0,28 (22) | 0,67 (19) | 0,75 (21) | 2,5 (11) |
-| 2000–4999 | 0,40 (13) | 0,94 (18) | 1,1 (11) | 1,8 (16) |
+| 0–499 | 0,47 (92) | 0,65 (49) | 0,50 (15) | 0,35 (5) |
+| 500–999 | 0,47 (41) | 0,54 (36) | 0,70 (15) | 1,8 (7) |
+| 1000–1999 | 0,28 (22) | 0,67 (19) | 0,73 (21) | 2,3 (11) |
+| 2000–4999 | 0,40 (13) | 0,94 (18) | 1,1 (11) | 2,0 (16) |
 | ab 5000 | – (1) | – (3) | – (4) | 4,0 (6) |
 
 **Grösse × Erwerbsstruktur: Einträge je 100 Einwohner, alle Einheiten der Zelle zusammen**
 
 | Einwohner 1910 | bäuerlich | gemischt | gewerblich-industriell | Dienstleistung |
 |---|---:|---:|---:|---:|
-| 0–499 | 0,65 | 0,98 | 0,56 | 1,1 |
-| 500–999 | 0,77 | 0,69 | 1,5 | 2,6 |
-| 1000–1999 | 0,59 | 0,81 | 1,0 | 2,6 |
-| 2000–4999 | 0,47 | 1,0 | 1,2 | 2,9 |
+| 0–499 | 0,64 | 1,0 | 0,54 | 1,1 |
+| 500–999 | 0,77 | 0,69 | 0,92 | 2,6 |
+| 1000–1999 | 0,59 | 0,81 | 0,96 | 2,4 |
+| 2000–4999 | 0,47 | 1,0 | 1,2 | 3,0 |
 | ab 5000 | – | – | – | 6,0 |
 
 **Innerhalb der Grössenklasse: Hälfte unter und ab dem Median des Sektoranteils (Einträge je 100 Einwohner, zusammen / Median)**
 
 | Einwohner 1910 | 3. Sektor: Median | darunter | ab Median | 1. Sektor: Median | darunter | ab Median |
 |---|---:|---:|---:|---:|---:|---:|
-| 0–499 | 8,3 % | 0,63 / 0,46 | 0,89 / 0,65 | 64,7 % | 0,84 / 0,64 | 0,68 / 0,47 |
-| 500–999 | 11,6 % | 0,78 / 0,47 | 1,2 / 0,76 | 52,7 % | 1,2 / 0,70 | 0,73 / 0,45 |
-| 1000–1999 | 12,2 % | 0,59 / 0,44 | 1,6 / 1,2 | 41,5 % | 1,4 / 0,92 | 0,73 / 0,49 |
-| 2000–4999 | 13,4 % | 0,65 / 0,64 | 2,2 / 1,6 | 41,5 % | 2,1 / 1,4 | 0,84 / 0,65 |
-| ab 5000 | 21,7 % | 1,2 / 1,1 | 5,8 / 3,8 | 16,1 % | 5,8 / 3,8 | 1,3 / 1,1 |
+| 0–499 | 8,3 % | 0,61 / 0,45 | 0,93 / 0,64 | 64,4 % | 0,89 / 0,64 | 0,67 / 0,47 |
+| 500–999 | 11,6 % | 0,59 / 0,47 | 1,2 / 0,76 | 52,7 % | 1,1 / 0,67 | 0,73 / 0,45 |
+| 1000–1999 | 12,2 % | 0,58 / 0,44 | 1,4 / 0,93 | 41,5 % | 1,3 / 0,86 | 0,73 / 0,49 |
+| 2000–4999 | 13,4 % | 0,65 / 0,64 | 2,3 / 1,8 | 41,5 % | 2,2 / 1,7 | 0,84 / 0,65 |
+| ab 5000 | 21,7 % | 1,4 / 1,1 | 5,8 / 3,8 | 16,1 % | 5,8 / 3,8 | 1,3 / 1,1 |
 
 **Rangkorrelation (Spearman) der Einträge je 100 Einwohner mit Grösse und Sektoranteilen**
 
 | Einwohner 1910 | Einwohner | 1. Sektor | 2. Sektor | 3. Sektor |
 |---|---:|---:|---:|---:|
-| 0–499 | -0,11 | -0,07 | 0,08 | 0,12 |
-| 500–999 | 0,28 | -0,36 | 0,30 | 0,41 |
-| 1000–1999 | 0,11 | -0,43 | 0,25 | 0,65 |
-| 2000–4999 | 0,31 | -0,65 | 0,32 | 0,85 |
+| 0–499 | -0,11 | -0,07 | 0,08 | 0,13 |
+| 500–999 | 0,27 | -0,34 | 0,26 | 0,44 |
+| 1000–1999 | 0,17 | -0,41 | 0,24 | 0,64 |
+| 2000–4999 | 0,32 | -0,68 | 0,32 | 0,85 |
 | ab 5000 | 0,82 | -0,64 | 0,07 | 0,87 |
-| alle | 0,27 | -0,40 | 0,29 | 0,46 |
+| alle | 0,28 | -0,39 | 0,28 | 0,46 |
 
 **Stadt Bern: Telefon nach Gruppen**
 
@@ -326,8 +326,8 @@ Ab 5000 Einwohnern ohne die Stadt Bern: 13 Einheiten, 2,6 Einträge je 100 Einwo
 | 2. Sektor | 57 | 9 396 | 0,61 % | 433 | 13 143 | 3,3 % | 778 | 17 277 | 4,5 % |
 | 3. Sektor | 132 | 9 407 | 1,4 % | 880 | 13 158 | 6,7 % | 1 664 | 17 297 | 9,6 % |
 | ohne Erwerb (Privatier, Rentier) | 1 | – | – | 22 | – | – | 33 | – | – |
-| Angabe ohne Sektor | 16 | – | – | 92 | – | – | 158 | – | – |
-| keine Angabe (nur Name, «Wohnung») | 19 | – | – | 183 | – | – | 382 | – | – |
+| Angabe ohne Sektor | 16 | – | – | 93 | – | – | 158 | – | – |
+| keine Angabe (nur Name, «Wohnung») | 19 | – | – | 182 | – | – | 382 | – | – |
 | Ärzte (Angabe nennt «Arzt») | 11 | 84 | 13,1 % | 3 | 103 | 2,9 % | 31 | 116 | 26,7 % |
 | Ärzte (dazu Titel «Dr. med.») | 11 | 84 | 13,1 % | 58 | 103 | 56,2 % | 96 | 116 | 82,8 % |
 | verschiedene Rufnummern | – | – | – | 1 785 | 64 227 | 2,8 % | 3 464 | 85 651 | 4,0 % |

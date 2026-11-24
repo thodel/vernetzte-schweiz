@@ -37,7 +37,7 @@ files = [
 id = "basel"
 label = "Basel"
 repo = "thodel/adressbuecher-basel"
-commit = "b94acb60704e17c5b7df22381c9d15ea6a116760"
+commit = "53ccb22bcc85b987b1b53b5be719e0bd7e6b32f9"
 site = "https://thodel.github.io/adressbuecher-basel/"
 authority = "data/csv/10_authority_links.csv"
 volumes = "data/csv/00_volumes.csv"
@@ -145,7 +145,7 @@ commit = "e61623b073ce40d396cdae01a1526b7fd5f079cf"
 local = "~/Repos/PTT_phonebook_data_tsv"
 batch_a = "tsv/a"
 batch_b = "tsv/b*.tsv"
-# Neulesung einzelner Bände aus den Seitenbildern (docs/neulesung_2c.md, docs/neulesung_2b.md); ersetzt alle Zeilen
+# Neulesung einzelner Bände aus den Seitenbildern (docs/neulesung_2c.md, neulesung_2b.md, neulesung_2a.md, neulesung_13.md); ersetzt alle Zeilen
 # des Bandes aus der Quelle
 overrides = "data/override/ptt"
 
