@@ -412,8 +412,9 @@ Die Paarsuche oben sucht dieselbe Person an zwei Orten. Die Zuzüge fragen ander
 einem Band einer Stadt zum ersten Mal, und woher stammt er? Das geht nur, wo die Adressbücher den
 Heimatort nennen und mehrere Bände vorliegen, im Zeitfenster nur in **Aarau 1867–1899**
 (Gebäude- und Einwohnerlisten, rund 60 % der Personen mit Heimatort). **Zürich 1867–1914** hat
-mehrere Bände, aber keinen Heimatort: dort nur die Zuzüge selbst. Die Seite zeigt beide unter
-`#/wanderungen?v=zuzug` (Auswahl «Stadt»).
+mehrere Bände, aber keinen Heimatort: dort nur die Zuzüge selbst, ebenso in **Bern, Baden und Lausanne**
+(je zwei Bände, 10 bis 17 Jahre auseinander). Die Seite zeigt alle fünf unter `#/wanderungen?v=zuzug`
+(Auswahl «Stadt»).
 
 ```bash
 make zuzuege                    # links/zuzuege.csv.gz, data/norm/zuzuege_stats.json
@@ -495,6 +496,33 @@ und ähnliche Familiennamen werden über eine Liste der Namen gesucht statt Eint
   jeder ähnliche Name im Vorband; einzelne Grenzfälle mit abgekürztem Vornamen («Kamer, Jos.» →
   «Kamer, Jos. Ad.», anderer Beruf).
 - Firmen, Anstalten und Vereine im Namen («Petranit A. G.», «Eilboten-Institut», «— Söhne») zählen nicht.
+
+### Bern, Baden und Lausanne (je zwei Bände, ohne Heimatort)
+
+Seit 24.11.2026 (Entscheid vom selben Tag) gleich gerechnet wie Zürich: Hausnummer je Strasse, keine Umnummerierung,
+keine Quartiere. Gezählt wird nur die Gemeinde selbst (Baden 1910 umfasst den Bezirk, Lausanne 1907 dazu die
+übrigen Waadtländer Gemeinden). Kein Band nennt einen Heimatort.
+
+| Stadt | Band | Vorband | Abstand | Personen | Zuzüge | davon Name neu | bleibt | witwe, haushalt |
+|---|---|---|---|---|---|---|---|---|
+| Bern | 1900 | 1883/84 | 17 Jahre | 13'406 | 10'439 (78 %) | 2'582 | 1'815 | 1'152 |
+| Baden | 1910 | 1900 | 10 Jahre | 1'937 | 1'510 (78 %) | 781 | 325 | 102 |
+| Lausanne | 1907 | 1896 | 11 Jahre | 22'535 | 15'521 (69 %) | 3'664 | 6'638 | 376 |
+
+Von den Personen des Vorbands finden sich wieder: Bern 24 % (1'815 von 7'479), Baden 29 % (325 von 1'112),
+Lausanne 37 % (6'638 von 18'080); zum Vergleich Zürich 1885→1900 44 % (über 15 Jahre).
+
+- **Initialen.** Viele Berner Einträge nennen nur die Initiale des Vornamens; eine Initiale allein gibt einen
+  Punkt und verknüpft nicht («Hügi, R., Heizer im Bahnhof» 1883 und «Hügi, R., Lokomotivführer» 1900). Bei 27 %
+  der Berner Zuzüge steht im Vorband ein unverknüpfter Eintrag mit gleichem Familiennamen und passender Initiale,
+  bei 3 % einer mit gleichem Vornamen (Zürich 1885→1900: 23 % und 4 %; Lausanne 7 % und 2 %; Baden 2 % und 2 %).
+  Die Zuzüge sind darum eine Obergrenze, in Bern wie in Zürich.
+- **Allianznamen.** Lausanne nennt verheiratete Frauen oft mit Allianznamen (1907 bei 53 % der Einträge); steht
+  er schon im Vorband, zählt die Person als «Name schon in der Stadt» (11'857 der 15'521 Zuzüge).
+- **Baden 1900** nennt fast keine Hausnummern (4 % der Einträge), die Adresse hilft dort wenig.
+- Stichprobe (je 8 Zuzüge «Name schon in der Stadt», Seed 1124): Bern 4 klar neu, 2 wohl dieselbe Person
+  (Hügi R.; Fässler/Fasler F.), 2 ohne Vornamen nicht beurteilbar; Lausanne 5 klar neu, 1 wohl dieselbe Person
+  (Cuérel Hélène), 2 nicht beurteilbar.
 
 ### Nationalität aus dem Namen? (gemessen, nicht eingebaut)
 

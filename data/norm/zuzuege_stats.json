@@ -304,5 +304,76 @@
    "bleibt_mit_heimatort": 6,
    "bleibt_ausland": 1
   }
+ },
+ "Bern": {
+  "1883": {
+   "personen": 7479,
+   "erster_band": 7479,
+   "nicht_erfasst": [],
+   "zuzug_mit_heimatort": 0,
+   "zuzug_ausland": 0,
+   "bleibt_mit_heimatort": 0,
+   "bleibt_ausland": 0
+  },
+  "1900": {
+   "personen": 13406,
+   "neu_familie": 7857,
+   "neu": 2582,
+   "bleibt": 1815,
+   "witwe": 938,
+   "haushalt": 214,
+   "nicht_erfasst": [],
+   "zuzug_mit_heimatort": 74,
+   "zuzug_ausland": 7,
+   "bleibt_mit_heimatort": 6,
+   "bleibt_ausland": 3
+  }
+ },
+ "Baden": {
+  "1900": {
+   "personen": 1112,
+   "erster_band": 1112,
+   "nicht_erfasst": [],
+   "zuzug_mit_heimatort": 0,
+   "zuzug_ausland": 0,
+   "bleibt_mit_heimatort": 0,
+   "bleibt_ausland": 0
+  },
+  "1910": {
+   "personen": 1937,
+   "neu": 781,
+   "bleibt": 325,
+   "neu_familie": 729,
+   "witwe": 102,
+   "nicht_erfasst": [],
+   "zuzug_mit_heimatort": 0,
+   "zuzug_ausland": 0,
+   "bleibt_mit_heimatort": 0,
+   "bleibt_ausland": 0
+  }
+ },
+ "Lausanne": {
+  "1896": {
+   "personen": 18080,
+   "erster_band": 18080,
+   "nicht_erfasst": [],
+   "zuzug_mit_heimatort": 0,
+   "zuzug_ausland": 0,
+   "bleibt_mit_heimatort": 0,
+   "bleibt_ausland": 0
+  },
+  "1907": {
+   "personen": 22535,
+   "bleibt": 6638,
+   "neu": 3664,
+   "neu_familie": 11857,
+   "haushalt": 347,
+   "witwe": 29,
+   "nicht_erfasst": [],
+   "zuzug_mit_heimatort": 4,
+   "zuzug_ausland": 1,
+   "bleibt_mit_heimatort": 4,
+   "bleibt_ausland": 2
+  }
  }
 }

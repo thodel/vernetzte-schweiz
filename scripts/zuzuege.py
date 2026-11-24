@@ -1,7 +1,8 @@
 """Zuzüge: wer steht in einem Adressbuchband einer Stadt zum ersten Mal, und woher stammt er?
 
 Teil der Wanderungen (docs/wanderungen.md, Abschnitt «Zuzüge mit Heimatort»). Aarau 1867–1899 nennt
-den Heimatort über viele Bände; Zürich 1867–1914 hat mehrere Bände, aber keinen Heimatort.
+den Heimatort über viele Bände; Zürich 1867–1914 hat mehrere Bände, aber keinen Heimatort; Bern, Baden und Lausanne
+haben je zwei Bände ohne Heimatort.
 
 - Je Band eine Liste: Einwohnerliste, sonst Gebäudeliste. Fehlt der Einwohnerliste der Heimatort,
   kommt er aus der Gebäudeliste desselben Bandes.
@@ -34,8 +35,10 @@ OUT = LINKS / "zuzuege.csv.gz"
 STATS = NORM / "zuzuege_stats.json"
 # Städte mit mehreren Bänden: (Jahr der Umnummerierung der Gebäude oder 0, Nummern über die ganze Stadt).
 # Aarau nummeriert die Gebäude durch und hat zwischen 1869 und 1877 umnummeriert (gleiche Nummer bei
-# verknüpften Paaren 29 von 565, sonst ~75 %); Zürich nummeriert je Strasse.
-CITIES = {"Aarau": (1877, True), "Zürich": (0, False)}
+# verknüpften Paaren 29 von 565, sonst ~75 %); Zürich, Bern, Baden und Lausanne nummerieren je Strasse (Baden 1910:
+# 66 von 98 Hausnummern an mehreren Strassen; 1900 hat nur 4 % der Einträge eine Nummer). Bern (1883/84, 1900),
+# Baden (1900, 1910) und Lausanne (1896, 1907) haben je zwei Bände, 10 bis 17 Jahre auseinander, ohne Heimatort.
+CITIES = {"Aarau": (1877, True), "Zürich": (0, False), "Bern": (0, False), "Baden": (0, False), "Lausanne": (0, False)}
 # Ein Quartier gilt im Vorband als nicht erfasst, wenn es dort weniger als ein Viertel der Einträge hat
 # (Zürich 1867: Riesbach 111, 1875: 1 571). Neue dort sind kein Zuzug, sondern Status «gebiet».
 COVERAGE = 0.25

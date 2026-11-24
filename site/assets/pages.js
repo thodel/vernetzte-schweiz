@@ -1051,8 +1051,10 @@
     const clsName = i => i < 0 ? t.mw_no_class : (t[`occ_${D.classes[i][0]}`] || D.classes[i][1]);
     const regName = r => r[8] === 2 ? countryName(r[9]) : r[9];
 
-    // Heimatort nur, wo die Bände ihn nennen (Aarau); sonst nur Zuzüge, ohne Herkunft und Karte
-    const hasOrigin = vols.some(v => S[v].zuzug_mit_heimatort >= 50);
+    // Heimatort nur, wo die Bände ihn nennen (Aarau); sonst nur Zuzüge, ohne Herkunft und Karte. Bern 1900 hat 74
+    // Zuzüge mit gelesenem Heimatort unter 10 439: zu wenig, darum auch ein Anteil von mindestens 10 %
+    const hasOrigin = vols.some(v => S[v].zuzug_mit_heimatort >= 50
+      && S[v].zuzug_mit_heimatort >= 0.1 * ((S[v].neu || 0) + (S[v].neu_familie || 0)));
     const hasArea = vols.some(v => S[v].gebiet);
     const table = el("div", { class: "grid-scroll" }, el("table", { class: "entries zz-table" },
       el("thead", {}, el("tr", {}, ...[t.zz_vol, t.zz_col_prev, t.zz_col_persons, t.zz_col_arr, t.zz_col_new,
@@ -1087,7 +1089,7 @@
     const span = vol === "alle" ? `${vols[1]}–${vols[vols.length - 1]}` : vol;
     view.replaceChildren(el("h1", {}, t.mw_h), migTabs("zuzug"), el("p", { class: "intro" }, (hasOrigin ? t.zz_p : t.zz_p_names).replace("{c}", city)),
       table, filt, ctl, box, side,
-      el("p", { class: "sub note" }, hasOrigin ? t.zz_note : t.zz_note_names, " ", link("https://github.com/thodel/vernetzte-schweiz/blob/main/docs/wanderungen.md#zuzüge-mit-heimatort", t.mw_doc)));
+      el("p", { class: "sub note" }, t[`zz_note_${city.toLowerCase()}`] ?? (hasOrigin ? t.zz_note : t.zz_note_names), " ", link("https://github.com/thodel/vernetzte-schweiz/blob/main/docs/wanderungen.md#zuzüge-mit-heimatort", t.mw_doc)));
 
     // Karte: je Heimatort ein Kreis (Fläche ∝ Zuzüge), rot Ausland, grün Schweiz; Klick filtert auf den Ort
     const pts = new Map();
