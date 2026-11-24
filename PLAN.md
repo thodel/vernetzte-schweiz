@@ -184,6 +184,11 @@ Verknüpfung und Bau laufen durch.
   wie Zürich 23 %). Hinweis je Stadt auf der Seite (de/fr/en).
   Danach: Initiale oder gleiche Abkürzung verknüpft auch mit derselben Strasse, wenn die Vornamen Stelle für Stelle
   passen (1 188 Paare mehr, Stichprobe 21/30 wohl richtig, 1 wohl falsch); Zuzüge Bern 10 388, Lausanne 15 489.
+- ✔ 24.11.2026 **Zürich 1913** (Wochenlauf, qwen3.8 auf tei; adressbuecher-zuerich 8396b7b; Stichprobe 16 von 20 voll
+  richtig, an der Schwelle): 80 039 Einträge (Einwohner 63 302, Berufsregister 16 737). Zürich jetzt 829 131 Einträge.
+  Einträge 1 515 778 → 1 595 795, Einheiten 550 624 → 561 283 (mit mehr als einem Eintrag 250 108 → 263 081); Telefonbuch
+  Zürich verknüpft 47 637 → 48 007; Wanderungen 563 → 571 (stark 66, mittel 376, schwach 129). 1912 ist gelesen, aber
+  im Zürcher Repo noch nicht übernommen (Berufsregister unvollständig gelesen).
 - offen: Bern 1860 (Fraktur, nicht ganz gelesen).
 
 **M6 — Visualisierungen.** ✔ 10.11.2026: Karten «Wer bekam wann ein Telefon», «Berufe», «Namen» (`#/karten`), Berufssuche mit Karte und Quellenfilter in der Suche; [Aufbau und Messung](docs/karten.md). Umgesetzt sind die ersten drei Punkte; die weiteren Ideen bleiben offen. Nachgetragen: Regler für Jahre (ein Jahr oder Bereich) statt Zeiträumen, Quelle Telefon-/Adressbuch in «Berufe» und «Namen». Grundlage sind die Einheiten aus M3 (eine Person oder Firma

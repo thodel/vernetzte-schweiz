@@ -62,13 +62,13 @@ gleich, solange dieser Eintrag zur Einheit gehört; bei geänderten Regeln kann 
 
 | | Anzahl |
 |---|---|
-| Einträge | 1 515 778 |
-| Einheiten | 550 624 (Personen 492 299, Firmen und Ämter 58 325) |
-| Einheiten mit mehr als einem Eintrag | 250 108 (mit 1 215 262 Einträgen) |
-| über mindestens 10 Jahre belegt | 35 193 |
-| im Telefon- und im Adressbuch | 15 949 |
+| Einträge | 1 595 795 |
+| Einheiten | 561 283 (Personen 502 468, Firmen und Ämter 58 815) |
+| Einheiten mit mehr als einem Eintrag | 263 081 (mit 1 297 593 Einträgen) |
+| über mindestens 10 Jahre belegt | 35 619 |
+| im Telefon- und im Adressbuch | 16 142 |
 
-Stand 24.11.2026, 20:35 MEZ (`data/norm/cluster_stats.json`), mit Montreux bei Le Châtelard-Montreux (davor 1 511 686 Einträge und 549 188 Einheiten), nach der Neulesung der Bände 1 und 3 1911–1914 ([neulesung_13.md](neulesung_13.md); davor 1 488 236 Einträge und 568 645 Einheiten), mit Zürich 1911 (77 121 Einträge, adressbuecher-zuerich c3545ec; davor 1 411 128 Einträge und 558 776 Einheiten), mit Zürich 1902 (67 929 Einträge, adressbuecher-zuerich 144354d; davor 1 023 615 Einträge und 492 457 Einheiten), Zürich 1901 (74 787 Einträge, adressbuecher-zuerich 9db327f) und
+Stand 24.11.2026, 23:45 MEZ (`data/norm/cluster_stats.json`), mit Zürich 1913 (80 039 Einträge, adressbuecher-zuerich 8396b7b; davor 1 515 778 Einträge und 550 624 Einheiten), mit Montreux bei Le Châtelard-Montreux (davor 1 511 686 Einträge und 549 188 Einheiten), nach der Neulesung der Bände 1 und 3 1911–1914 ([neulesung_13.md](neulesung_13.md); davor 1 488 236 Einträge und 568 645 Einheiten), mit Zürich 1911 (77 121 Einträge, adressbuecher-zuerich c3545ec; davor 1 411 128 Einträge und 558 776 Einheiten), mit Zürich 1902 (67 929 Einträge, adressbuecher-zuerich 144354d; davor 1 023 615 Einträge und 492 457 Einheiten), Zürich 1901 (74 787 Einträge, adressbuecher-zuerich 9db327f) und
 nach der Neulesung von Band 2a 1911–1914 ([neulesung_2a.md](neulesung_2a.md)); dazu zählen rund 2 900 Einträge neu mit,
 deren Ortschaft jetzt eine Gemeinde hat (`data/ref/place_aliases.csv`). Die Neulesung allein: rund 4 000
 Einheiten weniger bei 3 500 Einträgen mehr (vorher 1 017 210 Einträge und 495 788 Einheiten), weil Einträge von

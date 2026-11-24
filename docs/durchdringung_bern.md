@@ -321,12 +321,12 @@ Ab 5000 Einwohnern ohne die Stadt Bern: 13 Einheiten, 2,7 Einträge je 100 Einwo
 | Frauen | 3 | 24 718 | 0,01 % | 106 | 35 316 | 0,30 % | 265 | 47 099 | 0,56 % |
 | Witwen | 1 | 2 097 | 0,05 % | 35 | 2 721 | 1,3 % | 71 | 3 384 | 2,1 % |
 | Fräulein | 0 | – | – | 15 | – | – | 49 | – | – |
-| Personen und Firmen mit Sektor je Erwerbstätige | 191 | 19 171 | 1,0 % | 1 330 | 26 816 | 5,0 % | 2 463 | 35 250 | 7,0 % |
+| Personen und Firmen mit Sektor je Erwerbstätige | 191 | 19 171 | 1,0 % | 1 330 | 26 816 | 5,0 % | 2 464 | 35 250 | 7,0 % |
 | 1. Sektor | 2 | 368 | 0,54 % | 17 | 514 | 3,3 % | 21 | 676 | 3,1 % |
-| 2. Sektor | 57 | 9 396 | 0,61 % | 433 | 13 143 | 3,3 % | 778 | 17 277 | 4,5 % |
+| 2. Sektor | 57 | 9 396 | 0,61 % | 433 | 13 143 | 3,3 % | 779 | 17 277 | 4,5 % |
 | 3. Sektor | 132 | 9 407 | 1,4 % | 880 | 13 158 | 6,7 % | 1 664 | 17 297 | 9,6 % |
 | ohne Erwerb (Privatier, Rentier) | 1 | – | – | 22 | – | – | 33 | – | – |
-| Angabe ohne Sektor | 16 | – | – | 93 | – | – | 158 | – | – |
+| Angabe ohne Sektor | 16 | – | – | 93 | – | – | 157 | – | – |
 | keine Angabe (nur Name, «Wohnung») | 19 | – | – | 182 | – | – | 382 | – | – |
 | Ärzte (Angabe nennt «Arzt») | 11 | 84 | 13,1 % | 3 | 103 | 2,9 % | 31 | 116 | 26,7 % |
 | Ärzte (dazu Titel «Dr. med.») | 11 | 84 | 13,1 % | 58 | 103 | 56,2 % | 96 | 116 | 82,8 % |

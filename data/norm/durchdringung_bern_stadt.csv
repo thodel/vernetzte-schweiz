@@ -47,12 +47,12 @@ jahr,gruppe,zaehler,nenner,nenner_art,nenner_herleitung,quote_prozent,bemerkung
 1910,Frauen,265,47099,geschätzt,"Bevölkerung mal Frauenanteil, zwischen 1856 und 1930 interpoliert",0.56,"erkannt an Stand, Vorname oder Berufsform: Untergrenze"
 1910,Witwen,71,3384,geschätzt,Verwitwete 1910 mal Frauenanteil der Verwitweten 1846,2.1,
 1910,Fräulein,49,,,,,
-1910,Personen und Firmen mit Sektor je Erwerbstätige,2463,35250,direkt,Volkszählung 1910 (Reihe A),7.0,
+1910,Personen und Firmen mit Sektor je Erwerbstätige,2464,35250,direkt,Volkszählung 1910 (Reihe A),7.0,
 1910,1. Sektor,21,676,direkt,Volkszählung 1910 (Reihe A),3.1,Personen und Firmen
-1910,2. Sektor,778,17277,direkt,Volkszählung 1910 (Reihe A),4.5,Personen und Firmen
+1910,2. Sektor,779,17277,direkt,Volkszählung 1910 (Reihe A),4.5,Personen und Firmen
 1910,3. Sektor,1664,17297,direkt,"Volkszählung 1910 (Reihe A, 3. Sektor als Rest)",9.6,"Personen und Firmen, ohne Ämter"
 1910,"ohne Erwerb (Privatier, Rentier)",33,,,,,
-1910,Angabe ohne Sektor,158,,,,,
+1910,Angabe ohne Sektor,157,,,,,
 1910,"keine Angabe (nur Name, «Wohnung»)",382,,,,,
 1910,Ärzte (Angabe nennt «Arzt»),31,116,direkt,Ärzte 1910,26.7,ohne Zahn- und Tierärzte
 1910,Ärzte (dazu Titel «Dr. med.»),96,116,direkt,Ärzte 1910,82.8,
