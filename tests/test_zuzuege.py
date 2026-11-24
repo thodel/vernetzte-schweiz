@@ -86,6 +86,29 @@ class Linking(unittest.TestCase):
         c = entry(1914, "Adel", "Jakob", street="Seefeldstrasse", no="5", global_no=False)
         self.assertIn(c["id"], z.link([a], [c]))
 
+    def test_initial_links_with_street_or_occupation(self):
+        # Bern 1883/1900: viele Einträge nennen nur die Initiale
+        a = entry(1883, "Hügi", "R", occ="Heizer", street="Könizstrasse", no="58", global_no=False)
+        b = entry(1900, "Hügi", "Rud", occ="Lokomotivführer", street="Könizstrasse", no="12", global_no=False)
+        self.assertIn(b["id"], z.link([a], [b]))                      # Initiale und Strasse
+        c = entry(1900, "Hügi", "Rud", occ="Heizer", street="Holligenstrasse", global_no=False)
+        self.assertIn(c["id"], z.link([a], [c]))                      # Initiale und Beruf
+        d = entry(1900, "Hügi", "Rud", occ="Gärtner", street="Holligenstrasse", global_no=False)
+        self.assertEqual(z.link([a], [d]), {})                        # Initiale allein
+        e = entry(1900, "Hügi", "", occ="Gärtner", street="Könizstrasse", global_no=False)
+        self.assertEqual(z.link([a], [e]), {})                        # ohne Vornamen reicht die Strasse nicht
+        f = entry(1900, "Hügli", "Rud", occ="Gärtner", street="Könizstrasse", global_no=False)
+        self.assertEqual(z.link([a], [f]), {})                        # ähnlicher Name braucht weiter 5 Punkte
+        # Vater und Sohn in derselben Strasse: der zweite Vorname widerspricht
+        g = entry(1900, "Graf", "Joh. Heinr", occ="Wirt", street="Zweierstrasse", global_no=False)
+        h = entry(1901, "Graf", "Joh. Bapt", occ="Ausläufer", street="Zweierstrasse", global_no=False)
+        self.assertEqual(z.link([g], [h]), {})
+        i = entry(1901, "Graf", "Joh", occ="Ausläufer", street="Zweierstrasse", global_no=False)
+        self.assertIn(i["id"], z.link([g], [i]))                      # zweiter Vorname fehlt nur auf einer Seite
+        k = entry(1903, "Huber", "H", occ="Kaufmann", street="Morgartenstrasse", global_no=False)
+        m = entry(1907, "Huber", "Joh. H", occ="Architekt", street="Morgartenstrasse", global_no=False)
+        self.assertEqual(z.link([k], [m]), {})                        # «H.» steht nicht an erster Stelle
+
     def test_firms_and_buildings_are_not_persons(self):
         base = {"forename": "", "occupation": ""}
         self.assertFalse(z.is_person({**base, "text": "Erismann & Blattner, Eisenhandlung"}))

@@ -25,7 +25,7 @@ import sys
 from collections import Counter, defaultdict
 
 from common import NORM, ROOT, open_csv, write_csv
-from link_ptt_ab import WIDOW, compare_forenames, forename_tokens, nkey, skey, stems
+from link_ptt_ab import WIDOW, compare_forenames, forename_tokens, nkey, skey, stems, token_match
 from occupations import CLASSES, LABELS
 from occupations import classify as occ_class
 from origins import classify as origin
@@ -141,6 +141,23 @@ def similar_names(earlier: set[str], later: set[str]) -> dict[str, list[str]]:
     return out
 
 
+def in_order(a: list, b: list) -> bool:
+    """Passen die Vornamen Stelle für Stelle? «Joh. Heinr.» und «Joh. Bapt.» nicht (Vater und Sohn in derselben
+    Strasse), «R.» und «Rud.» schon, «Jos.» und «Jos. Saul» auch (der zweite fehlt auf einer Seite)."""
+    return bool(a and b) and all(token_match(x, y) for x, y in zip(a, b))
+
+
+def enough(pts: int, ev: list[str], same: bool, a: dict | None = None, b: dict | None = None) -> bool:
+    """Reicht es für eine Verknüpfung? Gleicher Familienname ab 3 Punkten, ähnlicher ab 5. Ein nur schwach
+    passender Vorname (Initiale, Abkürzung: 1 Punkt) reicht mit gleichem Beruf (3 Punkte) und, seit 24.11.2026,
+    auch mit derselben Strasse (2 Punkte), dann aber nur, wenn die Vornamen Stelle für Stelle passen
+    (`in_order`): «Hügi, R.» an der Könizstrasse 1883 und 1900. Ohne Vornamen reicht die Strasse nicht."""
+    if pts >= (3 if same else 5):
+        return True
+    return (same and "vorname:initiale" in ev and "strasse" in ev and a is not None and b is not None
+            and in_order(a["fn"], b["fn"]))
+
+
 def link(earlier: list[dict], later: list[dict]) -> dict[str, tuple[str, int, list[str]]]:
     """Verknüpft Einträge eines Bandes mit den vorangehenden; 1:1, beste Punkte zuerst, bei Gleichstand
     der jüngere Band. Kandidaten: gleicher Familienname, ähnlicher Familienname, oder im selben Haus
@@ -163,7 +180,7 @@ def link(earlier: list[dict], later: list[dict]) -> dict[str, tuple[str, int, li
             if not same and not (a["sk"] in sim.get(b["sk"], ()) or ratio(a["sk"], b["sk"]) >= 0.6):
                 continue
             s = score(a, b)
-            if s and s[0] >= (3 if same else 5):
+            if s and enough(s[0], s[1], same, a, b):
                 cands.append((s[0] - (0 if same else 1), a["vol"], a["id"], b["id"], s[1] + ([] if same else ["name:ähnlich"])))
     cands.sort(key=lambda c: (-c[0], -c[1], c[2], c[3]))
     links, used_a = {}, set()

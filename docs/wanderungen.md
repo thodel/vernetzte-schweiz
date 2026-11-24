@@ -445,8 +445,14 @@ Aarau, 11 718 Einträge mit Heimatort: CH 9 674, CH? 383, Ausland 1 132, offen 2
 - Paare über die Bände: gleicher Familienname, oder ähnlicher (≥ 0,85, mindestens 5 Buchstaben),
   oder im selben Haus ähnlich genug (≥ 0,6, «Udel»/«Adel»). Vorname und Heimatort dürfen sich nicht
   widersprechen. Punkte: Vorname gleich 3, Abkürzung 2, Initiale 1; Heimatort gleich 3; Beruf 2;
-  Strasse 1; Haus 1. Nötig sind 3 Punkte, bei ähnlichem Namen 5 (und ein Punkt Abzug). 1:1 nach
-  Punkten; eine Person darf in einem Band fehlen.
+  Strasse 1; Haus 1. Nötig sind 3 Punkte, bei ähnlichem Namen 5 (und ein Punkt Abzug). Seit 24.11.2026
+  reicht bei gleichem Familiennamen ein nur schwach passender Vorname (Initiale oder dieselbe Abkürzung, «R.»/«Rud.»,
+  «Jak.»/«Jak.») auch mit derselben Strasse (2 Punkte), wenn die Vornamen Stelle für Stelle passen: «Joh. Heinr.»
+  und «Joh. Bapt.» in derselben Strasse bleiben getrennt (Vater und Sohn). Das verknüpft 1'188 Paare mehr (Zürich
+  1'065, Bern 52, Aarau 37, Lausanne 32, Baden 2). Stichprobe von 30 (Seed 2412): 21 wohl dieselbe Person, 8 unklar
+  (häufige Namen mit Berufswechsel), 1 wohl falsch («Kunz, J. K., Vergolder» → «Kunz, Joh., Schneider»). Ohne die
+  Bedingung «Stelle für Stelle» waren in einer ersten Stichprobe 5 von 30 falsch. 1:1 nach Punkten; eine Person
+  darf in einem Band fehlen.
 - Aarau hat die Gebäude zwischen 1869 und 1877 neu nummeriert: Bei verknüpften Paaren stimmt die
   Nummer über diese Grenze in 29 von 565 Fällen, sonst in rund 75 %. Hausnummern zählen über die
   Grenze nicht, für «haushalt» gilt dort die Strasse.
@@ -456,15 +462,15 @@ Aarau, 11 718 Einträge mit Heimatort: CH 9 674, CH? 383, Ausland 1 132, offen 2
 
 | Band | Personen | Zuzüge | mit Heimatort | davon Ausland | Ausland unter Bleibenden |
 |---|---|---|---|---|---|
-| 1869 | 1'460 | 306 | 190 | 18 (9 %) | 27/437 (6 %) |
-| 1877 | 1'664 | 638 | 414 | 56 (14 %) | 26/340 (8 %) |
-| 1879 | 1'658 | 315 | 219 | 30 (14 %) | 59/580 (10 %) |
-| 1881 | 1'795 | 291 | 205 | 28 (14 %) | 51/635 (8 %) |
-| 1884 | 1'839 | 495 | 393 | 52 (13 %) | 36/631 (6 %) |
+| 1869 | 1'460 | 304 | 190 | 18 (9 %) | 27/437 (6 %) |
+| 1877 | 1'664 | 637 | 414 | 56 (14 %) | 26/341 (8 %) |
+| 1879 | 1'658 | 312 | 217 | 29 (13 %) | 60/581 (10 %) |
+| 1881 | 1'795 | 289 | 205 | 28 (14 %) | 51/635 (8 %) |
+| 1884 | 1'839 | 494 | 392 | 52 (13 %) | 36/632 (6 %) |
 | 1888 | 1'836 | 379 | 291 | 33 (11 %) | 57/778 (7 %) |
 | 1892 | 1'939 | 390 | 327 | 28 (9 %) | 69/843 (8 %) |
-| 1896 | 2'116 | 568 | 240 | 46 (19 %) | 38/473 (8 %) |
-| 1899 | 2'080 | 374 | 161 | 27 (17 %) | 47/558 (8 %) |
+| 1896 | 2'116 | 568 | 242 | 46 (19 %) | 38/472 (8 %) |
+| 1899 | 2'080 | 374 | 162 | 28 (17 %) | 47/560 (8 %) |
 
 Ausländische Zuzüger in Aarau: Deutschland 230, Österreich oder Deutschland 19, Frankreich 19,
 Österreich 17, Italien 12.
@@ -479,10 +485,10 @@ und ähnliche Familiennamen werden über eine Liste der Namen gesucht statt Eint
 
 | Band | Vorband | Personen | Zuzüge | davon Name neu | bleibt | Quartier im Vorband nicht erfasst |
 |---|---|---|---|---|---|---|
-| 1875 | 1867 | 15'087 | 4'279 (28 %) | 1'535 | 2'207 | 7'516 |
-| 1885 | 1875 | 26'503 | 19'251 (73 %) | 4'339 | 6'013 |  |
-| 1900 | 1885 | 59'261 | 44'976 (76 %) | 11'684 | 11'539 |  |
-| 1914 | 1900 | 61'557 | 36'520 (59 %) | 7'402 | 23'106 |  |
+| 1875 | 1867 | 15'087 | 4'270 (28 %) | 1'535 | 2'219 | 7'515 |
+| 1885 | 1875 | 26'502 | 19'223 (73 %) | 4'326 | 6'042 |  |
+| 1900 | 1885 | 59'262 | 44'845 (76 %) | 11'493 | 11'670 |  |
+| 1914 | 1911 | 61'561 | 14'127 (23 %) | 2'941 | 46'118 |  |
 
 - **1867 umfasst fast nur die Altstadt** (Quartier leer; Riesbach 111 Einträge gegen 1 571 im Jahr
   1875). Ein Quartier mit weniger als einem Viertel der Einträge im Vorband gilt als nicht erfasst;
@@ -505,18 +511,19 @@ keine Quartiere. Gezählt wird nur die Gemeinde selbst (Baden 1910 umfasst den B
 
 | Stadt | Band | Vorband | Abstand | Personen | Zuzüge | davon Name neu | bleibt | witwe, haushalt |
 |---|---|---|---|---|---|---|---|---|
-| Bern | 1900 | 1883/84 | 17 Jahre | 13'406 | 10'439 (78 %) | 2'582 | 1'815 | 1'152 |
-| Baden | 1910 | 1900 | 10 Jahre | 1'937 | 1'510 (78 %) | 781 | 325 | 102 |
-| Lausanne | 1907 | 1896 | 11 Jahre | 22'535 | 15'521 (69 %) | 3'664 | 6'638 | 376 |
+| Bern | 1900 | 1883/84 | 17 Jahre | 13'406 | 10'388 (77 %) | 2'582 | 1'867 | 1'151 |
+| Baden | 1910 | 1900 | 10 Jahre | 1'937 | 1'508 (78 %) | 781 | 327 | 102 |
+| Lausanne | 1907 | 1896 | 11 Jahre | 22'535 | 15'489 (69 %) | 3'664 | 6'670 | 376 |
 
-Von den Personen des Vorbands finden sich wieder: Bern 24 % (1'815 von 7'479), Baden 29 % (325 von 1'112),
-Lausanne 37 % (6'638 von 18'080); zum Vergleich Zürich 1885→1900 44 % (über 15 Jahre).
+Von den Personen des Vorbands finden sich wieder: Bern 25 % (1'867 von 7'479), Baden 29 % (327 von 1'112),
+Lausanne 37 % (6'670 von 18'080); zum Vergleich Zürich 1885→1900 44 % (über 15 Jahre).
 
 - **Initialen.** Viele Berner Einträge nennen nur die Initiale des Vornamens; eine Initiale allein gibt einen
-  Punkt und verknüpft nicht («Hügi, R., Heizer im Bahnhof» 1883 und «Hügi, R., Lokomotivführer» 1900). Bei 27 %
-  der Berner Zuzüge steht im Vorband ein unverknüpfter Eintrag mit gleichem Familiennamen und passender Initiale,
-  bei 3 % einer mit gleichem Vornamen (Zürich 1885→1900: 23 % und 4 %; Lausanne 7 % und 2 %; Baden 2 % und 2 %).
-  Die Zuzüge sind darum eine Obergrenze, in Bern wie in Zürich.
+  Punkt und verknüpft nur mit gleichem Beruf oder (seit 24.11.2026) gleicher Strasse. «Hügi, R., Heizer im
+  Bahnhof» 1883 (Könizstrasse) und «Hügi, R., Lokomotivführer» 1900 (andere Strasse) bleiben getrennt. Bei 26 % der
+  Berner Zuzüge steht im Vorband noch ein unverknüpfter Eintrag mit gleichem Familiennamen und passender Initiale,
+  bei 3 % einer mit gleichem Vornamen (vor der Strassen-Regel 27 %; Zürich 1885→1900: 22 % und 4 %; Lausanne 7 % und
+  2 %; Baden 2 % und 2 %). Die Zuzüge sind darum eine Obergrenze, in Bern wie in Zürich.
 - **Allianznamen.** Lausanne nennt verheiratete Frauen oft mit Allianznamen (1907 bei 53 % der Einträge); steht
   er schon im Vorband, zählt die Person als «Name schon in der Stadt» (11'857 der 15'521 Zuzüge).
 - **Baden 1900** nennt fast keine Hausnummern (4 % der Einträge), die Adresse hilft dort wenig.

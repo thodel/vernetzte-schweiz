@@ -182,6 +182,8 @@ Verknüpfung und Bau laufen durch.
   [docs/wanderungen.md](docs/wanderungen.md)): Zuzüge Bern 1900 10 439 (78 %), Baden 1910 1 510 (78 %), Lausanne 1907
   15 521 (69 %); Obergrenzen, weil Initialen allein nicht verknüpfen (Bern 27 % mit passender Initiale im Vorband,
   wie Zürich 23 %). Hinweis je Stadt auf der Seite (de/fr/en).
+  Danach: Initiale oder gleiche Abkürzung verknüpft auch mit derselben Strasse, wenn die Vornamen Stelle für Stelle
+  passen (1 188 Paare mehr, Stichprobe 21/30 wohl richtig, 1 wohl falsch); Zuzüge Bern 10 388, Lausanne 15 489.
 - offen: Bern 1860 (Fraktur, nicht ganz gelesen).
 
 **M6 — Visualisierungen.** ✔ 10.11.2026: Karten «Wer bekam wann ein Telefon», «Berufe», «Namen» (`#/karten`), Berufssuche mit Karte und Quellenfilter in der Suche; [Aufbau und Messung](docs/karten.md). Umgesetzt sind die ersten drei Punkte; die weiteren Ideen bleiben offen. Nachgetragen: Regler für Jahre (ein Jahr oder Bereich) statt Zeiträumen, Quelle Telefon-/Adressbuch in «Berufe» und «Namen». Grundlage sind die Einheiten aus M3 (eine Person oder Firma
