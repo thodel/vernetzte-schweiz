@@ -485,18 +485,30 @@ und ähnliche Familiennamen werden über eine Liste der Namen gesucht statt Eint
 
 | Band | Vorband | Personen | Zuzüge | davon Name neu | bleibt | Quartier im Vorband nicht erfasst |
 |---|---|---|---|---|---|---|
-| 1875 | 1867 | 15'087 | 4'270 (28 %) | 1'535 | 2'219 | 7'515 |
-| 1885 | 1875 | 26'502 | 19'223 (73 %) | 4'326 | 6'042 |  |
-| 1900 | 1885 | 59'262 | 44'845 (76 %) | 11'493 | 11'670 |  |
-| 1914 | 1911 | 61'561 | 14'127 (23 %) | 2'941 | 46'118 |  |
+| 1875 | 1867 | 15'088 | 4'269 (28 %) | 1'535 | 2'223 | 7'513 |
+| 1885 | 1875 | 26'504 | 19'220 (73 %) | 4'328 | 6'046 |  |
+| 1900 | 1885 | 59'263 | 44'843 (76 %) | 11'494 | 11'673 |  |
+| 1901 | 1900 | 61'369 | 10'522 (17 %) | 3'130 | 49'455 |  |
+| 1902 | 1901 | 53'897 | 4'648 (9 %) | 1'062 | 48'399 |  |
+| 1903 | 1902 | 46'996 | 3'892 (8 %) | 896 | 42'685 |  |
+| 1904 | 1903 | 45'517 | 4'747 (10 %) | 1'669 | 40'268 |  |
+| 1907 | 1904 | 49'745 | 13'158 (26 %) | 2'791 | 35'151 |  |
+| 1909 | 1907 | 51'934 | 9'804 (19 %) | 2'163 | 40'762 |  |
+| 1910 | 1909 | 55'975 | 7'595 (14 %) | 2'016 | 47'645 |  |
+| 1911 | 1910 | 58'011 | 6'656 (11 %) | 1'497 | 50'403 |  |
+| 1913 | 1911 | 60'477 | 10'626 (18 %) | 2'315 | 48'749 |  |
+| 1914 | 1913 | 61'562 | 6'496 (11 %) | 1'375 | 54'169 |  |
 
 - **1867 umfasst fast nur die Altstadt** (Quartier leer; Riesbach 111 Einträge gegen 1 571 im Jahr
   1875). Ein Quartier mit weniger als einem Viertel der Einträge im Vorband gilt als nicht erfasst;
   wer dort neu ist, hat den Status `gebiet` und zählt nicht als Zuzug.
-- **Die Bände liegen 8 bis 15 Jahre auseinander.** «Zuzug» heisst «neu seit dem Vorband» und schliesst
-  Söhne ein, die einen eigenen Eintrag bekommen, ebenso Frauen, die neu unter eigenem Namen stehen.
-- **Nach der Eingemeindung 1893** wurden Strassen umbenannt: 1885→1900 haben nur 753 verknüpfte Paare
-  dieselbe Strasse, 1900→1914 sind es 5 905. Dort hängt die Verknüpfung an Name, Vorname und Beruf.
+- **Bis 1900 liegen die Bände 8 bis 15 Jahre auseinander, ab 1901 ein bis drei Jahre.** «Zuzug» heisst
+  «neu seit dem Vorband» und schliesst Söhne ein, die einen eigenen Eintrag bekommen, ebenso Frauen, die neu
+  unter eigenem Namen stehen. Über zwei oder drei Jahre (1907, 1913) steigt der Anteil darum: 1913 nach 1911
+  18 %, 1914 nach 1913 11 %.
+- **Nach der Eingemeindung 1893** wurden Strassen umbenannt: 1885→1900 trägt die Strasse bei 9 % der
+  verknüpften Paare bei (1 061 von 11 673), zwischen den Jahresbänden ab 1901 bei 61–81 % (1913→1914:
+  42 388 von 54 169). Vor 1900 hängt die Verknüpfung an Name, Vorname und Beruf.
 - **Gelesen ohne Nachkorrektur:** Ein falsch gelesener Name oder Vorname macht aus einem Bleibenden
   einen Zuzug. Stichprobe (24 Zuzüge aus 1900 und 1914): meist anderer Vorname, Beruf und Strasse als
   jeder ähnliche Name im Vorband; einzelne Grenzfälle mit abgekürztem Vornamen («Kamer, Jos.» →
