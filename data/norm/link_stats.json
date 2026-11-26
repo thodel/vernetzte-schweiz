@@ -38,39 +38,39 @@
  "baden": {
   "ptt_entries": 3853,
   "ptt_linked": 2025,
-  "pairs": 5260,
+  "pairs": 5252,
   "decisions": {
    "kein-name": 2112,
-   "sicher": 906,
+   "sicher": 898,
    "widerspruch": 523,
    "möglich": 635,
    "wahrscheinlich": 1274,
    "zu-schwach": 828,
-   "mehrdeutig": 637
+   "mehrdeutig": 645
   },
   "by_tier": {
-   "sicher": 1714,
+   "sicher": 1706,
    "möglich": 1031,
    "wahrscheinlich": 2515
   }
  },
  "bern": {
   "ptt_entries": 54818,
-  "ptt_linked": 26547,
-  "pairs": 69337,
+  "ptt_linked": 27126,
+  "pairs": 101192,
   "decisions": {
-   "kein-name": 140174,
-   "wahrscheinlich": 14358,
-   "möglich": 9401,
-   "zu-schwach": 64952,
-   "mehrdeutig": 58639,
-   "widerspruch": 30484,
-   "sicher": 10900
+   "kein-name": 334290,
+   "wahrscheinlich": 16435,
+   "möglich": 24052,
+   "zu-schwach": 162027,
+   "mehrdeutig": 144812,
+   "widerspruch": 73471,
+   "sicher": 12365
   },
   "by_tier": {
-   "wahrscheinlich": 27568,
-   "möglich": 15235,
-   "sicher": 26534
+   "wahrscheinlich": 31518,
+   "möglich": 40315,
+   "sicher": 29359
   }
  },
  "lausanne": {
@@ -95,18 +95,18 @@
  "zuerich": {
   "ptt_entries": 64459,
   "ptt_linked": 48007,
-  "pairs": 601324,
+  "pairs": 601312,
   "decisions": {
    "kein-name": 227976,
    "möglich": 21725,
-   "zu-schwach": 108295,
+   "zu-schwach": 108289,
    "mehrdeutig": 125925,
    "wahrscheinlich": 129474,
-   "widerspruch": 90249,
+   "widerspruch": 90255,
    "sicher": 172586
   },
   "by_tier": {
-   "möglich": 33764,
+   "möglich": 33752,
    "wahrscheinlich": 219121,
    "sicher": 348439
   }
