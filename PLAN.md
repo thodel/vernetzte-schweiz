@@ -195,6 +195,11 @@ Verknüpfung und Bau laufen durch.
   1 595 795 → 1 608 995, Einheiten 561 283 → 570 381 (mit mehr als einem Eintrag 263 081 → 266 124); Telefonbuch Bern
   verknüpft 26 472 → 26 534; Wanderungen 571 → 568 (stark 66, mittel 376, schwach 126). Die Fraktur-Bände 1863–1879
   sind auf tei gelesen und kommen mit den nächsten Läufen, danach die Antiqua-Bände 1881–1914 (qwen3.8).
+- ✔ 26.11.2026 **Bern 1863 und 1865** (Fraktur, Strom B, Gemini; adressbuecher-bern f38b2c7; Stichprobe 18 und 17 von
+  20 voll richtig): 13 809 Einträge (1863 Einwohner 4 053, Berufsregister 2 685; 1865 4 240 und 2 831). Bern jetzt
+  61 754 Einträge. Einträge 1 608 995 → 1 622 804, Einheiten 570 381 → 575 229 (mit mehr als einem Eintrag 266 124 →
+  268 786); Telefonbuch Bern verknüpft 26 534 → 26 547; Wanderungen 568 → 569 (stark 65, mittel 378, schwach 126).
+  1864 fehlt noch: Strom B las die letzte Seite des Berufsregisters nicht.
 - offen: Bern 1860 (Fraktur, nicht ganz gelesen).
 
 **M6 — Visualisierungen.** ✔ 10.11.2026: Karten «Wer bekam wann ein Telefon», «Berufe», «Namen» (`#/karten`), Berufssuche mit Karte und Quellenfilter in der Suche; [Aufbau und Messung](docs/karten.md). Umgesetzt sind die ersten drei Punkte; die weiteren Ideen bleiben offen. Nachgetragen: Regler für Jahre (ein Jahr oder Bereich) statt Zeiträumen, Quelle Telefon-/Adressbuch in «Berufe» und «Namen». Grundlage sind die Einheiten aus M3 (eine Person oder Firma

@@ -56,20 +56,20 @@
  },
  "bern": {
   "ptt_entries": 54818,
-  "ptt_linked": 26534,
-  "pairs": 67679,
+  "ptt_linked": 26547,
+  "pairs": 69337,
   "decisions": {
-   "kein-name": 85614,
-   "wahrscheinlich": 14330,
-   "möglich": 8317,
-   "zu-schwach": 42029,
-   "mehrdeutig": 37183,
-   "widerspruch": 20899,
+   "kein-name": 140174,
+   "wahrscheinlich": 14358,
+   "möglich": 9401,
+   "zu-schwach": 64952,
+   "mehrdeutig": 58639,
+   "widerspruch": 30484,
    "sicher": 10900
   },
   "by_tier": {
-   "wahrscheinlich": 27534,
-   "möglich": 13611,
+   "wahrscheinlich": 27568,
+   "möglich": 15235,
    "sicher": 26534
   }
  },

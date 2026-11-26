@@ -69,17 +69,21 @@ files = [
 id = "bern"
 label = "Bern"
 repo = "thodel/adressbuecher-bern"
-commit = "d8faddae102ae4d352ba5549f99723718d5db9ef"
+commit = "f38b2c7b21e81aa6244bdfee1e5d3209e9f98071"
 site = "https://thodel.github.io/adressbuecher-bern/"
 authority = "data/csv/10_authority_links.csv"
 # Eine Datei je Band seit 3d4382e. 1883–84, 1900 gelesen mit qwen3.8 (Stichprobe 83–84 % voll korrekt);
-# 1861, 1862 (Fraktur) mit Gemini, seit d8fadda (Stichprobe je 16 von 20). Die übrigen Bände 1863–1914 kommen
-# nach und nach (Wochenlauf, scripts/weekly/ im Berner Repo).
+# 1861, 1862 (Fraktur) mit Gemini, seit d8fadda (Stichprobe je 16 von 20); seit f38b2c7 auch 1863 (18/20) und 1865
+# (17/20). Die übrigen Bände 1864–1914 kommen nach und nach (Wochenlauf, scripts/weekly/ im Berner Repo).
 files = [
   { path = "data/csv/04_entries_1861.csv", kind = "einwohner" },
   { path = "data/csv/04_berufe_1861.csv",  kind = "berufe" },
   { path = "data/csv/04_entries_1862.csv", kind = "einwohner" },
   { path = "data/csv/04_berufe_1862.csv",  kind = "berufe" },
+  { path = "data/csv/04_entries_1863.csv", kind = "einwohner" },
+  { path = "data/csv/04_berufe_1863.csv",  kind = "berufe" },
+  { path = "data/csv/04_entries_1865.csv", kind = "einwohner" },
+  { path = "data/csv/04_berufe_1865.csv",  kind = "berufe" },
   { path = "data/csv/04_entries_1883.csv", kind = "einwohner" },
   { path = "data/csv/04_berufe_1883.csv",  kind = "berufe" },
   { path = "data/csv/04_entries_1900.csv", kind = "einwohner" },

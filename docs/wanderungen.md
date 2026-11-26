@@ -360,7 +360,7 @@ Namenszeilen und der Neulesung von Band 2c: **423 Paare** (50, 252, 121). Stand 
 Neulesung von Band 2b 1913/14 ([neulesung_2b.md](neulesung_2b.md)): **430 Paare** (50, 258, 122). Stand 20.11.2026,
 mit Zürich 1901: 482 Paare; nach der Neulesung von Band 2a 1911–1914 ([neulesung_2a.md](neulesung_2a.md)):
 **480 Paare** (57, 298, 125); mit den Ortschaften aus `data/ref/place_aliases.csv` (Wengen, Ostermundigen,
-Wabern …): **484 Paare** (56, 303, 125); mit Zürich 1902: **493 Paare** (58, 309, 126); mit Zürich 1903, 1904, 1907, 1909 und 1910: **524 Paare** (59, 336, 129); mit Zürich 1911: **526 Paare** (59, 336, 131); nach der Neulesung der Bände 1 und 3 1911–1914 ([neulesung_13.md](neulesung_13.md)): **557 Paare** (61, 367, 129); mit Montreux bei Le Châtelard-Montreux: **563 Paare** (62, 370, 131); mit Zürich 1913: **571 Paare** (66, 376, 129); mit Bern 1861 und 1862: **568 Paare** (66, 376, 126).
+Wabern …): **484 Paare** (56, 303, 125); mit Zürich 1902: **493 Paare** (58, 309, 126); mit Zürich 1903, 1904, 1907, 1909 und 1910: **524 Paare** (59, 336, 129); mit Zürich 1911: **526 Paare** (59, 336, 131); nach der Neulesung der Bände 1 und 3 1911–1914 ([neulesung_13.md](neulesung_13.md)): **557 Paare** (61, 367, 129); mit Montreux bei Le Châtelard-Montreux: **563 Paare** (62, 370, 131); mit Zürich 1913: **571 Paare** (66, 376, 129); mit Bern 1861 und 1862: **568 Paare** (66, 376, 126); mit Bern 1863 und 1865: **569 Paare** (65, 378, 126).
 
 **Stichprobe 6** (`data/review/m10_wanderungen_6.csv`, Seed 15) prüft, was neu dazukommt:
 30 der 110 Paare aus «klar vorn» und 3 Paare mit seltenem Beruf.
