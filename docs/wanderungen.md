@@ -412,8 +412,8 @@ Die Paarsuche oben sucht dieselbe Person an zwei Orten. Die Zuzüge fragen ander
 einem Band einer Stadt zum ersten Mal, und woher stammt er? Das geht nur, wo die Adressbücher den
 Heimatort nennen und mehrere Bände vorliegen, im Zeitfenster nur in **Aarau 1867–1899**
 (Gebäude- und Einwohnerlisten, rund 60 % der Personen mit Heimatort). **Zürich 1867–1914** hat
-mehrere Bände, aber keinen Heimatort: dort nur die Zuzüge selbst, ebenso in **Bern, Baden und Lausanne**
-(je zwei Bände, 10 bis 17 Jahre auseinander). Die Seite zeigt alle fünf unter `#/wanderungen?v=zuzug`
+mehrere Bände, aber keinen Heimatort: dort nur die Zuzüge selbst, ebenso in **Bern 1861–1900** (15 Bände) sowie
+**Baden und Lausanne** (je zwei Bände, 10 und 11 Jahre auseinander). Die Seite zeigt alle fünf unter `#/wanderungen?v=zuzug`
 (Auswahl «Stadt»).
 
 ```bash
@@ -515,7 +515,53 @@ und ähnliche Familiennamen werden über eine Liste der Namen gesucht statt Eint
   «Kamer, Jos. Ad.», anderer Beruf).
 - Firmen, Anstalten und Vereine im Namen («Petranit A. G.», «Eilboten-Institut», «— Söhne») zählen nicht.
 
-### Bern, Baden und Lausanne (je zwei Bände, ohne Heimatort)
+### Bern 1861–1900 (ohne Heimatort)
+
+Seit 26.11.2026 mit allen gelesenen Bänden: 1861–1879 in Fraktur (Gemini, ohne 1864), 1883/84 und 1900. Gerechnet wie
+Zürich (Hausnummer je Strasse, keine Quartiere), mit einer Umnummerierung 1882 («Die Häuser-Nummerirung in Bern»):
+Bei verknüpften Paaren stimmt die Hausnummer 1879→1883 in 9 von 2'640 Fällen, zwischen den Bänden 1861–1879 in
+59–80 %. Über diese Grenze zählt die Hausnummer nicht, für «haushalt» gilt die Strasse (1883: 377 statt 3).
+Der Heimatort steht bei rund 1 % der Einträge (1861 92 von 6'345); die Herkunft bleibt darum leer.
+
+| Band | Vorband | Abstand | Personen | Zuzüge | davon Name neu | bleibt | witwe, haushalt | bleibt / Personen Vorband |
+|---|---|---|---|---|---|---|---|---|
+| 1862 | 1861 | 1 | 3'926 | 1'052 (27 %) | 242 | 2'566 | 308 | 66 % |
+| 1863 | 1862 | 1 | 3'887 | 738 (19 %) | 153 | 2'931 | 218 | 75 % |
+| 1865 | 1863 | 2 | 4'051 | 1'100 (27 %) | 264 | 2'707 | 244 | 70 % |
+| 1866 | 1865 | 1 | 4'678 | 1'141 (24 %) | 277 | 3'256 | 281 | 80 % |
+| 1867 | 1866 | 1 | 4'871 | 1'226 (25 %) | 291 | 3'386 | 259 | 72 % |
+| 1868 | 1867 | 1 | 5'108 | 878 (17 %) | 165 | 3'885 | 345 | 80 % |
+| 1870 | 1868 | 2 | 5'804 | 1'708 (29 %) | 346 | 3'801 | 295 | 74 % |
+| 1871 | 1870 | 1 | 5'735 | 864 (15 %) | 177 | 4'606 | 265 | 79 % |
+| 1873 | 1871 | 2 | 5'453 | 744 (14 %) | 131 | 4'411 | 298 | 77 % |
+| 1875 | 1873 | 2 | 5'804 | 1'839 (32 %) | 412 | 3'663 | 302 | 67 % |
+| 1877 | 1875 | 2 | 6'110 | 872 (14 %) | 222 | 4'905 | 333 | 85 % |
+| 1879 | 1877 | 2 | 5'867 | 1'274 (22 %) | 277 | 4'225 | 368 | 69 % |
+| 1883 | 1879 | 4 | 7'479 | 4'217 (56 %) | 1'126 | 2'640 | 622 | 45 % |
+| 1900 | 1883 | 17 | 13'405 | 10'083 (75 %) | 2'552 | 2'192 | 1'130 | 29 % |
+
+«bleibt» schliesst Personen ein, die im Vorband fehlen und zwei Bände zurück stehen; das letzte Verhältnis ist darum
+leicht zu hoch.
+
+- **Der Anteil springt** zwischen 14 und 32 %, auch bei gleichem Abstand (1871 15 %, 1873 14 %, 1875 32 %).
+  1873→1875 stimmt auch die Hausnummer bei verknüpften Paaren am seltensten (59 %, sonst 67–80 %): Unterschiede
+  in Lesung und Satz der einzelnen Bände tragen vermutlich bei. Einzelne Jahre sind darum keine Zeitreihe der
+  Zuwanderung.
+- **Abgekürzte Strassen.** Bis 1879 kürzen die Bände die Strassen unterschiedlich ab («Kramg.», «Krmg.»;
+  «Mezg.», «Metzgerg.»; «Gerechtg.», «Gerechtigkeitsg.»; «Lorr.», «Lorraine»), der Strassenschlüssel gleicht
+  das nicht aus. Gemessen (nicht eingebaut): Mit einem Vergleich, der Abkürzungen gelten lässt (gleiche zwei
+  Anfangsbuchstaben, die kürzere Form als Buchstabenfolge in der längeren), würden 439 der 13'436 Zuzüge
+  1862–1879 (3 %) verknüpft, meist sichtlich dieselbe Person («Krmg. 192» → «Kramg. 192»), einzelne nicht.
+- **Initialen.** Viele Berner Einträge nennen nur die Initiale oder eine Abkürzung des Vornamens; das gibt einen
+  Punkt und verknüpft nur mit gleichem Beruf oder (seit 24.11.2026) gleicher Strasse. «Hügi, R., Heizer im
+  Bahnhof» 1883 (Könizstrasse) und «Hügi, R., Lokomotivführer» 1900 (andere Strasse) bleiben getrennt, ebenso
+  «Richard, F., Priv.» 1870 (Junkerng.) und 1871 (Gerechtg.). Bei 11–22 % der Zuzüge 1862–1879, 22 % 1883 und 26 %
+  1900 steht im Vorband noch ein unverknüpfter Eintrag mit gleichem Familiennamen und passender Initiale
+  (Zürich 1885→1900: 22 %; Lausanne 7 %; Baden 2 %). Die Zuzüge sind darum eine Obergrenze, in Bern wie in Zürich.
+- Stichprobe 1875 (8 Zuzüge «Name schon in der Stadt», Seed 1126): 7 mit anderem Vornamen oder Beruf als jeder
+  Eintrag gleichen Namens 1873, 1 wohl dieselbe Person ohne Vornamen («Petri, Papierneg.»).
+
+### Baden und Lausanne (je zwei Bände, ohne Heimatort)
 
 Seit 24.11.2026 (Entscheid vom selben Tag) gleich gerechnet wie Zürich: Hausnummer je Strasse, keine Umnummerierung,
 keine Quartiere. Gezählt wird nur die Gemeinde selbst (Baden 1910 umfasst den Bezirk, Lausanne 1907 dazu die
@@ -523,23 +569,18 @@ keine Quartiere. Gezählt wird nur die Gemeinde selbst (Baden 1910 umfasst den B
 
 | Stadt | Band | Vorband | Abstand | Personen | Zuzüge | davon Name neu | bleibt | witwe, haushalt |
 |---|---|---|---|---|---|---|---|---|
-| Bern | 1900 | 1883/84 | 17 Jahre | 13'406 | 10'388 (77 %) | 2'582 | 1'867 | 1'151 |
 | Baden | 1910 | 1900 | 10 Jahre | 1'937 | 1'508 (78 %) | 781 | 327 | 102 |
 | Lausanne | 1907 | 1896 | 11 Jahre | 22'535 | 15'489 (69 %) | 3'664 | 6'670 | 376 |
 
-Von den Personen des Vorbands finden sich wieder: Bern 25 % (1'867 von 7'479), Baden 29 % (327 von 1'112),
-Lausanne 37 % (6'670 von 18'080); zum Vergleich Zürich 1885→1900 44 % (über 15 Jahre).
+Von den Personen des Vorbands finden sich wieder: Baden 29 % (327 von 1'112), Lausanne 37 % (6'670 von 18'080);
+zum Vergleich Zürich 1885→1900 44 % (über 15 Jahre), Bern 1883→1900 29 % (über 17 Jahre).
 
-- **Initialen.** Viele Berner Einträge nennen nur die Initiale des Vornamens; eine Initiale allein gibt einen
-  Punkt und verknüpft nur mit gleichem Beruf oder (seit 24.11.2026) gleicher Strasse. «Hügi, R., Heizer im
-  Bahnhof» 1883 (Könizstrasse) und «Hügi, R., Lokomotivführer» 1900 (andere Strasse) bleiben getrennt. Bei 26 % der
-  Berner Zuzüge steht im Vorband noch ein unverknüpfter Eintrag mit gleichem Familiennamen und passender Initiale,
-  bei 3 % einer mit gleichem Vornamen (vor der Strassen-Regel 27 %; Zürich 1885→1900: 22 % und 4 %; Lausanne 7 % und
-  2 %; Baden 2 % und 2 %). Die Zuzüge sind darum eine Obergrenze, in Bern wie in Zürich.
+- **Initialen** siehe Bern; Lausanne 7 %, Baden 2 % der Zuzüge mit einem unverknüpften Eintrag gleichen Namens und
+  passender Initiale im Vorband.
 - **Allianznamen.** Lausanne nennt verheiratete Frauen oft mit Allianznamen (1907 bei 53 % der Einträge); steht
   er schon im Vorband, zählt die Person als «Name schon in der Stadt» (11'857 der 15'521 Zuzüge).
 - **Baden 1900** nennt fast keine Hausnummern (4 % der Einträge), die Adresse hilft dort wenig.
-- Stichprobe (je 8 Zuzüge «Name schon in der Stadt», Seed 1124): Bern 4 klar neu, 2 wohl dieselbe Person
+- Stichprobe (je 8 Zuzüge «Name schon in der Stadt», Seed 1124): Bern 1900 4 klar neu, 2 wohl dieselbe Person
   (Hügi R.; Fässler/Fasler F.), 2 ohne Vornamen nicht beurteilbar; Lausanne 5 klar neu, 1 wohl dieselbe Person
   (Cuérel Hélène), 2 nicht beurteilbar.
 

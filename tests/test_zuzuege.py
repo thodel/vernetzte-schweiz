@@ -68,6 +68,21 @@ class Linking(unittest.TestCase):
         b = entry(1877, "Frey", "Johann", street="Rathausgasse", no="5")
         self.assertNotIn("haus", z.score(a, b)[1])
 
+    def test_bern_renumbered_in_1882(self):
+        # Bern nummeriert je Strasse und hat 1882 umnummeriert: 1879→1883 zählt die Nummer nicht, 1877→1879 schon
+        renumbered, global_no = z.CITIES["Bern"]
+        self.assertEqual((renumbered, global_no), (1882, False))
+
+        def be(vol, forename):
+            return z.prepare({"id": f"{vol}-{forename}", "volume": str(vol), "surname": "Frey", "forename": forename,
+                              "origin": "", "occupation": "", "street": "Kramg.", "building_no": "189",
+                              "civil_status": "", "text": "", "maiden_name": "", "alliance_name": "", "district": ""},
+                             renumbered, global_no)
+        self.assertIn("haus", z.score(be(1877, "Johann"), be(1879, "Johann"))[1])
+        self.assertNotIn("haus", z.score(be(1879, "Johann"), be(1883, "Johann"))[1])
+        prev = {z.nkey("Frey"): [be(1879, "Johann")]}
+        self.assertEqual(z.status(be(1883, "Anna"), prev, False), "haushalt")
+
     def test_status(self):
         prev = {z.nkey("Frey"): [entry(1888, "Frey", "Johann", street="Rathausgasse", no="5")]}
         self.assertEqual(z.status(entry(1892, "Frey", "Anna", street="Rathausgasse", no="5"), prev, False), "haushalt")
