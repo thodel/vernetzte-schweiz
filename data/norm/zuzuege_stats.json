@@ -319,22 +319,48 @@
   }
  },
  "Bern": {
-  "1883": {
-   "personen": 7479,
-   "erster_band": 7479,
+  "1861": {
+   "personen": 3914,
+   "erster_band": 3914,
    "nicht_erfasst": [],
    "zuzug_mit_heimatort": 0,
    "zuzug_ausland": 0,
    "bleibt_mit_heimatort": 0,
    "bleibt_ausland": 0
   },
+  "1862": {
+   "personen": 3926,
+   "bleibt": 2566,
+   "neu_familie": 810,
+   "witwe": 32,
+   "neu": 242,
+   "haushalt": 276,
+   "nicht_erfasst": [],
+   "zuzug_mit_heimatort": 4,
+   "zuzug_ausland": 0,
+   "bleibt_mit_heimatort": 17,
+   "bleibt_ausland": 1
+  },
+  "1883": {
+   "personen": 7479,
+   "neu": 2060,
+   "witwe": 331,
+   "neu_familie": 4608,
+   "bleibt": 477,
+   "haushalt": 3,
+   "nicht_erfasst": [],
+   "zuzug_mit_heimatort": 8,
+   "zuzug_ausland": 3,
+   "bleibt_mit_heimatort": 2,
+   "bleibt_ausland": 0
+  },
   "1900": {
    "personen": 13407,
-   "neu_familie": 7806,
-   "neu": 2583,
-   "bleibt": 1867,
-   "witwe": 938,
-   "haushalt": 213,
+   "neu_familie": 7732,
+   "neu": 2579,
+   "bleibt": 1950,
+   "witwe": 936,
+   "haushalt": 210,
    "nicht_erfasst": [],
    "zuzug_mit_heimatort": 74,
    "zuzug_ausland": 7,
