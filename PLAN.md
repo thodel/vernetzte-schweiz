@@ -206,6 +206,9 @@ Verknüpfung und Bau laufen durch.
   (mit mehr als einem Eintrag 268 786 → 280 866); Telefonbuch Bern verknüpft 26 547 → 27 126; Wanderungen 569 → 577
   (stark 65, mittel 386, schwach 126). Zurückgestellt (Stichprobe unter 80 %): 1864 (15/20, dazu die letzte
   Berufsseite ungelesen) und 1867 (14/20).
+- ✔ 26.11.2026 **Bern 1867** (adressbuecher-bern d393c25; nach grösserer Stichprobe 66 von 80 übernommen): 8 382 Einträge
+  (Einwohner 5 090, Berufsregister 3 292). Bern jetzt 144 651 Einträge. Einträge 1 697 319 → 1 705 701, Einheiten
+  598 904 → 600 031; Telefonbuch Bern und Wanderungen unverändert (27 126; 577). 1864 bleibt zurückgestellt (63 von 80).
 - offen: Bern 1860 (Fraktur, nicht ganz gelesen).
 
 **M6 — Visualisierungen.** ✔ 10.11.2026: Karten «Wer bekam wann ein Telefon», «Berufe», «Namen» (`#/karten`), Berufssuche mit Karte und Quellenfilter in der Suche; [Aufbau und Messung](docs/karten.md). Umgesetzt sind die ersten drei Punkte; die weiteren Ideen bleiben offen. Nachgetragen: Regler für Jahre (ein Jahr oder Bereich) statt Zeiträumen, Quelle Telefon-/Adressbuch in «Berufe» und «Namen». Grundlage sind die Einheiten aus M3 (eine Person oder Firma
