@@ -83,6 +83,27 @@ class Linking(unittest.TestCase):
         prev = {z.nkey("Frey"): [be(1879, "Johann")]}
         self.assertEqual(z.status(be(1883, "Anna"), prev, False), "haushalt")
 
+    def test_bern_street_abbreviations(self):
+        # «Krmg.» und «Kramg.» sind dieselbe Strasse; «Lorraine» bleibt die Lorraine, nicht ein Hof darin;
+        # «Hrng.» passt zu Herrengasse und Hornergasse: nicht eindeutig, bleibt
+        streets = ["Kramg."] * 40 + ["Krmg."] * 10 + ["Lorraine"] * 50 + ["Lorraine, Quartierhof"] * 40
+        canon = z.street_canon(streets)
+        self.assertEqual(canon.get(z.skey("Krmg.")), z.skey("Kramg."))
+        self.assertNotIn(z.skey("Lorraine"), canon)
+        self.assertNotIn(z.skey("Kramg."), canon)
+        amb = z.street_canon(["Herreng."] * 40 + ["Hornerg."] * 40 + ["Hrng."] * 10)
+        self.assertNotIn(z.skey("Hrng."), amb)
+        self.assertEqual(z.street_canon(["Herreng."] * 40 + ["Hrng."] * 10).get(z.skey("Hrng.")), z.skey("Herreng."))
+
+        def be(vol, street):
+            return z.prepare({"id": f"{vol}-{street}", "volume": str(vol), "surname": "Frey", "forename": "J.",
+                              "origin": "", "occupation": "", "street": street, "building_no": "192",
+                              "civil_status": "", "text": "", "maiden_name": "", "alliance_name": "", "district": ""},
+                             1882, False, canon)
+        a, b = be(1877, "Krmg."), be(1879, "Kramg.")
+        self.assertEqual(z.score(a, b)[1], ["vorname:initiale", "strasse", "haus"])
+        self.assertIn(b["id"], z.link([a], [b]))
+
     def test_status(self):
         prev = {z.nkey("Frey"): [entry(1888, "Frey", "Johann", street="Rathausgasse", no="5")]}
         self.assertEqual(z.status(entry(1892, "Frey", "Anna", street="Rathausgasse", no="5"), prev, False), "haushalt")

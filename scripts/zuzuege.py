@@ -1,8 +1,8 @@
 """Zuzüge: wer steht in einem Adressbuchband einer Stadt zum ersten Mal, und woher stammt er?
 
 Teil der Wanderungen (docs/wanderungen.md, Abschnitt «Zuzüge mit Heimatort»). Aarau 1867–1899 nennt
-den Heimatort über viele Bände; Zürich 1867–1914 hat mehrere Bände, aber keinen Heimatort; Bern, Baden und Lausanne
-haben je zwei Bände ohne Heimatort.
+den Heimatort über viele Bände; Zürich 1867–1914 und Bern 1861–1900 haben mehrere Bände, aber keinen Heimatort;
+Baden und Lausanne haben je zwei Bände ohne Heimatort.
 
 - Je Band eine Liste: Einwohnerliste, sonst Gebäudeliste. Fehlt der Einwohnerliste der Heimatort,
   kommt er aus der Gebäudeliste desselben Bandes.
@@ -40,6 +40,11 @@ STATS = NORM / "zuzuege_stats.json"
 # («Die Häuser-Nummerirung in Bern»): gleiche Hausnummer bei verknüpften Paaren 1879→1883 9 von 2 640, zwischen den
 # Bänden 1861–1879 59–80 %. Baden (1900, 1910) und Lausanne (1896, 1907) haben je zwei Bände, ohne Heimatort.
 CITIES = {"Aarau": (1877, True), "Zürich": (0, False), "Bern": (1882, False), "Baden": (0, False), "Lausanne": (0, False)}
+# Städte, deren Bände die Strassen verschieden abkürzen (Bern bis 1883: «Kramg.», «Krmg.»; «Mezg.», «Metzgerg.»):
+# die Abkürzung wird vor dem Vergleich auf die ausgeschriebene Form gebracht (`street_canon`). Nicht für Zürich:
+# dort sind die Namen ausgeschrieben, und «Seestr.» ist nicht die «Seefeldstr.».
+ABBR_STREETS = {"Bern"}
+STREET_SUFFIX = re.compile(r"(gase|strase|str|weg|plaz|platz)$")
 # Ein Quartier gilt im Vorband als nicht erfasst, wenn es dort weniger als ein Viertel der Einträge hat
 # (Zürich 1867: Riesbach 111, 1875: 1 571). Neue dort sind kein Zuzug, sondern Status «gebiet».
 COVERAGE = 0.25
@@ -72,23 +77,64 @@ def is_person(x: dict) -> bool:
     return bool(PERSONISH.search(t)) or bool(x["occupation"] and not NOT_PERSON.search(t))
 
 
-def prepare(x: dict, renumbered: int, global_no: bool = True) -> dict:
+def street_canon(streets: list[str], min_n: int = 30) -> dict[str, str]:
+    """Abgekürzter Strassenschlüssel → ausgeschriebener, aus den Schlüsseln einer Stadt selbst. Ziel ist eine Form mit
+    gleicher Endung (-gasse, -strasse …), gleichem Anfangsbuchstaben, mindestens so häufig und mindestens `min_n`
+    Mal, in der die Abkürzung als Buchstabenfolge steckt («krm» in «kram», «grcht» in «gerechtigkeits»); nur wenn
+    genau eine Form passt. Eine reine Verlängerung um mehr als vier Buchstaben gilt nicht («Lorraine» ist nicht
+    «Lorraine, Quartierhof»)."""
+    n = Counter(k for k in map(skey, streets) if k)
+
+    def split(k: str) -> tuple[str, str]:
+        m = STREET_SUFFIX.search(k)
+        return (k[:m.start()], m.group()) if m else (k, "")
+
+    def inside(a: str, b: str) -> bool:
+        it = iter(b)
+        return all(ch in it for ch in a)
+
+    cores = Counter()
+    for k, c in n.items():
+        cores[split(k)] += c
+    targets = [t for t, c in cores.items() if c >= min_n and len(t[0]) >= 3]
+    out = {}
+    for k in n:
+        core, suf = split(k)
+        if len(core) < 3:
+            continue
+        cand = {t for t in targets if t != (core, suf) and t[1] == suf and len(t[0]) > len(core) and t[0][0] == core[0]
+                and inside(core, t[0]) and cores[t] >= cores[(core, suf)]
+                and not (t[0].startswith(core) and len(t[0]) - len(core) > 4)}
+        if len(cand) == 1:
+            t = cand.pop()
+            out[k] = t[0] + t[1]
+    for k in out:  # Ketten auflösen («altbg.» → «altenbg.» → …)
+        seen = {k}
+        while out[k] in out and out[out[k]] not in seen:
+            seen.add(out[k])
+            out[k] = out[out[k]]
+    return out
+
+
+def prepare(x: dict, renumbered: int, global_no: bool = True, canon: dict[str, str] | None = None) -> dict:
     o = origin(x["origin"]) if x["origin"] else None
     ok = nkey(o.name) if o and o.cls != "leer" else ""
+    street = skey(x["street"])
+    street = (canon or {}).get(street, street)
     return {"id": x["id"], "vol": int(x["volume"]), "sk": nkey(x["surname"]), "surname": x["surname"],
             "forename": x["forename"], "fn": forename_tokens(x["forename"]), "origin": x["origin"], "ok": ok,
             "o": o if ok else None, "stems": stems(x["occupation"] or ""), "occ": x["occupation"] or "",
-            "street": skey(x["street"]), "house": house_key(x, global_no),
+            "street": street, "house": house_key(x, global_no, street),
             "sys": int(x["volume"]) < renumbered,
             "district": x["district"],
             "widow": bool(WIDOW.search(" ".join([x["forename"], x["civil_status"], x["text"]]))),
             "maiden": nkey(x["maiden_name"]), "alliance": nkey(x["alliance_name"])}
 
 
-def house_key(x: dict, global_no: bool) -> str:
-    """Hausnummer; wo je Strasse nummeriert wird, mit der Strasse."""
+def house_key(x: dict, global_no: bool, street: str | None = None) -> str:
+    """Hausnummer; wo je Strasse nummeriert wird, mit der Strasse (Schlüssel, gegebenenfalls ausgeschrieben)."""
     no = re.sub(r"\D", "", x["building_no"] or "")
-    return no if global_no or not no else f"{skey(x['street'])}|{no}"
+    return no if global_no or not no else f"{skey(x['street']) if street is None else street}|{no}"
 
 
 def ratio(a: str, b: str) -> float:
@@ -208,19 +254,19 @@ def status(b: dict, prev_by_name: dict[str, list[dict]], linked: bool) -> str:
     return "neu"
 
 
-def rosters(rows: list[dict], renumbered: int, global_no: bool = True) -> dict[int, list[dict]]:
+def rosters(rows: list[dict], renumbered: int, global_no: bool = True, canon: dict[str, str] | None = None) -> dict[int, list[dict]]:
     kinds = defaultdict(set)
     for x in rows:
         kinds[x["volume"]].add(x["kind"])
     out = {}
     for v in sorted(kinds):
         main = "einwohner" if "einwohner" in kinds[v] else "bewohner"
-        R = [prepare(x, renumbered, global_no) for x in rows if x["volume"] == v and x["kind"] == main and is_person(x)]
+        R = [prepare(x, renumbered, global_no, canon) for x in rows if x["volume"] == v and x["kind"] == main and is_person(x)]
         if main == "einwohner" and "bewohner" in kinds[v]:
             B = defaultdict(list)
             for x in rows:
                 if x["volume"] == v and x["kind"] == "bewohner" and x["origin"]:
-                    B[nkey(x["surname"])].append(prepare(x, renumbered, global_no))
+                    B[nkey(x["surname"])].append(prepare(x, renumbered, global_no, canon))
             for r in R:
                 if r["ok"]:
                     continue
@@ -242,7 +288,11 @@ def find() -> None:
                 entity[r["record_id"]] = r["entity_id"]
     out, stats = [], {}
     for city, (renumbered, global_no) in CITIES.items():
-        R = rosters([x for x in entries if x["municipality"] == city], renumbered, global_no)
+        rows = [x for x in entries if x["municipality"] == city]
+        canon = street_canon([x["street"] for x in rows]) if city in ABBR_STREETS else None
+        if canon:
+            print(f"{city}: {len(canon)} abgekürzte Strassenschlüssel ausgeschrieben")
+        R = rosters(rows, renumbered, global_no, canon)
         vols = sorted(R)
         st = {}
         for i, v in enumerate(vols):

@@ -520,42 +520,49 @@ und ähnliche Familiennamen werden über eine Liste der Namen gesucht statt Eint
 Seit 26.11.2026 mit allen gelesenen Bänden: 1861–1879 in Fraktur (Gemini, ohne 1864), 1883/84 und 1900. Gerechnet wie
 Zürich (Hausnummer je Strasse, keine Quartiere), mit einer Umnummerierung 1882 («Die Häuser-Nummerirung in Bern»):
 Bei verknüpften Paaren stimmt die Hausnummer 1879→1883 in 9 von 2'640 Fällen, zwischen den Bänden 1861–1879 in
-59–80 %. Über diese Grenze zählt die Hausnummer nicht, für «haushalt» gilt die Strasse (1883: 377 statt 3).
+59–80 %. Über diese Grenze zählt die Hausnummer nicht, für «haushalt» gilt die Strasse (1883: 377 statt 3, mit den
+ausgeschriebenen Strassen 449).
 Der Heimatort steht bei rund 1 % der Einträge (1861 92 von 6'345); die Herkunft bleibt darum leer.
 
 | Band | Vorband | Abstand | Personen | Zuzüge | davon Name neu | bleibt | witwe, haushalt | bleibt / Personen Vorband |
 |---|---|---|---|---|---|---|---|---|
-| 1862 | 1861 | 1 | 3'926 | 1'052 (27 %) | 242 | 2'566 | 308 | 66 % |
-| 1863 | 1862 | 1 | 3'887 | 738 (19 %) | 153 | 2'931 | 218 | 75 % |
-| 1865 | 1863 | 2 | 4'051 | 1'100 (27 %) | 264 | 2'707 | 244 | 70 % |
-| 1866 | 1865 | 1 | 4'678 | 1'141 (24 %) | 277 | 3'256 | 281 | 80 % |
-| 1867 | 1866 | 1 | 4'871 | 1'226 (25 %) | 291 | 3'386 | 259 | 72 % |
-| 1868 | 1867 | 1 | 5'108 | 878 (17 %) | 165 | 3'885 | 345 | 80 % |
-| 1870 | 1868 | 2 | 5'804 | 1'708 (29 %) | 346 | 3'801 | 295 | 74 % |
-| 1871 | 1870 | 1 | 5'735 | 864 (15 %) | 177 | 4'606 | 265 | 79 % |
-| 1873 | 1871 | 2 | 5'453 | 744 (14 %) | 131 | 4'411 | 298 | 77 % |
-| 1875 | 1873 | 2 | 5'804 | 1'839 (32 %) | 412 | 3'663 | 302 | 67 % |
-| 1877 | 1875 | 2 | 6'110 | 872 (14 %) | 222 | 4'905 | 333 | 85 % |
-| 1879 | 1877 | 2 | 5'867 | 1'274 (22 %) | 277 | 4'225 | 368 | 69 % |
-| 1883 | 1879 | 4 | 7'479 | 4'217 (56 %) | 1'126 | 2'640 | 622 | 45 % |
-| 1900 | 1883 | 17 | 13'405 | 10'083 (75 %) | 2'552 | 2'192 | 1'130 | 29 % |
+| 1862 | 1861 | 1 | 3'926 | 996 (25 %) | 242 | 2'599 | 331 | 66 % |
+| 1863 | 1862 | 1 | 3'887 | 692 (18 %) | 151 | 2'968 | 227 | 76 % |
+| 1865 | 1863 | 2 | 4'051 | 1'069 (26 %) | 263 | 2'733 | 249 | 70 % |
+| 1866 | 1865 | 1 | 4'678 | 1'105 (24 %) | 277 | 3'283 | 290 | 81 % |
+| 1867 | 1866 | 1 | 4'871 | 1'180 (24 %) | 288 | 3'417 | 274 | 73 % |
+| 1868 | 1867 | 1 | 5'108 | 829 (16 %) | 162 | 3'923 | 356 | 81 % |
+| 1870 | 1868 | 2 | 5'804 | 1'658 (29 %) | 345 | 3'835 | 311 | 75 % |
+| 1871 | 1870 | 1 | 5'735 | 830 (14 %) | 177 | 4'634 | 271 | 80 % |
+| 1873 | 1871 | 2 | 5'453 | 693 (13 %) | 129 | 4'449 | 311 | 78 % |
+| 1875 | 1873 | 2 | 5'804 | 1'794 (31 %) | 410 | 3'695 | 315 | 68 % |
+| 1877 | 1875 | 2 | 6'110 | 841 (14 %) | 221 | 4'925 | 344 | 85 % |
+| 1879 | 1877 | 2 | 5'867 | 1'237 (21 %) | 276 | 4'253 | 377 | 70 % |
+| 1883 | 1879 | 4 | 7'479 | 4'122 (55 %) | 1'125 | 2'679 | 678 | 46 % |
+| 1900 | 1883 | 17 | 13'405 | 10'054 (75 %) | 2'551 | 2'211 | 1'140 | 30 % |
 
 «bleibt» schliesst Personen ein, die im Vorband fehlen und zwei Bände zurück stehen; das letzte Verhältnis ist darum
 leicht zu hoch.
 
-- **Der Anteil springt** zwischen 14 und 32 %, auch bei gleichem Abstand (1871 15 %, 1873 14 %, 1875 32 %).
-  1873→1875 stimmt auch die Hausnummer bei verknüpften Paaren am seltensten (59 %, sonst 67–80 %): Unterschiede
+- **Der Anteil springt** zwischen 13 und 31 %, auch bei gleichem Abstand (1871 14 %, 1873 13 %, 1875 31 %).
+  1873→1875 stimmt auch die Hausnummer bei verknüpften Paaren am seltensten (61 %, sonst 73–85 %): Unterschiede
   in Lesung und Satz der einzelnen Bände tragen vermutlich bei. Einzelne Jahre sind darum keine Zeitreihe der
   Zuwanderung.
-- **Abgekürzte Strassen.** Bis 1879 kürzen die Bände die Strassen unterschiedlich ab («Kramg.», «Krmg.»;
-  «Mezg.», «Metzgerg.»; «Gerechtg.», «Gerechtigkeitsg.»; «Lorr.», «Lorraine»), der Strassenschlüssel gleicht
-  das nicht aus. Gemessen (nicht eingebaut): Mit einem Vergleich, der Abkürzungen gelten lässt (gleiche zwei
-  Anfangsbuchstaben, die kürzere Form als Buchstabenfolge in der längeren), würden 439 der 13'436 Zuzüge
-  1862–1879 (3 %) verknüpft, meist sichtlich dieselbe Person («Krmg. 192» → «Kramg. 192»), einzelne nicht.
+- **Abgekürzte Strassen** (seit 27.11.2026). Bis 1883 kürzen die Bände die Strassen unterschiedlich ab («Kramg.»,
+  «Krmg.»; «Mezg.», «Metzgerg.»; «Gerechtg.», «Gerechtigkeitsg.»). Für Bern bringt `street_canon` eine Abkürzung
+  vor dem Vergleich auf die ausgeschriebene Form, gewonnen aus den Berner Schlüsseln selbst: gleiche Endung
+  (-gasse, -strasse …), gleicher Anfangsbuchstabe, die Abkürzung als Buchstabenfolge in der längeren Form, diese
+  mindestens so häufig und mindestens 30 Mal, und nur wenn genau eine Form passt. Eine reine Verlängerung um mehr als
+  vier Buchstaben gilt nicht («Lorraine» bleibt, «Lorraine, Quartierhof» ist eine Adresse darin). Das schreibt 464
+  Schlüssel aus (15'565 von 137'456 Strassenangaben). Die Zuzüge 1862–1879 sinken von 13'436 auf 12'924; Zürich,
+  Aarau, Baden und Lausanne bleiben unverändert (dort ausgeschrieben; in Zürich wäre «Seestr.» sonst «Seefeldstr.»).
+  Stichprobe von 30 neuen Verknüpfungen (Seed 2711): 26 sichtlich dieselbe Person («Krmg. 169» → «Kramg. 169»,
+  «Pstg. 30» → «Postg. 30»), 3 unklar (anderer Beruf im selben Haus), 1 wohl falsch («Steck C. F. R., Amtsnotar» →
+  «— R., Pharm.», Gerechtigkeitsgasse 69).
 - **Initialen.** Viele Berner Einträge nennen nur die Initiale oder eine Abkürzung des Vornamens; das gibt einen
   Punkt und verknüpft nur mit gleichem Beruf oder (seit 24.11.2026) gleicher Strasse. «Hügi, R., Heizer im
   Bahnhof» 1883 (Könizstrasse) und «Hügi, R., Lokomotivführer» 1900 (andere Strasse) bleiben getrennt, ebenso
-  «Richard, F., Priv.» 1870 (Junkerng.) und 1871 (Gerechtg.). Bei 11–22 % der Zuzüge 1862–1879, 22 % 1883 und 26 %
+  «Richard, F., Priv.» 1870 (Junkerng.) und 1871 (Gerechtg.). Bei 10–21 % der Zuzüge 1862–1879, 21 % 1883 und 26 %
   1900 steht im Vorband noch ein unverknüpfter Eintrag mit gleichem Familiennamen und passender Initiale
   (Zürich 1885→1900: 22 %; Lausanne 7 %; Baden 2 %). Die Zuzüge sind darum eine Obergrenze, in Bern wie in Zürich.
 - Stichprobe 1875 (8 Zuzüge «Name schon in der Stadt», Seed 1126): 7 mit anderem Vornamen oder Beruf als jeder
