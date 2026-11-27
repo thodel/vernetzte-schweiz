@@ -37,12 +37,16 @@ files = [
 id = "basel"
 label = "Basel"
 repo = "thodel/adressbuecher-basel"
-commit = "53ccb22bcc85b987b1b53b5be719e0bd7e6b32f9"
+commit = "00c3f8e33afdc0d0c82616532a24bae414d078f4"
 site = "https://thodel.github.io/adressbuecher-basel/"
 authority = "data/csv/10_authority_links.csv"
 volumes = "data/csv/00_volumes.csv"
 # Amtsträger der Behördenverzeichnisse: ein Kandidat je Person, Einträge als <cand_id>-<Band>
 officeholders = "data/csv/30_authority_candidates.csv"
+# Zuzüge 1841 → 1850 → 1862, im Basler Repo gerechnet (scripts/60_zuzuege.py: alte Hausnummer über das
+# Häuserverzeichnis 1862); übernommen wird 1862, 1850 nur als Vorband (vor dem Zeitfenster). Siehe docs/wanderungen.md.
+zuzuege = "data/csv/60_zuzuege.csv"
+zuzuege_stats = "data/csv/60_zuzuege_stats.csv"
 # Digitalisate der Bände (Staatsarchiv Basel-Stadt, Digitaler Lesesaal)
 volume_urls = { "1862" = "https://dls.staatsarchiv.bs.ch/records/1225927" }
 files = [

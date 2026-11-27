@@ -557,5 +557,30 @@
    "bleibt_mit_heimatort": 4,
    "bleibt_ausland": 2
   }
+ },
+ "Basel": {
+  "1850": {
+   "personen": 2826,
+   "erster_band": 2826,
+   "nicht_erfasst": [],
+   "ausserhalb": true,
+   "zuzug_mit_heimatort": 0,
+   "zuzug_ausland": 0,
+   "bleibt_mit_heimatort": 0,
+   "bleibt_ausland": 0
+  },
+  "1862": {
+   "personen": 7463,
+   "neu": 1976,
+   "neu_familie": 4229,
+   "bleibt": 768,
+   "witwe": 22,
+   "haushalt": 468,
+   "nicht_erfasst": [],
+   "zuzug_mit_heimatort": 0,
+   "zuzug_ausland": 0,
+   "bleibt_mit_heimatort": 0,
+   "bleibt_ausland": 0
+  }
  }
 }

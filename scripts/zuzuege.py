@@ -2,7 +2,8 @@
 
 Teil der Wanderungen (docs/wanderungen.md, Abschnitt «Zuzüge mit Heimatort»). Aarau 1867–1899 nennt
 den Heimatort über viele Bände; Zürich 1867–1914 und Bern 1861–1900 haben mehrere Bände, aber keinen Heimatort;
-Baden und Lausanne haben je zwei Bände ohne Heimatort.
+Baden und Lausanne haben je zwei Bände ohne Heimatort. Basel 1862 rechnet das Basler Repo selbst; hier wird es nur
+übernommen (`imported`).
 
 - Je Band eine Liste: Einwohnerliste, sonst Gebäudeliste. Fehlt der Einwohnerliste der Heimatort,
   kommt er aus der Gebäudeliste desselben Bandes.
@@ -24,7 +25,7 @@ import re
 import sys
 from collections import Counter, defaultdict
 
-from common import NORM, ROOT, open_csv, write_csv
+from common import NORM, ROOT, config, fetch, in_window, open_csv, read_csv, write_csv
 from link_ptt_ab import WIDOW, compare_forenames, forename_tokens, nkey, skey, stems, token_match
 from occupations import CLASSES, LABELS
 from occupations import classify as occ_class
@@ -284,13 +285,57 @@ def rosters(rows: list[dict], renumbered: int, global_no: bool = True, canon: di
     return out
 
 
+ORIGIN_ZERO = {"zuzug_mit_heimatort": 0, "zuzug_ausland": 0, "bleibt_mit_heimatort": 0, "bleibt_ausland": 0}
+
+
+def imported(entity: dict[str, str], known: set[str]) -> tuple[list[dict], dict[str, dict]]:
+    """Zuzüge, die ein Quell-Repo selbst rechnet (`zuzuege`, `zuzuege_stats` in config/sources.toml; Basel: über die
+    alte Hausnummer und die Bände 1841/1850 vor dem Zeitfenster). Übernommen werden die Bände im Zeitfenster; ihr
+    Vorband nur mit der Personenzahl, als erste Spalte der Tabelle auf der Seite. `known`: ids der Adressbuch-Einträge."""
+    cfg = config()
+    out, stats = [], {}
+    for c in cfg["city"]:
+        if not c.get("zuzuege"):
+            continue
+        city, pre = c["label"], c["id"]
+        st = {r["volume"]: r for r in read_csv(fetch(c["repo"], c["commit"], c["zuzuege_stats"]))}
+        vols = [v for v in st if in_window(v, cfg) and st[v]["prev_volume"]]
+        S = {}
+        for v in vols:
+            p = st[v]["prev_volume"]
+            if not in_window(p, cfg):
+                S[p] = {"personen": int(st[p]["personen"]), "erster_band": int(st[p]["personen"]), "nicht_erfasst": [],
+                        "ausserhalb": True, **ORIGIN_ZERO}
+            S[v] = {"personen": int(st[v]["personen"]), **{k: int(st[v][k]) for k in ("neu", "neu_familie", "bleibt", "witwe", "haushalt")},
+                    "nicht_erfasst": [], **ORIGIN_ZERO}
+        missing = 0
+        for r in read_csv(fetch(c["repo"], c["commit"], c["zuzuege"])):
+            if r["volume"] not in vols:
+                continue
+            rid = f"{pre}:{r['entry_id']}"
+            missing += rid not in known
+            out.append({"record_id": rid, "entity_id": entity.get(rid, ""), "city": city, "volume": r["volume"],
+                        "district": "", "prev_volume": r["prev_volume"], "status": r["status"],
+                        "linked_from": f"{pre}:{r['linked_from']}" if r["linked_from"] else "", "points": r["points"],
+                        "evidence": r["evidence"], "surname": r["surname"], "forename": r["forename"],
+                        "occupation": r["occupation_raw"], "occ_class": occ_class(r["occupation_raw"]) if r["occupation_raw"] else "",
+                        "origin": "", "origin_name": "", "origin_class": "", "origin_region": "", "origin_lat": "", "origin_lon": ""})
+        stats[city] = S
+        print(f"{city}: übernommen aus {c['repo']}@{c['commit'][:7]}, Bände {', '.join(vols)}; "
+              f"{missing} Einträge ohne Gegenstück in ab_entries")
+    return out, stats
+
+
 def find() -> None:
-    entries = [x for x in open_csv(NORM / "ab_entries.csv.gz") if x["municipality"] in CITIES and x["entry_type"] == "person"]
+    ab = open_csv(NORM / "ab_entries.csv.gz")
+    entries = [x for x in ab if x["municipality"] in CITIES and x["entry_type"] == "person"]
+    known = {x["id"] for x in ab if x["municipality"] not in CITIES}  # für die übernommenen Städte
+    del ab
     entity = {}
     with gzip.open(LINKS / "entities.csv.gz", "rt", encoding="utf-8") as f:
         import csv  # noqa: PLC0415
         for r in csv.DictReader(f):
-            if r["source"] == "ab" and r["municipality"] in CITIES:
+            if r["source"] == "ab":
                 entity[r["record_id"]] = r["entity_id"]
     out, stats = [], {}
     for city, (renumbered, global_no) in CITIES.items():
@@ -339,6 +384,9 @@ def find() -> None:
                      "zuzug_mit_heimatort": fo[("zuzug", "CH")] + fo[("zuzug", "Ausland")], "zuzug_ausland": fo[("zuzug", "Ausland")],
                      "bleibt_mit_heimatort": fo[("bleibt", "CH")] + fo[("bleibt", "Ausland")], "bleibt_ausland": fo[("bleibt", "Ausland")]}
         stats[city] = st
+    rows, more = imported(entity, known)
+    out += rows
+    stats.update(more)
     write_csv(OUT, FIELDS, out)
     STATS.write_text(json.dumps(stats, ensure_ascii=False, indent=1) + "\n")
     for city, st in stats.items():

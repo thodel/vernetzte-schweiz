@@ -413,7 +413,8 @@ einem Band einer Stadt zum ersten Mal, und woher stammt er? Das geht nur, wo die
 Heimatort nennen und mehrere Bände vorliegen, im Zeitfenster nur in **Aarau 1867–1899**
 (Gebäude- und Einwohnerlisten, rund 60 % der Personen mit Heimatort). **Zürich 1867–1914** hat
 mehrere Bände, aber keinen Heimatort: dort nur die Zuzüge selbst, ebenso in **Bern 1861–1900** (15 Bände) sowie
-**Baden und Lausanne** (je zwei Bände, 10 und 11 Jahre auseinander). Die Seite zeigt alle fünf unter `#/wanderungen?v=zuzug`
+**Baden und Lausanne** (je zwei Bände, 10 und 11 Jahre auseinander). **Basel 1862** kommt fertig gerechnet aus dem
+Basler Repo, mit dem Vorband 1850 vor dem Zeitfenster (unten). Die Seite zeigt alle sechs unter `#/wanderungen?v=zuzug`
 (Auswahl «Stadt»).
 
 ```bash
@@ -523,6 +524,30 @@ und ähnliche Familiennamen werden über eine Liste der Namen gesucht statt Eint
   jeder ähnliche Name im Vorband; einzelne Grenzfälle mit abgekürztem Vornamen («Kamer, Jos.» →
   «Kamer, Jos. Ad.», anderer Beruf).
 - Firmen, Anstalten und Vereine im Namen («Petranit A. G.», «Eilboten-Institut», «— Söhne») zählen nicht.
+
+### Basel 1862 (übernommen, Vorband 1850)
+
+Seit 27.11.2026. Die Basler Bände 1841, 1850 und 1862 verknüpft das Basler Repo selbst
+([`scripts/60_zuzuege.py`](https://github.com/thodel/adressbuecher-basel/blob/main/scripts/60_zuzuege.py), Befund in
+[PLAN.md, Abschnitt 7](https://github.com/thodel/adressbuecher-basel/blob/main/PLAN.md)); Vernetzte Schweiz übernimmt
+`60_zuzuege.csv` und `60_zuzuege_stats.csv` am gepinnten Commit (`zuzuege`, `zuzuege_stats` in `config/sources.toml`,
+`imported()` in `scripts/zuzuege.py`). Übernommen werden die Personen von 1862; vom Vorband 1850, der vor dem
+Zeitfenster liegt, nur die Personenzahl als Vergleich. Selbst gerechnet wird Basel hier nicht: Die Verknüpfung hängt an
+der alten, stadtweiten Hausnummer, die für 1862 erst über das Häuserverzeichnis gefunden wird, und an den Bänden 1841
+und 1850, die nicht eingelesen sind. Eine zweite Fassung der Regeln liefe auseinander.
+
+| Band | Vorband | Personen | Zuzüge | davon Name neu | bleibt | witwe, haushalt |
+|---|---|---|---|---|---|---|
+| 1862 | 1850 | 7'463 | 6'205 (83 %) | 1'976 | 768 (435 aus 1850, 333 aus 1841) | 490 |
+
+- **Die Regeln weichen leicht ab:** Die alte Hausnummer zählt 2 Punkte (sie steht für Strasse und Haus), die Strasse
+  nur zwischen 1841 und 1862 (1850 nennt keine), und der Vorname allein verknüpft nicht (in der Stichprobe meist
+  verschiedene Personen); ein anderer Allianzname schliesst aus. Die Vornamen vergleicht `81_baende.py` wie in der
+  Spalte «Andere Bände».
+- **«Zuzug» heisst «neu im Register»:** 1850 nennt 2'826 Personen, 1862 7'463. Der grösste Teil der Zuzüge 1862 kommt
+  vom grösseren Umfang des Registers, nicht aus Zuwanderung.
+- Alle 7'463 Einträge haben ein Gegenstück in den Adressbuch-Einträgen und eine Einheit. Stichprobe im Basler Repo
+  (30 Paare, Seed 2711): 27 plausibel, 3 unklar.
 
 ### Bern 1861–1900 (ohne Heimatort)
 

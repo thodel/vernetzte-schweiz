@@ -30,7 +30,7 @@ make ingest   # Quellen am gepinnten Commit lesen, Orte auflösen, zerlegen → 
 make link     # Telefonbuch ↔ Adressbuch verknüpfen und messen → links/, data/norm/
 make entities # Einheiten über die Jahre bündeln, Normdaten, Messung → links/, data/norm/
 make wanderungen # Wer zieht wohin? Kandidaten (Versuch) → links/migration.csv
-make zuzuege     # Wer kommt neu nach Aarau und Zürich, und woher? → links/zuzuege.csv.gz
+make zuzuege     # Wer kommt neu in eine Stadt, und woher? Aarau, Zürich, Bern, Baden, Lausanne; Basel übernommen → links/zuzuege.csv.gz
 make infrastruktur # Telefonnetz, Infrastruktur-Berufe, Bahnhofstrasse → data/norm/infrastruktur.json
 make durchdringung-bern # Telefon im Kanton Bern gegen BERNHIST (liest nur) → data/norm/durchdringung_bern*.csv
 make wikidata # Kandidaten für den Normdaten-Abgleich neu holen → data/ref/

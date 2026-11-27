@@ -115,6 +115,30 @@ class Linking(unittest.TestCase):
         # «Mühle» endet auf einen Selbstlaut: ein eigener Name, nicht der abgeschnittene Mühlebach
         self.assertNotIn(z.skey("Mühle"), z.street_canon(["Mühlebach"] * 40 + ["Mühle"] * 10, cut_only=True))
 
+    def test_imported_city_keeps_only_volumes_in_the_window(self):
+        # Basel: im Quell-Repo gerechnet; 1862 übernommen, 1850 (vor dem Zeitfenster) nur als Vorband mit Personenzahl
+        stats = ("volume,prev_volume,personen,mit_alter_nummer,zuzuege,neu,neu_familie,bleibt,witwe,haushalt\n"
+                 "1841,,3,3,,0,0,0,0,0\n1850,1841,2,2,1,1,0,1,0,0\n1862,1850,2,2,1,0,1,1,0,0\n")
+        head = "entry_id,volume,prev_volume,status,linked_from,points,evidence,surname,forename,occupation_raw\n"
+        rows = head + ("1850-e-1,1850,1841,bleibt,1841-e-1,5,vorname+3 haus,Day,Joh.,Schreiner\n"
+                       "1862-e-1,1862,1850,bleibt,1850-e-1,5,vorname+3 haus,Day,Joh.,Schreiner\n"
+                       "1862-e-2,1862,1850,neu_familie,,,,Day,Anna,Näherin\n")
+        cfg = {"window": {"year_from": 1860, "year_to": 1914},
+               "city": [{"id": "basel", "label": "Basel", "repo": "r", "commit": "c" * 40,
+                         "zuzuege": "z.csv", "zuzuege_stats": "s.csv"}, {"id": "aarau", "label": "Aarau"}]}
+        old = z.config, z.fetch
+        z.config, z.fetch = (lambda: cfg), (lambda repo, commit, path: stats if path == "s.csv" else rows)
+        try:
+            out, st = z.imported({"basel:1862-e-1": "e1"}, {"basel:1862-e-1"})
+        finally:
+            z.config, z.fetch = old
+        self.assertEqual([r["record_id"] for r in out], ["basel:1862-e-1", "basel:1862-e-2"])
+        self.assertEqual((out[0]["entity_id"], out[0]["linked_from"], out[1]["entity_id"]), ("e1", "basel:1850-e-1", ""))
+        self.assertEqual(sorted(st["Basel"]), ["1850", "1862"])
+        self.assertTrue(st["Basel"]["1850"]["ausserhalb"])
+        self.assertEqual(st["Basel"]["1850"]["personen"], 2)
+        self.assertEqual((st["Basel"]["1862"]["neu_familie"], st["Basel"]["1862"]["zuzug_mit_heimatort"]), (1, 0))
+
     def test_status(self):
         prev = {z.nkey("Frey"): [entry(1888, "Frey", "Johann", street="Rathausgasse", no="5")]}
         self.assertEqual(z.status(entry(1892, "Frey", "Anna", street="Rathausgasse", no="5"), prev, False), "haushalt")

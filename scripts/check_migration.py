@@ -117,7 +117,7 @@ def upstream() -> list[str]:
     """Quell-Repos: geänderte übernommene Dateien zwischen gepinntem Commit und main (GitHub compare)."""
     cfg = config()
     srcs = [(c["label"], c["repo"], c["commit"],
-             [f["path"] for f in c["files"]] + [c[k] for k in ("authority", "officeholders") if c.get(k)])
+             [f["path"] for f in c["files"]] + [c[k] for k in ("authority", "officeholders", "zuzuege", "zuzuege_stats") if c.get(k)])
             for c in cfg["city"]]
     p = cfg["ptt"]
     srcs.append(("Telefonbücher", p["repo"], p["commit"], [p["batch_a"] + "/*", p["batch_b"]]))
