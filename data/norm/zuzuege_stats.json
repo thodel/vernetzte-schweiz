@@ -134,10 +134,10 @@
    "haushalt": 80,
    "witwe": 20,
    "nicht_erfasst": [],
-   "zuzug_mit_heimatort": 249,
-   "zuzug_ausland": 41,
-   "bleibt_mit_heimatort": 623,
-   "bleibt_ausland": 59
+   "zuzug_mit_heimatort": 253,
+   "zuzug_ausland": 45,
+   "bleibt_mit_heimatort": 624,
+   "bleibt_ausland": 60
   },
   "1913": {
    "personen": 3362,
@@ -147,10 +147,10 @@
    "neu": 542,
    "witwe": 73,
    "nicht_erfasst": [],
-   "zuzug_mit_heimatort": 1226,
-   "zuzug_ausland": 65,
-   "bleibt_mit_heimatort": 613,
-   "bleibt_ausland": 28
+   "zuzug_mit_heimatort": 1346,
+   "zuzug_ausland": 198,
+   "bleibt_mit_heimatort": 625,
+   "bleibt_ausland": 42
   }
  },
  "Zürich": {
@@ -375,8 +375,8 @@
    "haushalt": 195,
    "neu": 151,
    "nicht_erfasst": [],
-   "zuzug_mit_heimatort": 2,
-   "zuzug_ausland": 0,
+   "zuzug_mit_heimatort": 3,
+   "zuzug_ausland": 1,
    "bleibt_mit_heimatort": 20,
    "bleibt_ausland": 1
   },
@@ -414,8 +414,8 @@
    "witwe": 35,
    "haushalt": 239,
    "nicht_erfasst": [],
-   "zuzug_mit_heimatort": 1,
-   "zuzug_ausland": 0,
+   "zuzug_mit_heimatort": 2,
+   "zuzug_ausland": 1,
    "bleibt_mit_heimatort": 8,
    "bleibt_ausland": 1
   },
@@ -442,8 +442,8 @@
    "nicht_erfasst": [],
    "zuzug_mit_heimatort": 2,
    "zuzug_ausland": 0,
-   "bleibt_mit_heimatort": 20,
-   "bleibt_ausland": 0
+   "bleibt_mit_heimatort": 21,
+   "bleibt_ausland": 1
   },
   "1871": {
    "personen": 5735,
@@ -455,8 +455,8 @@
    "nicht_erfasst": [],
    "zuzug_mit_heimatort": 2,
    "zuzug_ausland": 0,
-   "bleibt_mit_heimatort": 18,
-   "bleibt_ausland": 0
+   "bleibt_mit_heimatort": 19,
+   "bleibt_ausland": 1
   },
   "1873": {
    "personen": 5453,
@@ -468,8 +468,8 @@
    "nicht_erfasst": [],
    "zuzug_mit_heimatort": 0,
    "zuzug_ausland": 0,
-   "bleibt_mit_heimatort": 14,
-   "bleibt_ausland": 1
+   "bleibt_mit_heimatort": 15,
+   "bleibt_ausland": 2
   },
   "1875": {
    "personen": 5804,
@@ -494,8 +494,8 @@
    "nicht_erfasst": [],
    "zuzug_mit_heimatort": 3,
    "zuzug_ausland": 0,
-   "bleibt_mit_heimatort": 8,
-   "bleibt_ausland": 0
+   "bleibt_mit_heimatort": 9,
+   "bleibt_ausland": 1
   },
   "1879": {
    "personen": 5867,
@@ -507,8 +507,8 @@
    "nicht_erfasst": [],
    "zuzug_mit_heimatort": 2,
    "zuzug_ausland": 0,
-   "bleibt_mit_heimatort": 11,
-   "bleibt_ausland": 1
+   "bleibt_mit_heimatort": 12,
+   "bleibt_ausland": 2
   },
   "1883": {
    "personen": 7479,

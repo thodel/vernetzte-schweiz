@@ -32,6 +32,11 @@ from common import NORM, ROOT, open_csv, write_csv
 REF = ROOT / "data" / "ref"
 FOREIGN_REF = REF / "places_foreign.csv"
 GEONAMES_COUNTRIES = ("DE", "AT", "FR", "IT", "LI")
+# Namen, die GeoNames kennt, die im Heimatort aber etwas anderes sind (geprüft am Eintrag, 27.11.2026): alte
+# Schweizer Schreibungen («Altorf» = Altdorf UR, «Murri» = Muri, «Nied.-Hallwil»), Familiennamen («von Rodt»,
+# «Wang» in Bern), Vorname, Beruf und Geschäft im Heimatort-Feld 1913 («Albert», «Koch», «Kaufmanns», «Polier»),
+# «Amerika» (ein Ort in Niedersachsen, gemeint sind die USA)
+NOT_FOREIGN = {"altorf", "murri", "nied", "rodt", "wang", "albert", "koch", "kaufmanns", "polier", "amerika"}
 
 
 class Origin(NamedTuple):
@@ -206,6 +211,7 @@ def build_ref(gn_dir: str) -> None:
     wanted = {key(swiss_only(x["origin"]).name) for x in open_csv(NORM / "ab_entries.csv.gz")
               if x["origin"] and swiss_only(x["origin"]).cls in ("offen", "Ausland")}
     wanted.discard("")
+    wanted -= NOT_FOREIGN
     hits: dict[str, dict] = defaultdict(lambda: {"countries": set(), "pop": -1, "lat": "", "lon": "", "name": ""})
     for c in GEONAMES_COUNTRIES:
         with open(f"{gn_dir}/{c}.txt", encoding="utf-8") as f:

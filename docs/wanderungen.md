@@ -432,7 +432,8 @@ python scripts/origins.py ref DIR   # data/ref/places_foreign.csv neu aus GeoNam
    (Ryken, Fluntern …), erster Teil eines Doppelnamens («Langnau» → Langnau im Emmental), Kanton
    allein («soloth»).
 3. Ausländische Orte aus `data/ref/places_foreign.csv`: nur die GeoNames-Namen, die als Heimatort
-   vorkommen und nicht schon als Schweizer Ort aufgehen (348 Namen). Koordinaten vom grössten Ort
+   vorkommen und nicht schon als Schweizer Ort aufgehen (498 Namen, neu gebaut am 27.11.2026 mit den
+   Heimatorten 1913). Ausgenommen sind geprüfte Fehltreffer (`NOT_FOREIGN`: «Altorf» = Altdorf UR, «Koch» …). Koordinaten vom grössten Ort
    dieses Namens; mehrdeutige Namen tragen mehrere Länder («AT/DE»).
 4. Unscharf gegen die Schweizer Liste (≥ 0,86) → `CH?` (Zezwyl, Erlisbach).
 
@@ -477,21 +478,21 @@ Aarau bis 1899, 11 718 Einträge mit Heimatort: CH 9 674, CH? 383, Ausland 1 132
 | 1892 | 1'941 | 390 | 328 | 28 (9 %) | 69/847 (8 %) |
 | 1896 | 2'119 | 541 | 244 | 47 (19 %) | 38/480 (8 %) |
 | 1899 | 2'080 | 366 | 161 | 28 (17 %) | 47/563 (8 %) |
-| 1901 | 2'192 | 427 | 249 | 41 (16 %) | 59/623 (9 %) |
-| 1913 | 3'362 | 1'791 | 1'226 | 65 (5 %)¹ | 28/613 (5 %)¹ |
+| 1901 | 2'192 | 427 | 253 | 45 (18 %) | 60/624 (10 %) |
+| 1913 | 3'362 | 1'791 | 1'346 | 198 (15 %)¹ | 42/625 (7 %) |
 
-¹ 1913 steht der Heimatort ohne «von» und ohne Landeszusatz («Eisenach», «Bergamo», «Firenze»). Die Auslandsliste
-(`data/ref/places_foreign.csv`) kennt nur die Namen, die beim letzten Aufbau als Heimatort vorkamen; 228 Zuzüger
-1913 bleiben darum «offen», darunter viele ausländische Orte. Der Auslandanteil 1913 ist eine Untergrenze, bis die
-Liste aus den GeoNames-Dumps neu gebaut ist (`python scripts/origins.py ref DIR`). Dazu kommen Reste des Parsers
-im Heimatort («Postdienstchef», «Kaffeehalle»).
+¹ 1913 steht der Heimatort ohne «von» und ohne Landeszusatz («Eisenach», «Bergamo», «Firenze»). Mit der alten
+Auslandsliste (nur Namen der Bände bis 1899) blieben 228 Zuzüger 1913 «offen» und der Auslandanteil lag bei 5 %;
+seit dem Neubau der Liste aus GeoNames (27.11.2026) sind es 108 offen und 15 %. Die übrigen sind Reste des Parsers
+im Heimatort («Kaffeehalle», «Bauspenglerei», «Hauptgeschäft Kronengasse») und Orte ausserhalb von DE, AT, FR, IT und
+LI («Danzig», «Kronstadt»); der Anteil bleibt eine leichte Untergrenze.
 
 1901 und 1913 kommen aus der Deutschen Nationalbibliothek (adressbuecher-aarau #9): 1901 mit qwen3.8 gelesen
 (Stichprobe am Seitenbild 34 von 40 Einträgen voll korrekt), 1913 die Einwohner mit Gemini (26 von 30). Zwischen 1901
 und 1913 liegen zwölf Jahre; «Zuzug» heisst «neu seit 1901» und schliesst Söhne mit eigenem Eintrag ein.
 
-Ausländische Zuzüger in Aarau 1869–1913: Deutschland 307, Österreich 27, Frankreich 23, Österreich oder
-Deutschland 20, Italien 16.
+Ausländische Zuzüger in Aarau 1869–1913: Deutschland 354, Italien 73, Österreich 36, Österreich oder
+Deutschland 31, Frankreich 26.
 
 ### Zürich 1867–1914 (ohne Heimatort)
 

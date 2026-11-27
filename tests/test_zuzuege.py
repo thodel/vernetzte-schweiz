@@ -32,6 +32,14 @@ class Origins(unittest.TestCase):
         self.assertEqual((r.name, r.cls, r.region), ("Erfurt", "Ausland", "DE"))
         self.assertIsNotNone(r.lat)
 
+    def test_foreign_place_without_country_1913(self):
+        # 1913 nennt den Heimatort ohne Land; die Liste kommt aus GeoNames, ohne die geprüften Fehltreffer
+        self.assertEqual(o.classify("Eisenach")[1:3], ("Ausland", "DE"))
+        self.assertEqual(o.classify("Bergamo")[1:3], ("Ausland", "IT"))
+        for name in ("Altorf", "Murri", "Koch", "Amerika"):
+            self.assertNotEqual(o.classify(name)[1], "Ausland", name)
+        self.assertTrue(o.NOT_FOREIGN.isdisjoint(o.foreign()), "NOT_FOREIGN steht in places_foreign.csv")
+
     def test_empty_and_ditto(self):
         self.assertEqual(o.classify("daselbst")[1], "leer")
         self.assertEqual(o.classify("")[1], "leer")
