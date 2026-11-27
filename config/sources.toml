@@ -78,13 +78,13 @@ files = [
 id = "bern"
 label = "Bern"
 repo = "thodel/adressbuecher-bern"
-commit = "d393c25d9d01649c957a319fd90e7c3bbf0e9e98"
+commit = "4e11d4d1fb8648790e1065cafe978cda904cd291"
 site = "https://thodel.github.io/adressbuecher-bern/"
 authority = "data/csv/10_authority_links.csv"
 # Eine Datei je Band seit 3d4382e. 1883–84, 1900 gelesen mit qwen3.8 (Stichprobe 83–84 % voll korrekt);
 # 1861, 1862 (Fraktur) mit Gemini, seit d8fadda (Stichprobe je 16 von 20); seit f38b2c7 auch 1863 (18/20) und 1865
 # (17/20); seit f3711e7 1866, 1868, 1870, 1871, 1873, 1875, 1877, 1879 (16–19 von 20); seit d393c25 1867 (66 von 80).
-# 1864 zurückgestellt (Stichprobe 63 von 80). Die Antiqua-Bände 1881–1914 kommen nach und nach (Wochenlauf, scripts/weekly/ im Berner Repo).
+# 1864 zurückgestellt (Stichprobe 63 von 80). Seit 4e11d4d tz-Ligatur und Z-Rubriken der Fraktur-Bände berichtigt. Die Antiqua-Bände 1881–1914 kommen nach und nach (Wochenlauf, scripts/weekly/ im Berner Repo).
 files = [
   { path = "data/csv/04_entries_1861.csv", kind = "einwohner" },
   { path = "data/csv/04_berufe_1861.csv",  kind = "berufe" },

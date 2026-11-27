@@ -214,6 +214,10 @@ Verknüpfung und Bau laufen durch.
   Gewerbe-Verband, nicht das Telefon. Einträge gleich (1 705 701), Einheiten 600 031 → 597 654; Paare Zürich 601 312 → 598 492,
   mit Telefonbuch verknüpft 48 007 → 47 908; Zuzüge Zürich je Band um höchstens 3 verschoben; Wanderungen 577 (stark 65 → 63, mittel 386 → 388). 1905, 1906, 1908
   (Stichprobe unter 80 %) und 1912 (Berufe-Seiten fehlen) bleiben aussen vor.
+- ✔ 27.11.2026 **Bern, Fraktur-Bände berichtigt** (adressbuecher-bern 4e11d4d): tz-Ligatur als «z» gelesen
+  («Mezgerg.», «Mzg.» → «Metzgerg.», «Mtzg.»; 3 120 Zeilen, Familiennamen unberührt) und Z-Rubriken als «B» gelesen
+  («Bügler.» → «Zügler.», «Becker- u. Pastetenbäcker.» → «Zucker-…»; 78 Rubriken). Einträge gleich (1 718 154),
+  Einheiten 602 589 → 602 576; Wanderungen unverändert (589). 1864 bleibt zurückgestellt.
 - offen: Bern 1860 (Fraktur, nicht ganz gelesen).
 
 **M6 — Visualisierungen.** ✔ 10.11.2026: Karten «Wer bekam wann ein Telefon», «Berufe», «Namen» (`#/karten`), Berufssuche mit Karte und Quellenfilter in der Suche; [Aufbau und Messung](docs/karten.md). Umgesetzt sind die ersten drei Punkte; die weiteren Ideen bleiben offen. Nachgetragen: Regler für Jahre (ein Jahr oder Bereich) statt Zeiträumen, Quelle Telefon-/Adressbuch in «Berufe» und «Namen». Grundlage sind die Einheiten aus M3 (eine Person oder Firma
