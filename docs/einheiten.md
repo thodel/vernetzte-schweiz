@@ -9,7 +9,7 @@ Alles läuft mit `make entities`.
 
 - **Telefonbuch:** alle Einträge ≤ 1914 mit Gemeinde (Ort `hoch` oder `mittel`, M1), Art
   `person` oder `firma`: 1 023 615 Einträge mit den Adressbüchern zusammen (Stand 20.11.2026).
-- **Adressbuch:** alle Einträge der Bände von Aarau (1867–1899), Baden (1900, 1910), Basel (1862),
+- **Adressbuch:** alle Einträge der Bände von Aarau (1867–1913), Baden (1900, 1910), Basel (1862),
   Bern (1883, 1900), Lausanne (1896, 1907) und Zürich (1867–1914).
 
 Gebündelt wird je **Gemeinde 1914** und **Namensschlüssel** (Personen: Familienname,

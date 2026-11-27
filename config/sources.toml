@@ -16,7 +16,7 @@ year_to = 1914
 id = "aarau"
 label = "Aarau"
 repo = "thodel/adressbuecher-aarau"
-commit = "372b3eb041698e5df825df2c861d4400b070907c"
+commit = "151689fda2d45e86d03497e45d6bbf967e52a4f5"
 site = "https://thodel.github.io/adressbuecher-aarau/"
 authority = "data/csv/10_authority_links.csv"
 # Verzeichnis der neuen Hausnumerierung 1900 (neue Nr. → alte Nr.): Telefonbücher ab 1900 nummerieren neu,
@@ -31,6 +31,11 @@ files = [
   { path = "data/csv/05_residents_antiqua.csv", kind = "bewohner" },
   # Häuser- und Einwohnerverzeichnisse 1833–1881 (Fraktur, gemini-3.5-flash, ohne Nachkorrektur); im Zeitfenster 1867–1881
   { path = "data/csv/05_residents_frueh.csv",   kind = "bewohner" },
+  # 1901 (Jg. 10) und 1913 aus der Deutschen Nationalbibliothek: 1901 qwen3.8-27b, 1913 Einwohner gemini-3.5-flash,
+  # sonst qwen (Lauf aarau-dnb-final); Stichproben am Seitenbild 1901 34/40, 1913 26/30 (adressbuecher-aarau #9)
+  { path = "data/csv/04_entries_dnb.csv",       kind = "einwohner" },
+  { path = "data/csv/04_berufe_dnb.csv",        kind = "berufe" },
+  { path = "data/csv/05_residents_dnb.csv",     kind = "bewohner" },
 ]
 
 [[city]]

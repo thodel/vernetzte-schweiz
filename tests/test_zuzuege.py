@@ -83,6 +83,26 @@ class Linking(unittest.TestCase):
         prev = {z.nkey("Frey"): [be(1879, "Johann")]}
         self.assertEqual(z.status(be(1883, "Anna"), prev, False), "haushalt")
 
+    def test_aarau_renumbered_1900_through_the_concordance(self):
+        # Aarau 1900: neue Nr. 87 = alte 96/1256, neue Nr. 5 = alte 4, neue Nr. 900 ohne alte (Neubau)
+        renumbered, global_no = z.CITIES["Aarau"]
+        saved = dict(z.HOUSES)
+        z.HOUSES["Aarau"] = (1900, {"87": "96", "5": "4"}, {"96": "96", "1256": "96", "4": "4"})
+        self.addCleanup(lambda: (z.HOUSES.clear(), z.HOUSES.update(saved)))
+
+        def aa(vol, no):
+            return z.prepare({"id": f"{vol}-{no}", "municipality": "Aarau", "volume": str(vol), "surname": "Frey",
+                              "forename": "Johann", "origin": "", "occupation": "", "street": "Rathausgasse", "building_no": no,
+                              "civil_status": "", "text": "", "maiden_name": "", "alliance_name": "", "district": ""},
+                             renumbered, global_no)
+        self.assertIn("haus", z.score(aa(1899, "1256"), aa(1901, "87"))[1])
+        self.assertIn("haus", z.score(aa(1899, "96"), aa(1913, "87"))[1])
+        self.assertIn("haus", z.score(aa(1901, "87"), aa(1913, "87"))[1])
+        self.assertIn("haus", z.score(aa(1901, "900"), aa(1913, "900"))[1])
+        self.assertNotIn("haus", z.score(aa(1899, "87"), aa(1901, "87"))[1])  # gleiche Zahl, anderes Haus
+        self.assertNotIn("haus", z.score(aa(1899, "900"), aa(1901, "900"))[1])  # Neubau: eigenes System
+        self.assertNotIn("haus", z.score(aa(1869, "4"), aa(1901, "5"))[1])  # vor 1877 ein anderes System
+
     def test_bern_street_abbreviations(self):
         # «Krmg.» und «Kramg.» sind dieselbe Strasse; «Lorraine» bleibt die Lorraine, nicht ein Hof darin;
         # «Hrng.» passt zu Herrengasse und Hornergasse: nicht eindeutig, bleibt

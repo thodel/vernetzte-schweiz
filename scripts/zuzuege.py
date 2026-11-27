@@ -47,6 +47,10 @@ CITIES = {"Aarau": (1877, True), "Zürich": (0, False), "Bern": (1882, False), "
 # («Hirschengr.», «Stüssihofst.», «Rinderm.»); der freie Vergleich machte dort aus Strassen eigenen Namens andere
 # («Seestr.» → «Seefeldstr.», «Baurstr.» → «Braurstr.», «Schlossg.» → «Schlosserg.»).
 ABBR_STREETS = {"Bern": (0, False), "Zürich": (1893, True)}
+# Zweite Umnummerierung über die Konkordanz der Stadt (sources.toml `renumbering`): Aarau 1900. Eine neue Nummer
+# steht für eine oder mehrere alte («96/1256»); jede Gruppe alter Nummern wird auf die erste zurückgeführt, die neue
+# Nummer auf dieselbe. Neue Nummern ohne alte (Neubauten) bilden ein eigenes System. {Stadt: (Jahr, Nummer → Haus)}
+HOUSES: dict[str, tuple[int, dict[str, str], dict[str, str]]] = {}
 STREET_SUFFIX = re.compile(r"(gase|strase|str|weg|plaz|platz)$")
 # Ein Quartier gilt im Vorband als nicht erfasst, wenn es dort weniger als ein Viertel der Einträge hat
 # (Zürich 1867: Riesbach 111, 1875: 1 571). Neue dort sind kein Zuzug, sondern Status «gebiet».
@@ -121,16 +125,46 @@ def street_canon(streets: list[str], min_n: int = 30, cut_only: bool = False) ->
     return out
 
 
+def load_houses(cfg: dict) -> None:
+    for c in cfg["city"]:
+        rn = c.get("renumbering")
+        if not rn:
+            continue
+        new, old = {}, {}
+        for r in read_csv(fetch(c["repo"], c["commit"], rn["path"])):
+            n, olds = re.sub(r"\D", "", r["new_no"] or ""), re.findall(r"\d+", r["old_no"] or "")
+            if not n or not olds:
+                continue
+            rep = old.get(olds[0], olds[0])
+            new.setdefault(n, rep)
+            for o in olds:
+                old.setdefault(o, rep)
+        HOUSES[c["label"]] = (int(rn["year"]), new, old)
+
+
+def system(x: dict, house: str, renumbered: int):
+    """Nummernsystem und Haus: True vor `renumbered`, sonst False; nach der zweiten Umnummerierung über die
+    Konkordanz zurück ins System davor, «neu», wo sie die Nummer nicht kennt."""
+    vol, rn = int(x["volume"]), HOUSES.get(x.get("municipality", ""))
+    if not rn or vol < renumbered or not house:
+        return vol < renumbered, house
+    if vol < rn[0]:
+        return False, rn[2].get(house, house)
+    old = rn[1].get(house)
+    return (False, old) if old else ("neu", house)
+
+
 def prepare(x: dict, renumbered: int, global_no: bool = True, canon: dict[str, str] | None = None) -> dict:
     o = origin(x["origin"]) if x["origin"] else None
     ok = nkey(o.name) if o and o.cls != "leer" else ""
     street = skey(x["street"])
     street = (canon or {}).get(street, street)
+    sys_, house = system(x, house_key(x, global_no, street), renumbered)
     return {"id": x["id"], "vol": int(x["volume"]), "sk": nkey(x["surname"]), "surname": x["surname"],
             "forename": x["forename"], "fn": forename_tokens(x["forename"]), "origin": x["origin"], "ok": ok,
             "o": o if ok else None, "stems": stems(x["occupation"] or ""), "occ": x["occupation"] or "",
-            "street": street, "house": house_key(x, global_no, street),
-            "sys": int(x["volume"]) < renumbered,
+            "street": street, "house": house,
+            "sys": sys_,
             "district": x["district"],
             "widow": bool(WIDOW.search(" ".join([x["forename"], x["civil_status"], x["text"]]))),
             "maiden": nkey(x["maiden_name"]), "alliance": nkey(x["alliance_name"])}
@@ -327,6 +361,7 @@ def imported(entity: dict[str, str], known: set[str]) -> tuple[list[dict], dict[
 
 
 def find() -> None:
+    load_houses(config())
     ab = open_csv(NORM / "ab_entries.csv.gz")
     entries = [x for x in ab if x["municipality"] in CITIES and x["entry_type"] == "person"]
     known = {x["id"] for x in ab if x["municipality"] not in CITIES}  # für die übernommenen Städte

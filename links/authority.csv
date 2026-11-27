@@ -1,34 +1,40 @@
 entity_id,qid,label,birth,death,hls_id,gnd,tier,source,evidence,hls_check,via
 e00164e17c7,Q2074388,Peter Conrad,1850,1914,005486,1050111931,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort,"bestätigt: 1885–1914 Aargauer Regierungsrat, Fürsprecher, von Auw und Ehrenbürger von Turgi – deckt sich mit allen Einträgen.",aarau:1888-einwohner-098-L046
-e002b2d1efa,Q63119288,Otto Lindt,1839,1896,,1239775644,wahrscheinlich,stadt,Aarau-Bezug+Heimatort+Beruf,,aarau:1884-einwohner-038-L011
+e002b2d1efa,Q63119288,Otto Lindt,1839,1896,,1239775644,wahrscheinlich,stadt,Aarau-Bezug+Heimatort+Beruf,,aarau:1879-gebaeude-008-E022
 e003dea7d46,Q139009803,,1817,1895,,1021164313,möglich,stadt,Basel-Bezug+Basler Amt,,basel:C00166-1862
 e007240dae5,Q96321880,Philipp Hindermann,1796,1884,011952,1044309989,wahrscheinlich,stadt,Basel-Bezug,"bestätigt: Lehrer Schule St. Theodor 1831-64 = Unterlehrer/Lehrer, St. Theodorgemeinde; ∞ Landerer = Hindermann-Landerer",basel:1862-einwohner-359-L091
 e00b80341f8,Q55194535,Johann Georg Müller,1800,1875,,137826141,möglich,stadt,Basel-Bezug,,basel:1862-gebaeude-217-L028
 e0105bc83a0,Q78067806,Johann Peter Oswald,1808,1885,029915,1080996583,möglich,stadt,Basel-Bezug (Namensvetter im Band),"bestätigt: Speditions- und Bankunternehmer = Kaufmann 1862; ∞ 1833 Linder = Oswald-Linder. J. Ch. Oswald (Färber), Oswald-Kurz andere Personen",basel:1862-gebaeude-235-L031
+e011cca5e64,Q55674986,Ernst Zschokke,1864,1937,,117019127,wahrscheinlich,stadt,Aarau-Bezug,,aarau:1913-einwohner-230-L013
 e015c12c4d2,Q107000468,Johann Jakob Burckhardt,1836,1890,005947,1048084728,möglich,stadt,Basel-Bezug,ungeprüft,basel:1862-einwohner-332-L078
 e026ac36a5c,Q1696002,Johann Rohr,1830,1909,032679,1050750187,möglich,stadt,Basler Amt,"zweifelhaft: Aargauer Jurist (1862 Gerichtspräs. Zofingen), ∞ 1857 Baumann ≠ «J. Rohr-Schmid, Suppleanten» 1862; Suppleant nicht belegt",basel:C00912-1862
 e02ecda3719,Q62098691,Johann Jakob Schneider,1822,1889,,1015350887,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-404-L031
 e02eee89756,Q6233747,Friedrich Weber,1813,1882,022690,117158623,möglich,stadt,Basel-Bezug (Namensvetter im Band),"bestätigt: Kupferstecher, 1859 Rückkehr nach Basel, ∞ 1852 Bischoff = Weber-Bischoff, Kupferstecher 1862. Weber-Salathe 1850 andere Person (damals Paris)",basel:1862-einwohner-422-L047
 e03bf302ab2,Q133089196,Christian Friedrich Beck,1818,1893,,1073443337,wahrscheinlich,stadt,Basel-Bezug+Basler Amt,,basel:C00040-1862
+e03d2e184bc,Q27662066,Friedrich Siebenmann,1852,1928,014642,117339180,möglich,stadt,Aarau-Bezug,ungeprüft,aarau:1879-gebaeude-047-E034
 e03dabbfee9,Q1654410,Samuel Bachofen,1806,1889,023299,1076339999,wahrscheinlich,stadt,Basel-Bezug+Beruf,"bestätigt: Grossmetzger, Kriegsrichter 1855-67, Oberst = Metzger u. eidg. Oberst, Richter Kriegsgericht 1862; ∞ Fininger",basel:1862-einwohner-320-L054
 e041660fa1e,Q141609910,Carl Burckhardt,1805,1880,,,möglich,stadt,Basel-Bezug,,basel:1862-gebaeude-081-L040
 e04672515a6,Q1559663,Hans Wieland,1825,1864,024428,138525358,wahrscheinlich,stadt,Basel-Bezug,"bestätigt: ab 1847 Buchhändler = Buchhändler 1850; 1860 eidg. Oberst, ∞ Bischoff = Wieland-Bischoff, eidg. Oberst 1862",basel:1862-einwohner-424-L120
 e055c3c4a49,Q125230,Andreas Heusler,1834,1921,014802,118704389,möglich,stadt,Basel-Bezug,ungeprüft,basel:1862-einwohner-359-L006
 e05eebd4a05,Q361553,Adolf Fischer,1807,1893,003758,105011292X,möglich,stadt,HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort (Namensvetter im Band),"bestätigt: 1867–1887 Regierungsrat und Oberst, von Reinach, gestorben in Aarau 1893.",aarau:1892-einwohner-109-L003
+e060393759b,Q110208897,Fritz Schmuziger,1879,1950,041176,1051006058,möglich,stadt,Aarau-Bezug,ungeprüft,aarau:1913-einwohner-207-L012
 e0662f39bfe,Q107044261,Peter Feddersen,1812,1874,041601,1047348632,wahrscheinlich,stadt,Basel-Bezug+Basler Amt,bestätigt: ab 1848 Redaktor in Basel (Tagblatt/Volksfreund) = Redactor 1862; ∞ Daverio Possenti = Feddersen-Possenti,basel:C00327-1862
 e06687ed9dd,Q361553,Adolf Fischer,1807,1893,003758,105011292X,möglich,stadt,HLS-Artikel bestätigt+Aarau-Bezug (Namensvetter im Band),"bestätigt: 1867–1887 Regierungsrat und Oberst, von Reinach, gestorben in Aarau 1893.",aarau:1888-einwohner-103-L028
 e06695c7330,Q1040302,Ferdinand Karl Rothpletz,1814,1885,019922,1046883275,möglich,stadt,HLS-Artikel bestätigt+Aarau-Bezug+Beruf (Namensvetter im Band),bestätigt: 1849–1885 aargauischer Kantonsbaumeister – entspricht «Hochbaumeister» 1884.,aarau:1884-einwohner-044-L026
+e06df4dc138,Q1474158,Johann Rudolf Müller,1824,1894,042094,118872850,möglich,stadt,HLS nennt Aarau+HLS-Heimatort,ungeprüft,aarau:1879-gebaeude-051-E038
+e06ebbf7ead,Q1610866,Hermann Custer,1823,1893,031556,1071076434,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort,"bestätigt: Promovierter Chemiker, übernahm 1857 eine Seidenbandfabrik in Aarau, von Rheineck.",aarau:1867-gebaeude-029-E024
 e077a52aec8,Q55887140,Andreas Sulger,1809,1881,,1011749874,möglich,stadt,Basel-Bezug (Namensvetter im Band),,basel:1862-gebaeude-099-L046
 e0834ff11de,Q62098691,Johann Jakob Schneider,1822,1889,,1015350887,möglich,stadt,Basel-Bezug,,basel:1862-gebaeude-189-L008
 e0866c8bd7e,Q55194535,Johann Georg Müller,1800,1875,,137826141,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-386-L043
 e08fa145f5e,Q16832496,Johann Jakob Trog,1807,1867,003086,1049470532,wahrscheinlich,stadt,Basel-Bezug,"bestätigt: ab 1853 in Basel, Direktor Schweiz. Centralbahn = Centralbahndirector 1862; ∞ Frei (Trog-Frey)",basel:1862-gebaeude-156-L024
 e0a6737849b,Q23994759,Friedrich Brenner,1809,1874,014302,118515012,möglich,stadt,Basel-Bezug+Basler Amt,ungeprüft,basel:C00129-1862
 e0b083e726c,Q133314962,,1819,1867,,1081666188,möglich,stadt,Basel-Bezug (Namensvetter im Band),,basel:1862-einwohner-332-L115
-e0b95103882,Q78074454,Heinrich Wäffler,1843,1917,049180,1050008898,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS nennt Aarau+HLS-Heimatort+Heimatort,"bestätigt: 1877–1908 Turnlehrer am Töchterinstitut Aarau, von Basel.",aarau:1884-einwohner-053-L005
+e0b95103882,Q78074454,Heinrich Wäffler,1843,1917,049180,1050008898,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS nennt Aarau+HLS-Heimatort+Heimatort,"bestätigt: 1877–1908 Turnlehrer am Töchterinstitut Aarau, von Basel.",aarau:1879-gebaeude-040-E047
 e0cca2a53e0,Q115909,Carl Meissner,1800,1874,031986,103106553,möglich,stadt,Basel-Bezug+Basler Amt (Namensvetter im Band),"bestätigt: Dr. med., Prof. Physiologie, 1836-67 Prof. Botanik = Professor der Naturgeschichte, M. D., Dekan Med. Fakultät 1841",basel:C00711-1862
 e0d3c95debb,Q125230,Andreas Heusler,1834,1921,014802,118704389,möglich,stadt,Basel-Bezug+Basler Amt,ungeprüft,basel:C00468-1862
 e0d5e18f69b,Q28053764,Friedrich Miescher-His,1811,1887,014550,133099997,wahrscheinlich,stadt,Basel-Bezug+Allianzname,bestätigt: o. Prof. Basel 1837-44 und 1850-71 = Med. et Chirurg. Dr. und Professor 1841/1862; ∞ His = Miescher-His,basel:1862-einwohner-383-L094
 e0de334e821,Q361553,Adolf Fischer,1807,1893,003758,105011292X,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort,"bestätigt: 1867–1887 Regierungsrat und Oberst, von Reinach, gestorben in Aarau 1893.",aarau:1884-einwohner-024-L027
+e0dedeed4b3,Q115944,Karl Moser,1860,1936,019891,118584413,möglich,stadt,Beruf,"zweifelhaft: Architekt von Baden passt, doch er arbeitete 1888–1915 in Karlsruhe; ein Aarauer Bezug fehlt im Artikel.",aarau:1901-einwohner-125-L044
 e0e23a58ab8,Q94896972,Moritz Kahnt,1836,1904,,1016987234,wahrscheinlich,stadt,Basel-Bezug,,basel:1862-einwohner-366-L047
 e0e3ddfb7d4,Q18620893,Ernst Reiter,1814,1875,020732,116432047,wahrscheinlich,stadt,Basel-Bezug+Basler Amt,"bestätigt: Kapellmeister/Dirigent in Basel = Musikdirektor 1862; ∞ 1843 Bildstein, 1857 Ehrmann = Reiter-Bildstein 1850, -Ehrmann 1862",basel:C00885-1862
 e0e9789b5d6,Q117975,Fritz Müller,1834,1895,,1018867228,möglich,stadt,Basel-Bezug+Basler Amt,,basel:C00795-1862
@@ -39,6 +45,7 @@ e109266deed,Q662344,Jakob Stämpfli,1820,1879,004635,117202827,wahrscheinlich,st
 e10c8635767,Q55131148,Johann Jacob Bischoff,1841,1892,014298,135549035,möglich,stadt,Basel-Bezug,ungeprüft,basel:1862-einwohner-325-L087
 e10d24e0798,Q121991,Carl Gustav Bernoulli,1834,1878,,119547635,möglich,stadt,Basel-Bezug+Basler Amt (Namensvetter im Band),,basel:C00063-1862
 e111d1801ec,Q139009803,,1817,1895,,1021164313,möglich,stadt,Basel-Bezug+Basler Amt,,basel:C00197-1862
+e112d51ebcc,Q15805984,Dietrich Holzach,1836,1905,,,wahrscheinlich,stadt,Aarau-Bezug,,aarau:1901-einwohner-116-L030
 e11b7c85e5f,Q55989351,Christian Kolb,1810,1894,,118813404,wahrscheinlich,stadt,Basel-Bezug,,basel:1862-gebaeude-157-L011
 e11c32c1d69,Q94905549,Emil Geering,1827,1894,,116478950,wahrscheinlich,stadt,Basel-Bezug,,basel:1862-gebaeude-089-L042
 e12a07cca16,Q15455792,Achilles Bischoff,1795,1867,004419,1015168590,wahrscheinlich,stadt,Basel-Bezug,"plausibel: ab 1840 in Basel, Rentier 1862 passt (Ämter 1852 aufgegeben); Eintrag 1850 Bischoff-Ritter eher Vater (Mutter geb. Ritter)",basel:1862-einwohner-325-L041
@@ -49,17 +56,20 @@ e145daba7c8,Q1529558,Max Wolfinger,1837,1913,,1089646674,wahrscheinlich,stadt,Aa
 e1464bd4ea0,Q78074454,Heinrich Wäffler,1843,1917,049180,1050008898,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS nennt Aarau+HLS-Heimatort+Heimatort,"bestätigt: 1877–1908 Turnlehrer am Töchterinstitut Aarau, von Basel.",aarau:1888-einwohner-136-L043
 e14779e34ab,Q15805984,Dietrich Holzach,1836,1905,,,möglich,stadt,Aarau-Bezug (Namensvetter im Band),,aarau:1888-einwohner-113-L009
 e14c42a7ec5,Q1622649,Wilhelm Vischer-Bilfinger,1808,1874,032175,118768670,möglich,stadt,Basel-Bezug+Basler Amt,"bestätigt: Prof. griech. Philologie ab 1836, Mitgründer Antiquar. Gesellschaft = Präsident Ges. f. vaterländ. Alterthümer 1862; ∞ 1832 Bilfinger",basel:C01195-1862
+e14e96961b1,Q96281560,Anton Camenzind,1825,1888,005227,1053322666,möglich,stadt,Heimatort,ungeprüft,aarau:1877-gebaeude-053-E015
 e155988a485,Q15805984,Dietrich Holzach,1836,1905,,,wahrscheinlich,stadt,Aarau-Bezug,,aarau:1899-gebaeude-028-L016
 e15dfd80930,Q66310896,Rudolf Löw,1832,1898,,1084238144,wahrscheinlich,stadt,Basel-Bezug+Basler Amt,,basel:C00678-1862
+e164603b05a,Q65997485,Julius Frey,1855,1925,042084,1017289751,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS nennt Aarau,"bestätigt: 1881–1889 Vizedirektor der Aargauischen Bank, von Möhlin.",aarau:1877-gebaeude-027-E043
 e16780d593d,Q55194535,Johann Georg Müller,1800,1875,,137826141,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-385-L095
 e1715431628,Q113791446,Emanuel Preiswerk,1825,1904,,173927521,wahrscheinlich,stadt,Basel-Bezug,,basel:1862-einwohner-391-L077
 e18335e5f1f,Q1696019,Johann Rudolf Geigy-Merian,1830,1917,004500,116495898,möglich,stadt,Basel-Bezug (Namensvetter im Band),"bestätigt: Zivilrichter 1857-64 = Civilgericht 1862, Kaufmann; ∞ Merian. Achtung: Einträge J. J./Joh. Ludw./Joh. Merian ohne Geigy sind andere Personen",basel:1862-einwohner-347-L020
 e1954572ca5,Q15627219,Albrecht Müller,1819,1890,028891,11756995X,wahrscheinlich,stadt,Basel-Bezug+Beruf,"bestätigt: Geologe, Dr. h.c. 1852, ao. Prof. 1861 = Mineralog 1850, Phil. Dr. Geolog 1862; ∞ 1860 Hetzel. Müller-Schölly (Wechsel-Sensal) 1841 = Vater",basel:1862-einwohner-385-L084
 e1988fa9ba1,Q74698809,Adolf Christ,1807,1877,010568,1048085392,wahrscheinlich,stadt,Basel-Bezug,"bestätigt: Bandfabrikant, ∞ Sarasin = Christ-Sarasin; Kl. Rat 1847-75, Präs. Schulkollegium = Präsident Kirchen- u. Schulcollegium 1862",basel:1862-einwohner-334-L118
 e19ff11de06,Q55194535,Johann Georg Müller,1800,1875,,137826141,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-386-L061
-e1a2bb98db9,Q1401747,Johann Haberstich,1824,1891,003762,105011910X,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug,bestätigt: Anwalt in Aarau bis zu seinem Tod 1891.,aarau:1884-einwohner-028-L033
+e1a2bb98db9,Q1401747,Johann Haberstich,1824,1891,003762,105011910X,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug,bestätigt: Anwalt in Aarau bis zu seinem Tod 1891.,aarau:1877-gebaeude-030-E019
 e1ac18b46e7,Q68225,Gustav Zeuner,1828,1907,031721,118772627,wahrscheinlich,stadt,Basler Amt,"bestätigt: 1859 stellvertretender Direktor Polytechnikum = Vice-Director, Eidg. Schulrath 1862 (eidg. Behörde)",basel:C01273-1862
 e1ad55bc30a,Q19125783,Albert Schumann,1835,1897,,131881906,wahrscheinlich,stadt,Aarau-Bezug+Heimatort,,aarau:1884-einwohner-047-L046
+e1af3482257,Q695664,Arnold Künzli,1832,1908,003776,138320128,möglich,stadt,Heimatort,ungeprüft,aarau:1869-gebaeude-040-E042
 e1b038e96e6,Q1529558,Max Wolfinger,1837,1913,,1089646674,wahrscheinlich,stadt,Aarau-Bezug+Heimatort,,aarau:1896-gebaeude-100-L050
 e1c3190ea36,Q1696019,Johann Rudolf Geigy-Merian,1830,1917,004500,116495898,möglich,stadt,Basel-Bezug (Namensvetter im Band),"bestätigt: Zivilrichter 1857-64 = Civilgericht 1862, Kaufmann; ∞ Merian. Achtung: Einträge J. J./Joh. Ludw./Joh. Merian ohne Geigy sind andere Personen",basel:1862-einwohner-380-L110
 e1cde42299b,Q44181524,Eugen Escher,1831,1900,003627,116569158,wahrscheinlich,stadt,Basler Amt,"plausibel: Jurist, Stadtschreiber ZH 1857-68; Gerichtsschreiber Bundesgericht im Artikel nicht erwähnt, aber nicht widersprochen",basel:C00314-1862
@@ -67,76 +77,102 @@ e1e0384381f,Q61466027,Johann Bucher,1816,1873,,1386794279,wahrscheinlich,stadt,B
 e1e3779e268,Q55194535,Johann Georg Müller,1800,1875,,137826141,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-386-L053
 e1e918dbcd6,Q121991,Carl Gustav Bernoulli,1834,1878,,119547635,möglich,stadt,Basel-Bezug (Namensvetter im Band),,basel:1862-gebaeude-169-L029
 e1ea054d243,Q1696019,Johann Rudolf Geigy-Merian,1830,1917,004500,116495898,möglich,stadt,Basel-Bezug (Namensvetter im Band),"bestätigt: Zivilrichter 1857-64 = Civilgericht 1862, Kaufmann; ∞ Merian. Achtung: Einträge J. J./Joh. Ludw./Joh. Merian ohne Geigy sind andere Personen",basel:1862-einwohner-380-L109
+e20210dcfcb,Q15805984,Dietrich Holzach,1836,1905,,,wahrscheinlich,stadt,Aarau-Bezug,,aarau:1901-gebaeude-069-L045
+e20e2bd4df3,Q998080,Olivier Zschokke,1826,1898,003808,138527431,möglich,stadt,HLS-Artikel bestätigt+Aarau-Bezug (Namensvetter im Band),"bestätigt: Ingenieur, 1880–1898 Inhaber von Zschokke & Cie. in Aarau.",aarau:1867-gebaeude-046-E036
 e20e35af108,Q55194535,Johann Georg Müller,1800,1875,,137826141,möglich,stadt,Basel-Bezug,,basel:1862-gebaeude-119-L014
+e21146c3884,Q19214099,Johann Jakob Bäbler,1836,1900,042720,116031255,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS nennt Aarau+HLS-Heimatort+Heimatort,"bestätigt: 1876–1900 Lehrer für Deutsch und Geschichte an der Kantonsschule Aarau, von Matt.",aarau:1879-gebaeude-046-E038
 e218044bd12,Q55133094,Eduard Dössekel,1810,1890,011757,101249950,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS nennt Aarau+HLS-Heimatort+Heimatort,"bestätigt: 45 Jahre aargauischer Oberrichter, von Seon, gestorben in Aarau.",aarau:1888-einwohner-099-L037
+e21bb503f32,Q15455167,Emil Adolf Hoffmann,1879,1963,,134892380,möglich,stadt,Aarau-Bezug (Namensvetter im Band),,aarau:1913-einwohner-173-L025
 e2240327033,Q18577955,Johann Jakob Müller,1812,1872,003668,1051654513,möglich,stadt,Basler Amt,ungeprüft,basel:C00799-1862
+e22a878ba7e,Q133371230,,1841,1912,,133710270,wahrscheinlich,stadt,Aarau-Bezug+Heimatort,,aarau:1879-gebaeude-007-E005
 e23040be915,Q133371230,,1841,1912,,133710270,wahrscheinlich,stadt,Aarau-Bezug+Heimatort,,aarau:1899-gebaeude-040-L032
 e233df638f4,Q27662066,Friedrich Siebenmann,1852,1928,014642,117339180,möglich,stadt,Aarau-Bezug,ungeprüft,aarau:1884-einwohner-048-L035
 e234f330979,Q19214099,Johann Jakob Bäbler,1836,1900,042720,116031255,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS nennt Aarau+HLS-Heimatort+Heimatort,"bestätigt: 1876–1900 Lehrer für Deutsch und Geschichte an der Kantonsschule Aarau, von Matt.",aarau:1884-einwohner-016-L049
 e2389d5a9a9,Q42182771,Hermann Hunziker,1840,1910,,1089402252,möglich,stadt,Aarau-Bezug (Namensvetter im Band),,aarau:1888-einwohner-113-L048
 e24b8396157,Q133314962,,1819,1867,,1081666188,möglich,stadt,Basel-Bezug+Basler Amt (Namensvetter im Band),,basel:C00209-1862
+e253934a75f,Q103824573,Friedrich Siebenmann,1851,1901,023080,,möglich,stadt,Aarau-Bezug,ungeprüft,aarau:1877-gebaeude-027-E035
 e256b630cbc,Q213873,Marie Steiner,1867,1948,027522,118617435,möglich,stadt,Geburtsort weicht ab,ungeprüft,aarau:1888-einwohner-133-L030
+e259e84db8c,Q98399981,Johann Ludwig Meyer,1858,1935,,1181732182,möglich,stadt,Aarau-Bezug,,aarau:1901-einwohner-124-L039
 e25a43d2f75,Q55131148,Johann Jacob Bischoff,1841,1892,014298,135549035,möglich,stadt,Basel-Bezug,ungeprüft,basel:1862-einwohner-325-L049
 e25c325ade0,Q1913381,Max Schmidt,1862,1951,005519,1051006015,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug,"bestätigt: Fürsprecher ab 1886, 1891–1906 Stadtammann von Aarau.",aarau:1888-einwohner-129-L036
 e2631b86d41,Q61993491,Alfred Merian,1834,1916,,1017993254,wahrscheinlich,stadt,Basel-Bezug+Beruf,,basel:1862-einwohner-381-L035
+e26b4bc9f02,Q27662066,Friedrich Siebenmann,1852,1928,014642,117339180,möglich,stadt,Aarau-Bezug,ungeprüft,aarau:1901-einwohner-135-L036
 e26f72aa8dc,Q55194535,Johann Georg Müller,1800,1875,,137826141,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-385-L024
 e2730871619,Q55675052,Theodor Odinga,1866,1931,003670,117095931,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS nennt Aarau+HLS-Heimatort+Heimatort,"bestätigt: Dr. phil. und Rektor der städtischen Mädchenschule Aarau, von Uster.",aarau:1892-gebaeude-075-L032
 e27b6dab9a8,Q1731042,Karl Friedrich Brentano,1822,1894,005484,117733334,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS-Heimatort+Heimatort,"bestätigt: 1860–1885 Aargauer Regierungsrat, von Laufenburg.",aarau:1884-einwohner-019-L035
 e2875cbf35f,Q55194535,Johann Georg Müller,1800,1875,,137826141,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-386-L007
 e289dede1a1,Q19214199,Johann Ulrich Walser,1798,1866,015098,1060062720,wahrscheinlich,stadt,Basel-Bezug,"bestätigt: 1860 Übersiedlung nach Basel; ∞ 1818 Hurter = J. Ulrich Walser-Hurter, Part. 1862. Walser-Bloch (Obsthandlung) andere Person",basel:1862-einwohner-421-L031
-e2904624735,Q124681,Heinrich Suter,1848,1922,028960,11738237X,möglich,stadt,HLS nennt Aarau,ungeprüft,aarau:1884-einwohner-051-L004
+e2904624735,Q124681,Heinrich Suter,1848,1922,028960,11738237X,möglich,stadt,HLS nennt Aarau+HLS-Heimatort+Heimatort,ungeprüft,aarau:1879-gebaeude-052-E024
+e291e0f828e,Q683955,Carl Franz Bally,1821,1899,003056,122650077,möglich,stadt,HLS nennt Aarau,"zweifelhaft: Der Eintrag ist die Firma «C. F. Bally, Schuhfabrik»; die Person lebte und wirkte laut Artikel in Schönenwerd, nicht in Aarau.",aarau:1877-gebaeude-021-E011
+e2999297504,Q78063773,Adolf Louis Gygi,1872,1924,029550,1080571531,möglich,stadt,Heimatort,ungeprüft,aarau:1913-einwohner-165-L042
+e2aa5b5f16f,Q361553,Adolf Fischer,1807,1893,003758,105011292X,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort,"bestätigt: 1867–1887 Regierungsrat und Oberst, von Reinach, gestorben in Aarau 1893.",aarau:1877-gebaeude-045-E029
 e2aba56bfb9,Q63065733,Alexander Clavel,1805,1873,029866,108046221X,wahrscheinlich,stadt,Basel-Bezug,bestätigt: ab 1840 Seidenfärberei in Basel = Seidenfärber 1841/62; ∞ 1840 Oswald geb. Linder = Clavel-Linder,basel:1862-einwohner-335-L037
 e2b0f30a1f5,Q125230,Andreas Heusler,1834,1921,014802,118704389,möglich,stadt,Basel-Bezug+Basler Amt,ungeprüft,basel:C00469-1862
 e2b2ecdcbe7,Q55194535,Johann Georg Müller,1800,1875,,137826141,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-386-L074
-e2b9d792cf7,Q99305361,Fridolin Schneider,1823,1899,032681,1051006066,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort,"bestätigt: 1864–1899 Oberrichter (1887–1891 Präsident), von Herznach, gestorben in Aarau.",aarau:1888-einwohner-130-L030
+e2b9d792cf7,Q99305361,Fridolin Schneider,1823,1899,032681,1051006066,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort,"bestätigt: 1864–1899 Oberrichter (1887–1891 Präsident), von Herznach, gestorben in Aarau.",aarau:1877-gebaeude-046-E001
 e2baf7501e7,Q61993506,Johann Rudolf Liechtenhan,1801,1866,,101769964X,wahrscheinlich,stadt,Basel-Bezug+Beruf,,basel:1862-einwohner-375-L016
 e2bb411302d,Q26261686,Johann Jakob Neustück,1800,1867,022551,1030109419,wahrscheinlich,stadt,Basel-Bezug+Beruf,"bestätigt: Vedutenmaler in Basel, ledig = Maler 1862",basel:1862-einwohner-387-L108
 e2bb86816c6,Q764164,August Stähelin,1812,1886,004708,138494541,wahrscheinlich,stadt,Basel-Bezug,"bestätigt: Ständerat 1861-66 = Ständerath 1862, Kleinrat 1849-53; ∞ 1) Vischer 1838, 2) Brunner 1850 = Stähelin-Vischer 1841/50, -Brunner 1862",basel:1862-einwohner-410-L099
 e2c20790127,Q1649156,Josef Burgmeier,1844,1905,,,wahrscheinlich,stadt,Aarau-Bezug,,aarau:1892-gebaeude-018-L052
 e2c96abd4f5,Q451953,Amadeus Merian,1808,1889,019900,118783343,wahrscheinlich,stadt,Basel-Bezug+Basler Amt+Beruf,"bestätigt: Architekt, Bauinspektor Basel 1835-59 = Bauinspektor 1850, Architekt 1862",basel:C00737-1862
+e2ccf7051eb,Q27662066,Friedrich Siebenmann,1852,1928,014642,117339180,möglich,stadt,Aarau-Bezug,ungeprüft,aarau:1877-gebaeude-045-E027
 e2ce8ea478b,Q112183300,Karl Blattner,1862,1947,,1055272682,wahrscheinlich,stadt,Aarau-Bezug,,aarau:1892-einwohner-101-L014
 e2da694bc3b,Q55905248,Immanuel Stockmeyer,1814,1894,010863,100592988,wahrscheinlich,stadt,Basel-Bezug,"bestätigt: Pfarrer St. Martin 1846-71, Präs. Knabengemeindeschule 1852-70 = 1862; ∞ Burckhardt = Stockmeyer-Burckhardt",basel:1862-einwohner-412-L057
 e2dbf58a2d3,Q62108,Gustav Heinrich Wiedemann,1826,1899,043533,117353590,wahrscheinlich,stadt,Basler Amt,"bestätigt: 1854-63 o. Prof. (Physik) Univ. Basel = Ph. D., Professor der Physik 1862",basel:C01243-1862
+e2e21797c42,Q98399981,Johann Ludwig Meyer,1858,1935,,1181732182,möglich,stadt,Geburtsort weicht ab+Aarau-Bezug,,aarau:1913-einwohner-191-L004
 e2eae5ca86b,Q51325118,Hans Adolf Steiner,1872,1955,,1089290586,möglich,stadt,Geburtsort weicht ab+Aarau-Bezug,,aarau:1896-gebaeude-042-L029
 e2f00365202,Q62098691,Johann Jakob Schneider,1822,1889,,1015350887,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-404-L020
 e2f51da251c,Q133456399,Anna Blattner,1866,1935,,,wahrscheinlich,stadt,Aarau-Bezug,,aarau:1888-einwohner-096-L005
+e2fe0bff690,Q683955,Carl Franz Bally,1821,1899,003056,122650077,möglich,stadt,HLS nennt Aarau+HLS-Heimatort+Heimatort,"zweifelhaft: Der Eintrag ist die Firma «C. F. Bally, Schuhfabrik»; die Person lebte und wirkte laut Artikel in Schönenwerd, nicht in Aarau.",aarau:1881-gebaeude-026-E038
 e2fe7212000,Q19758104,Rudolf Schmidt,1832,1898,,140703179,wahrscheinlich,stadt,Basel-Bezug,,basel:1862-gebaeude-136-L040
 e31226f8707,Q52226473,Friedrich Horner,1800,1864,022447,1072106035,wahrscheinlich,stadt,Basel-Bezug+Beruf,"bestätigt: Vedutenmaler, 1848 Rückkehr nach Basel = Kunstmaler 1850; ∞ 1851 Stehelin = Horner-Stehelin 1862",basel:1862-einwohner-361-L090
 e3163598321,Q1337730,Johann Jakob Frey,1813,1865,022299,119498731,möglich,stadt,Basel-Bezug,ungeprüft,basel:1862-einwohner-344-L066
 e320b344185,Q87063553,Wilhelm Legrand,1794,1874,010729,120624982,wahrscheinlich,stadt,Basel-Bezug+Basler Amt,bestätigt: Vorsteher des Alumneums Basel 1844-73 = Pfarrer u. Inspector d. Alumneums 1862,basel:C00650-1862
+e3292ff0771,Q1529558,Max Wolfinger,1837,1913,,1089646674,wahrscheinlich,stadt,Aarau-Bezug+Heimatort,,aarau:1879-gebaeude-020-E011
 e32bea6f60e,Q1405762,Ferdinand Schlöth,1818,1891,022630,137697759,möglich,stadt,Basel-Bezug,ungeprüft,basel:1862-gebaeude-124-L012
+e32f1c1befe,Q28122341,Emil Frey-Gessner,1826,1917,028826,117537152,möglich,stadt,Aarau-Bezug (Namensvetter im Band),ungeprüft,aarau:1901-einwohner-107-L037
 e334785d941,Q78070738,Johann Jakob Schäublin,1822,1901,046156,123237890,möglich,stadt,Basel-Bezug (Namensvetter im Band),"bestätigt: ab 1846 Lehrer an der Realschule Basel = J. J. Schäublin, Lehrer 1850. Einträge 1841 (Lehenmann, Schuster, Schäublin-Meyer) andere Personen",basel:1862-gebaeude-117-L052
 e335d91b348,Q2077023,Peter Merian,1795,1883,007175,116892048,möglich,stadt,Basel-Bezug (Namensvetter im Band),bestätigt: Kl. Rat 1836-66 = Rathsherr 1841; Prof. Univ. Basel; ∞ Thurneysen = Merian-Thurneisen 1850. Merian-Legrand (Kaufmann) andere Person,basel:1862-einwohner-381-L014
 e335f85f816,Q116973,Jakob Dubs,1822,1879,003625,116231696,wahrscheinlich,stadt,Basler Amt,"bestätigt: Bundesrat ab 1861 = Bundesrath 1862, Justiz u. Polizei (eidg. Behörde, kein Basler Wohnsitz nötig)",basel:C00287-1862
+e33a39c46a8,Q1539776,Gottlieb Fischer,1867,1962,011789,116554525,möglich,stadt,Heimatort+Beruf (HLS-Artikel noch nicht geprüft),ungeprüft,aarau:1913-einwohner-156-L029
 e33bff89d0f,Q125268,Eduard Blösch,1807,1866,004422,116203927,wahrscheinlich,stadt,Basler Amt,bestätigt: Bundesrichter 1854-66 = Vice-Präsident Bundesgericht 1862 (eidg. Behörde),basel:C00108-1862
 e34103c7245,Q78057049,Friedrich Autenheimer,1821,1895,044703,139810269,wahrscheinlich,stadt,Basel-Bezug+Basler Amt+Beruf,"bestätigt: Rektor Gewerbeschule Basel 1858-66, kant. Dampfkesselkontrolleur = Rector der Gewerbschule, obrigk. Techniker 1862; aber ∞ Finsterwald ≠ -Jäckle",basel:C00013-1862
 e3412f0bc6a,Q131583308,Samuel Merian,1803,1875,,1089904991,möglich,stadt,Basel-Bezug (Namensvetter im Band),,basel:1862-einwohner-380-L079
-e3432e1e4cb,Q115838,Hans Herzog,1819,1894,023779,139764240,möglich,stadt,Aarau-Bezug,ungeprüft,aarau:1884-einwohner-031-L047
+e3432e1e4cb,Q115838,Hans Herzog,1819,1894,023779,139764240,möglich,stadt,Aarau-Bezug,ungeprüft,aarau:1877-gebaeude-053-E003
 e347bc5d8fe,Q20926473,Anton Reckziegel,1865,1936,028668,1072155451,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS nennt Aarau,bestätigt: Ab 1893 bei der lithografischen Kunstanstalt Müller & Co./Müller & Trüb in Aarau – passt zu «Lithograph» 1896.,aarau:1896-einwohner-152-L082
 e350eb4a288,Q55194535,Johann Georg Müller,1800,1875,,137826141,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-386-L051
 e3532de5b6c,Q107000468,Johann Jakob Burckhardt,1836,1890,005947,1048084728,möglich,stadt,Basel-Bezug,ungeprüft,basel:1862-gebaeude-106-L018
 e35550edb0a,Q107000468,Johann Jakob Burckhardt,1836,1890,005947,1048084728,möglich,stadt,Basel-Bezug,ungeprüft,basel:1862-einwohner-332-L102
-e35a456542b,Q124325,Emil Zschokke,1808,1889,013579,139879277,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug+Beruf,"bestätigt: 1849–1886 Pfarrer in Aarau, dort gestorben 1889.",aarau:1884-einwohner-057-L004
+e35a456542b,Q124325,Emil Zschokke,1808,1889,013579,139879277,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug+Beruf,"bestätigt: 1849–1886 Pfarrer in Aarau, dort gestorben 1889.",aarau:1877-gebaeude-018-E018
 e35c6e1ee38,Q622704,Franz Dorotheus Gerlach,1793,1876,043466,116586842,wahrscheinlich,stadt,Basel-Bezug+Beruf,bestätigt: o. Prof. lat. Sprache 1820-75 und Bibliothekar UB 1830-66 = Professor u. (Ober-)Bibliothekar 1841/1862,basel:1862-einwohner-347-L106
+e35f56f989f,Q94920696,Gottlieb Zehnder,1820,1901,024456,1064724140,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort,"bestätigt: 1875–1891 Waffenchef der eidg. Kavallerie, Oberst, von Birmenstorf – passt auch zum Partikular ab 1892.",aarau:1867-gebaeude-029-E006
 e364a5b5db4,Q78067806,Johann Peter Oswald,1808,1885,029915,1080996583,wahrscheinlich,stadt,Basel-Bezug,"bestätigt: Speditions- und Bankunternehmer = Kaufmann 1862; ∞ 1833 Linder = Oswald-Linder. J. Ch. Oswald (Färber), Oswald-Kurz andere Personen",basel:1862-einwohner-389-L031
 e372db2aa50,Q141563330,Emil Wick,1816,1894,,,wahrscheinlich,stadt,Basel-Bezug,,basel:1862-einwohner-424-L074
+e37c8b672ad,Q78065149,Josef Lonstroff,1863,1941,029542,108067859X,möglich,stadt,Aarau-Bezug (HLS-Artikel noch nicht geprüft),ungeprüft,aarau:1913-einwohner-185-L039
 e3814ff17f1,Q55680101,Adolf Burckhardt,1834,1886,,1021101885,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-331-L119
+e389cb346e9,Q1329903,Elisabeth Flühmann,1851,1929,020344,1050118065,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug,"bestätigt: 1880–1915 Lehrerin am Aarauer Lehrerinnenseminar, von Saxeten.",aarau:1913-einwohner-157-L018
 e38ae5d49a0,Q215353,Wilhelm Wackernagel,1806,1869,011697,118805851,wahrscheinlich,stadt,Basel-Bezug,bestätigt: o. Prof. für deutsche Sprache und Literatur ab 1835 = 1841; ∞ 2) 1850 Sarasin = Wackernagel-S[arasin] 1850,basel:1862-einwohner-420-L051
 e38ccbe9cf7,Q62098691,Johann Jakob Schneider,1822,1889,,1015350887,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-404-L103
 e393d6cc98a,Q107000468,Johann Jakob Burckhardt,1836,1890,005947,1048084728,möglich,stadt,Basel-Bezug+Basler Amt,ungeprüft,basel:C00216-1862
 e394327cabf,Q1696019,Johann Rudolf Geigy-Merian,1830,1917,004500,116495898,möglich,stadt,Basel-Bezug (Namensvetter im Band),"bestätigt: Zivilrichter 1857-64 = Civilgericht 1862, Kaufmann; ∞ Merian. Achtung: Einträge J. J./Joh. Ludw./Joh. Merian ohne Geigy sind andere Personen",basel:1862-einwohner-380-L098
 e3964707098,Q123861,Johann Jakob Bachofen,1815,1887,011480,118505645,möglich,stadt,Basel-Bezug,"bestätigt: Dr. iur. 1837, Prof. 1841 = «J. U. Dr» 1841. Tuchscherer, Traiteur und Bachofen-Brenner sind andere Personen (∞ erst 1865 Burckhardt)",basel:1862-gebaeude-077-L019
+e39b5334349,Q15455167,Emil Adolf Hoffmann,1879,1963,,134892380,wahrscheinlich,stadt,Aarau-Bezug,,aarau:1913-einwohner-173-L024
+e39c31fc09f,Q92373,Ernst Ludwig Rochholz,1809,1892,011676,116578335,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug+Heimatort,"bestätigt: Lehrer an der Kantonsschule Aarau und 1866–1889 Leiter des Antiquariums, aus Ansbach.",aarau:1877-gebaeude-027-E023
 e3a5b64b060,Q2077023,Peter Merian,1795,1883,007175,116892048,möglich,stadt,Basel-Bezug (Namensvetter im Band),bestätigt: Kl. Rat 1836-66 = Rathsherr 1841; Prof. Univ. Basel; ∞ Thurneysen = Merian-Thurneisen 1850. Merian-Legrand (Kaufmann) andere Person,basel:1862-einwohner-381-L037
 e3b07e66724,Q110560705,Johann Alfred Keller,1876,1955,029611,1080647716,möglich,stadt,HLS nennt Aarau,ungeprüft,aarau:1899-einwohner-127-L042
 e3b8ff59d11,Q55679516,Carl Ryhiner,1817,1884,,1015769993,möglich,stadt,Basel-Bezug+Basler Amt,,basel:C00934-1862
 e3c77030572,Q48038094,Friedrich Hermann Hartmann,1822,1902,,1204663343,wahrscheinlich,stadt,Basel-Bezug+Beruf,,basel:1862-einwohner-355-L102
 e3caa34431c,Q27662066,Friedrich Siebenmann,1852,1928,014642,117339180,möglich,stadt,Aarau-Bezug,ungeprüft,aarau:1884-einwohner-048-L033
 e3cb9bdb27c,Q975770,Matthias Oswald,1774,1864,007179,1048346730,wahrscheinlich,stadt,Basel-Bezug,"bestätigt: Kl. Rat 1830-58 = Rathsherr 1841. Oswald-Hindermann, Architekt 1862 andere Person (∞ Merian)",basel:1862-gebaeude-139-L010
+e3d13d7b020,Q42182771,Hermann Hunziker,1840,1910,,1089402252,wahrscheinlich,stadt,Aarau-Bezug,,aarau:1901-gebaeude-090-L044
 e3d167269eb,Q55675631,Eduard Preiswerk,1829,1895,029905,118741802,wahrscheinlich,stadt,Basel-Bezug+Basler Amt,"bestätigt: Kaufmann, Zivilgericht 1858-76 = Kaufmann, Civilgericht 1862; ∞ 1852 Burckhardt = Preiswerk-Burckhardt",basel:C00857-1862
 e3d3548a099,Q94869925,Johannes Burckhardt,1798,1869,,1021287148,möglich,stadt,Basel-Bezug (Namensvetter im Band),,basel:1862-gebaeude-191-L009
 e3d3cd1f789,Q23653637,Ludwig Adam Kelterborn,1811,1878,021832,122517504,wahrscheinlich,stadt,Basel-Bezug+Basler Amt,"bestätigt: ab 1835/37 Zeichenlehrer in Basel = Zeichnungslehrer 1841, Zeichnungs-Hülfslehrer 1862",basel:C00581-1862
+e3d5dc74a00,Q99305209,Ernst Otto Graf,1877,1940,004511,1052251609,möglich,stadt,HLS-Heimatort+Heimatort,ungeprüft,aarau:1913-einwohner-164-L015
+e3d6e8b6322,Q23063291,Hans Hässig,1860,1936,020349,1050161874,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug,"bestätigt: 1889–1907 Aarauer Stadtrat, vorher Studium abgebrochen (passt zu «Privat» 1888).",aarau:1913-einwohner-167-L006
 e3dbf851453,Q55677910,Carl Detloff,1817,1890,,139402098,wahrscheinlich,stadt,Basel-Bezug+Basler Amt+Beruf,,basel:C00269-1862
 e3dce602bda,Q55133418,Ludwig Sieber,1833,1891,,101785321,wahrscheinlich,stadt,Basel-Bezug+Basler Amt+Beruf,,basel:C01056-1862
+e3e59f53845,Q1649156,Josef Burgmeier,1844,1905,,,wahrscheinlich,stadt,Aarau-Bezug+Heimatort,,aarau:1869-gebaeude-005-E027
 e3f2bd105ab,Q133314962,,1819,1867,,1081666188,möglich,stadt,Basel-Bezug+Basler Amt (Namensvetter im Band),,basel:C00170-1862
 e411a9a564b,Q55680101,Adolf Burckhardt,1834,1886,,1021101885,möglich,stadt,Basel-Bezug+Basler Amt,,basel:C00159-1862
 e411bdb352a,Q138836290,Georg Friedrich Frey,1818,1885,,,möglich,stadt,Basel-Bezug+Basler Amt (Namensvetter im Band),,basel:C00345-1862
@@ -147,8 +183,10 @@ e420c0e4efe,Q2419072,Theophil Passavant,1785,1864,010780,1048345092,wahrscheinli
 e42b5270ff6,Q55887140,Andreas Sulger,1809,1881,,1011749874,wahrscheinlich,stadt,Basel-Bezug+Basler Amt,,basel:C01140-1862
 e42c8af6ac1,Q19758104,Rudolf Schmidt,1832,1898,,140703179,möglich,stadt,Basel-Bezug (Namensvetter im Band),,basel:1862-einwohner-403-L024
 e431b55d92f,Q2739430,Karl Gustav Jung,1794,1864,014424,130921572,wahrscheinlich,stadt,Basel-Bezug,"bestätigt: ab 1822 o. Prof. Medizin Basel = Med. Dr. und Professor 1841, M. et Ch. Dr. 1862",basel:1862-einwohner-366-L012
-e443d8b4a8c,Q1372488,Eugen Fahrländer,1844,1917,023669,1051067766,möglich,stadt,Aarau-Bezug+Beruf,"zweifelhaft: Dipl. Ingenieur, von Aarau, geboren und gestorben in Aarau, militärische Kommandos nur im Nebenamt; Wohnsitz und Tätigkeit in Aarau 1888–1899 nennt der Artikel aber nicht (nur Topograph. Bureau in Bern).",aarau:1888-einwohner-101-L041
-e45459bace9,Q42182771,Hermann Hunziker,1840,1910,,1089402252,möglich,stadt,Aarau-Bezug (Namensvetter im Band),,aarau:1884-einwohner-033-L020
+e4381aac6e2,Q363459,Adolf Müller,1863,1943,028520,119228467,möglich,stadt,Geburtsort weicht ab,ungeprüft,aarau:1913-einwohner-192-L010
+e43ff6207d3,Q1336337,Emil Keller,1878,1965,003772,1017268746,möglich,stadt,Aarau-Bezug,ungeprüft,aarau:1913-einwohner-178-L026
+e443d8b4a8c,Q1372488,Eugen Fahrländer,1844,1917,023669,1051067766,möglich,stadt,Aarau-Bezug+Beruf,"zweifelhaft: Dipl. Ingenieur, von Aarau, geboren und gestorben in Aarau, militärische Kommandos nur im Nebenamt; Wohnsitz und Tätigkeit in Aarau 1888–1899 nennt der Artikel aber nicht (nur Topograph. Bureau in Bern).",aarau:1877-gebaeude-051-E002
+e45459bace9,Q42182771,Hermann Hunziker,1840,1910,,1089402252,möglich,stadt,Aarau-Bezug (Namensvetter im Band),,aarau:1877-gebaeude-029-E010
 e45b9a22b3f,Q78064440,Friedrich Samuel Iselin,1829,1882,014196,135882109,wahrscheinlich,stadt,Basel-Bezug,bestätigt: ab 1856 Lehrer am Humanist. Gymnasium Basel = Gymnasiallehrer 1862; ∞ Rütimeyer = Iselin-Rüttimeyer,basel:1862-einwohner-365-L105
 e460e6c6571,Q94848766,Heinrich Georg,1827,1915,,116559926,wahrscheinlich,stadt,Basel-Bezug,,basel:1862-einwohner-347-L088
 e461602ba1b,Q125269061,Franz Anselm von Meyenburg,1788,1864,007252,1049716485,wahrscheinlich,stadt,Basel-Bezug,bestätigt: zuletzt Angestellter der franz. Eisenbahnen in Basel = Eisenbahnbeamter 1862; ∞ Stokar = Meyenburg-Stockar,basel:1862-einwohner-381-L075
@@ -167,27 +205,33 @@ e499994b99d,Q63065733,Alexander Clavel,1805,1873,029866,108046221X,wahrscheinlic
 e4a1b2a126e,Q28053764,Friedrich Miescher-His,1811,1887,014550,133099997,wahrscheinlich,stadt,Basel-Bezug+Basler Amt,bestätigt: o. Prof. Basel 1837-44 und 1850-71 = Med. et Chirurg. Dr. und Professor 1841/1862; ∞ His = Miescher-His,basel:C00776-1862
 e4a5ec74040,Q62130471,Johann Rudolf Gemuseus,1832,1912,,1274665981,möglich,stadt,Basel-Bezug (Namensvetter im Band),,basel:1862-einwohner-347-L059
 e4aaab683e3,Q1696023,Johann Rudolf Kölner,1800,1877,020949,1047356597,möglich,stadt,Basel-Bezug (Namensvetter im Band),"bestätigt: ∞ 1823 Langmesser = Joh. Rud. Kölner-Langmesser, Geschäftsmann 1862; zeitweise in Basel. Joh. Emil Kölner (Commis) andere Person",basel:1862-einwohner-370-L039
-e4bccd80e25,Q78076329,Friedrich Rudolf Zurlinden,1851,1932,029552,129526428,möglich,stadt,HLS nennt Aarau,"zweifelhaft: Unternehmer in Aarau (Zementfabrik ab 1882), aber der Artikel nennt keine Tätigkeit als Bankdirektor.",aarau:1899-einwohner-153-L026
+e4bccd80e25,Q78076329,Friedrich Rudolf Zurlinden,1851,1932,029552,129526428,möglich,stadt,HLS nennt Aarau+Heimatort,"zweifelhaft: Unternehmer in Aarau (Zementfabrik ab 1882), aber der Artikel nennt keine Tätigkeit als Bankdirektor.",aarau:1901-gebaeude-057-L004
 e4bf2ac4155,Q55194535,Johann Georg Müller,1800,1875,,137826141,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-385-L053
 e4c6f3de29d,Q6233747,Friedrich Weber,1813,1882,022690,117158623,möglich,stadt,Basel-Bezug (Namensvetter im Band),"bestätigt: Kupferstecher, 1859 Rückkehr nach Basel, ∞ 1852 Bischoff = Weber-Bischoff, Kupferstecher 1862. Weber-Salathe 1850 andere Person (damals Paris)",basel:1862-gebaeude-221-L030
+e4ce95aadcc,Q132229477,Fanny Ida Mina Frey,1872,1940,,,möglich,stadt,Aarau-Bezug,,aarau:1913-einwohner-158-L027
 e4d00a58648,Q125547191,Ferdinand Hangartner,1852,1909,,1342692608,wahrscheinlich,stadt,Aarau-Bezug+Heimatort+Beruf,,aarau:1888-einwohner-108-L036
-e4d2462febb,Q92373,Ernst Ludwig Rochholz,1809,1892,011676,116578335,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug+Heimatort,"bestätigt: Lehrer an der Kantonsschule Aarau und 1866–1889 Leiter des Antiquariums, aus Ansbach.",aarau:1884-einwohner-043-L045
+e4d2462febb,Q92373,Ernst Ludwig Rochholz,1809,1892,011676,116578335,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug+Heimatort,"bestätigt: Lehrer an der Kantonsschule Aarau und 1866–1889 Leiter des Antiquariums, aus Ansbach.",aarau:1881-gebaeude-042-E038
 e4de7497f60,Q1696019,Johann Rudolf Geigy-Merian,1830,1917,004500,116495898,möglich,stadt,Basel-Bezug (Namensvetter im Band),"bestätigt: Zivilrichter 1857-64 = Civilgericht 1862, Kaufmann; ∞ Merian. Achtung: Einträge J. J./Joh. Ludw./Joh. Merian ohne Geigy sind andere Personen",basel:1862-einwohner-380-L112
-e4e04d55919,Q1731502,Karl Heinrich Remigius Sauerländer,1848,1919,,1073474615,wahrscheinlich,stadt,Aarau-Bezug,,aarau:1888-einwohner-127-L043
+e4e04d55919,Q1731502,Karl Heinrich Remigius Sauerländer,1848,1919,,1073474615,wahrscheinlich,stadt,Aarau-Bezug,,aarau:1877-gebaeude-030-E024
 e4ec4c6c6ce,Q55194535,Johann Georg Müller,1800,1875,,137826141,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-386-L086
 e4f41825d6b,Q112603393,Karl Locher,1878,1951,005588,1054431329,möglich,stadt,HLS-Heimatort+Heimatort,"zweifelhaft: Heimatort Oberegg passt und vor 1899 arbeitete er in verschiedenen Betrieben der Schweiz, aber Aarau und Prokurist nennt der Artikel nicht; ab 1899 in Appenzell.",aarau:1899-gebaeude-048-L004
 e4f5d98e478,Q1654410,Samuel Bachofen,1806,1889,023299,1076339999,wahrscheinlich,stadt,Basel-Bezug+Basler Amt,"bestätigt: Grossmetzger, Kriegsrichter 1855-67, Oberst = Metzger u. eidg. Oberst, Richter Kriegsgericht 1862; ∞ Fininger",basel:C00022-1862
 e4fc658be6a,Q107000468,Johann Jakob Burckhardt,1836,1890,005947,1048084728,möglich,stadt,Basel-Bezug,ungeprüft,basel:1862-gebaeude-163-L021
 e4fc7d52095,Q133089196,Christian Friedrich Beck,1818,1893,,1073443337,möglich,stadt,Basel-Bezug (Namensvetter im Band),,basel:1862-einwohner-322-L109
 e50231fe605,Q662013,Josef Martin Knüsel,1813,1889,004184,105132338X,wahrscheinlich,stadt,Basler Amt,"bestätigt: Bundesrat 1855-75, Finanzdepartement 1862-63 = Chef Finanz-Dep. 1862 (eidg. Behörde)",basel:C00605-1862
+e50a9d36ef5,Q5492951,Franz Schneider,1871,1941,043501,133069109,möglich,stadt,Geburtsort weicht ab,ungeprüft,aarau:1901-gebaeude-068-L046
+e5128a4bc44,Q42182771,Hermann Hunziker,1840,1910,,1089402252,möglich,stadt,Aarau-Bezug (Namensvetter im Band),,aarau:1867-gebaeude-026-E019
 e516b414010,Q117870,Johann Ulrich von Salis-Soglio,1790,1874,024231,116764791,möglich,stadt,Basler Amt,ungeprüft,basel:C00942-1862
 e516db2151b,Q62098691,Johann Jakob Schneider,1822,1889,,1015350887,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-404-L030
+e51857648f6,Q15805984,Dietrich Holzach,1836,1905,,,möglich,stadt,Aarau-Bezug,,aarau:1869-gebaeude-047-E009
 e51a83fc4f1,Q123861,Johann Jakob Bachofen,1815,1887,011480,118505645,möglich,stadt,Basel-Bezug (Namensvetter im Band),"bestätigt: Dr. iur. 1837, Prof. 1841 = «J. U. Dr» 1841. Tuchscherer, Traiteur und Bachofen-Brenner sind andere Personen (∞ erst 1865 Burckhardt)",basel:1862-einwohner-320-L060
+e520ea0fc3f,Q55674986,Ernst Zschokke,1864,1937,,117019127,wahrscheinlich,stadt,Aarau-Bezug,,aarau:1901-gebaeude-088-L032
 e5245e80ed3,Q15391818,Ludwig Maring,1820,1893,,138625832,möglich,stadt,Basel-Bezug+Beruf (Namensvetter im Band),,basel:1862-gebaeude-112-L043
+e52d1da0f4a,Q1731031,Karl Fricker,1870,1933,,1239150199,wahrscheinlich,stadt,Aarau-Bezug+Heimatort,,aarau:1913-einwohner-159-L034
 e5336730168,Q678681,Giovanni Battista Pioda,1808,1882,003533,123907411,wahrscheinlich,stadt,Basler Amt,"bestätigt: Bundesrat 1857-63, Dep. des Innern = Eintrag Bundesrath 1862 (eidg. Behörde, kein Basler Wohnsitz nötig)",basel:C00852-1862
 e53aa5e4fda,Q55194535,Johann Georg Müller,1800,1875,,137826141,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-386-L030
 e5459bb4cc8,Q139228057,,1823,1867,,1020723718,wahrscheinlich,stadt,Basel-Bezug+Beruf,,basel:1862-gebaeude-158-L009
-e54c2cad9af,Q19131379,Arnold Niggli,1843,1927,020722,117018805,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug,bestätigt: Fürsprecher und 1875–1909 Stadtschreiber von Aarau.,aarau:1884-einwohner-041-L018
+e54c2cad9af,Q19131379,Arnold Niggli,1843,1927,020722,117018805,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort,bestätigt: Fürsprecher und 1875–1909 Stadtschreiber von Aarau.,aarau:1877-gebaeude-045-E033
 e54fa9b0c37,Q2262765,Sebastian Gutzwiller,1798,1872,022427,123231086,wahrscheinlich,stadt,Basel-Bezug,bestätigt: nach 1830 Kunstmaler und Restaurator in Basel = Kunstmaler 1850/62; ∞ Grumler = Gutzwiller-Grummler,basel:1862-gebaeude-238-L019
 e55467770cb,Q1730953,Karl Ferdinand Schimpf,1806,1868,003788,115529292,wahrscheinlich,stadt,Basel-Bezug,bestätigt: 1859-68 Direktor eidg. Zollkreis I in Basel = Zolldirector/Director I. Zollgebiet Basel 1862; Dr.,basel:1862-einwohner-402-L003
 e55d355550f,Q21289157,Jakob Senn,1790,1881,,1013502434,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-407-L077
@@ -195,6 +239,7 @@ e560ac71a23,Q112675415,Ludwig de Wette,1812,1887,,1020730587,wahrscheinlich,stad
 e565a31ceaa,Q139009803,,1817,1895,,1021164313,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-332-L084
 e56d2535afd,Q61993455,Fritz Burckhardt,1830,1913,031963,135691389,wahrscheinlich,stadt,Basel-Bezug,"bestätigt: ab 1852 Gymnasiallehrer Basel; ∞ 1855 Brenner = Friedr. Burckhardt-Brenner, Vorsteher/Beisitzer 1862. -Stähelin (Kfm.), Commis andere Personen",basel:1862-einwohner-332-L051
 e57375f2822,Q15805984,Dietrich Holzach,1836,1905,,,wahrscheinlich,stadt,Aarau-Bezug,,aarau:1892-gebaeude-047-L039
+e57c0e6bfab,Q65997485,Julius Frey,1855,1925,042084,1017289751,möglich,stadt,HLS-Artikel bestätigt+HLS nennt Aarau+HLS-Heimatort+Heimatort (Namensvetter im Band),"bestätigt: 1881–1889 Vizedirektor der Aargauischen Bank, von Möhlin.",aarau:1879-gebaeude-026-E010
 e58075ac3c8,Q98562489,Alfred Oehler,1852,1900,048356,1080996435,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug+Beruf,"bestätigt: Maschineningenieur, verlegte seine Firma 1894 nach Aarau, von Aarau.",aarau:1896-einwohner-151-L066
 e580a487bfd,Q118030,Karl Rudolf Hagenbach,1801,1874,010655,119152711,möglich,stadt,Basel-Bezug+Basler Amt+Beruf (Namensvetter im Band),"bestätigt: Ordinarius Kirchengeschichte ab 1828, Dr. theol. = Theologie Dr. und Professor 1841, Rector/Kirchenrath 1862",basel:C00419-1862
 e581a777d34,Q115944,Karl Moser,1860,1936,019891,118584413,möglich,stadt,HLS-Heimatort+Heimatort+Beruf,"zweifelhaft: Architekt von Baden passt, doch er arbeitete 1888–1915 in Karlsruhe; ein Aarauer Bezug fehlt im Artikel.",aarau:1896-gebaeude-042-L020
@@ -202,14 +247,21 @@ e5834b52f64,Q61993455,Fritz Burckhardt,1830,1913,031963,135691389,wahrscheinlich
 e5845fcc0a4,Q79252675,Eduard Bernoulli-Riggenbach,1819,1899,,106253316X,wahrscheinlich,stadt,Basel-Bezug+Basler Amt+Allianzname,,basel:C00054-1862
 e585924504a,Q141609910,Carl Burckhardt,1805,1880,,,möglich,stadt,Basel-Bezug+Basler Amt,,basel:C00196-1862
 e58e1a0803b,Q1622649,Wilhelm Vischer-Bilfinger,1808,1874,032175,118768670,wahrscheinlich,stadt,Basel-Bezug+Basler Amt+Beruf,"bestätigt: Prof. griech. Philologie ab 1836, Mitgründer Antiquar. Gesellschaft = Präsident Ges. f. vaterländ. Alterthümer 1862; ∞ 1832 Bilfinger",basel:C01194-1862
+e598da18efd,Q1474158,Johann Rudolf Müller,1824,1894,042094,118872850,möglich,stadt,HLS nennt Aarau,ungeprüft,aarau:1869-gebaeude-013-E001
+e59a991faff,Q124151,Adolf Frey,1855,1920,011796,116782544,möglich,stadt,HLS-Artikel bestätigt+HLS nennt Aarau (Namensvetter im Band),zweifelhaft: Ab 1898 Ordinarius in Zürich; der berufslose Eintrag 1899 kann ein Nachläufer oder ein Namensvetter sein.,aarau:1881-gebaeude-036-E026
+e59ff1aff82,Q1329903,Elisabeth Flühmann,1851,1929,020344,1050118065,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort,"bestätigt: 1880–1915 Lehrerin am Aarauer Lehrerinnenseminar, von Saxeten.",aarau:1901-gebaeude-089-L011
 e5a01e17b2f,Q1696019,Johann Rudolf Geigy-Merian,1830,1917,004500,116495898,möglich,stadt,Basel-Bezug+Basler Amt,"bestätigt: Zivilrichter 1857-64 = Civilgericht 1862, Kaufmann; ∞ Merian. Achtung: Einträge J. J./Joh. Ludw./Joh. Merian ohne Geigy sind andere Personen",basel:C00750-1862
+e5a08996f43,Q94816905,Hans Käslin,1867,1955,012017,116016302,möglich,stadt,Aarau-Bezug (HLS-Artikel noch nicht geprüft),ungeprüft,aarau:1913-einwohner-177-L025
 e5a49bfc0bf,Q125186,Karl Egli,1865,1925,023631,103205851X,möglich,stadt,HLS-Heimatort+Heimatort,"zweifelhaft: Instruktionsoffizier 1892–1902, von Gossau – Beruf passt, aber der Artikel nennt Aarau nicht.",aarau:1896-gebaeude-058-L035
 e5a5c05e484,Q63120216,Martin Burckhardt,1817,1902,,120888395X,möglich,stadt,Basel-Bezug (Namensvetter im Band),,basel:1862-einwohner-332-L104
 e5a6ff15aa2,Q78067604,Edmund Nüsperli,1838,1890,029592,139686053,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug,"bestätigt: Eidg. Fabrikinspektor ab 1878, gestorben in Aarau 1890, von Aarau.",aarau:1888-einwohner-123-L010
-e5acd246f6f,Q94920696,Gottlieb Zehnder,1820,1901,024456,1064724140,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort,"bestätigt: 1875–1891 Waffenchef der eidg. Kavallerie, Oberst, von Birmenstorf – passt auch zum Partikular ab 1892.",aarau:1888-einwohner-141-L045
+e5acd246f6f,Q94920696,Gottlieb Zehnder,1820,1901,024456,1064724140,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort,"bestätigt: 1875–1891 Waffenchef der eidg. Kavallerie, Oberst, von Birmenstorf – passt auch zum Partikular ab 1892.",aarau:1877-gebaeude-035-E018
+e5b11ac2759,Q1372488,Eugen Fahrländer,1844,1917,023669,1051067766,möglich,stadt,Aarau-Bezug+Beruf,"zweifelhaft: Dipl. Ingenieur, von Aarau, geboren und gestorben in Aarau, militärische Kommandos nur im Nebenamt; Wohnsitz und Tätigkeit in Aarau 1888–1899 nennt der Artikel aber nicht (nur Topograph. Bureau in Bern).",aarau:1913-einwohner-154-L047
 e5b9639c7a8,Q17305219,Hans Riniker,1841,1892,003786,1050547020,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug+Heimatort,"bestätigt: 1872–1887 Oberförster, 1887–1892 Regierungsrat, von Habsburg – passt zu allen Einträgen.",aarau:1884-einwohner-043-L037
 e5cb086ed89,Q6226098,Wilhelm Vischer,1833,1886,014818,117436828,möglich,stadt,Basel-Bezug (Namensvetter im Band),"bestätigt: ∞ 1859 Heussler = Vischer-Heusler 1862; PD Basel bis 1862. «Vischer-Bilsinger, Professor» ist Vater (032175)",basel:1862-einwohner-418-L100
-e5e4cb6cdf0,Q1127106,Conradin Zschokke,1842,1918,019957,119048280,möglich,stadt,Aarau-Bezug+Beruf,"zweifelhaft: Ingenieur passt und er war ab 1892 Aargauer Grossrat, doch der Artikel verortet ihn in Frankreich und Zürich und nennt die definitive Rückkehr nach Aarau erst 1909.",aarau:1888-einwohner-142-L027
+e5d3db45225,Q42182771,Hermann Hunziker,1840,1910,,1089402252,wahrscheinlich,stadt,Aarau-Bezug,,aarau:1877-gebaeude-021-E038
+e5e44da91a2,Q78064711,Adolf Jenny,1851,1941,029516,105377558X,möglich,stadt,HLS-Artikel bestätigt+HLS nennt Aarau (Namensvetter im Band),"bestätigt: Ab 1876 Inhaber einer Wollstofffärberei in Aarau, von Iffwil.",aarau:1901-gebaeude-065-L020
+e5e4cb6cdf0,Q1127106,Conradin Zschokke,1842,1918,019957,119048280,möglich,stadt,Aarau-Bezug+Beruf,"zweifelhaft: Ingenieur passt und er war ab 1892 Aargauer Grossrat, doch der Artikel verortet ihn in Frankreich und Zürich und nennt die definitive Rückkehr nach Aarau erst 1909.",aarau:1877-gebaeude-049-E045
 e5f50582c7f,Q94905555,Traugott Geering,1821,1871,,116478993,wahrscheinlich,stadt,Basel-Bezug,,basel:1862-einwohner-346-L115
 e5fb28c3607,Q96261262,Oswald Bargetzi,1856,1914,032126,1070137227,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS nennt Aarau+HLS-Heimatort+Heimatort,"bestätigt: Bauingenieur, ab 1890 Chef des technischen Büros der Firma Zschokke in Aarau, von Solothurn.",aarau:1899-gebaeude-082-L028
 e6040ebc52e,Q15454321,August Walter,1821,1896,026979,117128511,wahrscheinlich,stadt,Basel-Bezug,bestätigt: ab 1846 Musiklehrer und Dirigent in Basel = Musikdirektor 1862; ∞ 1854 Fastlinger = Walter-Fastlinger,basel:1862-einwohner-421-L039
@@ -224,47 +276,61 @@ e6304d0246d,Q23063291,Hans Hässig,1860,1936,020349,1050161874,wahrscheinlich,st
 e63570e2e92,Q122182,Christoph Theodor Aeby,1835,1885,014265,116256362,möglich,stadt,Basler Amt,"zweifelhaft: Dr. med. Basel 1858 passt zu M. et Ch. D, aber danach PD in Bern, ab 1863 Prof. Bern – 1862 Basler Wohnsitz unsicher",basel:C00001-1862
 e635b1347df,Q18021448,Jost Winteler,1846,1929,012406,118769391,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS nennt Aarau,"bestätigt: Dr. phil., 1884–1914 Gymnasiallehrer in Aarau; von Filzbach liegt in Kerenzen, kein Widerspruch.",aarau:1888-einwohner-140-L015
 e6366599dfc,Q72937505,Benedict Jucker,1811,1876,,130237086,wahrscheinlich,stadt,Basel-Bezug+Basler Amt+Beruf,,basel:C00558-1862
+e64066346ca,Q132229480,Guido Frey,1875,1949,,11678332X,wahrscheinlich,stadt,Aarau-Bezug,,aarau:1913-einwohner-158-L033
 e643ccdde89,Q1696019,Johann Rudolf Geigy-Merian,1830,1917,004500,116495898,möglich,stadt,Basel-Bezug+Basler Amt,"bestätigt: Zivilrichter 1857-64 = Civilgericht 1862, Kaufmann; ∞ Merian. Achtung: Einträge J. J./Joh. Ludw./Joh. Merian ohne Geigy sind andere Personen",basel:C00725-1862
+e64488ec3aa,Q1363157,Erwin Kurz,1846,1901,003777,136222854,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug,"bestätigt: Fürsprecher mit eigener Praxis in Aarau 1876–1901, von Schwamendingen.",aarau:1869-gebaeude-048-E020
 e649e5ca276,Q6233747,Friedrich Weber,1813,1882,022690,117158623,möglich,stadt,Basel-Bezug (Namensvetter im Band),"bestätigt: Kupferstecher, 1859 Rückkehr nach Basel, ∞ 1852 Bischoff = Weber-Bischoff, Kupferstecher 1862. Weber-Salathe 1850 andere Person (damals Paris)",basel:1862-einwohner-422-L055
+e6521c797f6,Q133371230,,1841,1912,,133710270,wahrscheinlich,stadt,Aarau-Bezug+Heimatort,,aarau:1877-gebaeude-011-E016
 e652543725f,Q55194535,Johann Georg Müller,1800,1875,,137826141,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-385-L088
+e66753b29fd,Q96364268,Hans Fretz,1868,1941,029524,1080538313,möglich,stadt,Heimatort,ungeprüft,aarau:1901-gebaeude-091-L022
 e66f47702bf,Q55679694,Johann Jakob Linder,1828,1907,,101771214X,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-375-L049
 e66f9250cf8,Q125033457,Ludwig Calame,1831,1874,,,wahrscheinlich,stadt,Basel-Bezug+Basler Amt,,basel:C00236-1862
 e67709c32ad,Q132232848,Karl Ludwig Oppermann,1786,1881,,,wahrscheinlich,stadt,Basel-Bezug+Basler Amt,,basel:C00821-1862
 e6775b53d73,Q61993506,Johann Rudolf Liechtenhan,1801,1866,,101769964X,wahrscheinlich,stadt,Basel-Bezug+Basler Amt,,basel:C00667-1862
 e683959b878,Q139199894,,1807,1877,,1012347222,wahrscheinlich,stadt,Basel-Bezug,,basel:1862-einwohner-406-L028
+e685ef08f5d,Q15805984,Dietrich Holzach,1836,1905,,,wahrscheinlich,stadt,Aarau-Bezug+Heimatort,,aarau:1867-gebaeude-032-E001
+e68604a7c86,Q761195,August Ernst,1880,1959,043810,143786830,möglich,stadt,Aarau-Bezug (HLS-Artikel noch nicht geprüft),ungeprüft,aarau:1913-einwohner-154-L010
 e68668bee6b,Q55194535,Johann Georg Müller,1800,1875,,137826141,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-385-L033
 e68efdcbd8e,Q55679546,Charles François Girard,1811,1875,,1016240988,wahrscheinlich,stadt,Basel-Bezug,,basel:1862-einwohner-348-L085
 e690ff13d4a,Q1732746,Karl Rudolf Stehlin,1831,1881,004744,1012532283,wahrscheinlich,stadt,Basel-Bezug+Basler Amt,"bestätigt: Dr. iur., Anwalts- und Notariatskanzlei 1856-72 = Notar u. Advokat 1862; ∞ Merian 1858",basel:C01111-1862
+e6a1add3ecd,Q1336337,Emil Keller,1878,1965,003772,1017268746,möglich,stadt,Aarau-Bezug+Heimatort (HLS-Artikel noch nicht geprüft),ungeprüft,aarau:1913-einwohner-178-L019
 e6a1f0dc469,Q94919611,Johann Jakob Uebelin,1793,1873,,1089726341,möglich,stadt,Basel-Bezug (Namensvetter im Band),,basel:1862-einwohner-417-L113
 e6aeef42756,Q1040302,Ferdinand Karl Rothpletz,1814,1885,019922,1046883275,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug+Beruf,bestätigt: 1849–1885 aargauischer Kantonsbaumeister – entspricht «Hochbaumeister» 1884.,aarau:1884-einwohner-044-L019
 e6b340395b6,Q113806328,Enrico Buffetti,1862,1926,,1139277944,wahrscheinlich,stadt,Aarau-Bezug+Beruf,,aarau:1899-einwohner-111-L036
 e6b362d9ada,Q116261,Ludwig Rütimeyer,1825,1895,028925,11670005X,wahrscheinlich,stadt,Basel-Bezug,"bestätigt: o. Prof. Univ. Basel ab 1855, Dr. med. = Professor der Medizin, M. et Ch. D 1862; ∞ 1855 Fankhauser = Rütimeyer-Fankhauser",basel:1862-gebaeude-124-L033
 e6b570c36e2,Q23061637,Balthasar Reber,1805,1875,029450,10081896X,wahrscheinlich,stadt,Basel-Bezug,"bestätigt: ordinierter Theologe, Lehrer, ab 1855 ao. Prof. Schweizer Geschichte; ∞ 1832 Sulger = Reber-Sulger 1841/50",basel:1862-einwohner-392-L090
 e6b84a7783c,Q15805984,Dietrich Holzach,1836,1905,,,wahrscheinlich,stadt,Aarau-Bezug,,aarau:1896-einwohner-143-L041
+e6b99b9d00a,Q65997485,Julius Frey,1855,1925,042084,1017289751,möglich,stadt,HLS-Artikel bestätigt+HLS nennt Aarau (Namensvetter im Band),"bestätigt: 1881–1889 Vizedirektor der Aargauischen Bank, von Möhlin.",aarau:1879-gebaeude-023-E046
 e6bc87b5ab8,Q78057049,Friedrich Autenheimer,1821,1895,044703,139810269,wahrscheinlich,stadt,Basel-Bezug,"bestätigt: Rektor Gewerbeschule Basel 1858-66, kant. Dampfkesselkontrolleur = Rector der Gewerbschule, obrigk. Techniker 1862; aber ∞ Finsterwald ≠ -Jäckle",basel:1862-einwohner-320-L007
 e6be5cc32be,Q19214099,Johann Jakob Bäbler,1836,1900,042720,116031255,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS nennt Aarau,"bestätigt: 1876–1900 Lehrer für Deutsch und Geschichte an der Kantonsschule Aarau, von Matt.",aarau:1899-einwohner-106-L029
+e6bf07531ee,Q1401747,Johann Haberstich,1824,1891,003762,105011910X,möglich,stadt,HLS-Artikel bestätigt+Aarau-Bezug (Namensvetter im Band),bestätigt: Anwalt in Aarau bis zu seinem Tod 1891.,aarau:1867-gebaeude-040-E021
+e6c35795b59,Q96281560,Anton Camenzind,1825,1888,005227,1053322666,möglich,stadt,Heimatort,ungeprüft,aarau:1879-gebaeude-052-E048
 e6cc0909fd9,Q1580218,Gottlieb Käppeli,1840,1909,005503,1050187105,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug,"bestätigt: 1875–1905 Aargauer Regierungsrat, von Merenschwand.",aarau:1899-einwohner-127-L005
 e6d2cf1fe8e,Q5590086,Abel Burckhardt,1805,1882,,1089791739,wahrscheinlich,stadt,Basel-Bezug+Beruf,,basel:1862-einwohner-332-L107
 e6db71cf13e,Q62130471,Johann Rudolf Gemuseus,1832,1912,,1274665981,möglich,stadt,Basel-Bezug (Namensvetter im Band),,basel:1862-einwohner-347-L067
 e6dca443368,Q133314962,,1819,1867,,1081666188,möglich,stadt,Basel-Bezug (Namensvetter im Band),,basel:1862-einwohner-332-L052
 e6dfeaeb8dd,Q115901,Hermann Christ,1833,1933,028801,116507454,wahrscheinlich,stadt,Basel-Bezug+Basler Amt+Beruf,"bestätigt: Dr. iur., Zivilgerichtsschreiber 1859-68 = Civilgerichtsschreiber 1862; ∞ 1862 Socin = Christ-Socin",basel:C00249-1862
 e6e17c5a7d2,Q120757,Samuel Preiswerk,1799,1871,010790,116282150,möglich,stadt,Basel-Bezug (Namensvetter im Band),"bestätigt: 1839 Gemeiner Helfer, 1840 Pfarrer St. Leonhard = Gemeinhelfer/Diakon 1841; Antistes 1859 = Pfarrer und Antistes",basel:1862-einwohner-391-L079
+e6e1e167f7c,Q1731009,Karl Franz Sebastian Fahrländer,1836,1907,003756,1051067812,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug+Heimatort,"bestätigt: Dr. iur., 1885–1907 Regierungsrat, ab 1860 von Laufenburg – passt zu «Dr. Jur. Regierungsrath von Laufenburg».",aarau:1877-gebaeude-030-E032
 e6e3afeefc1,Q57338574,Johann Jakob Burckhardt,1809,1888,007162,137562268,möglich,stadt,Basel-Bezug+Beruf,bestätigt: Bürgermeister 1849-59 = Alt Bürgermeister 1862; ∞ Ryhiner 1835,basel:1862-einwohner-332-L122
 e6f013f0936,Q55906245,Georg Emil Stehelin,1814,1880,,1012335615,wahrscheinlich,stadt,Basel-Bezug,,basel:1862-einwohner-411-L070
-e6f3bcd1796,Q1649156,Josef Burgmeier,1844,1905,,,wahrscheinlich,stadt,Aarau-Bezug,,aarau:1884-einwohner-020-L029
+e6f3bcd1796,Q1649156,Josef Burgmeier,1844,1905,,,wahrscheinlich,stadt,Aarau-Bezug,,aarau:1877-gebaeude-021-E006
 e6f614bb6c4,Q55905248,Immanuel Stockmeyer,1814,1894,010863,100592988,möglich,stadt,Basel-Bezug+Basler Amt (Namensvetter im Band),"bestätigt: Pfarrer St. Martin 1846-71, Präs. Knabengemeindeschule 1852-70 = 1862; ∞ Burckhardt = Stockmeyer-Burckhardt",basel:C01118-1862
 e6feb1f2154,Q1363157,Erwin Kurz,1846,1901,003777,136222854,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug,"bestätigt: Fürsprecher mit eigener Praxis in Aarau 1876–1901, von Schwamendingen.",aarau:1896-gebaeude-054-L027
 e700194154c,Q62098691,Johann Jakob Schneider,1822,1889,,1015350887,möglich,stadt,Basel-Bezug,,basel:1862-gebaeude-263-L005
-e709fd363ff,Q98399981,Johann Ludwig Meyer,1858,1935,,1181732182,möglich,stadt,Aarau-Bezug+Beruf,,aarau:1899-einwohner-132-L035
+e709fd363ff,Q98399981,Johann Ludwig Meyer,1858,1935,,1181732182,möglich,stadt,Aarau-Bezug+Beruf,,aarau:1901-einwohner-124-L041
 e70d19612b0,Q62130471,Johann Rudolf Gemuseus,1832,1912,,1274665981,möglich,stadt,Basel-Bezug (Namensvetter im Band),,basel:1862-gebaeude-108-L048
 e7126ffe866,Q55680101,Adolf Burckhardt,1834,1886,,1021101885,möglich,stadt,Basel-Bezug+Basler Amt,,basel:C00160-1862
+e713a53f2b2,Q41221993,Salomon Bleuler,1829,1886,003612,135549485,möglich,stadt,Heimatort,ungeprüft,aarau:1867-gebaeude-010-E026
 e7143636c0c,Q122986,Johann Jakob Balmer,1825,1898,028774,124495044,wahrscheinlich,stadt,Basel-Bezug,"bestätigt: Dr. phil. 1849, ab 1850 Lehrer Töchterschule = Phil. Dr., Lehrer 1862; ∞ 1850 Rinck = Balmer-Rinck",basel:1862-einwohner-321-L025
 e714955ee26,Q1696023,Johann Rudolf Kölner,1800,1877,020949,1047356597,möglich,stadt,Basel-Bezug (Namensvetter im Band),"bestätigt: ∞ 1823 Langmesser = Joh. Rud. Kölner-Langmesser, Geschäftsmann 1862; zeitweise in Basel. Joh. Emil Kölner (Commis) andere Person",basel:1862-einwohner-370-L043
 e715a238f22,Q27662066,Friedrich Siebenmann,1852,1928,014642,117339180,möglich,stadt,Aarau-Bezug,ungeprüft,aarau:1888-einwohner-131-L046
 e72294f6e34,Q1337730,Johann Jakob Frey,1813,1865,022299,119498731,möglich,stadt,Basel-Bezug,ungeprüft,basel:1862-einwohner-344-L033
 e7230e81953,Q96321880,Philipp Hindermann,1796,1884,011952,1044309989,wahrscheinlich,stadt,Basel-Bezug,"bestätigt: Lehrer Schule St. Theodor 1831-64 = Unterlehrer/Lehrer, St. Theodorgemeinde; ∞ Landerer = Hindermann-Landerer",basel:1862-gebaeude-245-L039
 e723dbdc095,Q123437,Johann Jakob Bernoulli,1831,1919,,120208016,wahrscheinlich,stadt,Basel-Bezug+Basler Amt,,basel:C00061-1862
+e73077b91b4,Q94762762,Heinrich Bircher,1850,1923,014294,118663321,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug,"bestätigt: Praxis in Aarau ab 1872, 1887–1917 chirurgischer Chefarzt und Direktor der kantonalen Krankenanstalt.",aarau:1877-gebaeude-047-E027
 e730fd7151d,Q2077023,Peter Merian,1795,1883,007175,116892048,möglich,stadt,Basel-Bezug+Basler Amt (Namensvetter im Band),bestätigt: Kl. Rat 1836-66 = Rathsherr 1841; Prof. Univ. Basel; ∞ Thurneysen = Merian-Thurneisen 1850. Merian-Legrand (Kaufmann) andere Person,basel:C00748-1862
+e7358dc287b,Q19214099,Johann Jakob Bäbler,1836,1900,042720,116031255,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS nennt Aarau+HLS-Heimatort+Heimatort,"bestätigt: 1876–1900 Lehrer für Deutsch und Geschichte an der Kantonsschule Aarau, von Matt.",aarau:1881-gebaeude-053-E016
 e73f11df531,Q1731502,Karl Heinrich Remigius Sauerländer,1848,1919,,1073474615,wahrscheinlich,stadt,Aarau-Bezug,,aarau:1884-einwohner-045-L022
 e7424a6bad3,Q133371230,,1841,1912,,133710270,wahrscheinlich,stadt,Aarau-Bezug+Heimatort,,aarau:1892-einwohner-118-L012
 e7427ae0873,Q1079607,Christian Friedrich Göttisheim,1837,1896,004508,1016252978,möglich,stadt,Basel-Bezug (Namensvetter im Band),bestätigt: Redaktor Basler Tagblatt = Redactor d. Tagblatts 1862; ∞ Breiting. Göttisheim-Reiser (Spezereihdlg) ist andere Person,basel:1862-gebaeude-074-L036
@@ -272,6 +338,7 @@ e74d00f9e3b,Q98399981,Johann Ludwig Meyer,1858,1935,,1181732182,möglich,stadt,G
 e75087349ff,Q1337730,Johann Jakob Frey,1813,1865,022299,119498731,möglich,stadt,Basel-Bezug,ungeprüft,basel:1862-gebaeude-256-L023
 e753002ecb9,Q30005282,Carl Ferdinand Zimmermann,1816,1889,,1113614269,wahrscheinlich,stadt,Basel-Bezug+Basler Amt+Beruf,,basel:C01274-1862
 e7602bdefc4,Q62098691,Johann Jakob Schneider,1822,1889,,1015350887,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-404-L071
+e76da3b293f,Q133456399,Anna Blattner,1866,1935,,,möglich,stadt,Aarau-Bezug (Namensvetter im Band),,aarau:1901-einwohner-099-L037
 e76e4e11c90,Q123861,Johann Jakob Bachofen,1815,1887,011480,118505645,möglich,stadt,Basel-Bezug (Namensvetter im Band),"bestätigt: Dr. iur. 1837, Prof. 1841 = «J. U. Dr» 1841. Tuchscherer, Traiteur und Bachofen-Brenner sind andere Personen (∞ erst 1865 Burckhardt)",basel:1862-einwohner-320-L050
 e77933124a9,Q59945,Jacob Burckhardt,1818,1897,011647,11851752X,wahrscheinlich,stadt,Basel-Bezug,bestätigt: o. Prof. für Geschichte ab 1858 = Professor der Geschichte 1862; Eintrag «1841» passt nicht (damals Student) – Bandzuordnung prüfen,basel:1862-einwohner-332-L076
 e780d6e7924,Q121991,Carl Gustav Bernoulli,1834,1878,,119547635,möglich,stadt,Basel-Bezug (Namensvetter im Band),,basel:1862-einwohner-323-L115
@@ -281,10 +348,12 @@ e78e212ef09,Q55131148,Johann Jacob Bischoff,1841,1892,014298,135549035,möglich,
 e7980d28886,Q120757,Samuel Preiswerk,1799,1871,010790,116282150,möglich,stadt,Basel-Bezug+Beruf (Namensvetter im Band),"bestätigt: 1839 Gemeiner Helfer, 1840 Pfarrer St. Leonhard = Gemeinhelfer/Diakon 1841; Antistes 1859 = Pfarrer und Antistes",basel:1862-gebaeude-161-L021
 e79acc8a3bf,Q118030,Karl Rudolf Hagenbach,1801,1874,010655,119152711,möglich,stadt,Basel-Bezug+Basler Amt+Beruf (Namensvetter im Band),"bestätigt: Ordinarius Kirchengeschichte ab 1828, Dr. theol. = Theologie Dr. und Professor 1841, Rector/Kirchenrath 1862",basel:C00425-1862
 e7a7f239ded,Q52155973,Adolf Weibel,1870,1952,,108929056X,wahrscheinlich,stadt,Aarau-Bezug+Heimatort,,aarau:1899-gebaeude-054-L024
+e7a8a4d4ca3,Q1461227,Friedrich Mühlberg,1840,1915,028890,123978130,möglich,stadt,Aarau-Bezug+Heimatort (HLS-Artikel noch nicht geprüft),ungeprüft,aarau:1877-gebaeude-031-E012
 e7afebda553,Q2173557,Rudolf Paravicini,1815,1888,014808,1048360598,wahrscheinlich,stadt,Basel-Bezug+Beruf,bestätigt: ∞ Vischer 1840 = Paravicini-Vischer 1841; Kl. Rat 1856-61. Paravicini-Preiswerk (Rentier) eher Vater (Mutter geb. Preiswerk),basel:1862-gebaeude-102-L021
 e7b1a16721f,Q94810450,Eduard Bernoulli,1795,1875,,116147008,wahrscheinlich,stadt,Basel-Bezug,,basel:1862-einwohner-323-L083
 e7b6e6cc9ea,Q1337730,Johann Jakob Frey,1813,1865,022299,119498731,möglich,stadt,Basel-Bezug,ungeprüft,basel:1862-gebaeude-152-L021
 e7b71da9212,Q1705626,Josef Schetty,1824,1894,029871,1015370748,wahrscheinlich,stadt,Basel-Bezug+Beruf,"bestätigt: Färber, 1853 Firma Schetty & Söhne = Seidenfärber 1862; ∞ 1846 Ammann = Schetty-Ammann",basel:1862-einwohner-401-L071
+e7b737a1d57,Q1731009,Karl Franz Sebastian Fahrländer,1836,1907,003756,1051067812,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug,"bestätigt: Dr. iur., 1885–1907 Regierungsrat, ab 1860 von Laufenburg – passt zu «Dr. Jur. Regierungsrath von Laufenburg».",aarau:1869-gebaeude-026-E022
 e7c694665fd,Q78070738,Johann Jakob Schäublin,1822,1901,046156,123237890,wahrscheinlich,stadt,Basel-Bezug+Basler Amt+Beruf,"bestätigt: ab 1846 Lehrer an der Realschule Basel = J. J. Schäublin, Lehrer 1850. Einträge 1841 (Lehenmann, Schuster, Schäublin-Meyer) andere Personen",basel:C00963-1862
 e7c75e34ffc,Q113791446,Emanuel Preiswerk,1825,1904,,173927521,wahrscheinlich,stadt,Basel-Bezug+Basler Amt,,basel:C00863-1862
 e7c813368dd,Q55194535,Johann Georg Müller,1800,1875,,137826141,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-386-L038
@@ -293,11 +362,17 @@ e7d2d9003f4,Q57360086,Rudolf Sarasin,1831,1905,014809,139484434,wahrscheinlich,s
 e7d40e608d6,Q116978,Constant Fornerod,1819,1899,004321,104143754,wahrscheinlich,stadt,Basler Amt,"bestätigt: Bundesrat 1855-67, Bundespräs. 1863 (also Vize 1862), zuletzt Militärdep. = Eintrag Bundesrath 1862 (eidg. Behörde)",basel:C00344-1862
 e7d780912c5,Q215353,Wilhelm Wackernagel,1806,1869,011697,118805851,wahrscheinlich,stadt,Basel-Bezug+Basler Amt,bestätigt: o. Prof. für deutsche Sprache und Literatur ab 1835 = 1841; ∞ 2) 1850 Sarasin = Wackernagel-S[arasin] 1850,basel:C01215-1862
 e7e74606b11,Q66310896,Rudolf Löw,1832,1898,,1084238144,möglich,stadt,Basel-Bezug (Namensvetter im Band),,basel:1862-einwohner-376-L027
+e7ea1e6b1c4,Q1611890,Hermann Kummler,1863,1949,029586,120873958,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug+Beruf,bestätigt: Nach Rückkehr 1891 an einem Aarauer Elektrizitätswerk beteiligt und 1894 Gründer von Kummler & Cie. – passt zu Elektrotechniker/Kaufmann.,aarau:1913-einwohner-182-L011
+e7ef91b238c,Q1336337,Emil Keller,1878,1965,003772,1017268746,möglich,stadt,Aarau-Bezug (HLS-Artikel noch nicht geprüft),ungeprüft,aarau:1913-gebaeude-079-L035
 e7f081e0af1,Q123861,Johann Jakob Bachofen,1815,1887,011480,118505645,möglich,stadt,Basel-Bezug (Namensvetter im Band),"bestätigt: Dr. iur. 1837, Prof. 1841 = «J. U. Dr» 1841. Tuchscherer, Traiteur und Bachofen-Brenner sind andere Personen (∞ erst 1865 Burckhardt)",basel:1862-einwohner-320-L052
 e7f719443e5,Q125230,Andreas Heusler,1834,1921,014802,118704389,möglich,stadt,Basel-Bezug,ungeprüft,basel:1862-gebaeude-152-L010
+e7f81e930ac,Q78065838,Traugott Markwalder,1854,1915,024018,1078433690,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug,"bestätigt: 1879–1896 Instruktionsoffizier der Kavallerie, 1895 Oberst, von Aarau – deckt sich mit Stabsmajor/Oberstlt./Oberst, Kavallerie-Instruktor.",aarau:1913-einwohner-188-L006
+e7fc34ba24f,Q696013,Arnold Ringier,1845,1923,005513,139239375,möglich,stadt,Heimatort+Beruf (HLS-Artikel noch nicht geprüft),ungeprüft,aarau:1913-einwohner-199-L027
+e7fd925e7b0,Q94762762,Heinrich Bircher,1850,1923,014294,118663321,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug,"bestätigt: Praxis in Aarau ab 1872, 1887–1917 chirurgischer Chefarzt und Direktor der kantonalen Krankenanstalt.",aarau:1913-einwohner-144-L014
 e8045997300,Q133314962,,1819,1867,,1081666188,möglich,stadt,Basel-Bezug (Namensvetter im Band),,basel:1862-gebaeude-081-L042
-e80bdfe09cd,Q27662066,Friedrich Siebenmann,1852,1928,014642,117339180,möglich,stadt,Aarau-Bezug,ungeprüft,aarau:1888-einwohner-131-L033
+e80bdfe09cd,Q27662066,Friedrich Siebenmann,1852,1928,014642,117339180,möglich,stadt,Aarau-Bezug,ungeprüft,aarau:1879-gebaeude-026-E034
 e81988608ef,Q61993490,Hieronymus Bischoff,1795,1870,029907,1080377247,möglich,stadt,Basel-Bezug (Namensvetter im Band),"bestätigt: Kl. Stadtrat ab 1836, Präs. 1844-70 = Präsident Stadtrath; ∞ Respinger = Bischoff-Respinger. -Bischoff/-Wieland andere Personen",basel:1862-gebaeude-210-L014
+e81bca28dcd,Q103824573,Friedrich Siebenmann,1851,1901,023080,,möglich,stadt,Aarau-Bezug (Namensvetter im Band),ungeprüft,aarau:1877-gebaeude-048-E019
 e8326fb4e5b,Q15627219,Albrecht Müller,1819,1890,028891,11756995X,wahrscheinlich,stadt,Basel-Bezug+Beruf,"bestätigt: Geologe, Dr. h.c. 1852, ao. Prof. 1861 = Mineralog 1850, Phil. Dr. Geolog 1862; ∞ 1860 Hetzel. Müller-Schölly (Wechsel-Sensal) 1841 = Vater",basel:1862-gebaeude-137-L047
 e8359ae125e,Q78071710,Carl Sprecher,1868,1938,029581,1081691336,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort+Beruf,"bestätigt: 1896–1900 Betriebsleiter des Elektrizitätswerks Aarau, von Aesch – passt zu «Chef des Elektrizitätswerkes».",aarau:1899-gebaeude-083-L029
 e836adedbc3,Q123437,Johann Jakob Bernoulli,1831,1919,,120208016,wahrscheinlich,stadt,Basel-Bezug,,basel:1862-einwohner-323-L102
@@ -315,19 +390,22 @@ e88d9e904ff,Q15791778,Alfred Maul,1828,1907,016306,117557595,möglich,stadt,Basl
 e896c76a298,Q63120216,Martin Burckhardt,1817,1902,,120888395X,wahrscheinlich,stadt,Basel-Bezug+Basler Amt,,basel:C00178-1862
 e89c69efbf9,Q42182771,Hermann Hunziker,1840,1910,,1089402252,wahrscheinlich,stadt,Aarau-Bezug,,aarau:1888-einwohner-113-L040
 e8a0d2a534a,Q113791446,Emanuel Preiswerk,1825,1904,,173927521,möglich,stadt,Basel-Bezug (Namensvetter im Band),,basel:1862-gebaeude-157-L019
+e8a298c2ab2,Q103824573,Friedrich Siebenmann,1851,1901,023080,,möglich,stadt,Aarau-Bezug (HLS-Artikel noch nicht geprüft),ungeprüft,aarau:1877-gebaeude-015-E019
 e8a3b91e8a9,Q55680101,Adolf Burckhardt,1834,1886,,1021101885,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-331-L118
 e8ae6a9833e,Q2571798,Wilhelm Bachofen,1841,1922,,1208663275,wahrscheinlich,stadt,Basel-Bezug,,basel:1862-einwohner-320-L066
 e8ba13fc478,Q55679758,Samuel Minder,1782,1868,007178,1018676996,wahrscheinlich,stadt,Basel-Bezug+Basler Amt,bestätigt: Kleinrat 1830-58 = Rathsherr 1841/50; Meister zu Schmieden 1834-63; ∞ Merian = Minder-Merian 1862,basel:C00781-1862
-e8bab12ded8,Q87392801,Franz Fröhlich,1849,1912,,1055138862,wahrscheinlich,stadt,Aarau-Bezug+Heimatort,,aarau:1884-einwohner-026-L013
+e8bab12ded8,Q87392801,Franz Fröhlich,1849,1912,,1055138862,wahrscheinlich,stadt,Aarau-Bezug+Heimatort,,aarau:1879-gebaeude-037-E011
 e8baf299154,Q1303505,Johann Konrad Kern,1808,1888,004072,118561529,möglich,stadt,Basler Amt,ungeprüft,basel:C00585-1862
 e8bb6fd88a9,Q23061637,Balthasar Reber,1805,1875,029450,10081896X,möglich,stadt,Basel-Bezug+Basler Amt (Namensvetter im Band),"bestätigt: ordinierter Theologe, Lehrer, ab 1855 ao. Prof. Schweizer Geschichte; ∞ 1832 Sulger = Reber-Sulger 1841/50",basel:C00880-1862
 e8bc6f7f080,Q124909,Jacob Achilles Mähly,1828,1902,028239,116656816,wahrscheinlich,stadt,Basel-Bezug+Basler Amt,"bestätigt: Dr. phil., ab 1859 Lehrer am Pädagogium = Hauptlehrer, Ph. D 1862; ∞ 1855 Schermar = Mähly-Schermar. Küfer-Einträge = Vater",basel:C00696-1862
+e8c1cca59c5,Q1610866,Hermann Custer,1823,1893,031556,1071076434,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug,"bestätigt: Promovierter Chemiker, übernahm 1857 eine Seidenbandfabrik in Aarau, von Rheineck.",aarau:1879-gebaeude-036-E017
 e8cfa615d5a,Q4505562,Jakob Melchior Ziegler,1801,1883,013541,121584097,möglich,stadt,Basel-Bezug,ungeprüft,basel:1862-einwohner-428-L018
 e8d2a9e99b5,Q55843140,Benedict La Roche,1802,1876,029910,136311024,wahrscheinlich,stadt,Basel-Bezug,"bestätigt: Bank- und Speditionsunternehmen = Banquier, Commiss. u. Speditionshdlg 1850; ∞ 1824 Stehelin = La Roche-Stähelin",basel:1862-einwohner-373-L060
 e8d5573a940,Q1730953,Karl Ferdinand Schimpf,1806,1868,003788,115529292,wahrscheinlich,stadt,Basel-Bezug+Basler Amt,bestätigt: 1859-68 Direktor eidg. Zollkreis I in Basel = Zolldirector/Director I. Zollgebiet Basel 1862; Dr.,basel:C00989-1862
 e8d6047056d,Q1696019,Johann Rudolf Geigy-Merian,1830,1917,004500,116495898,möglich,stadt,Basel-Bezug (Namensvetter im Band),"bestätigt: Zivilrichter 1857-64 = Civilgericht 1862, Kaufmann; ∞ Merian. Achtung: Einträge J. J./Joh. Ludw./Joh. Merian ohne Geigy sind andere Personen",basel:1862-einwohner-380-L111
 e8d8b28403b,Q21289157,Jakob Senn,1790,1881,,1013502434,wahrscheinlich,stadt,Basel-Bezug+Beruf,,basel:1862-einwohner-407-L067
 e8e81c5b31e,Q77512,Heinrich Weber,1842,1913,031705,1012808513,möglich,stadt,Geburtsort weicht ab,ungeprüft,aarau:1884-einwohner-053-L023
+e8edb9543ec,Q94883084,Robert Hunziker,1876,1951,,140001565,wahrscheinlich,stadt,Aarau-Bezug+Beruf,,aarau:1913-einwohner-175-L026
 e8f03990ae3,Q115601,Wilhelm His,1831,1904,014410,118705253,wahrscheinlich,stadt,Basel-Bezug,"bestätigt: o. Prof. Anatomie u. Physiologie Basel ab 1857 = Dr. und Prof., M. et Ch. D 1862; ∞ Vischer 1858 = His-Vischer",basel:1862-einwohner-360-L007
 e8f6d26e35c,Q55753978,Ludwig August Burckhardt,1808,1863,,101891350,möglich,stadt,Basel-Bezug,,basel:1862-gebaeude-114-L019
 e90175f86f6,Q55071926,Friedrich Riggenbach-Stehlin,1821,1904,029911,116547154,wahrscheinlich,stadt,Basel-Bezug+Allianzname,"bestätigt: Bankier, ab 1859 Inhaber der Bank = Banquier (Firma F. Riggenbach) 1862; ∞ 1849 Stehlin. Flachmaler/Bäcker andere Personen",basel:1862-einwohner-394-L048
@@ -340,6 +418,7 @@ e91b62b418e,Q20973650,Johann Jakob Falkeisen,1804,1883,,1074008723,wahrscheinlic
 e9238eb76b5,Q451953,Amadeus Merian,1808,1889,019900,118783343,möglich,stadt,Basel-Bezug,"bestätigt: Architekt, Bauinspektor Basel 1835-59 = Bauinspektor 1850, Architekt 1862",basel:1862-gebaeude-156-L028
 e923a81b319,Q55679694,Johann Jakob Linder,1828,1907,,101771214X,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-375-L074
 e92a22ac8e7,Q141609910,Carl Burckhardt,1805,1880,,,möglich,stadt,Basel-Bezug+Basler Amt,,basel:C00163-1862
+e93a618b207,Q85001013,Gottfried Reimann,1862,1909,013270,1017338582,möglich,stadt,Heimatort,ungeprüft,aarau:1901-gebaeude-087-L008
 e946c870722,Q23060103,Johannes Schnell,1812,1889,015838,116840048,möglich,stadt,Basel-Bezug,ungeprüft,basel:1862-einwohner-404-L111
 e947e223cb4,Q131583308,Samuel Merian,1803,1875,,1089904991,möglich,stadt,Basel-Bezug (Namensvetter im Band),,basel:1862-einwohner-381-L009
 e9489ff1f8e,Q1542665,Jakob Robert Steiger,1801,1862,004206,118570617,möglich,stadt,Basler Amt,ungeprüft,basel:C01112-1862
@@ -351,39 +430,50 @@ e961e03571e,Q108812200,Johann Gottlieb Linder,1842,1912,,1017710554,möglich,sta
 e963e1fd4e9,Q96404073,Rudolf Starke,1835,1865,014816,,möglich,stadt,Basel-Bezug,"zweifelhaft: Fergger passt zu «Ferger u. Cigarrenhändler» 1862, aber ∞ 1865 Jenni ≠ Starke-Weissenburger (evtl. frühere Ehe)",basel:1862-einwohner-411-L030
 e968c36a108,Q98399981,Johann Ludwig Meyer,1858,1935,,1181732182,möglich,stadt,Geburtsort weicht ab+Aarau-Bezug,,aarau:1884-einwohner-039-L018
 e96a1e0c953,Q133314962,,1819,1867,,1081666188,möglich,stadt,Basel-Bezug+Basler Amt (Namensvetter im Band),,basel:C00162-1862
-e96c3853a17,Q1580218,Gottlieb Käppeli,1840,1909,005503,1050187105,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug,"bestätigt: 1875–1905 Aargauer Regierungsrat, von Merenschwand.",aarau:1884-einwohner-034-L050
+e96c3853a17,Q1580218,Gottlieb Käppeli,1840,1909,005503,1050187105,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug+Heimatort,"bestätigt: 1875–1905 Aargauer Regierungsrat, von Merenschwand.",aarau:1879-gebaeude-027-E032
 e973afd2659,Q2173557,Rudolf Paravicini,1815,1888,014808,1048360598,wahrscheinlich,stadt,Basel-Bezug+Basler Amt,bestätigt: ∞ Vischer 1840 = Paravicini-Vischer 1841; Kl. Rat 1856-61. Paravicini-Preiswerk (Rentier) eher Vater (Mutter geb. Preiswerk),basel:C00839-1862
 e979c37c4a0,Q78070738,Johann Jakob Schäublin,1822,1901,046156,123237890,wahrscheinlich,stadt,Basel-Bezug+Beruf,"bestätigt: ab 1846 Lehrer an der Realschule Basel = J. J. Schäublin, Lehrer 1850. Einträge 1841 (Lehenmann, Schuster, Schäublin-Meyer) andere Personen",basel:1862-gebaeude-226-L033
 e984a8c8f73,Q107000468,Johann Jakob Burckhardt,1836,1890,005947,1048084728,möglich,stadt,Basel-Bezug,ungeprüft,basel:1862-einwohner-332-L026
-e98583770a8,Q1363157,Erwin Kurz,1846,1901,003777,136222854,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug,"bestätigt: Fürsprecher mit eigener Praxis in Aarau 1876–1901, von Schwamendingen.",aarau:1884-einwohner-036-L044
+e98583770a8,Q1363157,Erwin Kurz,1846,1901,003777,136222854,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug,"bestätigt: Fürsprecher mit eigener Praxis in Aarau 1876–1901, von Schwamendingen.",aarau:1881-gebaeude-028-E032
 e987b7e2de0,Q117975,Fritz Müller,1834,1895,,1018867228,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-386-L003
 e9888764cd0,Q61993517,Theophil La Roche,1834,1880,,1017513465,wahrscheinlich,stadt,Basel-Bezug+Beruf,,basel:1862-einwohner-373-L076
 e98b0dbc8f4,Q1696019,Johann Rudolf Geigy-Merian,1830,1917,004500,116495898,möglich,stadt,Basel-Bezug (Namensvetter im Band),"bestätigt: Zivilrichter 1857-64 = Civilgericht 1862, Kaufmann; ∞ Merian. Achtung: Einträge J. J./Joh. Ludw./Joh. Merian ohne Geigy sind andere Personen",basel:1862-gebaeude-124-L042
 e98cc37b1d4,Q55887140,Andreas Sulger,1809,1881,,1011749874,wahrscheinlich,stadt,Basel-Bezug,,basel:1862-einwohner-414-L052
 e98d4324a45,Q135258530,Gottlieb Koller,1823,1900,026188,123970016,möglich,stadt,Beruf,"bestätigt: Ingenieur, 1853-62 Bauleiter Schweiz. Centralbahn (Sitz Basel) = Ingenieur, Bureau der Betriebs-Verwaltung 1862",basel:1862-einwohner-370-L069
+e98f4582202,Q124325,Emil Zschokke,1808,1889,013579,139879277,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug+Beruf,"bestätigt: 1849–1886 Pfarrer in Aarau, dort gestorben 1889.",aarau:1867-gebaeude-017-E021
 e9913bc6bd0,Q55679694,Johann Jakob Linder,1828,1907,,101771214X,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-375-L070
 e9920c64597,Q55684523,Christian Ringwald,1815,1878,,1107558123,wahrscheinlich,stadt,Basel-Bezug+Beruf,,basel:1862-einwohner-394-L071
 e9923114271,Q55123108,Theodor Meyer-Merian,1818,1867,012116,11690559X,wahrscheinlich,stadt,Basel-Bezug+Allianzname,"bestätigt: Spitalmeister Bürgerspital 1851-67 = Spitaldirector 1862, Dr. med.; ∞ Merian 1846",basel:1862-einwohner-382-L102
 e9971ad241e,Q896895,Eugen Kutschera,1852,1918,,1089748078,wahrscheinlich,stadt,Aarau-Bezug+Heimatort,,aarau:1892-einwohner-124-L039
-e999e88bc12,Q998080,Olivier Zschokke,1826,1898,003808,138527431,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug+Beruf,"bestätigt: Ingenieur, 1880–1898 Inhaber von Zschokke & Cie. in Aarau.",aarau:1884-einwohner-057-L005
+e999e88bc12,Q998080,Olivier Zschokke,1826,1898,003808,138527431,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug+Beruf,"bestätigt: Ingenieur, 1880–1898 Inhaber von Zschokke & Cie. in Aarau.",aarau:1877-gebaeude-027-E019
+e99ac75284f,Q117023185,Heinrich Herzog,1822,1898,011944,139357130,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort+Beruf,"bestätigt: 1851–1895 Lehrer in Aarau, von Rekingen – auch «gew. Lehrer» 1896 passt.",aarau:1869-gebaeude-005-E017
 e9a19e12d53,Q98399981,Johann Ludwig Meyer,1858,1935,,1181732182,möglich,stadt,Aarau-Bezug+Beruf,,aarau:1896-einwohner-149-L043
+e9a38a3e861,Q113585915,Walther Zschokke,1870,1951,,1047832356,wahrscheinlich,stadt,Aarau-Bezug,,aarau:1913-gebaeude-037-L011
 e9a53b6a168,Q23063291,Hans Hässig,1860,1936,020349,1050161874,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug,"bestätigt: 1889–1907 Aarauer Stadtrat, vorher Studium abgebrochen (passt zu «Privat» 1888).",aarau:1888-einwohner-109-L047
 e9aae561854,Q55194535,Johann Georg Müller,1800,1875,,137826141,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-386-L078
 e9aae808c23,Q683955,Carl Franz Bally,1821,1899,003056,122650077,möglich,stadt,HLS nennt Aarau+HLS-Heimatort+Heimatort,"zweifelhaft: Der Eintrag ist die Firma «C. F. Bally, Schuhfabrik»; die Person lebte und wirkte laut Artikel in Schönenwerd, nicht in Aarau.",aarau:1888-einwohner-093-L010
 e9b9b5ad80c,Q2173493,Rudolf Müller,1802,1885,,124154301,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-384-L121
 e9bc4324b1a,Q15805984,Dietrich Holzach,1836,1905,,,wahrscheinlich,stadt,Aarau-Bezug,,aarau:1888-gebaeude-049-L042
 e9c8dd7b31b,Q61993419,Johann Jakob Im Hof,1815,1900,,1016654308,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-360-L054
+e9d3dae22ba,Q96364087,Heinrich Fehlmann,1880,1952,029591,1080528431,möglich,stadt,Aarau-Bezug (HLS-Artikel noch nicht geprüft),ungeprüft,aarau:1913-einwohner-155-L032
 e9d6a3c14ea,Q96321880,Philipp Hindermann,1796,1884,011952,1044309989,wahrscheinlich,stadt,Basel-Bezug+Basler Amt,"bestätigt: Lehrer Schule St. Theodor 1831-64 = Unterlehrer/Lehrer, St. Theodorgemeinde; ∞ Landerer = Hindermann-Landerer",basel:C00492-1862
 e9db814f3ef,Q15454451,Karl Steffensen,1816,1888,,117227099,wahrscheinlich,stadt,Basel-Bezug+Basler Amt+Beruf,,basel:C01103-1862
-e9dceb7d336,Q361553,Adolf Fischer,1807,1893,003758,105011292X,möglich,stadt,HLS-Artikel bestätigt+Aarau-Bezug (Namensvetter im Band),"bestätigt: 1867–1887 Regierungsrat und Oberst, von Reinach, gestorben in Aarau 1893.",aarau:1884-einwohner-024-L022
+e9dceb7d336,Q361553,Adolf Fischer,1807,1893,003758,105011292X,möglich,stadt,HLS-Artikel bestätigt+Aarau-Bezug (Namensvetter im Band),"bestätigt: 1867–1887 Regierungsrat und Oberst, von Reinach, gestorben in Aarau 1893.",aarau:1879-gebaeude-014-E042
 e9e192b07b3,Q62098691,Johann Jakob Schneider,1822,1889,,1015350887,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-404-L100
+e9e221682c9,Q133456399,Anna Blattner,1866,1935,,,wahrscheinlich,stadt,Aarau-Bezug,,aarau:1913-einwohner-144-L041
 e9e247f0fcb,Q91158,Karl August Auberlen,1824,1864,010509,116376422,wahrscheinlich,stadt,Basel-Bezug+Basler Amt,"bestätigt: ao. theol. Professur Basel, Dr. theol. 1860 = ao. Prof. Theol. 1862; ∞ Menzel = Auberlen-Menzel",basel:C00011-1862
+e9e2a9b3f80,Q1401747,Johann Haberstich,1824,1891,003762,105011910X,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug,bestätigt: Anwalt in Aarau bis zu seinem Tod 1891.,aarau:1869-gebaeude-027-E005
+e9fcfed6f95,Q133371230,,1841,1912,,133710270,möglich,stadt,Aarau-Bezug,,aarau:1877-gebaeude-037-E031
 ea053757e58,Q133090007,,1820,1908,,1073478440,wahrscheinlich,stadt,Basel-Bezug,,basel:1862-einwohner-421-L082
+ea07398c383,Q133371230,,1841,1912,,133710270,möglich,stadt,Geburtsort weicht ab+Aarau-Bezug,,aarau:1867-gebaeude-010-E036
+ea15a2ba48c,Q118013,Friedrich Erismann,1842,1915,014346,118685171,möglich,stadt,Aarau-Bezug (HLS-Artikel noch nicht geprüft),ungeprüft,aarau:1913-einwohner-153-L047
 ea1832266b3,Q94809743,Gustav Arsène Schneider,1866,1940,,130081248,möglich,stadt,Aarau-Bezug,,aarau:1896-einwohner-156-L079
 ea1a64db1ca,Q125846473,Karl Fisch,1850,1930,023679,1208254936,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug,"bestätigt: Gymnasiallehrer für Alte Sprachen in Aarau, dann 1892–1901 Instruktionsoffizier der Infanterie – passt zu Professor (1884/88) und Instruktor I. Kl. (1892/96).",aarau:1896-gebaeude-051-L024
 ea1f6ba4495,Q133087704,,1856,1927,,1073419371,wahrscheinlich,stadt,Aarau-Bezug,,aarau:1888-gebaeude-023-L015
 ea21cd637aa,Q115569,Alfred Escher,1819,1882,003626,118830295,wahrscheinlich,stadt,Basler Amt,bestätigt: Vizepräsident Schulrat 1854-82 = Vice-Präsident Eidg. Schulrath 1862 (eidg. Behörde),basel:C00313-1862
+ea274cf628d,Q92373,Ernst Ludwig Rochholz,1809,1892,011676,116578335,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug+Heimatort,"bestätigt: Lehrer an der Kantonsschule Aarau und 1866–1889 Leiter des Antiquariums, aus Ansbach.",aarau:1879-gebaeude-039-E044
 ea2b2d0a1c1,Q122604,Albert Immer,1804,1884,010689,1045801526,möglich,stadt,Basler Amt,"zweifelhaft: ab 1850 Prof. in Bern, kein Basel-Bezug; «Präses — Vorstand» 1862 allenfalls eines schweiz. Vereins, nicht belegt",basel:C00538-1862
+ea2c28848c8,Q998080,Olivier Zschokke,1826,1898,003808,138527431,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug,"bestätigt: Ingenieur, 1880–1898 Inhaber von Zschokke & Cie. in Aarau.",aarau:1867-gebaeude-025-E014
 ea32afefee8,Q55681773,Rudolf Falkner,1827,1898,005944,1048085457,wahrscheinlich,stadt,Basel-Bezug,bestätigt: Katastergeometer Basel 1855-73 = Geometer 1862; ∞ Bridel 1855,basel:1862-einwohner-341-L098
 ea34b79e710,Q764164,August Stähelin,1812,1886,004708,138494541,möglich,stadt,Basel-Bezug+Basler Amt (Namensvetter im Band),"bestätigt: Ständerat 1861-66 = Ständerath 1862, Kleinrat 1849-53; ∞ 1) Vischer 1838, 2) Brunner 1850 = Stähelin-Vischer 1841/50, -Brunner 1862",basel:C01078-1862
 ea3a1529535,Q116830,Johann Jakob Stehlin der Ältere,1803,1879,004743,1012440257,wahrscheinlich,stadt,Basel-Bezug+Beruf,"bestätigt: Zimmermeister, Nationalrat ab 1853, Bürgermeister 1858-73, eidg. Oberst; ∞ Hagenbach. «J. J. sel. Stehlin» 1841 = verstorbener Vater",basel:1862-einwohner-411-L082
@@ -395,30 +485,39 @@ ea5b71b5e0c,Q106106055,Ulrich Bigler,1853,1941,,,möglich,stadt,Geburtsort weich
 ea5bddecb69,Q3266230,Ludwig Imhoff,1801,1868,032030,10413741X,wahrscheinlich,stadt,Basel-Bezug,"bestätigt: Dr. med., praktischer Arzt in Basel = Arzt 1862; ∞ 1829 Heitz = Imhoff-Heitz",basel:1862-einwohner-365-L027
 ea5f9b40349,Q55194535,Johann Georg Müller,1800,1875,,137826141,wahrscheinlich,stadt,Basel-Bezug+Basler Amt+Beruf,,basel:C00800-1862
 ea604b0f215,Q1610866,Hermann Custer,1823,1893,031556,1071076434,möglich,stadt,HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort (Namensvetter im Band),"bestätigt: Promovierter Chemiker, übernahm 1857 eine Seidenbandfabrik in Aarau, von Rheineck.",aarau:1888-einwohner-099-L009
-ea63a57ece7,Q117023185,Heinrich Herzog,1822,1898,011944,139357130,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort+Beruf,"bestätigt: 1851–1895 Lehrer in Aarau, von Rekingen – auch «gew. Lehrer» 1896 passt.",aarau:1884-einwohner-032-L006
+ea6202a582c,Q1610866,Hermann Custer,1823,1893,031556,1071076434,möglich,stadt,HLS-Artikel bestätigt+Aarau-Bezug (Namensvetter im Band),"bestätigt: Promovierter Chemiker, übernahm 1857 eine Seidenbandfabrik in Aarau, von Rheineck.",aarau:1881-gebaeude-038-E023
+ea63a57ece7,Q117023185,Heinrich Herzog,1822,1898,011944,139357130,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort+Beruf,"bestätigt: 1851–1895 Lehrer in Aarau, von Rekingen – auch «gew. Lehrer» 1896 passt.",aarau:1879-gebaeude-051-E012
 ea694533c2f,Q74698809,Adolf Christ,1807,1877,010568,1048085392,möglich,stadt,Basel-Bezug+Basler Amt (Namensvetter im Band),"bestätigt: Bandfabrikant, ∞ Sarasin = Christ-Sarasin; Kl. Rat 1847-75, Präs. Schulkollegium = Präsident Kirchen- u. Schulcollegium 1862",basel:C00246-1862
+ea6b18fe1ea,Q133371230,,1841,1912,,133710270,möglich,stadt,Aarau-Bezug+Heimatort,,aarau:1867-gebaeude-032-E020
 ea6d1d3e32a,Q52148373,Johann Rudolf Rapp,1827,1903,,1218603801,wahrscheinlich,stadt,Basel-Bezug,,basel:1862-einwohner-392-L060
 ea6f4086b1c,Q198530,Hermann Kinkelin,1832,1913,004563,116175389,wahrscheinlich,stadt,Basel-Bezug+Basler Amt,bestätigt: ab 1860 Lehrer Gewerbeschule Basel = Lehrer 1862; ∞ Schirmer,basel:C00597-1862
 ea74f2591f4,Q141609910,Carl Burckhardt,1805,1880,,,möglich,stadt,Basel-Bezug+Basler Amt,,basel:C00176-1862
 ea7ef08ccd2,Q110550620,Gottlieb Schenker,1856,1922,014620,1047894319,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort,"bestätigt: Dr. med., ab 1883 eigene Praxis in Aarau, von Däniken.",aarau:1884-einwohner-046-L011
 ea8468b8632,Q139228057,,1823,1867,,1020723718,wahrscheinlich,stadt,Basel-Bezug+Beruf,,basel:1862-einwohner-335-L120
+ea847d93ffa,Q94942106,Arthur Frey,1879,1959,028148,122376366,möglich,stadt,Heimatort+Beruf (HLS-Artikel noch nicht geprüft),ungeprüft,aarau:1913-einwohner-158-L009
 ea883e9350f,Q36580139,Heinrich Waldner,1836,1887,,1037974441,wahrscheinlich,stadt,Basel-Bezug,,basel:1862-einwohner-421-L010
-ea88abd280c,Q125846473,Karl Fisch,1850,1930,023679,1208254936,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug,"bestätigt: Gymnasiallehrer für Alte Sprachen in Aarau, dann 1892–1901 Instruktionsoffizier der Infanterie – passt zu Professor (1884/88) und Instruktor I. Kl. (1892/96).",aarau:1884-einwohner-024-L008
+ea88abd280c,Q125846473,Karl Fisch,1850,1930,023679,1208254936,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug,"bestätigt: Gymnasiallehrer für Alte Sprachen in Aarau, dann 1892–1901 Instruktionsoffizier der Infanterie – passt zu Professor (1884/88) und Instruktor I. Kl. (1892/96).",aarau:1879-gebaeude-027-E020
 ea8c8f9191d,Q40576283,Jakob Höflinger,1819,1892,,141735937,wahrscheinlich,stadt,Basel-Bezug+Beruf,,basel:1862-einwohner-360-L033
 ea91e4bf242,Q98399981,Johann Ludwig Meyer,1858,1935,,1181732182,möglich,stadt,Aarau-Bezug+Beruf,,aarau:1888-gebaeude-029-L047
 ea9548e70ce,Q138836290,Georg Friedrich Frey,1818,1885,,,möglich,stadt,Basel-Bezug (Namensvetter im Band),,basel:1862-einwohner-344-L027
 ea9e0cf3dc2,Q62098691,Johann Jakob Schneider,1822,1889,,1015350887,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-404-L050
+eaa07a282e7,Q1731502,Karl Heinrich Remigius Sauerländer,1848,1919,,1073474615,wahrscheinlich,stadt,Aarau-Bezug,,aarau:1913-gebaeude-078-L018
 eaa0945347f,Q123437,Johann Jakob Bernoulli,1831,1919,,120208016,möglich,stadt,Basel-Bezug (Namensvetter im Band),,basel:1862-gebaeude-074-L006
 eaaa8f08c3c,Q91158,Karl August Auberlen,1824,1864,010509,116376422,wahrscheinlich,stadt,Basel-Bezug,"bestätigt: ao. theol. Professur Basel, Dr. theol. 1860 = ao. Prof. Theol. 1862; ∞ Menzel = Auberlen-Menzel",basel:1862-einwohner-319-L120
+eaab3a2173a,Q27662066,Friedrich Siebenmann,1852,1928,014642,117339180,möglich,stadt,Aarau-Bezug,ungeprüft,aarau:1879-gebaeude-015-E021
 eaad9695141,Q27862845,Emma Coradi-Stahl,1846,1912,009286,108932703X,wahrscheinlich,stadt,HLS-Artikel bestätigt+Allianzname+HLS nennt Aarau+HLS-Heimatort+Heimatort,"bestätigt: Eröffnete 1874 ein Broderiegeschäft in Aarau, von Oberneunforn.",aarau:1884-einwohner-021-L008
 eaae899990c,Q139013475,,1828,1900,,1089911521,möglich,stadt,Basel-Bezug+Basler Amt (Namensvetter im Band),,basel:C00030-1862
+eab73f37361,Q124681,Heinrich Suter,1848,1922,028960,11738237X,möglich,stadt,HLS nennt Aarau+HLS-Heimatort+Heimatort,ungeprüft,aarau:1877-gebaeude-013-E011
 eabd391b1d7,Q94919611,Johann Jakob Uebelin,1793,1873,,1089726341,wahrscheinlich,stadt,Basel-Bezug,,basel:1862-gebaeude-176-L047
 eabe8c52745,Q1583611,Paul Reber,1835,1908,019914,12396993X,wahrscheinlich,stadt,Basel-Bezug,"bestätigt: Ingenieurstudium Karlsruhe, ab 1857 Volontär Centralbahn = Ingenieur 1862",basel:1862-einwohner-392-L087
 eac932ea850,Q2573646,Wilhelm Klein,1825,1887,004564,124241395,wahrscheinlich,stadt,Basel-Bezug,"bestätigt: Redaktor Schweiz. Volksfreund 1861-75 = Redactor d. Volksfreunds 1862; ∞ Schabelitz. 1850 «W. Klein, Vater u. Sohn» eher Vater (Lehrer)",basel:1862-einwohner-369-L013
 eaca62305f5,Q107044161,Daniel Ecklin,1814,1881,014019,1049493230,wahrscheinlich,stadt,Basel-Bezug,"bestätigt: Dr. med., Arzt in Basel, Turnunterricht = Arzt, M. D., Turnlehrer 1862; ∞ Hetzel = Ecklin-Hetzel",basel:1862-einwohner-339-L014
 eacca6c84e2,Q695904,Arnold Otto Aepli,1816,1897,003958,11600925X,wahrscheinlich,stadt,Basler Amt,"bestätigt: Bundesrichter 1857-66, Präsident 1862 = Präsident Bundesgericht 1862 (eidg. Behörde)",basel:C00003-1862
+eacd746437f,Q125846473,Karl Fisch,1850,1930,023679,1208254936,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug,"bestätigt: Gymnasiallehrer für Alte Sprachen in Aarau, dann 1892–1901 Instruktionsoffizier der Infanterie – passt zu Professor (1884/88) und Instruktor I. Kl. (1892/96).",aarau:1881-gebaeude-032-E002
 ead2d13eccf,Q55753978,Ludwig August Burckhardt,1808,1863,,101891350,wahrscheinlich,stadt,Basel-Bezug,,basel:1862-gebaeude-135-L006
+eadce8abb1a,Q125846473,Karl Fisch,1850,1930,023679,1208254936,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug,"bestätigt: Gymnasiallehrer für Alte Sprachen in Aarau, dann 1892–1901 Instruktionsoffizier der Infanterie – passt zu Professor (1884/88) und Instruktor I. Kl. (1892/96).",aarau:1877-gebaeude-052-E035
 eadd30b19a4,Q2739430,Karl Gustav Jung,1794,1864,014424,130921572,möglich,stadt,Basel-Bezug+Basler Amt (Namensvetter im Band),"bestätigt: ab 1822 o. Prof. Medizin Basel = Med. Dr. und Professor 1841, M. et Ch. Dr. 1862",basel:C00560-1862
+eadec0aa940,Q695558,Arnold Keller,1841,1934,023942,119057212,möglich,stadt,Heimatort,ungeprüft,aarau:1867-gebaeude-028-E038
 eae3f368ab9,Q98399981,Johann Ludwig Meyer,1858,1935,,1181732182,möglich,stadt,Geburtsort weicht ab+Aarau-Bezug,,aarau:1892-gebaeude-062-L008
 eae756ff357,Q55194535,Johann Georg Müller,1800,1875,,137826141,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-385-L046
 eae89f73e87,Q23063291,Hans Hässig,1860,1936,020349,1050161874,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug,"bestätigt: 1889–1907 Aarauer Stadtrat, vorher Studium abgebrochen (passt zu «Privat» 1888).",aarau:1888-gebaeude-044-L010
@@ -429,6 +528,7 @@ eb08d1251f6,Q1403039,Felician Martin von Zaremba,1794,1874,,118772279,wahrschein
 eb0c2aa1e41,Q112675415,Ludwig de Wette,1812,1887,,1020730587,wahrscheinlich,stadt,Basel-Bezug,,basel:1862-gebaeude-075-L026
 eb0cb1ebe0e,Q62098691,Johann Jakob Schneider,1822,1889,,1015350887,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-404-L032
 eb0cc9405f0,Q62098691,Johann Jakob Schneider,1822,1889,,1015350887,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-404-L036
+eb0d8f24ee0,Q1529558,Max Wolfinger,1837,1913,,1089646674,wahrscheinlich,stadt,Aarau-Bezug+Heimatort,,aarau:1877-gebaeude-026-E018
 eb1436537b1,Q77512,Heinrich Weber,1842,1913,031705,1012808513,möglich,stadt,Geburtsort weicht ab,ungeprüft,aarau:1896-gebaeude-076-L034
 eb1b423c37c,Q94832489,German La Roche,1776,1863,007170,1048343189,wahrscheinlich,stadt,Basel-Bezug+Basler Amt,bestätigt: Meister der Zunft zu Weinleuten ab 1816 = Meister Weinleuten 1862,basel:C00644-1862
 eb203e823e3,Q132232848,Karl Ludwig Oppermann,1786,1881,,,möglich,stadt,Basel-Bezug (Namensvetter im Band),,basel:1862-einwohner-388-L090
@@ -438,20 +538,28 @@ eb31f07c68d,Q98399981,Johann Ludwig Meyer,1858,1935,,1181732182,möglich,stadt,A
 eb369c961f1,Q107044161,Daniel Ecklin,1814,1881,014019,1049493230,wahrscheinlich,stadt,Basel-Bezug+Basler Amt,"bestätigt: Dr. med., Arzt in Basel, Turnunterricht = Arzt, M. D., Turnlehrer 1862; ∞ Hetzel = Ecklin-Hetzel",basel:C00297-1862
 eb3ba93430c,Q23060103,Johannes Schnell,1812,1889,015838,116840048,möglich,stadt,Basel-Bezug+Basler Amt,ungeprüft,basel:C01023-1862
 eb4438592e7,Q63120216,Martin Burckhardt,1817,1902,,120888395X,möglich,stadt,Basel-Bezug (Namensvetter im Band),,basel:1862-einwohner-332-L119
-eb469695095,Q2547333,Walther Merz,1868,1938,027083,116913150,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug+Heimatort,"bestätigt: Ab 1893 aargauischer Justizsekretär, von Menziken.",aarau:1896-gebaeude-096-L042
+eb469695095,Q2547333,Walther Merz,1868,1938,027083,116913150,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug+Heimatort+Beruf,"bestätigt: Ab 1893 aargauischer Justizsekretär, von Menziken.",aarau:1901-gebaeude-089-L006
+eb49e47f737,Q1598823,Heinrich Schuh,1873,1955,029580,1017137447,möglich,stadt,Heimatort+Beruf (HLS-Artikel noch nicht geprüft),ungeprüft,aarau:1913-einwohner-208-L030
+eb4c008b70b,Q118013,Friedrich Erismann,1842,1915,014346,118685171,möglich,stadt,Aarau-Bezug (HLS-Artikel noch nicht geprüft),ungeprüft,aarau:1901-einwohner-104-L045
+eb4c4e255fe,Q361553,Adolf Fischer,1807,1893,003758,105011292X,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort,"bestätigt: 1867–1887 Regierungsrat und Oberst, von Reinach, gestorben in Aarau 1893.",aarau:1869-gebaeude-032-E003
+eb54a1f3706,Q998080,Olivier Zschokke,1826,1898,003808,138527431,möglich,stadt,HLS-Artikel bestätigt+Aarau-Bezug (Namensvetter im Band),"bestätigt: Ingenieur, 1880–1898 Inhaber von Zschokke & Cie. in Aarau.",aarau:1869-gebaeude-047-E021
 eb56065cae6,Q61993428,Luigi Picchioni,1784,1869,017093,1044607378,wahrscheinlich,stadt,Basel-Bezug+Basler Amt,bestätigt: ab 1836 ao. Professor für italienische Literatur Basel = außerord. Prof. der italien. Sprache und Litteratur 1862,basel:C00849-1862
+eb571b0d556,Q1731042,Karl Friedrich Brentano,1822,1894,005484,117733334,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS-Heimatort+Heimatort,"bestätigt: 1860–1885 Aargauer Regierungsrat, von Laufenburg.",aarau:1877-gebaeude-029-E005
 eb606431636,Q123861,Johann Jakob Bachofen,1815,1887,011480,118505645,möglich,stadt,Basel-Bezug,"bestätigt: Dr. iur. 1837, Prof. 1841 = «J. U. Dr» 1841. Tuchscherer, Traiteur und Bachofen-Brenner sind andere Personen (∞ erst 1865 Burckhardt)",basel:1862-einwohner-320-L056
 eb68389e2c8,Q94919611,Johann Jakob Uebelin,1793,1873,,1089726341,wahrscheinlich,stadt,Basel-Bezug+Basler Amt,,basel:C01170-1862
+eb70c3be6ab,Q110213847,Johann Julius Rothpletz,1833,1898,,1220882666,möglich,stadt,Aarau-Bezug+Beruf,,aarau:1867-gebaeude-037-E005
 eb71047e82d,Q55194535,Johann Georg Müller,1800,1875,,137826141,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-386-L040
 eb79c07c2d8,Q107000468,Johann Jakob Burckhardt,1836,1890,005947,1048084728,möglich,stadt,Basel-Bezug,ungeprüft,basel:1862-gebaeude-107-L028
 eb7b97e8843,Q94901755,,1812,1897,,116095059,wahrscheinlich,stadt,Basel-Bezug+Beruf,,basel:1862-gebaeude-157-L010
 eb811d5727d,Q94784791,Rudolf Merian,1823,1872,,137095422,wahrscheinlich,stadt,Basel-Bezug+Beruf,,basel:1862-einwohner-380-L085
 eb82d33c811,Q110560705,Johann Alfred Keller,1876,1955,029611,1080647716,möglich,stadt,HLS nennt Aarau,ungeprüft,aarau:1899-einwohner-127-L043
+eb832948d78,Q1494316,Robert Straub,1832,1901,003795,1051013046,möglich,stadt,Heimatort,ungeprüft,aarau:1881-gebaeude-055-E025
 eb844f8ac1a,Q141609910,Carl Burckhardt,1805,1880,,,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-332-L069
 eb857e2c5b2,Q55674986,Ernst Zschokke,1864,1937,,117019127,wahrscheinlich,stadt,Aarau-Bezug,,aarau:1892-einwohner-152-L033
-eb88a103e74,Q124151,Adolf Frey,1855,1920,011796,116782544,möglich,stadt,HLS-Artikel bestätigt+HLS nennt Aarau (Namensvetter im Band),zweifelhaft: Ab 1898 Ordinarius in Zürich; der berufslose Eintrag 1899 kann ein Nachläufer oder ein Namensvetter sein.,aarau:1884-einwohner-025-L014
+eb88a103e74,Q124151,Adolf Frey,1855,1920,011796,116782544,möglich,stadt,HLS-Artikel bestätigt+HLS nennt Aarau,zweifelhaft: Ab 1898 Ordinarius in Zürich; der berufslose Eintrag 1899 kann ein Nachläufer oder ein Namensvetter sein.,aarau:1877-gebaeude-030-E037
 eb8bdcf90fc,Q4755382,Andreas Bischoff-Ehinger,1812,1875,029908,1045247804,wahrscheinlich,stadt,Basel-Bezug+Allianzname,"bestätigt: Kaufmann, ∞ 1841 Ehinger = Andr. Bischoff-Ehinger, Handelsmann 1850/62",basel:1862-gebaeude-089-L036
 ebaa1091b02,Q15791778,Alfred Maul,1828,1907,016306,117557595,wahrscheinlich,stadt,Basler Amt,"bestätigt: 1856-69 Lehrer für Mathematik und Turnen in Basel, 1859 Mitgründer Turnlehrerverein = Turnlehrer, Vice-Präs. Turnlehrer-Verein 1862",basel:C00709-1862
+ebb5c0dfb77,Q2693312,Eugen Keller,1880,1948,046043,116118911,möglich,stadt,Geburtsort weicht ab,ungeprüft,aarau:1913-einwohner-178-L027
 ebb656e71cb,Q2635597,Johannes Hohl,1813,1878,004149,1059754959,möglich,stadt,Basel-Bezug,ungeprüft,basel:1862-einwohner-360-L113
 ebb7c7915ab,Q55675180,Burkard Jurt,1822,1900,009888,11724144X,wahrscheinlich,stadt,Basel-Bezug,bestätigt: ab 1858 Pfarrer der kath. Stadtpfarrei St. Clara Basel = Pfarrer 1862,basel:1862-einwohner-366-L015
 ebb7ca6a93f,Q112675415,Ludwig de Wette,1812,1887,,1020730587,wahrscheinlich,stadt,Basel-Bezug,,basel:1862-einwohner-337-L018
@@ -459,56 +567,79 @@ ebbb21a943e,Q12857155,August Raillard,1821,1889,,1019706740,möglich,stadt,Basel
 ebc1479131d,Q59945,Jacob Burckhardt,1818,1897,011647,11851752X,wahrscheinlich,stadt,Basel-Bezug+Basler Amt+Beruf,bestätigt: o. Prof. für Geschichte ab 1858 = Professor der Geschichte 1862; Eintrag «1841» passt nicht (damals Student) – Bandzuordnung prüfen,basel:C00215-1862
 ebc2d05da3a,Q55071926,Friedrich Riggenbach-Stehlin,1821,1904,029911,116547154,möglich,stadt,Basel-Bezug (Namensvetter im Band),"bestätigt: Bankier, ab 1859 Inhaber der Bank = Banquier (Firma F. Riggenbach) 1862; ∞ 1849 Stehlin. Flachmaler/Bäcker andere Personen",basel:1862-gebaeude-135-L027
 ebd369427e4,Q78070738,Johann Jakob Schäublin,1822,1901,046156,123237890,möglich,stadt,Basel-Bezug+Basler Amt (Namensvetter im Band),"bestätigt: ab 1846 Lehrer an der Realschule Basel = J. J. Schäublin, Lehrer 1850. Einträge 1841 (Lehenmann, Schuster, Schäublin-Meyer) andere Personen",basel:C00962-1862
+ebdadae45dc,Q77869981,Hans Herzog,1858,1929,,116762454,wahrscheinlich,stadt,Aarau-Bezug,,aarau:1913-einwohner-171-L049
 ebdc580740d,Q63108464,Carl Roth,1833,1886,,108979052X,wahrscheinlich,stadt,Basel-Bezug+Basler Amt,,basel:C00921-1862
 ebdd03bbb8c,Q23061637,Balthasar Reber,1805,1875,029450,10081896X,wahrscheinlich,stadt,Basel-Bezug,"bestätigt: ordinierter Theologe, Lehrer, ab 1855 ao. Prof. Schweizer Geschichte; ∞ 1832 Sulger = Reber-Sulger 1841/50",basel:1862-gebaeude-139-L050
+ebe05d2c19d,Q1874645,Ludwig Karrer,1830,1893,003770,1050720598,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS nennt Aarau+Heimatort,"bestätigt: 1876–1885 Regierungsrat, von Teufenthal.",aarau:1879-gebaeude-052-E034
 ebe3363043b,Q55194535,Johann Georg Müller,1800,1875,,137826141,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-385-L087
 ebf22f973dc,Q139009803,,1817,1895,,1021164313,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-331-L122
 ebf295081cf,Q133314962,,1819,1867,,1081666188,möglich,stadt,Basel-Bezug (Namensvetter im Band),,basel:1862-einwohner-332-L020
-ebff60458ea,Q2597747,Xaver Fischer,1837,1921,027544,1069188956,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort+Beruf,"bestätigt: Ab 1877 erster christkatholischer Pfarrer in Aarau, von Triengen.",aarau:1888-einwohner-103-L018
+ebfe89e9885,Q78065718,Rudolf Heinrich Mantel,1853,1924,042915,1070608629,möglich,stadt,Heimatort,ungeprüft,aarau:1913-einwohner-187-L026
+ebff60458ea,Q2597747,Xaver Fischer,1837,1921,027544,1069188956,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort+Beruf,"bestätigt: Ab 1877 erster christkatholischer Pfarrer in Aarau, von Triengen.",aarau:1881-gebaeude-019-E009
 ec041c6dc0b,Q1159892,Daniel Albert Fechter,1805,1876,045903,100575846,wahrscheinlich,stadt,Basel-Bezug+Basler Amt+Beruf,"bestätigt: Gymnasiallehrer, Dr. h.c. 1839, Konrektor 1857-76 = Doktor 1841, Conrector 1862; ∞ Hanhart = Fechter-Hanhart",basel:C00326-1862
+ec080c3a708,Q117588,Alfred Vogt,1879,1943,014684,118768980,möglich,stadt,Beruf,ungeprüft,aarau:1913-einwohner-219-L014
 ec09c8c1e08,Q1611890,Hermann Kummler,1863,1949,029586,120873958,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug,bestätigt: Nach Rückkehr 1891 an einem Aarauer Elektrizitätswerk beteiligt und 1894 Gründer von Kummler & Cie. – passt zu Elektrotechniker/Kaufmann.,aarau:1892-einwohner-124-L031
+ec0b573a5f4,Q99305361,Fridolin Schneider,1823,1899,032681,1051006066,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort,"bestätigt: 1864–1899 Oberrichter (1887–1891 Präsident), von Herznach, gestorben in Aarau.",aarau:1869-gebaeude-040-E001
 ec0d6606d38,Q42182771,Hermann Hunziker,1840,1910,,1089402252,wahrscheinlich,stadt,Aarau-Bezug,,aarau:1896-einwohner-144-L024
-ec0fad30b25,Q27662066,Friedrich Siebenmann,1852,1928,014642,117339180,möglich,stadt,Aarau-Bezug,ungeprüft,aarau:1884-einwohner-048-L046
+ec0fad30b25,Q27662066,Friedrich Siebenmann,1852,1928,014642,117339180,möglich,stadt,Aarau-Bezug,ungeprüft,aarau:1879-gebaeude-044-E035
+ec12c0b7ae7,Q1529558,Max Wolfinger,1837,1913,,1089646674,wahrscheinlich,stadt,Aarau-Bezug+Heimatort,,aarau:1913-einwohner-227-L011
+ec13496dd86,Q51325118,Hans Adolf Steiner,1872,1955,,1089290586,möglich,stadt,Geburtsort weicht ab+Aarau-Bezug,,aarau:1913-einwohner-213-L029
 ec2450c07ad,Q61993455,Fritz Burckhardt,1830,1913,031963,135691389,wahrscheinlich,stadt,Basel-Bezug+Basler Amt,"bestätigt: ab 1852 Gymnasiallehrer Basel; ∞ 1855 Brenner = Friedr. Burckhardt-Brenner, Vorsteher/Beisitzer 1862. -Stähelin (Kfm.), Commis andere Personen",basel:C00157-1862
+ec27f433218,Q1731042,Karl Friedrich Brentano,1822,1894,005484,117733334,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS-Heimatort+Heimatort,"bestätigt: 1860–1885 Aargauer Regierungsrat, von Laufenburg.",aarau:1869-gebaeude-040-E003
 ec2d1ee524c,Q5889391,Gustav Schneider,1834,1900,,1012394786,wahrscheinlich,stadt,Basel-Bezug+Beruf,,basel:1862-einwohner-404-L092
 ec352814f3f,Q55679758,Samuel Minder,1782,1868,007178,1018676996,möglich,stadt,Basel-Bezug (Namensvetter im Band),bestätigt: Kleinrat 1830-58 = Rathsherr 1841/50; Meister zu Schmieden 1834-63; ∞ Merian = Minder-Merian 1862,basel:1862-einwohner-333-L109
+ec3ca84fd2e,Q35109253,Carl Diethelm Meyer,1840,1884,022524,1038716233,möglich,stadt,Heimatort,ungeprüft,aarau:1869-gebaeude-019-E029
 ec3eea672a8,Q1610866,Hermann Custer,1823,1893,031556,1071076434,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort,"bestätigt: Promovierter Chemiker, übernahm 1857 eine Seidenbandfabrik in Aarau, von Rheineck.",aarau:1888-einwohner-099-L007
+ec4682e54a3,Q133087704,,1856,1927,,1073419371,wahrscheinlich,stadt,Aarau-Bezug,,aarau:1913-gebaeude-047-L045
+ec4dc72b0fe,Q52155973,Adolf Weibel,1870,1952,,108929056X,wahrscheinlich,stadt,Aarau-Bezug+Heimatort,,aarau:1913-einwohner-222-L047
 ec60816db3b,Q63108457,Wilhelm Schmidlin,1810,1872,014812,100267491,möglich,stadt,Basel-Bezug (Namensvetter im Band),bestätigt: ab 1830 Lehrer (Mathematik) am Gymnasium = Lehrer der Mathematik am Gymnasium 1841,basel:1862-gebaeude-244-L029
 ec68bd3405a,Q55753978,Ludwig August Burckhardt,1808,1863,,101891350,wahrscheinlich,stadt,Basel-Bezug+Basler Amt,,basel:C00218-1862
 ec6fa01ef55,Q1696019,Johann Rudolf Geigy-Merian,1830,1917,004500,116495898,möglich,stadt,Basel-Bezug+Basler Amt (Namensvetter im Band),"bestätigt: Zivilrichter 1857-64 = Civilgericht 1862, Kaufmann; ∞ Merian. Achtung: Einträge J. J./Joh. Ludw./Joh. Merian ohne Geigy sind andere Personen",basel:C00744-1862
 ec76820dd84,Q1079607,Christian Friedrich Göttisheim,1837,1896,004508,1016252978,wahrscheinlich,stadt,Basel-Bezug,bestätigt: Redaktor Basler Tagblatt = Redactor d. Tagblatts 1862; ∞ Breiting. Göttisheim-Reiser (Spezereihdlg) ist andere Person,basel:1862-einwohner-349-L086
 ec7c9c13efb,Q61993490,Hieronymus Bischoff,1795,1870,029907,1080377247,möglich,stadt,Basel-Bezug+Basler Amt,"bestätigt: Kl. Stadtrat ab 1836, Präs. 1844-70 = Präsident Stadtrath; ∞ Respinger = Bischoff-Respinger. -Bischoff/-Wieland andere Personen",basel:C00100-1862
+ec8a86321bc,Q117023185,Heinrich Herzog,1822,1898,011944,139357130,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort+Beruf,"bestätigt: 1851–1895 Lehrer in Aarau, von Rekingen – auch «gew. Lehrer» 1896 passt.",aarau:1867-gebaeude-016-E037
 ec8b6c2c98a,Q55123244,Albert Ostertag,1810,1871,,117158747,wahrscheinlich,stadt,Basel-Bezug,,basel:1862-gebaeude-148-L039
 eca37444d8d,Q123861,Johann Jakob Bachofen,1815,1887,011480,118505645,möglich,stadt,Basel-Bezug+Basler Amt,"bestätigt: Dr. iur. 1837, Prof. 1841 = «J. U. Dr» 1841. Tuchscherer, Traiteur und Bachofen-Brenner sind andere Personen (∞ erst 1865 Burckhardt)",basel:C00020-1862
 eca44a7f893,Q15454451,Karl Steffensen,1816,1888,,117227099,wahrscheinlich,stadt,Basel-Bezug,,basel:1862-einwohner-411-L058
 eca7e3d0858,Q1337730,Johann Jakob Frey,1813,1865,022299,119498731,möglich,stadt,Basel-Bezug,ungeprüft,basel:1862-einwohner-344-L059
 eca8e5e9a0a,Q131583308,Samuel Merian,1803,1875,,1089904991,wahrscheinlich,stadt,Basel-Bezug+Beruf,,basel:1862-einwohner-381-L017
 ecaa3d2c92c,Q116759,Johann Heinrich Gelzer,1813,1889,027057,118716751,wahrscheinlich,stadt,Basel-Bezug,"bestätigt: 1839 Habilitation Basel (1841 dort), 1850 Rückkehr, Prof.; ∞ 1844 Sarasin = Gelzer-Sarasin, Dr. u. Prof. 1862",basel:1862-gebaeude-084-L050
+ecb082984eb,Q361553,Adolf Fischer,1807,1893,003758,105011292X,möglich,stadt,HLS-Artikel bestätigt+Aarau-Bezug (Namensvetter im Band),"bestätigt: 1867–1887 Regierungsrat und Oberst, von Reinach, gestorben in Aarau 1893.",aarau:1869-gebaeude-018-E005
 ecc073f74ab,Q94636777,Valentin Sauerbrey,1804,1881,,13408263X,wahrscheinlich,stadt,Basel-Bezug+Beruf,,basel:1862-gebaeude-176-L034
 ecc0b55ed97,Q15637884,Johann Karl Kappeler,1816,1888,004070,117748773,wahrscheinlich,stadt,Basler Amt,bestätigt: Präsident eidg. Schulrat ab 1857 = Präsident Eidg. Schulrath 1862 (eidg. Behörde),basel:C00569-1862
 ecc48482bc7,Q62130469,Carl Burckhardt,1831,1901,005943,117161365,wahrscheinlich,stadt,Basel-Bezug+Basler Amt+Beruf,bestätigt: Jurist (Kriminalrichter ab 1858) = Juristischer Lesezirkel 1862; ∞ Cousine Elisabeth Burckhardt = Burckhardt-Burck[hardt],basel:C00165-1862
 ecc4e532232,Q123861,Johann Jakob Bachofen,1815,1887,011480,118505645,möglich,stadt,Basel-Bezug (Namensvetter im Band),"bestätigt: Dr. iur. 1837, Prof. 1841 = «J. U. Dr» 1841. Tuchscherer, Traiteur und Bachofen-Brenner sind andere Personen (∞ erst 1865 Burckhardt)",basel:1862-einwohner-320-L048
+ecc6ae03552,Q42182771,Hermann Hunziker,1840,1910,,1089402252,wahrscheinlich,stadt,Aarau-Bezug,,aarau:1867-gebaeude-026-E018
+eccdbe0be54,Q78075155,Max Widmann,1867,1946,012397,117339628,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS nennt Aarau+HLS-Heimatort+Heimatort,bestätigt: Redaktor bei den «Aargauer Nachrichten» und Mitgründer der Literarischen Gesellschaft Aarau – genau der Beruf im Eintrag 1896.,aarau:1901-gebaeude-062-L032
 eccddccb13a,Q55679834,Emanuel Leonhard Paravicini,1839,1896,,1019314028,wahrscheinlich,stadt,Basel-Bezug+Beruf,,basel:1862-einwohner-389-L078
-ecd61730e21,Q1474158,Johann Rudolf Müller,1824,1894,042094,118872850,möglich,stadt,HLS nennt Aarau+HLS-Heimatort,ungeprüft,aarau:1884-einwohner-040-L028
+ecd61730e21,Q1474158,Johann Rudolf Müller,1824,1894,042094,118872850,möglich,stadt,HLS nennt Aarau+HLS-Heimatort,ungeprüft,aarau:1881-gebaeude-041-E011
 ece11e6f076,Q15805984,Dietrich Holzach,1836,1905,,,möglich,stadt,Aarau-Bezug (Namensvetter im Band),,aarau:1892-einwohner-119-L018
 ece437ebd76,Q1696019,Johann Rudolf Geigy-Merian,1830,1917,004500,116495898,möglich,stadt,Basel-Bezug,"bestätigt: Zivilrichter 1857-64 = Civilgericht 1862, Kaufmann; ∞ Merian. Achtung: Einträge J. J./Joh. Ludw./Joh. Merian ohne Geigy sind andere Personen",basel:1862-einwohner-380-L100
 eceecc32854,Q55677910,Carl Detloff,1817,1890,,139402098,möglich,stadt,Basel-Bezug+Basler Amt (Namensvetter im Band),,basel:C00268-1862
 ecf26a36a20,Q96364274,August Frey,1811,1880,023697,1077528760,möglich,stadt,Basler Amt,ungeprüft,basel:C00349-1862
 ecf3a0f93fb,Q61466027,Johann Bucher,1816,1873,,1386794279,möglich,stadt,Basel-Bezug+Basler Amt,,basel:C00146-1862
-ecf3d3c5b89,Q94762762,Heinrich Bircher,1850,1923,014294,118663321,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug,"bestätigt: Praxis in Aarau ab 1872, 1887–1917 chirurgischer Chefarzt und Direktor der kantonalen Krankenanstalt.",aarau:1884-einwohner-018-L024
+ecf3d3c5b89,Q94762762,Heinrich Bircher,1850,1923,014294,118663321,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug,"bestätigt: Praxis in Aarau ab 1872, 1887–1917 chirurgischer Chefarzt und Direktor der kantonalen Krankenanstalt.",aarau:1879-gebaeude-052-E021
 ecf75413bc3,Q107000468,Johann Jakob Burckhardt,1836,1890,005947,1048084728,möglich,stadt,Basel-Bezug,ungeprüft,basel:1862-einwohner-332-L081
+ed0586e90b9,Q131239011,Karl Fischer,1868,1927,,,wahrscheinlich,stadt,Aarau-Bezug,,aarau:1913-einwohner-156-L021
 ed085f8b974,Q138758571,Gottlieb Haller,1867,1925,005794,,möglich,stadt,HLS-Heimatort+Heimatort,"zweifelhaft: Von Reinach passt, der Artikel kennt ihn aber nur als Zugführer und Wirt in Zug; Bäcker in Aarau 1892 ist nicht belegt.",aarau:1892-einwohner-115-L037
 ed0d372ef9a,Q111325617,Johann Rudolf Wölfflin,1801,1882,,1122758472,wahrscheinlich,stadt,Basel-Bezug,,basel:1862-gebaeude-129-L006
 ed12d44cb43,Q2173493,Rudolf Müller,1802,1885,,124154301,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-386-L050
 ed2349e822c,Q1874645,Ludwig Karrer,1830,1893,003770,1050720598,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS nennt Aarau+Heimatort,"bestätigt: 1876–1885 Regierungsrat, von Teufenthal.",aarau:1884-einwohner-034-L037
 ed2d43b1371,Q78070738,Johann Jakob Schäublin,1822,1901,046156,123237890,möglich,stadt,Basel-Bezug (Namensvetter im Band),"bestätigt: ab 1846 Lehrer an der Realschule Basel = J. J. Schäublin, Lehrer 1850. Einträge 1841 (Lehenmann, Schuster, Schäublin-Meyer) andere Personen",basel:1862-gebaeude-216-L032
 ed43e72afb0,Q78075155,Max Widmann,1867,1946,012397,117339628,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS nennt Aarau,bestätigt: Redaktor bei den «Aargauer Nachrichten» und Mitgründer der Literarischen Gesellschaft Aarau – genau der Beruf im Eintrag 1896.,aarau:1896-einwohner-163-L078
-ed460a92c71,Q133087704,,1856,1927,,1073419371,wahrscheinlich,stadt,Aarau-Bezug,,aarau:1884-einwohner-055-L036
+ed460a92c71,Q133087704,,1856,1927,,1073419371,wahrscheinlich,stadt,Aarau-Bezug,,aarau:1881-gebaeude-016-E010
 ed4824d29a8,Q117975,Fritz Müller,1834,1895,,1018867228,möglich,stadt,Basel-Bezug+Basler Amt,,basel:C00792-1862
+ed5014653c8,Q118013,Friedrich Erismann,1842,1915,014346,118685171,möglich,stadt,Aarau-Bezug+Heimatort (HLS-Artikel noch nicht geprüft),ungeprüft,aarau:1879-gebaeude-020-E008
 ed536b66832,Q56007279,Gottlieb Hasler,1805,1864,,1042335672,wahrscheinlich,stadt,Basel-Bezug+Beruf,,basel:1862-einwohner-355-L114
 ed54f5c3138,Q113791446,Emanuel Preiswerk,1825,1904,,173927521,möglich,stadt,Basel-Bezug (Namensvetter im Band),,basel:1862-gebaeude-266-L053
 ed6032636cc,Q111325617,Johann Rudolf Wölfflin,1801,1882,,1122758472,wahrscheinlich,stadt,Basel-Bezug,,basel:1862-einwohner-426-L085
+ed6634f6247,Q2597747,Xaver Fischer,1837,1921,027544,1069188956,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort+Beruf,"bestätigt: Ab 1877 erster christkatholischer Pfarrer in Aarau, von Triengen.",aarau:1913-einwohner-157-L007
+ed672604a1d,Q123778,Carl Roman Abt,1850,1933,027685,116004835,möglich,stadt,Heimatort+Beruf (HLS-Artikel noch nicht geprüft),ungeprüft,aarau:1877-gebaeude-046-E049
+ed6887eb729,Q78064711,Adolf Jenny,1851,1941,029516,105377558X,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS nennt Aarau+Beruf,"bestätigt: Ab 1876 Inhaber einer Wollstofffärberei in Aarau, von Iffwil.",aarau:1901-gebaeude-065-L018
+ed6eb00dede,Q1913381,Max Schmidt,1862,1951,005519,1051006015,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug,"bestätigt: Fürsprecher ab 1886, 1891–1906 Stadtammann von Aarau.",aarau:1913-einwohner-206-L046
 ed6f6985cfd,Q1913381,Max Schmidt,1862,1951,005519,1051006015,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug,"bestätigt: Fürsprecher ab 1886, 1891–1906 Stadtammann von Aarau.",aarau:1896-einwohner-156-L024
+ed712310a35,Q92373,Ernst Ludwig Rochholz,1809,1892,011676,116578335,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug+Heimatort,"bestätigt: Lehrer an der Kantonsschule Aarau und 1866–1889 Leiter des Antiquariums, aus Ansbach.",aarau:1867-gebaeude-018-E013
+ed73baaa2d5,Q1494316,Robert Straub,1832,1901,003795,1051013046,möglich,stadt,Heimatort,ungeprüft,aarau:1867-gebaeude-026-E016
 ed82a096e40,Q116261,Ludwig Rütimeyer,1825,1895,028925,11670005X,wahrscheinlich,stadt,Basel-Bezug+Basler Amt,"bestätigt: o. Prof. Univ. Basel ab 1855, Dr. med. = Professor der Medizin, M. et Ch. D 1862; ∞ 1855 Fankhauser = Rütimeyer-Fankhauser",basel:C00922-1862
 ed8473b7181,Q62098691,Johann Jakob Schneider,1822,1889,,1015350887,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-404-L070
 ed851a71682,Q124909,Jacob Achilles Mähly,1828,1902,028239,116656816,möglich,stadt,Basel-Bezug (Namensvetter im Band),"bestätigt: Dr. phil., ab 1859 Lehrer am Pädagogium = Hauptlehrer, Ph. D 1862; ∞ 1855 Schermar = Mähly-Schermar. Küfer-Einträge = Vater",basel:1862-einwohner-377-L107
@@ -517,17 +648,21 @@ ed9ec48a808,Q98922203,Josef Schmid,1841,1928,032984,1051627346,möglich,stadt,Ba
 ed9ee3eb336,Q15391818,Ludwig Maring,1820,1893,,138625832,wahrscheinlich,stadt,Basel-Bezug+Beruf,,basel:1862-gebaeude-111-L006
 eda311a33fc,Q1682802,Karl Burckhardt-Iselin,1830,1893,004449,1048084752,wahrscheinlich,stadt,Basel-Bezug+Allianzname,bestätigt: Staatskanzlist und Ratsschreiber 1859-68 = Rathschreiber 1862; ∞ Iselin,basel:1862-einwohner-332-L085
 eda49534689,Q63119340,Marie Elisabeth Berri,1841,1908,,,wahrscheinlich,stadt,Basel-Bezug,,basel:1862-gebaeude-152-L053
+edad205e2ac,Q65997485,Julius Frey,1855,1925,042084,1017289751,möglich,stadt,HLS-Artikel bestätigt+HLS nennt Aarau (Namensvetter im Band),"bestätigt: 1881–1889 Vizedirektor der Aargauischen Bank, von Möhlin.",aarau:1881-gebaeude-034-E029
 edb34e98c3d,Q42182771,Hermann Hunziker,1840,1910,,1089402252,wahrscheinlich,stadt,Aarau-Bezug,,aarau:1884-einwohner-033-L019
-edb6616ff6f,Q15805984,Dietrich Holzach,1836,1905,,,wahrscheinlich,stadt,Aarau-Bezug,,aarau:1884-einwohner-032-L041
+edb6616ff6f,Q15805984,Dietrich Holzach,1836,1905,,,wahrscheinlich,stadt,Aarau-Bezug+Heimatort,,aarau:1877-gebaeude-034-E003
 edbaa79f46c,Q100780,Christian Friedrich Spittler,1782,1867,010488,118616285,wahrscheinlich,stadt,Basel-Bezug+Basler Amt,bestätigt: Sekretär der Christentumsgesellschaft = Sekretär 1841; Verlags- und Sortimentsbuchhandlung 1816 = Buchhändler 1850/62,basel:C01073-1862
 edbae66fd7c,Q107000468,Johann Jakob Burckhardt,1836,1890,005947,1048084728,möglich,stadt,Basel-Bezug,ungeprüft,basel:1862-einwohner-332-L066
+edbdbe502d0,Q133087704,,1856,1927,,1073419371,möglich,stadt,Aarau-Bezug (Namensvetter im Band),,aarau:1913-einwohner-226-L044
 edbf7fa87cf,Q115909,Carl Meissner,1800,1874,031986,103106553,wahrscheinlich,stadt,Basel-Bezug+Basler Amt,"bestätigt: Dr. med., Prof. Physiologie, 1836-67 Prof. Botanik = Professor der Naturgeschichte, M. D., Dekan Med. Fakultät 1841",basel:C00712-1862
 edc00d416b3,Q107000468,Johann Jakob Burckhardt,1836,1890,005947,1048084728,möglich,stadt,Basel-Bezug,ungeprüft,basel:1862-gebaeude-164-L031
 edc433f057b,Q1401747,Johann Haberstich,1824,1891,003762,105011910X,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug,bestätigt: Anwalt in Aarau bis zu seinem Tod 1891.,aarau:1888-einwohner-108-L011
 edc6315cb85,Q96380697,Joachim Rapp,1825,1897,029922,1081095709,wahrscheinlich,stadt,Basel-Bezug,bestätigt: eigenes Bauunternehmen in Basel = Bauunternehmer 1862; ∞ 1861 Uebelin = Rapp-Uebelin,basel:1862-einwohner-392-L066
 edc7793c0a6,Q1679204,Jakob Lukas Schabelitz,1827,1899,014810,120810883,wahrscheinlich,stadt,Basel-Bezug,bestätigt: Redaktor National-Zeitung 1849-52 = «J. L. Redaktor» 1850. Schabelitz-Flick (Buchbinder) = Vater (Mutter geb. Flick); 1854-64 in Zürich,basel:1862-einwohner-398-L095
 edca55bf4c5,Q63119335,Carl Bachofen,1817,1909,,1187868116,wahrscheinlich,stadt,Basel-Bezug+Basler Amt,,basel:C00016-1862
-edea6af5dfa,Q27662066,Friedrich Siebenmann,1852,1928,014642,117339180,möglich,stadt,Aarau-Bezug,ungeprüft,aarau:1888-einwohner-131-L031
+edcd738de4d,Q682470,Hans Schatzmann,1849,1923,020373,1050988485,möglich,stadt,Heimatort,ungeprüft,aarau:1877-gebaeude-047-E005
+edd86e35e9b,Q96253123,Siegfried Abt,1844,1884,031739,1068146931,möglich,stadt,Heimatort,ungeprüft,aarau:1877-gebaeude-015-E007
+edea6af5dfa,Q27662066,Friedrich Siebenmann,1852,1928,014642,117339180,möglich,stadt,Aarau-Bezug,ungeprüft,aarau:1881-gebaeude-017-E049
 edf675592e3,Q12857155,August Raillard,1821,1889,,1019706740,wahrscheinlich,stadt,Basel-Bezug,,basel:1862-einwohner-392-L037
 edfa3a65794,Q63108451,Eduard Hagenbach,1840,1916,,116380276,wahrscheinlich,stadt,Basel-Bezug,,basel:1862-gebaeude-167-L022
 edff840fedf,Q100780,Christian Friedrich Spittler,1782,1867,010488,118616285,wahrscheinlich,stadt,Basel-Bezug,bestätigt: Sekretär der Christentumsgesellschaft = Sekretär 1841; Verlags- und Sortimentsbuchhandlung 1816 = Buchhändler 1850/62,basel:1862-einwohner-410-L043
@@ -535,6 +670,7 @@ edffc58988a,Q23061637,Balthasar Reber,1805,1875,029450,10081896X,möglich,stadt,
 ee037694b22,Q1696019,Johann Rudolf Geigy-Merian,1830,1917,004500,116495898,möglich,stadt,Basel-Bezug+Basler Amt,"bestätigt: Zivilrichter 1857-64 = Civilgericht 1862, Kaufmann; ∞ Merian. Achtung: Einträge J. J./Joh. Ludw./Joh. Merian ohne Geigy sind andere Personen",basel:C00721-1862
 ee0c347ed42,Q116830,Johann Jakob Stehlin der Ältere,1803,1879,004743,1012440257,möglich,stadt,Basel-Bezug+Beruf,"bestätigt: Zimmermeister, Nationalrat ab 1853, Bürgermeister 1858-73, eidg. Oberst; ∞ Hagenbach. «J. J. sel. Stehlin» 1841 = verstorbener Vater",basel:1862-einwohner-411-L077
 ee0fd4dee68,Q113837544,Theophil Stähelin,1827,1896,,108978712X,wahrscheinlich,stadt,Basel-Bezug,,basel:1862-gebaeude-149-L018
+ee11c13eb33,Q27662066,Friedrich Siebenmann,1852,1928,014642,117339180,möglich,stadt,Aarau-Bezug,ungeprüft,aarau:1913-einwohner-210-L008
 ee122a2185d,Q94809743,Gustav Arsène Schneider,1866,1940,,130081248,wahrscheinlich,stadt,Aarau-Bezug,,aarau:1892-gebaeude-071-L043
 ee1373564b6,Q65997485,Julius Frey,1855,1925,042084,1017289751,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS nennt Aarau+HLS-Heimatort+Heimatort,"bestätigt: 1881–1889 Vizedirektor der Aargauischen Bank, von Möhlin.",aarau:1888-einwohner-104-L024
 ee1af25c50a,Q138758573,Hans Hassler,1865,1922,029511,1124163999,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug,bestätigt: Gründete 1894 in Aarau das Linoleum-Engrosgeschäft Hans Hassler & Co. – passt zu «Kaufm.» 1896.,aarau:1896-einwohner-125-L002
@@ -542,14 +678,17 @@ ee1b88d84a1,Q2077023,Peter Merian,1795,1883,007175,116892048,möglich,stadt,Base
 ee25961bdd4,Q107044261,Peter Feddersen,1812,1874,041601,1047348632,wahrscheinlich,stadt,Basel-Bezug,bestätigt: ab 1848 Redaktor in Basel (Tagblatt/Volksfreund) = Redactor 1862; ∞ Daverio Possenti = Feddersen-Possenti,basel:1862-einwohner-342-L010
 ee283a4fee2,Q55679758,Samuel Minder,1782,1868,007178,1018676996,wahrscheinlich,stadt,Basel-Bezug,bestätigt: Kleinrat 1830-58 = Rathsherr 1841/50; Meister zu Schmieden 1834-63; ∞ Merian = Minder-Merian 1862,basel:1862-gebaeude-246-L021
 ee35b1c61d5,Q5588059,Gottlieb Burckhardt,1836,1907,014314,13061517X,wahrscheinlich,stadt,Basel-Bezug,"bestätigt: Dr. med. Basel 1860, 1862 PD und praktizierender Arzt = M. et Ch. D 1862",basel:1862-einwohner-332-L058
+ee365e3ceb8,Q78057990,Emil Blattner,1874,1950,031898,1068158913,möglich,stadt,Aarau-Bezug,ungeprüft,aarau:1901-einwohner-099-L033
 ee3785565d2,Q19214199,Johann Ulrich Walser,1798,1866,015098,1060062720,möglich,stadt,Basel-Bezug (Namensvetter im Band),"bestätigt: 1860 Übersiedlung nach Basel; ∞ 1818 Hurter = J. Ulrich Walser-Hurter, Part. 1862. Walser-Bloch (Obsthandlung) andere Person",basel:1862-einwohner-421-L033
 ee3cb80d0dd,Q62130458,Gottlieb Bischoff,1820,1885,005945,1048083683,wahrscheinlich,stadt,Basel-Bezug+Basler Amt,bestätigt: Chef Landjägercorps 1848-52 = Polizeihauptmann 1850; Staatsschreiber 1860-75 = 1862; Dr. iur.,basel:C00099-1862
+ee3e9604a26,Q133456399,Anna Blattner,1866,1935,,,wahrscheinlich,stadt,Aarau-Bezug,,aarau:1901-einwohner-099-L031
 ee42f7e44cb,Q55194535,Johann Georg Müller,1800,1875,,137826141,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-386-L068
+ee48a5d0607,Q65997485,Julius Frey,1855,1925,042084,1017289751,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS nennt Aarau+HLS-Heimatort+Heimatort,"bestätigt: 1881–1889 Vizedirektor der Aargauischen Bank, von Möhlin.",aarau:1879-gebaeude-016-E039
 ee518f38147,Q59857545,Christian Gotthold Engelmann,1819,1884,,,wahrscheinlich,stadt,Basel-Bezug,,basel:1862-einwohner-340-L048
 ee522a08001,Q121991,Carl Gustav Bernoulli,1834,1878,,119547635,möglich,stadt,Basel-Bezug (Namensvetter im Band),,basel:1862-einwohner-323-L093
 ee53a5c95fa,Q2739430,Karl Gustav Jung,1794,1864,014424,130921572,möglich,stadt,Basel-Bezug+Basler Amt (Namensvetter im Band),"bestätigt: ab 1822 o. Prof. Medizin Basel = Med. Dr. und Professor 1841, M. et Ch. Dr. 1862",basel:C00562-1862
 ee600ef861d,Q2173493,Rudolf Müller,1802,1885,,124154301,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-385-L110
-ee60a61f889,Q42182771,Hermann Hunziker,1840,1910,,1089402252,möglich,stadt,Aarau-Bezug (Namensvetter im Band),,aarau:1884-einwohner-033-L022
+ee60a61f889,Q42182771,Hermann Hunziker,1840,1910,,1089402252,wahrscheinlich,stadt,Aarau-Bezug,,aarau:1881-gebaeude-021-E034
 ee6c151bb7b,Q6226098,Wilhelm Vischer,1833,1886,014818,117436828,möglich,stadt,Basel-Bezug (Namensvetter im Band),"bestätigt: ∞ 1859 Heussler = Vischer-Heusler 1862; PD Basel bis 1862. «Vischer-Bilsinger, Professor» ist Vater (032175)",basel:1862-einwohner-418-L109
 ee76930bbec,Q121517247,Jakob Ludwig Jäger,1821,1897,,1012275779,wahrscheinlich,stadt,Basel-Bezug+Basler Amt,,basel:C00551-1862
 ee7717f148d,Q55679694,Johann Jakob Linder,1828,1907,,101771214X,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-375-L047
@@ -557,9 +696,12 @@ ee78c54036e,Q63120216,Martin Burckhardt,1817,1902,,120888395X,möglich,stadt,Bas
 ee7eaf75fa4,Q115601,Wilhelm His,1831,1904,014410,118705253,wahrscheinlich,stadt,Basel-Bezug+Basler Amt,"bestätigt: o. Prof. Anatomie u. Physiologie Basel ab 1857 = Dr. und Prof., M. et Ch. D 1862; ∞ Vischer 1858 = His-Vischer",basel:C00497-1862
 ee801792dba,Q55675631,Eduard Preiswerk,1829,1895,029905,118741802,wahrscheinlich,stadt,Basel-Bezug,"bestätigt: Kaufmann, Zivilgericht 1858-76 = Kaufmann, Civilgericht 1862; ∞ 1852 Burckhardt = Preiswerk-Burckhardt",basel:1862-einwohner-391-L072
 ee83f4c21a1,Q121991,Carl Gustav Bernoulli,1834,1878,,119547635,möglich,stadt,Basel-Bezug+Basler Amt (Namensvetter im Band),,basel:C00060-1862
+ee879786e64,Q1474158,Johann Rudolf Müller,1824,1894,042094,118872850,möglich,stadt,HLS nennt Aarau,ungeprüft,aarau:1879-gebaeude-038-E038
 ee96d2b3f85,Q124151,Adolf Frey,1855,1920,011796,116782544,möglich,stadt,HLS-Artikel bestätigt+HLS nennt Aarau+Heimatort,zweifelhaft: Ab 1898 Ordinarius in Zürich; der berufslose Eintrag 1899 kann ein Nachläufer oder ein Namensvetter sein.,aarau:1888-gebaeude-028-L031
 ee977f4c3e2,Q1610769,Hermann Brunnhofer,1841,1916,042906,116811897,wahrscheinlich,stadt,HLS-Artikel bestätigt+Aarau-Bezug+Beruf,bestätigt: 1873–1888 aargauischer Kantonsbibliothekar in Aarau – passt zum Eintrag 1884.,aarau:1884-einwohner-020-L007
+eeac2e215a6,Q1474158,Johann Rudolf Müller,1824,1894,042094,118872850,möglich,stadt,HLS nennt Aarau+HLS-Heimatort,ungeprüft,aarau:1877-gebaeude-036-E044
 eeba4f2348e,Q55905248,Immanuel Stockmeyer,1814,1894,010863,100592988,wahrscheinlich,stadt,Basel-Bezug+Basler Amt,"bestätigt: Pfarrer St. Martin 1846-71, Präs. Knabengemeindeschule 1852-70 = 1862; ∞ Burckhardt = Stockmeyer-Burckhardt",basel:C01120-1862
+eec29dfa9d7,Q98399981,Johann Ludwig Meyer,1858,1935,,1181732182,möglich,stadt,Aarau-Bezug+Beruf,,aarau:1899-einwohner-132-L035
 eed01561c49,Q49283626,Adolf Follenweider,1823,1895,,140453520,wahrscheinlich,stadt,Basel-Bezug+Beruf,,basel:1862-einwohner-343-L054
 eed6c5842b2,Q139013475,,1828,1900,,1089911521,möglich,stadt,Basel-Bezug+Basler Amt (Namensvetter im Band),,basel:C00028-1862
 eee422b0261,Q120757,Samuel Preiswerk,1799,1871,010790,116282150,wahrscheinlich,stadt,Basel-Bezug+Basler Amt+Beruf,"bestätigt: 1839 Gemeiner Helfer, 1840 Pfarrer St. Leonhard = Gemeinhelfer/Diakon 1841; Antistes 1859 = Pfarrer und Antistes",basel:C00865-1862
@@ -584,13 +726,18 @@ ef2dc476257,Q110589044,Josef Wagner,1820,1886,018283,1053629168,möglich,stadt,B
 ef2eceef0de,Q1731009,Karl Franz Sebastian Fahrländer,1836,1907,003756,1051067812,wahrscheinlich,stadt,HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug,"bestätigt: Dr. iur., 1885–1907 Regierungsrat, ab 1860 von Laufenburg – passt zu «Dr. Jur. Regierungsrath von Laufenburg».",aarau:1888-einwohner-101-L039
 ef486048351,Q1509268,Heinrich Wieland,1822,1894,024426,139105697,wahrscheinlich,stadt,Basel-Bezug,"bestätigt: 1861 Oberstleutnant, ab 1861 eidg. Generalstab und Oberinstruktor Basel = eidgen. Oberstlieut. 1862; ledig",basel:1862-einwohner-425-L005
 ef492e58051,Q58331292,Eduard His,1792,1871,045960,138716218,möglich,stadt,Basel-Bezug+Basler Amt,ungeprüft,basel:C00494-1862
+ef4c3e4415c,Q1127106,Conradin Zschokke,1842,1918,019957,119048280,möglich,stadt,Aarau-Bezug+Beruf,"zweifelhaft: Ingenieur passt und er war ab 1892 Aargauer Grossrat, doch der Artikel verortet ihn in Frankreich und Zürich und nennt die definitive Rückkehr nach Aarau erst 1909.",aarau:1899-einwohner-153-L007
+ef4c822ee98,Q55842704,Conrad Cramer-Frey,1834,1900,003624,129587648,möglich,stadt,Heimatort+Beruf (HLS-Artikel noch nicht geprüft),ungeprüft,aarau:1867-gebaeude-027-E017
 ef513e42bea,Q55194535,Johann Georg Müller,1800,1875,,137826141,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-385-L019
 ef52421a1aa,Q78064440,Friedrich Samuel Iselin,1829,1882,014196,135882109,wahrscheinlich,stadt,Basel-Bezug+Basler Amt,bestätigt: ab 1856 Lehrer am Humanist. Gymnasium Basel = Gymnasiallehrer 1862; ∞ Rütimeyer = Iselin-Rüttimeyer,basel:C00544-1862
 ef5f5226713,Q55842732,Gaspard Dollfus,1812,1889,019832,122553519,möglich,stadt,Beruf,ungeprüft,basel:1862-einwohner-338-L011
 ef6d0342a46,Q55680101,Adolf Burckhardt,1834,1886,,1021101885,möglich,stadt,Basel-Bezug+Basler Amt,,basel:C00153-1862
 ef72f102c90,Q107000468,Johann Jakob Burckhardt,1836,1890,005947,1048084728,möglich,stadt,Basel-Bezug,ungeprüft,basel:1862-einwohner-332-L096
+ef7b86e3287,Q1529558,Max Wolfinger,1837,1913,,1089646674,wahrscheinlich,stadt,Aarau-Bezug+Heimatort,,aarau:1881-gebaeude-053-E015
 ef7eb62d01e,Q62130471,Johann Rudolf Gemuseus,1832,1912,,1274665981,möglich,stadt,Basel-Bezug (Namensvetter im Band),,basel:1862-gebaeude-145-L030
+ef8c687d12f,Q72089314,Johann Baptist Wietlisbach,1822,1887,005530,1050015029,möglich,stadt,Heimatort+Beruf,ungeprüft,aarau:1867-gebaeude-036-E045
 ef8f7978354,Q6233747,Friedrich Weber,1813,1882,022690,117158623,wahrscheinlich,stadt,Basel-Bezug+Beruf,"bestätigt: Kupferstecher, 1859 Rückkehr nach Basel, ∞ 1852 Bischoff = Weber-Bischoff, Kupferstecher 1862. Weber-Salathe 1850 andere Person (damals Paris)",basel:1862-einwohner-421-L107
+ef92528eef9,Q2074388,Peter Conrad,1850,1914,005486,1050111931,möglich,stadt,HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort (Namensvetter im Band),"bestätigt: 1885–1914 Aargauer Regierungsrat, Fürsprecher, von Auw und Ehrenbürger von Turgi – deckt sich mit allen Einträgen.",aarau:1913-einwohner-149-L046
 ef955ba0ee9,Q23653637,Ludwig Adam Kelterborn,1811,1878,021832,122517504,wahrscheinlich,stadt,Basel-Bezug,"bestätigt: ab 1835/37 Zeichenlehrer in Basel = Zeichnungslehrer 1841, Zeichnungs-Hülfslehrer 1862",basel:1862-einwohner-367-L102
 ef9d9a55e1c,Q120141,August Socin,1837,1899,014644,118761633,wahrscheinlich,stadt,Basel-Bezug+Basler Amt,"bestätigt: Dr. med., 1862 ao. Professor Chirurgie Basel = M. et Ch. D., außerord. Prof. 1862",basel:C01070-1862
 efa6931368e,Q61466027,Johann Bucher,1816,1873,,1386794279,möglich,stadt,Basel-Bezug,,basel:1862-einwohner-330-L098
@@ -601,6 +748,7 @@ efbd86de8b2,Q78064440,Friedrich Samuel Iselin,1829,1882,014196,135882109,möglic
 efbdfc8e049,Q670852,Friedrich Hegar,1841,1927,020675,11889112X,möglich,stadt,Beruf,ungeprüft,aarau:1899-einwohner-122-L032
 efca25f90ce,Q79252675,Eduard Bernoulli-Riggenbach,1819,1899,,106253316X,wahrscheinlich,stadt,Basel-Bezug+Allianzname,,basel:1862-einwohner-323-L122
 efcb6bf9dfe,Q78067806,Johann Peter Oswald,1808,1885,029915,1080996583,möglich,stadt,Basel-Bezug (Namensvetter im Band),"bestätigt: Speditions- und Bankunternehmer = Kaufmann 1862; ∞ 1833 Linder = Oswald-Linder. J. Ch. Oswald (Färber), Oswald-Kurz andere Personen",basel:1862-gebaeude-233-L030
+efd7760fc31,Q42328414,H. Frey,1864,1928,,,wahrscheinlich,stadt,Aarau-Bezug,,aarau:1913-einwohner-158-L035
 efdd36c3cbe,Q94869925,Johannes Burckhardt,1798,1869,,1021287148,wahrscheinlich,stadt,Basel-Bezug,,basel:1862-einwohner-332-L080
 efdee356c01,Q123437,Johann Jakob Bernoulli,1831,1919,,120208016,möglich,stadt,Basel-Bezug (Namensvetter im Band),,basel:1862-gebaeude-139-L052
 efed8a8d5dd,Q120141,August Socin,1837,1899,014644,118761633,wahrscheinlich,stadt,Basel-Bezug,"bestätigt: Dr. med., 1862 ao. Professor Chirurgie Basel = M. et Ch. D., außerord. Prof. 1862",basel:1862-einwohner-409-L012
@@ -819,7 +967,6 @@ e34eda12a5e,Q131739330,Alfred Hablützel,1866-01-01,,,,möglich,telefonbuch,vorn
 e35051d52bb,Q55676382,Theodor Bertheau,1869-07-05,1944-08-10,,126400911,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 e3508fae49c,Q78056974,Adolphe Rodolphe Armleder,1847-10-27,1930-12-20,043970,1080263667,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 e351febf6e1,Q94890508,Ernst Trösch,1879-01-01,1943-01-01,,1156878934,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
-e35307c3567,Q120184,Eugen Bircher,1882-02-17,1956-10-20,005018,118838822,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 e353ed461ce,Q97385043,Max Hausmann,1875-07-06,1948-08-04,,1055359338,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 e35458ae063,Q55683312,August Jegher,1843-09-07,1924-02-13,044359,1070600997,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 e3545e92c22,Q136573366,Heinrich Meyer,1870-06-15,1930-04-29,,1018618546,wahrscheinlich,telefonbuch,vorname:gleich+wirkungsort+beruf,,
@@ -827,7 +974,6 @@ e358d7573f9,Q362004,Adolf Hamm,1882-03-09,1938-10-15,026920,133489582,wahrschein
 e358f00a642,Q27468672,Johannes Meiner (1867-1941),1867-01-28,1941-06-15,029469,131396501,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
 e35c3d90288,Q125029882,Jakob Stamm,1861-08-07,1933-09-25,,1201887445,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 e35f233b5fb,Q1448915,Franz Schmid,1841-08-30,1923-11-30,004687,1053285094,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
-e35f4c30d14,Q1456234,Fridolin Laager,1883-05-27,1975-01-20,020361,1050723228,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 e3685464827,Q28223005,Jacques Rutty,1849-03-17,1927-12-22,003891,1052760082,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
 e369fee6d70,Q19628932,Albert Reverdin,1881-01-01,1929-01-01,,,wahrscheinlich,telefonbuch,vorname:abkürzung+sterbeort+beruf,,
 e36c28e1353,Q47016356,Henri Rebmann,1848-08-29,1931-08-06,,,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
@@ -1309,6 +1455,7 @@ ea918cbf44e,Q2058709,Paul Andres,1882-08-17,1974-03-17,033469,1047349795,möglic
 ea951f5e2ec,Q1539562,Gottfried von Fellenberg,1857-11-05,1924-04-14,047526,123245740X,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 ea965444e23,Q55846723,Conrad Sonderegger,1858-06-12,1938-04-17,049648,139562818,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 eaa0d484f75,Q94936629,Richard Doetsch-Benziger,1877-07-25,1958-11-24,043668,118858386,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+wirkungsort+beruf,,
+eaa68518c0e,Q1252447,Gottfried Keller,1873-09-04,1945-01-11,003773,131837702,möglich,telefonbuch,vorname:initiale+sterbeort+wirkungsort+beruf,,
 eaa6cd44e36,Q122535,Theodor Gohl,1844-03-22,1910-10-01,019854,132553066,möglich,telefonbuch,vorname:initiale+wirkungsort+beruf,,
 eaa9154808e,Q122191,Hermann Sahli,1856-05-23,1933-04-28,014612,117600008,möglich,telefonbuch,vorname:initiale+sterbeort+wirkungsort+beruf,,
 eab12632768,Q121187,Americo Marazzi,1879-04-12,1963-12-11,044548,1046847546,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
@@ -1336,6 +1483,7 @@ eae3d6e1412,Q55680046,Giovanni Ambrogio Stoppany,1868-12-11,1945-12-24,014655,10
 eae68a3a8f2,Q131670897,Theodor Lunke,1878-01-01,1954-12-01,,1315766833,möglich,telefonbuch,vorname:abkürzung+wohnort,,
 eaec505ad92,Q96337548,Franz Vital Lusser,1849-04-28,1927-09-19,031934,1053159676,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
 eaf56165fba,Q107000176,Robert Bischoff,1876-01-05,1920-10-28,045558,14001330X,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
+eaf6569018d,Q98562489,Alfred Oehler,1852-05-24,1900-11-06,048356,1080996435,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 eaf810950cc,Q2173745,Rudolf Schmid,1822-09-21,1903-01-18,029719,1076300243,möglich,telefonbuch,vorname:initiale+wirkungsort+beruf,,
 eaf8c4da1e0,Q27229229,Louis Wethli,1842-10-16,1914-02-21,,1079530630,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 eafb6c062c6,Q1465463,Heinrich Reese,1843-10-07,1919-04-26,005950,101994501X,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+wirkungsort+beruf,,
@@ -1509,6 +1657,7 @@ ed0977f9151,Q55679496,Hermann Schachenmann,1867-12-09,1936-10-21,,1015544827,mö
 ed0addfbccd,Q68206260,Heinrich Scherrer,1847-12-12,1919-11-25,004016,1020940395,wahrscheinlich,telefonbuch,vorname:abkürzung+sterbeort+beruf,,
 ed11f543f97,Q364437,Adolf Vivell,1878-05-19,1959-07-07,049202,104712565X,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 ed15b7200bd,Q55681629,Alfred Möri,1880-10-24,1936-02-28,027388,1046853856,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
+ed244016f50,Q120184,Eugen Bircher,1882-02-17,1956-10-20,005018,118838822,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 ed25237b41e,Q137113512,Henri Stauffer,1864-01-01,1951-01-01,,1292717262,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 ed258c7a9da,Q120093,Paul Lachenal,1884-12-07,1955-03-10,006827,102113645,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+wirkungsort+beruf,,
 ed2896f1638,Q134926710,Jakob Sigrist (1850-1910),1850-01-01,1910-01-01,,1089636032,möglich,telefonbuch,vorname:initiale+sterbeort+wirkungsort+beruf,,
@@ -1576,7 +1725,6 @@ ee0aec7d854,Q28537402,Jules-Louis Verrey,1822-04-15,1896-03-07,,,möglich,telefo
 ee0b3aeca02,Q58233072,Gottfried Kümmerly,1822-04-10,1884-01-02,029744,136588204,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 ee137b79cf0,Q124940421,Viktor Flück,1862-10-10,1941-06-30,,,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 ee137e42326,Q110520899,Heinrich Wagner,1866-10-19,1920-04-24,043707,1048339483,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
-ee15ede57ca,Q98562489,Alfred Oehler,1852-05-24,1900-11-06,048356,1080996435,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 ee1a6fe2257,Q86738642,E. Chiffelle,1868-01-01,1920-01-01,,1103528947,möglich,telefonbuch,vorname:initiale+wirkungsort+beruf,,
 ee1f73b1cf5,Q55850107,Otto Fröbel,1844-12-27,1906-08-28,045564,133093735,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
 ee1f7b25cda,Q131739306,Johann Fehr,1840-01-01,,,,möglich,telefonbuch,vorname:abkürzung+wohnort,,
@@ -1640,6 +1788,7 @@ eef16470a26,Q27517007,Gustav Adolf Tobler,1850-06-22,1923-07-03,031688,105513613
 eef528f8d1b,Q23041093,Theodor Engelmann,1851-12-27,1931-07-04,,116497076,wahrscheinlich,telefonbuch,vorname:abkürzung+sterbeort+wirkungsort+beruf,,
 eef5bfb5a76,Q9263865,Fritz Lotmar,1876-10-26,1964-10-24,,117226769,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 eef63ea126d,Q15808488,Ernst Jung,1841-02-27,1912-02-03,019870,133772314,möglich,telefonbuch,vorname:initiale+sterbeort+wirkungsort+beruf,,
+eef8425d8ef,Q1456234,Fridolin Laager,1883-05-27,1975-01-20,020361,1050723228,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 eef9404e7fb,Q94896096,Ernst Adolf Koechlin,1865-11-01,1929-05-27,,1017239983,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,
 eef99b4fde8,Q55877061,Julius Maurer,1857-07-14,1938-01-21,031765,11685572X,möglich,telefonbuch,vorname:initiale+sterbeort+beruf,,
 eefa0e249de,Q21609691,Emil Steiger,1861-01-09,1927-01-31,029919,117657581,wahrscheinlich,telefonbuch,vorname:gleich+sterbeort+beruf,,

@@ -410,8 +410,8 @@ Zivilstand (ledig → verheiratet → Witwe, Ehemann → Witwe) prüft ein eigen
 
 Die Paarsuche oben sucht dieselbe Person an zwei Orten. Die Zuzüge fragen anders: Wer steht in
 einem Band einer Stadt zum ersten Mal, und woher stammt er? Das geht nur, wo die Adressbücher den
-Heimatort nennen und mehrere Bände vorliegen, im Zeitfenster nur in **Aarau 1867–1899**
-(Gebäude- und Einwohnerlisten, rund 60 % der Personen mit Heimatort). **Zürich 1867–1914** hat
+Heimatort nennen und mehrere Bände vorliegen, im Zeitfenster nur in **Aarau 1867–1913**
+(Gebäude- und Einwohnerlisten, bis 1899 rund 60 % der Personen mit Heimatort, 1901 24 %, 1913 35 %). **Zürich 1867–1914** hat
 mehrere Bände, aber keinen Heimatort: dort nur die Zuzüge selbst, ebenso in **Bern 1861–1900** (15 Bände) sowie
 **Baden und Lausanne** (je zwei Bände, 10 und 11 Jahre auseinander). **Basel 1862** kommt fertig gerechnet aus dem
 Basler Repo, mit dem Vorband 1850 vor dem Zeitfenster (unten). Die Seite zeigt alle sechs unter `#/wanderungen?v=zuzug`
@@ -436,7 +436,7 @@ python scripts/origins.py ref DIR   # data/ref/places_foreign.csv neu aus GeoNam
    dieses Namens; mehrdeutige Namen tragen mehrere Länder («AT/DE»).
 4. Unscharf gegen die Schweizer Liste (≥ 0,86) → `CH?` (Zezwyl, Erlisbach).
 
-Aarau, 11 718 Einträge mit Heimatort: CH 9 674, CH? 383, Ausland 1 132, offen 283, leer 246.
+Aarau bis 1899, 11 718 Einträge mit Heimatort: CH 9 674, CH? 383, Ausland 1 132, offen 283, leer 246.
 
 ### Zuzüge (`scripts/zuzuege.py`)
 
@@ -457,6 +457,11 @@ Aarau, 11 718 Einträge mit Heimatort: CH 9 674, CH? 383, Ausland 1 132, offen 2
 - Aarau hat die Gebäude zwischen 1869 und 1877 neu nummeriert: Bei verknüpften Paaren stimmt die
   Nummer über diese Grenze in 29 von 565 Fällen, sonst in rund 75 %. Hausnummern zählen über die
   Grenze nicht, für «haushalt» gilt dort die Strasse.
+- 1900 hat Aarau ein zweites Mal neu nummeriert. Darüber hilft das «Verzeichnis der neuen Hausnumerierung 1900»
+  (sources.toml `renumbering`): Eine neue Nummer steht für eine oder mehrere alte («96/1256»), jede Gruppe alter
+  Nummern wird auf die erste zurückgeführt, die neuen Nummern auf dieselbe; Neubauten ohne alte Nummer bilden ein
+  eigenes System. Bleibende 1899→1901 im selben Haus: 956 von 1'665 (57 %, 1896→1899 63 %); die rohe Nummer
+  stimmt nur bei 25. Ohne Konkordanz wären es 1901 452 statt 427 Zuzüge, «haushalt» 99 statt 80.
 - Status im späteren Band: `bleibt`, `haushalt` (gleicher Name im selben Haus vorher: Sohn, Witwe,
   Angehörige), `witwe`, `neu_familie` (Familien-, Geburts- oder Allianzname schon in der Stadt),
   `neu`. **Zuzüge** = `neu` + `neu_familie`.
@@ -465,16 +470,28 @@ Aarau, 11 718 Einträge mit Heimatort: CH 9 674, CH? 383, Ausland 1 132, offen 2
 |---|---|---|---|---|---|
 | 1869 | 1'460 | 304 | 190 | 18 (9 %) | 27/437 (6 %) |
 | 1877 | 1'664 | 637 | 414 | 56 (14 %) | 26/341 (8 %) |
-| 1879 | 1'658 | 312 | 217 | 29 (13 %) | 60/581 (10 %) |
+| 1879 | 1'658 | 310 | 216 | 29 (13 %) | 60/581 (10 %) |
 | 1881 | 1'795 | 289 | 205 | 28 (14 %) | 51/635 (8 %) |
-| 1884 | 1'839 | 494 | 392 | 52 (13 %) | 36/632 (6 %) |
-| 1888 | 1'836 | 379 | 291 | 33 (11 %) | 57/778 (7 %) |
-| 1892 | 1'939 | 390 | 327 | 28 (9 %) | 69/843 (8 %) |
-| 1896 | 2'116 | 568 | 242 | 46 (19 %) | 38/472 (8 %) |
-| 1899 | 2'080 | 374 | 162 | 28 (17 %) | 47/560 (8 %) |
+| 1884 | 1'839 | 483 | 385 | 51 (13 %) | 36/639 (6 %) |
+| 1888 | 1'836 | 377 | 292 | 32 (11 %) | 58/782 (7 %) |
+| 1892 | 1'941 | 390 | 328 | 28 (9 %) | 69/847 (8 %) |
+| 1896 | 2'119 | 541 | 244 | 47 (19 %) | 38/480 (8 %) |
+| 1899 | 2'080 | 366 | 161 | 28 (17 %) | 47/563 (8 %) |
+| 1901 | 2'192 | 427 | 249 | 41 (16 %) | 59/623 (9 %) |
+| 1913 | 3'362 | 1'791 | 1'226 | 65 (5 %)¹ | 28/613 (5 %)¹ |
 
-Ausländische Zuzüger in Aarau: Deutschland 230, Österreich oder Deutschland 19, Frankreich 19,
-Österreich 17, Italien 12.
+¹ 1913 steht der Heimatort ohne «von» und ohne Landeszusatz («Eisenach», «Bergamo», «Firenze»). Die Auslandsliste
+(`data/ref/places_foreign.csv`) kennt nur die Namen, die beim letzten Aufbau als Heimatort vorkamen; 228 Zuzüger
+1913 bleiben darum «offen», darunter viele ausländische Orte. Der Auslandanteil 1913 ist eine Untergrenze, bis die
+Liste aus den GeoNames-Dumps neu gebaut ist (`python scripts/origins.py ref DIR`). Dazu kommen Reste des Parsers
+im Heimatort («Postdienstchef», «Kaffeehalle»).
+
+1901 und 1913 kommen aus der Deutschen Nationalbibliothek (adressbuecher-aarau #9): 1901 mit qwen3.8 gelesen
+(Stichprobe am Seitenbild 34 von 40 Einträgen voll korrekt), 1913 die Einwohner mit Gemini (26 von 30). Zwischen 1901
+und 1913 liegen zwölf Jahre; «Zuzug» heisst «neu seit 1901» und schliesst Söhne mit eigenem Eintrag ein.
+
+Ausländische Zuzüger in Aarau 1869–1913: Deutschland 307, Österreich 27, Frankreich 23, Österreich oder
+Deutschland 20, Italien 16.
 
 ### Zürich 1867–1914 (ohne Heimatort)
 

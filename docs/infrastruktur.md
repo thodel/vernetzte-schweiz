@@ -85,7 +85,7 @@ Ingenieure und Bau.
 | Ingenieure und Bau | 6.5 | 8.3 | 7.2 | 8.6 | 13.5 |
 
 Zürich 1867 umfasst fast nur die Altstadt, 1875–1885 auch die Ausgemeinden (Bahnhof und Werkstätten
-in Aussersihl). Weitere Reihen: Aarau 1867–1899, Bern 1883/1900, Lausanne 1896/1907, Baden 1900/1910.
+in Aussersihl). Weitere Reihen: Aarau 1867–1913, Bern 1883/1900, Lausanne 1896/1907, Baden 1900/1910.
 
 **Telefonbücher einer Stadt, je 1000 Einträge**, für die Städte mit langen Reihen ab ihrem ersten
 Buch (je Jahr der Band mit den meisten Einträgen, mindestens 100 Einträge). Basel:

@@ -1,4 +1,205 @@
 id,city,volume,qid,label,birth,death,hls_id,gnd,tier,hls_check,evidence,score
+aarau:1867-gebaeude-010-E026,aarau,1867,Q41221993,Salomon Bleuler,1829,1886,003612,135549485,möglich,ungeprüft,Heimatort,3
+aarau:1867-gebaeude-010-E036,aarau,1867,Q133371230,,1841,1912,,133710270,möglich,,Geburtsort weicht ab+Aarau-Bezug,3
+aarau:1867-gebaeude-016-E037,aarau,1867,Q117023185,Heinrich Herzog,1822,1898,011944,139357130,wahrscheinlich,"bestätigt: 1851–1895 Lehrer in Aarau, von Rekingen – auch «gew. Lehrer» 1896 passt.",HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort+Beruf,16
+aarau:1867-gebaeude-017-E021,aarau,1867,Q124325,Emil Zschokke,1808,1889,013579,139879277,wahrscheinlich,"bestätigt: 1849–1886 Pfarrer in Aarau, dort gestorben 1889.",HLS-Artikel bestätigt+Aarau-Bezug+Beruf,10
+aarau:1867-gebaeude-018-E013,aarau,1867,Q92373,Ernst Ludwig Rochholz,1809,1892,011676,116578335,wahrscheinlich,"bestätigt: Lehrer an der Kantonsschule Aarau und 1866–1889 Leiter des Antiquariums, aus Ansbach.",HLS-Artikel bestätigt+Aarau-Bezug+Heimatort,11
+aarau:1867-gebaeude-025-E014,aarau,1867,Q998080,Olivier Zschokke,1826,1898,003808,138527431,wahrscheinlich,"bestätigt: Ingenieur, 1880–1898 Inhaber von Zschokke & Cie. in Aarau.",HLS-Artikel bestätigt+Aarau-Bezug,9
+aarau:1867-gebaeude-026-E016,aarau,1867,Q1494316,Robert Straub,1832,1901,003795,1051013046,möglich,ungeprüft,Heimatort,4
+aarau:1867-gebaeude-026-E018,aarau,1867,Q42182771,Hermann Hunziker,1840,1910,,1089402252,wahrscheinlich,,Aarau-Bezug,4
+aarau:1867-gebaeude-026-E019,aarau,1867,Q42182771,Hermann Hunziker,1840,1910,,1089402252,möglich,,Aarau-Bezug (Namensvetter im Band),4
+aarau:1867-gebaeude-027-E005,aarau,1867,Q1401747,Johann Haberstich,1824,1891,003762,105011910X,wahrscheinlich,bestätigt: Anwalt in Aarau bis zu seinem Tod 1891.,HLS-Artikel bestätigt+Aarau-Bezug,8
+aarau:1867-gebaeude-027-E017,aarau,1867,Q55842704,Conrad Cramer-Frey,1834,1900,003624,129587648,möglich,ungeprüft,Heimatort+Beruf (HLS-Artikel noch nicht geprüft),5
+aarau:1867-gebaeude-028-E038,aarau,1867,Q695558,Arnold Keller,1841,1934,023942,119057212,möglich,ungeprüft,Heimatort,3
+aarau:1867-gebaeude-029-E006,aarau,1867,Q94920696,Gottlieb Zehnder,1820,1901,024456,1064724140,wahrscheinlich,"bestätigt: 1875–1891 Waffenchef der eidg. Kavallerie, Oberst, von Birmenstorf – passt auch zum Partikular ab 1892.",HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort,15
+aarau:1867-gebaeude-029-E024,aarau,1867,Q1610866,Hermann Custer,1823,1893,031556,1071076434,wahrscheinlich,"bestätigt: Promovierter Chemiker, übernahm 1857 eine Seidenbandfabrik in Aarau, von Rheineck.",HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort,15
+aarau:1867-gebaeude-032-E001,aarau,1867,Q15805984,Dietrich Holzach,1836,1905,,,wahrscheinlich,,Aarau-Bezug+Heimatort,7
+aarau:1867-gebaeude-032-E020,aarau,1867,Q133371230,,1841,1912,,133710270,möglich,,Aarau-Bezug+Heimatort,6
+aarau:1867-gebaeude-036-E045,aarau,1867,Q72089314,Johann Baptist Wietlisbach,1822,1887,005530,1050015029,möglich,ungeprüft,Heimatort+Beruf,4
+aarau:1867-gebaeude-037-E005,aarau,1867,Q110213847,Johann Julius Rothpletz,1833,1898,,1220882666,möglich,,Aarau-Bezug+Beruf,4
+aarau:1867-gebaeude-040-E021,aarau,1867,Q1401747,Johann Haberstich,1824,1891,003762,105011910X,möglich,bestätigt: Anwalt in Aarau bis zu seinem Tod 1891.,HLS-Artikel bestätigt+Aarau-Bezug (Namensvetter im Band),8
+aarau:1867-gebaeude-044-E033,aarau,1867,Q42182771,Hermann Hunziker,1840,1910,,1089402252,möglich,,Aarau-Bezug (Namensvetter im Band),4
+aarau:1867-gebaeude-046-E036,aarau,1867,Q998080,Olivier Zschokke,1826,1898,003808,138527431,möglich,"bestätigt: Ingenieur, 1880–1898 Inhaber von Zschokke & Cie. in Aarau.",HLS-Artikel bestätigt+Aarau-Bezug (Namensvetter im Band),9
+aarau:1869-gebaeude-005-E017,aarau,1869,Q117023185,Heinrich Herzog,1822,1898,011944,139357130,wahrscheinlich,"bestätigt: 1851–1895 Lehrer in Aarau, von Rekingen – auch «gew. Lehrer» 1896 passt.",HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort+Beruf,16
+aarau:1869-gebaeude-005-E027,aarau,1869,Q1649156,Josef Burgmeier,1844,1905,,,wahrscheinlich,,Aarau-Bezug+Heimatort,7
+aarau:1869-gebaeude-008-E033,aarau,1869,Q41221993,Salomon Bleuler,1829,1886,003612,135549485,möglich,ungeprüft,Heimatort,3
+aarau:1869-gebaeude-013-E001,aarau,1869,Q1474158,Johann Rudolf Müller,1824,1894,042094,118872850,möglich,ungeprüft,HLS nennt Aarau,1
+aarau:1869-gebaeude-016-E027,aarau,1869,Q124325,Emil Zschokke,1808,1889,013579,139879277,wahrscheinlich,"bestätigt: 1849–1886 Pfarrer in Aarau, dort gestorben 1889.",HLS-Artikel bestätigt+Aarau-Bezug+Beruf,10
+aarau:1869-gebaeude-018-E005,aarau,1869,Q361553,Adolf Fischer,1807,1893,003758,105011292X,möglich,"bestätigt: 1867–1887 Regierungsrat und Oberst, von Reinach, gestorben in Aarau 1893.",HLS-Artikel bestätigt+Aarau-Bezug (Namensvetter im Band),9
+aarau:1869-gebaeude-019-E029,aarau,1869,Q35109253,Carl Diethelm Meyer,1840,1884,022524,1038716233,möglich,ungeprüft,Heimatort,3
+aarau:1869-gebaeude-024-E041,aarau,1869,Q998080,Olivier Zschokke,1826,1898,003808,138527431,wahrscheinlich,"bestätigt: Ingenieur, 1880–1898 Inhaber von Zschokke & Cie. in Aarau.",HLS-Artikel bestätigt+Aarau-Bezug,9
+aarau:1869-gebaeude-026-E011,aarau,1869,Q1494316,Robert Straub,1832,1901,003795,1051013046,möglich,ungeprüft,Heimatort,4
+aarau:1869-gebaeude-026-E013,aarau,1869,Q42182771,Hermann Hunziker,1840,1910,,1089402252,wahrscheinlich,,Aarau-Bezug,4
+aarau:1869-gebaeude-026-E014,aarau,1869,Q42182771,Hermann Hunziker,1840,1910,,1089402252,möglich,,Aarau-Bezug (Namensvetter im Band),4
+aarau:1869-gebaeude-026-E022,aarau,1869,Q1731009,Karl Franz Sebastian Fahrländer,1836,1907,003756,1051067812,wahrscheinlich,"bestätigt: Dr. iur., 1885–1907 Regierungsrat, ab 1860 von Laufenburg – passt zu «Dr. Jur. Regierungsrath von Laufenburg».",HLS-Artikel bestätigt+Aarau-Bezug,9
+aarau:1869-gebaeude-027-E005,aarau,1869,Q1401747,Johann Haberstich,1824,1891,003762,105011910X,wahrscheinlich,bestätigt: Anwalt in Aarau bis zu seinem Tod 1891.,HLS-Artikel bestätigt+Aarau-Bezug,9
+aarau:1869-gebaeude-029-E006,aarau,1869,Q695558,Arnold Keller,1841,1934,023942,119057212,möglich,ungeprüft,Heimatort,3
+aarau:1869-gebaeude-029-E016,aarau,1869,Q94920696,Gottlieb Zehnder,1820,1901,024456,1064724140,wahrscheinlich,"bestätigt: 1875–1891 Waffenchef der eidg. Kavallerie, Oberst, von Birmenstorf – passt auch zum Partikular ab 1892.",HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort,15
+aarau:1869-gebaeude-032-E003,aarau,1869,Q361553,Adolf Fischer,1807,1893,003758,105011292X,wahrscheinlich,"bestätigt: 1867–1887 Regierungsrat und Oberst, von Reinach, gestorben in Aarau 1893.",HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort,15
+aarau:1869-gebaeude-032-E013,aarau,1869,Q15805984,Dietrich Holzach,1836,1905,,,wahrscheinlich,,Aarau-Bezug+Heimatort,7
+aarau:1869-gebaeude-032-E043,aarau,1869,Q133371230,,1841,1912,,133710270,möglich,,Aarau-Bezug+Heimatort,6
+aarau:1869-gebaeude-037-E008,aarau,1869,Q72089314,Johann Baptist Wietlisbach,1822,1887,005530,1050015029,möglich,ungeprüft,Heimatort+Beruf,4
+aarau:1869-gebaeude-040-E001,aarau,1869,Q99305361,Fridolin Schneider,1823,1899,032681,1051006066,wahrscheinlich,"bestätigt: 1864–1899 Oberrichter (1887–1891 Präsident), von Herznach, gestorben in Aarau.",HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort,15
+aarau:1869-gebaeude-040-E003,aarau,1869,Q1731042,Karl Friedrich Brentano,1822,1894,005484,117733334,wahrscheinlich,"bestätigt: 1860–1885 Aargauer Regierungsrat, von Laufenburg.",HLS-Artikel bestätigt+HLS-Heimatort+Heimatort,11
+aarau:1869-gebaeude-040-E042,aarau,1869,Q695664,Arnold Künzli,1832,1908,003776,138320128,möglich,ungeprüft,Heimatort,3
+aarau:1869-gebaeude-045-E019,aarau,1869,Q42182771,Hermann Hunziker,1840,1910,,1089402252,möglich,,Aarau-Bezug (Namensvetter im Band),4
+aarau:1869-gebaeude-047-E009,aarau,1869,Q15805984,Dietrich Holzach,1836,1905,,,möglich,,Aarau-Bezug,3
+aarau:1869-gebaeude-047-E021,aarau,1869,Q998080,Olivier Zschokke,1826,1898,003808,138527431,möglich,"bestätigt: Ingenieur, 1880–1898 Inhaber von Zschokke & Cie. in Aarau.",HLS-Artikel bestätigt+Aarau-Bezug (Namensvetter im Band),9
+aarau:1869-gebaeude-048-E020,aarau,1869,Q1363157,Erwin Kurz,1846,1901,003777,136222854,wahrscheinlich,"bestätigt: Fürsprecher mit eigener Praxis in Aarau 1876–1901, von Schwamendingen.",HLS-Artikel bestätigt+Aarau-Bezug,9
+aarau:1877-gebaeude-011-E016,aarau,1877,Q133371230,,1841,1912,,133710270,wahrscheinlich,,Aarau-Bezug+Heimatort,7
+aarau:1877-gebaeude-013-E011,aarau,1877,Q124681,Heinrich Suter,1848,1922,028960,11738237X,möglich,ungeprüft,HLS nennt Aarau+HLS-Heimatort+Heimatort,8
+aarau:1877-gebaeude-015-E007,aarau,1877,Q96253123,Siegfried Abt,1844,1884,031739,1068146931,möglich,ungeprüft,Heimatort,4
+aarau:1877-gebaeude-015-E019,aarau,1877,Q103824573,Friedrich Siebenmann,1851,1901,023080,,möglich,ungeprüft,Aarau-Bezug (HLS-Artikel noch nicht geprüft),4
+aarau:1877-gebaeude-018-E018,aarau,1877,Q124325,Emil Zschokke,1808,1889,013579,139879277,wahrscheinlich,"bestätigt: 1849–1886 Pfarrer in Aarau, dort gestorben 1889.",HLS-Artikel bestätigt+Aarau-Bezug+Beruf,10
+aarau:1877-gebaeude-021-E006,aarau,1877,Q1649156,Josef Burgmeier,1844,1905,,,wahrscheinlich,,Aarau-Bezug,4
+aarau:1877-gebaeude-021-E011,aarau,1877,Q683955,Carl Franz Bally,1821,1899,003056,122650077,möglich,"zweifelhaft: Der Eintrag ist die Firma «C. F. Bally, Schuhfabrik»; die Person lebte und wirkte laut Artikel in Schönenwerd, nicht in Aarau.",HLS nennt Aarau,1
+aarau:1877-gebaeude-021-E038,aarau,1877,Q42182771,Hermann Hunziker,1840,1910,,1089402252,wahrscheinlich,,Aarau-Bezug,4
+aarau:1877-gebaeude-026-E018,aarau,1877,Q1529558,Max Wolfinger,1837,1913,,1089646674,wahrscheinlich,,Aarau-Bezug+Heimatort,7
+aarau:1877-gebaeude-027-E019,aarau,1877,Q998080,Olivier Zschokke,1826,1898,003808,138527431,wahrscheinlich,"bestätigt: Ingenieur, 1880–1898 Inhaber von Zschokke & Cie. in Aarau.",HLS-Artikel bestätigt+Aarau-Bezug+Beruf,10
+aarau:1877-gebaeude-027-E021,aarau,1877,Q103824573,Friedrich Siebenmann,1851,1901,023080,,möglich,ungeprüft,Aarau-Bezug (Namensvetter im Band),4
+aarau:1877-gebaeude-027-E023,aarau,1877,Q92373,Ernst Ludwig Rochholz,1809,1892,011676,116578335,wahrscheinlich,"bestätigt: Lehrer an der Kantonsschule Aarau und 1866–1889 Leiter des Antiquariums, aus Ansbach.",HLS-Artikel bestätigt+Aarau-Bezug+Heimatort,12
+aarau:1877-gebaeude-027-E035,aarau,1877,Q103824573,Friedrich Siebenmann,1851,1901,023080,,möglich,ungeprüft,Aarau-Bezug,3
+aarau:1877-gebaeude-027-E043,aarau,1877,Q65997485,Julius Frey,1855,1925,042084,1017289751,wahrscheinlich,"bestätigt: 1881–1889 Vizedirektor der Aargauischen Bank, von Möhlin.",HLS-Artikel bestätigt+HLS nennt Aarau,6
+aarau:1877-gebaeude-029-E005,aarau,1877,Q1731042,Karl Friedrich Brentano,1822,1894,005484,117733334,wahrscheinlich,"bestätigt: 1860–1885 Aargauer Regierungsrat, von Laufenburg.",HLS-Artikel bestätigt+HLS-Heimatort+Heimatort,12
+aarau:1877-gebaeude-029-E009,aarau,1877,Q42182771,Hermann Hunziker,1840,1910,,1089402252,möglich,,Aarau-Bezug (Namensvetter im Band),4
+aarau:1877-gebaeude-029-E010,aarau,1877,Q42182771,Hermann Hunziker,1840,1910,,1089402252,möglich,,Aarau-Bezug (Namensvetter im Band),4
+aarau:1877-gebaeude-030-E019,aarau,1877,Q1401747,Johann Haberstich,1824,1891,003762,105011910X,wahrscheinlich,bestätigt: Anwalt in Aarau bis zu seinem Tod 1891.,HLS-Artikel bestätigt+Aarau-Bezug,9
+aarau:1877-gebaeude-030-E024,aarau,1877,Q1731502,Karl Heinrich Remigius Sauerländer,1848,1919,,1073474615,wahrscheinlich,,Aarau-Bezug,4
+aarau:1877-gebaeude-030-E032,aarau,1877,Q1731009,Karl Franz Sebastian Fahrländer,1836,1907,003756,1051067812,wahrscheinlich,"bestätigt: Dr. iur., 1885–1907 Regierungsrat, ab 1860 von Laufenburg – passt zu «Dr. Jur. Regierungsrath von Laufenburg».",HLS-Artikel bestätigt+Aarau-Bezug+Heimatort,12
+aarau:1877-gebaeude-030-E037,aarau,1877,Q124151,Adolf Frey,1855,1920,011796,116782544,möglich,zweifelhaft: Ab 1898 Ordinarius in Zürich; der berufslose Eintrag 1899 kann ein Nachläufer oder ein Namensvetter sein.,HLS-Artikel bestätigt+HLS nennt Aarau,7
+aarau:1877-gebaeude-031-E010,aarau,1877,Q78064711,Adolf Jenny,1851,1941,029516,105377558X,wahrscheinlich,"bestätigt: Ab 1876 Inhaber einer Wollstofffärberei in Aarau, von Iffwil.",HLS-Artikel bestätigt+HLS nennt Aarau+Heimatort,10
+aarau:1877-gebaeude-031-E012,aarau,1877,Q1461227,Friedrich Mühlberg,1840,1915,028890,123978130,möglich,ungeprüft,Aarau-Bezug+Heimatort (HLS-Artikel noch nicht geprüft),7
+aarau:1877-gebaeude-034-E003,aarau,1877,Q15805984,Dietrich Holzach,1836,1905,,,wahrscheinlich,,Aarau-Bezug+Heimatort,7
+aarau:1877-gebaeude-035-E018,aarau,1877,Q94920696,Gottlieb Zehnder,1820,1901,024456,1064724140,wahrscheinlich,"bestätigt: 1875–1891 Waffenchef der eidg. Kavallerie, Oberst, von Birmenstorf – passt auch zum Partikular ab 1892.",HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort,15
+aarau:1877-gebaeude-036-E044,aarau,1877,Q1474158,Johann Rudolf Müller,1824,1894,042094,118872850,möglich,ungeprüft,HLS nennt Aarau+HLS-Heimatort,5
+aarau:1877-gebaeude-037-E018,aarau,1877,Q1610866,Hermann Custer,1823,1893,031556,1071076434,wahrscheinlich,"bestätigt: Promovierter Chemiker, übernahm 1857 eine Seidenbandfabrik in Aarau, von Rheineck.",HLS-Artikel bestätigt+Aarau-Bezug,9
+aarau:1877-gebaeude-037-E031,aarau,1877,Q133371230,,1841,1912,,133710270,möglich,,Aarau-Bezug,3
+aarau:1877-gebaeude-044-E023,aarau,1877,Q117023185,Heinrich Herzog,1822,1898,011944,139357130,wahrscheinlich,"bestätigt: 1851–1895 Lehrer in Aarau, von Rekingen – auch «gew. Lehrer» 1896 passt.",HLS-Artikel bestätigt+Aarau-Bezug+Beruf,10
+aarau:1877-gebaeude-044-E040,aarau,1877,Q118013,Friedrich Erismann,1842,1915,014346,118685171,möglich,ungeprüft,Aarau-Bezug (HLS-Artikel noch nicht geprüft),4
+aarau:1877-gebaeude-045-E026,aarau,1877,Q103824573,Friedrich Siebenmann,1851,1901,023080,,möglich,ungeprüft,Aarau-Bezug (Namensvetter im Band),4
+aarau:1877-gebaeude-045-E027,aarau,1877,Q27662066,Friedrich Siebenmann,1852,1928,014642,117339180,möglich,ungeprüft,Aarau-Bezug,4
+aarau:1877-gebaeude-045-E029,aarau,1877,Q361553,Adolf Fischer,1807,1893,003758,105011292X,wahrscheinlich,"bestätigt: 1867–1887 Regierungsrat und Oberst, von Reinach, gestorben in Aarau 1893.",HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort,15
+aarau:1877-gebaeude-045-E033,aarau,1877,Q19131379,Arnold Niggli,1843,1927,020722,117018805,wahrscheinlich,bestätigt: Fürsprecher und 1875–1909 Stadtschreiber von Aarau.,HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort,15
+aarau:1877-gebaeude-046-E001,aarau,1877,Q99305361,Fridolin Schneider,1823,1899,032681,1051006066,wahrscheinlich,"bestätigt: 1864–1899 Oberrichter (1887–1891 Präsident), von Herznach, gestorben in Aarau.",HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort,15
+aarau:1877-gebaeude-046-E049,aarau,1877,Q123778,Carl Roman Abt,1850,1933,027685,116004835,möglich,ungeprüft,Heimatort+Beruf (HLS-Artikel noch nicht geprüft),5
+aarau:1877-gebaeude-047-E005,aarau,1877,Q682470,Hans Schatzmann,1849,1923,020373,1050988485,möglich,ungeprüft,Heimatort,4
+aarau:1877-gebaeude-047-E027,aarau,1877,Q94762762,Heinrich Bircher,1850,1923,014294,118663321,wahrscheinlich,"bestätigt: Praxis in Aarau ab 1872, 1887–1917 chirurgischer Chefarzt und Direktor der kantonalen Krankenanstalt.",HLS-Artikel bestätigt+Aarau-Bezug,9
+aarau:1877-gebaeude-048-E019,aarau,1877,Q103824573,Friedrich Siebenmann,1851,1901,023080,,möglich,ungeprüft,Aarau-Bezug (Namensvetter im Band),4
+aarau:1877-gebaeude-048-E024,aarau,1877,Q103824573,Friedrich Siebenmann,1851,1901,023080,,möglich,ungeprüft,Aarau-Bezug (Namensvetter im Band),4
+aarau:1877-gebaeude-049-E045,aarau,1877,Q1127106,Conradin Zschokke,1842,1918,019957,119048280,möglich,"zweifelhaft: Ingenieur passt und er war ab 1892 Aargauer Grossrat, doch der Artikel verortet ihn in Frankreich und Zürich und nennt die definitive Rückkehr nach Aarau erst 1909.",Aarau-Bezug+Beruf,5
+aarau:1877-gebaeude-050-E041,aarau,1877,Q103824573,Friedrich Siebenmann,1851,1901,023080,,möglich,ungeprüft,Aarau-Bezug (Namensvetter im Band),4
+aarau:1877-gebaeude-051-E002,aarau,1877,Q1372488,Eugen Fahrländer,1844,1917,023669,1051067766,möglich,"zweifelhaft: Dipl. Ingenieur, von Aarau, geboren und gestorben in Aarau, militärische Kommandos nur im Nebenamt; Wohnsitz und Tätigkeit in Aarau 1888–1899 nennt der Artikel aber nicht (nur Topograph. Bureau in Bern).",Aarau-Bezug+Beruf,5
+aarau:1877-gebaeude-052-E035,aarau,1877,Q125846473,Karl Fisch,1850,1930,023679,1208254936,wahrscheinlich,"bestätigt: Gymnasiallehrer für Alte Sprachen in Aarau, dann 1892–1901 Instruktionsoffizier der Infanterie – passt zu Professor (1884/88) und Instruktor I. Kl. (1892/96).",HLS-Artikel bestätigt+Aarau-Bezug,9
+aarau:1877-gebaeude-052-E039,aarau,1877,Q1040302,Ferdinand Karl Rothpletz,1814,1885,019922,1046883275,wahrscheinlich,bestätigt: 1849–1885 aargauischer Kantonsbaumeister – entspricht «Hochbaumeister» 1884.,HLS-Artikel bestätigt+Aarau-Bezug+Beruf,9
+aarau:1877-gebaeude-053-E003,aarau,1877,Q115838,Hans Herzog,1819,1894,023779,139764240,möglich,ungeprüft,Aarau-Bezug,4
+aarau:1877-gebaeude-053-E015,aarau,1877,Q96281560,Anton Camenzind,1825,1888,005227,1053322666,möglich,ungeprüft,Heimatort,4
+aarau:1879-gebaeude-007-E005,aarau,1879,Q133371230,,1841,1912,,133710270,wahrscheinlich,,Aarau-Bezug+Heimatort,7
+aarau:1879-gebaeude-008-E022,aarau,1879,Q63119288,Otto Lindt,1839,1896,,1239775644,wahrscheinlich,,Aarau-Bezug+Heimatort+Beruf,8
+aarau:1879-gebaeude-014-E042,aarau,1879,Q361553,Adolf Fischer,1807,1893,003758,105011292X,möglich,"bestätigt: 1867–1887 Regierungsrat und Oberst, von Reinach, gestorben in Aarau 1893.",HLS-Artikel bestätigt+Aarau-Bezug (Namensvetter im Band),9
+aarau:1879-gebaeude-015-E021,aarau,1879,Q27662066,Friedrich Siebenmann,1852,1928,014642,117339180,möglich,ungeprüft,Aarau-Bezug,4
+aarau:1879-gebaeude-016-E039,aarau,1879,Q65997485,Julius Frey,1855,1925,042084,1017289751,wahrscheinlich,"bestätigt: 1881–1889 Vizedirektor der Aargauischen Bank, von Möhlin.",HLS-Artikel bestätigt+HLS nennt Aarau+HLS-Heimatort+Heimatort,12
+aarau:1879-gebaeude-018-E028,aarau,1879,Q2597747,Xaver Fischer,1837,1921,027544,1069188956,wahrscheinlich,"bestätigt: Ab 1877 erster christkatholischer Pfarrer in Aarau, von Triengen.",HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort+Beruf,15
+aarau:1879-gebaeude-020-E008,aarau,1879,Q118013,Friedrich Erismann,1842,1915,014346,118685171,möglich,ungeprüft,Aarau-Bezug+Heimatort (HLS-Artikel noch nicht geprüft),7
+aarau:1879-gebaeude-020-E011,aarau,1879,Q1529558,Max Wolfinger,1837,1913,,1089646674,wahrscheinlich,,Aarau-Bezug+Heimatort,7
+aarau:1879-gebaeude-020-E032,aarau,1879,Q1649156,Josef Burgmeier,1844,1905,,,wahrscheinlich,,Aarau-Bezug,4
+aarau:1879-gebaeude-020-E036,aarau,1879,Q683955,Carl Franz Bally,1821,1899,003056,122650077,möglich,"zweifelhaft: Der Eintrag ist die Firma «C. F. Bally, Schuhfabrik»; die Person lebte und wirkte laut Artikel in Schönenwerd, nicht in Aarau.",HLS nennt Aarau,1
+aarau:1879-gebaeude-021-E016,aarau,1879,Q42182771,Hermann Hunziker,1840,1910,,1089402252,wahrscheinlich,,Aarau-Bezug,4
+aarau:1879-gebaeude-023-E046,aarau,1879,Q65997485,Julius Frey,1855,1925,042084,1017289751,möglich,"bestätigt: 1881–1889 Vizedirektor der Aargauischen Bank, von Möhlin.",HLS-Artikel bestätigt+HLS nennt Aarau (Namensvetter im Band),6
+aarau:1879-gebaeude-026-E010,aarau,1879,Q65997485,Julius Frey,1855,1925,042084,1017289751,möglich,"bestätigt: 1881–1889 Vizedirektor der Aargauischen Bank, von Möhlin.",HLS-Artikel bestätigt+HLS nennt Aarau+HLS-Heimatort+Heimatort (Namensvetter im Band),12
+aarau:1879-gebaeude-026-E032,aarau,1879,Q998080,Olivier Zschokke,1826,1898,003808,138527431,wahrscheinlich,"bestätigt: Ingenieur, 1880–1898 Inhaber von Zschokke & Cie. in Aarau.",HLS-Artikel bestätigt+Aarau-Bezug+Beruf,10
+aarau:1879-gebaeude-026-E034,aarau,1879,Q27662066,Friedrich Siebenmann,1852,1928,014642,117339180,möglich,ungeprüft,Aarau-Bezug,4
+aarau:1879-gebaeude-027-E001,aarau,1879,Q27662066,Friedrich Siebenmann,1852,1928,014642,117339180,möglich,ungeprüft,Aarau-Bezug,3
+aarau:1879-gebaeude-027-E009,aarau,1879,Q65997485,Julius Frey,1855,1925,042084,1017289751,möglich,"bestätigt: 1881–1889 Vizedirektor der Aargauischen Bank, von Möhlin.",HLS-Artikel bestätigt+HLS nennt Aarau (Namensvetter im Band),6
+aarau:1879-gebaeude-027-E020,aarau,1879,Q125846473,Karl Fisch,1850,1930,023679,1208254936,wahrscheinlich,"bestätigt: Gymnasiallehrer für Alte Sprachen in Aarau, dann 1892–1901 Instruktionsoffizier der Infanterie – passt zu Professor (1884/88) und Instruktor I. Kl. (1892/96).",HLS-Artikel bestätigt+Aarau-Bezug,9
+aarau:1879-gebaeude-027-E032,aarau,1879,Q1580218,Gottlieb Käppeli,1840,1909,005503,1050187105,wahrscheinlich,"bestätigt: 1875–1905 Aargauer Regierungsrat, von Merenschwand.",HLS-Artikel bestätigt+Aarau-Bezug+Heimatort,12
+aarau:1879-gebaeude-028-E012,aarau,1879,Q1731042,Karl Friedrich Brentano,1822,1894,005484,117733334,wahrscheinlich,"bestätigt: 1860–1885 Aargauer Regierungsrat, von Laufenburg.",HLS-Artikel bestätigt+HLS-Heimatort+Heimatort,12
+aarau:1879-gebaeude-028-E016,aarau,1879,Q42182771,Hermann Hunziker,1840,1910,,1089402252,möglich,,Aarau-Bezug (Namensvetter im Band),4
+aarau:1879-gebaeude-028-E017,aarau,1879,Q1731009,Karl Franz Sebastian Fahrländer,1836,1907,003756,1051067812,wahrscheinlich,"bestätigt: Dr. iur., 1885–1907 Regierungsrat, ab 1860 von Laufenburg – passt zu «Dr. Jur. Regierungsrath von Laufenburg».",HLS-Artikel bestätigt+Aarau-Bezug+Heimatort,12
+aarau:1879-gebaeude-029-E028,aarau,1879,Q1401747,Johann Haberstich,1824,1891,003762,105011910X,wahrscheinlich,bestätigt: Anwalt in Aarau bis zu seinem Tod 1891.,HLS-Artikel bestätigt+Aarau-Bezug,9
+aarau:1879-gebaeude-029-E034,aarau,1879,Q1731502,Karl Heinrich Remigius Sauerländer,1848,1919,,1073474615,wahrscheinlich,,Aarau-Bezug,4
+aarau:1879-gebaeude-029-E035,aarau,1879,Q1731502,Karl Heinrich Remigius Sauerländer,1848,1919,,1073474615,möglich,,Aarau-Bezug,3
+aarau:1879-gebaeude-029-E045,aarau,1879,Q124151,Adolf Frey,1855,1920,011796,116782544,möglich,zweifelhaft: Ab 1898 Ordinarius in Zürich; der berufslose Eintrag 1899 kann ein Nachläufer oder ein Namensvetter sein.,HLS-Artikel bestätigt+HLS nennt Aarau,7
+aarau:1879-gebaeude-030-E018,aarau,1879,Q78064711,Adolf Jenny,1851,1941,029516,105377558X,wahrscheinlich,"bestätigt: Ab 1876 Inhaber einer Wollstofffärberei in Aarau, von Iffwil.",HLS-Artikel bestätigt+HLS nennt Aarau+Heimatort,10
+aarau:1879-gebaeude-030-E020,aarau,1879,Q1461227,Friedrich Mühlberg,1840,1915,028890,123978130,möglich,ungeprüft,Aarau-Bezug+Heimatort (HLS-Artikel noch nicht geprüft),7
+aarau:1879-gebaeude-033-E022,aarau,1879,Q15805984,Dietrich Holzach,1836,1905,,,wahrscheinlich,,Aarau-Bezug+Heimatort,7
+aarau:1879-gebaeude-034-E038,aarau,1879,Q94920696,Gottlieb Zehnder,1820,1901,024456,1064724140,wahrscheinlich,"bestätigt: 1875–1891 Waffenchef der eidg. Kavallerie, Oberst, von Birmenstorf – passt auch zum Partikular ab 1892.",HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort,15
+aarau:1879-gebaeude-036-E017,aarau,1879,Q1610866,Hermann Custer,1823,1893,031556,1071076434,wahrscheinlich,"bestätigt: Promovierter Chemiker, übernahm 1857 eine Seidenbandfabrik in Aarau, von Rheineck.",HLS-Artikel bestätigt+Aarau-Bezug,9
+aarau:1879-gebaeude-037-E011,aarau,1879,Q87392801,Franz Fröhlich,1849,1912,,1055138862,wahrscheinlich,,Aarau-Bezug+Heimatort,7
+aarau:1879-gebaeude-038-E038,aarau,1879,Q1474158,Johann Rudolf Müller,1824,1894,042094,118872850,möglich,ungeprüft,HLS nennt Aarau,1
+aarau:1879-gebaeude-039-E044,aarau,1879,Q92373,Ernst Ludwig Rochholz,1809,1892,011676,116578335,wahrscheinlich,"bestätigt: Lehrer an der Kantonsschule Aarau und 1866–1889 Leiter des Antiquariums, aus Ansbach.",HLS-Artikel bestätigt+Aarau-Bezug+Heimatort,11
+aarau:1879-gebaeude-040-E047,aarau,1879,Q78074454,Heinrich Wäffler,1843,1917,049180,1050008898,wahrscheinlich,"bestätigt: 1877–1908 Turnlehrer am Töchterinstitut Aarau, von Basel.",HLS-Artikel bestätigt+HLS nennt Aarau+HLS-Heimatort+Heimatort,13
+aarau:1879-gebaeude-044-E035,aarau,1879,Q27662066,Friedrich Siebenmann,1852,1928,014642,117339180,möglich,ungeprüft,Aarau-Bezug,4
+aarau:1879-gebaeude-044-E036,aarau,1879,Q361553,Adolf Fischer,1807,1893,003758,105011292X,wahrscheinlich,"bestätigt: 1867–1887 Regierungsrat und Oberst, von Reinach, gestorben in Aarau 1893.",HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort,15
+aarau:1879-gebaeude-045-E008,aarau,1879,Q99305361,Fridolin Schneider,1823,1899,032681,1051006066,wahrscheinlich,"bestätigt: 1864–1899 Oberrichter (1887–1891 Präsident), von Herznach, gestorben in Aarau.",HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort,15
+aarau:1879-gebaeude-045-E033,aarau,1879,Q19131379,Arnold Niggli,1843,1927,020722,117018805,wahrscheinlich,bestätigt: Fürsprecher und 1875–1909 Stadtschreiber von Aarau.,HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort,15
+aarau:1879-gebaeude-046-E038,aarau,1879,Q19214099,Johann Jakob Bäbler,1836,1900,042720,116031255,wahrscheinlich,"bestätigt: 1876–1900 Lehrer für Deutsch und Geschichte an der Kantonsschule Aarau, von Matt.",HLS-Artikel bestätigt+HLS nennt Aarau+HLS-Heimatort+Heimatort,12
+aarau:1879-gebaeude-047-E034,aarau,1879,Q27662066,Friedrich Siebenmann,1852,1928,014642,117339180,möglich,ungeprüft,Aarau-Bezug,4
+aarau:1879-gebaeude-049-E004,aarau,1879,Q1127106,Conradin Zschokke,1842,1918,019957,119048280,möglich,"zweifelhaft: Ingenieur passt und er war ab 1892 Aargauer Grossrat, doch der Artikel verortet ihn in Frankreich und Zürich und nennt die definitive Rückkehr nach Aarau erst 1909.",Aarau-Bezug+Beruf,5
+aarau:1879-gebaeude-050-E012,aarau,1879,Q1372488,Eugen Fahrländer,1844,1917,023669,1051067766,möglich,"zweifelhaft: Dipl. Ingenieur, von Aarau, geboren und gestorben in Aarau, militärische Kommandos nur im Nebenamt; Wohnsitz und Tätigkeit in Aarau 1888–1899 nennt der Artikel aber nicht (nur Topograph. Bureau in Bern).",Aarau-Bezug+Beruf,5
+aarau:1879-gebaeude-051-E012,aarau,1879,Q117023185,Heinrich Herzog,1822,1898,011944,139357130,wahrscheinlich,"bestätigt: 1851–1895 Lehrer in Aarau, von Rekingen – auch «gew. Lehrer» 1896 passt.",HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort+Beruf,16
+aarau:1879-gebaeude-051-E038,aarau,1879,Q1474158,Johann Rudolf Müller,1824,1894,042094,118872850,möglich,ungeprüft,HLS nennt Aarau+HLS-Heimatort,4
+aarau:1879-gebaeude-052-E021,aarau,1879,Q94762762,Heinrich Bircher,1850,1923,014294,118663321,wahrscheinlich,"bestätigt: Praxis in Aarau ab 1872, 1887–1917 chirurgischer Chefarzt und Direktor der kantonalen Krankenanstalt.",HLS-Artikel bestätigt+Aarau-Bezug,9
+aarau:1879-gebaeude-052-E024,aarau,1879,Q124681,Heinrich Suter,1848,1922,028960,11738237X,möglich,ungeprüft,HLS nennt Aarau+HLS-Heimatort+Heimatort,8
+aarau:1879-gebaeude-052-E034,aarau,1879,Q1874645,Ludwig Karrer,1830,1893,003770,1050720598,wahrscheinlich,"bestätigt: 1876–1885 Regierungsrat, von Teufenthal.",HLS-Artikel bestätigt+HLS nennt Aarau+Heimatort,10
+aarau:1879-gebaeude-052-E038,aarau,1879,Q115838,Hans Herzog,1819,1894,023779,139764240,möglich,ungeprüft,Aarau-Bezug,4
+aarau:1879-gebaeude-052-E048,aarau,1879,Q96281560,Anton Camenzind,1825,1888,005227,1053322666,möglich,ungeprüft,Heimatort,4
+aarau:1881-gebaeude-008-E012,aarau,1881,Q63119288,Otto Lindt,1839,1896,,1239775644,wahrscheinlich,,Aarau-Bezug+Heimatort+Beruf,8
+aarau:1881-gebaeude-011-E036,aarau,1881,Q133371230,,1841,1912,,133710270,möglich,,Geburtsort weicht ab+Aarau-Bezug,4
+aarau:1881-gebaeude-015-E002,aarau,1881,Q361553,Adolf Fischer,1807,1893,003758,105011292X,möglich,"bestätigt: 1867–1887 Regierungsrat und Oberst, von Reinach, gestorben in Aarau 1893.",HLS-Artikel bestätigt+Aarau-Bezug (Namensvetter im Band),9
+aarau:1881-gebaeude-015-E026,aarau,1881,Q27662066,Friedrich Siebenmann,1852,1928,014642,117339180,möglich,ungeprüft,Aarau-Bezug,4
+aarau:1881-gebaeude-016-E010,aarau,1881,Q133087704,,1856,1927,,1073419371,wahrscheinlich,,Aarau-Bezug,4
+aarau:1881-gebaeude-017-E049,aarau,1881,Q27662066,Friedrich Siebenmann,1852,1928,014642,117339180,möglich,ungeprüft,Aarau-Bezug,4
+aarau:1881-gebaeude-018-E023,aarau,1881,Q124325,Emil Zschokke,1808,1889,013579,139879277,wahrscheinlich,"bestätigt: 1849–1886 Pfarrer in Aarau, dort gestorben 1889.",HLS-Artikel bestätigt+Aarau-Bezug+Beruf,10
+aarau:1881-gebaeude-019-E009,aarau,1881,Q2597747,Xaver Fischer,1837,1921,027544,1069188956,wahrscheinlich,"bestätigt: Ab 1877 erster christkatholischer Pfarrer in Aarau, von Triengen.",HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort+Beruf,16
+aarau:1881-gebaeude-020-E030,aarau,1881,Q118013,Friedrich Erismann,1842,1915,014346,118685171,möglich,ungeprüft,Aarau-Bezug+Heimatort (HLS-Artikel noch nicht geprüft),7
+aarau:1881-gebaeude-021-E010,aarau,1881,Q1649156,Josef Burgmeier,1844,1905,,,wahrscheinlich,,Aarau-Bezug,4
+aarau:1881-gebaeude-021-E015,aarau,1881,Q683955,Carl Franz Bally,1821,1899,003056,122650077,möglich,"zweifelhaft: Der Eintrag ist die Firma «C. F. Bally, Schuhfabrik»; die Person lebte und wirkte laut Artikel in Schönenwerd, nicht in Aarau.",HLS nennt Aarau,1
+aarau:1881-gebaeude-021-E034,aarau,1881,Q42182771,Hermann Hunziker,1840,1910,,1089402252,wahrscheinlich,,Aarau-Bezug,4
+aarau:1881-gebaeude-026-E036,aarau,1881,Q65997485,Julius Frey,1855,1925,042084,1017289751,wahrscheinlich,"bestätigt: 1881–1889 Vizedirektor der Aargauischen Bank, von Möhlin.",HLS-Artikel bestätigt+HLS nennt Aarau,7
+aarau:1881-gebaeude-026-E038,aarau,1881,Q683955,Carl Franz Bally,1821,1899,003056,122650077,möglich,"zweifelhaft: Der Eintrag ist die Firma «C. F. Bally, Schuhfabrik»; die Person lebte und wirkte laut Artikel in Schönenwerd, nicht in Aarau.",HLS nennt Aarau+HLS-Heimatort+Heimatort,7
+aarau:1881-gebaeude-027-E015,aarau,1881,Q998080,Olivier Zschokke,1826,1898,003808,138527431,wahrscheinlich,"bestätigt: Ingenieur, 1880–1898 Inhaber von Zschokke & Cie. in Aarau.",HLS-Artikel bestätigt+Aarau-Bezug+Beruf,10
+aarau:1881-gebaeude-027-E017,aarau,1881,Q27662066,Friedrich Siebenmann,1852,1928,014642,117339180,möglich,ungeprüft,Aarau-Bezug,4
+aarau:1881-gebaeude-027-E027,aarau,1881,Q27662066,Friedrich Siebenmann,1852,1928,014642,117339180,möglich,ungeprüft,Aarau-Bezug,4
+aarau:1881-gebaeude-028-E032,aarau,1881,Q1363157,Erwin Kurz,1846,1901,003777,136222854,wahrscheinlich,"bestätigt: Fürsprecher mit eigener Praxis in Aarau 1876–1901, von Schwamendingen.",HLS-Artikel bestätigt+Aarau-Bezug,9
+aarau:1881-gebaeude-028-E043,aarau,1881,Q1731042,Karl Friedrich Brentano,1822,1894,005484,117733334,wahrscheinlich,"bestätigt: 1860–1885 Aargauer Regierungsrat, von Laufenburg.",HLS-Artikel bestätigt+HLS-Heimatort+Heimatort,12
+aarau:1881-gebaeude-029-E003,aarau,1881,Q42182771,Hermann Hunziker,1840,1910,,1089402252,möglich,,Aarau-Bezug (Namensvetter im Band),4
+aarau:1881-gebaeude-029-E004,aarau,1881,Q42182771,Hermann Hunziker,1840,1910,,1089402252,möglich,,Aarau-Bezug (Namensvetter im Band),4
+aarau:1881-gebaeude-029-E005,aarau,1881,Q1731009,Karl Franz Sebastian Fahrländer,1836,1907,003756,1051067812,wahrscheinlich,"bestätigt: Dr. iur., 1885–1907 Regierungsrat, ab 1860 von Laufenburg – passt zu «Dr. Jur. Regierungsrath von Laufenburg».",HLS-Artikel bestätigt+Aarau-Bezug+Heimatort,12
+aarau:1881-gebaeude-030-E030,aarau,1881,Q1401747,Johann Haberstich,1824,1891,003762,105011910X,wahrscheinlich,bestätigt: Anwalt in Aarau bis zu seinem Tod 1891.,HLS-Artikel bestätigt+Aarau-Bezug,9
+aarau:1881-gebaeude-030-E036,aarau,1881,Q1731502,Karl Heinrich Remigius Sauerländer,1848,1919,,1073474615,wahrscheinlich,,Aarau-Bezug,4
+aarau:1881-gebaeude-030-E047,aarau,1881,Q124151,Adolf Frey,1855,1920,011796,116782544,möglich,zweifelhaft: Ab 1898 Ordinarius in Zürich; der berufslose Eintrag 1899 kann ein Nachläufer oder ein Namensvetter sein.,HLS-Artikel bestätigt+HLS nennt Aarau,7
+aarau:1881-gebaeude-031-E022,aarau,1881,Q78064711,Adolf Jenny,1851,1941,029516,105377558X,wahrscheinlich,"bestätigt: Ab 1876 Inhaber einer Wollstofffärberei in Aarau, von Iffwil.",HLS-Artikel bestätigt+HLS nennt Aarau,7
+aarau:1881-gebaeude-032-E002,aarau,1881,Q125846473,Karl Fisch,1850,1930,023679,1208254936,wahrscheinlich,"bestätigt: Gymnasiallehrer für Alte Sprachen in Aarau, dann 1892–1901 Instruktionsoffizier der Infanterie – passt zu Professor (1884/88) und Instruktor I. Kl. (1892/96).",HLS-Artikel bestätigt+Aarau-Bezug,9
+aarau:1881-gebaeude-034-E018,aarau,1881,Q1580218,Gottlieb Käppeli,1840,1909,005503,1050187105,wahrscheinlich,"bestätigt: 1875–1905 Aargauer Regierungsrat, von Merenschwand.",HLS-Artikel bestätigt+Aarau-Bezug,9
+aarau:1881-gebaeude-034-E029,aarau,1881,Q65997485,Julius Frey,1855,1925,042084,1017289751,möglich,"bestätigt: 1881–1889 Vizedirektor der Aargauischen Bank, von Möhlin.",HLS-Artikel bestätigt+HLS nennt Aarau (Namensvetter im Band),6
+aarau:1881-gebaeude-035-E001,aarau,1881,Q15805984,Dietrich Holzach,1836,1905,,,wahrscheinlich,,Aarau-Bezug+Heimatort,7
+aarau:1881-gebaeude-036-E022,aarau,1881,Q94920696,Gottlieb Zehnder,1820,1901,024456,1064724140,wahrscheinlich,"bestätigt: 1875–1891 Waffenchef der eidg. Kavallerie, Oberst, von Birmenstorf – passt auch zum Partikular ab 1892.",HLS-Artikel bestätigt+Aarau-Bezug,9
+aarau:1881-gebaeude-036-E026,aarau,1881,Q124151,Adolf Frey,1855,1920,011796,116782544,möglich,zweifelhaft: Ab 1898 Ordinarius in Zürich; der berufslose Eintrag 1899 kann ein Nachläufer oder ein Namensvetter sein.,HLS-Artikel bestätigt+HLS nennt Aarau (Namensvetter im Band),7
+aarau:1881-gebaeude-038-E022,aarau,1881,Q1610866,Hermann Custer,1823,1893,031556,1071076434,wahrscheinlich,"bestätigt: Promovierter Chemiker, übernahm 1857 eine Seidenbandfabrik in Aarau, von Rheineck.",HLS-Artikel bestätigt+Aarau-Bezug,9
+aarau:1881-gebaeude-038-E023,aarau,1881,Q1610866,Hermann Custer,1823,1893,031556,1071076434,möglich,"bestätigt: Promovierter Chemiker, übernahm 1857 eine Seidenbandfabrik in Aarau, von Rheineck.",HLS-Artikel bestätigt+Aarau-Bezug (Namensvetter im Band),9
+aarau:1881-gebaeude-038-E034,aarau,1881,Q133371230,,1841,1912,,133710270,möglich,,Aarau-Bezug,3
+aarau:1881-gebaeude-038-E040,aarau,1881,Q87392801,Franz Fröhlich,1849,1912,,1055138862,wahrscheinlich,,Aarau-Bezug+Heimatort,7
+aarau:1881-gebaeude-041-E011,aarau,1881,Q1474158,Johann Rudolf Müller,1824,1894,042094,118872850,möglich,ungeprüft,HLS nennt Aarau+HLS-Heimatort,5
+aarau:1881-gebaeude-042-E038,aarau,1881,Q92373,Ernst Ludwig Rochholz,1809,1892,011676,116578335,wahrscheinlich,"bestätigt: Lehrer an der Kantonsschule Aarau und 1866–1889 Leiter des Antiquariums, aus Ansbach.",HLS-Artikel bestätigt+Aarau-Bezug+Heimatort,12
+aarau:1881-gebaeude-047-E006,aarau,1881,Q27662066,Friedrich Siebenmann,1852,1928,014642,117339180,möglich,ungeprüft,Aarau-Bezug,4
+aarau:1881-gebaeude-047-E007,aarau,1881,Q361553,Adolf Fischer,1807,1893,003758,105011292X,wahrscheinlich,"bestätigt: 1867–1887 Regierungsrat und Oberst, von Reinach, gestorben in Aarau 1893.",HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort,15
+aarau:1881-gebaeude-047-E022,aarau,1881,Q99305361,Fridolin Schneider,1823,1899,032681,1051006066,wahrscheinlich,"bestätigt: 1864–1899 Oberrichter (1887–1891 Präsident), von Herznach, gestorben in Aarau.",HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort,15
+aarau:1881-gebaeude-048-E003,aarau,1881,Q19131379,Arnold Niggli,1843,1927,020722,117018805,wahrscheinlich,bestätigt: Fürsprecher und 1875–1909 Stadtschreiber von Aarau.,HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort,15
+aarau:1881-gebaeude-050-E008,aarau,1881,Q27662066,Friedrich Siebenmann,1852,1928,014642,117339180,möglich,ungeprüft,Aarau-Bezug,4
+aarau:1881-gebaeude-051-E032,aarau,1881,Q1127106,Conradin Zschokke,1842,1918,019957,119048280,möglich,"zweifelhaft: Ingenieur passt und er war ab 1892 Aargauer Grossrat, doch der Artikel verortet ihn in Frankreich und Zürich und nennt die definitive Rückkehr nach Aarau erst 1909.",Aarau-Bezug+Beruf,5
+aarau:1881-gebaeude-052-E038,aarau,1881,Q27662066,Friedrich Siebenmann,1852,1928,014642,117339180,möglich,ungeprüft,Aarau-Bezug,4
+aarau:1881-gebaeude-052-E047,aarau,1881,Q1372488,Eugen Fahrländer,1844,1917,023669,1051067766,möglich,"zweifelhaft: Dipl. Ingenieur, von Aarau, geboren und gestorben in Aarau, militärische Kommandos nur im Nebenamt; Wohnsitz und Tätigkeit in Aarau 1888–1899 nennt der Artikel aber nicht (nur Topograph. Bureau in Bern).",Aarau-Bezug+Beruf,5
+aarau:1881-gebaeude-053-E015,aarau,1881,Q1529558,Max Wolfinger,1837,1913,,1089646674,wahrscheinlich,,Aarau-Bezug+Heimatort,7
+aarau:1881-gebaeude-053-E016,aarau,1881,Q19214099,Johann Jakob Bäbler,1836,1900,042720,116031255,wahrscheinlich,"bestätigt: 1876–1900 Lehrer für Deutsch und Geschichte an der Kantonsschule Aarau, von Matt.",HLS-Artikel bestätigt+HLS nennt Aarau+HLS-Heimatort+Heimatort,12
+aarau:1881-gebaeude-054-E046,aarau,1881,Q117023185,Heinrich Herzog,1822,1898,011944,139357130,wahrscheinlich,"bestätigt: 1851–1895 Lehrer in Aarau, von Rekingen – auch «gew. Lehrer» 1896 passt.",HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort+Beruf,16
+aarau:1881-gebaeude-055-E009,aarau,1881,Q94762762,Heinrich Bircher,1850,1923,014294,118663321,wahrscheinlich,"bestätigt: Praxis in Aarau ab 1872, 1887–1917 chirurgischer Chefarzt und Direktor der kantonalen Krankenanstalt.",HLS-Artikel bestätigt+Aarau-Bezug,9
+aarau:1881-gebaeude-055-E012,aarau,1881,Q124681,Heinrich Suter,1848,1922,028960,11738237X,möglich,ungeprüft,HLS nennt Aarau+HLS-Heimatort+Heimatort,8
+aarau:1881-gebaeude-055-E025,aarau,1881,Q1494316,Robert Straub,1832,1901,003795,1051013046,möglich,ungeprüft,Heimatort,4
+aarau:1881-gebaeude-055-E029,aarau,1881,Q115838,Hans Herzog,1819,1894,023779,139764240,möglich,ungeprüft,Aarau-Bezug,4
+aarau:1881-gebaeude-055-E042,aarau,1881,Q96281560,Anton Camenzind,1825,1888,005227,1053322666,möglich,ungeprüft,Heimatort,4
+aarau:1881-gebaeude-056-E036,aarau,1881,Q94762762,Heinrich Bircher,1850,1923,014294,118663321,möglich,"bestätigt: Praxis in Aarau ab 1872, 1887–1917 chirurgischer Chefarzt und Direktor der kantonalen Krankenanstalt.",HLS-Artikel bestätigt+Aarau-Bezug (Namensvetter im Band),8
+aarau:1881-gebaeude-056-E039,aarau,1881,Q124681,Heinrich Suter,1848,1922,028960,11738237X,möglich,ungeprüft,HLS nennt Aarau,1
+aarau:1881-gebaeude-057-E032,aarau,1881,Q1610866,Hermann Custer,1823,1893,031556,1071076434,möglich,"bestätigt: Promovierter Chemiker, übernahm 1857 eine Seidenbandfabrik in Aarau, von Rheineck.",HLS-Artikel bestätigt+Aarau-Bezug (Namensvetter im Band),9
 aarau:1884-einwohner-016-L049,aarau,1884,Q19214099,Johann Jakob Bäbler,1836,1900,042720,116031255,wahrscheinlich,"bestätigt: 1876–1900 Lehrer für Deutsch und Geschichte an der Kantonsschule Aarau, von Matt.",HLS-Artikel bestätigt+HLS nennt Aarau+HLS-Heimatort+Heimatort,13
 aarau:1884-einwohner-018-L024,aarau,1884,Q94762762,Heinrich Bircher,1850,1923,014294,118663321,wahrscheinlich,"bestätigt: Praxis in Aarau ab 1872, 1887–1917 chirurgischer Chefarzt und Direktor der kantonalen Krankenanstalt.",HLS-Artikel bestätigt+Aarau-Bezug,9
 aarau:1884-einwohner-019-L035,aarau,1884,Q1731042,Karl Friedrich Brentano,1822,1894,005484,117733334,wahrscheinlich,"bestätigt: 1860–1885 Aargauer Regierungsrat, von Laufenburg.",HLS-Artikel bestätigt+HLS-Heimatort+Heimatort,12
@@ -39,7 +240,7 @@ aarau:1884-einwohner-044-L019,aarau,1884,Q1040302,Ferdinand Karl Rothpletz,1814,
 aarau:1884-einwohner-044-L026,aarau,1884,Q1040302,Ferdinand Karl Rothpletz,1814,1885,019922,1046883275,möglich,bestätigt: 1849–1885 aargauischer Kantonsbaumeister – entspricht «Hochbaumeister» 1884.,HLS-Artikel bestätigt+Aarau-Bezug+Beruf (Namensvetter im Band),10
 aarau:1884-einwohner-045-L022,aarau,1884,Q1731502,Karl Heinrich Remigius Sauerländer,1848,1919,,1073474615,wahrscheinlich,,Aarau-Bezug,4
 aarau:1884-einwohner-046-L011,aarau,1884,Q110550620,Gottlieb Schenker,1856,1922,014620,1047894319,wahrscheinlich,"bestätigt: Dr. med., ab 1883 eigene Praxis in Aarau, von Däniken.",HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort,15
-aarau:1884-einwohner-047-L035,aarau,1884,Q99305361,Fridolin Schneider,1823,1899,032681,1051006066,wahrscheinlich,"bestätigt: 1864–1899 Oberrichter (1887–1891 Präsident), von Herznach, gestorben in Aarau.",HLS-Artikel bestätigt+Aarau-Bezug,9
+aarau:1884-einwohner-047-L035,aarau,1884,Q99305361,Fridolin Schneider,1823,1899,032681,1051006066,wahrscheinlich,"bestätigt: 1864–1899 Oberrichter (1887–1891 Präsident), von Herznach, gestorben in Aarau.",HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort,15
 aarau:1884-einwohner-047-L046,aarau,1884,Q19125783,Albert Schumann,1835,1897,,131881906,wahrscheinlich,,Aarau-Bezug+Heimatort,7
 aarau:1884-einwohner-048-L033,aarau,1884,Q27662066,Friedrich Siebenmann,1852,1928,014642,117339180,möglich,ungeprüft,Aarau-Bezug,4
 aarau:1884-einwohner-048-L035,aarau,1884,Q27662066,Friedrich Siebenmann,1852,1928,014642,117339180,möglich,ungeprüft,Aarau-Bezug,4
@@ -367,6 +568,7 @@ aarau:1899-einwohner-144-L012,aarau,1899,Q78071710,Carl Sprecher,1868,1938,02958
 aarau:1899-einwohner-147-L040,aarau,1899,Q78074454,Heinrich Wäffler,1843,1917,049180,1050008898,wahrscheinlich,"bestätigt: 1877–1908 Turnlehrer am Töchterinstitut Aarau, von Basel.",HLS-Artikel bestätigt+HLS nennt Aarau,7
 aarau:1899-einwohner-149-L021,aarau,1899,Q52155973,Adolf Weibel,1870,1952,,108929056X,wahrscheinlich,,Aarau-Bezug,4
 aarau:1899-einwohner-151-L021,aarau,1899,Q18021448,Jost Winteler,1846,1929,012406,118769391,wahrscheinlich,"bestätigt: Dr. phil., 1884–1914 Gymnasiallehrer in Aarau; von Filzbach liegt in Kerenzen, kein Widerspruch.",HLS-Artikel bestätigt+HLS nennt Aarau,7
+aarau:1899-einwohner-151-L030,aarau,1899,Q133087704,,1856,1927,,1073419371,wahrscheinlich,,Aarau-Bezug,4
 aarau:1899-einwohner-151-L038,aarau,1899,Q1529558,Max Wolfinger,1837,1913,,1089646674,wahrscheinlich,,Aarau-Bezug,4
 aarau:1899-einwohner-152-L028,aarau,1899,Q94920696,Gottlieb Zehnder,1820,1901,024456,1064724140,wahrscheinlich,"bestätigt: 1875–1891 Waffenchef der eidg. Kavallerie, Oberst, von Birmenstorf – passt auch zum Partikular ab 1892.",HLS-Artikel bestätigt+Aarau-Bezug,9
 aarau:1899-einwohner-153-L002,aarau,1899,Q55674986,Ernst Zschokke,1864,1937,,117019127,wahrscheinlich,,Aarau-Bezug,4
@@ -401,6 +603,165 @@ aarau:1899-gebaeude-086-L007,aarau,1899,Q42182771,Hermann Hunziker,1840,1910,,10
 aarau:1899-gebaeude-089-L034,aarau,1899,Q133087704,,1856,1927,,1073419371,wahrscheinlich,,Aarau-Bezug,4
 aarau:1899-gebaeude-090-L015,aarau,1899,Q77869981,Hans Herzog,1858,1929,,116762454,möglich,,Aarau-Bezug,4
 aarau:1899-gebaeude-090-L021,aarau,1899,Q125547191,Ferdinand Hangartner,1852,1909,,1342692608,wahrscheinlich,,Aarau-Bezug+Beruf,5
+aarau:1901-einwohner-097-L017,aarau,1901,Q96261262,Oswald Bargetzi,1856,1914,032126,1070137227,wahrscheinlich,"bestätigt: Bauingenieur, ab 1890 Chef des technischen Büros der Firma Zschokke in Aarau, von Solothurn.",HLS-Artikel bestätigt+HLS nennt Aarau,7
+aarau:1901-einwohner-099-L016,aarau,1901,Q94762762,Heinrich Bircher,1850,1923,014294,118663321,wahrscheinlich,"bestätigt: Praxis in Aarau ab 1872, 1887–1917 chirurgischer Chefarzt und Direktor der kantonalen Krankenanstalt.",HLS-Artikel bestätigt+Aarau-Bezug,9
+aarau:1901-einwohner-099-L031,aarau,1901,Q133456399,Anna Blattner,1866,1935,,,wahrscheinlich,,Aarau-Bezug,4
+aarau:1901-einwohner-099-L033,aarau,1901,Q78057990,Emil Blattner,1874,1950,031898,1068158913,möglich,ungeprüft,Aarau-Bezug,4
+aarau:1901-einwohner-099-L037,aarau,1901,Q133456399,Anna Blattner,1866,1935,,,möglich,,Aarau-Bezug (Namensvetter im Band),4
+aarau:1901-einwohner-102-L003,aarau,1901,Q113806328,Enrico Buffetti,1862,1926,,1139277944,wahrscheinlich,,Aarau-Bezug+Beruf,5
+aarau:1901-einwohner-102-L009,aarau,1901,Q1649156,Josef Burgmeier,1844,1905,,,wahrscheinlich,,Aarau-Bezug,4
+aarau:1901-einwohner-102-L029,aarau,1901,Q2074388,Peter Conrad,1850,1914,005486,1050111931,wahrscheinlich,"bestätigt: 1885–1914 Aargauer Regierungsrat, Fürsprecher, von Auw und Ehrenbürger von Turgi – deckt sich mit allen Einträgen.",HLS-Artikel bestätigt+Aarau-Bezug,9
+aarau:1901-einwohner-104-L045,aarau,1901,Q118013,Friedrich Erismann,1842,1915,014346,118685171,möglich,ungeprüft,Aarau-Bezug (HLS-Artikel noch nicht geprüft),4
+aarau:1901-einwohner-105-L025,aarau,1901,Q1372488,Eugen Fahrländer,1844,1917,023669,1051067766,möglich,"zweifelhaft: Dipl. Ingenieur, von Aarau, geboren und gestorben in Aarau, militärische Kommandos nur im Nebenamt; Wohnsitz und Tätigkeit in Aarau 1888–1899 nennt der Artikel aber nicht (nur Topograph. Bureau in Bern).",Aarau-Bezug+Beruf,5
+aarau:1901-einwohner-105-L027,aarau,1901,Q1731009,Karl Franz Sebastian Fahrländer,1836,1907,003756,1051067812,wahrscheinlich,"bestätigt: Dr. iur., 1885–1907 Regierungsrat, ab 1860 von Laufenburg – passt zu «Dr. Jur. Regierungsrath von Laufenburg».",HLS-Artikel bestätigt+Aarau-Bezug,9
+aarau:1901-einwohner-106-L039,aarau,1901,Q2597747,Xaver Fischer,1837,1921,027544,1069188956,wahrscheinlich,"bestätigt: Ab 1877 erster christkatholischer Pfarrer in Aarau, von Triengen.",HLS-Artikel bestätigt+Aarau-Bezug+Beruf,10
+aarau:1901-einwohner-107-L014,aarau,1901,Q28122341,Emil Frey-Gessner,1826,1917,028826,117537152,möglich,ungeprüft,Aarau-Bezug (HLS-Artikel noch nicht geprüft),4
+aarau:1901-einwohner-107-L032,aarau,1901,Q124151,Adolf Frey,1855,1920,011796,116782544,möglich,zweifelhaft: Ab 1898 Ordinarius in Zürich; der berufslose Eintrag 1899 kann ein Nachläufer oder ein Namensvetter sein.,HLS-Artikel bestätigt+HLS nennt Aarau,7
+aarau:1901-einwohner-107-L037,aarau,1901,Q28122341,Emil Frey-Gessner,1826,1917,028826,117537152,möglich,ungeprüft,Aarau-Bezug (Namensvetter im Band),4
+aarau:1901-einwohner-108-L026,aarau,1901,Q87392801,Franz Fröhlich,1849,1912,,1055138862,wahrscheinlich,,Aarau-Bezug,4
+aarau:1901-einwohner-112-L005,aarau,1901,Q23063291,Hans Hässig,1860,1936,020349,1050161874,wahrscheinlich,"bestätigt: 1889–1907 Aarauer Stadtrat, vorher Studium abgebrochen (passt zu «Privat» 1888).",HLS-Artikel bestätigt+Aarau-Bezug,9
+aarau:1901-einwohner-113-L013,aarau,1901,Q125547191,Ferdinand Hangartner,1852,1909,,1342692608,wahrscheinlich,,Aarau-Bezug+Beruf,5
+aarau:1901-einwohner-115-L011,aarau,1901,Q77869981,Hans Herzog,1858,1929,,116762454,möglich,,Aarau-Bezug,4
+aarau:1901-einwohner-115-L026,aarau,1901,Q133371230,,1841,1912,,133710270,wahrscheinlich,,Aarau-Bezug,4
+aarau:1901-einwohner-115-L027,aarau,1901,Q133371230,,1841,1912,,133710270,möglich,,Aarau-Bezug (Namensvetter im Band),4
+aarau:1901-einwohner-116-L030,aarau,1901,Q15805984,Dietrich Holzach,1836,1905,,,wahrscheinlich,,Aarau-Bezug,4
+aarau:1901-einwohner-117-L024,aarau,1901,Q42182771,Hermann Hunziker,1840,1910,,1089402252,wahrscheinlich,,Aarau-Bezug,4
+aarau:1901-einwohner-117-L025,aarau,1901,Q42182771,Hermann Hunziker,1840,1910,,1089402252,möglich,,Aarau-Bezug (Namensvetter im Band),4
+aarau:1901-einwohner-117-L045,aarau,1901,Q78064711,Adolf Jenny,1851,1941,029516,105377558X,möglich,"bestätigt: Ab 1876 Inhaber einer Wollstofffärberei in Aarau, von Iffwil.",HLS-Artikel bestätigt+HLS nennt Aarau (Namensvetter im Band),6
+aarau:1901-einwohner-117-L046,aarau,1901,Q78064711,Adolf Jenny,1851,1941,029516,105377558X,wahrscheinlich,"bestätigt: Ab 1876 Inhaber einer Wollstofffärberei in Aarau, von Iffwil.",HLS-Artikel bestätigt+HLS nennt Aarau+Beruf,8
+aarau:1901-einwohner-118-L031,aarau,1901,Q1580218,Gottlieb Käppeli,1840,1909,005503,1050187105,wahrscheinlich,"bestätigt: 1875–1905 Aargauer Regierungsrat, von Merenschwand.",HLS-Artikel bestätigt+Aarau-Bezug,9
+aarau:1901-einwohner-121-L018,aarau,1901,Q1611890,Hermann Kummler,1863,1949,029586,120873958,wahrscheinlich,bestätigt: Nach Rückkehr 1891 an einem Aarauer Elektrizitätswerk beteiligt und 1894 Gründer von Kummler & Cie. – passt zu Elektrotechniker/Kaufmann.,HLS-Artikel bestätigt+Aarau-Bezug+Beruf,10
+aarau:1901-einwohner-121-L024,aarau,1901,Q896895,Eugen Kutschera,1852,1918,,1089748078,wahrscheinlich,,Aarau-Bezug+Beruf,5
+aarau:1901-einwohner-124-L038,aarau,1901,Q98399981,Johann Ludwig Meyer,1858,1935,,1181732182,möglich,,Aarau-Bezug,4
+aarau:1901-einwohner-124-L039,aarau,1901,Q98399981,Johann Ludwig Meyer,1858,1935,,1181732182,möglich,,Aarau-Bezug,4
+aarau:1901-einwohner-124-L041,aarau,1901,Q98399981,Johann Ludwig Meyer,1858,1935,,1181732182,möglich,,Aarau-Bezug+Beruf,4
+aarau:1901-einwohner-125-L022,aarau,1901,Q2547333,Walther Merz,1868,1938,027083,116913150,wahrscheinlich,"bestätigt: Ab 1893 aargauischer Justizsekretär, von Menziken.",HLS-Artikel bestätigt+Aarau-Bezug+Beruf,10
+aarau:1901-einwohner-125-L044,aarau,1901,Q115944,Karl Moser,1860,1936,019891,118584413,möglich,"zweifelhaft: Architekt von Baden passt, doch er arbeitete 1888–1915 in Karlsruhe; ein Aarauer Bezug fehlt im Artikel.",Beruf,2
+aarau:1901-einwohner-127-L022,aarau,1901,Q19131379,Arnold Niggli,1843,1927,020722,117018805,wahrscheinlich,bestätigt: Fürsprecher und 1875–1909 Stadtschreiber von Aarau.,HLS-Artikel bestätigt+Aarau-Bezug,9
+aarau:1901-einwohner-131-L043,aarau,1901,Q1731502,Karl Heinrich Remigius Sauerländer,1848,1919,,1073474615,wahrscheinlich,,Aarau-Bezug,4
+aarau:1901-einwohner-132-L043,aarau,1901,Q110550620,Gottlieb Schenker,1856,1922,014620,1047894319,wahrscheinlich,"bestätigt: Dr. med., ab 1883 eigene Praxis in Aarau, von Däniken.",HLS-Artikel bestätigt+Aarau-Bezug,9
+aarau:1901-einwohner-133-L051,aarau,1901,Q1913381,Max Schmidt,1862,1951,005519,1051006015,wahrscheinlich,"bestätigt: Fürsprecher ab 1886, 1891–1906 Stadtammann von Aarau.",HLS-Artikel bestätigt+Aarau-Bezug,9
+aarau:1901-einwohner-134-L033,aarau,1901,Q94809743,Gustav Arsène Schneider,1866,1940,,130081248,möglich,,Aarau-Bezug,4
+aarau:1901-einwohner-135-L036,aarau,1901,Q27662066,Friedrich Siebenmann,1852,1928,014642,117339180,möglich,ungeprüft,Aarau-Bezug,4
+aarau:1901-einwohner-137-L002,aarau,1901,Q78071710,Carl Sprecher,1868,1938,029581,1081691336,wahrscheinlich,"bestätigt: 1896–1900 Betriebsleiter des Elektrizitätswerks Aarau, von Aesch – passt zu «Chef des Elektrizitätswerkes».",HLS-Artikel bestätigt+Aarau-Bezug+Beruf,10
+aarau:1901-einwohner-141-L003,aarau,1901,Q78074454,Heinrich Wäffler,1843,1917,049180,1050008898,wahrscheinlich,"bestätigt: 1877–1908 Turnlehrer am Töchterinstitut Aarau, von Basel.",HLS-Artikel bestätigt+HLS nennt Aarau,7
+aarau:1901-einwohner-142-L041,aarau,1901,Q52155973,Adolf Weibel,1870,1952,,108929056X,wahrscheinlich,,Aarau-Bezug,4
+aarau:1901-einwohner-143-L046,aarau,1901,Q78075155,Max Widmann,1867,1946,012397,117339628,wahrscheinlich,bestätigt: Redaktor bei den «Aargauer Nachrichten» und Mitgründer der Literarischen Gesellschaft Aarau – genau der Beruf im Eintrag 1896.,HLS-Artikel bestätigt+HLS nennt Aarau,7
+aarau:1901-einwohner-144-L043,aarau,1901,Q18021448,Jost Winteler,1846,1929,012406,118769391,wahrscheinlich,"bestätigt: Dr. phil., 1884–1914 Gymnasiallehrer in Aarau; von Filzbach liegt in Kerenzen, kein Widerspruch.",HLS-Artikel bestätigt+HLS nennt Aarau,7
+aarau:1901-einwohner-145-L004,aarau,1901,Q133087704,,1856,1927,,1073419371,wahrscheinlich,,Aarau-Bezug,4
+aarau:1901-einwohner-145-L014,aarau,1901,Q1529558,Max Wolfinger,1837,1913,,1089646674,wahrscheinlich,,Aarau-Bezug,4
+aarau:1901-einwohner-146-L005,aarau,1901,Q94920696,Gottlieb Zehnder,1820,1901,024456,1064724140,wahrscheinlich,"bestätigt: 1875–1891 Waffenchef der eidg. Kavallerie, Oberst, von Birmenstorf – passt auch zum Partikular ab 1892.",HLS-Artikel bestätigt+Aarau-Bezug,9
+aarau:1901-einwohner-146-L031,aarau,1901,Q55674986,Ernst Zschokke,1864,1937,,117019127,wahrscheinlich,,Aarau-Bezug,4
+aarau:1901-einwohner-146-L035,aarau,1901,Q1127106,Conradin Zschokke,1842,1918,019957,119048280,möglich,"zweifelhaft: Ingenieur passt und er war ab 1892 Aargauer Grossrat, doch der Artikel verortet ihn in Frankreich und Zürich und nennt die definitive Rückkehr nach Aarau erst 1909.",Aarau-Bezug+Beruf,5
+aarau:1901-einwohner-147-L008,aarau,1901,Q78076329,Friedrich Rudolf Zurlinden,1851,1932,029552,129526428,möglich,"zweifelhaft: Unternehmer in Aarau (Zementfabrik ab 1882), aber der Artikel nennt keine Tätigkeit als Bankdirektor.",HLS nennt Aarau,2
+aarau:1901-gebaeude-026-L033,aarau,1901,Q2597747,Xaver Fischer,1837,1921,027544,1069188956,wahrscheinlich,"bestätigt: Ab 1877 erster christkatholischer Pfarrer in Aarau, von Triengen.",HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort+Beruf,16
+aarau:1901-gebaeude-031-L006,aarau,1901,Q94920696,Gottlieb Zehnder,1820,1901,024456,1064724140,wahrscheinlich,"bestätigt: 1875–1891 Waffenchef der eidg. Kavallerie, Oberst, von Birmenstorf – passt auch zum Partikular ab 1892.",HLS-Artikel bestätigt+Aarau-Bezug,9
+aarau:1901-gebaeude-046-L045,aarau,1901,Q98399981,Johann Ludwig Meyer,1858,1935,,1181732182,möglich,,Geburtsort weicht ab+Aarau-Bezug,4
+aarau:1901-gebaeude-049-L036,aarau,1901,Q19131379,Arnold Niggli,1843,1927,020722,117018805,wahrscheinlich,bestätigt: Fürsprecher und 1875–1909 Stadtschreiber von Aarau.,HLS-Artikel bestätigt+Aarau-Bezug,9
+aarau:1901-gebaeude-050-L028,aarau,1901,Q94809743,Gustav Arsène Schneider,1866,1940,,130081248,möglich,,Aarau-Bezug,4
+aarau:1901-gebaeude-057-L004,aarau,1901,Q78076329,Friedrich Rudolf Zurlinden,1851,1932,029552,129526428,möglich,"zweifelhaft: Unternehmer in Aarau (Zementfabrik ab 1882), aber der Artikel nennt keine Tätigkeit als Bankdirektor.",HLS nennt Aarau+Heimatort,5
+aarau:1901-gebaeude-058-L005,aarau,1901,Q52155973,Adolf Weibel,1870,1952,,108929056X,wahrscheinlich,,Aarau-Bezug+Heimatort,7
+aarau:1901-gebaeude-058-L036,aarau,1901,Q896895,Eugen Kutschera,1852,1918,,1089748078,wahrscheinlich,,Aarau-Bezug+Heimatort,7
+aarau:1901-gebaeude-059-L004,aarau,1901,Q133371230,,1841,1912,,133710270,wahrscheinlich,,Aarau-Bezug+Heimatort,7
+aarau:1901-gebaeude-060-L044,aarau,1901,Q115944,Karl Moser,1860,1936,019891,118584413,möglich,"zweifelhaft: Architekt von Baden passt, doch er arbeitete 1888–1915 in Karlsruhe; ein Aarauer Bezug fehlt im Artikel.",Beruf,2
+aarau:1901-gebaeude-062-L023,aarau,1901,Q1731502,Karl Heinrich Remigius Sauerländer,1848,1919,,1073474615,wahrscheinlich,,Aarau-Bezug,4
+aarau:1901-gebaeude-062-L032,aarau,1901,Q78075155,Max Widmann,1867,1946,012397,117339628,wahrscheinlich,bestätigt: Redaktor bei den «Aargauer Nachrichten» und Mitgründer der Literarischen Gesellschaft Aarau – genau der Beruf im Eintrag 1896.,HLS-Artikel bestätigt+HLS nennt Aarau+HLS-Heimatort+Heimatort,13
+aarau:1901-gebaeude-062-L034,aarau,1901,Q18021448,Jost Winteler,1846,1929,012406,118769391,wahrscheinlich,"bestätigt: Dr. phil., 1884–1914 Gymnasiallehrer in Aarau; von Filzbach liegt in Kerenzen, kein Widerspruch.",HLS-Artikel bestätigt+HLS nennt Aarau,7
+aarau:1901-gebaeude-065-L018,aarau,1901,Q78064711,Adolf Jenny,1851,1941,029516,105377558X,wahrscheinlich,"bestätigt: Ab 1876 Inhaber einer Wollstofffärberei in Aarau, von Iffwil.",HLS-Artikel bestätigt+HLS nennt Aarau+Beruf,8
+aarau:1901-gebaeude-065-L020,aarau,1901,Q78064711,Adolf Jenny,1851,1941,029516,105377558X,möglich,"bestätigt: Ab 1876 Inhaber einer Wollstofffärberei in Aarau, von Iffwil.",HLS-Artikel bestätigt+HLS nennt Aarau (Namensvetter im Band),7
+aarau:1901-gebaeude-068-L046,aarau,1901,Q5492951,Franz Schneider,1871,1941,043501,133069109,möglich,ungeprüft,Geburtsort weicht ab,1
+aarau:1901-gebaeude-068-L047,aarau,1901,Q112603393,Karl Locher,1878,1951,005588,1054431329,möglich,"zweifelhaft: Heimatort Oberegg passt und vor 1899 arbeitete er in verschiedenen Betrieben der Schweiz, aber Aarau und Prokurist nennt der Artikel nicht; ab 1899 in Appenzell.",HLS-Heimatort+Heimatort,7
+aarau:1901-gebaeude-069-L005,aarau,1901,Q94762762,Heinrich Bircher,1850,1923,014294,118663321,wahrscheinlich,"bestätigt: Praxis in Aarau ab 1872, 1887–1917 chirurgischer Chefarzt und Direktor der kantonalen Krankenanstalt.",HLS-Artikel bestätigt+Aarau-Bezug,9
+aarau:1901-gebaeude-069-L045,aarau,1901,Q15805984,Dietrich Holzach,1836,1905,,,wahrscheinlich,,Aarau-Bezug,4
+aarau:1901-gebaeude-073-L038,aarau,1901,Q78071710,Carl Sprecher,1868,1938,029581,1081691336,wahrscheinlich,"bestätigt: 1896–1900 Betriebsleiter des Elektrizitätswerks Aarau, von Aesch – passt zu «Chef des Elektrizitätswerkes».",HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort+Beruf,16
+aarau:1901-gebaeude-074-L036,aarau,1901,Q77869981,Hans Herzog,1858,1929,,116762454,möglich,,Aarau-Bezug,4
+aarau:1901-gebaeude-074-L043,aarau,1901,Q125547191,Ferdinand Hangartner,1852,1909,,1342692608,wahrscheinlich,,Aarau-Bezug+Heimatort+Beruf,8
+aarau:1901-gebaeude-077-L036,aarau,1901,Q77512,Heinrich Weber,1842,1913,031705,1012808513,möglich,ungeprüft,Geburtsort weicht ab,1
+aarau:1901-gebaeude-082-L004,aarau,1901,Q78057990,Emil Blattner,1874,1950,031898,1068158913,möglich,ungeprüft,Aarau-Bezug,4
+aarau:1901-gebaeude-082-L006,aarau,1901,Q133456399,Anna Blattner,1866,1935,,,wahrscheinlich,,Aarau-Bezug,4
+aarau:1901-gebaeude-087-L008,aarau,1901,Q85001013,Gottfried Reimann,1862,1909,013270,1017338582,möglich,ungeprüft,Heimatort,4
+aarau:1901-gebaeude-088-L032,aarau,1901,Q55674986,Ernst Zschokke,1864,1937,,117019127,wahrscheinlich,,Aarau-Bezug,4
+aarau:1901-gebaeude-089-L006,aarau,1901,Q2547333,Walther Merz,1868,1938,027083,116913150,wahrscheinlich,"bestätigt: Ab 1893 aargauischer Justizsekretär, von Menziken.",HLS-Artikel bestätigt+Aarau-Bezug+Heimatort+Beruf,13
+aarau:1901-gebaeude-089-L011,aarau,1901,Q1329903,Elisabeth Flühmann,1851,1929,020344,1050118065,wahrscheinlich,"bestätigt: 1880–1915 Lehrerin am Aarauer Lehrerinnenseminar, von Saxeten.",HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort,15
+aarau:1901-gebaeude-090-L044,aarau,1901,Q42182771,Hermann Hunziker,1840,1910,,1089402252,wahrscheinlich,,Aarau-Bezug,4
+aarau:1901-gebaeude-091-L005,aarau,1901,Q23063291,Hans Hässig,1860,1936,020349,1050161874,wahrscheinlich,"bestätigt: 1889–1907 Aarauer Stadtrat, vorher Studium abgebrochen (passt zu «Privat» 1888).",HLS-Artikel bestätigt+Aarau-Bezug,9
+aarau:1901-gebaeude-091-L022,aarau,1901,Q96364268,Hans Fretz,1868,1941,029524,1080538313,möglich,ungeprüft,Heimatort,4
+aarau:1913-einwohner-144-L014,aarau,1913,Q94762762,Heinrich Bircher,1850,1923,014294,118663321,wahrscheinlich,"bestätigt: Praxis in Aarau ab 1872, 1887–1917 chirurgischer Chefarzt und Direktor der kantonalen Krankenanstalt.",HLS-Artikel bestätigt+Aarau-Bezug,9
+aarau:1913-einwohner-144-L016,aarau,1913,Q94762762,Heinrich Bircher,1850,1923,014294,118663321,möglich,"bestätigt: Praxis in Aarau ab 1872, 1887–1917 chirurgischer Chefarzt und Direktor der kantonalen Krankenanstalt.",HLS-Artikel bestätigt+Aarau-Bezug (Namensvetter im Band),9
+aarau:1913-einwohner-144-L041,aarau,1913,Q133456399,Anna Blattner,1866,1935,,,wahrscheinlich,,Aarau-Bezug,4
+aarau:1913-einwohner-149-L045,aarau,1913,Q2074388,Peter Conrad,1850,1914,005486,1050111931,wahrscheinlich,"bestätigt: 1885–1914 Aargauer Regierungsrat, Fürsprecher, von Auw und Ehrenbürger von Turgi – deckt sich mit allen Einträgen.",HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort,15
+aarau:1913-einwohner-149-L046,aarau,1913,Q2074388,Peter Conrad,1850,1914,005486,1050111931,möglich,"bestätigt: 1885–1914 Aargauer Regierungsrat, Fürsprecher, von Auw und Ehrenbürger von Turgi – deckt sich mit allen Einträgen.",HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort (Namensvetter im Band),15
+aarau:1913-einwohner-153-L047,aarau,1913,Q118013,Friedrich Erismann,1842,1915,014346,118685171,möglich,ungeprüft,Aarau-Bezug (HLS-Artikel noch nicht geprüft),4
+aarau:1913-einwohner-154-L010,aarau,1913,Q761195,August Ernst,1880,1959,043810,143786830,möglich,ungeprüft,Aarau-Bezug (HLS-Artikel noch nicht geprüft),4
+aarau:1913-einwohner-154-L047,aarau,1913,Q1372488,Eugen Fahrländer,1844,1917,023669,1051067766,möglich,"zweifelhaft: Dipl. Ingenieur, von Aarau, geboren und gestorben in Aarau, militärische Kommandos nur im Nebenamt; Wohnsitz und Tätigkeit in Aarau 1888–1899 nennt der Artikel aber nicht (nur Topograph. Bureau in Bern).",Aarau-Bezug+Beruf,5
+aarau:1913-einwohner-155-L032,aarau,1913,Q96364087,Heinrich Fehlmann,1880,1952,029591,1080528431,möglich,ungeprüft,Aarau-Bezug (HLS-Artikel noch nicht geprüft),4
+aarau:1913-einwohner-156-L021,aarau,1913,Q131239011,Karl Fischer,1868,1927,,,wahrscheinlich,,Aarau-Bezug,4
+aarau:1913-einwohner-156-L029,aarau,1913,Q1539776,Gottlieb Fischer,1867,1962,011789,116554525,möglich,ungeprüft,Heimatort+Beruf (HLS-Artikel noch nicht geprüft),5
+aarau:1913-einwohner-156-L031,aarau,1913,Q1539776,Gottlieb Fischer,1867,1962,011789,116554525,möglich,ungeprüft,Heimatort,4
+aarau:1913-einwohner-157-L007,aarau,1913,Q2597747,Xaver Fischer,1837,1921,027544,1069188956,wahrscheinlich,"bestätigt: Ab 1877 erster christkatholischer Pfarrer in Aarau, von Triengen.",HLS-Artikel bestätigt+HLS-Heimatort+Aarau-Bezug+Heimatort+Beruf,16
+aarau:1913-einwohner-157-L018,aarau,1913,Q1329903,Elisabeth Flühmann,1851,1929,020344,1050118065,wahrscheinlich,"bestätigt: 1880–1915 Lehrerin am Aarauer Lehrerinnenseminar, von Saxeten.",HLS-Artikel bestätigt+Aarau-Bezug,9
+aarau:1913-einwohner-158-L009,aarau,1913,Q94942106,Arthur Frey,1879,1959,028148,122376366,möglich,ungeprüft,Heimatort+Beruf (HLS-Artikel noch nicht geprüft),5
+aarau:1913-einwohner-158-L027,aarau,1913,Q132229477,Fanny Ida Mina Frey,1872,1940,,,möglich,,Aarau-Bezug,3
+aarau:1913-einwohner-158-L033,aarau,1913,Q132229480,Guido Frey,1875,1949,,11678332X,wahrscheinlich,,Aarau-Bezug,4
+aarau:1913-einwohner-158-L035,aarau,1913,Q42328414,H. Frey,1864,1928,,,wahrscheinlich,,Aarau-Bezug,4
+aarau:1913-einwohner-159-L034,aarau,1913,Q1731031,Karl Fricker,1870,1933,,1239150199,wahrscheinlich,,Aarau-Bezug+Heimatort,7
+aarau:1913-einwohner-164-L015,aarau,1913,Q99305209,Ernst Otto Graf,1877,1940,004511,1052251609,möglich,ungeprüft,HLS-Heimatort+Heimatort,7
+aarau:1913-einwohner-165-L042,aarau,1913,Q78063773,Adolf Louis Gygi,1872,1924,029550,1080571531,möglich,ungeprüft,Heimatort,4
+aarau:1913-einwohner-167-L006,aarau,1913,Q23063291,Hans Hässig,1860,1936,020349,1050161874,wahrscheinlich,"bestätigt: 1889–1907 Aarauer Stadtrat, vorher Studium abgebrochen (passt zu «Privat» 1888).",HLS-Artikel bestätigt+Aarau-Bezug,9
+aarau:1913-einwohner-171-L049,aarau,1913,Q77869981,Hans Herzog,1858,1929,,116762454,wahrscheinlich,,Aarau-Bezug,4
+aarau:1913-einwohner-173-L024,aarau,1913,Q15455167,Emil Adolf Hoffmann,1879,1963,,134892380,wahrscheinlich,,Aarau-Bezug,4
+aarau:1913-einwohner-173-L025,aarau,1913,Q15455167,Emil Adolf Hoffmann,1879,1963,,134892380,möglich,,Aarau-Bezug (Namensvetter im Band),4
+aarau:1913-einwohner-175-L026,aarau,1913,Q94883084,Robert Hunziker,1876,1951,,140001565,wahrscheinlich,,Aarau-Bezug+Beruf,5
+aarau:1913-einwohner-176-L007,aarau,1913,Q78064711,Adolf Jenny,1851,1941,029516,105377558X,wahrscheinlich,"bestätigt: Ab 1876 Inhaber einer Wollstofffärberei in Aarau, von Iffwil.",HLS-Artikel bestätigt+HLS nennt Aarau,7
+aarau:1913-einwohner-177-L025,aarau,1913,Q94816905,Hans Käslin,1867,1955,012017,116016302,möglich,ungeprüft,Aarau-Bezug (HLS-Artikel noch nicht geprüft),4
+aarau:1913-einwohner-178-L019,aarau,1913,Q1336337,Emil Keller,1878,1965,003772,1017268746,möglich,ungeprüft,Aarau-Bezug+Heimatort (HLS-Artikel noch nicht geprüft),7
+aarau:1913-einwohner-178-L026,aarau,1913,Q1336337,Emil Keller,1878,1965,003772,1017268746,möglich,ungeprüft,Aarau-Bezug,3
+aarau:1913-einwohner-178-L027,aarau,1913,Q2693312,Eugen Keller,1880,1948,046043,116118911,möglich,ungeprüft,Geburtsort weicht ab,1
+aarau:1913-einwohner-182-L011,aarau,1913,Q1611890,Hermann Kummler,1863,1949,029586,120873958,wahrscheinlich,bestätigt: Nach Rückkehr 1891 an einem Aarauer Elektrizitätswerk beteiligt und 1894 Gründer von Kummler & Cie. – passt zu Elektrotechniker/Kaufmann.,HLS-Artikel bestätigt+Aarau-Bezug+Beruf,10
+aarau:1913-einwohner-185-L039,aarau,1913,Q78065149,Josef Lonstroff,1863,1941,029542,108067859X,möglich,ungeprüft,Aarau-Bezug (HLS-Artikel noch nicht geprüft),4
+aarau:1913-einwohner-187-L026,aarau,1913,Q78065718,Rudolf Heinrich Mantel,1853,1924,042915,1070608629,möglich,ungeprüft,Heimatort,4
+aarau:1913-einwohner-188-L006,aarau,1913,Q78065838,Traugott Markwalder,1854,1915,024018,1078433690,wahrscheinlich,"bestätigt: 1879–1896 Instruktionsoffizier der Kavallerie, 1895 Oberst, von Aarau – deckt sich mit Stabsmajor/Oberstlt./Oberst, Kavallerie-Instruktor.",HLS-Artikel bestätigt+Aarau-Bezug,9
+aarau:1913-einwohner-191-L004,aarau,1913,Q98399981,Johann Ludwig Meyer,1858,1935,,1181732182,möglich,,Geburtsort weicht ab+Aarau-Bezug,4
+aarau:1913-einwohner-192-L010,aarau,1913,Q363459,Adolf Müller,1863,1943,028520,119228467,möglich,ungeprüft,Geburtsort weicht ab,1
+aarau:1913-einwohner-199-L027,aarau,1913,Q696013,Arnold Ringier,1845,1923,005513,139239375,möglich,ungeprüft,Heimatort+Beruf (HLS-Artikel noch nicht geprüft),5
+aarau:1913-einwohner-202-L036,aarau,1913,Q1731502,Karl Heinrich Remigius Sauerländer,1848,1919,,1073474615,wahrscheinlich,,Aarau-Bezug,4
+aarau:1913-einwohner-202-L038,aarau,1913,Q1731502,Karl Heinrich Remigius Sauerländer,1848,1919,,1073474615,möglich,,Aarau-Bezug (Namensvetter im Band),4
+aarau:1913-einwohner-204-L035,aarau,1913,Q110550620,Gottlieb Schenker,1856,1922,014620,1047894319,wahrscheinlich,"bestätigt: Dr. med., ab 1883 eigene Praxis in Aarau, von Däniken.",HLS-Artikel bestätigt+Aarau-Bezug,9
+aarau:1913-einwohner-206-L046,aarau,1913,Q1913381,Max Schmidt,1862,1951,005519,1051006015,wahrscheinlich,"bestätigt: Fürsprecher ab 1886, 1891–1906 Stadtammann von Aarau.",HLS-Artikel bestätigt+Aarau-Bezug,9
+aarau:1913-einwohner-207-L012,aarau,1913,Q110208897,Fritz Schmuziger,1879,1950,041176,1051006058,möglich,ungeprüft,Aarau-Bezug,3
+aarau:1913-einwohner-207-L040,aarau,1913,Q94809743,Gustav Arsène Schneider,1866,1940,,130081248,möglich,,Aarau-Bezug,4
+aarau:1913-einwohner-208-L030,aarau,1913,Q1598823,Heinrich Schuh,1873,1955,029580,1017137447,möglich,ungeprüft,Heimatort+Beruf (HLS-Artikel noch nicht geprüft),5
+aarau:1913-einwohner-210-L008,aarau,1913,Q27662066,Friedrich Siebenmann,1852,1928,014642,117339180,möglich,ungeprüft,Aarau-Bezug,3
+aarau:1913-einwohner-213-L029,aarau,1913,Q51325118,Hans Adolf Steiner,1872,1955,,1089290586,möglich,,Geburtsort weicht ab+Aarau-Bezug,4
+aarau:1913-einwohner-219-L014,aarau,1913,Q117588,Alfred Vogt,1879,1943,014684,118768980,möglich,ungeprüft,Beruf,2
+aarau:1913-einwohner-220-L003,aarau,1913,Q78074454,Heinrich Wäffler,1843,1917,049180,1050008898,wahrscheinlich,"bestätigt: 1877–1908 Turnlehrer am Töchterinstitut Aarau, von Basel.",HLS-Artikel bestätigt+HLS nennt Aarau+HLS-Heimatort+Heimatort,13
+aarau:1913-einwohner-222-L047,aarau,1913,Q52155973,Adolf Weibel,1870,1952,,108929056X,wahrscheinlich,,Aarau-Bezug+Heimatort,7
+aarau:1913-einwohner-226-L042,aarau,1913,Q133087704,,1856,1927,,1073419371,wahrscheinlich,,Aarau-Bezug,4
+aarau:1913-einwohner-226-L043,aarau,1913,Q133087704,,1856,1927,,1073419371,möglich,,Aarau-Bezug (Namensvetter im Band),4
+aarau:1913-einwohner-226-L044,aarau,1913,Q133087704,,1856,1927,,1073419371,möglich,,Aarau-Bezug (Namensvetter im Band),4
+aarau:1913-einwohner-226-L045,aarau,1913,Q133087704,,1856,1927,,1073419371,möglich,,Aarau-Bezug (Namensvetter im Band),4
+aarau:1913-einwohner-227-L011,aarau,1913,Q1529558,Max Wolfinger,1837,1913,,1089646674,wahrscheinlich,,Aarau-Bezug+Heimatort,7
+aarau:1913-einwohner-230-L013,aarau,1913,Q55674986,Ernst Zschokke,1864,1937,,117019127,wahrscheinlich,,Aarau-Bezug,4
+aarau:1913-gebaeude-037-L011,aarau,1913,Q113585915,Walther Zschokke,1870,1951,,1047832356,wahrscheinlich,,Aarau-Bezug,4
+aarau:1913-gebaeude-037-L044,aarau,1913,Q94816905,Hans Käslin,1867,1955,012017,116016302,möglich,ungeprüft,Aarau-Bezug (HLS-Artikel noch nicht geprüft),4
+aarau:1913-gebaeude-046-L009,aarau,1913,Q1336337,Emil Keller,1878,1965,003772,1017268746,möglich,ungeprüft,Aarau-Bezug,3
+aarau:1913-gebaeude-047-L045,aarau,1913,Q133087704,,1856,1927,,1073419371,wahrscheinlich,,Aarau-Bezug,4
+aarau:1913-gebaeude-062-L030,aarau,1913,Q94942106,Arthur Frey,1879,1959,028148,122376366,möglich,ungeprüft,Beruf,2
+aarau:1913-gebaeude-075-L043,aarau,1913,Q1731031,Karl Fricker,1870,1933,,1239150199,wahrscheinlich,,Aarau-Bezug,4
+aarau:1913-gebaeude-076-L024,aarau,1913,Q78065149,Josef Lonstroff,1863,1941,029542,108067859X,möglich,ungeprüft,Aarau-Bezug (HLS-Artikel noch nicht geprüft),4
+aarau:1913-gebaeude-077-L014,aarau,1913,Q132229477,Fanny Ida Mina Frey,1872,1940,,,möglich,,Aarau-Bezug,3
+aarau:1913-gebaeude-078-L018,aarau,1913,Q1731502,Karl Heinrich Remigius Sauerländer,1848,1919,,1073474615,wahrscheinlich,,Aarau-Bezug,4
+aarau:1913-gebaeude-079-L018,aarau,1913,Q52155973,Adolf Weibel,1870,1952,,108929056X,wahrscheinlich,,Aarau-Bezug,4
+aarau:1913-gebaeude-079-L035,aarau,1913,Q1336337,Emil Keller,1878,1965,003772,1017268746,möglich,ungeprüft,Aarau-Bezug (HLS-Artikel noch nicht geprüft),4
+aarau:1913-gebaeude-082-L041,aarau,1913,Q117588,Alfred Vogt,1879,1943,014684,118768980,möglich,ungeprüft,Beruf,2
+aarau:1913-gebaeude-084-L036,aarau,1913,Q94762762,Heinrich Bircher,1850,1923,014294,118663321,wahrscheinlich,"bestätigt: Praxis in Aarau ab 1872, 1887–1917 chirurgischer Chefarzt und Direktor der kantonalen Krankenanstalt.",HLS-Artikel bestätigt+Aarau-Bezug,9
+aarau:1913-gebaeude-090-L041,aarau,1913,Q133456399,Anna Blattner,1866,1935,,,wahrscheinlich,,Aarau-Bezug,4
+aarau:1913-gebaeude-096-L039,aarau,1913,Q77869981,Hans Herzog,1858,1929,,116762454,möglich,,Aarau-Bezug,4
+aarau:1913-gebaeude-101-L041,aarau,1913,Q55674986,Ernst Zschokke,1864,1937,,117019127,wahrscheinlich,,Aarau-Bezug,4
+aarau:1913-gebaeude-102-L015,aarau,1913,Q1329903,Elisabeth Flühmann,1851,1929,020344,1050118065,wahrscheinlich,"bestätigt: 1880–1915 Lehrerin am Aarauer Lehrerinnenseminar, von Saxeten.",HLS-Artikel bestätigt+Aarau-Bezug,9
+aarau:1913-gebaeude-105-L038,aarau,1913,Q42328414,H. Frey,1864,1928,,,möglich,,Aarau-Bezug,4
+aarau:1913-gebaeude-106-L022,aarau,1913,Q696013,Arnold Ringier,1845,1923,005513,139239375,möglich,ungeprüft,Beruf,2
+aarau:1913-gebaeude-111-L012,aarau,1913,Q133087704,,1856,1927,,1073419371,möglich,,Aarau-Bezug (Namensvetter im Band),4
 basel:1862-einwohner-319-L093,basel,1862,Q94920266,Rudolf Anstein,1824,1900,,1089789920,wahrscheinlich,,Basel-Bezug,4
 basel:1862-einwohner-319-L120,basel,1862,Q91158,Karl August Auberlen,1824,1864,010509,116376422,wahrscheinlich,"bestätigt: ao. theol. Professur Basel, Dr. theol. 1860 = ao. Prof. Theol. 1862; ∞ Menzel = Auberlen-Menzel",Basel-Bezug,4
 basel:1862-einwohner-320-L007,basel,1862,Q78057049,Friedrich Autenheimer,1821,1895,044703,139810269,wahrscheinlich,"bestätigt: Rektor Gewerbeschule Basel 1858-66, kant. Dampfkesselkontrolleur = Rector der Gewerbschule, obrigk. Techniker 1862; aber ∞ Finsterwald ≠ -Jäckle",Basel-Bezug,4
