@@ -40,10 +40,12 @@ STATS = NORM / "zuzuege_stats.json"
 # («Die Häuser-Nummerirung in Bern»): gleiche Hausnummer bei verknüpften Paaren 1879→1883 9 von 2 640, zwischen den
 # Bänden 1861–1879 59–80 %. Baden (1900, 1910) und Lausanne (1896, 1907) haben je zwei Bände, ohne Heimatort.
 CITIES = {"Aarau": (1877, True), "Zürich": (0, False), "Bern": (1882, False), "Baden": (0, False), "Lausanne": (0, False)}
-# Städte, deren Bände die Strassen verschieden abkürzen (Bern bis 1883: «Kramg.», «Krmg.»; «Mezg.», «Metzgerg.»):
-# die Abkürzung wird vor dem Vergleich auf die ausgeschriebene Form gebracht (`street_canon`). Nicht für Zürich:
-# dort sind die Namen ausgeschrieben, und «Seestr.» ist nicht die «Seefeldstr.».
-ABBR_STREETS = {"Bern"}
+# Städte, deren Bände die Strassen verschieden abkürzen: die Abkürzung wird vor dem Vergleich auf die ausgeschriebene
+# Form gebracht (`street_canon`). {Stadt: (nur Bände vor diesem Jahr oder 0, nur abgeschnittene Namen)}.
+# Bern kürzt bis 1883 auch im Wortinnern ab («Krmg.», «Mezg.»). Zürich vor 1893 nur durch Abschneiden
+# («Hirschengr.», «Stüssihofst.», «Rinderm.»); der freie Vergleich machte dort aus Strassen eigenen Namens andere
+# («Seestr.» → «Seefeldstr.», «Baurstr.» → «Braurstr.», «Schlossg.» → «Schlosserg.»).
+ABBR_STREETS = {"Bern": (0, False), "Zürich": (1893, True)}
 STREET_SUFFIX = re.compile(r"(gase|strase|str|weg|plaz|platz)$")
 # Ein Quartier gilt im Vorband als nicht erfasst, wenn es dort weniger als ein Viertel der Einträge hat
 # (Zürich 1867: Riesbach 111, 1875: 1 571). Neue dort sind kein Zuzug, sondern Status «gebiet».
@@ -77,12 +79,13 @@ def is_person(x: dict) -> bool:
     return bool(PERSONISH.search(t)) or bool(x["occupation"] and not NOT_PERSON.search(t))
 
 
-def street_canon(streets: list[str], min_n: int = 30) -> dict[str, str]:
+def street_canon(streets: list[str], min_n: int = 30, cut_only: bool = False) -> dict[str, str]:
     """Abgekürzter Strassenschlüssel → ausgeschriebener, aus den Schlüsseln einer Stadt selbst. Ziel ist eine Form mit
     gleicher Endung (-gasse, -strasse …), gleichem Anfangsbuchstaben, mindestens so häufig und mindestens `min_n`
     Mal, in der die Abkürzung als Buchstabenfolge steckt («krm» in «kram», «grcht» in «gerechtigkeits»); nur wenn
     genau eine Form passt. Eine reine Verlängerung um mehr als vier Buchstaben gilt nicht («Lorraine» ist nicht
-    «Lorraine, Quartierhof»)."""
+    «Lorraine, Quartierhof»). `cut_only`: nur abgeschnittene Namen ohne Endung, mindestens fünf Buchstaben, auf
+    einen Mitlaut endend («hirschengr» → «hirschengraben»; nicht «muhle» → «muhlebach»)."""
     n = Counter(k for k in map(skey, streets) if k)
 
     def split(k: str) -> tuple[str, str]:
@@ -100,11 +103,12 @@ def street_canon(streets: list[str], min_n: int = 30) -> dict[str, str]:
     out = {}
     for k in n:
         core, suf = split(k)
-        if len(core) < 3:
+        if len(core) < 3 or cut_only and (suf or len(core) < 5 or core[-1] in "aeiouy"):
             continue
         cand = {t for t in targets if t != (core, suf) and t[1] == suf and len(t[0]) > len(core) and t[0][0] == core[0]
                 and inside(core, t[0]) and cores[t] >= cores[(core, suf)]
-                and not (t[0].startswith(core) and len(t[0]) - len(core) > 4)}
+                and not (t[0].startswith(core) and len(t[0]) - len(core) > 4)
+                and (not cut_only or t[0].startswith(core))}
         if len(cand) == 1:
             t = cand.pop()
             out[k] = t[0] + t[1]
@@ -254,19 +258,21 @@ def status(b: dict, prev_by_name: dict[str, list[dict]], linked: bool) -> str:
     return "neu"
 
 
-def rosters(rows: list[dict], renumbered: int, global_no: bool = True, canon: dict[str, str] | None = None) -> dict[int, list[dict]]:
+def rosters(rows: list[dict], renumbered: int, global_no: bool = True, canon: dict[str, str] | None = None,
+            canon_until: int = 0) -> dict[int, list[dict]]:
     kinds = defaultdict(set)
     for x in rows:
         kinds[x["volume"]].add(x["kind"])
     out = {}
     for v in sorted(kinds):
+        cv = canon if not canon_until or int(v) < canon_until else None
         main = "einwohner" if "einwohner" in kinds[v] else "bewohner"
-        R = [prepare(x, renumbered, global_no, canon) for x in rows if x["volume"] == v and x["kind"] == main and is_person(x)]
+        R = [prepare(x, renumbered, global_no, cv) for x in rows if x["volume"] == v and x["kind"] == main and is_person(x)]
         if main == "einwohner" and "bewohner" in kinds[v]:
             B = defaultdict(list)
             for x in rows:
                 if x["volume"] == v and x["kind"] == "bewohner" and x["origin"]:
-                    B[nkey(x["surname"])].append(prepare(x, renumbered, global_no, canon))
+                    B[nkey(x["surname"])].append(prepare(x, renumbered, global_no, cv))
             for r in R:
                 if r["ok"]:
                     continue
@@ -289,10 +295,12 @@ def find() -> None:
     out, stats = [], {}
     for city, (renumbered, global_no) in CITIES.items():
         rows = [x for x in entries if x["municipality"] == city]
-        canon = street_canon([x["street"] for x in rows]) if city in ABBR_STREETS else None
+        until, cut_only = ABBR_STREETS.get(city, (0, False))
+        canon = (street_canon([x["street"] for x in rows if not until or int(x["volume"]) < until], cut_only=cut_only)
+                 if city in ABBR_STREETS else None)
         if canon:
             print(f"{city}: {len(canon)} abgekürzte Strassenschlüssel ausgeschrieben")
-        R = rosters(rows, renumbered, global_no, canon)
+        R = rosters(rows, renumbered, global_no, canon, until)
         vols = sorted(R)
         st = {}
         for i, v in enumerate(vols):

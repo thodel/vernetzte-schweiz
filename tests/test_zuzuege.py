@@ -104,6 +104,17 @@ class Linking(unittest.TestCase):
         self.assertEqual(z.score(a, b)[1], ["vorname:initiale", "strasse", "haus"])
         self.assertIn(b["id"], z.link([a], [b]))
 
+    def test_zurich_only_cut_street_names(self):
+        # Zürich vor 1893: «Hirschengr.» ist der Hirschengraben; «Seestr.» bleibt die Seestrasse, nicht die Seefeldstrasse
+        self.assertEqual(z.ABBR_STREETS["Zürich"], (1893, True))
+        streets = ["Hirschengraben"] * 40 + ["Hirschengr."] * 10 + ["Seefeldstr."] * 60 + ["Seestr."] * 30
+        canon = z.street_canon(streets, cut_only=True)
+        self.assertEqual(canon.get(z.skey("Hirschengr.")), z.skey("Hirschengraben"))
+        self.assertNotIn(z.skey("Seestr."), canon)
+        self.assertIn(z.skey("Seestr."), z.street_canon(streets))  # der freie Vergleich würde sie zusammenlegen
+        # «Mühle» endet auf einen Selbstlaut: ein eigener Name, nicht der abgeschnittene Mühlebach
+        self.assertNotIn(z.skey("Mühle"), z.street_canon(["Mühlebach"] * 40 + ["Mühle"] * 10, cut_only=True))
+
     def test_status(self):
         prev = {z.nkey("Frey"): [entry(1888, "Frey", "Johann", street="Rathausgasse", no="5")]}
         self.assertEqual(z.status(entry(1892, "Frey", "Anna", street="Rathausgasse", no="5"), prev, False), "haushalt")

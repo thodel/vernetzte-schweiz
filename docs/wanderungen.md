@@ -485,9 +485,9 @@ und ähnliche Familiennamen werden über eine Liste der Namen gesucht statt Eint
 
 | Band | Vorband | Personen | Zuzüge | davon Name neu | bleibt | Quartier im Vorband nicht erfasst |
 |---|---|---|---|---|---|---|
-| 1875 | 1867 | 15'088 | 4'269 (28 %) | 1'535 | 2'223 | 7'513 |
-| 1885 | 1875 | 26'504 | 19'220 (73 %) | 4'328 | 6'046 |  |
-| 1900 | 1885 | 59'263 | 44'843 (76 %) | 11'494 | 11'673 |  |
+| 1875 | 1867 | 15'088 | 4'265 (28 %) | 1'535 | 2'223 | 7'513 |
+| 1885 | 1875 | 26'504 | 19'200 (72 %) | 4'328 | 6'052 |  |
+| 1900 | 1885 | 59'263 | 44'827 (76 %) | 11'494 | 11'676 |  |
 | 1901 | 1900 | 61'369 | 10'522 (17 %) | 3'130 | 49'455 |  |
 | 1902 | 1901 | 53'897 | 4'648 (9 %) | 1'062 | 48'399 |  |
 | 1903 | 1902 | 46'996 | 3'892 (8 %) | 896 | 42'685 |  |
@@ -507,8 +507,17 @@ und ähnliche Familiennamen werden über eine Liste der Namen gesucht statt Eint
   unter eigenem Namen stehen. Über zwei oder drei Jahre (1907, 1913) steigt der Anteil darum: 1913 nach 1911
   18 %, 1914 nach 1913 11 %.
 - **Nach der Eingemeindung 1893** wurden Strassen umbenannt: 1885→1900 trägt die Strasse bei 9 % der
-  verknüpften Paare bei (1 061 von 11 673), zwischen den Jahresbänden ab 1901 bei 61–81 % (1913→1914:
+  verknüpften Paare bei (1 073 von 11 676), zwischen den Jahresbänden ab 1901 bei 61–81 % (1913→1914:
   42 388 von 54 169). Vor 1900 hängt die Verknüpfung an Name, Vorname und Beruf.
+- **Abgeschnittene Strassen vor 1893** (seit 27.11.2026): «Hirschengr.», «Seilergr.», «Stüssihofst.», «Rinderm.»,
+  «Limmatq.» werden vor dem Vergleich ausgeschrieben (`street_canon` mit `cut_only`, 40 Schlüssel, rund 600
+  Strassenangaben der Bände 1867–1885). Anders als in Bern nur abgeschnittene Namen ohne Endung, mindestens fünf
+  Buchstaben, auf einen Mitlaut endend, und nur wenn die ausgeschriebene Form so beginnt: Der freie Vergleich hätte
+  Strassen eigenen Namens zusammengelegt («Seestr.» → «Seefeldstr.», «Baurstr.» → «Braurstr.», «Schlossg.» →
+  «Schlosserg.», «Eisg.» → «Eiseng.», «Talstr.» → «Tonhallestr.»). Wirkung klein: Zuzüge 1875 −4, 1885 −20, 1900 −16;
+  13 neue Verknüpfungen, davon 8 sichtlich dieselbe Person («Claus, Alb., Dr., Arzt, Hirschengr. 20» →
+  «Hirschengraben 20»), 4 unklar (Vater oder Sohn im selben Haus), 1 wohl falsch («Dietrich, J., Mehlhandlung» →
+  «— Arn. Jac. Georg, Sohn», Stüssihofstatt); dazu 11 Verschiebungen unter gleichnamigen Personen («Keller, Carl»).
 - **Gelesen ohne Nachkorrektur:** Ein falsch gelesener Name oder Vorname macht aus einem Bleibenden
   einen Zuzug. Stichprobe (24 Zuzüge aus 1900 und 1914): meist anderer Vorname, Beruf und Strasse als
   jeder ähnliche Name im Vorband; einzelne Grenzfälle mit abgekürztem Vornamen («Kamer, Jos.» →
@@ -554,8 +563,8 @@ leicht zu hoch.
   (-gasse, -strasse …), gleicher Anfangsbuchstabe, die Abkürzung als Buchstabenfolge in der längeren Form, diese
   mindestens so häufig und mindestens 30 Mal, und nur wenn genau eine Form passt. Eine reine Verlängerung um mehr als
   vier Buchstaben gilt nicht («Lorraine» bleibt, «Lorraine, Quartierhof» ist eine Adresse darin). Das schreibt 464
-  Schlüssel aus (15'565 von 137'456 Strassenangaben). Die Zuzüge 1862–1879 sinken von 13'436 auf 12'924; Zürich,
-  Aarau, Baden und Lausanne bleiben unverändert (dort ausgeschrieben; in Zürich wäre «Seestr.» sonst «Seefeldstr.»).
+  Schlüssel aus (15'565 von 137'456 Strassenangaben). Die Zuzüge 1862–1879 sinken von 13'436 auf 12'924; Aarau,
+  Baden und Lausanne bleiben unverändert. Für Zürich vor 1893 gilt seit 27.11.2026 eine strengere Regel (oben).
   Stichprobe von 30 neuen Verknüpfungen (Seed 2711): 26 sichtlich dieselbe Person («Krmg. 169» → «Kramg. 169»,
   «Pstg. 30» → «Postg. 30»), 3 unklar (anderer Beruf im selben Haus), 1 wohl falsch («Steck C. F. R., Amtsnotar» →
   «— R., Pharm.», Gerechtigkeitsgasse 69).
