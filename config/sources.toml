@@ -132,12 +132,15 @@ files = [
 id = "zuerich"
 label = "Zürich"
 repo = "thodel/adressbuecher-zuerich"
-commit = "8396b7b665a1b002e3706b3be6219aea575888ff"
+commit = "1493f4a72fca0d48f4aaf30d9a9da14db600c129"
 site = "https://thodel.github.io/adressbuecher-zuerich/"
 authority = "data/csv/10_authority_links.csv"
 # Gelesen mit qwen3.8 (ohne Nachkorrektur; Stichprobe der Verknüpfung in data/review/m5_zuerich.csv).
 # Bände 1859–1945; übernommen werden die Bände im Zeitfenster, 1867–1914. Seit 9db327f auch 1901, seit 144354d auch 1902, seit f07f0a9 auch 1903, 1904, 1907, 1909 und 1910, seit c3545ec auch 1911, seit 8396b7b auch 1913 (Wochenlauf,
-# scripts/weekly/ im Zürcher Repo); die übrigen Bände 1877–1913 kommen nach und nach.
+# scripts/weekly/ im Zürcher Repo); die übrigen Bände 1877–1913 kommen nach und nach. Seit 1493f4a neue Regeln in
+# convert.py: Allianzname aus «— -Name», Firmen mit «&» ganz, Trennstrich im Beruf; im Berufsregister 1901–1917 ist das
+# Zeichen vor dem Namen der Gewerbe-Verband (qa_flags «gewerbeverband»), `phone_flag` nur bei gedruckter Nummer.
+# 1905, 1906, 1908 (Stichprobe unter 80 %) und 1912 (Berufe-Seiten fehlen) bleiben aussen vor.
 # Seit c2eabb4 je Band eine Datei (zusammen über 100 MB); 1900 hat kein Berufsregister.
 # Schema wie Aarau, dazu Spalte `district` (Kreis 1900/1914, alte Gemeinde 1867–1885, Grosse/Kleine Stadt 1859);
 # seit 3c1a6a7 ist 1914 in 12 015 Einträgen die gedruckte Hausnummer statt des Kreises in `building_no`.

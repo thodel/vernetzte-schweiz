@@ -209,6 +209,11 @@ Verknüpfung und Bau laufen durch.
 - ✔ 26.11.2026 **Bern 1867** (adressbuecher-bern d393c25; nach grösserer Stichprobe 66 von 80 übernommen): 8 382 Einträge
   (Einwohner 5 090, Berufsregister 3 292). Bern jetzt 144 651 Einträge. Einträge 1 697 319 → 1 705 701, Einheiten
   598 904 → 600 031; Telefonbuch Bern und Wanderungen unverändert (27 126; 577). 1864 bleibt zurückgestellt (63 von 80).
+- ✔ 27.11.2026 **Zürich, neue Regeln** (adressbuecher-zuerich 1493f4a): Allianzname aus der gedruckten Zeile «— -Name»,
+  Firmen mit «&» ganz, Zeilentrennstrich im Beruf; im Berufsregister 1901–1917 ist das Zeichen vor dem Namen der
+  Gewerbe-Verband, nicht das Telefon. Einträge gleich (1 705 701), Einheiten 600 031 → 597 654; Paare Zürich 601 312 → 598 492,
+  mit Telefonbuch verknüpft 48 007 → 47 908; Zuzüge Zürich je Band um höchstens 3 verschoben; Wanderungen 577 (stark 65 → 63, mittel 386 → 388). 1905, 1906, 1908
+  (Stichprobe unter 80 %) und 1912 (Berufe-Seiten fehlen) bleiben aussen vor.
 - offen: Bern 1860 (Fraktur, nicht ganz gelesen).
 
 **M6 — Visualisierungen.** ✔ 10.11.2026: Karten «Wer bekam wann ein Telefon», «Berufe», «Namen» (`#/karten`), Berufssuche mit Karte und Quellenfilter in der Suche; [Aufbau und Messung](docs/karten.md). Umgesetzt sind die ersten drei Punkte; die weiteren Ideen bleiben offen. Nachgetragen: Regler für Jahre (ein Jahr oder Bereich) statt Zeiträumen, Quelle Telefon-/Adressbuch in «Berufe» und «Namen». Grundlage sind die Einheiten aus M3 (eine Person oder Firma
