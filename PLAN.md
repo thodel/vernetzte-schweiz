@@ -218,6 +218,10 @@ Verknüpfung und Bau laufen durch.
   («Mezgerg.», «Mzg.» → «Metzgerg.», «Mtzg.»; 3 120 Zeilen, Familiennamen unberührt) und Z-Rubriken als «B» gelesen
   («Bügler.» → «Zügler.», «Becker- u. Pastetenbäcker.» → «Zucker-…»; 78 Rubriken). Einträge gleich (1 718 154),
   Einheiten 602 589 → 602 576; Wanderungen unverändert (589). 1864 bleibt zurückgestellt.
+- ✔ 27.11.2026 **Bern 1864** (adressbuecher-bern 69bd7da; Stichprobe 63 von 80, nach der tz-Korrektur 67 von 80):
+  7 088 Einträge (Einwohner 4 233, Berufsregister 2 855). Bern jetzt 151 739 Einträge. Einträge 1 718 154 → 1 725 242,
+  Einheiten 602 576 → 603 724; Telefonbuch Bern verknüpft 27 126 → 27 128; Wanderungen unverändert (589).
+  Damit sind alle Fraktur-Bände 1861–1879 von Strom B übernommen.
 - offen: Bern 1860 (Fraktur, nicht ganz gelesen).
 
 **M6 — Visualisierungen.** ✔ 10.11.2026: Karten «Wer bekam wann ein Telefon», «Berufe», «Namen» (`#/karten`), Berufssuche mit Karte und Quellenfilter in der Suche; [Aufbau und Messung](docs/karten.md). Umgesetzt sind die ersten drei Punkte; die weiteren Ideen bleiben offen. Nachgetragen: Regler für Jahre (ein Jahr oder Bereich) statt Zeiträumen, Quelle Telefon-/Adressbuch in «Berufe» und «Namen». Grundlage sind die Einheiten aus M3 (eine Person oder Firma

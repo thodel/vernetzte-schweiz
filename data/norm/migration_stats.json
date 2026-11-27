@@ -1,8 +1,8 @@
 {
- "kandidaten_vor_eindeutigkeit": 27886,
- "mehrdeutig": 22181,
- "zu_schwach": 4140,
- "mehrdeutig_aber_klar": 792,
+ "kandidaten_vor_eindeutigkeit": 27891,
+ "mehrdeutig": 22188,
+ "zu_schwach": 4138,
+ "mehrdeutig_aber_klar": 791,
  "ortszuweisung:strasse_des_alten_orts": 100,
  "ortszuweisung:ortswort_des_alten_eintrags": 60,
  "ortszuweisung:strasse_des_alten_orts_im_zusatz": 40,
@@ -18,8 +18,8 @@
  "schwach": 129,
  "stark": 65,
  "ortszuweisung:gleiche_adresse": 2,
- "personen_einheiten": 602576,
- "geprueft": 412081,
- "später_am_alten_ort": 64539,
+ "personen_einheiten": 603724,
+ "geprueft": 412248,
+ "später_am_alten_ort": 64547,
  "vorher_am_neuen_ort": 34739
 }
